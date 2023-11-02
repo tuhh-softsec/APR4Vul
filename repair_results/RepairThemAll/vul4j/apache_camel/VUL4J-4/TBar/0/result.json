@@ -1,0 +1,10 @@
+{
+  "repair_end": "2022-11-13 23:20:57.190607", 
+  "repair_begin": "2022-11-13 22:59:55.331055", 
+  "patches": [
+    {
+      "edits": [], 
+      "patch": "diff --git a/camel-core/src/main/java/org/apache/camel/builder/xml/XPathBuilder.java b/camel-core/src/main/java/org/apache/camel/builder/xml/XPathBuilder.java\nindex d618705e6e41..376d3e035356 100644\n--- a/camel-core/src/main/java/org/apache/camel/builder/xml/XPathBuilder.java\n+++ b/camel-core/src/main/java/org/apache/camel/builder/xml/XPathBuilder.java\n@@ -1114,7 +1114,7 @@ public class XPathBuilder extends ServiceSupport implements Expression, Predicat\n         }\n \n         // okay we can try to remedy the failed conversion by some special types\n-        if (answer == null) {\n+        if (answer == body && (answer == null)) {\n             // let's try coercing some common types into something JAXP work with the best for special types\n             if (body instanceof WrappedFile) {\n                 // special for files so we can work with them out of the box"
+    }
+  ]
+}

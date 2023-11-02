@@ -1,0 +1,485 @@
+cd /workdir/Kali_vul4j_esigate_esigate_VUL4J-45;
+export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en";
+TZ="America/New_York"; export TZ;
+export PATH="/usr/lib/jvm/java-8-openjdk-amd64/bin:$PATH";
+export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64";
+timeout 240m java -Xmx4g -Xms1g -XX:MaxPermSize=512m -cp /script/../libs/jmetal.jar:/script/../repair_tools/arja.jar us.msu.cse.repair.Main \
+	Kali \
+	-DexternalProjRoot /script/../libs/arja_external \
+	-DprojectDir /workdir/Kali_vul4j_esigate_esigate_VUL4J-45 \
+    -DtestFiltered false \
+    -DrunTestCommand "mvn test -pl esigate-core -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B" \
+	-DsrcJavaDir /workdir/Kali_vul4j_esigate_esigate_VUL4J-45/esigate-core/src/main/java \
+	-DbinJavaDir /workdir/Kali_vul4j_esigate_esigate_VUL4J-45/esigate-core/target/classes \
+	-DbinTestDir /workdir/Kali_vul4j_esigate_esigate_VUL4J-45/esigate-core/target/test-classes \
+	-DdiffFormat true \
+	-Dseed 0 \
+	-DgzoltarDataDir /script/../data/benchmarks/vul4j/perfectfl/VUL4J-45 \
+	-Ddependences /root/.m2/repository/junit/junit/4.8.2/junit-4.8.2.jar:/root/.m2/repository/net/sf/ehcache/ehcache-core/2.2.0/ehcache-core-2.2.0.jar:/root/.m2/repository/xml-apis/xml-apis/1.4.01/xml-apis-1.4.01.jar:/root/.m2/repository/commons-codec/commons-codec/1.10/commons-codec-1.10.jar:/root/.m2/repository/commons-io/commons-io/2.0.1/commons-io-2.0.1.jar:/root/.m2/repository/org/slf4j/slf4j-simple/1.7.7/slf4j-simple-1.7.7.jar:/root/.m2/repository/org/objenesis/objenesis/2.6/objenesis-2.6.jar:/root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.7.9/byte-buddy-agent-1.7.9.jar:/root/.m2/repository/net/spy/spymemcached/2.10.3/spymemcached-2.10.3.jar:/root/.m2/repository/org/apache/httpcomponents/httpclient-cache/4.5.4/httpclient-cache-4.5.4.jar:/root/.m2/repository/org/apache/httpcomponents/httpcore/4.4.7/httpcore-4.4.7.jar:/root/.m2/repository/com/codahale/metrics/metrics-core/3.0.2/metrics-core-3.0.2.jar:/root/.m2/repository/nu/validator/htmlparser/htmlparser/1.4/htmlparser-1.4.jar:/root/.m2/repository/org/apache/httpcomponents/httpclient/4.5.4/httpclient-4.5.4.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.7.9/byte-buddy-1.7.9.jar:/root/.m2/repository/org/apache/commons/commons-lang3/3.3.2/commons-lang3-3.3.2.jar:/root/.m2/repository/org/slf4j/jcl-over-slf4j/1.7.7/jcl-over-slf4j-1.7.7.jar:/root/.m2/repository/org/mockito/mockito-core/2.16.0/mockito-core-2.16.0.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.7/slf4j-api-1.7.7.jar;
+	echo "\n\nNode: `hostname`\n";
+	echo "\n\nDate: `date`\n";
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en
+OpenJDK 64-Bit Server VM warning: ignoring option MaxPermSize=512m; support was removed in 8.0
+Fault localization starts...
+Number of positive tests: 495
+Number of negative tests: 1
+Negative tests: [org.esigate.xml.XsltRendererTest#testSecureRendering]
+Faulty Lines: 
+org.esigate.xml.XsltRenderer#91:1.0
+org.esigate.xml.XsltRenderer#57:1.0
+Fault localization is finished!
+AST parsing starts...
+AST parsing is finished!
+Detection of local variables starts...
+Detection of local variables is finished!
+Detection of fields starts...
+Detection of fields is finished!
+Detection of methods starts...
+Detection of methods is finished!
+Ingredient screener starts...
+Ingredient screener is finished!
+Initialization of manipulations starts...
+Initialization of manipulations is finished!
+Filtering of the tests starts...
+Number of positive tests considered: 495
+Filtering of the tests is finished!
+----------------------------------
+Patch Candidate:
+@@ -88,7 +88,9 @@ public class XsltRenderer implements Renderer {
+
+private static Transformer createTransformer(InputStream templateStream) throws IOException {
+try {
+-            return TRANSFORMER_FACTORY.newTransformer(new StreamSource(templateStream));
++            if (true)
++				return null;
++			return TRANSFORMER_FACTORY.newTransformer(new StreamSource(templateStream));
+} catch (TransformerConfigurationException e) {
+throw new ProcessingFailedException("Failed to create XSLT template", e);
+} finally {
+diff --git a/esigate-core/src/test/java/org/esigate/xml/XsltRendererTest.java b/esigate-core/src/test/java/org/esigate/xml/XsltRendererTest.java
+index f8b48235b4c7..eb9f5bc63d08 100644
+--- a/esigate-core/src/test/java/org/esigate/xml/XsltRendererTest.java
++++ b/esigate-core/src/test/java/org/esigate/xml/XsltRendererTest.java
+@@ -60,26 +60,28 @@ public class XsltRendererTest {
+return out.toString();
+}
+
+-	private String renderExtensionStyleSheet(String src) throws IOException {
+-		String template = "<?xml version=\"1.0\"?>";
+-		template += "<xsl:stylesheet version=\"1.0\" xmlns=\"http://www.w3.org/1999/xhtml\" "
+-				+ "xmlns:html=\"http://www.w3.org/1999/xhtml\" "
+-				+ "xmlns:xsl=\"http://www.w3.org/1999/XSL/Transform\">";
+-		template += "<xsl:output method=\"xml\" omit-xml-declaration=\"yes\"/>";
+-		template += "<xsl:template match=\"/\"  xmlns:xsl=\"http://www.w3.org/1999/XSL/Transform\" xmlns:rt=\"http://xml.apache.org/xalan/java/java.lang.Runtime\">";
++    private String renderExtensionStyleSheet(String src) throws IOException {
++        String template = "<?xml version=\"1.0\"?>";
++        template +=
++                "<xsl:stylesheet version=\"1.0\" xmlns=\"http://www.w3.org/1999/xhtml\" "
++                        + "xmlns:html=\"http://www.w3.org/1999/xhtml\" "
++                        + "xmlns:xsl=\"http://www.w3.org/1999/XSL/Transform\">";
++        template += "<xsl:output method=\"xml\" omit-xml-declaration=\"yes\"/>";
++        template +=
++                "<xsl:template match=\"/\"  xmlns:xsl=\"http://www.w3.org/1999/XSL/Transform\" xmlns:rt=\"http://xml.apache.org/xalan/java/java.lang.Runtime\">";
+
+-		template += "<xsl:variable name=\"rtObj\" select=\"rt:getRuntime()\"/>";
+-		template += "<xsl:variable name=\"process\" select=\"rt:totalMemory($rtObj)\"/>";
+-		template += "Process: <xsl:value-of select=\"$process\"/>\n";
++        template += "<xsl:variable name=\"rtObj\" select=\"rt:getRuntime()\"/>";
++        template += "<xsl:variable name=\"process\" select=\"rt:totalMemory($rtObj)\"/>";
++        template += "Process: <xsl:value-of select=\"$process\"/>\n";
+
+-		template += "</xsl:template>";
++        template += "</xsl:template>";
+
+-		template += "</xsl:stylesheet>";
+-		StringBuilderWriter out = new StringBuilderWriter();
+-		XsltRenderer tested = new XsltRenderer(template);
+-		tested.render(null, src, out);
+-		return out.toString();
+-	}
++        template += "</xsl:stylesheet>";
++        StringBuilderWriter out = new StringBuilderWriter();
++        XsltRenderer tested = new XsltRenderer(template);
++        tested.render(null, src, out);
++        return out.toString();
++    }
+
+/**
+* Tests parser does not throw an Exception for an unescaped '&' character.
+diff --git a/esigate-server/src/test/java/org/esigate/server/AbstractEsigateServerTest.java b/esigate-server/src/test/java/org/esigate/server/AbstractEsigateServerTest.java
+index a7f1928c1ffb..cc57203e6a00 100644
+--- a/esigate-server/src/test/java/org/esigate/server/AbstractEsigateServerTest.java
++++ b/esigate-server/src/test/java/org/esigate/server/AbstractEsigateServerTest.java
+@@ -91,7 +91,7 @@ public class AbstractEsigateServerTest {
+*/
+@Before
+public void setUp() {
+-	    // Esigate server
++        // Esigate server
+Properties p = new Properties();
+p.setProperty("controlPort", "" + this.esigateControlPort);
+p.setProperty("port", "" + this.esigatePort);
+@@ -100,65 +100,64 @@ public class AbstractEsigateServerTest {
+this.esigateExecutor.execute(new EsigateServerRunnable(p));
+for (int i = 0; i < WAIT_RETRIES; i++) {
+
+-			if (EsigateServer.isStarted()) {
+-				LOG.error("Esigate server is started, testing connection...");
+-				try {
+-					WebConversation webConversation = new WebConversation();
+-					WebRequest req = new GetMethodWebRequest(
+-							"http://localhost:" + this.esigateControlPort + "/server-status");
+-					WebResponse resp = webConversation.getResponse(req);
+-
+-					if (resp.getResponseCode() == 200 /* OK */) {
+-						LOG.info("Esigate server started & connection success");
+-						break;
+-					}
+-				} catch (IOException | SAXException e2) {
+-					// Errors are expected here, will retry
+-				}
+-			}
+-
+-			try {
+-				Thread.sleep(WAIT_SLEEP);
+-			} catch (InterruptedException e) {
+-				// Ignore
+-			}
+-		}
+-		if (!EsigateServer.isStarted()) {
+-			LOG.error("Esigate server failed to start");
+-		}
+-
+-		// Backend server
+-		if (this.backendHandler != null) {
+-			this.backendServerRunnable = new BackendServerRunnable(this.backendPort, this.backendHandler);
+-			this.backendExecutor = Executors.newSingleThreadExecutor();
+-			this.backendExecutor.execute(this.backendServerRunnable);
+-			for (int i = 0; i < WAIT_RETRIES; i++) {
+-				if (this.backendServerRunnable.isStarted()) {
+-					LOG.error("Backend server is started, testing connection...");
+-					try {
+-						WebConversation webConversation = new WebConversation();
+-						WebRequest req = new GetMethodWebRequest(
+-								"http://localhost:" + this.backendPort + "/");
+-						WebResponse resp = webConversation.getResponse(req);
+-
+-						if (resp.getResponseCode() == 200 /* OK */) {
+-							LOG.info("Backend server started & connection success");
+-							break;
+-						}
+-					} catch (IOException | SAXException e2) {
+-						// Errors are expected here, will retry
+-					}
+-				}
+-				try {
+-					Thread.sleep(WAIT_SLEEP);
+-				} catch (InterruptedException e) {
+-					// Ignore
+-				}
+-			}
+-			if (!backendServerRunnable.isStarted()) {
+-				LOG.error("Backend server failed to start");
+-			}
+-		}
++            if (EsigateServer.isStarted()) {
++                LOG.error("Esigate server is started, testing connection...");
++                try {
++                    WebConversation webConversation = new WebConversation();
++                    WebRequest req =
++                            new GetMethodWebRequest("http://localhost:" + this.esigateControlPort + "/server-status");
++                    WebResponse resp = webConversation.getResponse(req);
++
++                    if (resp.getResponseCode() == 200 /* OK */) {
++                        LOG.info("Esigate server started & connection success");
++                        break;
++                    }
++                } catch (IOException | SAXException e2) {
++                    // Errors are expected here, will retry
++                }
++            }
++
++            try {
++                Thread.sleep(WAIT_SLEEP);
++            } catch (InterruptedException e) {
++                // Ignore
++            }
++        }
++        if (!EsigateServer.isStarted()) {
++            LOG.error("Esigate server failed to start");
++        }
++
++        // Backend server
++        if (this.backendHandler != null) {
++            this.backendServerRunnable = new BackendServerRunnable(this.backendPort, this.backendHandler);
++            this.backendExecutor = Executors.newSingleThreadExecutor();
++            this.backendExecutor.execute(this.backendServerRunnable);
++            for (int i = 0; i < WAIT_RETRIES; i++) {
++                if (this.backendServerRunnable.isStarted()) {
++                    LOG.error("Backend server is started, testing connection...");
++                    try {
++                        WebConversation webConversation = new WebConversation();
++                        WebRequest req = new GetMethodWebRequest("http://localhost:" + this.backendPort + "/");
++                        WebResponse resp = webConversation.getResponse(req);
++
++                        if (resp.getResponseCode() == 200 /* OK */) {
++                            LOG.info("Backend server started & connection success");
++                            break;
++                        }
++                    } catch (IOException | SAXException e2) {
++                        // Errors are expected here, will retry
++                    }
++                }
++                try {
++                    Thread.sleep(WAIT_SLEEP);
++                } catch (InterruptedException e) {
++                    // Ignore
++                }
++            }
++            if (!backendServerRunnable.isStarted()) {
++                LOG.error("Backend server failed to start");
++            }
++        }
+}
+
+/**
+@@ -168,10 +167,10 @@ public class AbstractEsigateServerTest {
+public void tearDown() {
+EsigateServer.stop();
+try {
+-			this.esigateExecutor.awaitTermination(10, TimeUnit.SECONDS);
+-		} catch (InterruptedException e) {
+-			LOG.warn("Esigate server failed to stop");
+-		}
++            this.esigateExecutor.awaitTermination(10, TimeUnit.SECONDS);
++        } catch (InterruptedException e) {
++            LOG.warn("Esigate server failed to stop");
++        }
+}
+
+/**
+Number of failed tests: 1, 5
+----------------------------------
+Patch Candidate:
+@@ -88,7 +88,9 @@ public class XsltRenderer implements Renderer {
+
+private static Transformer createTransformer(InputStream templateStream) throws IOException {
+try {
+-            return TRANSFORMER_FACTORY.newTransformer(new StreamSource(templateStream));
++            if (true)
++				return null;
++			return TRANSFORMER_FACTORY.newTransformer(new StreamSource(templateStream));
+} catch (TransformerConfigurationException e) {
+throw new ProcessingFailedException("Failed to create XSLT template", e);
+} finally {
+diff --git a/esigate-core/src/test/java/org/esigate/xml/XsltRendererTest.java b/esigate-core/src/test/java/org/esigate/xml/XsltRendererTest.java
+index f8b48235b4c7..eb9f5bc63d08 100644
+--- a/esigate-core/src/test/java/org/esigate/xml/XsltRendererTest.java
++++ b/esigate-core/src/test/java/org/esigate/xml/XsltRendererTest.java
+@@ -60,26 +60,28 @@ public class XsltRendererTest {
+return out.toString();
+}
+
+-	private String renderExtensionStyleSheet(String src) throws IOException {
+-		String template = "<?xml version=\"1.0\"?>";
+-		template += "<xsl:stylesheet version=\"1.0\" xmlns=\"http://www.w3.org/1999/xhtml\" "
+-				+ "xmlns:html=\"http://www.w3.org/1999/xhtml\" "
+-				+ "xmlns:xsl=\"http://www.w3.org/1999/XSL/Transform\">";
+-		template += "<xsl:output method=\"xml\" omit-xml-declaration=\"yes\"/>";
+-		template += "<xsl:template match=\"/\"  xmlns:xsl=\"http://www.w3.org/1999/XSL/Transform\" xmlns:rt=\"http://xml.apache.org/xalan/java/java.lang.Runtime\">";
++    private String renderExtensionStyleSheet(String src) throws IOException {
++        String template = "<?xml version=\"1.0\"?>";
++        template +=
++                "<xsl:stylesheet version=\"1.0\" xmlns=\"http://www.w3.org/1999/xhtml\" "
++                        + "xmlns:html=\"http://www.w3.org/1999/xhtml\" "
++                        + "xmlns:xsl=\"http://www.w3.org/1999/XSL/Transform\">";
++        template += "<xsl:output method=\"xml\" omit-xml-declaration=\"yes\"/>";
++        template +=
++                "<xsl:template match=\"/\"  xmlns:xsl=\"http://www.w3.org/1999/XSL/Transform\" xmlns:rt=\"http://xml.apache.org/xalan/java/java.lang.Runtime\">";
+
+-		template += "<xsl:variable name=\"rtObj\" select=\"rt:getRuntime()\"/>";
+-		template += "<xsl:variable name=\"process\" select=\"rt:totalMemory($rtObj)\"/>";
+-		template += "Process: <xsl:value-of select=\"$process\"/>\n";
++        template += "<xsl:variable name=\"rtObj\" select=\"rt:getRuntime()\"/>";
++        template += "<xsl:variable name=\"process\" select=\"rt:totalMemory($rtObj)\"/>";
++        template += "Process: <xsl:value-of select=\"$process\"/>\n";
+
+-		template += "</xsl:template>";
++        template += "</xsl:template>";
+
+-		template += "</xsl:stylesheet>";
+-		StringBuilderWriter out = new StringBuilderWriter();
+-		XsltRenderer tested = new XsltRenderer(template);
+-		tested.render(null, src, out);
+-		return out.toString();
+-	}
++        template += "</xsl:stylesheet>";
++        StringBuilderWriter out = new StringBuilderWriter();
++        XsltRenderer tested = new XsltRenderer(template);
++        tested.render(null, src, out);
++        return out.toString();
++    }
+
+/**
+* Tests parser does not throw an Exception for an unescaped '&' character.
+diff --git a/esigate-server/src/test/java/org/esigate/server/AbstractEsigateServerTest.java b/esigate-server/src/test/java/org/esigate/server/AbstractEsigateServerTest.java
+index a7f1928c1ffb..cc57203e6a00 100644
+--- a/esigate-server/src/test/java/org/esigate/server/AbstractEsigateServerTest.java
++++ b/esigate-server/src/test/java/org/esigate/server/AbstractEsigateServerTest.java
+@@ -91,7 +91,7 @@ public class AbstractEsigateServerTest {
+*/
+@Before
+public void setUp() {
+-	    // Esigate server
++        // Esigate server
+Properties p = new Properties();
+p.setProperty("controlPort", "" + this.esigateControlPort);
+p.setProperty("port", "" + this.esigatePort);
+@@ -100,65 +100,64 @@ public class AbstractEsigateServerTest {
+this.esigateExecutor.execute(new EsigateServerRunnable(p));
+for (int i = 0; i < WAIT_RETRIES; i++) {
+
+-			if (EsigateServer.isStarted()) {
+-				LOG.error("Esigate server is started, testing connection...");
+-				try {
+-					WebConversation webConversation = new WebConversation();
+-					WebRequest req = new GetMethodWebRequest(
+-							"http://localhost:" + this.esigateControlPort + "/server-status");
+-					WebResponse resp = webConversation.getResponse(req);
+-
+-					if (resp.getResponseCode() == 200 /* OK */) {
+-						LOG.info("Esigate server started & connection success");
+-						break;
+-					}
+-				} catch (IOException | SAXException e2) {
+-					// Errors are expected here, will retry
+-				}
+-			}
+-
+-			try {
+-				Thread.sleep(WAIT_SLEEP);
+-			} catch (InterruptedException e) {
+-				// Ignore
+-			}
+-		}
+-		if (!EsigateServer.isStarted()) {
+-			LOG.error("Esigate server failed to start");
+-		}
+-
+-		// Backend server
+-		if (this.backendHandler != null) {
+-			this.backendServerRunnable = new BackendServerRunnable(this.backendPort, this.backendHandler);
+-			this.backendExecutor = Executors.newSingleThreadExecutor();
+-			this.backendExecutor.execute(this.backendServerRunnable);
+-			for (int i = 0; i < WAIT_RETRIES; i++) {
+-				if (this.backendServerRunnable.isStarted()) {
+-					LOG.error("Backend server is started, testing connection...");
+-					try {
+-						WebConversation webConversation = new WebConversation();
+-						WebRequest req = new GetMethodWebRequest(
+-								"http://localhost:" + this.backendPort + "/");
+-						WebResponse resp = webConversation.getResponse(req);
+-
+-						if (resp.getResponseCode() == 200 /* OK */) {
+-							LOG.info("Backend server started & connection success");
+-							break;
+-						}
+-					} catch (IOException | SAXException e2) {
+-						// Errors are expected here, will retry
+-					}
+-				}
+-				try {
+-					Thread.sleep(WAIT_SLEEP);
+-				} catch (InterruptedException e) {
+-					// Ignore
+-				}
+-			}
+-			if (!backendServerRunnable.isStarted()) {
+-				LOG.error("Backend server failed to start");
+-			}
+-		}
++            if (EsigateServer.isStarted()) {
++                LOG.error("Esigate server is started, testing connection...");
++                try {
++                    WebConversation webConversation = new WebConversation();
++                    WebRequest req =
++                            new GetMethodWebRequest("http://localhost:" + this.esigateControlPort + "/server-status");
++                    WebResponse resp = webConversation.getResponse(req);
++
++                    if (resp.getResponseCode() == 200 /* OK */) {
++                        LOG.info("Esigate server started & connection success");
++                        break;
++                    }
++                } catch (IOException | SAXException e2) {
++                    // Errors are expected here, will retry
++                }
++            }
++
++            try {
++                Thread.sleep(WAIT_SLEEP);
++            } catch (InterruptedException e) {
++                // Ignore
++            }
++        }
++        if (!EsigateServer.isStarted()) {
++            LOG.error("Esigate server failed to start");
++        }
++
++        // Backend server
++        if (this.backendHandler != null) {
++            this.backendServerRunnable = new BackendServerRunnable(this.backendPort, this.backendHandler);
++            this.backendExecutor = Executors.newSingleThreadExecutor();
++            this.backendExecutor.execute(this.backendServerRunnable);
++            for (int i = 0; i < WAIT_RETRIES; i++) {
++                if (this.backendServerRunnable.isStarted()) {
++                    LOG.error("Backend server is started, testing connection...");
++                    try {
++                        WebConversation webConversation = new WebConversation();
++                        WebRequest req = new GetMethodWebRequest("http://localhost:" + this.backendPort + "/");
++                        WebResponse resp = webConversation.getResponse(req);
++
++                        if (resp.getResponseCode() == 200 /* OK */) {
++                            LOG.info("Backend server started & connection success");
++                            break;
++                        }
++                    } catch (IOException | SAXException e2) {
++                        // Errors are expected here, will retry
++                    }
++                }
++                try {
++                    Thread.sleep(WAIT_SLEEP);
++                } catch (InterruptedException e) {
++                    // Ignore
++                }
++            }
++            if (!backendServerRunnable.isStarted()) {
++                LOG.error("Backend server failed to start");
++            }
++        }
+}
+
+/**
+@@ -168,10 +167,10 @@ public class AbstractEsigateServerTest {
+public void tearDown() {
+EsigateServer.stop();
+try {
+-			this.esigateExecutor.awaitTermination(10, TimeUnit.SECONDS);
+-		} catch (InterruptedException e) {
+-			LOG.warn("Esigate server failed to stop");
+-		}
++            this.esigateExecutor.awaitTermination(10, TimeUnit.SECONDS);
++        } catch (InterruptedException e) {
++            LOG.warn("Esigate server failed to stop");
++        }
+}
+
+/**
+Number of failed tests: 1, 5
+
+
+Node: 2c8178711f7b
+
+
+
+Date: Fri Oct  7 08:55:59 EDT 2022
+

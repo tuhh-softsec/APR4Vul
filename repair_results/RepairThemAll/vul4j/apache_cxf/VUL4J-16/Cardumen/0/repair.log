@@ -1,0 +1,322 @@
+cd /workdir/Cardumen_vul4j_apache_cxf_VUL4J-16;
+export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en";
+TZ="America/New_York"; export TZ;
+export PATH="/usr/lib/jvm/java-8-openjdk-amd64/bin:$PATH";
+export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64/bin";
+time java -Xmx4g -Xms1g -XX:MaxPermSize=512m -cp /script/../libs/jtestex7.jar:/script/../repair_tools/astor.jar fr.inria.main.evolution.AstorMain \
+	-mode cardumen \
+	-location . \
+	-id apache_cxf-VUL4J-16 \
+	-failing org.apache.cxf.rs.security.saml.sso.CombinedValidatorTest#testWrappingAttack3 \
+	-jvm4testexecution /usr/lib/jvm/java-8-openjdk-amd64/bin \
+	-jvm4evosuitetestexecution /usr/lib/jvm/java-8-openjdk-amd64/bin \
+	-maxgen 1000000 \
+	-maxtime 120 \
+	-stopfirst true \
+	-seed 0 \
+	-scope local \
+	-population 1 \
+	-javacompliancelevel 8 \
+	-faultlocalization perfect \
+    -perfectdata /script/../data/benchmarks/vul4j/perfectfl/VUL4J-16 \
+    -validation externalcmd \
+    -testfailingcmd "mvn -pl rt/rs/security/sso/saml -Dtest=org.apache.cxf.rs.security.saml.sso.CombinedValidatorTest#testWrappingAttack3 test -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B" \
+    -testallcmd "mvn -pl rt/rs/security/sso/saml -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B"  \ \
+	-srcjavafolder rt/rs/security/sso/saml/src/main/java \
+	-srctestfolder rt/rs/security/sso/saml/src/test/java \
+	-binjavafolder rt/rs/security/sso/saml/target/classes \
+	-bintestfolder rt/rs/security/sso/saml/target/test-classes \
+	-parameters x:x:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000 \
+	-dependencies /workdir/Cardumen_vul4j_apache_cxf_VUL4J-16/rt/rs/security/sso/saml/target/classes:/root/.m2/repository/org/apache/geronimo/specs/geronimo-javamail_1.4_spec/1.7.1/geronimo-javamail_1.4_spec-1.7.1.jar:/root/.m2/repository/org/apache/wss4j/wss4j-ws-security-common/2.1.2/wss4j-ws-security-common-2.1.2.jar:/root/.m2/repository/org/apache/cxf/cxf-rt-security/3.1.3-SNAPSHOT/cxf-rt-security-3.1.3-SNAPSHOT.jar:/root/.m2/repository/org/opensaml/opensaml-xmlsec-api/3.1.1/opensaml-xmlsec-api-3.1.1.jar:/root/.m2/repository/org/codehaus/woodstox/woodstox-core-asl/4.4.1/woodstox-core-asl-4.4.1.jar:/root/.m2/repository/org/opensaml/opensaml-soap-api/3.1.1/opensaml-soap-api-3.1.1.jar:/root/.m2/repository/org/apache/geronimo/specs/geronimo-servlet_3.0_spec/1.0/geronimo-servlet_3.0_spec-1.0.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.12/slf4j-api-1.7.12.jar:/root/.m2/repository/javax/ws/rs/javax.ws.rs-api/2.0.1/javax.ws.rs-api-2.0.1.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/cryptacular/cryptacular/1.0/cryptacular-1.0.jar:/root/.m2/repository/org/apache/wss4j/wss4j-ws-security-dom/2.1.2/wss4j-ws-security-dom-2.1.2.jar:/root/.m2/repository/org/apache/cxf/cxf-core/3.1.3-SNAPSHOT/cxf-core-3.1.3-SNAPSHOT.jar:/root/.m2/repository/org/opensaml/opensaml-xmlsec-impl/3.1.1/opensaml-xmlsec-impl-3.1.1.jar:/root/.m2/repository/org/apache/cxf/cxf-rt-rs-security-xml/3.1.3-SNAPSHOT/cxf-rt-rs-security-xml-3.1.3-SNAPSHOT.jar:/root/.m2/repository/org/opensaml/opensaml-saml-api/3.1.1/opensaml-saml-api-3.1.1.jar:/root/.m2/repository/net/shibboleth/utilities/java-support/7.1.1/java-support-7.1.1.jar:/root/.m2/repository/org/apache/santuario/xmlsec/2.0.5/xmlsec-2.0.5.jar:/root/.m2/repository/com/google/guava/guava/18.0/guava-18.0.jar:/root/.m2/repository/org/jasypt/jasypt/1.9.2/jasypt-1.9.2.jar:/root/.m2/repository/net/sf/ehcache/ehcache/2.9.0/ehcache-2.9.0.jar:/root/.m2/repository/org/opensaml/opensaml-security-api/3.1.1/opensaml-security-api-3.1.1.jar:/root/.m2/repository/org/apache/cxf/cxf-rt-transports-http/3.1.3-SNAPSHOT/cxf-rt-transports-http-3.1.3-SNAPSHOT.jar:/root/.m2/repository/org/opensaml/opensaml-security-impl/3.1.1/opensaml-security-impl-3.1.1.jar:/root/.m2/repository/commons-codec/commons-codec/1.10/commons-codec-1.10.jar:/root/.m2/repository/org/opensaml/opensaml-xacml-saml-impl/3.1.1/opensaml-xacml-saml-impl-3.1.1.jar:/root/.m2/repository/org/opensaml/opensaml-core/3.1.1/opensaml-core-3.1.1.jar:/root/.m2/repository/org/opensaml/opensaml-xacml-impl/3.1.1/opensaml-xacml-impl-3.1.1.jar:/root/.m2/repository/joda-time/joda-time/2.7/joda-time-2.7.jar:/root/.m2/repository/org/codehaus/woodstox/stax2-api/3.1.4/stax2-api-3.1.4.jar:/root/.m2/repository/org/apache/cxf/cxf-rt-security-saml/3.1.3-SNAPSHOT/cxf-rt-security-saml-3.1.3-SNAPSHOT.jar:/root/.m2/repository/org/opensaml/opensaml-xacml-saml-api/3.1.1/opensaml-xacml-saml-api-3.1.1.jar:/root/.m2/repository/junit/junit/4.12/junit-4.12.jar:/root/.m2/repository/org/apache/ws/xmlschema/xmlschema-core/2.2.1/xmlschema-core-2.2.1.jar:/root/.m2/repository/org/apache/cxf/cxf-rt-frontend-jaxrs/3.1.3-SNAPSHOT/cxf-rt-frontend-jaxrs-3.1.3-SNAPSHOT.jar:/root/.m2/repository/org/opensaml/opensaml-xacml-api/3.1.1/opensaml-xacml-api-3.1.1.jar:/root/.m2/repository/org/opensaml/opensaml-profile-api/3.1.1/opensaml-profile-api-3.1.1.jar:/root/.m2/repository/javax/annotation/javax.annotation-api/1.2/javax.annotation-api-1.2.jar:/root/.m2/repository/org/opensaml/opensaml-saml-impl/3.1.1/opensaml-saml-impl-3.1.1.jar:/root/.m2/repository/org/bouncycastle/bcprov-jdk15on/1.52/bcprov-jdk15on-1.52.jar;
+	echo "\n\nNode: `hostname`\n";
+	echo "\n\nDate: `date`\n";
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en
+OpenJDK 64-Bit Server VM warning: ignoring option MaxPermSize=512m; support was removed in 8.0
+[0] INFO ProjectConfiguration - Version of the JVM used: 1.8.0_342
+[0] INFO main - Java version of the JDK used to run tests: 1.8.0_342
+[0] INFO main - The compliance of the JVM is:  8
+[4] INFO main - command line arguments: [-mode  cardumen  -location  .  -id  apache_cxf-VUL4J-16  -failing  org.apache.cxf.rs.security.saml.sso.CombinedValidatorTest#testWrappingAttack3  -jvm4testexecution  /usr/lib/jvm/java-8-openjdk-amd64/bin  -jvm4evosuitetestexecution  /usr/lib/jvm/java-8-openjdk-amd64/bin  -maxgen  1000000  -maxtime  120  -stopfirst  true  -seed  0  -scope  local  -population  1  -javacompliancelevel  8  -faultlocalization  perfect  -perfectdata  /script/../data/benchmarks/vul4j/perfectfl/VUL4J-16  -validation  externalcmd  -testfailingcmd  mvn -pl rt/rs/security/sso/saml -Dtest=org.apache.cxf.rs.security.saml.sso.CombinedValidatorTest#testWrappingAttack3 test -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B  -testallcmd  mvn -pl rt/rs/security/sso/saml -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B     -srcjavafolder  rt/rs/security/sso/saml/src/main/java  -srctestfolder  rt/rs/security/sso/saml/src/test/java  -binjavafolder  rt/rs/security/sso/saml/target/classes  -bintestfolder  rt/rs/security/sso/saml/target/test-classes  -parameters  x:x:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000  -dependencies  /workdir/Cardumen_vul4j_apache_cxf_VUL4J-16/rt/rs/security/sso/saml/target/classes:/root/.m2/repository/org/apache/geronimo/specs/geronimo-javamail_1.4_spec/1.7.1/geronimo-javamail_1.4_spec-1.7.1.jar:/root/.m2/repository/org/apache/wss4j/wss4j-ws-security-common/2.1.2/wss4j-ws-security-common-2.1.2.jar:/root/.m2/repository/org/apache/cxf/cxf-rt-security/3.1.3-SNAPSHOT/cxf-rt-security-3.1.3-SNAPSHOT.jar:/root/.m2/repository/org/opensaml/opensaml-xmlsec-api/3.1.1/opensaml-xmlsec-api-3.1.1.jar:/root/.m2/repository/org/codehaus/woodstox/woodstox-core-asl/4.4.1/woodstox-core-asl-4.4.1.jar:/root/.m2/repository/org/opensaml/opensaml-soap-api/3.1.1/opensaml-soap-api-3.1.1.jar:/root/.m2/repository/org/apache/geronimo/specs/geronimo-servlet_3.0_spec/1.0/geronimo-servlet_3.0_spec-1.0.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.12/slf4j-api-1.7.12.jar:/root/.m2/repository/javax/ws/rs/javax.ws.rs-api/2.0.1/javax.ws.rs-api-2.0.1.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/cryptacular/cryptacular/1.0/cryptacular-1.0.jar:/root/.m2/repository/org/apache/wss4j/wss4j-ws-security-dom/2.1.2/wss4j-ws-security-dom-2.1.2.jar:/root/.m2/repository/org/apache/cxf/cxf-core/3.1.3-SNAPSHOT/cxf-core-3.1.3-SNAPSHOT.jar:/root/.m2/repository/org/opensaml/opensaml-xmlsec-impl/3.1.1/opensaml-xmlsec-impl-3.1.1.jar:/root/.m2/repository/org/apache/cxf/cxf-rt-rs-security-xml/3.1.3-SNAPSHOT/cxf-rt-rs-security-xml-3.1.3-SNAPSHOT.jar:/root/.m2/repository/org/opensaml/opensaml-saml-api/3.1.1/opensaml-saml-api-3.1.1.jar:/root/.m2/repository/net/shibboleth/utilities/java-support/7.1.1/java-support-7.1.1.jar:/root/.m2/repository/org/apache/santuario/xmlsec/2.0.5/xmlsec-2.0.5.jar:/root/.m2/repository/com/google/guava/guava/18.0/guava-18.0.jar:/root/.m2/repository/org/jasypt/jasypt/1.9.2/jasypt-1.9.2.jar:/root/.m2/repository/net/sf/ehcache/ehcache/2.9.0/ehcache-2.9.0.jar:/root/.m2/repository/org/opensaml/opensaml-security-api/3.1.1/opensaml-security-api-3.1.1.jar:/root/.m2/repository/org/apache/cxf/cxf-rt-transports-http/3.1.3-SNAPSHOT/cxf-rt-transports-http-3.1.3-SNAPSHOT.jar:/root/.m2/repository/org/opensaml/opensaml-security-impl/3.1.1/opensaml-security-impl-3.1.1.jar:/root/.m2/repository/commons-codec/commons-codec/1.10/commons-codec-1.10.jar:/root/.m2/repository/org/opensaml/opensaml-xacml-saml-impl/3.1.1/opensaml-xacml-saml-impl-3.1.1.jar:/root/.m2/repository/org/opensaml/opensaml-core/3.1.1/opensaml-core-3.1.1.jar:/root/.m2/repository/org/opensaml/opensaml-xacml-impl/3.1.1/opensaml-xacml-impl-3.1.1.jar:/root/.m2/repository/joda-time/joda-time/2.7/joda-time-2.7.jar:/root/.m2/repository/org/codehaus/woodstox/stax2-api/3.1.4/stax2-api-3.1.4.jar:/root/.m2/repository/org/apache/cxf/cxf-rt-security-saml/3.1.3-SNAPSHOT/cxf-rt-security-saml-3.1.3-SNAPSHOT.jar:/root/.m2/repository/org/opensaml/opensaml-xacml-saml-api/3.1.1/opensaml-xacml-saml-api-3.1.1.jar:/root/.m2/repository/junit/junit/4.12/junit-4.12.jar:/root/.m2/repository/org/apache/ws/xmlschema/xmlschema-core/2.2.1/xmlschema-core-2.2.1.jar:/root/.m2/repository/org/apache/cxf/cxf-rt-frontend-jaxrs/3.1.3-SNAPSHOT/cxf-rt-frontend-jaxrs-3.1.3-SNAPSHOT.jar:/root/.m2/repository/org/opensaml/opensaml-xacml-api/3.1.1/opensaml-xacml-api-3.1.1.jar:/root/.m2/repository/org/opensaml/opensaml-profile-api/3.1.1/opensaml-profile-api-3.1.1.jar:/root/.m2/repository/javax/annotation/javax.annotation-api/1.2/javax.annotation-api-1.2.jar:/root/.m2/repository/org/opensaml/opensaml-saml-impl/3.1.1/opensaml-saml-impl-3.1.1.jar:/root/.m2/repository/org/bouncycastle/bcprov-jdk15on/1.52/bcprov-jdk15on-1.52.jar]
+[5] INFO AstorMain - Running Astor on a JDK at /usr/lib/jvm/java-8-openjdk-amd64/jre
+[25] INFO main - Source folders: [/workdir/Cardumen_vul4j_apache_cxf_VUL4J-16/./rt/rs/security/sso/saml/src/main/java]
+[42] INFO main - Source Test folders: [/workdir/Cardumen_vul4j_apache_cxf_VUL4J-16/./rt/rs/security/sso/saml/src/test/java]
+[1457] INFO AstorCoreEngine - ---- Creating spoon model
+[1514] INFO MutationSupporter - Creating model,  Code location from working folder: /workdir/Cardumen_vul4j_apache_cxf_VUL4J-16/./rt/rs/security/sso/saml/src/main/java
+[1514] INFO MutationSupporter - building model: /workdir/Cardumen_vul4j_apache_cxf_VUL4J-16/./rt/rs/security/sso/saml/src/main/java, compliance level: 8
+[1542] INFO MutationSupporter - Classpath (Dependencies) for building SpoonModel: [/workdir/Cardumen_vul4j_apache_cxf_VUL4J-16/rt/rs/security/sso/saml/target/classes/, /root/.m2/repository/org/apache/geronimo/specs/geronimo-javamail_1.4_spec/1.7.1/geronimo-javamail_1.4_spec-1.7.1.jar, /root/.m2/repository/org/apache/wss4j/wss4j-ws-security-common/2.1.2/wss4j-ws-security-common-2.1.2.jar, /root/.m2/repository/org/apache/cxf/cxf-rt-security/3.1.3-SNAPSHOT/cxf-rt-security-3.1.3-SNAPSHOT.jar, /root/.m2/repository/org/opensaml/opensaml-xmlsec-api/3.1.1/opensaml-xmlsec-api-3.1.1.jar, /root/.m2/repository/org/codehaus/woodstox/woodstox-core-asl/4.4.1/woodstox-core-asl-4.4.1.jar, /root/.m2/repository/org/opensaml/opensaml-soap-api/3.1.1/opensaml-soap-api-3.1.1.jar, /root/.m2/repository/org/apache/geronimo/specs/geronimo-servlet_3.0_spec/1.0/geronimo-servlet_3.0_spec-1.0.jar, /root/.m2/repository/org/slf4j/slf4j-api/1.7.12/slf4j-api-1.7.12.jar, /root/.m2/repository/javax/ws/rs/javax.ws.rs-api/2.0.1/javax.ws.rs-api-2.0.1.jar, /root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar, /root/.m2/repository/org/cryptacular/cryptacular/1.0/cryptacular-1.0.jar, /root/.m2/repository/org/apache/wss4j/wss4j-ws-security-dom/2.1.2/wss4j-ws-security-dom-2.1.2.jar, /root/.m2/repository/org/apache/cxf/cxf-core/3.1.3-SNAPSHOT/cxf-core-3.1.3-SNAPSHOT.jar, /root/.m2/repository/org/opensaml/opensaml-xmlsec-impl/3.1.1/opensaml-xmlsec-impl-3.1.1.jar, /root/.m2/repository/org/apache/cxf/cxf-rt-rs-security-xml/3.1.3-SNAPSHOT/cxf-rt-rs-security-xml-3.1.3-SNAPSHOT.jar, /root/.m2/repository/org/opensaml/opensaml-saml-api/3.1.1/opensaml-saml-api-3.1.1.jar, /root/.m2/repository/net/shibboleth/utilities/java-support/7.1.1/java-support-7.1.1.jar, /root/.m2/repository/org/apache/santuario/xmlsec/2.0.5/xmlsec-2.0.5.jar, /root/.m2/repository/com/google/guava/guava/18.0/guava-18.0.jar, /root/.m2/repository/org/jasypt/jasypt/1.9.2/jasypt-1.9.2.jar, /root/.m2/repository/net/sf/ehcache/ehcache/2.9.0/ehcache-2.9.0.jar, /root/.m2/repository/org/opensaml/opensaml-security-api/3.1.1/opensaml-security-api-3.1.1.jar, /root/.m2/repository/org/apache/cxf/cxf-rt-transports-http/3.1.3-SNAPSHOT/cxf-rt-transports-http-3.1.3-SNAPSHOT.jar, /root/.m2/repository/org/opensaml/opensaml-security-impl/3.1.1/opensaml-security-impl-3.1.1.jar, /root/.m2/repository/commons-codec/commons-codec/1.10/commons-codec-1.10.jar, /root/.m2/repository/org/opensaml/opensaml-xacml-saml-impl/3.1.1/opensaml-xacml-saml-impl-3.1.1.jar, /root/.m2/repository/org/opensaml/opensaml-core/3.1.1/opensaml-core-3.1.1.jar, /root/.m2/repository/org/opensaml/opensaml-xacml-impl/3.1.1/opensaml-xacml-impl-3.1.1.jar, /root/.m2/repository/joda-time/joda-time/2.7/joda-time-2.7.jar, /root/.m2/repository/org/codehaus/woodstox/stax2-api/3.1.4/stax2-api-3.1.4.jar, /root/.m2/repository/org/apache/cxf/cxf-rt-security-saml/3.1.3-SNAPSHOT/cxf-rt-security-saml-3.1.3-SNAPSHOT.jar, /root/.m2/repository/org/opensaml/opensaml-xacml-saml-api/3.1.1/opensaml-xacml-saml-api-3.1.1.jar, /root/.m2/repository/junit/junit/4.12/junit-4.12.jar, /root/.m2/repository/org/apache/ws/xmlschema/xmlschema-core/2.2.1/xmlschema-core-2.2.1.jar, /root/.m2/repository/org/apache/cxf/cxf-rt-frontend-jaxrs/3.1.3-SNAPSHOT/cxf-rt-frontend-jaxrs-3.1.3-SNAPSHOT.jar, /root/.m2/repository/org/opensaml/opensaml-xacml-api/3.1.1/opensaml-xacml-api-3.1.1.jar, /root/.m2/repository/org/opensaml/opensaml-profile-api/3.1.1/opensaml-profile-api-3.1.1.jar, /root/.m2/repository/javax/annotation/javax.annotation-api/1.2/javax.annotation-api-1.2.jar, /root/.m2/repository/org/opensaml/opensaml-saml-impl/3.1.1/opensaml-saml-impl-3.1.1.jar, /root/.m2/repository/org/bouncycastle/bcprov-jdk15on/1.52/bcprov-jdk15on-1.52.jar]
+[11761] INFO AstorCoreEngine - Number of CtTypes created: 28
+[11924] INFO AstorCoreEngine - Test retrieved from classes: 0
+[12009] INFO AstorCoreEngine - Setting up the max to 850 milliseconds (0 sec)
+[12009] INFO AstorCoreEngine - ---- Initial suspicious size: 1
+[12141] INFO main - Total suspicious from FL: 1,  3
+[12143] INFO main - Total ModPoint created: 3
+[12143] INFO main - Creating program variant #1, [Variant id: 1, #gens: 3, #ops: 0, parent:-]
+[12143] INFO main - Run previously failing tests...
+[52365] INFO main - Failed tests: 1
+[52368] INFO AstorCoreEngine - The original fitness is : 1.0
+[61357] INFO ExpressionTypeIngredientSpace - Ingredient search space info : number keys 20 , number values 141 
+[61357] WARN ConfigurationProperties - ----------------------------
+[61357] INFO ConfigurationProperties - ---Configuration properties
+[61358] INFO ConfigurationProperties - p:lastJUnitVersion= ./examples/libs/junit-4.11.jar
+[61358] INFO ConfigurationProperties - p:alternativecompliancelevel= 8
+[61358] INFO ConfigurationProperties - p:ignoredTestCases= 
+[61358] INFO ConfigurationProperties - p:workingDirectory= /workdir/Cardumen_vul4j_apache_cxf_VUL4J-16/./output_astor
+[61358] INFO ConfigurationProperties - p:manipulatesuper= false
+[61358] INFO ConfigurationProperties - p:validation= externalcmd
+[61358] INFO ConfigurationProperties - p:jvm4testexecution= /usr/lib/jvm/java-8-openjdk-amd64/bin
+[61358] INFO ConfigurationProperties - p:operatorspace= r-expression
+[61358] INFO ConfigurationProperties - p:diffcontext= 0
+[61358] INFO ConfigurationProperties - p:binjavafolder= rt/rs/security/sso/saml/target/classes
+[61358] INFO ConfigurationProperties - p:synthesis_depth= 3
+[61358] INFO ConfigurationProperties - p:gzoltartestpackagetoexclude= junit.framework
+[61358] INFO ConfigurationProperties - p:skipfitnessinitialpopulation= false
+[61358] INFO ConfigurationProperties - p:evosuiteresultfolder= evosuite
+[61358] INFO ConfigurationProperties - p:flthreshold= 0.1
+[61358] INFO ConfigurationProperties - p:regressionforfaultlocalization= true
+[61359] INFO ConfigurationProperties - p:collectonlyusedmethod= false
+[61359] INFO ConfigurationProperties - p:preservelinenumbers= true
+[61359] INFO ConfigurationProperties - p:tmax2= 850
+[61359] INFO ConfigurationProperties - p:ingredienttransformstrategy= name-probability-based
+[61359] INFO ConfigurationProperties - p:tmax1= 10000
+[61359] INFO ConfigurationProperties - p:probagenmutation= false
+[61359] INFO ConfigurationProperties - p:nomodificationconvergence= 100
+[61359] INFO ConfigurationProperties - p:diff_type= relative
+[61359] INFO ConfigurationProperties - p:targetelementprocessor= expression
+[61359] INFO ConfigurationProperties - p:srctestfolder= rt/rs/security/sso/saml/src/test/java
+[61359] INFO ConfigurationProperties - p:forceExecuteRegression= false
+[61359] INFO ConfigurationProperties - p:clusteringfilename= clustering.csv
+[61359] INFO ConfigurationProperties - p:failing= org.apache.cxf.rs.security.saml.sso.CombinedValidatorTest#testWrappingAttack3
+[61359] INFO ConfigurationProperties - p:logtestexecution= false
+[61359] INFO ConfigurationProperties - p:evo_buggy_class= true
+[61359] INFO ConfigurationProperties - p:numberExecutions= 1
+[61359] INFO ConfigurationProperties - p:maxnumbersolutions= 1000000
+[61359] INFO ConfigurationProperties - p:evo_affected_by_op= true
+[61359] INFO ConfigurationProperties - p:population= 1
+[61359] INFO ConfigurationProperties - p:considerzerovaluesusp= false
+[61359] INFO ConfigurationProperties - p:maxCombinationVariableLimit= true
+[61360] INFO ConfigurationProperties - p:savesolution= true
+[61360] INFO ConfigurationProperties - p:javacompliancelevel= 8
+[61360] INFO ConfigurationProperties - p:x= x
+[61360] INFO ConfigurationProperties - p:uniqueoptogen= false
+[61360] INFO ConfigurationProperties - p:gzoltarpackagetonotinstrument= junit.framework
+[61360] INFO ConfigurationProperties - p:projectIdentifier= apache_cxf-VUL4J-16
+[61360] INFO ConfigurationProperties - p:modificationpointnavigation= weight
+[61360] INFO ConfigurationProperties - p:stopfirst= true
+[61360] INFO ConfigurationProperties - p:multipointmodification= false
+[61361] INFO ConfigurationProperties - p:elementsToMutate= 10
+[61361] INFO ConfigurationProperties - p:jsonoutputname= astor_output
+[61361] INFO ConfigurationProperties - p:evoDSE= false
+[61361] INFO ConfigurationProperties - p:bintestfolder= rt/rs/security/sso/saml/target/test-classes
+[61361] INFO ConfigurationProperties - p:testbystep= false
+[61361] INFO ConfigurationProperties - p:version-location= ./math-version/
+[61361] INFO ConfigurationProperties - p:reintroduce= PARENTS:ORIGINAL
+[61361] INFO ConfigurationProperties - p:perfectdata= /script/../data/benchmarks/vul4j/perfectfl/VUL4J-16
+[61361] INFO ConfigurationProperties - p:executorjar= ./lib/jtestex7.jar
+[61361] INFO ConfigurationProperties - p:maxGeneration= 1000000
+[61361] INFO ConfigurationProperties - p:max_synthesis_step= 10000
+[61361] INFO ConfigurationProperties - p:projectinfocommand= com.github.tdurieux:project-config-maven-plugin:info
+[61361] INFO ConfigurationProperties - p:maxVarCombination= 1000
+[61361] INFO ConfigurationProperties - p:maxtime= 120
+[61361] INFO ConfigurationProperties - p:evosuitejar= ./lib/evosuite-master-1.0.4-SNAPSHOT.jar
+[61361] INFO ConfigurationProperties - p:jvmversion= 1.8.0_342
+[61362] INFO ConfigurationProperties - p:commandTrunk= 50000
+[61362] INFO ConfigurationProperties - p:faultlocalization= perfect
+[61362] INFO ConfigurationProperties - p:resetmodel= true
+[61374] INFO ConfigurationProperties - p:maxsuspcandidates= 1000
+[61374] INFO ConfigurationProperties - p:mode= cardumen
+[61374] INFO ConfigurationProperties - p:learningdir= 
+[61374] INFO ConfigurationProperties - p:jvm4evosuitetestexecution= /usr/lib/jvm/java-8-openjdk-amd64/bin
+[61374] INFO ConfigurationProperties - p:filterfaultlocalization= true
+[61374] INFO ConfigurationProperties - p:mutationrate= 1 
+[61374] INFO ConfigurationProperties - p:pathToMVNRepository= 
+[61374] INFO ConfigurationProperties - p:resourcesfolder= /src/main/resources:/src/test/resources:
+[61374] INFO ConfigurationProperties - p:timezone= America/Los_Angeles
+[61374] INFO ConfigurationProperties - p:runjava7code= false
+[61374] INFO ConfigurationProperties - p:testfailingcmd= mvn -pl rt/rs/security/sso/saml -Dtest=org.apache.cxf.rs.security.saml.sso.CombinedValidatorTest#testWrappingAttack3 test -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B
+[61374] INFO ConfigurationProperties - p:evoRunOnBuggyClass= true
+[61374] INFO ConfigurationProperties - p:compiler= fr.inria.astor.core.manipulation.bytecode.compiler.SpoonClassCompiler
+[61374] INFO ConfigurationProperties - p:limitbysuspicious= true
+[61375] INFO ConfigurationProperties - p:logsattemps= true
+[61375] INFO ConfigurationProperties - p:dependenciespath= /workdir/Cardumen_vul4j_apache_cxf_VUL4J-16/rt/rs/security/sso/saml/target/classes:/root/.m2/repository/org/apache/geronimo/specs/geronimo-javamail_1.4_spec/1.7.1/geronimo-javamail_1.4_spec-1.7.1.jar:/root/.m2/repository/org/apache/wss4j/wss4j-ws-security-common/2.1.2/wss4j-ws-security-common-2.1.2.jar:/root/.m2/repository/org/apache/cxf/cxf-rt-security/3.1.3-SNAPSHOT/cxf-rt-security-3.1.3-SNAPSHOT.jar:/root/.m2/repository/org/opensaml/opensaml-xmlsec-api/3.1.1/opensaml-xmlsec-api-3.1.1.jar:/root/.m2/repository/org/codehaus/woodstox/woodstox-core-asl/4.4.1/woodstox-core-asl-4.4.1.jar:/root/.m2/repository/org/opensaml/opensaml-soap-api/3.1.1/opensaml-soap-api-3.1.1.jar:/root/.m2/repository/org/apache/geronimo/specs/geronimo-servlet_3.0_spec/1.0/geronimo-servlet_3.0_spec-1.0.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.12/slf4j-api-1.7.12.jar:/root/.m2/repository/javax/ws/rs/javax.ws.rs-api/2.0.1/javax.ws.rs-api-2.0.1.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/cryptacular/cryptacular/1.0/cryptacular-1.0.jar:/root/.m2/repository/org/apache/wss4j/wss4j-ws-security-dom/2.1.2/wss4j-ws-security-dom-2.1.2.jar:/root/.m2/repository/org/apache/cxf/cxf-core/3.1.3-SNAPSHOT/cxf-core-3.1.3-SNAPSHOT.jar:/root/.m2/repository/org/opensaml/opensaml-xmlsec-impl/3.1.1/opensaml-xmlsec-impl-3.1.1.jar:/root/.m2/repository/org/apache/cxf/cxf-rt-rs-security-xml/3.1.3-SNAPSHOT/cxf-rt-rs-security-xml-3.1.3-SNAPSHOT.jar:/root/.m2/repository/org/opensaml/opensaml-saml-api/3.1.1/opensaml-saml-api-3.1.1.jar:/root/.m2/repository/net/shibboleth/utilities/java-support/7.1.1/java-support-7.1.1.jar:/root/.m2/repository/org/apache/santuario/xmlsec/2.0.5/xmlsec-2.0.5.jar:/root/.m2/repository/com/google/guava/guava/18.0/guava-18.0.jar:/root/.m2/repository/org/jasypt/jasypt/1.9.2/jasypt-1.9.2.jar:/root/.m2/repository/net/sf/ehcache/ehcache/2.9.0/ehcache-2.9.0.jar:/root/.m2/repository/org/opensaml/opensaml-security-api/3.1.1/opensaml-security-api-3.1.1.jar:/root/.m2/repository/org/apache/cxf/cxf-rt-transports-http/3.1.3-SNAPSHOT/cxf-rt-transports-http-3.1.3-SNAPSHOT.jar:/root/.m2/repository/org/opensaml/opensaml-security-impl/3.1.1/opensaml-security-impl-3.1.1.jar:/root/.m2/repository/commons-codec/commons-codec/1.10/commons-codec-1.10.jar:/root/.m2/repository/org/opensaml/opensaml-xacml-saml-impl/3.1.1/opensaml-xacml-saml-impl-3.1.1.jar:/root/.m2/repository/org/opensaml/opensaml-core/3.1.1/opensaml-core-3.1.1.jar:/root/.m2/repository/org/opensaml/opensaml-xacml-impl/3.1.1/opensaml-xacml-impl-3.1.1.jar:/root/.m2/repository/joda-time/joda-time/2.7/joda-time-2.7.jar:/root/.m2/repository/org/codehaus/woodstox/stax2-api/3.1.4/stax2-api-3.1.4.jar:/root/.m2/repository/org/apache/cxf/cxf-rt-security-saml/3.1.3-SNAPSHOT/cxf-rt-security-saml-3.1.3-SNAPSHOT.jar:/root/.m2/repository/org/opensaml/opensaml-xacml-saml-api/3.1.1/opensaml-xacml-saml-api-3.1.1.jar:/root/.m2/repository/junit/junit/4.12/junit-4.12.jar:/root/.m2/repository/org/apache/ws/xmlschema/xmlschema-core/2.2.1/xmlschema-core-2.2.1.jar:/root/.m2/repository/org/apache/cxf/cxf-rt-frontend-jaxrs/3.1.3-SNAPSHOT/cxf-rt-frontend-jaxrs-3.1.3-SNAPSHOT.jar:/root/.m2/repository/org/opensaml/opensaml-xacml-api/3.1.1/opensaml-xacml-api-3.1.1.jar:/root/.m2/repository/org/opensaml/opensaml-profile-api/3.1.1/opensaml-profile-api-3.1.1.jar:/root/.m2/repository/javax/annotation/javax.annotation-api/1.2/javax.annotation-api-1.2.jar:/root/.m2/repository/org/opensaml/opensaml-saml-impl/3.1.1/opensaml-saml-impl-3.1.1.jar:/root/.m2/repository/org/bouncycastle/bcprov-jdk15on/1.52/bcprov-jdk15on-1.52.jar
+[61375] INFO ConfigurationProperties - p:packageToInstrument= 
+[61375] INFO ConfigurationProperties - p:skipfaultlocalization= false
+[61375] INFO ConfigurationProperties - p:scope= local
+[61375] INFO ConfigurationProperties - p:transformingredient= false
+[61375] INFO ConfigurationProperties - p:fitnessfunction= fr.inria.astor.core.solutionsearch.population.TestCaseFitnessFunction
+[61375] INFO ConfigurationProperties - p:maxnumvariablesperingredient= 10
+[61375] INFO ConfigurationProperties - p:parsesourcefromoriginal= true
+[61375] INFO ConfigurationProperties - p:pvariantfoldername= variant-
+[61375] INFO ConfigurationProperties - p:savespoonmodelondisk= false
+[61375] INFO ConfigurationProperties - p:srcjavafolder= rt/rs/security/sso/saml/src/main/java
+[61375] INFO ConfigurationProperties - p:populationcontroller= fr.inria.astor.core.solutionsearch.population.TestCaseBasedFitnessPopulationController
+[61375] INFO ConfigurationProperties - p:ignoreflakyinfl= false
+[61375] INFO ConfigurationProperties - p:cleantemplates= true
+[61375] INFO ConfigurationProperties - p:applyCrossover= false
+[61375] INFO ConfigurationProperties - p:maxmodificationpoints= 1000
+[61376] INFO ConfigurationProperties - p:duplicateingredientsinspace= false
+[61376] INFO ConfigurationProperties - p:metid= 0
+[61376] INFO ConfigurationProperties - p:continuewhenmodelfail= true
+[61376] INFO ConfigurationProperties - p:saveall= false
+[61376] INFO ConfigurationProperties - p:seed= 0
+[61376] INFO ConfigurationProperties - p:savecompletepatched= true
+[61376] INFO ConfigurationProperties - p:resetoperations= false
+[61376] INFO ConfigurationProperties - p:keepcomments= false
+[61376] INFO ConfigurationProperties - p:processoutputinfile= false
+[61376] INFO ConfigurationProperties - p:location= .
+[61376] INFO ConfigurationProperties - p:probabilistictransformation= true
+[61376] INFO ConfigurationProperties - p:overridemaxtime= true
+[61376] INFO ConfigurationProperties - p:ingredientstrategy= name-probability-based
+[61376] INFO ConfigurationProperties - p:outputjsonresult= true
+[61376] INFO ConfigurationProperties - p:allpoints= false
+[61376] INFO ConfigurationProperties - p:antipattern= false
+[61376] INFO ConfigurationProperties - p:bugId= 280
+[61376] INFO ConfigurationProperties - p:evosuitetimeout= 120
+[61376] INFO ConfigurationProperties - p:maxtimefactor= 10
+[61376] INFO ConfigurationProperties - p:nrPlaceholders= 1
+[61376] INFO ConfigurationProperties - p:testallcmd= mvn -pl rt/rs/security/sso/saml -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B
+[61377] INFO ConfigurationProperties - p:forcesubprocesskilling= false
+[61377] INFO ConfigurationProperties - ----------------------------
+[61377] INFO AstorCoreEngine - ----Starting Solution Search
+[61379] WARN AstorCoreEngine - ----------Running generation: 1, population size: 1
+[62159] WARN AstorCoreEngine - ----------Running generation: 2, population size: 1
+[62302] WARN AstorCoreEngine - ----------Running generation: 3, population size: 1
+[62350] WARN AstorCoreEngine - ----------Running generation: 4, population size: 1
+[62395] WARN AstorCoreEngine - ----------Running generation: 5, population size: 1
+[62438] WARN AstorCoreEngine - ----------Running generation: 6, population size: 1
+[62504] WARN AstorCoreEngine - ----------Running generation: 7, population size: 1
+[62555] WARN AstorCoreEngine - ----------Running generation: 8, population size: 1
+[62582] WARN AstorCoreEngine - ----------Running generation: 9, population size: 1
+[62613] WARN AstorCoreEngine - ----------Running generation: 10, population size: 1
+[62679] WARN AstorCoreEngine - ----------Running generation: 11, population size: 1
+[62715] WARN AstorCoreEngine - ----------Running generation: 12, population size: 1
+[62745] WARN AstorCoreEngine - ----------Running generation: 13, population size: 1
+[62811] WARN AstorCoreEngine - ----------Running generation: 14, population size: 1
+[62839] WARN AstorCoreEngine - ----------Running generation: 15, population size: 1
+[62864] WARN AstorCoreEngine - ----------Running generation: 16, population size: 1
+[62905] WARN AstorCoreEngine - ----------Running generation: 17, population size: 1
+[62988] WARN AstorCoreEngine - ----------Running generation: 18, population size: 1
+[63018] WARN AstorCoreEngine - ----------Running generation: 19, population size: 1
+[63082] WARN AstorCoreEngine - ----------Running generation: 20, population size: 1
+[63132] WARN AstorCoreEngine - ----------Running generation: 21, population size: 1
+[63179] WARN AstorCoreEngine - ----------Running generation: 22, population size: 1
+[63214] WARN AstorCoreEngine - ----------Running generation: 23, population size: 1
+[63268] WARN AstorCoreEngine - ----------Running generation: 24, population size: 1
+[63358] WARN AstorCoreEngine - ----------Running generation: 25, population size: 1
+[63400] WARN AstorCoreEngine - ----------Running generation: 26, population size: 1
+[63441] WARN AstorCoreEngine - ----------Running generation: 27, population size: 1
+[63480] WARN AstorCoreEngine - ----------Running generation: 28, population size: 1
+[63526] WARN AstorCoreEngine - ----------Running generation: 29, population size: 1
+[63602] WARN AstorCoreEngine - ----------Running generation: 30, population size: 1
+[63654] WARN AstorCoreEngine - ----------Running generation: 31, population size: 1
+[63674] WARN AstorCoreEngine - ----------Running generation: 32, population size: 1
+[63694] WARN AstorCoreEngine - ----------Running generation: 33, population size: 1
+[63716] WARN AstorCoreEngine - ----------Running generation: 34, population size: 1
+[63853] WARN AstorCoreEngine - ----------Running generation: 35, population size: 1
+[63884] WARN AstorCoreEngine - ----------Running generation: 36, population size: 1
+[63917] WARN AstorCoreEngine - ----------Running generation: 37, population size: 1
+[63986] WARN AstorCoreEngine - ----------Running generation: 38, population size: 1
+[64033] WARN AstorCoreEngine - ----------Running generation: 39, population size: 1
+[64072] WARN AstorCoreEngine - ----------Running generation: 40, population size: 1
+[64130] WARN AstorCoreEngine - ----------Running generation: 41, population size: 1
+[64158] WARN AstorCoreEngine - ----------Running generation: 42, population size: 1
+[64194] WARN AstorCoreEngine - ----------Running generation: 43, population size: 1
+[64272] WARN AstorCoreEngine - ----------Running generation: 44, population size: 1
+[64358] WARN AstorCoreEngine - ----------Running generation: 45, population size: 1
+[64443] WARN AstorCoreEngine - ----------Running generation: 46, population size: 1
+[64525] WARN AstorCoreEngine - ----------Running generation: 47, population size: 1
+[64620] WARN AstorCoreEngine - ----------Running generation: 48, population size: 1
+[64680] WARN AstorCoreEngine - ----------Running generation: 49, population size: 1
+[64718] WARN AstorCoreEngine - ----------Running generation: 50, population size: 1
+[64785] WARN AstorCoreEngine - ----------Running generation: 51, population size: 1
+[64859] WARN AstorCoreEngine - ----------Running generation: 52, population size: 1
+[64928] WARN AstorCoreEngine - ----------Running generation: 53, population size: 1
+[64990] WARN AstorCoreEngine - ----------Running generation: 54, population size: 1
+[65036] WARN AstorCoreEngine - ----------Running generation: 55, population size: 1
+[65062] WARN AstorCoreEngine - ----------Running generation: 56, population size: 1
+[65160] WARN AstorCoreEngine - ----------Running generation: 57, population size: 1
+[65182] WARN AstorCoreEngine - ----------Running generation: 58, population size: 1
+[65246] WARN AstorCoreEngine - ----------Running generation: 59, population size: 1
+[65276] WARN AstorCoreEngine - ----------Running generation: 60, population size: 1
+[65323] WARN AstorCoreEngine - ----------Running generation: 61, population size: 1
+[65347] WARN AstorCoreEngine - ----------Running generation: 62, population size: 1
+[65409] WARN AstorCoreEngine - ----------Running generation: 63, population size: 1
+[65440] WARN AstorCoreEngine - ----------Running generation: 64, population size: 1
+[65494] WARN AstorCoreEngine - ----------Running generation: 65, population size: 1
+[65537] WARN AstorCoreEngine - ----------Running generation: 66, population size: 1
+[65571] WARN AstorCoreEngine - ----------Running generation: 67, population size: 1
+[65627] WARN AstorCoreEngine - ----------Running generation: 68, population size: 1
+[65653] WARN AstorCoreEngine - ----------Running generation: 69, population size: 1
+[65687] WARN AstorCoreEngine - ----------Running generation: 70, population size: 1
+[65702] WARN AstorCoreEngine - ----------Running generation: 71, population size: 1
+[65719] WARN AstorCoreEngine - ----------Running generation: 72, population size: 1
+[65743] WARN AstorCoreEngine - ----------Running generation: 73, population size: 1
+[65760] WARN AstorCoreEngine - ----------Running generation: 74, population size: 1
+[65776] WARN AstorCoreEngine - ----------Running generation: 75, population size: 1
+[65793] WARN AstorCoreEngine - ----------Running generation: 76, population size: 1
+[65812] WARN AstorCoreEngine - ----------Running generation: 77, population size: 1
+[65866] WARN AstorCoreEngine - ----------Running generation: 78, population size: 1
+[65898] WARN AstorCoreEngine - ----------Running generation: 79, population size: 1
+[65937] WARN AstorCoreEngine - ----------Running generation: 80, population size: 1
+[65956] WARN AstorCoreEngine - ----------Running generation: 81, population size: 1
+[65971] WARN AstorCoreEngine - ----------Running generation: 82, population size: 1
+[66005] WARN AstorCoreEngine - ----------Running generation: 83, population size: 1
+[66022] WARN AstorCoreEngine - ----------Running generation: 84, population size: 1
+[66039] WARN AstorCoreEngine - ----------Running generation: 85, population size: 1
+[66055] WARN AstorCoreEngine - ----------Running generation: 86, population size: 1
+[66087] WARN AstorCoreEngine - ----------Running generation: 87, population size: 1
+[66108] WARN AstorCoreEngine - ----------Running generation: 88, population size: 1
+[66135] WARN AstorCoreEngine - ----------Running generation: 89, population size: 1
+[66152] WARN AstorCoreEngine - ----------Running generation: 90, population size: 1
+[66170] WARN AstorCoreEngine - ----------Running generation: 91, population size: 1
+[66187] WARN AstorCoreEngine - ----------Running generation: 92, population size: 1
+[66202] WARN AstorCoreEngine - ----------Running generation: 93, population size: 1
+[66219] WARN AstorCoreEngine - ----------Running generation: 94, population size: 1
+[66241] WARN AstorCoreEngine - ----------Running generation: 95, population size: 1
+[66261] WARN AstorCoreEngine - ----------Running generation: 96, population size: 1
+[66280] WARN AstorCoreEngine - ----------Running generation: 97, population size: 1
+[66295] WARN AstorCoreEngine - ----------Running generation: 98, population size: 1
+[66315] WARN AstorCoreEngine - ----------Running generation: 99, population size: 1
+[66330] WARN AstorCoreEngine - ----------Running generation: 100, population size: 1
+[66385] ERROR AstorCoreEngine - Stopping main loop at 100 generation
+[66402] INFO AstorCoreEngine - Time Repair Loop (s): 5.023
+[66402] INFO AstorCoreEngine - generationsexecuted: 100
+[66403] WARN AstorCoreEngine - ----SUMMARY_EXECUTION---
+[66403] WARN AstorCoreEngine - End Repair Search: NOT Found solution
+[66403] WARN AstorCoreEngine - Number suspicious:1
+[66403] INFO AstorCoreEngine - Total mod points: 3
+[66455] INFO ExpressionTypeIngredientSpace - Storing ing JSON at /workdir/Cardumen_vul4j_apache_cxf_VUL4J-16/./output_astor/AstorMain-apache_cxf-VUL4J-16//src/ingredients.json
+[66456] INFO IngredientStats - Storing ing JSON at /workdir/Cardumen_vul4j_apache_cxf_VUL4J-16/./output_astor/AstorMain-apache_cxf-VUL4J-16//ingredientSpaceSize.json
+[66458] INFO IngredientStats - ingredientSpaceSize:{"allAttempts":4,"space":[{"a":2,"v":1},{"a":1,"v":2},{"a":5,"v":1}]}
+[66460] INFO IngredientStats - Storing ing JSON at /workdir/Cardumen_vul4j_apache_cxf_VUL4J-16/./output_astor/AstorMain-apache_cxf-VUL4J-16//combinationsTemplatesingredientSpaceSize.json
+[66462] INFO IngredientStats - combinationsTemplatesingredientSpaceSize:{"allAttempts":14,"space":[{"a":1,"v":6},{"a":0,"v":8}]}
+[66468] INFO AstorCoreEngine - 
+ --SOLUTIONS DESCRIPTION--
+
+
+Astor Output:
+
+General stats:
+EXECUTION_IDENTIFIER=apache_cxf-VUL4J-16
+TOTAL_TIME=5.023
+NR_GENERATIONS=100
+NR_RIGHT_COMPILATIONS=null
+NR_FAILLING_COMPILATIONS=null
+NR_ERRONEOUS_VARIANCES=null
+NR_FAILING_VALIDATION_PROCESS=null
+OUTPUT_STATUS=CONVERGED
+
+Patch stats:
+
+[66490] INFO Stats - Storing ing JSON at /workdir/Cardumen_vul4j_apache_cxf_VUL4J-16/./output_astor/AstorMain-apache_cxf-VUL4J-16//astor_output.json
+[66490] INFO Stats - astor_output:
+{"general":{"NR_RIGHT_COMPILATIONS":null,"NR_ERRONEOUS_VARIANCES":null,"EXECUTION_IDENTIFIER":"apache_cxf-VUL4J-16","OUTPUT_STATUS":"CONVERGED","NR_FAILLING_COMPILATIONS":null,"NR_GENERATIONS":100,"TOTAL_TIME":5.023,"NR_FAILING_VALIDATION_PROCESS":null},"patches":[]}
+[66490] INFO AstorMain - Time Total(s): 66.471
+64.59user 9.59system 1:08.35elapsed 108%CPU (0avgtext+0avgdata 543088maxresident)k
+240inputs+2080outputs (0major+339894minor)pagefaults 0swaps
+
+
+Node: 9670332cfea8
+
+
+
+Date: Fri Sep  9 00:11:06 EDT 2022
+

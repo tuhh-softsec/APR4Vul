@@ -1,0 +1,29 @@
+{
+  "repair_end": "2022-11-15 21:08:58.774903", 
+  "repair_begin": "2022-11-15 20:47:57.869247", 
+  "patches": [
+    {
+      "PATCH_DIFF_ORIG": "--- \\/workdir\\/jKali_vul4j_apache_camel_VUL4J-4\\/camel-core\\/src\\/main\\/java\\/org\\/apache\\/camel\\/builder\\/xml\\/XPathBuilderjava\\n+++ \\/workdir\\/jKali_vul4j_apache_camel_VUL4J-4\\/camel-core\\/src\\/main\\/java\\/org\\/apache\\/camel\\/builder\\/xml\\/XPathBuilderjava\\n@@ -1117 +1117 @@\\n-\\t\\tif (answer == null) {\\n+\\t\\tif (false) {\\n\\n", 
+      "patchhunks": [
+        {
+          "MODIFIED_FILE_PATH": "\\/workdir\\/jKali_vul4j_apache_camel_VUL4J-4\\/.\\/output_astor\\/AstorMain-apache_camel-VUL4J-4\\/\\/src\\/\\/variant-3\\/org\\/apache\\/camel\\/builder\\/xml\\/XPathBuilder.java", 
+          "ORIGINAL_CODE": "if (answer == null) {\\n\\n\\tif (body instanceof org.apache.camel.WrappedFile) {\\n\\n\\t\\tjava.io.InputStream is = exchange.getContext().getTypeConverter().convertTo(java.io.InputStream.class, exchange, body);\\n\\t\\tanswer = new org.xml.sax.InputSource(is);\\n\\t} else if (body instanceof org.apache.camel.component.bean.BeanInvocation) {\\n\\n\\t\\torg.apache.camel.component.bean.BeanInvocation bi = exchange.getContext().getTypeConverter().convertTo(org.apache.camel.component.bean.BeanInvocation.class, exchange, body);\\n\\t\\tif (((bi.getArgs() != null) && (bi.getArgs().length == 1)) && (bi.getArgs()[0] == null)) {\\n\\n\\t\\t\\tanswer = null;\\n\\t\\t}\\n\\t} else if (body instanceof java.lang.String) {\\n\\t\\tanswer = new org.xml.sax.InputSource(new java.io.StringReader(((java.lang.String) (body))));\\n\\t}\\n}", 
+          "PATCH_HUNK_CODE": "if (false) {\\n\\n\\tif (body instanceof org.apache.camel.WrappedFile) {\\n\\n\\t\\tjava.io.InputStream is = exchange.getContext().getTypeConverter().convertTo(java.io.InputStream.class, exchange, body);\\n\\t\\tanswer = new org.xml.sax.InputSource(is);\\n\\t} else if (body instanceof org.apache.camel.component.bean.BeanInvocation) {\\n\\n\\t\\torg.apache.camel.component.bean.BeanInvocation bi = exchange.getContext().getTypeConverter().convertTo(org.apache.camel.component.bean.BeanInvocation.class, exchange, body);\\n\\t\\tif (((bi.getArgs() != null) && (bi.getArgs().length == 1)) && (bi.getArgs()[0] == null)) {\\n\\n\\t\\t\\tanswer = null;\\n\\t\\t}\\n\\t} else if (body instanceof java.lang.String) {\\n\\t\\tanswer = new org.xml.sax.InputSource(new java.io.StringReader(((java.lang.String) (body))));\\n\\t}\\n}", 
+          "LOCATION": "org.apache.camel.builder.xml.XPathBuilder", 
+          "BUGGY_CODE_TYPE": "CtIfImpl|CtBlockImpl", 
+          "OPERATOR": "ReplaceIfBooleanOp", 
+          "PATH": "\\/workdir\\/jKali_vul4j_apache_camel_VUL4J-4\\/camel-core\\/src\\/main\\/java\\/org\\/apache\\/camel\\/builder\\/xml\\/XPathBuilder.java", 
+          "LINE": "1117", 
+          "MP_RANKING": "0", 
+          "SUSPICIOUNESS": "1", 
+          "PATCH_HUNK_TYPE": "CtIfImpl|CtBlockImpl"
+        }
+      ], 
+      "GENERATION": "1", 
+      "VARIANT_ID": "3", 
+      "TIME": "11", 
+      "VALIDATION": "|true|0|0|[]|", 
+      "FOLDER_SOLUTION_CODE": "\\/workdir\\/jKali_vul4j_apache_camel_VUL4J-4\\/.\\/output_astor\\/AstorMain-apache_camel-VUL4J-4\\/\\/src\\/\\/variant-3"
+    }
+  ]
+}

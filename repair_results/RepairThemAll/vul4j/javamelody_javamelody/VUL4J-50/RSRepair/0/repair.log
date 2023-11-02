@@ -1,0 +1,4896 @@
+cd /workdir/RSRepair_vul4j_javamelody_javamelody_VUL4J-50;
+export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en";
+TZ="America/New_York"; export TZ;
+export PATH="/usr/lib/jvm/java-8-openjdk-amd64/bin:$PATH";
+export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64";
+timeout 240m java -Xmx4g -Xms1g -XX:MaxPermSize=512m -cp /script/../libs/jmetal.jar:/script/../repair_tools/arja.jar us.msu.cse.repair.Main \
+	RSRepair \
+	-DexternalProjRoot /script/../libs/arja_external \
+	-DprojectDir /workdir/RSRepair_vul4j_javamelody_javamelody_VUL4J-50 \
+    -DtestFiltered false \
+    -DrunTestCommand "mvn test -pl javamelody-core -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B" \
+	-DsrcJavaDir /workdir/RSRepair_vul4j_javamelody_javamelody_VUL4J-50/javamelody-core/src/main/java \
+	-DbinJavaDir /workdir/RSRepair_vul4j_javamelody_javamelody_VUL4J-50/javamelody-core/target/classes \
+	-DbinTestDir /workdir/RSRepair_vul4j_javamelody_javamelody_VUL4J-50/javamelody-core/target/test-classes \
+	-DdiffFormat true \
+	-Dseed 0 \
+	-DgzoltarDataDir /script/../data/benchmarks/vul4j/perfectfl/VUL4J-50 \
+	-Ddependences /root/.m2/repository/javax/servlet/javax.servlet-api/3.0.1/javax.servlet-api-3.0.1.jar:/root/.m2/repository/org/springframework/spring-core/2.5.6/spring-core-2.5.6.jar:/root/.m2/repository/com/h2database/h2/1.3.170/h2-1.3.170.jar:/root/.m2/repository/org/jrobin/jrobin/1.5.9/jrobin-1.5.9.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/com/google/inject/guice/2.0/guice-2.0.jar:/root/.m2/repository/javax/ejb/ejb-api/3.0/ejb-api-3.0.jar:/root/.m2/repository/org/hibernate/hibernate-commons-annotations/3.2.0.Final/hibernate-commons-annotations-3.2.0.Final.jar:/root/.m2/repository/org/apache/tomcat/tomcat-juli/7.0.27/tomcat-juli-7.0.27.jar:/root/.m2/repository/commons-collections/commons-collections/3.1/commons-collections-3.1.jar:/root/.m2/repository/ch/qos/logback/logback-core/0.9.19/logback-core-0.9.19.jar:/root/.m2/repository/commons-logging/commons-logging/1.0.4/commons-logging-1.0.4.jar:/root/.m2/repository/commons-pool/commons-pool/1.3/commons-pool-1.3.jar:/root/.m2/repository/org/apache/tomcat/tomcat-jdbc/7.0.27/tomcat-jdbc-7.0.27.jar:/root/.m2/repository/net/sf/ehcache/ehcache/1.6.0/ehcache-1.6.0.jar:/root/.m2/repository/org/springframework/spring-beans/2.5.6/spring-beans-2.5.6.jar:/root/.m2/repository/antlr/antlr/2.7.6/antlr-2.7.6.jar:/root/.m2/repository/org/objenesis/objenesis/1.2/objenesis-1.2.jar:/root/.m2/repository/org/apache/tomcat/dbcp/6.0.18/dbcp-6.0.18.jar:/root/.m2/repository/org/hibernate/hibernate-core/3.6.9.Final/hibernate-core-3.6.9.Final.jar:/root/.m2/repository/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar:/root/.m2/repository/javax/transaction/jta/1.1/jta-1.1.jar:/root/.m2/repository/xmlpull/xmlpull/1.1.3.1/xmlpull-1.1.3.1.jar:/root/.m2/repository/org/springframework/spring-aop/2.5.6/spring-aop-2.5.6.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.5.11/slf4j-api-1.5.11.jar:/root/.m2/repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar:/root/.m2/repository/log4j/log4j/1.2.16/log4j-1.2.16.jar:/root/.m2/repository/com/thoughtworks/xstream/xstream/1.4.2/xstream-1.4.2.jar:/root/.m2/repository/javax/el/javax.el-api/2.2.1/javax.el-api-2.2.1.jar:/root/.m2/repository/javax/faces/javax.faces-api/2.1/javax.faces-api-2.1.jar:/root/.m2/repository/com/opensymphony/xwork/2.1.0/xwork-2.1.0.jar:/root/.m2/repository/cglib/cglib-nodep/2.2.2/cglib-nodep-2.2.2.jar:/root/.m2/repository/org/hibernate/javax/persistence/hibernate-jpa-2.0-api/1.0.1.Final/hibernate-jpa-2.0-api-1.0.1.Final.jar:/root/.m2/repository/org/easymock/easymock/3.1/easymock-3.1.jar:/root/.m2/repository/org/springframework/spring-context/2.5.6/spring-context-2.5.6.jar:/root/.m2/repository/com/sun/faces/jsf-impl/2.1.5/jsf-impl-2.1.5.jar:/root/.m2/repository/opensymphony/ognl/2.6.11/ognl-2.6.11.jar:/root/.m2/repository/javax/activation/activation/1.1/activation-1.1.jar:/root/.m2/repository/ch/qos/logback/logback-classic/0.9.19/logback-classic-0.9.19.jar:/root/.m2/repository/xpp3/xpp3_min/1.1.4c/xpp3_min-1.1.4c.jar:/root/.m2/repository/javax/mail/mail/1.4.1/mail-1.4.1.jar:/root/.m2/repository/commons-dbcp/commons-dbcp/1.2.2/commons-dbcp-1.2.2.jar:/root/.m2/repository/junit/junit/4.11/junit-4.11.jar:/root/.m2/repository/com/lowagie/itext/2.1.7/itext-2.1.7.jar:/root/.m2/repository/quartz/quartz/1.5.2/quartz-1.5.2.jar;
+	echo "\n\nNode: `hostname`\n";
+	echo "\n\nDate: `date`\n";
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en
+OpenJDK 64-Bit Server VM warning: ignoring option MaxPermSize=512m; support was removed in 8.0
+Fault localization starts...
+Number of positive tests: 276
+Number of negative tests: 1
+Negative tests: [net.bull.javamelody.TestHtmlSessionInformationsReport#testCVE_2013_4378]
+Faulty Lines: 
+net.bull.javamelody.HtmlSessionInformationsReport#162:1.0
+Fault localization is finished!
+AST parsing starts...
+AST parsing is finished!
+Detection of local variables starts...
+Detection of local variables is finished!
+Detection of fields starts...
+Detection of fields is finished!
+Detection of methods starts...
+Detection of methods is finished!
+Ingredient screener starts...
+Ingredient screener is finished!
+Initialization of manipulations starts...
+Initialization of manipulations is finished!
+Filtering of the tests starts...
+Number of positive tests considered: 276
+Filtering of the tests is finished!
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
++			writeln("&amp;format=pdf' title='#afficher_PDF#'>");
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
++			final Counter strutsCounter = MonitoringProxy.getStrutsCounter();
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,6 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
++			LogbackAppender.getSingleton().register();
+write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,6 +159,10 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
++			LOG.debug("OS: " + System.getProperty("os.name") + ' '
++					+ System.getProperty("sun.os.patch.level") + ", "
++					+ System.getProperty("os.arch") + '/'
++					+ System.getProperty("sun.arch.data.model"));
+write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
++			write("<img src='?resource=bullets/green.png' alt='#JobWithoutLastException#' title='#JobWithoutLastException#'/>");
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,6 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
++			writeln("<a href='?part=connections'>");
+write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
++			write("<th>#Job#</th>");
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
++			writeln("#Aucune_requete#");
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
++			final String separator = "   ";
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
++			final List<String> debuggingLogs = LOG.getDebuggingLogs();
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,6 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
++			writeln("</font></blockquote></blockquote>");
+write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
++			write("<th class='sorttable_numeric'>#Age#</th><th class='sorttable_date'>#Expiration#</th>");
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
++			writeln("      Effect.SlideUp(id, { duration: 0.5 });");
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,6 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
++			double systemLoadAverage = 0;
+write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,6 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
++			writeln("</div>\n");
+write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,6 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
++			write("<img src='?resource=processes.png' width='20' height='20' alt=\"#processes#\" /> #processes#</a>");
+write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
++			write("<img src='?resource=memory.png' width='20' height='20' alt=\"#heaphisto#\" /> #heaphisto#</a>");
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,6 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
++			write(nextColumnAlignRight);
+write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
++			writeln("target='_blank'>Configuration reference</a>");
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
++			Runtime.getRuntime().gc();
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
++			writeln("<br/>#connexions_intro#<br/><br/>");
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,6 +159,8 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
++			LOG.debug("Java: " + System.getProperty("java.runtime.name") + ", "
++					+ System.getProperty("java.runtime.version"));
+write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,6 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
++			writeln("</select>");
+write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
++			writeln("</td> ");
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
++			writeln("<td>");
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
++			writeDirectly("</b><br/>\n");
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
++			write("&amp;action=invalidate_session&amp;sessionId=");
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
++			writeln("</div> <br/>");
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,6 +159,9 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
++			if (LOG.LOG4J_ENABLED) {
++				Log4JAppender.getSingleton().deregister();
++			}
+write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,6 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
++			write(" <b>");
+write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,6 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
++			writeln("</div>");
+write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
++			writeln("<br/><div style='font-size:10pt;'>");
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,8 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
++			writeln(getFormattedString("Dernieres_erreurs_seulement",
++					Counter.MAX_ERRORS_COUNT));
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
++			writeln("<img width='24' height='24' src='?resource=hourglass.png' alt='#Requetes_en_cours#'/>#Requetes_en_cours#</h3>");
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,6 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
++			LogbackAppender.getSingleton().deregister();
+write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,8 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
++			final String displayedCounters = Parameters
++					.getParameter(Parameter.DISPLAYED_COUNTERS);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
++			write("<a href='?part=jndi'>");
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,12 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
++			if (isPdfEnabled()) {
++				writeln("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
++				write(A_HREF_PART_SESSIONS
++						+ "&amp;format=pdf' title='#afficher_PDF#'>");
++				write("<img src='?resource=pdf.png' alt='#PDF#'/> #PDF#</a>");
++			}
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
++			writeDirectly("</a>");
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,6 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
++			writeln("    if (document.getElementById(id + 'Img') != null) {");
+write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,6 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
++			int sum = 0;
+write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
++			write("<div align='right' class='noPrint'>");
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
++			final String moyenneLabel = I18N.getString("Moyenne");
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
++			write("&nbsp;");
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,6 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
++			writeln("<a href=\"javascript:showHide('customPeriod');document.customPeriodForm.startDate.focus();\" ");
+write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,6 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
++			write(" onmouseover=\"document.getElementById('");
+write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,6 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
++			writeln("   }");
+write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,11 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
++			if (isPdfEnabled()) {
++				writeln("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
++				write("<a href='?part=currentRequests&amp;format=pdf' title='#afficher_PDF#' class='noPrint'>");
++				write("<img src='?resource=pdf.png' alt='#PDF#'/> #PDF#</a>");
++			}
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,6 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
++			int index = 0;
+write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
++			Throwable systemException = null;
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
++			boolean supportCompression = false;
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
++			writeln("        images[i].style.width = w + 'px';");
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
++			writeDirectly(" try{\n");
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,6 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
++			write("<th class='sorttable_date'>#JobPreviousFireTime#</th>");
+write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
++			writeln("&nbsp;&nbsp;&nbsp;<a href='?part=pom.xml' class='noPrint'>");
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
++			write("<tr><td>#Charge_systeme#</td><td>");
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,6 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
++			write("</td> <td align='center' class='noPrint'>");
+write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
++			int sessionCount = 0;
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,6 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
++			final String max = "max";
+write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,6 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
++			write("<th class='sorttable_numeric'>#Temps_max#</th>");
+write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,6 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
++			write("<img src='?resource=processes.png' width='20' height='20' alt=\"#processes#\" /> #processes#</a>");
+write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,6 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
++			write("<th class='sorttable_numeric'>#PID#</th>");
+write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,6 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
++			writeln("<br/><a href='?part=threadsDump'><img src='?resource=text.png' alt='#Dump_threads_en_texte#'/>&nbsp;#Dump_threads_en_texte#</a>");
+write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,6 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
++			LOG.debug("JavaMelody report servlet initialized");
+write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,6 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
++			writeln("#Temps_threads#");
+write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,6 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
++			boolean pomXmlExists = false;
+write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,6 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
++			writeln("  height = Math.round(width * initialHeight / initialWidth) - 48;");
+write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
++			CounterRequest myRequest = null;
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
++			final StringBuilder msg = new StringBuilder();
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
++			final String newColumnRight = "</td><td align='right'>";
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,8 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
++			JdbcWrapper.SINGLETON.initServletContext(Parameters
++					.getServletContext());
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
++			writeln("  scaleImage(value, initialWidth, initialWidth / 2 * 3);");
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
++			writeln("<script type='text/javascript' src='?resource=resizable_tables.js'></script>");
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,6 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
++			write("</td> <td align='center' class='noPrint'>");
+write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
++			JdbcWrapper.ACTIVE_THREAD_COUNT.incrementAndGet();
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
++			writeln("<img width='24' height='24' src='?resource=threads.png' alt='#Threads#'/>");
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,6 +159,9 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
++			if (displayUser) {
++				write("<th>#Utilisateur#</th>");
++			}
+write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,6 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
++			write("<img src='?resource=user-trash.png' width='18' height='18' alt=\"#invalidate_sessions#\" /> #invalidate_sessions#</a>");
+write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,6 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
++			write("<th class='noPrint'>#Purger#</th>");
+write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,6 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
++			write(durationFormat.format(session.getLastAccess()));
+write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
++			writeln("<div id='addApplication' style='display: none;'>");
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,6 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
++			JRobin.stop();
+write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,6 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
++			Log4JAppender.getSingleton().deregister();
+write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,6 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
++			writeDirectly("</a>");
+write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,6 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
++			writeln("<img src='?resource=control_pause_blue.png' width='18' height='18' alt=\"#Pause_all_jobs#\" /> #Pause_all_jobs#</a>");
+write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
++			writeln("<th class='sorttable_numeric'>#erreur_systeme#</th>");
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
++			final String separator = "   ";
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,6 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
++			System.getProperty("java.io.tmpdir");
+write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,6 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
++			writeln("</div>\n");
+write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
++			final MBeanNode platformNode = new MBeanNode("");
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,6 +159,8 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
++			final long startCpuTime = ThreadInformations
++					.getCurrentThreadCpuTime();
+write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,6 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
++			writeln("&nbsp;");
+write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,6 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
++			writeln("   return true;");
+write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,6 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
++			int ip = 0;
+write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,6 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
++			writeShowHideLink("detailsGraphs", "#Autres_courbes#");
+write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,6 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
++			int tomcatBusyThreads = 0;
+write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,6 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
++			write("<h3><a name='currentRequests'></a>");
+write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
++			I18N.unbindLocale();
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,6 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
++			write("<th class='sorttable_numeric'>#temps_cumule#</th>");
+write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
++			writeln("<br />");
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,6 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
++			write("' alt='graph'/></em>");
+write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,6 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
++			writeln("var slider = new Control.Slider('handle', 'track', {axis:'horizontal', alignX: 0, increment: 2});");
+write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,6 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
++			String separator = " ";
+write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,8 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
++			final boolean sqlMonitoringDisabled = JdbcWrapper.SINGLETON
++					.isSqlMonitoringDisabled();
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,6 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
++			writeln("<div id='track' class='noPrint'>");
+write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,6 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
++			final String remoteUser = session.getRemoteUser();
+write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
++			writeln("<div class='noPrint'>");
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
++			writeln("<img class='noPrint' style='position: absolute; top: 15px; right: 10px; border: 0;' src='?resource=donate.gif' alt='Donate' /></a>");
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
++			write("' />");
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
++			write("<td>");
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,6 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
++			final QuartzAdapter quartzAdapter = QuartzAdapter.getSingleton();
+write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
++			writeDirectly("</tbody></table>\n");
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,6 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
++			writeln("      Effect.SlideUp(id, { duration: 0.5 });");
+write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,6 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
++			writeln("    for (i = 0; i < images.length; i++) {");
+write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
++			write("<th class='sorttable_numeric'>#Adresse_IP#</th><th>#Pays#</th>");
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,6 +159,9 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
++			if (JobInformations.QUARTZ_AVAILABLE) {
++				JobGlobalListener.initJobGlobalListener();
++			}
+write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
++			writeln("<a href=\"javascript:showHide('addApplication');document.appForm.appName.focus();\"");
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
++			write("<th class='sorttable_numeric'>#Pourcentage_memoire_utilise#</th>");
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,6 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
++			write("<th class='noPrint'>#Resume_job#</th>");
+write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,6 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
++			writeln("<img src='?resource=action_back.png' alt='#Retour#'/> #Retour#</a>");
+write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
++			JdbcWrapper.ACTIVE_THREAD_COUNT.decrementAndGet();
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,6 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
++			writeln("function scaleImage(v, min, max) {");
+write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,6 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
++			write("<a href='?part=hotspots'>");
+write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,6 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
++			write("<th>#JobLastException#</th>");
+write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
++			writeDirectly("\n");
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
++			LOG.debug("JavaMelody version: " + Parameters.JAVAMELODY_VERSION);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
++			writeln("</body></html>");
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
++			writeln("target='_blank'>Configuration reference</a></div>");
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,6 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
++			writeln("<script type='text/javascript' src='?resource=resizable_tables.js'></script>");
+write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,6 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
++			writeln("<a href='?part=heaphisto'><img src='?resource=action_refresh.png' alt='#Actualiser#'/> #Actualiser#</a>");
+write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
++			boolean supportCompression = false;
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,6 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
++			writeln("</td>");
+write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,6 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
++			write("<td><a href='?part=sessions&amp;sessionId=");
+write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,6 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
++			writeln("    }");
+write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,6 +159,8 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
++			final int counterRequestIdLength = new CounterRequest("", "")
++					.getId().length();
+write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,6 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
++			LogbackAppender.getSingleton().deregister();
+write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
++			int activeConnectionCount = 0;
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
++			writeln("<script type='text/javascript' src='?resource=resizable_tables.js'></script>");
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,6 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
++			writeln("<a href='javascript:history.back()'>");
+write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
++			write("</th>");
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,6 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
++			LOG.debug("Initialization of Quartz default listener has been disabled");
+write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,6 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
++			writeDirectly(" prio=");
+write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
++			writeln(" <br/>");
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,6 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
++			Action.checkSystemActionsEnabled();
+write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
++			write(urlEncode(session.getId()));
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,8 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
++			LOG.debug("Java: " + System.getProperty("java.runtime.name") + ", "
++					+ System.getProperty("java.runtime.version"));
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
++			writeln("</table>");
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,6 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
++			long garbageCollectionTime = 0;
+write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,6 +159,9 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
++			if (Parameters.JAVAMELODY_VERSION != null) {
++				writeln("<br/><br/>JavaMelody " + Parameters.JAVAMELODY_VERSION);
++			}
+write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,6 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
++			writeln("<blockquote><blockquote><b>Stack-trace</b><br/><font size='-1'>");
+write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
++			writeln("<br/><b>#Heap#</b>");
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,6 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
++			writeln("#caches_statistics_enable#<br/>");
+write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
++			write(durationFormat.format(session.getLastAccess()));
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
++			writeln("<img src='?resource=broom.png' width='16' height='16' alt='#ramasse_miette#' /> #ramasse_miette#</a>");
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
++			writeln("#Temps_threads#");
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
++			write("<img src='?resource=xml.png' width='20' height='20' alt=\"#web.xml#\" /> #web.xml#</a>");
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,8 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
++			final long startCpuTime = ThreadInformations
++					.getCurrentThreadCpuTime();
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,6 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
++			writeln("  height = Math.round(width * initialHeight / initialWidth) - 48;");
+write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
++			writeln("<h3><a name='caches'></a><img width='24' height='24' src='?resource=caches.png' alt='#Caches#'/>");
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,6 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
++			writeln("<script type='text/javascript' src='?resource=slider.js'></script>");
+write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,6 +159,8 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
++			final long startCpuTime = ThreadInformations
++					.getCurrentThreadCpuTime();
+write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,6 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
++			writeln("   return true;");
+write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
++			writeln("<th class='sorttable_numeric'>#Hits_par_requete#</th>");
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
++			LOG.debug("JavaMelody listener init started");
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,6 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
++			Counter rangeJobCounter = null;
+write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,6 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
++			write("</div>");
+write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
++			writeDirectly(" try{\n");
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,6 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
++			write("<a href='?format=pdf' title='#afficher_PDF#'>");
+write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
++			write("<th class='sorttable_numeric'>#Temps_cpu#</th><th class='sorttable_numeric'>#Temps_user#</th>");
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
++			write("<tr><td>#Charge_systeme#</td><td>");
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,6 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
++			write("<td align='center' class='noPrint'>");
+write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
++			LOG.debug("log listeners initialized");
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,6 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
++			double systemLoadAverage = 0;
+write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,6 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
++			write(nextColumnAlignRight);
+write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,8 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
++			writeln("<a href='?action=clear_caches' onclick=\"javascript:return confirm('"
++					+ getStringForJavascript("confirm_purge_caches") + "');\">");
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
++			LOG.debug("Initialization of Quartz default listener has been disabled");
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,6 +159,8 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
++			writeDirectly("<a href='http://commons.apache.org/dbcp/apidocs/org/apache/commons/dbcp/BasicDataSource.html'"
++					+ " class='noPrint' target='_blank'>DataSource reference</a>");
+write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
++			writeTitle("threads.png", getString("Threads"));
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,6 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
++			write("<tr><td>#Charge_systeme#</td><td>");
+write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,6 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
++			writeln("#Aucune_session#");
+write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,6 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
++			writeln("<a href='javascript:history.back()'>");
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
++			final int periodMillis = Parameters.getResolutionSeconds() * 1000;
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,7 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
+-			write(remoteAddr);
++			write("<th>#cpuTime#</th><th>#command#</th>");
+}
+write(nextColumnAlignCenter);
+writeCountry(session);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -159,6 +159,7 @@ class HtmlSessionInformationsReport extends HtmlAbstractReport {
+if (remoteAddr == null) {
+write("&nbsp;");
+} else {
++			writeDirectly("<table class='sortable' width='100%' border='1' cellspacing='0' cellpadding='2' summary='");
+write(remoteAddr);
+}
+write(nextColumnAlignCenter);
+
+
+Node: 158fac6bc2aa
+
+
+
+Date: Sun Oct 16 05:34:49 EDT 2022
+

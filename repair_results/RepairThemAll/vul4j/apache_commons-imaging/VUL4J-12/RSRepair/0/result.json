@@ -1,0 +1,174 @@
+{
+  "repair_end": "2022-10-12 06:20:55.580498", 
+  "repair_begin": "2022-10-12 02:20:48.740856", 
+  "patches": [
+    {
+      "edits": [
+        {
+          "path": "src/main/java/org/apache/commons/imaging/formats/jpeg/decoder/JpegDecoder.java", 
+          "line": 403, 
+          "faulty": "while (v < vt) {\n  vt=(-1 << t) + 1;\n  v+=vt;\n}", 
+          "type": "Replace", 
+          "seed": "int vMax=0;"
+        }
+      ], 
+      "patch": "--- /workdir/RSRepair_vul4j_apache_commons-imaging_VUL4J-12/src/main/java/org/apache/commons/imaging/formats/jpeg/decoder/JpegDecoder.java\t2022-10-12 02:18:07.527855855 -0400\n+++ /workdir/RSRepair_vul4j_apache_commons-imaging_VUL4J-12/patches_l7nw/Patch_13/patched/org/apache/commons/imaging/formats/jpeg/decoder/JpegDecoder.java\t2022-10-12 02:18:07.539855925 -0400\n@@ -400,10 +400,7 @@\n     private int extend(int v, final int t) {\n         // \"EXTEND\", section F.2.2.1, figure F.12, page 105 of T.81\n         int vt = (1 << (t - 1));\n-        while (v < vt) {\n-            vt = (-1 << t) + 1;\n-            v += vt;\n-        }\n+        int vMax = 0;\n         return v;\n     }\n \n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "src/main/java/org/apache/commons/imaging/formats/jpeg/decoder/JpegDecoder.java", 
+          "line": 403, 
+          "faulty": "while (v < vt) {\n  vt=(-1 << t) + 1;\n  v+=vt;\n}", 
+          "type": "Replace", 
+          "seed": "int dstRowOffset=0;"
+        }
+      ], 
+      "patch": "--- /workdir/RSRepair_vul4j_apache_commons-imaging_VUL4J-12/src/main/java/org/apache/commons/imaging/formats/jpeg/decoder/JpegDecoder.java\t2022-10-11 23:04:26.362975495 -0400\n+++ /workdir/RSRepair_vul4j_apache_commons-imaging_VUL4J-12/patches_l7nw/Patch_4/patched/org/apache/commons/imaging/formats/jpeg/decoder/JpegDecoder.java\t2022-10-11 23:04:26.374975564 -0400\n@@ -400,10 +400,7 @@\n     private int extend(int v, final int t) {\n         // \"EXTEND\", section F.2.2.1, figure F.12, page 105 of T.81\n         int vt = (1 << (t - 1));\n-        while (v < vt) {\n-            vt = (-1 << t) + 1;\n-            v += vt;\n-        }\n+        int dstRowOffset = 0;\n         return v;\n     }\n \n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "src/main/java/org/apache/commons/imaging/formats/jpeg/decoder/JpegDecoder.java", 
+          "line": 403, 
+          "faulty": "while (v < vt) {\n  vt=(-1 << t) + 1;\n  v+=vt;\n}", 
+          "type": "Replace", 
+          "seed": "final int max=(1 << sofnSegment.precision) - 1;"
+        }
+      ], 
+      "patch": "--- /workdir/RSRepair_vul4j_apache_commons-imaging_VUL4J-12/src/main/java/org/apache/commons/imaging/formats/jpeg/decoder/JpegDecoder.java\t2022-10-11 23:10:33.429045535 -0400\n+++ /workdir/RSRepair_vul4j_apache_commons-imaging_VUL4J-12/patches_l7nw/Patch_5/patched/org/apache/commons/imaging/formats/jpeg/decoder/JpegDecoder.java\t2022-10-11 23:10:33.445045625 -0400\n@@ -400,10 +400,7 @@\n     private int extend(int v, final int t) {\n         // \"EXTEND\", section F.2.2.1, figure F.12, page 105 of T.81\n         int vt = (1 << (t - 1));\n-        while (v < vt) {\n-            vt = (-1 << t) + 1;\n-            v += vt;\n-        }\n+        final int max = (1 << sofnSegment.precision) - 1;\n         return v;\n     }\n \n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "src/main/java/org/apache/commons/imaging/formats/jpeg/decoder/JpegDecoder.java", 
+          "line": 403, 
+          "faulty": "while (v < vt) {\n  vt=(-1 << t) + 1;\n  v+=vt;\n}", 
+          "type": "Replace", 
+          "seed": "ZigZag.zigZagToBlock(zz,blockInt);"
+        }
+      ], 
+      "patch": "--- /workdir/RSRepair_vul4j_apache_commons-imaging_VUL4J-12/src/main/java/org/apache/commons/imaging/formats/jpeg/decoder/JpegDecoder.java\t2022-10-12 01:28:47.252105122 -0400\n+++ /workdir/RSRepair_vul4j_apache_commons-imaging_VUL4J-12/patches_l7nw/Patch_11/patched/org/apache/commons/imaging/formats/jpeg/decoder/JpegDecoder.java\t2022-10-12 01:28:47.260105162 -0400\n@@ -400,10 +400,7 @@\n     private int extend(int v, final int t) {\n         // \"EXTEND\", section F.2.2.1, figure F.12, page 105 of T.81\n         int vt = (1 << (t - 1));\n-        while (v < vt) {\n-            vt = (-1 << t) + 1;\n-            v += vt;\n-        }\n+        ZigZag.zigZagToBlock(zz, blockInt);\n         return v;\n     }\n \n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "src/main/java/org/apache/commons/imaging/formats/jpeg/decoder/JpegDecoder.java", 
+          "line": 403, 
+          "faulty": "while (v < vt) {\n  vt=(-1 << t) + 1;\n  v+=vt;\n}", 
+          "type": "Replace", 
+          "seed": "int srcNext=0;"
+        }
+      ], 
+      "patch": "--- /workdir/RSRepair_vul4j_apache_commons-imaging_VUL4J-12/src/main/java/org/apache/commons/imaging/formats/jpeg/decoder/JpegDecoder.java\t2022-10-11 23:26:57.170603174 -0400\n+++ /workdir/RSRepair_vul4j_apache_commons-imaging_VUL4J-12/patches_l7nw/Patch_6/patched/org/apache/commons/imaging/formats/jpeg/decoder/JpegDecoder.java\t2022-10-11 23:26:57.178603219 -0400\n@@ -400,10 +400,7 @@\n     private int extend(int v, final int t) {\n         // \"EXTEND\", section F.2.2.1, figure F.12, page 105 of T.81\n         int vt = (1 << (t - 1));\n-        while (v < vt) {\n-            vt = (-1 << t) + 1;\n-            v += vt;\n-        }\n+        int srcNext = 0;\n         return v;\n     }\n \n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "src/main/java/org/apache/commons/imaging/formats/jpeg/decoder/JpegDecoder.java", 
+          "line": 403, 
+          "faulty": "while (v < vt) {\n  vt=(-1 << t) + 1;\n  v+=vt;\n}", 
+          "type": "Replace", 
+          "seed": "int i=0;"
+        }
+      ], 
+      "patch": "--- /workdir/RSRepair_vul4j_apache_commons-imaging_VUL4J-12/src/main/java/org/apache/commons/imaging/formats/jpeg/decoder/JpegDecoder.java\t2022-10-11 22:52:09.846779415 -0400\n+++ /workdir/RSRepair_vul4j_apache_commons-imaging_VUL4J-12/patches_l7nw/Patch_2/patched/org/apache/commons/imaging/formats/jpeg/decoder/JpegDecoder.java\t2022-10-11 22:52:09.854779461 -0400\n@@ -400,10 +400,7 @@\n     private int extend(int v, final int t) {\n         // \"EXTEND\", section F.2.2.1, figure F.12, page 105 of T.81\n         int vt = (1 << (t - 1));\n-        while (v < vt) {\n-            vt = (-1 << t) + 1;\n-            v += vt;\n-        }\n+        int i = 0;\n         return v;\n     }\n \n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "src/main/java/org/apache/commons/imaging/formats/jpeg/decoder/JpegDecoder.java", 
+          "line": 403, 
+          "faulty": "while (v < vt) {\n  vt=(-1 << t) + 1;\n  v+=vt;\n}", 
+          "type": "Replace", 
+          "seed": "final int[] quantizationMatrixInt=new int[64];"
+        }
+      ], 
+      "patch": "--- /workdir/RSRepair_vul4j_apache_commons-imaging_VUL4J-12/src/main/java/org/apache/commons/imaging/formats/jpeg/decoder/JpegDecoder.java\t2022-10-11 23:43:27.076111541 -0400\n+++ /workdir/RSRepair_vul4j_apache_commons-imaging_VUL4J-12/patches_l7nw/Patch_8/patched/org/apache/commons/imaging/formats/jpeg/decoder/JpegDecoder.java\t2022-10-11 23:43:27.088111608 -0400\n@@ -400,10 +400,7 @@\n     private int extend(int v, final int t) {\n         // \"EXTEND\", section F.2.2.1, figure F.12, page 105 of T.81\n         int vt = (1 << (t - 1));\n-        while (v < vt) {\n-            vt = (-1 << t) + 1;\n-            v += vt;\n-        }\n+        final int[] quantizationMatrixInt = new int[64];\n         return v;\n     }\n \n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "src/main/java/org/apache/commons/imaging/formats/jpeg/decoder/JpegDecoder.java", 
+          "line": 403, 
+          "faulty": "while (v < vt) {\n  vt=(-1 << t) + 1;\n  v+=vt;\n}", 
+          "type": "Replace", 
+          "seed": "Arrays.fill(zz,0);"
+        }
+      ], 
+      "patch": "--- /workdir/RSRepair_vul4j_apache_commons-imaging_VUL4J-12/src/main/java/org/apache/commons/imaging/formats/jpeg/decoder/JpegDecoder.java\t2022-10-12 00:24:38.205185900 -0400\n+++ /workdir/RSRepair_vul4j_apache_commons-imaging_VUL4J-12/patches_l7nw/Patch_10/patched/org/apache/commons/imaging/formats/jpeg/decoder/JpegDecoder.java\t2022-10-12 00:24:38.217185960 -0400\n@@ -400,10 +400,7 @@\n     private int extend(int v, final int t) {\n         // \"EXTEND\", section F.2.2.1, figure F.12, page 105 of T.81\n         int vt = (1 << (t - 1));\n-        while (v < vt) {\n-            vt = (-1 << t) + 1;\n-            v += vt;\n-        }\n+        Arrays.fill(zz, 0);\n         return v;\n     }\n \n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "src/main/java/org/apache/commons/imaging/formats/jpeg/decoder/JpegDecoder.java", 
+          "line": 403, 
+          "faulty": "while (v < vt) {\n  vt=(-1 << t) + 1;\n  v+=vt;\n}", 
+          "type": "Replace", 
+          "seed": "final float[] quantizationMatrixFloat=new float[64];"
+        }
+      ], 
+      "patch": "--- /workdir/RSRepair_vul4j_apache_commons-imaging_VUL4J-12/src/main/java/org/apache/commons/imaging/formats/jpeg/decoder/JpegDecoder.java\t2022-10-11 22:48:04.493364828 -0400\n+++ /workdir/RSRepair_vul4j_apache_commons-imaging_VUL4J-12/patches_l7nw/Patch_1/patched/org/apache/commons/imaging/formats/jpeg/decoder/JpegDecoder.java\t2022-10-11 22:48:04.497364852 -0400\n@@ -400,10 +400,7 @@\n     private int extend(int v, final int t) {\n         // \"EXTEND\", section F.2.2.1, figure F.12, page 105 of T.81\n         int vt = (1 << (t - 1));\n-        while (v < vt) {\n-            vt = (-1 << t) + 1;\n-            v += vt;\n-        }\n+        final float[] quantizationMatrixFloat = new float[64];\n         return v;\n     }\n \n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "src/main/java/org/apache/commons/imaging/formats/jpeg/decoder/JpegDecoder.java", 
+          "line": 403, 
+          "faulty": "while (v < vt) {\n  vt=(-1 << t) + 1;\n  v+=vt;\n}", 
+          "type": "Delete", 
+          "seed": "final Block[] mcu=new Block[sosSegment.numberOfComponents];"
+        }
+      ], 
+      "patch": "--- /workdir/RSRepair_vul4j_apache_commons-imaging_VUL4J-12/src/main/java/org/apache/commons/imaging/formats/jpeg/decoder/JpegDecoder.java\t2022-10-11 22:25:26.905506215 -0400\n+++ /workdir/RSRepair_vul4j_apache_commons-imaging_VUL4J-12/patches_l7nw/Patch_0/patched/org/apache/commons/imaging/formats/jpeg/decoder/JpegDecoder.java\t2022-10-11 22:25:26.925506331 -0400\n@@ -400,10 +400,6 @@\n     private int extend(int v, final int t) {\n         // \"EXTEND\", section F.2.2.1, figure F.12, page 105 of T.81\n         int vt = (1 << (t - 1));\n-        while (v < vt) {\n-            vt = (-1 << t) + 1;\n-            v += vt;\n-        }\n         return v;\n     }\n \n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "src/main/java/org/apache/commons/imaging/formats/jpeg/decoder/JpegDecoder.java", 
+          "line": 403, 
+          "faulty": "while (v < vt) {\n  vt=(-1 << t) + 1;\n  v+=vt;\n}", 
+          "type": "Replace", 
+          "seed": "final int[] preds=new int[sofnSegment.numberOfComponents];"
+        }
+      ], 
+      "patch": "--- /workdir/RSRepair_vul4j_apache_commons-imaging_VUL4J-12/src/main/java/org/apache/commons/imaging/formats/jpeg/decoder/JpegDecoder.java\t2022-10-11 22:56:15.372194192 -0400\n+++ /workdir/RSRepair_vul4j_apache_commons-imaging_VUL4J-12/patches_l7nw/Patch_3/patched/org/apache/commons/imaging/formats/jpeg/decoder/JpegDecoder.java\t2022-10-11 22:56:15.388194284 -0400\n@@ -400,10 +400,7 @@\n     private int extend(int v, final int t) {\n         // \"EXTEND\", section F.2.2.1, figure F.12, page 105 of T.81\n         int vt = (1 << (t - 1));\n-        while (v < vt) {\n-            vt = (-1 << t) + 1;\n-            v += vt;\n-        }\n+        final int[] preds = new int[sofnSegment.numberOfComponents];\n         return v;\n     }\n \n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "src/main/java/org/apache/commons/imaging/formats/jpeg/decoder/JpegDecoder.java", 
+          "line": 403, 
+          "faulty": "while (v < vt) {\n  vt=(-1 << t) + 1;\n  v+=vt;\n}", 
+          "type": "Replace", 
+          "seed": "final int shift=(1 << (sofnSegment.precision - 1));"
+        }
+      ], 
+      "patch": "--- /workdir/RSRepair_vul4j_apache_commons-imaging_VUL4J-12/src/main/java/org/apache/commons/imaging/formats/jpeg/decoder/JpegDecoder.java\t2022-10-12 01:55:24.808470427 -0400\n+++ /workdir/RSRepair_vul4j_apache_commons-imaging_VUL4J-12/patches_l7nw/Patch_12/patched/org/apache/commons/imaging/formats/jpeg/decoder/JpegDecoder.java\t2022-10-12 01:55:24.824470511 -0400\n@@ -400,10 +400,7 @@\n     private int extend(int v, final int t) {\n         // \"EXTEND\", section F.2.2.1, figure F.12, page 105 of T.81\n         int vt = (1 << (t - 1));\n-        while (v < vt) {\n-            vt = (-1 << t) + 1;\n-            v += vt;\n-        }\n+        final int shift = (1 << (sofnSegment.precision - 1));\n         return v;\n     }\n \n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "src/main/java/org/apache/commons/imaging/formats/jpeg/decoder/JpegDecoder.java", 
+          "line": 403, 
+          "faulty": "while (v < vt) {\n  vt=(-1 << t) + 1;\n  v+=vt;\n}", 
+          "type": "Replace", 
+          "seed": "int k=1;"
+        }
+      ], 
+      "patch": "--- /workdir/RSRepair_vul4j_apache_commons-imaging_VUL4J-12/src/main/java/org/apache/commons/imaging/formats/jpeg/decoder/JpegDecoder.java\t2022-10-11 23:57:52.196914655 -0400\n+++ /workdir/RSRepair_vul4j_apache_commons-imaging_VUL4J-12/patches_l7nw/Patch_9/patched/org/apache/commons/imaging/formats/jpeg/decoder/JpegDecoder.java\t2022-10-11 23:57:52.200914677 -0400\n@@ -400,10 +400,7 @@\n     private int extend(int v, final int t) {\n         // \"EXTEND\", section F.2.2.1, figure F.12, page 105 of T.81\n         int vt = (1 << (t - 1));\n-        while (v < vt) {\n-            vt = (-1 << t) + 1;\n-            v += vt;\n-        }\n+        int k = 1;\n         return v;\n     }\n \n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "src/main/java/org/apache/commons/imaging/formats/jpeg/decoder/JpegDecoder.java", 
+          "line": 403, 
+          "faulty": "while (v < vt) {\n  vt=(-1 << t) + 1;\n  v+=vt;\n}", 
+          "type": "Replace", 
+          "seed": "int srcRowOffset=0;"
+        }
+      ], 
+      "patch": "--- /workdir/RSRepair_vul4j_apache_commons-imaging_VUL4J-12/src/main/java/org/apache/commons/imaging/formats/jpeg/decoder/JpegDecoder.java\t2022-10-11 23:29:00.039298215 -0400\n+++ /workdir/RSRepair_vul4j_apache_commons-imaging_VUL4J-12/patches_l7nw/Patch_7/patched/org/apache/commons/imaging/formats/jpeg/decoder/JpegDecoder.java\t2022-10-11 23:29:00.055298305 -0400\n@@ -400,10 +400,7 @@\n     private int extend(int v, final int t) {\n         // \"EXTEND\", section F.2.2.1, figure F.12, page 105 of T.81\n         int vt = (1 << (t - 1));\n-        while (v < vt) {\n-            vt = (-1 << t) + 1;\n-            v += vt;\n-        }\n+        int srcRowOffset = 0;\n         return v;\n     }\n \n\n\n"
+    }
+  ]
+}

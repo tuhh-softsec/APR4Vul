@@ -1,0 +1,570 @@
+cd /workdir/jGenProg_vul4j_apache_cxf_VUL4J-15;
+export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en";
+TZ="America/New_York"; export TZ;
+export PATH="/usr/lib/jvm/java-8-openjdk-amd64/bin:$PATH";
+export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64/bin";
+time java -Xmx4g -Xms1g -XX:MaxPermSize=512m -cp /script/../libs/jtestex7.jar:/script/../repair_tools/astor.jar fr.inria.main.evolution.AstorMain \
+	-mode jgenprog \
+	-location . \
+	-id apache_cxf-VUL4J-15 \
+	-failing org.apache.cxf.jaxrs.provider.atom.AtomPojoProviderTest#testReadEntryNoBuilders2:org.apache.cxf.jaxrs.provider.atom.AtomPojoProviderTest#testReadFeedWithoutBuilders2 \
+	-jvm4testexecution /usr/lib/jvm/java-8-openjdk-amd64/bin \
+	-jvm4evosuitetestexecution /usr/lib/jvm/java-8-openjdk-amd64/bin \
+	-maxgen 1000000 \
+	-maxtime 120 \
+	-stopfirst true \
+	-seed 0 \
+	-scope local \
+	-population 1 \
+	-javacompliancelevel 8 \
+	-faultlocalization perfect \
+    -perfectdata /script/../data/benchmarks/vul4j/perfectfl/VUL4J-15 \
+    -validation externalcmd \
+    -testfailingcmd "mvn -pl rt/rs/extensions/providers -Dtest=org.apache.cxf.jaxrs.provider.atom.AtomPojoProviderTest test -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B" \
+    -testallcmd "mvn -pl rt/rs/extensions/providers -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B"  \ \
+	-srcjavafolder rt/rs/extensions/providers/src/main/java \
+	-srctestfolder rt/rs/extensions/providers/src/test/java \
+	-binjavafolder rt/rs/extensions/providers/target/classes \
+	-bintestfolder rt/rs/extensions/providers/target/test-classes \
+	-parameters x:x \
+	-dependencies /workdir/jGenProg_vul4j_apache_cxf_VUL4J-15/rt/rs/extensions/providers/target/classes:/root/.m2/repository/org/apache/geronimo/specs/geronimo-javamail_1.4_spec/1.7.1/geronimo-javamail_1.4_spec-1.7.1.jar:/root/.m2/repository/stax/stax-api/1.0.1/stax-api-1.0.1.jar:/root/.m2/repository/org/apache/abdera/abdera-parser/1.1.3/abdera-parser-1.1.3.jar:/root/.m2/repository/com/sun/xml/bind/jaxb-core/2.2.11/jaxb-core-2.2.11.jar:/root/.m2/repository/org/ow2/asm/asm/5.0.4/asm-5.0.4.jar:/root/.m2/repository/org/apache/ws/commons/axiom/axiom-impl/1.2.14/axiom-impl-1.2.14.jar:/root/.m2/repository/org/apache/cxf/cxf-rt-databinding-xmlbeans/3.2.0-SNAPSHOT/cxf-rt-databinding-xmlbeans-3.2.0-SNAPSHOT.jar:/root/.m2/repository/org/apache/james/apache-mime4j-core/0.7.2/apache-mime4j-core-0.7.2.jar:/root/.m2/repository/cglib/cglib/3.1/cglib-3.1.jar:/root/.m2/repository/org/objenesis/objenesis/2.1/objenesis-2.1.jar:/root/.m2/repository/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0.jar:/root/.m2/repository/org/glassfish/javax.json/1.0.4/javax.json-1.0.4.jar:/root/.m2/repository/org/apache/cxf/cxf-rt-bindings-soap/3.2.0-SNAPSHOT/cxf-rt-bindings-soap-3.2.0-SNAPSHOT.jar:/root/.m2/repository/org/apache/cxf/cxf-rt-wsdl/3.2.0-SNAPSHOT/cxf-rt-wsdl-3.2.0-SNAPSHOT.jar:/root/.m2/repository/org/codehaus/jettison/jettison/1.3.8/jettison-1.3.8.jar:/root/.m2/repository/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar:/root/.m2/repository/org/apache/tuscany/sdo/tuscany-sdo-api-r2.1/1.1.1/tuscany-sdo-api-r2.1-1.1.1.jar:/root/.m2/repository/org/eclipse/xsd/xsd/2.2.3/xsd-2.2.3.jar:/root/.m2/repository/org/eclipse/emf/codegen-ecore/2.2.3/codegen-ecore-2.2.3.jar:/root/.m2/repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar:/root/.m2/repository/org/apache/cxf/cxf-rt-transports-http/3.2.0-SNAPSHOT/cxf-rt-transports-http-3.2.0-SNAPSHOT.jar:/root/.m2/repository/javax/json/javax.json-api/1.0/javax.json-api-1.0.jar:/root/.m2/repository/org/eclipse/emf/ecore-xmi/2.2.3/ecore-xmi-2.2.3.jar:/root/.m2/repository/org/apache/ws/commons/axiom/axiom-api/1.2.14/axiom-api-1.2.14.jar:/root/.m2/repository/org/apache/cxf/cxf-rt-frontend-jaxrs/3.2.0-SNAPSHOT/cxf-rt-frontend-jaxrs-3.2.0-SNAPSHOT.jar:/root/.m2/repository/commons-codec/commons-codec/1.10/commons-codec-1.10.jar:/root/.m2/repository/org/apache/tuscany/sdo/tuscany-sdo-impl/1.1.1/tuscany-sdo-impl-1.1.1.jar:/root/.m2/repository/backport-util-concurrent/backport-util-concurrent/3.0/backport-util-concurrent-3.0.jar:/root/.m2/repository/jaxen/jaxen/1.1.4/jaxen-1.1.4.jar:/root/.m2/repository/org/eclipse/emf/common/2.2.3/common-2.2.3.jar:/root/.m2/repository/org/easymock/easymock/3.3.1/easymock-3.3.1.jar:/root/.m2/repository/org/apache/tuscany/sdo/tuscany-sdo-lib/1.1.1/tuscany-sdo-lib-1.1.1.jar:/root/.m2/repository/org/apache/cxf/cxf-rt-databinding-jaxb/3.2.0-SNAPSHOT/cxf-rt-databinding-jaxb-3.2.0-SNAPSHOT.jar:/root/.m2/repository/org/eclipse/emf/ecore-change/2.2.3/ecore-change-2.2.3.jar:/root/.m2/repository/javax/annotation/javax.annotation-api/1.2/javax.annotation-api-1.2.jar:/root/.m2/repository/org/apache/tuscany/sdo/tuscany-sdo-tools/1.1.1/tuscany-sdo-tools-1.1.1.jar:/root/.m2/repository/org/eclipse/emf/codegen/2.2.3/codegen-2.2.3.jar:/root/.m2/repository/org/apache/xmlbeans/xmlbeans/2.6.0/xmlbeans-2.6.0.jar:/root/.m2/repository/org/codehaus/woodstox/woodstox-core-asl/4.4.1/woodstox-core-asl-4.4.1.jar:/root/.m2/repository/org/apache/abdera/abdera-i18n/1.1.3/abdera-i18n-1.1.3.jar:/root/.m2/repository/org/apache/geronimo/specs/geronimo-activation_1.1_spec/1.1/geronimo-activation_1.1_spec-1.1.jar:/root/.m2/repository/org/apache/abdera/abdera-extensions-json/1.1.3/abdera-extensions-json-1.1.3.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/apache/cxf/cxf-rt-rs-json-basic/3.2.0-SNAPSHOT/cxf-rt-rs-json-basic-3.2.0-SNAPSHOT.jar:/root/.m2/repository/org/apache/abdera/abdera-extensions-main/1.1.3/abdera-extensions-main-1.1.3.jar:/root/.m2/repository/javax/ws/rs/javax.ws.rs-api/2.1-m01/javax.ws.rs-api-2.1-m01.jar:/root/.m2/repository/org/springframework/spring-beans/4.2.6.RELEASE/spring-beans-4.2.6.RELEASE.jar:/root/.m2/repository/org/eclipse/emf/ecore/2.2.3/ecore-2.2.3.jar:/root/.m2/repository/org/apache/cxf/cxf-rt-databinding-aegis/3.2.0-SNAPSHOT/cxf-rt-databinding-aegis-3.2.0-SNAPSHOT.jar:/root/.m2/repository/org/apache/cxf/cxf-rt-databinding-sdo/3.2.0-SNAPSHOT/cxf-rt-databinding-sdo-3.2.0-SNAPSHOT.jar:/root/.m2/repository/org/springframework/spring-expression/4.2.6.RELEASE/spring-expression-4.2.6.RELEASE.jar:/root/.m2/repository/org/springframework/spring-aop/4.2.6.RELEASE/spring-aop-4.2.6.RELEASE.jar:/root/.m2/repository/wsdl4j/wsdl4j/1.6.3/wsdl4j-1.6.3.jar:/root/.m2/repository/xml-apis/xml-apis/1.0.b2/xml-apis-1.0.b2.jar:/root/.m2/repository/org/springframework/spring-context/4.2.6.RELEASE/spring-context-4.2.6.RELEASE.jar:/root/.m2/repository/org/codehaus/woodstox/stax2-api/3.1.4/stax2-api-3.1.4.jar:/root/.m2/repository/junit/junit/4.12/junit-4.12.jar:/root/.m2/repository/org/apache/ws/xmlschema/xmlschema-core/2.2.1/xmlschema-core-2.2.1.jar:/root/.m2/repository/org/apache/cxf/cxf-core/3.2.0-SNAPSHOT/cxf-core-3.2.0-SNAPSHOT.jar:/root/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/root/.m2/repository/com/sun/xml/bind/jaxb-impl/2.2.11/jaxb-impl-2.2.11.jar:/root/.m2/repository/org/apache/abdera/abdera-core/1.1.3/abdera-core-1.1.3.jar:/root/.m2/repository/org/springframework/spring-core/4.2.6.RELEASE/spring-core-4.2.6.RELEASE.jar;
+	echo "\n\nNode: `hostname`\n";
+	echo "\n\nDate: `date`\n";
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en
+OpenJDK 64-Bit Server VM warning: ignoring option MaxPermSize=512m; support was removed in 8.0
+[0] INFO ProjectConfiguration - Version of the JVM used: 1.8.0_342
+[0] INFO main - Java version of the JDK used to run tests: 1.8.0_342
+[0] INFO main - The compliance of the JVM is:  8
+[9] INFO main - command line arguments: [-mode  jgenprog  -location  .  -id  apache_cxf-VUL4J-15  -failing  org.apache.cxf.jaxrs.provider.atom.AtomPojoProviderTest#testReadEntryNoBuilders2:org.apache.cxf.jaxrs.provider.atom.AtomPojoProviderTest#testReadFeedWithoutBuilders2  -jvm4testexecution  /usr/lib/jvm/java-8-openjdk-amd64/bin  -jvm4evosuitetestexecution  /usr/lib/jvm/java-8-openjdk-amd64/bin  -maxgen  1000000  -maxtime  120  -stopfirst  true  -seed  0  -scope  local  -population  1  -javacompliancelevel  8  -faultlocalization  perfect  -perfectdata  /script/../data/benchmarks/vul4j/perfectfl/VUL4J-15  -validation  externalcmd  -testfailingcmd  mvn -pl rt/rs/extensions/providers -Dtest=org.apache.cxf.jaxrs.provider.atom.AtomPojoProviderTest test -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B  -testallcmd  mvn -pl rt/rs/extensions/providers -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B     -srcjavafolder  rt/rs/extensions/providers/src/main/java  -srctestfolder  rt/rs/extensions/providers/src/test/java  -binjavafolder  rt/rs/extensions/providers/target/classes  -bintestfolder  rt/rs/extensions/providers/target/test-classes  -parameters  x:x  -dependencies  /workdir/jGenProg_vul4j_apache_cxf_VUL4J-15/rt/rs/extensions/providers/target/classes:/root/.m2/repository/org/apache/geronimo/specs/geronimo-javamail_1.4_spec/1.7.1/geronimo-javamail_1.4_spec-1.7.1.jar:/root/.m2/repository/stax/stax-api/1.0.1/stax-api-1.0.1.jar:/root/.m2/repository/org/apache/abdera/abdera-parser/1.1.3/abdera-parser-1.1.3.jar:/root/.m2/repository/com/sun/xml/bind/jaxb-core/2.2.11/jaxb-core-2.2.11.jar:/root/.m2/repository/org/ow2/asm/asm/5.0.4/asm-5.0.4.jar:/root/.m2/repository/org/apache/ws/commons/axiom/axiom-impl/1.2.14/axiom-impl-1.2.14.jar:/root/.m2/repository/org/apache/cxf/cxf-rt-databinding-xmlbeans/3.2.0-SNAPSHOT/cxf-rt-databinding-xmlbeans-3.2.0-SNAPSHOT.jar:/root/.m2/repository/org/apache/james/apache-mime4j-core/0.7.2/apache-mime4j-core-0.7.2.jar:/root/.m2/repository/cglib/cglib/3.1/cglib-3.1.jar:/root/.m2/repository/org/objenesis/objenesis/2.1/objenesis-2.1.jar:/root/.m2/repository/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0.jar:/root/.m2/repository/org/glassfish/javax.json/1.0.4/javax.json-1.0.4.jar:/root/.m2/repository/org/apache/cxf/cxf-rt-bindings-soap/3.2.0-SNAPSHOT/cxf-rt-bindings-soap-3.2.0-SNAPSHOT.jar:/root/.m2/repository/org/apache/cxf/cxf-rt-wsdl/3.2.0-SNAPSHOT/cxf-rt-wsdl-3.2.0-SNAPSHOT.jar:/root/.m2/repository/org/codehaus/jettison/jettison/1.3.8/jettison-1.3.8.jar:/root/.m2/repository/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar:/root/.m2/repository/org/apache/tuscany/sdo/tuscany-sdo-api-r2.1/1.1.1/tuscany-sdo-api-r2.1-1.1.1.jar:/root/.m2/repository/org/eclipse/xsd/xsd/2.2.3/xsd-2.2.3.jar:/root/.m2/repository/org/eclipse/emf/codegen-ecore/2.2.3/codegen-ecore-2.2.3.jar:/root/.m2/repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar:/root/.m2/repository/org/apache/cxf/cxf-rt-transports-http/3.2.0-SNAPSHOT/cxf-rt-transports-http-3.2.0-SNAPSHOT.jar:/root/.m2/repository/javax/json/javax.json-api/1.0/javax.json-api-1.0.jar:/root/.m2/repository/org/eclipse/emf/ecore-xmi/2.2.3/ecore-xmi-2.2.3.jar:/root/.m2/repository/org/apache/ws/commons/axiom/axiom-api/1.2.14/axiom-api-1.2.14.jar:/root/.m2/repository/org/apache/cxf/cxf-rt-frontend-jaxrs/3.2.0-SNAPSHOT/cxf-rt-frontend-jaxrs-3.2.0-SNAPSHOT.jar:/root/.m2/repository/commons-codec/commons-codec/1.10/commons-codec-1.10.jar:/root/.m2/repository/org/apache/tuscany/sdo/tuscany-sdo-impl/1.1.1/tuscany-sdo-impl-1.1.1.jar:/root/.m2/repository/backport-util-concurrent/backport-util-concurrent/3.0/backport-util-concurrent-3.0.jar:/root/.m2/repository/jaxen/jaxen/1.1.4/jaxen-1.1.4.jar:/root/.m2/repository/org/eclipse/emf/common/2.2.3/common-2.2.3.jar:/root/.m2/repository/org/easymock/easymock/3.3.1/easymock-3.3.1.jar:/root/.m2/repository/org/apache/tuscany/sdo/tuscany-sdo-lib/1.1.1/tuscany-sdo-lib-1.1.1.jar:/root/.m2/repository/org/apache/cxf/cxf-rt-databinding-jaxb/3.2.0-SNAPSHOT/cxf-rt-databinding-jaxb-3.2.0-SNAPSHOT.jar:/root/.m2/repository/org/eclipse/emf/ecore-change/2.2.3/ecore-change-2.2.3.jar:/root/.m2/repository/javax/annotation/javax.annotation-api/1.2/javax.annotation-api-1.2.jar:/root/.m2/repository/org/apache/tuscany/sdo/tuscany-sdo-tools/1.1.1/tuscany-sdo-tools-1.1.1.jar:/root/.m2/repository/org/eclipse/emf/codegen/2.2.3/codegen-2.2.3.jar:/root/.m2/repository/org/apache/xmlbeans/xmlbeans/2.6.0/xmlbeans-2.6.0.jar:/root/.m2/repository/org/codehaus/woodstox/woodstox-core-asl/4.4.1/woodstox-core-asl-4.4.1.jar:/root/.m2/repository/org/apache/abdera/abdera-i18n/1.1.3/abdera-i18n-1.1.3.jar:/root/.m2/repository/org/apache/geronimo/specs/geronimo-activation_1.1_spec/1.1/geronimo-activation_1.1_spec-1.1.jar:/root/.m2/repository/org/apache/abdera/abdera-extensions-json/1.1.3/abdera-extensions-json-1.1.3.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/apache/cxf/cxf-rt-rs-json-basic/3.2.0-SNAPSHOT/cxf-rt-rs-json-basic-3.2.0-SNAPSHOT.jar:/root/.m2/repository/org/apache/abdera/abdera-extensions-main/1.1.3/abdera-extensions-main-1.1.3.jar:/root/.m2/repository/javax/ws/rs/javax.ws.rs-api/2.1-m01/javax.ws.rs-api-2.1-m01.jar:/root/.m2/repository/org/springframework/spring-beans/4.2.6.RELEASE/spring-beans-4.2.6.RELEASE.jar:/root/.m2/repository/org/eclipse/emf/ecore/2.2.3/ecore-2.2.3.jar:/root/.m2/repository/org/apache/cxf/cxf-rt-databinding-aegis/3.2.0-SNAPSHOT/cxf-rt-databinding-aegis-3.2.0-SNAPSHOT.jar:/root/.m2/repository/org/apache/cxf/cxf-rt-databinding-sdo/3.2.0-SNAPSHOT/cxf-rt-databinding-sdo-3.2.0-SNAPSHOT.jar:/root/.m2/repository/org/springframework/spring-expression/4.2.6.RELEASE/spring-expression-4.2.6.RELEASE.jar:/root/.m2/repository/org/springframework/spring-aop/4.2.6.RELEASE/spring-aop-4.2.6.RELEASE.jar:/root/.m2/repository/wsdl4j/wsdl4j/1.6.3/wsdl4j-1.6.3.jar:/root/.m2/repository/xml-apis/xml-apis/1.0.b2/xml-apis-1.0.b2.jar:/root/.m2/repository/org/springframework/spring-context/4.2.6.RELEASE/spring-context-4.2.6.RELEASE.jar:/root/.m2/repository/org/codehaus/woodstox/stax2-api/3.1.4/stax2-api-3.1.4.jar:/root/.m2/repository/junit/junit/4.12/junit-4.12.jar:/root/.m2/repository/org/apache/ws/xmlschema/xmlschema-core/2.2.1/xmlschema-core-2.2.1.jar:/root/.m2/repository/org/apache/cxf/cxf-core/3.2.0-SNAPSHOT/cxf-core-3.2.0-SNAPSHOT.jar:/root/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/root/.m2/repository/com/sun/xml/bind/jaxb-impl/2.2.11/jaxb-impl-2.2.11.jar:/root/.m2/repository/org/apache/abdera/abdera-core/1.1.3/abdera-core-1.1.3.jar:/root/.m2/repository/org/springframework/spring-core/4.2.6.RELEASE/spring-core-4.2.6.RELEASE.jar]
+[11] INFO AstorMain - Running Astor on a JDK at /usr/lib/jvm/java-8-openjdk-amd64/jre
+[18] INFO main - Source folders: [/workdir/jGenProg_vul4j_apache_cxf_VUL4J-15/./rt/rs/extensions/providers/src/main/java]
+[18] INFO main - Source Test folders: [/workdir/jGenProg_vul4j_apache_cxf_VUL4J-15/./rt/rs/extensions/providers/src/test/java]
+[1734] INFO AstorCoreEngine - ---- Creating spoon model
+[1876] INFO MutationSupporter - Creating model,  Code location from working folder: /workdir/jGenProg_vul4j_apache_cxf_VUL4J-15/./rt/rs/extensions/providers/src/main/java
+[1876] INFO MutationSupporter - building model: /workdir/jGenProg_vul4j_apache_cxf_VUL4J-15/./rt/rs/extensions/providers/src/main/java, compliance level: 8
+[1938] INFO MutationSupporter - Classpath (Dependencies) for building SpoonModel: [/workdir/jGenProg_vul4j_apache_cxf_VUL4J-15/rt/rs/extensions/providers/target/classes/, /root/.m2/repository/org/apache/geronimo/specs/geronimo-javamail_1.4_spec/1.7.1/geronimo-javamail_1.4_spec-1.7.1.jar, /root/.m2/repository/stax/stax-api/1.0.1/stax-api-1.0.1.jar, /root/.m2/repository/org/apache/abdera/abdera-parser/1.1.3/abdera-parser-1.1.3.jar, /root/.m2/repository/com/sun/xml/bind/jaxb-core/2.2.11/jaxb-core-2.2.11.jar, /root/.m2/repository/org/ow2/asm/asm/5.0.4/asm-5.0.4.jar, /root/.m2/repository/org/apache/ws/commons/axiom/axiom-impl/1.2.14/axiom-impl-1.2.14.jar, /root/.m2/repository/org/apache/cxf/cxf-rt-databinding-xmlbeans/3.2.0-SNAPSHOT/cxf-rt-databinding-xmlbeans-3.2.0-SNAPSHOT.jar, /root/.m2/repository/org/apache/james/apache-mime4j-core/0.7.2/apache-mime4j-core-0.7.2.jar, /root/.m2/repository/cglib/cglib/3.1/cglib-3.1.jar, /root/.m2/repository/org/objenesis/objenesis/2.1/objenesis-2.1.jar, /root/.m2/repository/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0.jar, /root/.m2/repository/org/glassfish/javax.json/1.0.4/javax.json-1.0.4.jar, /root/.m2/repository/org/apache/cxf/cxf-rt-bindings-soap/3.2.0-SNAPSHOT/cxf-rt-bindings-soap-3.2.0-SNAPSHOT.jar, /root/.m2/repository/org/apache/cxf/cxf-rt-wsdl/3.2.0-SNAPSHOT/cxf-rt-wsdl-3.2.0-SNAPSHOT.jar, /root/.m2/repository/org/codehaus/jettison/jettison/1.3.8/jettison-1.3.8.jar, /root/.m2/repository/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar, /root/.m2/repository/org/apache/tuscany/sdo/tuscany-sdo-api-r2.1/1.1.1/tuscany-sdo-api-r2.1-1.1.1.jar, /root/.m2/repository/org/eclipse/xsd/xsd/2.2.3/xsd-2.2.3.jar, /root/.m2/repository/org/eclipse/emf/codegen-ecore/2.2.3/codegen-ecore-2.2.3.jar, /root/.m2/repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar, /root/.m2/repository/org/apache/cxf/cxf-rt-transports-http/3.2.0-SNAPSHOT/cxf-rt-transports-http-3.2.0-SNAPSHOT.jar, /root/.m2/repository/javax/json/javax.json-api/1.0/javax.json-api-1.0.jar, /root/.m2/repository/org/eclipse/emf/ecore-xmi/2.2.3/ecore-xmi-2.2.3.jar, /root/.m2/repository/org/apache/ws/commons/axiom/axiom-api/1.2.14/axiom-api-1.2.14.jar, /root/.m2/repository/org/apache/cxf/cxf-rt-frontend-jaxrs/3.2.0-SNAPSHOT/cxf-rt-frontend-jaxrs-3.2.0-SNAPSHOT.jar, /root/.m2/repository/commons-codec/commons-codec/1.10/commons-codec-1.10.jar, /root/.m2/repository/org/apache/tuscany/sdo/tuscany-sdo-impl/1.1.1/tuscany-sdo-impl-1.1.1.jar, /root/.m2/repository/backport-util-concurrent/backport-util-concurrent/3.0/backport-util-concurrent-3.0.jar, /root/.m2/repository/jaxen/jaxen/1.1.4/jaxen-1.1.4.jar, /root/.m2/repository/org/eclipse/emf/common/2.2.3/common-2.2.3.jar, /root/.m2/repository/org/easymock/easymock/3.3.1/easymock-3.3.1.jar, /root/.m2/repository/org/apache/tuscany/sdo/tuscany-sdo-lib/1.1.1/tuscany-sdo-lib-1.1.1.jar, /root/.m2/repository/org/apache/cxf/cxf-rt-databinding-jaxb/3.2.0-SNAPSHOT/cxf-rt-databinding-jaxb-3.2.0-SNAPSHOT.jar, /root/.m2/repository/org/eclipse/emf/ecore-change/2.2.3/ecore-change-2.2.3.jar, /root/.m2/repository/javax/annotation/javax.annotation-api/1.2/javax.annotation-api-1.2.jar, /root/.m2/repository/org/apache/tuscany/sdo/tuscany-sdo-tools/1.1.1/tuscany-sdo-tools-1.1.1.jar, /root/.m2/repository/org/eclipse/emf/codegen/2.2.3/codegen-2.2.3.jar, /root/.m2/repository/org/apache/xmlbeans/xmlbeans/2.6.0/xmlbeans-2.6.0.jar, /root/.m2/repository/org/codehaus/woodstox/woodstox-core-asl/4.4.1/woodstox-core-asl-4.4.1.jar, /root/.m2/repository/org/apache/abdera/abdera-i18n/1.1.3/abdera-i18n-1.1.3.jar, /root/.m2/repository/org/apache/geronimo/specs/geronimo-activation_1.1_spec/1.1/geronimo-activation_1.1_spec-1.1.jar, /root/.m2/repository/org/apache/abdera/abdera-extensions-json/1.1.3/abdera-extensions-json-1.1.3.jar, /root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar, /root/.m2/repository/org/apache/cxf/cxf-rt-rs-json-basic/3.2.0-SNAPSHOT/cxf-rt-rs-json-basic-3.2.0-SNAPSHOT.jar, /root/.m2/repository/org/apache/abdera/abdera-extensions-main/1.1.3/abdera-extensions-main-1.1.3.jar, /root/.m2/repository/javax/ws/rs/javax.ws.rs-api/2.1-m01/javax.ws.rs-api-2.1-m01.jar, /root/.m2/repository/org/springframework/spring-beans/4.2.6.RELEASE/spring-beans-4.2.6.RELEASE.jar, /root/.m2/repository/org/eclipse/emf/ecore/2.2.3/ecore-2.2.3.jar, /root/.m2/repository/org/apache/cxf/cxf-rt-databinding-aegis/3.2.0-SNAPSHOT/cxf-rt-databinding-aegis-3.2.0-SNAPSHOT.jar, /root/.m2/repository/org/apache/cxf/cxf-rt-databinding-sdo/3.2.0-SNAPSHOT/cxf-rt-databinding-sdo-3.2.0-SNAPSHOT.jar, /root/.m2/repository/org/springframework/spring-expression/4.2.6.RELEASE/spring-expression-4.2.6.RELEASE.jar, /root/.m2/repository/org/springframework/spring-aop/4.2.6.RELEASE/spring-aop-4.2.6.RELEASE.jar, /root/.m2/repository/wsdl4j/wsdl4j/1.6.3/wsdl4j-1.6.3.jar, /root/.m2/repository/xml-apis/xml-apis/1.0.b2/xml-apis-1.0.b2.jar, /root/.m2/repository/org/springframework/spring-context/4.2.6.RELEASE/spring-context-4.2.6.RELEASE.jar, /root/.m2/repository/org/codehaus/woodstox/stax2-api/3.1.4/stax2-api-3.1.4.jar, /root/.m2/repository/junit/junit/4.12/junit-4.12.jar, /root/.m2/repository/org/apache/ws/xmlschema/xmlschema-core/2.2.1/xmlschema-core-2.2.1.jar, /root/.m2/repository/org/apache/cxf/cxf-core/3.2.0-SNAPSHOT/cxf-core-3.2.0-SNAPSHOT.jar, /root/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar, /root/.m2/repository/com/sun/xml/bind/jaxb-impl/2.2.11/jaxb-impl-2.2.11.jar, /root/.m2/repository/org/apache/abdera/abdera-core/1.1.3/abdera-core-1.1.3.jar, /root/.m2/repository/org/springframework/spring-core/4.2.6.RELEASE/spring-core-4.2.6.RELEASE.jar]
+[11202] INFO AstorCoreEngine - Number of CtTypes created: 23
+[11270] INFO AstorCoreEngine - Test retrieved from classes: 0
+[11341] INFO AstorCoreEngine - Setting up the max to 710 milliseconds (0 sec)
+[11341] INFO AstorCoreEngine - ---- Initial suspicious size: 2
+[11484] INFO main - Total suspicious from FL: 2,  2
+[11498] INFO main - Total ModPoint created: 2
+[11498] INFO main - Creating program variant #1, [Variant id: 1, #gens: 2, #ops: 0, parent:-]
+[11498] INFO main - Run previously failing tests...
+[58959] INFO main - Failed tests: 2
+[58962] INFO AstorCoreEngine - The original fitness is : 2.0
+[60268] WARN ConfigurationProperties - ----------------------------
+[60268] INFO ConfigurationProperties - ---Configuration properties
+[60268] INFO ConfigurationProperties - p:lastJUnitVersion= ./examples/libs/junit-4.11.jar
+[60268] INFO ConfigurationProperties - p:alternativecompliancelevel= 8
+[60268] INFO ConfigurationProperties - p:ignoredTestCases= 
+[60268] INFO ConfigurationProperties - p:workingDirectory= /workdir/jGenProg_vul4j_apache_cxf_VUL4J-15/./output_astor
+[60269] INFO ConfigurationProperties - p:manipulatesuper= false
+[60269] INFO ConfigurationProperties - p:validation= externalcmd
+[60269] INFO ConfigurationProperties - p:jvm4testexecution= /usr/lib/jvm/java-8-openjdk-amd64/bin
+[60269] INFO ConfigurationProperties - p:operatorspace= irr-statements
+[60269] INFO ConfigurationProperties - p:diffcontext= 0
+[60269] INFO ConfigurationProperties - p:binjavafolder= rt/rs/extensions/providers/target/classes
+[60269] INFO ConfigurationProperties - p:synthesis_depth= 3
+[60269] INFO ConfigurationProperties - p:gzoltartestpackagetoexclude= junit.framework
+[60269] INFO ConfigurationProperties - p:skipfitnessinitialpopulation= false
+[60269] INFO ConfigurationProperties - p:evosuiteresultfolder= evosuite
+[60269] INFO ConfigurationProperties - p:flthreshold= 0.1
+[60269] INFO ConfigurationProperties - p:regressionforfaultlocalization= true
+[60269] INFO ConfigurationProperties - p:collectonlyusedmethod= false
+[60269] INFO ConfigurationProperties - p:preservelinenumbers= true
+[60269] INFO ConfigurationProperties - p:tmax2= 710
+[60269] INFO ConfigurationProperties - p:tmax1= 10000
+[60269] INFO ConfigurationProperties - p:probagenmutation= false
+[60269] INFO ConfigurationProperties - p:nomodificationconvergence= 100
+[60269] INFO ConfigurationProperties - p:diff_type= relative
+[60270] INFO ConfigurationProperties - p:targetelementprocessor= statements
+[60270] INFO ConfigurationProperties - p:srctestfolder= rt/rs/extensions/providers/src/test/java
+[60270] INFO ConfigurationProperties - p:forceExecuteRegression= false
+[60270] INFO ConfigurationProperties - p:clusteringfilename= clustering.csv
+[60270] INFO ConfigurationProperties - p:failing= org.apache.cxf.jaxrs.provider.atom.AtomPojoProviderTest#testReadEntryNoBuilders2:org.apache.cxf.jaxrs.provider.atom.AtomPojoProviderTest#testReadFeedWithoutBuilders2
+[60270] INFO ConfigurationProperties - p:logtestexecution= false
+[60270] INFO ConfigurationProperties - p:evo_buggy_class= true
+[60270] INFO ConfigurationProperties - p:numberExecutions= 1
+[60270] INFO ConfigurationProperties - p:maxnumbersolutions= 1000000
+[60270] INFO ConfigurationProperties - p:evo_affected_by_op= true
+[60270] INFO ConfigurationProperties - p:population= 1
+[60270] INFO ConfigurationProperties - p:considerzerovaluesusp= false
+[60270] INFO ConfigurationProperties - p:maxCombinationVariableLimit= false
+[60270] INFO ConfigurationProperties - p:savesolution= true
+[60270] INFO ConfigurationProperties - p:javacompliancelevel= 8
+[60270] INFO ConfigurationProperties - p:x= x
+[60270] INFO ConfigurationProperties - p:uniqueoptogen= false
+[60270] INFO ConfigurationProperties - p:gzoltarpackagetonotinstrument= junit.framework
+[60271] INFO ConfigurationProperties - p:projectIdentifier= apache_cxf-VUL4J-15
+[60271] INFO ConfigurationProperties - p:modificationpointnavigation= weight
+[60271] INFO ConfigurationProperties - p:stopfirst= true
+[60271] INFO ConfigurationProperties - p:multipointmodification= false
+[60271] INFO ConfigurationProperties - p:elementsToMutate= 10
+[60272] INFO ConfigurationProperties - p:jsonoutputname= astor_output
+[60272] INFO ConfigurationProperties - p:evoDSE= false
+[60272] INFO ConfigurationProperties - p:bintestfolder= rt/rs/extensions/providers/target/test-classes
+[60272] INFO ConfigurationProperties - p:testbystep= false
+[60272] INFO ConfigurationProperties - p:version-location= ./math-version/
+[60272] INFO ConfigurationProperties - p:reintroduce= PARENTS:ORIGINAL
+[60272] INFO ConfigurationProperties - p:perfectdata= /script/../data/benchmarks/vul4j/perfectfl/VUL4J-15
+[60272] INFO ConfigurationProperties - p:executorjar= ./lib/jtestex7.jar
+[60272] INFO ConfigurationProperties - p:maxGeneration= 1000000
+[60272] INFO ConfigurationProperties - p:max_synthesis_step= 10000
+[60272] INFO ConfigurationProperties - p:projectinfocommand= com.github.tdurieux:project-config-maven-plugin:info
+[60272] INFO ConfigurationProperties - p:maxVarCombination= 1000
+[60272] INFO ConfigurationProperties - p:maxtime= 120
+[60272] INFO ConfigurationProperties - p:evosuitejar= ./lib/evosuite-master-1.0.4-SNAPSHOT.jar
+[60272] INFO ConfigurationProperties - p:jvmversion= 1.8.0_342
+[60272] INFO ConfigurationProperties - p:commandTrunk= 50000
+[60272] INFO ConfigurationProperties - p:faultlocalization= perfect
+[60272] INFO ConfigurationProperties - p:resetmodel= true
+[60272] INFO ConfigurationProperties - p:maxsuspcandidates= 1000
+[60273] INFO ConfigurationProperties - p:mode= jgenprog
+[60273] INFO ConfigurationProperties - p:learningdir= 
+[60273] INFO ConfigurationProperties - p:jvm4evosuitetestexecution= /usr/lib/jvm/java-8-openjdk-amd64/bin
+[60273] INFO ConfigurationProperties - p:filterfaultlocalization= true
+[60273] INFO ConfigurationProperties - p:mutationrate= 1 
+[60273] INFO ConfigurationProperties - p:pathToMVNRepository= 
+[60273] INFO ConfigurationProperties - p:resourcesfolder= /src/main/resources:/src/test/resources:
+[60273] INFO ConfigurationProperties - p:timezone= America/Los_Angeles
+[60273] INFO ConfigurationProperties - p:runjava7code= false
+[60273] INFO ConfigurationProperties - p:testfailingcmd= mvn -pl rt/rs/extensions/providers -Dtest=org.apache.cxf.jaxrs.provider.atom.AtomPojoProviderTest test -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B
+[60273] INFO ConfigurationProperties - p:evoRunOnBuggyClass= true
+[60273] INFO ConfigurationProperties - p:compiler= fr.inria.astor.core.manipulation.bytecode.compiler.SpoonClassCompiler
+[60273] INFO ConfigurationProperties - p:limitbysuspicious= true
+[60273] INFO ConfigurationProperties - p:logsattemps= true
+[60273] INFO ConfigurationProperties - p:dependenciespath= /workdir/jGenProg_vul4j_apache_cxf_VUL4J-15/rt/rs/extensions/providers/target/classes:/root/.m2/repository/org/apache/geronimo/specs/geronimo-javamail_1.4_spec/1.7.1/geronimo-javamail_1.4_spec-1.7.1.jar:/root/.m2/repository/stax/stax-api/1.0.1/stax-api-1.0.1.jar:/root/.m2/repository/org/apache/abdera/abdera-parser/1.1.3/abdera-parser-1.1.3.jar:/root/.m2/repository/com/sun/xml/bind/jaxb-core/2.2.11/jaxb-core-2.2.11.jar:/root/.m2/repository/org/ow2/asm/asm/5.0.4/asm-5.0.4.jar:/root/.m2/repository/org/apache/ws/commons/axiom/axiom-impl/1.2.14/axiom-impl-1.2.14.jar:/root/.m2/repository/org/apache/cxf/cxf-rt-databinding-xmlbeans/3.2.0-SNAPSHOT/cxf-rt-databinding-xmlbeans-3.2.0-SNAPSHOT.jar:/root/.m2/repository/org/apache/james/apache-mime4j-core/0.7.2/apache-mime4j-core-0.7.2.jar:/root/.m2/repository/cglib/cglib/3.1/cglib-3.1.jar:/root/.m2/repository/org/objenesis/objenesis/2.1/objenesis-2.1.jar:/root/.m2/repository/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0.jar:/root/.m2/repository/org/glassfish/javax.json/1.0.4/javax.json-1.0.4.jar:/root/.m2/repository/org/apache/cxf/cxf-rt-bindings-soap/3.2.0-SNAPSHOT/cxf-rt-bindings-soap-3.2.0-SNAPSHOT.jar:/root/.m2/repository/org/apache/cxf/cxf-rt-wsdl/3.2.0-SNAPSHOT/cxf-rt-wsdl-3.2.0-SNAPSHOT.jar:/root/.m2/repository/org/codehaus/jettison/jettison/1.3.8/jettison-1.3.8.jar:/root/.m2/repository/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar:/root/.m2/repository/org/apache/tuscany/sdo/tuscany-sdo-api-r2.1/1.1.1/tuscany-sdo-api-r2.1-1.1.1.jar:/root/.m2/repository/org/eclipse/xsd/xsd/2.2.3/xsd-2.2.3.jar:/root/.m2/repository/org/eclipse/emf/codegen-ecore/2.2.3/codegen-ecore-2.2.3.jar:/root/.m2/repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar:/root/.m2/repository/org/apache/cxf/cxf-rt-transports-http/3.2.0-SNAPSHOT/cxf-rt-transports-http-3.2.0-SNAPSHOT.jar:/root/.m2/repository/javax/json/javax.json-api/1.0/javax.json-api-1.0.jar:/root/.m2/repository/org/eclipse/emf/ecore-xmi/2.2.3/ecore-xmi-2.2.3.jar:/root/.m2/repository/org/apache/ws/commons/axiom/axiom-api/1.2.14/axiom-api-1.2.14.jar:/root/.m2/repository/org/apache/cxf/cxf-rt-frontend-jaxrs/3.2.0-SNAPSHOT/cxf-rt-frontend-jaxrs-3.2.0-SNAPSHOT.jar:/root/.m2/repository/commons-codec/commons-codec/1.10/commons-codec-1.10.jar:/root/.m2/repository/org/apache/tuscany/sdo/tuscany-sdo-impl/1.1.1/tuscany-sdo-impl-1.1.1.jar:/root/.m2/repository/backport-util-concurrent/backport-util-concurrent/3.0/backport-util-concurrent-3.0.jar:/root/.m2/repository/jaxen/jaxen/1.1.4/jaxen-1.1.4.jar:/root/.m2/repository/org/eclipse/emf/common/2.2.3/common-2.2.3.jar:/root/.m2/repository/org/easymock/easymock/3.3.1/easymock-3.3.1.jar:/root/.m2/repository/org/apache/tuscany/sdo/tuscany-sdo-lib/1.1.1/tuscany-sdo-lib-1.1.1.jar:/root/.m2/repository/org/apache/cxf/cxf-rt-databinding-jaxb/3.2.0-SNAPSHOT/cxf-rt-databinding-jaxb-3.2.0-SNAPSHOT.jar:/root/.m2/repository/org/eclipse/emf/ecore-change/2.2.3/ecore-change-2.2.3.jar:/root/.m2/repository/javax/annotation/javax.annotation-api/1.2/javax.annotation-api-1.2.jar:/root/.m2/repository/org/apache/tuscany/sdo/tuscany-sdo-tools/1.1.1/tuscany-sdo-tools-1.1.1.jar:/root/.m2/repository/org/eclipse/emf/codegen/2.2.3/codegen-2.2.3.jar:/root/.m2/repository/org/apache/xmlbeans/xmlbeans/2.6.0/xmlbeans-2.6.0.jar:/root/.m2/repository/org/codehaus/woodstox/woodstox-core-asl/4.4.1/woodstox-core-asl-4.4.1.jar:/root/.m2/repository/org/apache/abdera/abdera-i18n/1.1.3/abdera-i18n-1.1.3.jar:/root/.m2/repository/org/apache/geronimo/specs/geronimo-activation_1.1_spec/1.1/geronimo-activation_1.1_spec-1.1.jar:/root/.m2/repository/org/apache/abdera/abdera-extensions-json/1.1.3/abdera-extensions-json-1.1.3.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/apache/cxf/cxf-rt-rs-json-basic/3.2.0-SNAPSHOT/cxf-rt-rs-json-basic-3.2.0-SNAPSHOT.jar:/root/.m2/repository/org/apache/abdera/abdera-extensions-main/1.1.3/abdera-extensions-main-1.1.3.jar:/root/.m2/repository/javax/ws/rs/javax.ws.rs-api/2.1-m01/javax.ws.rs-api-2.1-m01.jar:/root/.m2/repository/org/springframework/spring-beans/4.2.6.RELEASE/spring-beans-4.2.6.RELEASE.jar:/root/.m2/repository/org/eclipse/emf/ecore/2.2.3/ecore-2.2.3.jar:/root/.m2/repository/org/apache/cxf/cxf-rt-databinding-aegis/3.2.0-SNAPSHOT/cxf-rt-databinding-aegis-3.2.0-SNAPSHOT.jar:/root/.m2/repository/org/apache/cxf/cxf-rt-databinding-sdo/3.2.0-SNAPSHOT/cxf-rt-databinding-sdo-3.2.0-SNAPSHOT.jar:/root/.m2/repository/org/springframework/spring-expression/4.2.6.RELEASE/spring-expression-4.2.6.RELEASE.jar:/root/.m2/repository/org/springframework/spring-aop/4.2.6.RELEASE/spring-aop-4.2.6.RELEASE.jar:/root/.m2/repository/wsdl4j/wsdl4j/1.6.3/wsdl4j-1.6.3.jar:/root/.m2/repository/xml-apis/xml-apis/1.0.b2/xml-apis-1.0.b2.jar:/root/.m2/repository/org/springframework/spring-context/4.2.6.RELEASE/spring-context-4.2.6.RELEASE.jar:/root/.m2/repository/org/codehaus/woodstox/stax2-api/3.1.4/stax2-api-3.1.4.jar:/root/.m2/repository/junit/junit/4.12/junit-4.12.jar:/root/.m2/repository/org/apache/ws/xmlschema/xmlschema-core/2.2.1/xmlschema-core-2.2.1.jar:/root/.m2/repository/org/apache/cxf/cxf-core/3.2.0-SNAPSHOT/cxf-core-3.2.0-SNAPSHOT.jar:/root/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/root/.m2/repository/com/sun/xml/bind/jaxb-impl/2.2.11/jaxb-impl-2.2.11.jar:/root/.m2/repository/org/apache/abdera/abdera-core/1.1.3/abdera-core-1.1.3.jar:/root/.m2/repository/org/springframework/spring-core/4.2.6.RELEASE/spring-core-4.2.6.RELEASE.jar
+[60274] INFO ConfigurationProperties - p:packageToInstrument= 
+[60274] INFO ConfigurationProperties - p:skipfaultlocalization= false
+[60274] INFO ConfigurationProperties - p:scope= local
+[60274] INFO ConfigurationProperties - p:transformingredient= false
+[60274] INFO ConfigurationProperties - p:fitnessfunction= fr.inria.astor.core.solutionsearch.population.TestCaseFitnessFunction
+[60274] INFO ConfigurationProperties - p:maxnumvariablesperingredient= 10
+[60274] INFO ConfigurationProperties - p:parsesourcefromoriginal= true
+[60274] INFO ConfigurationProperties - p:pvariantfoldername= variant-
+[60274] INFO ConfigurationProperties - p:savespoonmodelondisk= false
+[60274] INFO ConfigurationProperties - p:srcjavafolder= rt/rs/extensions/providers/src/main/java
+[60274] INFO ConfigurationProperties - p:populationcontroller= fr.inria.astor.core.solutionsearch.population.TestCaseBasedFitnessPopulationController
+[60274] INFO ConfigurationProperties - p:ignoreflakyinfl= false
+[60274] INFO ConfigurationProperties - p:cleantemplates= true
+[60274] INFO ConfigurationProperties - p:applyCrossover= false
+[60274] INFO ConfigurationProperties - p:maxmodificationpoints= 1000
+[60274] INFO ConfigurationProperties - p:duplicateingredientsinspace= false
+[60274] INFO ConfigurationProperties - p:metid= 0
+[60274] INFO ConfigurationProperties - p:continuewhenmodelfail= true
+[60275] INFO ConfigurationProperties - p:saveall= false
+[60275] INFO ConfigurationProperties - p:seed= 0
+[60275] INFO ConfigurationProperties - p:savecompletepatched= true
+[60291] INFO ConfigurationProperties - p:resetoperations= false
+[60291] INFO ConfigurationProperties - p:keepcomments= false
+[60291] INFO ConfigurationProperties - p:processoutputinfile= false
+[60291] INFO ConfigurationProperties - p:location= .
+[60291] INFO ConfigurationProperties - p:probabilistictransformation= true
+[60291] INFO ConfigurationProperties - p:overridemaxtime= true
+[60292] INFO ConfigurationProperties - p:outputjsonresult= true
+[60292] INFO ConfigurationProperties - p:allpoints= false
+[60292] INFO ConfigurationProperties - p:antipattern= false
+[60292] INFO ConfigurationProperties - p:bugId= 280
+[60292] INFO ConfigurationProperties - p:evosuitetimeout= 120
+[60292] INFO ConfigurationProperties - p:maxtimefactor= 10
+[60292] INFO ConfigurationProperties - p:nrPlaceholders= 1
+[60292] INFO ConfigurationProperties - p:testallcmd= mvn -pl rt/rs/extensions/providers -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B
+[60292] INFO ConfigurationProperties - p:forcesubprocesskilling= false
+[60292] INFO ConfigurationProperties - ----------------------------
+[60292] INFO AstorCoreEngine - ----Starting Solution Search
+[60293] WARN AstorCoreEngine - ----------Running generation: 1, population size: 1
+[63535] INFO main - Run previously failing tests...
+[112392] INFO main - Failed tests: 2
+[112415] WARN AstorCoreEngine - ----------Running generation: 2, population size: 1
+[113397] INFO main - Run previously failing tests...
+[163494] INFO main - Failed tests: 2
+[163525] WARN AstorCoreEngine - ----------Running generation: 3, population size: 1
+[164223] INFO main - Run previously failing tests...
+[213437] INFO main - Failed tests: 2
+[213455] WARN AstorCoreEngine - ----------Running generation: 4, population size: 1
+[214165] INFO main - Run previously failing tests...
+[262082] INFO main - Failed tests: 2
+[262096] WARN AstorCoreEngine - ----------Running generation: 5, population size: 1
+[262522] WARN AstorCoreEngine - ----------Running generation: 6, population size: 1
+[262673] WARN AstorCoreEngine - ----------Running generation: 7, population size: 1
+[262723] WARN AstorCoreEngine - ----------Running generation: 8, population size: 1
+[263520] INFO main - Run previously failing tests...
+[307541] INFO main - Failed tests: 2
+[307553] WARN AstorCoreEngine - ----------Running generation: 9, population size: 1
+[308311] INFO main - Run previously failing tests...
+[353430] INFO main - Failed tests: 2
+[353442] WARN AstorCoreEngine - ----------Running generation: 10, population size: 1
+[353926] INFO main - Run previously failing tests...
+[397469] INFO main - Failed tests: 2
+[397483] WARN AstorCoreEngine - ----------Running generation: 11, population size: 1
+[397553] WARN AstorCoreEngine - ----------Running generation: 12, population size: 1
+[398098] INFO main - Run previously failing tests...
+[442197] INFO main - Failed tests: 2
+[442244] WARN AstorCoreEngine - ----------Running generation: 13, population size: 1
+[442354] WARN AstorCoreEngine - ----------Running generation: 14, population size: 1
+[442407] WARN AstorCoreEngine - ----------Running generation: 15, population size: 1
+[442445] WARN AstorCoreEngine - ----------Running generation: 16, population size: 1
+[442920] INFO main - Run previously failing tests...
+[491836] INFO main - Failed tests: 2
+[491866] WARN AstorCoreEngine - ----------Running generation: 17, population size: 1
+[492537] INFO main - Run previously failing tests...
+[537445] INFO main - Failed tests: 2
+[537458] WARN AstorCoreEngine - ----------Running generation: 18, population size: 1
+[537970] INFO main - Run previously failing tests...
+[586178] INFO main - Failed tests: 2
+[586185] WARN AstorCoreEngine - ----------Running generation: 19, population size: 1
+[586928] INFO main - Run previously failing tests...
+[636210] INFO main - Failed tests: 2
+[636226] WARN AstorCoreEngine - ----------Running generation: 20, population size: 1
+[636854] INFO main - Run previously failing tests...
+[694797] INFO main - Failed tests: 2
+[694830] WARN AstorCoreEngine - ----------Running generation: 21, population size: 1
+[695341] WARN AstorCoreEngine - ----------Running generation: 22, population size: 1
+[695407] WARN AstorCoreEngine - ----------Running generation: 23, population size: 1
+[695841] INFO main - Run previously failing tests...
+[739074] INFO main - Failed tests: 2
+[739084] WARN AstorCoreEngine - ----------Running generation: 24, population size: 1
+[739496] WARN AstorCoreEngine - ----------Running generation: 25, population size: 1
+[739536] WARN AstorCoreEngine - ----------Running generation: 26, population size: 1
+[739817] INFO main - Run previously failing tests...
+[785441] INFO main - Failed tests: 2
+[785450] WARN AstorCoreEngine - ----------Running generation: 27, population size: 1
+[785534] WARN AstorCoreEngine - ----------Running generation: 28, population size: 1
+[785906] INFO main - Run previously failing tests...
+[830220] INFO main - Failed tests: 2
+[830230] WARN AstorCoreEngine - ----------Running generation: 29, population size: 1
+[830632] WARN AstorCoreEngine - ----------Running generation: 30, population size: 1
+[830864] WARN AstorCoreEngine - ----------Running generation: 31, population size: 1
+[831283] INFO main - Run previously failing tests...
+[875313] INFO main - Failed tests: 2
+[875335] WARN AstorCoreEngine - ----------Running generation: 32, population size: 1
+[875752] INFO main - Run previously failing tests...
+[916087] INFO main - Failed tests: 2
+[916094] WARN AstorCoreEngine - ----------Running generation: 33, population size: 1
+[916507] WARN AstorCoreEngine - ----------Running generation: 34, population size: 1
+[916755] INFO main - Run previously failing tests...
+[959056] INFO main - Failed tests: 2
+[959064] WARN AstorCoreEngine - ----------Running generation: 35, population size: 1
+[959975] INFO main - Run previously failing tests...
+[1001740] INFO main - Failed tests: 2
+[1001771] WARN AstorCoreEngine - ----------Running generation: 36, population size: 1
+[1001871] WARN AstorCoreEngine - ----------Running generation: 37, population size: 1
+[1001912] WARN AstorCoreEngine - ----------Running generation: 38, population size: 1
+[1002176] INFO main - Run previously failing tests...
+[1042314] INFO main - Failed tests: 2
+[1042322] WARN AstorCoreEngine - ----------Running generation: 39, population size: 1
+[1042633] INFO main - Run previously failing tests...
+[1086684] INFO main - Failed tests: 2
+[1086701] WARN AstorCoreEngine - ----------Running generation: 40, population size: 1
+[1087212] INFO main - Run previously failing tests...
+[1131599] INFO main - Failed tests: 12
+[1131607] WARN AstorCoreEngine - ----------Running generation: 41, population size: 1
+[1132344] INFO main - Run previously failing tests...
+[1175723] INFO main - Failed tests: 2
+[1175730] WARN AstorCoreEngine - ----------Running generation: 42, population size: 1
+[1176388] INFO main - Run previously failing tests...
+[1218936] INFO main - Failed tests: 2
+[1218942] WARN AstorCoreEngine - ----------Running generation: 43, population size: 1
+[1219404] INFO main - Run previously failing tests...
+[1265400] INFO main - Failed tests: 2
+[1265418] WARN AstorCoreEngine - ----------Running generation: 44, population size: 1
+[1265474] WARN AstorCoreEngine - ----------Running generation: 45, population size: 1
+[1265769] WARN AstorCoreEngine - ----------Running generation: 46, population size: 1
+[1266048] INFO main - Run previously failing tests...
+[1310970] INFO main - Failed tests: 2
+[1310979] WARN AstorCoreEngine - ----------Running generation: 47, population size: 1
+[1311024] WARN AstorCoreEngine - ----------Running generation: 48, population size: 1
+[1311646] INFO main - Run previously failing tests...
+[1355448] INFO main - Failed tests: 2
+[1355461] WARN AstorCoreEngine - ----------Running generation: 49, population size: 1
+[1355894] INFO main - Run previously failing tests...
+[1399240] INFO main - Failed tests: 2
+[1399252] WARN AstorCoreEngine - ----------Running generation: 50, population size: 1
+[1399599] INFO main - Run previously failing tests...
+[1441388] INFO main - Failed tests: 2
+[1441394] WARN AstorCoreEngine - ----------Running generation: 51, population size: 1
+[1441902] INFO main - Run previously failing tests...
+[1482930] INFO main - Failed tests: 2
+[1482951] WARN AstorCoreEngine - ----------Running generation: 52, population size: 1
+[1483412] INFO main - Run previously failing tests...
+[1524748] INFO main - Failed tests: 2
+[1524769] WARN AstorCoreEngine - ----------Running generation: 53, population size: 1
+[1524819] WARN AstorCoreEngine - ----------Running generation: 54, population size: 1
+[1525634] INFO main - Run previously failing tests...
+[1568255] INFO main - Failed tests: 2
+[1568281] WARN AstorCoreEngine - ----------Running generation: 55, population size: 1
+[1568350] WARN AstorCoreEngine - ----------Running generation: 56, population size: 1
+[1568378] WARN AstorCoreEngine - ----------Running generation: 57, population size: 1
+[1568484] WARN AstorCoreEngine - ----------Running generation: 58, population size: 1
+[1568582] WARN AstorCoreEngine - ----------Running generation: 59, population size: 1
+[1569040] INFO main - Run previously failing tests...
+[1612055] INFO main - Failed tests: 2
+[1612076] WARN AstorCoreEngine - ----------Running generation: 60, population size: 1
+[1612317] WARN AstorCoreEngine - ----------Running generation: 61, population size: 1
+[1612341] WARN AstorCoreEngine - ----------Running generation: 62, population size: 1
+[1612591] INFO main - Run previously failing tests...
+[1657612] INFO main - Failed tests: 2
+[1657624] WARN AstorCoreEngine - ----------Running generation: 63, population size: 1
+[1657679] WARN AstorCoreEngine - ----------Running generation: 64, population size: 1
+[1657721] WARN AstorCoreEngine - ----------Running generation: 65, population size: 1
+[1657959] WARN AstorCoreEngine - ----------Running generation: 66, population size: 1
+[1657969] WARN AstorCoreEngine - ----------Running generation: 67, population size: 1
+[1658245] INFO main - Run previously failing tests...
+[1700773] INFO main - Failed tests: 12
+[1700788] WARN AstorCoreEngine - ----------Running generation: 68, population size: 1
+[1701047] INFO main - Run previously failing tests...
+[1743512] INFO main - Failed tests: 2
+[1743525] WARN AstorCoreEngine - ----------Running generation: 69, population size: 1
+[1743995] INFO main - Run previously failing tests...
+[1785369] INFO main - Failed tests: 2
+[1785376] WARN AstorCoreEngine - ----------Running generation: 70, population size: 1
+[1785888] INFO main - Run previously failing tests...
+[1828262] INFO main - Failed tests: 2
+[1828282] WARN AstorCoreEngine - ----------Running generation: 71, population size: 1
+[1828684] WARN AstorCoreEngine - ----------Running generation: 72, population size: 1
+[1829029] INFO main - Run previously failing tests...
+[1871752] INFO main - Failed tests: 2
+[1871771] WARN AstorCoreEngine - ----------Running generation: 73, population size: 1
+[1872166] INFO main - Run previously failing tests...
+[1914228] INFO main - Failed tests: 2
+[1914244] WARN AstorCoreEngine - ----------Running generation: 74, population size: 1
+[1914720] INFO main - Run previously failing tests...
+[1958581] INFO main - Failed tests: 2
+[1958620] WARN AstorCoreEngine - ----------Running generation: 75, population size: 1
+[1959172] INFO main - Run previously failing tests...
+[2001226] INFO main - Failed tests: 2
+[2001241] WARN AstorCoreEngine - ----------Running generation: 76, population size: 1
+[2001697] INFO main - Run previously failing tests...
+[2045778] INFO main - Failed tests: 2
+[2045784] WARN AstorCoreEngine - ----------Running generation: 77, population size: 1
+[2046226] INFO main - Run previously failing tests...
+[2087726] INFO main - Failed tests: 2
+[2087750] WARN AstorCoreEngine - ----------Running generation: 78, population size: 1
+[2087795] WARN AstorCoreEngine - ----------Running generation: 79, population size: 1
+[2088252] INFO main - Run previously failing tests...
+[2129581] INFO main - Failed tests: 2
+[2129593] WARN AstorCoreEngine - ----------Running generation: 80, population size: 1
+[2129940] INFO main - Run previously failing tests...
+[2170065] INFO main - Failed tests: 2
+[2170111] WARN AstorCoreEngine - ----------Running generation: 81, population size: 1
+[2170696] INFO main - Run previously failing tests...
+[2211482] INFO main - Failed tests: 12
+[2211489] WARN AstorCoreEngine - ----------Running generation: 82, population size: 1
+[2212229] INFO main - Run previously failing tests...
+[2250683] INFO main - Failed tests: 2
+[2250703] WARN AstorCoreEngine - ----------Running generation: 83, population size: 1
+[2251231] INFO main - Run previously failing tests...
+[2293124] INFO main - Failed tests: 2
+[2293172] WARN AstorCoreEngine - ----------Running generation: 84, population size: 1
+[2293645] WARN AstorCoreEngine - ----------Running generation: 85, population size: 1
+[2294128] WARN AstorCoreEngine - ----------Running generation: 86, population size: 1
+[2294173] WARN AstorCoreEngine - ----------Running generation: 87, population size: 1
+[2294230] WARN AstorCoreEngine - ----------Running generation: 88, population size: 1
+[2294551] WARN AstorCoreEngine - ----------Running generation: 89, population size: 1
+[2295030] INFO main - Run previously failing tests...
+[2335612] INFO main - Failed tests: 2
+[2335624] WARN AstorCoreEngine - ----------Running generation: 90, population size: 1
+[2335655] WARN AstorCoreEngine - ----------Running generation: 91, population size: 1
+[2336343] INFO main - Run previously failing tests...
+[2374193] INFO main - Failed tests: 2
+[2374199] WARN AstorCoreEngine - ----------Running generation: 92, population size: 1
+[2374224] WARN AstorCoreEngine - ----------Running generation: 93, population size: 1
+[2374546] WARN AstorCoreEngine - ----------Running generation: 94, population size: 1
+[2375059] INFO main - Run previously failing tests...
+[2415941] INFO main - Failed tests: 2
+[2415969] WARN AstorCoreEngine - ----------Running generation: 95, population size: 1
+[2415998] WARN AstorCoreEngine - ----------Running generation: 96, population size: 1
+[2416399] WARN AstorCoreEngine - ----------Running generation: 97, population size: 1
+[2416427] WARN AstorCoreEngine - ----------Running generation: 98, population size: 1
+[2416455] WARN AstorCoreEngine - ----------Running generation: 99, population size: 1
+[2416703] INFO main - Run previously failing tests...
+[2458324] INFO main - Failed tests: 2
+[2458339] WARN AstorCoreEngine - ----------Running generation: 100, population size: 1
+[2458361] WARN AstorCoreEngine - ----------Running generation: 101, population size: 1
+[2458600] INFO main - Run previously failing tests...
+[2499613] INFO main - Failed tests: 2
+[2499619] WARN AstorCoreEngine - ----------Running generation: 102, population size: 1
+[2500115] INFO main - Run previously failing tests...
+[2540685] INFO main - Failed tests: 2
+[2540692] WARN AstorCoreEngine - ----------Running generation: 103, population size: 1
+[2540987] INFO main - Run previously failing tests...
+[2584414] INFO main - Failed tests: 2
+[2584425] WARN AstorCoreEngine - ----------Running generation: 104, population size: 1
+[2584753] INFO main - Run previously failing tests...
+[2625930] INFO main - Failed tests: 2
+[2625957] WARN AstorCoreEngine - ----------Running generation: 105, population size: 1
+[2626014] WARN AstorCoreEngine - ----------Running generation: 106, population size: 1
+[2626271] INFO main - Run previously failing tests...
+[2668196] INFO main - Failed tests: 2
+[2668210] WARN AstorCoreEngine - ----------Running generation: 107, population size: 1
+[2668600] WARN AstorCoreEngine - ----------Running generation: 108, population size: 1
+[2668893] WARN AstorCoreEngine - ----------Running generation: 109, population size: 1
+[2668905] WARN AstorCoreEngine - ----------Running generation: 110, population size: 1
+[2668916] WARN AstorCoreEngine - ----------Running generation: 111, population size: 1
+[2669096] INFO main - Run previously failing tests...
+[2711786] INFO main - Failed tests: 2
+[2711804] WARN AstorCoreEngine - ----------Running generation: 112, population size: 1
+[2712308] WARN AstorCoreEngine - ----------Running generation: 113, population size: 1
+[2712333] WARN AstorCoreEngine - ----------Running generation: 114, population size: 1
+[2712529] WARN AstorCoreEngine - ----------Running generation: 115, population size: 1
+[2712565] WARN AstorCoreEngine - ----------Running generation: 116, population size: 1
+[2712604] WARN AstorCoreEngine - ----------Running generation: 117, population size: 1
+[2712665] WARN AstorCoreEngine - ----------Running generation: 118, population size: 1
+[2712710] WARN AstorCoreEngine - ----------Running generation: 119, population size: 1
+[2712804] WARN AstorCoreEngine - ----------Running generation: 120, population size: 1
+[2713770] INFO main - Run previously failing tests...
+[2757194] INFO main - Failed tests: 2
+[2757204] WARN AstorCoreEngine - ----------Running generation: 121, population size: 1
+[2757232] WARN AstorCoreEngine - ----------Running generation: 122, population size: 1
+[2757534] INFO main - Run previously failing tests...
+[2799336] INFO main - Failed tests: 2
+[2799365] WARN AstorCoreEngine - ----------Running generation: 123, population size: 1
+[2800077] INFO main - Run previously failing tests...
+[2843336] INFO main - Failed tests: 2
+[2843339] WARN AstorCoreEngine - ----------Running generation: 124, population size: 1
+[2843381] WARN AstorCoreEngine - ----------Running generation: 125, population size: 1
+[2843424] WARN AstorCoreEngine - ----------Running generation: 126, population size: 1
+[2843823] INFO main - Run previously failing tests...
+[2888618] INFO main - Failed tests: 2
+[2888628] WARN AstorCoreEngine - ----------Running generation: 127, population size: 1
+[2888664] WARN AstorCoreEngine - ----------Running generation: 128, population size: 1
+[2888711] WARN AstorCoreEngine - ----------Running generation: 129, population size: 1
+[2888747] WARN AstorCoreEngine - ----------Running generation: 130, population size: 1
+[2888764] WARN AstorCoreEngine - ----------Running generation: 131, population size: 1
+[2888782] WARN AstorCoreEngine - ----------Running generation: 132, population size: 1
+[2889042] INFO main - Run previously failing tests...
+[2932353] INFO main - Failed tests: 2
+[2932360] WARN AstorCoreEngine - ----------Running generation: 133, population size: 1
+[2932382] WARN AstorCoreEngine - ----------Running generation: 134, population size: 1
+[2932425] WARN AstorCoreEngine - ----------Running generation: 135, population size: 1
+[2932439] WARN AstorCoreEngine - ----------Running generation: 136, population size: 1
+[2932452] WARN AstorCoreEngine - ----------Running generation: 137, population size: 1
+[2932688] INFO main - Run previously failing tests...
+[2974516] INFO main - Failed tests: 2
+[2974521] WARN AstorCoreEngine - ----------Running generation: 138, population size: 1
+[2974565] WARN AstorCoreEngine - ----------Running generation: 139, population size: 1
+[2974605] WARN AstorCoreEngine - ----------Running generation: 140, population size: 1
+[2974813] INFO main - Run previously failing tests...
+[3016168] INFO main - Failed tests: 2
+[3016174] WARN AstorCoreEngine - ----------Running generation: 141, population size: 1
+[3016214] WARN AstorCoreEngine - ----------Running generation: 142, population size: 1
+[3016566] INFO main - Run previously failing tests...
+[3058222] INFO main - Failed tests: 2
+[3058231] WARN AstorCoreEngine - ----------Running generation: 143, population size: 1
+[3058298] WARN AstorCoreEngine - ----------Running generation: 144, population size: 1
+[3058521] INFO main - Run previously failing tests...
+[3100768] INFO main - Failed tests: 2
+[3100774] WARN AstorCoreEngine - ----------Running generation: 145, population size: 1
+[3100844] WARN AstorCoreEngine - ----------Running generation: 146, population size: 1
+[3100868] WARN AstorCoreEngine - ----------Running generation: 147, population size: 1
+[3100901] WARN AstorCoreEngine - ----------Running generation: 148, population size: 1
+[3101154] INFO main - Run previously failing tests...
+[3142314] INFO main - Failed tests: 2
+[3142333] WARN AstorCoreEngine - ----------Running generation: 149, population size: 1
+[3142788] INFO main - Run previously failing tests...
+[3183786] INFO main - Failed tests: 2
+[3183798] WARN AstorCoreEngine - ----------Running generation: 150, population size: 1
+[3183857] WARN AstorCoreEngine - ----------Running generation: 151, population size: 1
+[3183892] WARN AstorCoreEngine - ----------Running generation: 152, population size: 1
+[3183935] WARN AstorCoreEngine - ----------Running generation: 153, population size: 1
+[3184234] INFO main - Run previously failing tests...
+[3225961] INFO main - Failed tests: 2
+[3226002] WARN AstorCoreEngine - ----------Running generation: 154, population size: 1
+[3226036] WARN AstorCoreEngine - ----------Running generation: 155, population size: 1
+[3226534] INFO main - Run previously failing tests...
+[3269713] INFO main - Failed tests: 2
+[3269743] WARN AstorCoreEngine - ----------Running generation: 156, population size: 1
+[3269801] WARN AstorCoreEngine - ----------Running generation: 157, population size: 1
+[3269830] WARN AstorCoreEngine - ----------Running generation: 158, population size: 1
+[3270439] INFO main - Run previously failing tests...
+[3311373] INFO main - Failed tests: 2
+[3311387] WARN AstorCoreEngine - ----------Running generation: 159, population size: 1
+[3311428] WARN AstorCoreEngine - ----------Running generation: 160, population size: 1
+[3311480] WARN AstorCoreEngine - ----------Running generation: 161, population size: 1
+[3311890] INFO main - Run previously failing tests...
+[3351427] INFO main - Failed tests: 2
+[3351443] WARN AstorCoreEngine - ----------Running generation: 162, population size: 1
+[3351681] INFO main - Run previously failing tests...
+[3394233] INFO main - Failed tests: 2
+[3394249] WARN AstorCoreEngine - ----------Running generation: 163, population size: 1
+[3395027] INFO main - Run previously failing tests...
+[3437944] INFO main - Failed tests: 2
+[3437973] WARN AstorCoreEngine - ----------Running generation: 164, population size: 1
+[3438080] WARN AstorCoreEngine - ----------Running generation: 165, population size: 1
+[3438419] INFO main - Run previously failing tests...
+[3478282] INFO main - Failed tests: 2
+[3478288] WARN AstorCoreEngine - ----------Running generation: 166, population size: 1
+[3478346] WARN AstorCoreEngine - ----------Running generation: 167, population size: 1
+[3478384] WARN AstorCoreEngine - ----------Running generation: 168, population size: 1
+[3478414] WARN AstorCoreEngine - ----------Running generation: 169, population size: 1
+[3478453] WARN AstorCoreEngine - ----------Running generation: 170, population size: 1
+[3478489] WARN AstorCoreEngine - ----------Running generation: 171, population size: 1
+[3478517] WARN AstorCoreEngine - ----------Running generation: 172, population size: 1
+[3478917] INFO main - Run previously failing tests...
+[3521494] INFO main - Failed tests: 2
+[3521511] WARN AstorCoreEngine - ----------Running generation: 173, population size: 1
+[3521939] INFO main - Run previously failing tests...
+[3564640] INFO main - Failed tests: 2
+[3564654] WARN AstorCoreEngine - ----------Running generation: 174, population size: 1
+[3564694] WARN AstorCoreEngine - ----------Running generation: 175, population size: 1
+[3564704] WARN AstorCoreEngine - ----------Running generation: 176, population size: 1
+[3564741] WARN AstorCoreEngine - ----------Running generation: 177, population size: 1
+[3564762] WARN AstorCoreEngine - ----------Running generation: 178, population size: 1
+[3564772] WARN AstorCoreEngine - ----------Running generation: 179, population size: 1
+[3564839] WARN AstorCoreEngine - ----------Running generation: 180, population size: 1
+[3564871] WARN AstorCoreEngine - ----------Running generation: 181, population size: 1
+[3564934] WARN AstorCoreEngine - ----------Running generation: 182, population size: 1
+[3564960] WARN AstorCoreEngine - ----------Running generation: 183, population size: 1
+[3565005] WARN AstorCoreEngine - ----------Running generation: 184, population size: 1
+[3565059] WARN AstorCoreEngine - ----------Running generation: 185, population size: 1
+[3565111] WARN AstorCoreEngine - ----------Running generation: 186, population size: 1
+[3565180] WARN AstorCoreEngine - ----------Running generation: 187, population size: 1
+[3565521] INFO main - Run previously failing tests...
+[3609461] INFO main - Failed tests: 2
+[3609473] WARN AstorCoreEngine - ----------Running generation: 188, population size: 1
+[3609535] WARN AstorCoreEngine - ----------Running generation: 189, population size: 1
+[3609560] WARN AstorCoreEngine - ----------Running generation: 190, population size: 1
+[3610079] INFO main - Run previously failing tests...
+[10814753] INFO main - Failed tests: 0
+[10814755] INFO main - Run whole testsuite...
+[10867795] INFO main - Failed tests: 2
+[10867811] INFO AstorCoreEngine - 
+ No more time for operating
+[10867815] INFO AstorCoreEngine - Time Repair Loop (s): 10807.523
+[10867815] INFO AstorCoreEngine - generationsexecuted: 190
+[10867815] WARN AstorCoreEngine - ----SUMMARY_EXECUTION---
+[10867815] WARN AstorCoreEngine - End Repair Search: NOT Found solution
+[10867815] WARN AstorCoreEngine - Number suspicious:1
+[10867821] INFO AstorCoreEngine - 
+ --SOLUTIONS DESCRIPTION--
+
+
+Astor Output:
+
+General stats:
+EXECUTION_IDENTIFIER=apache_cxf-VUL4J-15
+TOTAL_TIME=10807.523
+NR_GENERATIONS=190
+NR_RIGHT_COMPILATIONS=82
+NR_FAILLING_COMPILATIONS=19
+NR_ERRONEOUS_VARIANCES=null
+NR_FAILING_VALIDATION_PROCESS=null
+OUTPUT_STATUS=TIME_OUT
+
+Patch stats:
+
+[10867847] INFO Stats - Storing ing JSON at /workdir/jGenProg_vul4j_apache_cxf_VUL4J-15/./output_astor/AstorMain-apache_cxf-VUL4J-15//astor_output.json
+[10867861] INFO Stats - astor_output:
+{"general":{"NR_RIGHT_COMPILATIONS":82,"NR_ERRONEOUS_VARIANCES":null,"EXECUTION_IDENTIFIER":"apache_cxf-VUL4J-15","OUTPUT_STATUS":"TIME_OUT","NR_FAILLING_COMPILATIONS":19,"NR_GENERATIONS":190,"TOTAL_TIME":10807.523,"NR_FAILING_VALIDATION_PROCESS":null},"patches":[]}
+[10867861] INFO AstorMain - Time Total(s): 10867.848
+3674.51user 540.56system 3:01:09elapsed 38%CPU (0avgtext+0avgdata 976068maxresident)k
+3512inputs+86264outputs (0major+21330110minor)pagefaults 0swaps
+
+
+Node: 9670332cfea8
+
+
+
+Date: Thu Sep  8 14:30:52 EDT 2022
+

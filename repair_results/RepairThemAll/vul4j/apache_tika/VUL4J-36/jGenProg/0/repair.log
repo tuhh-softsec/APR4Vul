@@ -1,0 +1,584 @@
+cd /workdir/jGenProg_vul4j_apache_tika_VUL4J-36;
+export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en";
+TZ="America/New_York"; export TZ;
+export PATH="/usr/lib/jvm/java-8-openjdk-amd64/bin:$PATH";
+export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64/bin";
+time java -Xmx4g -Xms1g -XX:MaxPermSize=512m -cp /script/../libs/jtestex7.jar:/script/../repair_tools/astor.jar fr.inria.main.evolution.AstorMain \
+	-mode jgenprog \
+	-location . \
+	-id apache_tika-VUL4J-36 \
+	-failing org.apache.tika.parser.iptc.IptcParserTest#testCVE_2018_8017 \
+	-jvm4testexecution /usr/lib/jvm/java-8-openjdk-amd64/bin \
+	-jvm4evosuitetestexecution /usr/lib/jvm/java-8-openjdk-amd64/bin \
+	-maxgen 1000000 \
+	-maxtime 120 \
+	-stopfirst true \
+	-seed 0 \
+	-scope local \
+	-population 1 \
+	-javacompliancelevel 8 \
+	-faultlocalization perfect \
+    -perfectdata /script/../data/benchmarks/vul4j/perfectfl/VUL4J-36 \
+    -validation externalcmd \
+    -testfailingcmd "mvn test -pl tika-parsers -Dtest=org.apache.tika.parser.iptc.IptcParserTest#testCVE_2018_8017 -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B" \
+    -testallcmd "mvn test -pl tika-parsers -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B"  \ \
+	-srcjavafolder tika-parsers/src/main/java \
+	-srctestfolder tika-parsers/src/test/java \
+	-binjavafolder tika-parsers/target/classes \
+	-bintestfolder tika-parsers/target/test-classes \
+	-parameters x:x \
+	-dependencies /root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.9.5/jackson-annotations-2.9.5.jar:/root/.m2/repository/c3p0/c3p0/0.9.1.1/c3p0-0.9.1.1.jar:/root/.m2/repository/com/github/junrar/junrar/0.7/junrar-0.7.jar:/root/.m2/repository/org/ow2/asm/asm/5.0.4/asm-5.0.4.jar:/root/.m2/repository/org/osgi/org.osgi.core/4.0.0/org.osgi.core-4.0.0.jar:/root/.m2/repository/javax/ws/rs/javax.ws.rs-api/2.0.1/javax.ws.rs-api-2.0.1.jar:/root/.m2/repository/org/springframework/spring-core/3.2.16.RELEASE/spring-core-3.2.16.RELEASE.jar:/root/.m2/repository/edu/usc/ir/sentiment-analysis-parser/0.1/sentiment-analysis-parser-0.1.jar:/root/.m2/repository/org/apache/commons/commons-collections4/4.1/commons-collections4-4.1.jar:/root/.m2/repository/org/springframework/spring-beans/3.2.16.RELEASE/spring-beans-3.2.16.RELEASE.jar:/root/.m2/repository/edu/mit/findstruct/findstructapi/0.0.1/findstructapi-0.0.1.jar:/root/.m2/repository/org/apache/uima/uimaj-core/2.9.0/uimaj-core-2.9.0.jar:/root/.m2/repository/org/apache/cxf/cxf-core/3.0.16/cxf-core-3.0.16.jar:/root/.m2/repository/org/apache/opennlp/opennlp-maxent/3.0.3/opennlp-maxent-3.0.3.jar:/root/.m2/repository/org/mockito/mockito-core/2.15.0/mockito-core-2.15.0.jar:/root/.m2/repository/org/apache/httpcomponents/httpclient/4.5.4/httpclient-4.5.4.jar:/root/.m2/repository/xerces/xercesImpl/2.11.0/xercesImpl-2.11.0.jar:/root/.m2/repository/org/codelibs/jhighlight/1.0.2/jhighlight-1.0.2.jar:/root/.m2/repository/org/springframework/spring-expression/3.2.16.RELEASE/spring-expression-3.2.16.RELEASE.jar:/root/.m2/repository/com/github/luben/zstd-jni/1.3.3-3/zstd-jni-1.3.3-3.jar:/root/.m2/repository/org/apache/sis/storage/sis-netcdf/0.8/sis-netcdf-0.8.jar:/root/.m2/repository/org/apache/cxf/cxf-rt-rs-client/3.0.16/cxf-rt-rs-client-3.0.16.jar:/root/.m2/repository/com/github/virtuald/curvesapi/1.04/curvesapi-1.04.jar:/root/.m2/repository/xml-apis/xml-apis/1.4.01/xml-apis-1.4.01.jar:/root/.m2/repository/org/jdom/jdom2/2.0.6/jdom2-2.0.6.jar:/root/.m2/repository/org/apache/james/apache-mime4j-core/0.8.1/apache-mime4j-core-0.8.1.jar:/root/.m2/repository/de/l3s/boilerpipe/boilerpipe/1.1.0/boilerpipe-1.1.0.jar:/root/.m2/repository/commons-io/commons-io/2.6/commons-io-2.6.jar:/root/.m2/repository/org/apache/lucene/lucene-analyzers-common/4.0.0/lucene-analyzers-common-4.0.0.jar:/root/.m2/repository/org/bouncycastle/bcpkix-jdk15on/1.54/bcpkix-jdk15on-1.54.jar:/root/.m2/repository/org/ccil/cowan/tagsoup/tagsoup/1.2.1/tagsoup-1.2.1.jar:/root/.m2/repository/com/drewnoakes/metadata-extractor/2.10.1/metadata-extractor-2.10.1.jar:/root/.m2/repository/org/apache/ctakes/ctakes-core-res/4.0.0/ctakes-core-res-4.0.0.jar:/root/.m2/repository/com/googlecode/armbrust-file-utils/sqlwrapper/0.0.1/sqlwrapper-0.0.1.jar:/root/.m2/repository/org/apache/ctakes/ctakes-core/4.0.0/ctakes-core-4.0.0.jar:/root/.m2/repository/org/springframework/spring-context/3.2.16.RELEASE/spring-context-3.2.16.RELEASE.jar:/root/.m2/repository/org/tallison/jmatio/1.2/jmatio-1.2.jar:/root/.m2/repository/javax/annotation/javax.annotation-api/1.2/javax.annotation-api-1.2.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.9.5/jackson-databind-2.9.5.jar:/root/.m2/repository/org/brotli/dec/0.1.2/dec-0.1.2.jar:/root/.m2/repository/org/apache/commons/commons-csv/1.0/commons-csv-1.0.jar:/root/.m2/repository/org/apache/felix/org.apache.felix.scr.annotations/1.6.0/org.apache.felix.scr.annotations-1.6.0.jar:/root/.m2/repository/org/apache/xmlbeans/xmlbeans/2.6.0/xmlbeans-2.6.0.jar:/root/.m2/repository/org/apache/pdfbox/pdfbox/2.0.9/pdfbox-2.0.9.jar:/root/.m2/repository/org/apache/uima/uimafit-core/2.2.0/uimafit-core-2.2.0.jar:/root/.m2/repository/org/apache/sis/core/sis-referencing/0.8/sis-referencing-0.8.jar:/root/.m2/repository/commons-logging/commons-logging-api/1.1/commons-logging-api-1.1.jar:/root/.m2/repository/org/apache/pdfbox/jbig2-imageio/3.0.0/jbig2-imageio-3.0.0.jar:/root/.m2/repository/org/apache/poi/poi-ooxml/3.17/poi-ooxml-3.17.jar:/root/.m2/repository/com/googlecode/juniversalchardet/juniversalchardet/1.0.3/juniversalchardet-1.0.3.jar:/root/.m2/repository/tw/edu/ntu/csie/libsvm/3.1/libsvm-3.1.jar:/root/.m2/repository/org/itadaki/bzip2/0.9.1/bzip2-0.9.1.jar:/root/.m2/repository/com/healthmarketscience/jackcess/jackcess/2.1.10/jackcess-2.1.10.jar:/root/.m2/repository/edu/ucar/httpservices/4.5.5/httpservices-4.5.5.jar:/root/.m2/repository/net/sourceforge/openai/openaifsm/0.0.1/openaifsm-0.0.1.jar:/root/.m2/repository/org/objenesis/objenesis/2.6/objenesis-2.6.jar:/root/.m2/repository/org/apache/ctakes/ctakes-type-system/4.0.0/ctakes-type-system-4.0.0.jar:/root/.m2/repository/jdom/jdom/1.0/jdom-1.0.jar:/root/.m2/repository/com/adobe/xmp/xmpcore/5.1.3/xmpcore-5.1.3.jar:/root/.m2/repository/org/apache/ws/xmlschema/xmlschema-core/2.2.2/xmlschema-core-2.2.2.jar:/root/.m2/repository/org/gagravarr/vorbis-java-tika/0.8/vorbis-java-tika-0.8.jar:/root/.m2/repository/org/apache/httpcomponents/httpmime/4.5.4/httpmime-4.5.4.jar:/root/.m2/repository/org/gagravarr/vorbis-java-core/0.8/vorbis-java-core-0.8.jar:/root/.m2/repository/org/codehaus/woodstox/stax2-api/3.1.4/stax2-api-3.1.4.jar:/root/.m2/repository/javax/measure/unit-api/1.0/unit-api-1.0.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.7.9/byte-buddy-1.7.9.jar:/root/.m2/repository/org/quartz-scheduler/quartz/2.2.0/quartz-2.2.0.jar:/root/.m2/repository/com/google/code/gson/gson/2.8.1/gson-2.8.1.jar:/root/.m2/repository/org/bouncycastle/bcprov-jdk15on/1.54/bcprov-jdk15on-1.54.jar:/root/.m2/repository/org/apache/poi/poi/3.17/poi-3.17.jar:/root/.m2/repository/org/apache/cxf/cxf-rt-transports-http/3.0.16/cxf-rt-transports-http-3.0.16.jar:/root/.m2/repository/org/apache/opennlp/opennlp-tools/1.8.4/opennlp-tools-1.8.4.jar:/root/.m2/repository/org/apache/poi/poi-ooxml-schemas/3.17/poi-ooxml-schemas-3.17.jar:/root/.m2/repository/org/apache/lucene/lucene-sandbox/4.0.0/lucene-sandbox-4.0.0.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.9.5/jackson-core-2.9.5.jar:/root/.m2/repository/org/apache/pdfbox/fontbox/2.0.9/fontbox-2.0.9.jar:/root/.m2/repository/org/slf4j/slf4j-log4j12/1.7.24/slf4j-log4j12-1.7.24.jar:/root/.m2/repository/org/apache/james/apache-mime4j-dom/0.8.1/apache-mime4j-dom-0.8.1.jar:/root/.m2/repository/com/epam/parso/2.0.9/parso-2.0.9.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.24/slf4j-api-1.7.24.jar:/root/.m2/repository/org/apache/pdfbox/jempbox/1.8.13/jempbox-1.8.13.jar:/root/.m2/repository/org/apache/commons/commons-compress/1.16.1/commons-compress-1.16.1.jar:/root/.m2/repository/org/opengis/geoapi/3.0.1/geoapi-3.0.1.jar:/root/.m2/repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar:/root/.m2/repository/org/slf4j/jcl-over-slf4j/1.7.24/jcl-over-slf4j-1.7.24.jar:/root/.m2/repository/org/apache/sis/storage/sis-storage/0.8/sis-storage-0.8.jar:/root/.m2/repository/commons-codec/commons-codec/1.10/commons-codec-1.10.jar:/root/.m2/repository/net/java/dev/jna/jna/4.1.0/jna-4.1.0.jar:/root/.m2/repository/edu/ucar/udunits/4.5.5/udunits-4.5.5.jar:/root/.m2/repository/com/beust/jcommander/1.35/jcommander-1.35.jar:/root/.m2/repository/net/jcip/jcip-annotations/1.0/jcip-annotations-1.0.jar:/root/.m2/repository/com/googlecode/json-simple/json-simple/1.1.1/json-simple-1.1.1.jar:/root/.m2/repository/org/apache/httpcomponents/httpcore/4.4.7/httpcore-4.4.7.jar:/root/.m2/repository/org/tukaani/xz/1.8/xz-1.8.jar:/root/.m2/repository/com/google/guava/guava/17.0/guava-17.0.jar:/root/.m2/repository/com/googlecode/mp4parser/isoparser/1.1.18/isoparser-1.1.18.jar:/root/.m2/repository/com/lexicalscope/jewelcli/jewelcli/0.8.3/jewelcli-0.8.3.jar:/root/.m2/repository/org/apache/sis/core/sis-metadata/0.8/sis-metadata-0.8.jar:/root/.m2/repository/org/apache/poi/poi-scratchpad/3.17/poi-scratchpad-3.17.jar:/root/.m2/repository/commons-logging/commons-logging/1.1.3/commons-logging-1.1.3.jar:/root/.m2/repository/com/github/openjson/openjson/1.0.10/openjson-1.0.10.jar:/root/.m2/repository/org/cleartk/cleartk-ml/2.0.0/cleartk-ml-2.0.0.jar:/root/.m2/repository/org/xerial/sqlite-jdbc/3.19.3/sqlite-jdbc-3.19.3.jar:/root/.m2/repository/org/slf4j/jul-to-slf4j/1.7.24/jul-to-slf4j-1.7.24.jar:/root/.m2/repository/com/google/protobuf/protobuf-java/2.5.0/protobuf-java-2.5.0.jar:/root/.m2/repository/org/apache/pdfbox/pdfbox-tools/2.0.9/pdfbox-tools-2.0.9.jar:/root/.m2/repository/com/rometools/rome-utils/1.5.1/rome-utils-1.5.1.jar:/root/.m2/repository/org/apache/sis/core/sis-feature/0.8/sis-feature-0.8.jar:/root/.m2/repository/edu/ucar/grib/4.5.5/grib-4.5.5.jar:/root/.m2/repository/org/codehaus/woodstox/woodstox-core-asl/4.4.1/woodstox-core-asl-4.4.1.jar:/root/.m2/repository/jakarta-regexp/jakarta-regexp/1.4/jakarta-regexp-1.4.jar:/root/.m2/repository/org/apache/tika/tika-core/2.0.0-SNAPSHOT/tika-core-2.0.0-SNAPSHOT-tests.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.7.9/byte-buddy-agent-1.7.9.jar:/root/.m2/repository/org/jsoup/jsoup/1.11.2/jsoup-1.11.2.jar:/root/.m2/repository/org/apache/lucene/lucene-queryparser/4.0.0/lucene-queryparser-4.0.0.jar:/root/.m2/repository/org/springframework/spring-aop/3.2.16.RELEASE/spring-aop-3.2.16.RELEASE.jar:/root/.m2/repository/org/apache/tika/tika-core/2.0.0-SNAPSHOT/tika-core-2.0.0-SNAPSHOT.jar:/root/.m2/repository/org/apache/cxf/cxf-rt-frontend-jaxrs/3.0.16/cxf-rt-frontend-jaxrs-3.0.16.jar:/root/.m2/repository/org/apache/lucene/lucene-core/4.0.0/lucene-core-4.0.0.jar:/root/.m2/repository/edu/ucar/cdm/4.5.5/cdm-4.5.5.jar:/root/.m2/repository/com/healthmarketscience/jackcess/jackcess-encrypt/2.1.4/jackcess-encrypt-2.1.4.jar:/root/.m2/repository/com/github/jai-imageio/jai-imageio-jpeg2000/1.3.0/jai-imageio-jpeg2000-1.3.0.jar:/root/.m2/repository/joda-time/joda-time/2.2/joda-time-2.2.jar:/root/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar:/root/.m2/repository/org/apache/lucene/lucene-queries/4.0.0/lucene-queries-4.0.0.jar:/root/.m2/repository/net/sf/ehcache/ehcache-core/2.6.2/ehcache-core-2.6.2.jar:/root/.m2/repository/com/rometools/rome/1.5.1/rome-1.5.1.jar:/root/.m2/repository/edu/ucar/netcdf4/4.5.5/netcdf4-4.5.5.jar:/root/.m2/repository/commons-lang/commons-lang/2.6/commons-lang-2.6.jar:/root/.m2/repository/com/pff/java-libpst/0.8.1/java-libpst-0.8.1.jar:/root/.m2/repository/com/github/jai-imageio/jai-imageio-core/1.3.1/jai-imageio-core-1.3.1.jar:/root/.m2/repository/org/bouncycastle/bcmail-jdk15on/1.54/bcmail-jdk15on-1.54.jar:/root/.m2/repository/org/apache/sis/core/sis-utility/0.8/sis-utility-0.8.jar:/root/.m2/repository/org/cleartk/cleartk-util/2.0.0/cleartk-util-2.0.0.jar:/root/.m2/repository/junit/junit/4.12/junit-4.12.jar:/root/.m2/repository/org/apache/commons/commons-exec/1.3/commons-exec-1.3.jar:/root/.m2/repository/org/apache/ctakes/ctakes-utils/4.0.0/ctakes-utils-4.0.0.jar;
+	echo "\n\nNode: `hostname`\n";
+	echo "\n\nDate: `date`\n";
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en
+OpenJDK 64-Bit Server VM warning: ignoring option MaxPermSize=512m; support was removed in 8.0
+[0] INFO ProjectConfiguration - Version of the JVM used: 1.8.0_342
+[0] INFO main - Java version of the JDK used to run tests: 1.8.0_342
+[0] INFO main - The compliance of the JVM is:  8
+[6] INFO main - command line arguments: [-mode  jgenprog  -location  .  -id  apache_tika-VUL4J-36  -failing  org.apache.tika.parser.iptc.IptcParserTest#testCVE_2018_8017  -jvm4testexecution  /usr/lib/jvm/java-8-openjdk-amd64/bin  -jvm4evosuitetestexecution  /usr/lib/jvm/java-8-openjdk-amd64/bin  -maxgen  1000000  -maxtime  120  -stopfirst  true  -seed  0  -scope  local  -population  1  -javacompliancelevel  8  -faultlocalization  perfect  -perfectdata  /script/../data/benchmarks/vul4j/perfectfl/VUL4J-36  -validation  externalcmd  -testfailingcmd  mvn test -pl tika-parsers -Dtest=org.apache.tika.parser.iptc.IptcParserTest#testCVE_2018_8017 -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B  -testallcmd  mvn test -pl tika-parsers -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B     -srcjavafolder  tika-parsers/src/main/java  -srctestfolder  tika-parsers/src/test/java  -binjavafolder  tika-parsers/target/classes  -bintestfolder  tika-parsers/target/test-classes  -parameters  x:x  -dependencies  /root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.9.5/jackson-annotations-2.9.5.jar:/root/.m2/repository/c3p0/c3p0/0.9.1.1/c3p0-0.9.1.1.jar:/root/.m2/repository/com/github/junrar/junrar/0.7/junrar-0.7.jar:/root/.m2/repository/org/ow2/asm/asm/5.0.4/asm-5.0.4.jar:/root/.m2/repository/org/osgi/org.osgi.core/4.0.0/org.osgi.core-4.0.0.jar:/root/.m2/repository/javax/ws/rs/javax.ws.rs-api/2.0.1/javax.ws.rs-api-2.0.1.jar:/root/.m2/repository/org/springframework/spring-core/3.2.16.RELEASE/spring-core-3.2.16.RELEASE.jar:/root/.m2/repository/edu/usc/ir/sentiment-analysis-parser/0.1/sentiment-analysis-parser-0.1.jar:/root/.m2/repository/org/apache/commons/commons-collections4/4.1/commons-collections4-4.1.jar:/root/.m2/repository/org/springframework/spring-beans/3.2.16.RELEASE/spring-beans-3.2.16.RELEASE.jar:/root/.m2/repository/edu/mit/findstruct/findstructapi/0.0.1/findstructapi-0.0.1.jar:/root/.m2/repository/org/apache/uima/uimaj-core/2.9.0/uimaj-core-2.9.0.jar:/root/.m2/repository/org/apache/cxf/cxf-core/3.0.16/cxf-core-3.0.16.jar:/root/.m2/repository/org/apache/opennlp/opennlp-maxent/3.0.3/opennlp-maxent-3.0.3.jar:/root/.m2/repository/org/mockito/mockito-core/2.15.0/mockito-core-2.15.0.jar:/root/.m2/repository/org/apache/httpcomponents/httpclient/4.5.4/httpclient-4.5.4.jar:/root/.m2/repository/xerces/xercesImpl/2.11.0/xercesImpl-2.11.0.jar:/root/.m2/repository/org/codelibs/jhighlight/1.0.2/jhighlight-1.0.2.jar:/root/.m2/repository/org/springframework/spring-expression/3.2.16.RELEASE/spring-expression-3.2.16.RELEASE.jar:/root/.m2/repository/com/github/luben/zstd-jni/1.3.3-3/zstd-jni-1.3.3-3.jar:/root/.m2/repository/org/apache/sis/storage/sis-netcdf/0.8/sis-netcdf-0.8.jar:/root/.m2/repository/org/apache/cxf/cxf-rt-rs-client/3.0.16/cxf-rt-rs-client-3.0.16.jar:/root/.m2/repository/com/github/virtuald/curvesapi/1.04/curvesapi-1.04.jar:/root/.m2/repository/xml-apis/xml-apis/1.4.01/xml-apis-1.4.01.jar:/root/.m2/repository/org/jdom/jdom2/2.0.6/jdom2-2.0.6.jar:/root/.m2/repository/org/apache/james/apache-mime4j-core/0.8.1/apache-mime4j-core-0.8.1.jar:/root/.m2/repository/de/l3s/boilerpipe/boilerpipe/1.1.0/boilerpipe-1.1.0.jar:/root/.m2/repository/commons-io/commons-io/2.6/commons-io-2.6.jar:/root/.m2/repository/org/apache/lucene/lucene-analyzers-common/4.0.0/lucene-analyzers-common-4.0.0.jar:/root/.m2/repository/org/bouncycastle/bcpkix-jdk15on/1.54/bcpkix-jdk15on-1.54.jar:/root/.m2/repository/org/ccil/cowan/tagsoup/tagsoup/1.2.1/tagsoup-1.2.1.jar:/root/.m2/repository/com/drewnoakes/metadata-extractor/2.10.1/metadata-extractor-2.10.1.jar:/root/.m2/repository/org/apache/ctakes/ctakes-core-res/4.0.0/ctakes-core-res-4.0.0.jar:/root/.m2/repository/com/googlecode/armbrust-file-utils/sqlwrapper/0.0.1/sqlwrapper-0.0.1.jar:/root/.m2/repository/org/apache/ctakes/ctakes-core/4.0.0/ctakes-core-4.0.0.jar:/root/.m2/repository/org/springframework/spring-context/3.2.16.RELEASE/spring-context-3.2.16.RELEASE.jar:/root/.m2/repository/org/tallison/jmatio/1.2/jmatio-1.2.jar:/root/.m2/repository/javax/annotation/javax.annotation-api/1.2/javax.annotation-api-1.2.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.9.5/jackson-databind-2.9.5.jar:/root/.m2/repository/org/brotli/dec/0.1.2/dec-0.1.2.jar:/root/.m2/repository/org/apache/commons/commons-csv/1.0/commons-csv-1.0.jar:/root/.m2/repository/org/apache/felix/org.apache.felix.scr.annotations/1.6.0/org.apache.felix.scr.annotations-1.6.0.jar:/root/.m2/repository/org/apache/xmlbeans/xmlbeans/2.6.0/xmlbeans-2.6.0.jar:/root/.m2/repository/org/apache/pdfbox/pdfbox/2.0.9/pdfbox-2.0.9.jar:/root/.m2/repository/org/apache/uima/uimafit-core/2.2.0/uimafit-core-2.2.0.jar:/root/.m2/repository/org/apache/sis/core/sis-referencing/0.8/sis-referencing-0.8.jar:/root/.m2/repository/commons-logging/commons-logging-api/1.1/commons-logging-api-1.1.jar:/root/.m2/repository/org/apache/pdfbox/jbig2-imageio/3.0.0/jbig2-imageio-3.0.0.jar:/root/.m2/repository/org/apache/poi/poi-ooxml/3.17/poi-ooxml-3.17.jar:/root/.m2/repository/com/googlecode/juniversalchardet/juniversalchardet/1.0.3/juniversalchardet-1.0.3.jar:/root/.m2/repository/tw/edu/ntu/csie/libsvm/3.1/libsvm-3.1.jar:/root/.m2/repository/org/itadaki/bzip2/0.9.1/bzip2-0.9.1.jar:/root/.m2/repository/com/healthmarketscience/jackcess/jackcess/2.1.10/jackcess-2.1.10.jar:/root/.m2/repository/edu/ucar/httpservices/4.5.5/httpservices-4.5.5.jar:/root/.m2/repository/net/sourceforge/openai/openaifsm/0.0.1/openaifsm-0.0.1.jar:/root/.m2/repository/org/objenesis/objenesis/2.6/objenesis-2.6.jar:/root/.m2/repository/org/apache/ctakes/ctakes-type-system/4.0.0/ctakes-type-system-4.0.0.jar:/root/.m2/repository/jdom/jdom/1.0/jdom-1.0.jar:/root/.m2/repository/com/adobe/xmp/xmpcore/5.1.3/xmpcore-5.1.3.jar:/root/.m2/repository/org/apache/ws/xmlschema/xmlschema-core/2.2.2/xmlschema-core-2.2.2.jar:/root/.m2/repository/org/gagravarr/vorbis-java-tika/0.8/vorbis-java-tika-0.8.jar:/root/.m2/repository/org/apache/httpcomponents/httpmime/4.5.4/httpmime-4.5.4.jar:/root/.m2/repository/org/gagravarr/vorbis-java-core/0.8/vorbis-java-core-0.8.jar:/root/.m2/repository/org/codehaus/woodstox/stax2-api/3.1.4/stax2-api-3.1.4.jar:/root/.m2/repository/javax/measure/unit-api/1.0/unit-api-1.0.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.7.9/byte-buddy-1.7.9.jar:/root/.m2/repository/org/quartz-scheduler/quartz/2.2.0/quartz-2.2.0.jar:/root/.m2/repository/com/google/code/gson/gson/2.8.1/gson-2.8.1.jar:/root/.m2/repository/org/bouncycastle/bcprov-jdk15on/1.54/bcprov-jdk15on-1.54.jar:/root/.m2/repository/org/apache/poi/poi/3.17/poi-3.17.jar:/root/.m2/repository/org/apache/cxf/cxf-rt-transports-http/3.0.16/cxf-rt-transports-http-3.0.16.jar:/root/.m2/repository/org/apache/opennlp/opennlp-tools/1.8.4/opennlp-tools-1.8.4.jar:/root/.m2/repository/org/apache/poi/poi-ooxml-schemas/3.17/poi-ooxml-schemas-3.17.jar:/root/.m2/repository/org/apache/lucene/lucene-sandbox/4.0.0/lucene-sandbox-4.0.0.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.9.5/jackson-core-2.9.5.jar:/root/.m2/repository/org/apache/pdfbox/fontbox/2.0.9/fontbox-2.0.9.jar:/root/.m2/repository/org/slf4j/slf4j-log4j12/1.7.24/slf4j-log4j12-1.7.24.jar:/root/.m2/repository/org/apache/james/apache-mime4j-dom/0.8.1/apache-mime4j-dom-0.8.1.jar:/root/.m2/repository/com/epam/parso/2.0.9/parso-2.0.9.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.24/slf4j-api-1.7.24.jar:/root/.m2/repository/org/apache/pdfbox/jempbox/1.8.13/jempbox-1.8.13.jar:/root/.m2/repository/org/apache/commons/commons-compress/1.16.1/commons-compress-1.16.1.jar:/root/.m2/repository/org/opengis/geoapi/3.0.1/geoapi-3.0.1.jar:/root/.m2/repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar:/root/.m2/repository/org/slf4j/jcl-over-slf4j/1.7.24/jcl-over-slf4j-1.7.24.jar:/root/.m2/repository/org/apache/sis/storage/sis-storage/0.8/sis-storage-0.8.jar:/root/.m2/repository/commons-codec/commons-codec/1.10/commons-codec-1.10.jar:/root/.m2/repository/net/java/dev/jna/jna/4.1.0/jna-4.1.0.jar:/root/.m2/repository/edu/ucar/udunits/4.5.5/udunits-4.5.5.jar:/root/.m2/repository/com/beust/jcommander/1.35/jcommander-1.35.jar:/root/.m2/repository/net/jcip/jcip-annotations/1.0/jcip-annotations-1.0.jar:/root/.m2/repository/com/googlecode/json-simple/json-simple/1.1.1/json-simple-1.1.1.jar:/root/.m2/repository/org/apache/httpcomponents/httpcore/4.4.7/httpcore-4.4.7.jar:/root/.m2/repository/org/tukaani/xz/1.8/xz-1.8.jar:/root/.m2/repository/com/google/guava/guava/17.0/guava-17.0.jar:/root/.m2/repository/com/googlecode/mp4parser/isoparser/1.1.18/isoparser-1.1.18.jar:/root/.m2/repository/com/lexicalscope/jewelcli/jewelcli/0.8.3/jewelcli-0.8.3.jar:/root/.m2/repository/org/apache/sis/core/sis-metadata/0.8/sis-metadata-0.8.jar:/root/.m2/repository/org/apache/poi/poi-scratchpad/3.17/poi-scratchpad-3.17.jar:/root/.m2/repository/commons-logging/commons-logging/1.1.3/commons-logging-1.1.3.jar:/root/.m2/repository/com/github/openjson/openjson/1.0.10/openjson-1.0.10.jar:/root/.m2/repository/org/cleartk/cleartk-ml/2.0.0/cleartk-ml-2.0.0.jar:/root/.m2/repository/org/xerial/sqlite-jdbc/3.19.3/sqlite-jdbc-3.19.3.jar:/root/.m2/repository/org/slf4j/jul-to-slf4j/1.7.24/jul-to-slf4j-1.7.24.jar:/root/.m2/repository/com/google/protobuf/protobuf-java/2.5.0/protobuf-java-2.5.0.jar:/root/.m2/repository/org/apache/pdfbox/pdfbox-tools/2.0.9/pdfbox-tools-2.0.9.jar:/root/.m2/repository/com/rometools/rome-utils/1.5.1/rome-utils-1.5.1.jar:/root/.m2/repository/org/apache/sis/core/sis-feature/0.8/sis-feature-0.8.jar:/root/.m2/repository/edu/ucar/grib/4.5.5/grib-4.5.5.jar:/root/.m2/repository/org/codehaus/woodstox/woodstox-core-asl/4.4.1/woodstox-core-asl-4.4.1.jar:/root/.m2/repository/jakarta-regexp/jakarta-regexp/1.4/jakarta-regexp-1.4.jar:/root/.m2/repository/org/apache/tika/tika-core/2.0.0-SNAPSHOT/tika-core-2.0.0-SNAPSHOT-tests.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.7.9/byte-buddy-agent-1.7.9.jar:/root/.m2/repository/org/jsoup/jsoup/1.11.2/jsoup-1.11.2.jar:/root/.m2/repository/org/apache/lucene/lucene-queryparser/4.0.0/lucene-queryparser-4.0.0.jar:/root/.m2/repository/org/springframework/spring-aop/3.2.16.RELEASE/spring-aop-3.2.16.RELEASE.jar:/root/.m2/repository/org/apache/tika/tika-core/2.0.0-SNAPSHOT/tika-core-2.0.0-SNAPSHOT.jar:/root/.m2/repository/org/apache/cxf/cxf-rt-frontend-jaxrs/3.0.16/cxf-rt-frontend-jaxrs-3.0.16.jar:/root/.m2/repository/org/apache/lucene/lucene-core/4.0.0/lucene-core-4.0.0.jar:/root/.m2/repository/edu/ucar/cdm/4.5.5/cdm-4.5.5.jar:/root/.m2/repository/com/healthmarketscience/jackcess/jackcess-encrypt/2.1.4/jackcess-encrypt-2.1.4.jar:/root/.m2/repository/com/github/jai-imageio/jai-imageio-jpeg2000/1.3.0/jai-imageio-jpeg2000-1.3.0.jar:/root/.m2/repository/joda-time/joda-time/2.2/joda-time-2.2.jar:/root/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar:/root/.m2/repository/org/apache/lucene/lucene-queries/4.0.0/lucene-queries-4.0.0.jar:/root/.m2/repository/net/sf/ehcache/ehcache-core/2.6.2/ehcache-core-2.6.2.jar:/root/.m2/repository/com/rometools/rome/1.5.1/rome-1.5.1.jar:/root/.m2/repository/edu/ucar/netcdf4/4.5.5/netcdf4-4.5.5.jar:/root/.m2/repository/commons-lang/commons-lang/2.6/commons-lang-2.6.jar:/root/.m2/repository/com/pff/java-libpst/0.8.1/java-libpst-0.8.1.jar:/root/.m2/repository/com/github/jai-imageio/jai-imageio-core/1.3.1/jai-imageio-core-1.3.1.jar:/root/.m2/repository/org/bouncycastle/bcmail-jdk15on/1.54/bcmail-jdk15on-1.54.jar:/root/.m2/repository/org/apache/sis/core/sis-utility/0.8/sis-utility-0.8.jar:/root/.m2/repository/org/cleartk/cleartk-util/2.0.0/cleartk-util-2.0.0.jar:/root/.m2/repository/junit/junit/4.12/junit-4.12.jar:/root/.m2/repository/org/apache/commons/commons-exec/1.3/commons-exec-1.3.jar:/root/.m2/repository/org/apache/ctakes/ctakes-utils/4.0.0/ctakes-utils-4.0.0.jar]
+[8] INFO AstorMain - Running Astor on a JDK at /usr/lib/jvm/java-8-openjdk-amd64/jre
+[30] INFO main - Source folders: [/workdir/jGenProg_vul4j_apache_tika_VUL4J-36/./tika-parsers/src/main/java]
+[30] INFO main - Source Test folders: [/workdir/jGenProg_vul4j_apache_tika_VUL4J-36/./tika-parsers/src/test/java]
+[4073] INFO AstorCoreEngine - ---- Creating spoon model
+[4143] INFO MutationSupporter - Creating model,  Code location from working folder: /workdir/jGenProg_vul4j_apache_tika_VUL4J-36/./tika-parsers/src/main/java
+[4143] INFO MutationSupporter - building model: /workdir/jGenProg_vul4j_apache_tika_VUL4J-36/./tika-parsers/src/main/java, compliance level: 8
+[4301] INFO MutationSupporter - Classpath (Dependencies) for building SpoonModel: [/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.9.5/jackson-annotations-2.9.5.jar, /root/.m2/repository/c3p0/c3p0/0.9.1.1/c3p0-0.9.1.1.jar, /root/.m2/repository/com/github/junrar/junrar/0.7/junrar-0.7.jar, /root/.m2/repository/org/ow2/asm/asm/5.0.4/asm-5.0.4.jar, /root/.m2/repository/org/osgi/org.osgi.core/4.0.0/org.osgi.core-4.0.0.jar, /root/.m2/repository/javax/ws/rs/javax.ws.rs-api/2.0.1/javax.ws.rs-api-2.0.1.jar, /root/.m2/repository/org/springframework/spring-core/3.2.16.RELEASE/spring-core-3.2.16.RELEASE.jar, /root/.m2/repository/edu/usc/ir/sentiment-analysis-parser/0.1/sentiment-analysis-parser-0.1.jar, /root/.m2/repository/org/apache/commons/commons-collections4/4.1/commons-collections4-4.1.jar, /root/.m2/repository/org/springframework/spring-beans/3.2.16.RELEASE/spring-beans-3.2.16.RELEASE.jar, /root/.m2/repository/edu/mit/findstruct/findstructapi/0.0.1/findstructapi-0.0.1.jar, /root/.m2/repository/org/apache/uima/uimaj-core/2.9.0/uimaj-core-2.9.0.jar, /root/.m2/repository/org/apache/cxf/cxf-core/3.0.16/cxf-core-3.0.16.jar, /root/.m2/repository/org/apache/opennlp/opennlp-maxent/3.0.3/opennlp-maxent-3.0.3.jar, /root/.m2/repository/org/mockito/mockito-core/2.15.0/mockito-core-2.15.0.jar, /root/.m2/repository/org/apache/httpcomponents/httpclient/4.5.4/httpclient-4.5.4.jar, /root/.m2/repository/xerces/xercesImpl/2.11.0/xercesImpl-2.11.0.jar, /root/.m2/repository/org/codelibs/jhighlight/1.0.2/jhighlight-1.0.2.jar, /root/.m2/repository/org/springframework/spring-expression/3.2.16.RELEASE/spring-expression-3.2.16.RELEASE.jar, /root/.m2/repository/com/github/luben/zstd-jni/1.3.3-3/zstd-jni-1.3.3-3.jar, /root/.m2/repository/org/apache/sis/storage/sis-netcdf/0.8/sis-netcdf-0.8.jar, /root/.m2/repository/org/apache/cxf/cxf-rt-rs-client/3.0.16/cxf-rt-rs-client-3.0.16.jar, /root/.m2/repository/com/github/virtuald/curvesapi/1.04/curvesapi-1.04.jar, /root/.m2/repository/xml-apis/xml-apis/1.4.01/xml-apis-1.4.01.jar, /root/.m2/repository/org/jdom/jdom2/2.0.6/jdom2-2.0.6.jar, /root/.m2/repository/org/apache/james/apache-mime4j-core/0.8.1/apache-mime4j-core-0.8.1.jar, /root/.m2/repository/de/l3s/boilerpipe/boilerpipe/1.1.0/boilerpipe-1.1.0.jar, /root/.m2/repository/commons-io/commons-io/2.6/commons-io-2.6.jar, /root/.m2/repository/org/apache/lucene/lucene-analyzers-common/4.0.0/lucene-analyzers-common-4.0.0.jar, /root/.m2/repository/org/bouncycastle/bcpkix-jdk15on/1.54/bcpkix-jdk15on-1.54.jar, /root/.m2/repository/org/ccil/cowan/tagsoup/tagsoup/1.2.1/tagsoup-1.2.1.jar, /root/.m2/repository/com/drewnoakes/metadata-extractor/2.10.1/metadata-extractor-2.10.1.jar, /root/.m2/repository/org/apache/ctakes/ctakes-core-res/4.0.0/ctakes-core-res-4.0.0.jar, /root/.m2/repository/com/googlecode/armbrust-file-utils/sqlwrapper/0.0.1/sqlwrapper-0.0.1.jar, /root/.m2/repository/org/apache/ctakes/ctakes-core/4.0.0/ctakes-core-4.0.0.jar, /root/.m2/repository/org/springframework/spring-context/3.2.16.RELEASE/spring-context-3.2.16.RELEASE.jar, /root/.m2/repository/org/tallison/jmatio/1.2/jmatio-1.2.jar, /root/.m2/repository/javax/annotation/javax.annotation-api/1.2/javax.annotation-api-1.2.jar, /root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.9.5/jackson-databind-2.9.5.jar, /root/.m2/repository/org/brotli/dec/0.1.2/dec-0.1.2.jar, /root/.m2/repository/org/apache/commons/commons-csv/1.0/commons-csv-1.0.jar, /root/.m2/repository/org/apache/felix/org.apache.felix.scr.annotations/1.6.0/org.apache.felix.scr.annotations-1.6.0.jar, /root/.m2/repository/org/apache/xmlbeans/xmlbeans/2.6.0/xmlbeans-2.6.0.jar, /root/.m2/repository/org/apache/pdfbox/pdfbox/2.0.9/pdfbox-2.0.9.jar, /root/.m2/repository/org/apache/uima/uimafit-core/2.2.0/uimafit-core-2.2.0.jar, /root/.m2/repository/org/apache/sis/core/sis-referencing/0.8/sis-referencing-0.8.jar, /root/.m2/repository/commons-logging/commons-logging-api/1.1/commons-logging-api-1.1.jar, /root/.m2/repository/org/apache/pdfbox/jbig2-imageio/3.0.0/jbig2-imageio-3.0.0.jar, /root/.m2/repository/org/apache/poi/poi-ooxml/3.17/poi-ooxml-3.17.jar, /root/.m2/repository/com/googlecode/juniversalchardet/juniversalchardet/1.0.3/juniversalchardet-1.0.3.jar, /root/.m2/repository/tw/edu/ntu/csie/libsvm/3.1/libsvm-3.1.jar, /root/.m2/repository/org/itadaki/bzip2/0.9.1/bzip2-0.9.1.jar, /root/.m2/repository/com/healthmarketscience/jackcess/jackcess/2.1.10/jackcess-2.1.10.jar, /root/.m2/repository/edu/ucar/httpservices/4.5.5/httpservices-4.5.5.jar, /root/.m2/repository/net/sourceforge/openai/openaifsm/0.0.1/openaifsm-0.0.1.jar, /root/.m2/repository/org/objenesis/objenesis/2.6/objenesis-2.6.jar, /root/.m2/repository/org/apache/ctakes/ctakes-type-system/4.0.0/ctakes-type-system-4.0.0.jar, /root/.m2/repository/jdom/jdom/1.0/jdom-1.0.jar, /root/.m2/repository/com/adobe/xmp/xmpcore/5.1.3/xmpcore-5.1.3.jar, /root/.m2/repository/org/apache/ws/xmlschema/xmlschema-core/2.2.2/xmlschema-core-2.2.2.jar, /root/.m2/repository/org/gagravarr/vorbis-java-tika/0.8/vorbis-java-tika-0.8.jar, /root/.m2/repository/org/apache/httpcomponents/httpmime/4.5.4/httpmime-4.5.4.jar, /root/.m2/repository/org/gagravarr/vorbis-java-core/0.8/vorbis-java-core-0.8.jar, /root/.m2/repository/org/codehaus/woodstox/stax2-api/3.1.4/stax2-api-3.1.4.jar, /root/.m2/repository/javax/measure/unit-api/1.0/unit-api-1.0.jar, /root/.m2/repository/net/bytebuddy/byte-buddy/1.7.9/byte-buddy-1.7.9.jar, /root/.m2/repository/org/quartz-scheduler/quartz/2.2.0/quartz-2.2.0.jar, /root/.m2/repository/com/google/code/gson/gson/2.8.1/gson-2.8.1.jar, /root/.m2/repository/org/bouncycastle/bcprov-jdk15on/1.54/bcprov-jdk15on-1.54.jar, /root/.m2/repository/org/apache/poi/poi/3.17/poi-3.17.jar, /root/.m2/repository/org/apache/cxf/cxf-rt-transports-http/3.0.16/cxf-rt-transports-http-3.0.16.jar, /root/.m2/repository/org/apache/opennlp/opennlp-tools/1.8.4/opennlp-tools-1.8.4.jar, /root/.m2/repository/org/apache/poi/poi-ooxml-schemas/3.17/poi-ooxml-schemas-3.17.jar, /root/.m2/repository/org/apache/lucene/lucene-sandbox/4.0.0/lucene-sandbox-4.0.0.jar, /root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.9.5/jackson-core-2.9.5.jar, /root/.m2/repository/org/apache/pdfbox/fontbox/2.0.9/fontbox-2.0.9.jar, /root/.m2/repository/org/slf4j/slf4j-log4j12/1.7.24/slf4j-log4j12-1.7.24.jar, /root/.m2/repository/org/apache/james/apache-mime4j-dom/0.8.1/apache-mime4j-dom-0.8.1.jar, /root/.m2/repository/com/epam/parso/2.0.9/parso-2.0.9.jar, /root/.m2/repository/org/slf4j/slf4j-api/1.7.24/slf4j-api-1.7.24.jar, /root/.m2/repository/org/apache/pdfbox/jempbox/1.8.13/jempbox-1.8.13.jar, /root/.m2/repository/org/apache/commons/commons-compress/1.16.1/commons-compress-1.16.1.jar, /root/.m2/repository/org/opengis/geoapi/3.0.1/geoapi-3.0.1.jar, /root/.m2/repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar, /root/.m2/repository/org/slf4j/jcl-over-slf4j/1.7.24/jcl-over-slf4j-1.7.24.jar, /root/.m2/repository/org/apache/sis/storage/sis-storage/0.8/sis-storage-0.8.jar, /root/.m2/repository/commons-codec/commons-codec/1.10/commons-codec-1.10.jar, /root/.m2/repository/net/java/dev/jna/jna/4.1.0/jna-4.1.0.jar, /root/.m2/repository/edu/ucar/udunits/4.5.5/udunits-4.5.5.jar, /root/.m2/repository/com/beust/jcommander/1.35/jcommander-1.35.jar, /root/.m2/repository/net/jcip/jcip-annotations/1.0/jcip-annotations-1.0.jar, /root/.m2/repository/com/googlecode/json-simple/json-simple/1.1.1/json-simple-1.1.1.jar, /root/.m2/repository/org/apache/httpcomponents/httpcore/4.4.7/httpcore-4.4.7.jar, /root/.m2/repository/org/tukaani/xz/1.8/xz-1.8.jar, /root/.m2/repository/com/google/guava/guava/17.0/guava-17.0.jar, /root/.m2/repository/com/googlecode/mp4parser/isoparser/1.1.18/isoparser-1.1.18.jar, /root/.m2/repository/com/lexicalscope/jewelcli/jewelcli/0.8.3/jewelcli-0.8.3.jar, /root/.m2/repository/org/apache/sis/core/sis-metadata/0.8/sis-metadata-0.8.jar, /root/.m2/repository/org/apache/poi/poi-scratchpad/3.17/poi-scratchpad-3.17.jar, /root/.m2/repository/commons-logging/commons-logging/1.1.3/commons-logging-1.1.3.jar, /root/.m2/repository/com/github/openjson/openjson/1.0.10/openjson-1.0.10.jar, /root/.m2/repository/org/cleartk/cleartk-ml/2.0.0/cleartk-ml-2.0.0.jar, /root/.m2/repository/org/xerial/sqlite-jdbc/3.19.3/sqlite-jdbc-3.19.3.jar, /root/.m2/repository/org/slf4j/jul-to-slf4j/1.7.24/jul-to-slf4j-1.7.24.jar, /root/.m2/repository/com/google/protobuf/protobuf-java/2.5.0/protobuf-java-2.5.0.jar, /root/.m2/repository/org/apache/pdfbox/pdfbox-tools/2.0.9/pdfbox-tools-2.0.9.jar, /root/.m2/repository/com/rometools/rome-utils/1.5.1/rome-utils-1.5.1.jar, /root/.m2/repository/org/apache/sis/core/sis-feature/0.8/sis-feature-0.8.jar, /root/.m2/repository/edu/ucar/grib/4.5.5/grib-4.5.5.jar, /root/.m2/repository/org/codehaus/woodstox/woodstox-core-asl/4.4.1/woodstox-core-asl-4.4.1.jar, /root/.m2/repository/jakarta-regexp/jakarta-regexp/1.4/jakarta-regexp-1.4.jar, /root/.m2/repository/org/apache/tika/tika-core/2.0.0-SNAPSHOT/tika-core-2.0.0-SNAPSHOT-tests.jar, /root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar, /root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.7.9/byte-buddy-agent-1.7.9.jar, /root/.m2/repository/org/jsoup/jsoup/1.11.2/jsoup-1.11.2.jar, /root/.m2/repository/org/apache/lucene/lucene-queryparser/4.0.0/lucene-queryparser-4.0.0.jar, /root/.m2/repository/org/springframework/spring-aop/3.2.16.RELEASE/spring-aop-3.2.16.RELEASE.jar, /root/.m2/repository/org/apache/tika/tika-core/2.0.0-SNAPSHOT/tika-core-2.0.0-SNAPSHOT.jar, /root/.m2/repository/org/apache/cxf/cxf-rt-frontend-jaxrs/3.0.16/cxf-rt-frontend-jaxrs-3.0.16.jar, /root/.m2/repository/org/apache/lucene/lucene-core/4.0.0/lucene-core-4.0.0.jar, /root/.m2/repository/edu/ucar/cdm/4.5.5/cdm-4.5.5.jar, /root/.m2/repository/com/healthmarketscience/jackcess/jackcess-encrypt/2.1.4/jackcess-encrypt-2.1.4.jar, /root/.m2/repository/com/github/jai-imageio/jai-imageio-jpeg2000/1.3.0/jai-imageio-jpeg2000-1.3.0.jar, /root/.m2/repository/joda-time/joda-time/2.2/joda-time-2.2.jar, /root/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar, /root/.m2/repository/org/apache/lucene/lucene-queries/4.0.0/lucene-queries-4.0.0.jar, /root/.m2/repository/net/sf/ehcache/ehcache-core/2.6.2/ehcache-core-2.6.2.jar, /root/.m2/repository/com/rometools/rome/1.5.1/rome-1.5.1.jar, /root/.m2/repository/edu/ucar/netcdf4/4.5.5/netcdf4-4.5.5.jar, /root/.m2/repository/commons-lang/commons-lang/2.6/commons-lang-2.6.jar, /root/.m2/repository/com/pff/java-libpst/0.8.1/java-libpst-0.8.1.jar, /root/.m2/repository/com/github/jai-imageio/jai-imageio-core/1.3.1/jai-imageio-core-1.3.1.jar, /root/.m2/repository/org/bouncycastle/bcmail-jdk15on/1.54/bcmail-jdk15on-1.54.jar, /root/.m2/repository/org/apache/sis/core/sis-utility/0.8/sis-utility-0.8.jar, /root/.m2/repository/org/cleartk/cleartk-util/2.0.0/cleartk-util-2.0.0.jar, /root/.m2/repository/junit/junit/4.12/junit-4.12.jar, /root/.m2/repository/org/apache/commons/commons-exec/1.3/commons-exec-1.3.jar, /root/.m2/repository/org/apache/ctakes/ctakes-utils/4.0.0/ctakes-utils-4.0.0.jar]
+[39965] INFO AstorCoreEngine - Number of CtTypes created: 275
+[40433] INFO AstorCoreEngine - Test retrieved from classes: 0
+[40555] INFO AstorCoreEngine - Setting up the max to 1220 milliseconds (1 sec)
+[40555] INFO AstorCoreEngine - ---- Initial suspicious size: 6
+[40938] INFO main - Total suspicious from FL: 6,  12
+[40938] INFO main - Total ModPoint created: 12
+[40938] INFO main - Creating program variant #1, [Variant id: 1, #gens: 12, #ops: 0, parent:-]
+[40939] INFO main - Run previously failing tests...
+[68987] INFO main - Failed tests: 1
+[69007] INFO AstorCoreEngine - The original fitness is : 1.0
+[127113] WARN ConfigurationProperties - ----------------------------
+[127115] INFO ConfigurationProperties - ---Configuration properties
+[127118] INFO ConfigurationProperties - p:lastJUnitVersion= ./examples/libs/junit-4.11.jar
+[127118] INFO ConfigurationProperties - p:alternativecompliancelevel= 8
+[127118] INFO ConfigurationProperties - p:ignoredTestCases= 
+[127118] INFO ConfigurationProperties - p:workingDirectory= /workdir/jGenProg_vul4j_apache_tika_VUL4J-36/./output_astor
+[127119] INFO ConfigurationProperties - p:manipulatesuper= false
+[127119] INFO ConfigurationProperties - p:validation= externalcmd
+[127119] INFO ConfigurationProperties - p:jvm4testexecution= /usr/lib/jvm/java-8-openjdk-amd64/bin
+[127119] INFO ConfigurationProperties - p:operatorspace= irr-statements
+[127119] INFO ConfigurationProperties - p:diffcontext= 0
+[127119] INFO ConfigurationProperties - p:binjavafolder= tika-parsers/target/classes
+[127119] INFO ConfigurationProperties - p:synthesis_depth= 3
+[127119] INFO ConfigurationProperties - p:gzoltartestpackagetoexclude= junit.framework
+[127119] INFO ConfigurationProperties - p:skipfitnessinitialpopulation= false
+[127119] INFO ConfigurationProperties - p:evosuiteresultfolder= evosuite
+[127119] INFO ConfigurationProperties - p:flthreshold= 0.1
+[127119] INFO ConfigurationProperties - p:regressionforfaultlocalization= true
+[127119] INFO ConfigurationProperties - p:collectonlyusedmethod= false
+[127119] INFO ConfigurationProperties - p:preservelinenumbers= true
+[127119] INFO ConfigurationProperties - p:tmax2= 1220
+[127119] INFO ConfigurationProperties - p:tmax1= 10000
+[127119] INFO ConfigurationProperties - p:probagenmutation= false
+[127119] INFO ConfigurationProperties - p:nomodificationconvergence= 100
+[127119] INFO ConfigurationProperties - p:diff_type= relative
+[127119] INFO ConfigurationProperties - p:targetelementprocessor= statements
+[127119] INFO ConfigurationProperties - p:srctestfolder= tika-parsers/src/test/java
+[127119] INFO ConfigurationProperties - p:forceExecuteRegression= false
+[127119] INFO ConfigurationProperties - p:clusteringfilename= clustering.csv
+[127120] INFO ConfigurationProperties - p:failing= org.apache.tika.parser.iptc.IptcParserTest#testCVE_2018_8017
+[127120] INFO ConfigurationProperties - p:logtestexecution= false
+[127120] INFO ConfigurationProperties - p:evo_buggy_class= true
+[127120] INFO ConfigurationProperties - p:numberExecutions= 1
+[127120] INFO ConfigurationProperties - p:maxnumbersolutions= 1000000
+[127120] INFO ConfigurationProperties - p:evo_affected_by_op= true
+[127120] INFO ConfigurationProperties - p:population= 1
+[127120] INFO ConfigurationProperties - p:considerzerovaluesusp= false
+[127120] INFO ConfigurationProperties - p:maxCombinationVariableLimit= false
+[127120] INFO ConfigurationProperties - p:savesolution= true
+[127120] INFO ConfigurationProperties - p:javacompliancelevel= 8
+[127121] INFO ConfigurationProperties - p:x= x
+[127121] INFO ConfigurationProperties - p:uniqueoptogen= false
+[127121] INFO ConfigurationProperties - p:gzoltarpackagetonotinstrument= junit.framework
+[127122] INFO ConfigurationProperties - p:projectIdentifier= apache_tika-VUL4J-36
+[127122] INFO ConfigurationProperties - p:modificationpointnavigation= weight
+[127122] INFO ConfigurationProperties - p:stopfirst= true
+[127122] INFO ConfigurationProperties - p:multipointmodification= false
+[127122] INFO ConfigurationProperties - p:elementsToMutate= 10
+[127122] INFO ConfigurationProperties - p:jsonoutputname= astor_output
+[127122] INFO ConfigurationProperties - p:evoDSE= false
+[127122] INFO ConfigurationProperties - p:bintestfolder= tika-parsers/target/test-classes
+[127122] INFO ConfigurationProperties - p:testbystep= false
+[127122] INFO ConfigurationProperties - p:version-location= ./math-version/
+[127122] INFO ConfigurationProperties - p:reintroduce= PARENTS:ORIGINAL
+[127122] INFO ConfigurationProperties - p:perfectdata= /script/../data/benchmarks/vul4j/perfectfl/VUL4J-36
+[127122] INFO ConfigurationProperties - p:executorjar= ./lib/jtestex7.jar
+[127122] INFO ConfigurationProperties - p:maxGeneration= 1000000
+[127122] INFO ConfigurationProperties - p:max_synthesis_step= 10000
+[127122] INFO ConfigurationProperties - p:projectinfocommand= com.github.tdurieux:project-config-maven-plugin:info
+[127122] INFO ConfigurationProperties - p:maxVarCombination= 1000
+[127122] INFO ConfigurationProperties - p:maxtime= 120
+[127123] INFO ConfigurationProperties - p:evosuitejar= ./lib/evosuite-master-1.0.4-SNAPSHOT.jar
+[127123] INFO ConfigurationProperties - p:jvmversion= 1.8.0_342
+[127123] INFO ConfigurationProperties - p:commandTrunk= 50000
+[127123] INFO ConfigurationProperties - p:faultlocalization= perfect
+[127123] INFO ConfigurationProperties - p:resetmodel= true
+[127124] INFO ConfigurationProperties - p:maxsuspcandidates= 1000
+[127124] INFO ConfigurationProperties - p:mode= jgenprog
+[127124] INFO ConfigurationProperties - p:learningdir= 
+[127124] INFO ConfigurationProperties - p:jvm4evosuitetestexecution= /usr/lib/jvm/java-8-openjdk-amd64/bin
+[127124] INFO ConfigurationProperties - p:filterfaultlocalization= true
+[127124] INFO ConfigurationProperties - p:mutationrate= 1 
+[127124] INFO ConfigurationProperties - p:pathToMVNRepository= 
+[127124] INFO ConfigurationProperties - p:resourcesfolder= /src/main/resources:/src/test/resources:
+[127124] INFO ConfigurationProperties - p:timezone= America/Los_Angeles
+[127124] INFO ConfigurationProperties - p:runjava7code= false
+[127124] INFO ConfigurationProperties - p:testfailingcmd= mvn test -pl tika-parsers -Dtest=org.apache.tika.parser.iptc.IptcParserTest#testCVE_2018_8017 -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B
+[127124] INFO ConfigurationProperties - p:evoRunOnBuggyClass= true
+[127125] INFO ConfigurationProperties - p:compiler= fr.inria.astor.core.manipulation.bytecode.compiler.SpoonClassCompiler
+[127125] INFO ConfigurationProperties - p:limitbysuspicious= true
+[127125] INFO ConfigurationProperties - p:logsattemps= true
+[127125] INFO ConfigurationProperties - p:dependenciespath= /root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.9.5/jackson-annotations-2.9.5.jar:/root/.m2/repository/c3p0/c3p0/0.9.1.1/c3p0-0.9.1.1.jar:/root/.m2/repository/com/github/junrar/junrar/0.7/junrar-0.7.jar:/root/.m2/repository/org/ow2/asm/asm/5.0.4/asm-5.0.4.jar:/root/.m2/repository/org/osgi/org.osgi.core/4.0.0/org.osgi.core-4.0.0.jar:/root/.m2/repository/javax/ws/rs/javax.ws.rs-api/2.0.1/javax.ws.rs-api-2.0.1.jar:/root/.m2/repository/org/springframework/spring-core/3.2.16.RELEASE/spring-core-3.2.16.RELEASE.jar:/root/.m2/repository/edu/usc/ir/sentiment-analysis-parser/0.1/sentiment-analysis-parser-0.1.jar:/root/.m2/repository/org/apache/commons/commons-collections4/4.1/commons-collections4-4.1.jar:/root/.m2/repository/org/springframework/spring-beans/3.2.16.RELEASE/spring-beans-3.2.16.RELEASE.jar:/root/.m2/repository/edu/mit/findstruct/findstructapi/0.0.1/findstructapi-0.0.1.jar:/root/.m2/repository/org/apache/uima/uimaj-core/2.9.0/uimaj-core-2.9.0.jar:/root/.m2/repository/org/apache/cxf/cxf-core/3.0.16/cxf-core-3.0.16.jar:/root/.m2/repository/org/apache/opennlp/opennlp-maxent/3.0.3/opennlp-maxent-3.0.3.jar:/root/.m2/repository/org/mockito/mockito-core/2.15.0/mockito-core-2.15.0.jar:/root/.m2/repository/org/apache/httpcomponents/httpclient/4.5.4/httpclient-4.5.4.jar:/root/.m2/repository/xerces/xercesImpl/2.11.0/xercesImpl-2.11.0.jar:/root/.m2/repository/org/codelibs/jhighlight/1.0.2/jhighlight-1.0.2.jar:/root/.m2/repository/org/springframework/spring-expression/3.2.16.RELEASE/spring-expression-3.2.16.RELEASE.jar:/root/.m2/repository/com/github/luben/zstd-jni/1.3.3-3/zstd-jni-1.3.3-3.jar:/root/.m2/repository/org/apache/sis/storage/sis-netcdf/0.8/sis-netcdf-0.8.jar:/root/.m2/repository/org/apache/cxf/cxf-rt-rs-client/3.0.16/cxf-rt-rs-client-3.0.16.jar:/root/.m2/repository/com/github/virtuald/curvesapi/1.04/curvesapi-1.04.jar:/root/.m2/repository/xml-apis/xml-apis/1.4.01/xml-apis-1.4.01.jar:/root/.m2/repository/org/jdom/jdom2/2.0.6/jdom2-2.0.6.jar:/root/.m2/repository/org/apache/james/apache-mime4j-core/0.8.1/apache-mime4j-core-0.8.1.jar:/root/.m2/repository/de/l3s/boilerpipe/boilerpipe/1.1.0/boilerpipe-1.1.0.jar:/root/.m2/repository/commons-io/commons-io/2.6/commons-io-2.6.jar:/root/.m2/repository/org/apache/lucene/lucene-analyzers-common/4.0.0/lucene-analyzers-common-4.0.0.jar:/root/.m2/repository/org/bouncycastle/bcpkix-jdk15on/1.54/bcpkix-jdk15on-1.54.jar:/root/.m2/repository/org/ccil/cowan/tagsoup/tagsoup/1.2.1/tagsoup-1.2.1.jar:/root/.m2/repository/com/drewnoakes/metadata-extractor/2.10.1/metadata-extractor-2.10.1.jar:/root/.m2/repository/org/apache/ctakes/ctakes-core-res/4.0.0/ctakes-core-res-4.0.0.jar:/root/.m2/repository/com/googlecode/armbrust-file-utils/sqlwrapper/0.0.1/sqlwrapper-0.0.1.jar:/root/.m2/repository/org/apache/ctakes/ctakes-core/4.0.0/ctakes-core-4.0.0.jar:/root/.m2/repository/org/springframework/spring-context/3.2.16.RELEASE/spring-context-3.2.16.RELEASE.jar:/root/.m2/repository/org/tallison/jmatio/1.2/jmatio-1.2.jar:/root/.m2/repository/javax/annotation/javax.annotation-api/1.2/javax.annotation-api-1.2.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.9.5/jackson-databind-2.9.5.jar:/root/.m2/repository/org/brotli/dec/0.1.2/dec-0.1.2.jar:/root/.m2/repository/org/apache/commons/commons-csv/1.0/commons-csv-1.0.jar:/root/.m2/repository/org/apache/felix/org.apache.felix.scr.annotations/1.6.0/org.apache.felix.scr.annotations-1.6.0.jar:/root/.m2/repository/org/apache/xmlbeans/xmlbeans/2.6.0/xmlbeans-2.6.0.jar:/root/.m2/repository/org/apache/pdfbox/pdfbox/2.0.9/pdfbox-2.0.9.jar:/root/.m2/repository/org/apache/uima/uimafit-core/2.2.0/uimafit-core-2.2.0.jar:/root/.m2/repository/org/apache/sis/core/sis-referencing/0.8/sis-referencing-0.8.jar:/root/.m2/repository/commons-logging/commons-logging-api/1.1/commons-logging-api-1.1.jar:/root/.m2/repository/org/apache/pdfbox/jbig2-imageio/3.0.0/jbig2-imageio-3.0.0.jar:/root/.m2/repository/org/apache/poi/poi-ooxml/3.17/poi-ooxml-3.17.jar:/root/.m2/repository/com/googlecode/juniversalchardet/juniversalchardet/1.0.3/juniversalchardet-1.0.3.jar:/root/.m2/repository/tw/edu/ntu/csie/libsvm/3.1/libsvm-3.1.jar:/root/.m2/repository/org/itadaki/bzip2/0.9.1/bzip2-0.9.1.jar:/root/.m2/repository/com/healthmarketscience/jackcess/jackcess/2.1.10/jackcess-2.1.10.jar:/root/.m2/repository/edu/ucar/httpservices/4.5.5/httpservices-4.5.5.jar:/root/.m2/repository/net/sourceforge/openai/openaifsm/0.0.1/openaifsm-0.0.1.jar:/root/.m2/repository/org/objenesis/objenesis/2.6/objenesis-2.6.jar:/root/.m2/repository/org/apache/ctakes/ctakes-type-system/4.0.0/ctakes-type-system-4.0.0.jar:/root/.m2/repository/jdom/jdom/1.0/jdom-1.0.jar:/root/.m2/repository/com/adobe/xmp/xmpcore/5.1.3/xmpcore-5.1.3.jar:/root/.m2/repository/org/apache/ws/xmlschema/xmlschema-core/2.2.2/xmlschema-core-2.2.2.jar:/root/.m2/repository/org/gagravarr/vorbis-java-tika/0.8/vorbis-java-tika-0.8.jar:/root/.m2/repository/org/apache/httpcomponents/httpmime/4.5.4/httpmime-4.5.4.jar:/root/.m2/repository/org/gagravarr/vorbis-java-core/0.8/vorbis-java-core-0.8.jar:/root/.m2/repository/org/codehaus/woodstox/stax2-api/3.1.4/stax2-api-3.1.4.jar:/root/.m2/repository/javax/measure/unit-api/1.0/unit-api-1.0.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.7.9/byte-buddy-1.7.9.jar:/root/.m2/repository/org/quartz-scheduler/quartz/2.2.0/quartz-2.2.0.jar:/root/.m2/repository/com/google/code/gson/gson/2.8.1/gson-2.8.1.jar:/root/.m2/repository/org/bouncycastle/bcprov-jdk15on/1.54/bcprov-jdk15on-1.54.jar:/root/.m2/repository/org/apache/poi/poi/3.17/poi-3.17.jar:/root/.m2/repository/org/apache/cxf/cxf-rt-transports-http/3.0.16/cxf-rt-transports-http-3.0.16.jar:/root/.m2/repository/org/apache/opennlp/opennlp-tools/1.8.4/opennlp-tools-1.8.4.jar:/root/.m2/repository/org/apache/poi/poi-ooxml-schemas/3.17/poi-ooxml-schemas-3.17.jar:/root/.m2/repository/org/apache/lucene/lucene-sandbox/4.0.0/lucene-sandbox-4.0.0.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.9.5/jackson-core-2.9.5.jar:/root/.m2/repository/org/apache/pdfbox/fontbox/2.0.9/fontbox-2.0.9.jar:/root/.m2/repository/org/slf4j/slf4j-log4j12/1.7.24/slf4j-log4j12-1.7.24.jar:/root/.m2/repository/org/apache/james/apache-mime4j-dom/0.8.1/apache-mime4j-dom-0.8.1.jar:/root/.m2/repository/com/epam/parso/2.0.9/parso-2.0.9.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.24/slf4j-api-1.7.24.jar:/root/.m2/repository/org/apache/pdfbox/jempbox/1.8.13/jempbox-1.8.13.jar:/root/.m2/repository/org/apache/commons/commons-compress/1.16.1/commons-compress-1.16.1.jar:/root/.m2/repository/org/opengis/geoapi/3.0.1/geoapi-3.0.1.jar:/root/.m2/repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar:/root/.m2/repository/org/slf4j/jcl-over-slf4j/1.7.24/jcl-over-slf4j-1.7.24.jar:/root/.m2/repository/org/apache/sis/storage/sis-storage/0.8/sis-storage-0.8.jar:/root/.m2/repository/commons-codec/commons-codec/1.10/commons-codec-1.10.jar:/root/.m2/repository/net/java/dev/jna/jna/4.1.0/jna-4.1.0.jar:/root/.m2/repository/edu/ucar/udunits/4.5.5/udunits-4.5.5.jar:/root/.m2/repository/com/beust/jcommander/1.35/jcommander-1.35.jar:/root/.m2/repository/net/jcip/jcip-annotations/1.0/jcip-annotations-1.0.jar:/root/.m2/repository/com/googlecode/json-simple/json-simple/1.1.1/json-simple-1.1.1.jar:/root/.m2/repository/org/apache/httpcomponents/httpcore/4.4.7/httpcore-4.4.7.jar:/root/.m2/repository/org/tukaani/xz/1.8/xz-1.8.jar:/root/.m2/repository/com/google/guava/guava/17.0/guava-17.0.jar:/root/.m2/repository/com/googlecode/mp4parser/isoparser/1.1.18/isoparser-1.1.18.jar:/root/.m2/repository/com/lexicalscope/jewelcli/jewelcli/0.8.3/jewelcli-0.8.3.jar:/root/.m2/repository/org/apache/sis/core/sis-metadata/0.8/sis-metadata-0.8.jar:/root/.m2/repository/org/apache/poi/poi-scratchpad/3.17/poi-scratchpad-3.17.jar:/root/.m2/repository/commons-logging/commons-logging/1.1.3/commons-logging-1.1.3.jar:/root/.m2/repository/com/github/openjson/openjson/1.0.10/openjson-1.0.10.jar:/root/.m2/repository/org/cleartk/cleartk-ml/2.0.0/cleartk-ml-2.0.0.jar:/root/.m2/repository/org/xerial/sqlite-jdbc/3.19.3/sqlite-jdbc-3.19.3.jar:/root/.m2/repository/org/slf4j/jul-to-slf4j/1.7.24/jul-to-slf4j-1.7.24.jar:/root/.m2/repository/com/google/protobuf/protobuf-java/2.5.0/protobuf-java-2.5.0.jar:/root/.m2/repository/org/apache/pdfbox/pdfbox-tools/2.0.9/pdfbox-tools-2.0.9.jar:/root/.m2/repository/com/rometools/rome-utils/1.5.1/rome-utils-1.5.1.jar:/root/.m2/repository/org/apache/sis/core/sis-feature/0.8/sis-feature-0.8.jar:/root/.m2/repository/edu/ucar/grib/4.5.5/grib-4.5.5.jar:/root/.m2/repository/org/codehaus/woodstox/woodstox-core-asl/4.4.1/woodstox-core-asl-4.4.1.jar:/root/.m2/repository/jakarta-regexp/jakarta-regexp/1.4/jakarta-regexp-1.4.jar:/root/.m2/repository/org/apache/tika/tika-core/2.0.0-SNAPSHOT/tika-core-2.0.0-SNAPSHOT-tests.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.7.9/byte-buddy-agent-1.7.9.jar:/root/.m2/repository/org/jsoup/jsoup/1.11.2/jsoup-1.11.2.jar:/root/.m2/repository/org/apache/lucene/lucene-queryparser/4.0.0/lucene-queryparser-4.0.0.jar:/root/.m2/repository/org/springframework/spring-aop/3.2.16.RELEASE/spring-aop-3.2.16.RELEASE.jar:/root/.m2/repository/org/apache/tika/tika-core/2.0.0-SNAPSHOT/tika-core-2.0.0-SNAPSHOT.jar:/root/.m2/repository/org/apache/cxf/cxf-rt-frontend-jaxrs/3.0.16/cxf-rt-frontend-jaxrs-3.0.16.jar:/root/.m2/repository/org/apache/lucene/lucene-core/4.0.0/lucene-core-4.0.0.jar:/root/.m2/repository/edu/ucar/cdm/4.5.5/cdm-4.5.5.jar:/root/.m2/repository/com/healthmarketscience/jackcess/jackcess-encrypt/2.1.4/jackcess-encrypt-2.1.4.jar:/root/.m2/repository/com/github/jai-imageio/jai-imageio-jpeg2000/1.3.0/jai-imageio-jpeg2000-1.3.0.jar:/root/.m2/repository/joda-time/joda-time/2.2/joda-time-2.2.jar:/root/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar:/root/.m2/repository/org/apache/lucene/lucene-queries/4.0.0/lucene-queries-4.0.0.jar:/root/.m2/repository/net/sf/ehcache/ehcache-core/2.6.2/ehcache-core-2.6.2.jar:/root/.m2/repository/com/rometools/rome/1.5.1/rome-1.5.1.jar:/root/.m2/repository/edu/ucar/netcdf4/4.5.5/netcdf4-4.5.5.jar:/root/.m2/repository/commons-lang/commons-lang/2.6/commons-lang-2.6.jar:/root/.m2/repository/com/pff/java-libpst/0.8.1/java-libpst-0.8.1.jar:/root/.m2/repository/com/github/jai-imageio/jai-imageio-core/1.3.1/jai-imageio-core-1.3.1.jar:/root/.m2/repository/org/bouncycastle/bcmail-jdk15on/1.54/bcmail-jdk15on-1.54.jar:/root/.m2/repository/org/apache/sis/core/sis-utility/0.8/sis-utility-0.8.jar:/root/.m2/repository/org/cleartk/cleartk-util/2.0.0/cleartk-util-2.0.0.jar:/root/.m2/repository/junit/junit/4.12/junit-4.12.jar:/root/.m2/repository/org/apache/commons/commons-exec/1.3/commons-exec-1.3.jar:/root/.m2/repository/org/apache/ctakes/ctakes-utils/4.0.0/ctakes-utils-4.0.0.jar
+[127125] INFO ConfigurationProperties - p:packageToInstrument= 
+[127125] INFO ConfigurationProperties - p:skipfaultlocalization= false
+[127125] INFO ConfigurationProperties - p:scope= local
+[127125] INFO ConfigurationProperties - p:transformingredient= false
+[127125] INFO ConfigurationProperties - p:fitnessfunction= fr.inria.astor.core.solutionsearch.population.TestCaseFitnessFunction
+[127125] INFO ConfigurationProperties - p:maxnumvariablesperingredient= 10
+[127125] INFO ConfigurationProperties - p:parsesourcefromoriginal= true
+[127126] INFO ConfigurationProperties - p:pvariantfoldername= variant-
+[127126] INFO ConfigurationProperties - p:savespoonmodelondisk= false
+[127126] INFO ConfigurationProperties - p:srcjavafolder= tika-parsers/src/main/java
+[127126] INFO ConfigurationProperties - p:populationcontroller= fr.inria.astor.core.solutionsearch.population.TestCaseBasedFitnessPopulationController
+[127126] INFO ConfigurationProperties - p:ignoreflakyinfl= false
+[127126] INFO ConfigurationProperties - p:cleantemplates= true
+[127126] INFO ConfigurationProperties - p:applyCrossover= false
+[127126] INFO ConfigurationProperties - p:maxmodificationpoints= 1000
+[127126] INFO ConfigurationProperties - p:duplicateingredientsinspace= false
+[127126] INFO ConfigurationProperties - p:metid= 0
+[127126] INFO ConfigurationProperties - p:continuewhenmodelfail= true
+[127126] INFO ConfigurationProperties - p:saveall= false
+[127127] INFO ConfigurationProperties - p:seed= 0
+[127127] INFO ConfigurationProperties - p:savecompletepatched= true
+[127127] INFO ConfigurationProperties - p:resetoperations= false
+[127128] INFO ConfigurationProperties - p:keepcomments= false
+[127128] INFO ConfigurationProperties - p:processoutputinfile= false
+[127128] INFO ConfigurationProperties - p:location= .
+[127129] INFO ConfigurationProperties - p:probabilistictransformation= true
+[127132] INFO ConfigurationProperties - p:overridemaxtime= true
+[127132] INFO ConfigurationProperties - p:outputjsonresult= true
+[127134] INFO ConfigurationProperties - p:allpoints= false
+[127134] INFO ConfigurationProperties - p:antipattern= false
+[127134] INFO ConfigurationProperties - p:bugId= 280
+[127134] INFO ConfigurationProperties - p:evosuitetimeout= 120
+[127134] INFO ConfigurationProperties - p:maxtimefactor= 10
+[127134] INFO ConfigurationProperties - p:nrPlaceholders= 1
+[127135] INFO ConfigurationProperties - p:testallcmd= mvn test -pl tika-parsers -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B
+[127135] INFO ConfigurationProperties - p:forcesubprocesskilling= false
+[127135] INFO ConfigurationProperties - ----------------------------
+[127136] INFO AstorCoreEngine - ----Starting Solution Search
+[127137] WARN AstorCoreEngine - ----------Running generation: 1, population size: 1
+[132145] INFO main - Run previously failing tests...
+[179033] INFO main - Failed tests: 1
+[179060] WARN AstorCoreEngine - ----------Running generation: 2, population size: 1
+[181070] WARN AstorCoreEngine - ----------Running generation: 3, population size: 1
+[182742] INFO main - Run previously failing tests...
+[229902] INFO main - Failed tests: 1
+[229909] WARN AstorCoreEngine - ----------Running generation: 4, population size: 1
+[231481] WARN AstorCoreEngine - ----------Running generation: 5, population size: 1
+[232569] INFO main - Run previously failing tests...
+[282186] INFO main - Failed tests: 1
+[282241] WARN AstorCoreEngine - ----------Running generation: 6, population size: 1
+[283695] INFO main - Run previously failing tests...
+[333310] INFO main - Failed tests: 1
+[333335] WARN AstorCoreEngine - ----------Running generation: 7, population size: 1
+[334903] INFO main - Run previously failing tests...
+[384563] INFO main - Failed tests: 1
+[384571] WARN AstorCoreEngine - ----------Running generation: 8, population size: 1
+[386333] INFO main - Run previously failing tests...
+[433966] INFO main - Failed tests: 1
+[433982] WARN AstorCoreEngine - ----------Running generation: 9, population size: 1
+[435839] WARN AstorCoreEngine - ----------Running generation: 10, population size: 1
+[437397] INFO main - Run previously failing tests...
+[481055] INFO main - Failed tests: 1
+[481062] WARN AstorCoreEngine - ----------Running generation: 11, population size: 1
+[482191] INFO main - Run previously failing tests...
+[531201] INFO main - Failed tests: 1
+[531216] WARN AstorCoreEngine - ----------Running generation: 12, population size: 1
+[532232] INFO main - Run previously failing tests...
+[584896] INFO main - Failed tests: 1
+[584909] WARN AstorCoreEngine - ----------Running generation: 13, population size: 1
+[586124] INFO main - Run previously failing tests...
+[632623] INFO main - Failed tests: 1
+[632632] WARN AstorCoreEngine - ----------Running generation: 14, population size: 1
+[633657] INFO main - Run previously failing tests...
+[682323] INFO main - Failed tests: 1
+[682339] WARN AstorCoreEngine - ----------Running generation: 15, population size: 1
+[684164] WARN AstorCoreEngine - ----------Running generation: 16, population size: 1
+[684937] WARN AstorCoreEngine - ----------Running generation: 17, population size: 1
+[685632] INFO main - Run previously failing tests...
+[731383] INFO main - Failed tests: 1
+[731391] WARN AstorCoreEngine - ----------Running generation: 18, population size: 1
+[732544] INFO main - Run previously failing tests...
+[781140] INFO main - Failed tests: 1
+[781146] WARN AstorCoreEngine - ----------Running generation: 19, population size: 1
+[782439] INFO main - Run previously failing tests...
+[834134] INFO main - Failed tests: 1
+[834142] WARN AstorCoreEngine - ----------Running generation: 20, population size: 1
+[835449] INFO main - Run previously failing tests...
+[883343] INFO main - Failed tests: 1
+[883370] WARN AstorCoreEngine - ----------Running generation: 21, population size: 1
+[884517] INFO main - Run previously failing tests...
+[930279] INFO main - Failed tests: 1
+[930295] WARN AstorCoreEngine - ----------Running generation: 22, population size: 1
+[931257] INFO main - Run previously failing tests...
+[978010] INFO main - Failed tests: 1
+[978018] WARN AstorCoreEngine - ----------Running generation: 23, population size: 1
+[979180] INFO main - Run previously failing tests...
+[1026439] INFO main - Failed tests: 1
+[1026453] WARN AstorCoreEngine - ----------Running generation: 24, population size: 1
+[1027689] INFO main - Run previously failing tests...
+[1076442] INFO main - Failed tests: 1
+[1076458] WARN AstorCoreEngine - ----------Running generation: 25, population size: 1
+[1077519] INFO main - Run previously failing tests...
+[1125897] INFO main - Failed tests: 1
+[1125903] WARN AstorCoreEngine - ----------Running generation: 26, population size: 1
+[1126528] INFO main - Run previously failing tests...
+[1171662] INFO main - Failed tests: 1
+[1171679] WARN AstorCoreEngine - ----------Running generation: 27, population size: 1
+[1173596] INFO main - Run previously failing tests...
+[1217871] INFO main - Failed tests: 1
+[1217880] WARN AstorCoreEngine - ----------Running generation: 28, population size: 1
+[1219131] INFO main - Run previously failing tests...
+[1265239] INFO main - Failed tests: 1
+[1265262] WARN AstorCoreEngine - ----------Running generation: 29, population size: 1
+[1266413] INFO main - Run previously failing tests...
+[1312531] INFO main - Failed tests: 1
+[1312536] WARN AstorCoreEngine - ----------Running generation: 30, population size: 1
+[1313531] INFO main - Run previously failing tests...
+[1360440] INFO main - Failed tests: 1
+[1360456] WARN AstorCoreEngine - ----------Running generation: 31, population size: 1
+[1361167] WARN AstorCoreEngine - ----------Running generation: 32, population size: 1
+[1362078] INFO main - Run previously failing tests...
+[1414209] INFO main - Failed tests: 1
+[1414220] WARN AstorCoreEngine - ----------Running generation: 33, population size: 1
+[1415490] INFO main - Run previously failing tests...
+[1467134] INFO main - Failed tests: 1
+[1467140] WARN AstorCoreEngine - ----------Running generation: 34, population size: 1
+[1468123] INFO main - Run previously failing tests...
+[1514767] INFO main - Failed tests: 1
+[1514783] WARN AstorCoreEngine - ----------Running generation: 35, population size: 1
+[1515679] INFO main - Run previously failing tests...
+[1561598] INFO main - Failed tests: 1
+[1561606] WARN AstorCoreEngine - ----------Running generation: 36, population size: 1
+[1562763] INFO main - Run previously failing tests...
+[1616760] INFO main - Failed tests: 1
+[1616795] WARN AstorCoreEngine - ----------Running generation: 37, population size: 1
+[1617327] INFO main - Run previously failing tests...
+[1674257] INFO main - Failed tests: 1
+[1674288] WARN AstorCoreEngine - ----------Running generation: 38, population size: 1
+[1675904] INFO main - Run previously failing tests...
+[1733998] INFO main - Failed tests: 1
+[1734005] WARN AstorCoreEngine - ----------Running generation: 39, population size: 1
+[1734912] WARN AstorCoreEngine - ----------Running generation: 40, population size: 1
+[1735474] INFO main - Run previously failing tests...
+[1788104] INFO main - Failed tests: 1
+[1788119] WARN AstorCoreEngine - ----------Running generation: 41, population size: 1
+[1789525] INFO main - Run previously failing tests...
+[1843563] INFO main - Failed tests: 1
+[1843570] WARN AstorCoreEngine - ----------Running generation: 42, population size: 1
+[1844797] INFO main - Run previously failing tests...
+[1899307] INFO main - Failed tests: 1
+[1899325] WARN AstorCoreEngine - ----------Running generation: 43, population size: 1
+[1900522] INFO main - Run previously failing tests...
+[1956377] INFO main - Failed tests: 1
+[1956381] WARN AstorCoreEngine - ----------Running generation: 44, population size: 1
+[1957159] INFO main - Run previously failing tests...
+[2005548] INFO main - Failed tests: 0
+[2005549] INFO main - Run whole testsuite...
+[2478362] INFO main - Failed tests: 0
+[2478390] INFO AstorCoreEngine - -Found Solution, child variant #88
+[2478577] INFO AstorCoreEngine - Time Repair Loop (s): 2351.441
+[2478577] INFO AstorCoreEngine - generationsexecuted: 44
+[2478578] WARN AstorCoreEngine - ----SUMMARY_EXECUTION---
+[2478578] WARN AstorCoreEngine - End Repair Search: Found solution
+[2478578] WARN AstorCoreEngine - Solution stored at: /workdir/jGenProg_vul4j_apache_tika_VUL4J-36/./output_astor/AstorMain-apache_tika-VUL4J-36//src/
+[2478578] WARN AstorCoreEngine - Number solutions:1
+[2478578] INFO AstorCoreEngine - f (sol): 0.0, [Variant id: 88 (SOL) , #gens: 12, #ops: 1, parent:87]
+[2478578] WARN AstorCoreEngine - Number suspicious:1
+[2478749] INFO AstorCoreEngine - 
+ --SOLUTIONS DESCRIPTION--
+
+ ----
+ProgramVariant 88
+ 
+time(sec)= 2351
+operation: ReplaceOp
+location= org.apache.tika.parser.iptc.IptcAnpaParser
+line= 511
+lineSuspiciousness= 1
+lineSuspiciousness= 3
+original statement= if (read > value.length) { 	break;}
+buggy kind= CtIfImpl|CtBlockImpl
+fixed statement= if (val_next != org.apache.tika.parser.iptc.IptcAnpaParser.CT) {
+
+	if ((((val_next != org.apache.tika.parser.iptc.IptcAnpaParser.SP) && (val_next != org.apache.tika.parser.iptc.IptcAnpaParser.TB)) && (val_next != org.apache.tika.parser.iptc.IptcAnpaParser.CR)) && (val_next != org.apache.tika.parser.iptc.IptcAnpaParser.LF)) {
+		--read;
+	}
+	value[--read] = org.apache.tika.parser.iptc.IptcAnpaParser.CT;
+	continue;
+}
+Patch kind= CtIfImpl|CtBlockImpl
+generation= 44
+ingredientScope= LOCAL
+validation=|true|0|0|[]|
+diffpatch=--- /workdir/jGenProg_vul4j_apache_tika_VUL4J-36/tika-parsers/src/main/java/org/apache/tika/parser/iptc/IptcAnpaParserjava
++++ /workdir/jGenProg_vul4j_apache_tika_VUL4J-36/tika-parsers/src/main/java/org/apache/tika/parser/iptc/IptcAnpaParserjava
+@@ -366,2 +366,6 @@
+-						if (read > value.length) {
+-							break;
++						if (val_next != org.apache.tika.parser.iptc.IptcAnpaParser.CT) {
++							if ((((val_next != org.apache.tika.parser.iptc.IptcAnpaParser.SP) && (val_next != org.apache.tika.parser.iptc.IptcAnpaParser.TB)) && (val_next != org.apache.tika.parser.iptc.IptcAnpaParser.CR)) && (val_next != org.apache.tika.parser.iptc.IptcAnpaParser.LF)) {
++								--read;
++							}
++							value[--read] = org.apache.tika.parser.iptc.IptcAnpaParser.CT;
++							continue;
+
+
+diffpatchoriginal=--- /workdir/jGenProg_vul4j_apache_tika_VUL4J-36/tika-parsers/src/main/java/org/apache/tika/parser/iptc/IptcAnpaParserjava
++++ /workdir/jGenProg_vul4j_apache_tika_VUL4J-36/tika-parsers/src/main/java/org/apache/tika/parser/iptc/IptcAnpaParserjava
+@@ -511,2 +510,0 @@
+-						if (read > value.length) { 							break;}
+-					} 
+@@ -514,3 +511,0 @@
+-					if (val_next == org.apache.tika.parser.iptc.IptcAnpaParser.CT) {
+-						--read;
+-					}
+@@ -518 +512,0 @@
+-					if (val_next == org.apache.tika.parser.iptc.IptcAnpaParser.LT) {
+@@ -520,2 +513,0 @@
+-						val_next = (read < value.length) ? value[read++] : 0x0;
+-					}
+@@ -523,8 +514,0 @@
+-					while ((bdy_title.length() > 0) && ((val_next == org.apache.tika.parser.iptc.IptcAnpaParser.CR) || (val_next == org.apache.tika.parser.iptc.IptcAnpaParser.LF))) {
+-						val_next = (read < value.length) ? value[read++] : 0x0;
+-						if ((val_next != org.apache.tika.parser.iptc.IptcAnpaParser.CR) && (val_next != org.apache.tika.parser.iptc.IptcAnpaParser.LF)) {
+-							--read;
+-						}
+-					} 
+-				} else 
+-				{
+@@ -534,6 +517,0 @@
+-					if (FORMAT == this.FMT_IPTC_BLM) {
+-						if (val_next == org.apache.tika.parser.iptc.IptcAnpaParser.TB) {
+-							value[--read] = org.apache.tika.parser.iptc.IptcAnpaParser.CT;
+-							continue;
+-						}
+-					}
+@@ -542 +520,23 @@
+-					if (FORMAT == this.FMT_IPTC_RTR) {
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
+@@ -550 +550 @@
+-						}
++						}} 					if (val_next == org.apache.tika.parser.iptc.IptcAnpaParser.CT) { 						--read;} 					if (val_next == org.apache.tika.parser.iptc.IptcAnpaParser.LT) { 						val_next = (read < value.length) ? value[read++] : 0x0;} 					while ((bdy_title.length() > 0) && ((val_next == org.apache.tika.parser.iptc.IptcAnpaParser.CR) || (val_next == org.apache.tika.parser.iptc.IptcAnpaParser.LF))) { 						val_next = (read < value.length) ? value[read++] : 0x0; 						if ((val_next != org.apache.tika.parser.iptc.IptcAnpaParser.CR) && (val_next != org.apache.tika.parser.iptc.IptcAnpaParser.LF)) { 							--read;}} } else { 					if (FORMAT == this.FMT_IPTC_BLM) { 						if (val_next == org.apache.tika.parser.iptc.IptcAnpaParser.TB) { 							value[--read] = org.apache.tika.parser.iptc.IptcAnpaParser.CT; 							continue;}} 					if (FORMAT == this.FMT_IPTC_RTR) { 						if (val_next != org.apache.tika.parser.iptc.IptcAnpaParser.CT) { 							if ((((val_next != org.apache.tika.parser.iptc.IptcAnpaParser.SP) && (val_next != org.apache.tika.parser.iptc.IptcAnpaParser.TB)) && (val_next != org.apache.tika.parser.iptc.IptcAnpaParser.CR)) && (val_next != org.apache.tika.parser.iptc.IptcAnpaParser.LF)) { 								--read;} 							value[--read] = org.apache.tika.parser.iptc.IptcAnpaParser.CT; 							continue;}
+
+
+
+[2478751] INFO AstorCoreEngine - Generation 1
+[2478751] INFO AstorCoreEngine - Generation 2
+[2478751] INFO AstorCoreEngine - Generation 3
+[2478751] INFO AstorCoreEngine - Generation 4
+[2478751] INFO AstorCoreEngine - Generation 5
+[2478751] INFO AstorCoreEngine - Generation 6
+[2478751] INFO AstorCoreEngine - Generation 7
+[2478751] INFO AstorCoreEngine - Generation 8
+[2478751] INFO AstorCoreEngine - Generation 9
+[2478751] INFO AstorCoreEngine - Generation 10
+[2478751] INFO AstorCoreEngine - Generation 11
+[2478751] INFO AstorCoreEngine - Generation 12
+[2478751] INFO AstorCoreEngine - Generation 13
+[2478751] INFO AstorCoreEngine - Generation 14
+[2478751] INFO AstorCoreEngine - Generation 15
+[2478751] INFO AstorCoreEngine - Generation 16
+[2478751] INFO AstorCoreEngine - Generation 17
+[2478751] INFO AstorCoreEngine - Generation 18
+[2478751] INFO AstorCoreEngine - Generation 19
+[2478752] INFO AstorCoreEngine - Generation 20
+[2478752] INFO AstorCoreEngine - Generation 21
+[2478752] INFO AstorCoreEngine - Generation 22
+[2478752] INFO AstorCoreEngine - Generation 23
+[2478752] INFO AstorCoreEngine - Generation 24
+[2478752] INFO AstorCoreEngine - Generation 25
+[2478752] INFO AstorCoreEngine - Generation 26
+[2478752] INFO AstorCoreEngine - Generation 27
+[2478752] INFO AstorCoreEngine - Generation 28
+[2478757] INFO AstorCoreEngine - Generation 29
+[2478761] INFO AstorCoreEngine - Generation 30
+[2478761] INFO AstorCoreEngine - Generation 31
+[2478761] INFO AstorCoreEngine - Generation 32
+[2478761] INFO AstorCoreEngine - Generation 33
+[2478761] INFO AstorCoreEngine - Generation 34
+[2478764] INFO AstorCoreEngine - Generation 35
+[2478764] INFO AstorCoreEngine - Generation 36
+[2478764] INFO AstorCoreEngine - Generation 37
+[2478764] INFO AstorCoreEngine - Generation 38
+[2478764] INFO AstorCoreEngine - Generation 39
+[2478764] INFO AstorCoreEngine - Generation 40
+[2478764] INFO AstorCoreEngine - Generation 41
+[2478764] INFO AstorCoreEngine - Generation 42
+[2478764] INFO AstorCoreEngine - Generation 43
+[2478764] INFO AstorCoreEngine - Generation 44
+Astor Output:
+
+General stats:
+EXECUTION_IDENTIFIER=apache_tika-VUL4J-36
+TOTAL_TIME=2351.441
+NR_GENERATIONS=44
+NR_RIGHT_COMPILATIONS=37
+NR_FAILLING_COMPILATIONS=7
+NR_ERRONEOUS_VARIANCES=null
+NR_FAILING_VALIDATION_PROCESS=null
+OUTPUT_STATUS=STOP_BY_PATCH_FOUND
+
+Patch stats:
+
+Patch 1
+VARIANT_ID=88
+TIME=2351
+VALIDATION=|true|0|0|[]|
+GENERATION=44
+FOLDER_SOLUTION_CODE=/workdir/jGenProg_vul4j_apache_tika_VUL4J-36/./output_astor/AstorMain-apache_tika-VUL4J-36//src//variant-88
+--Patch Hunk #1
+OPERATOR=ReplaceOp
+
+LOCATION=org.apache.tika.parser.iptc.IptcAnpaParser
+
+PATH=/workdir/jGenProg_vul4j_apache_tika_VUL4J-36/tika-parsers/src/main/java/org/apache/tika/parser/iptc/IptcAnpaParser.java
+
+MODIFIED_FILE_PATH=/workdir/jGenProg_vul4j_apache_tika_VUL4J-36/./output_astor/AstorMain-apache_tika-VUL4J-36//src//variant-88/org/apache/tika/parser/iptc/IptcAnpaParser.java
+
+LINE=511
+
+SUSPICIOUNESS=1
+
+MP_RANKING=3
+
+ORIGINAL_CODE=if (read > value.length) { 	break;}
+
+BUGGY_CODE_TYPE=CtIfImpl|CtBlockImpl
+
+PATCH_HUNK_CODE=if (val_next != org.apache.tika.parser.iptc.IptcAnpaParser.CT) {
+
+	if ((((val_next != org.apache.tika.parser.iptc.IptcAnpaParser.SP) && (val_next != org.apache.tika.parser.iptc.IptcAnpaParser.TB)) && (val_next != org.apache.tika.parser.iptc.IptcAnpaParser.CR)) && (val_next != org.apache.tika.parser.iptc.IptcAnpaParser.LF)) {
+		--read;
+	}
+	value[--read] = org.apache.tika.parser.iptc.IptcAnpaParser.CT;
+	continue;
+}
+
+PATCH_HUNK_TYPE=CtIfImpl|CtBlockImpl
+
+INGREDIENT_SCOPE=LOCAL
+
+INGREDIENT_PARENT=if (val_next != org.apache.tika.parser.iptc.IptcAnpaParser.CT) {
+
+	if ((((val_next != org.apache.tika.parser.iptc.IptcAnpaParser.SP) && (val_next != org.apache.tika.parser.iptc.IptcAnpaParser.TB)) && (val_next != org.apache.tika.parser.iptc.IptcAnpaParser.CR)) && (val_next != org.apache.tika.parser.iptc.IptcAnpaParser.LF)) {
+		--read;
+	}
+	value[--read] = org.apache.tika.parser.iptc.IptcAnpaParser.CT;
+	continue;
+}
+
+PATCH_DIFF_ORIG=--- /workdir/jGenProg_vul4j_apache_tika_VUL4J-36/tika-parsers/src/main/java/org/apache/tika/parser/iptc/IptcAnpaParserjava
++++ /workdir/jGenProg_vul4j_apache_tika_VUL4J-36/tika-parsers/src/main/java/org/apache/tika/parser/iptc/IptcAnpaParserjava
+@@ -511,2 +510,0 @@
+-						if (read > value.length) { 							break;}
+-					} 
+@@ -514,3 +511,0 @@
+-					if (val_next == org.apache.tika.parser.iptc.IptcAnpaParser.CT) {
+-						--read;
+-					}
+@@ -518 +512,0 @@
+-					if (val_next == org.apache.tika.parser.iptc.IptcAnpaParser.LT) {
+@@ -520,2 +513,0 @@
+-						val_next = (read < value.length) ? value[read++] : 0x0;
+-					}
+@@ -523,8 +514,0 @@
+-					while ((bdy_title.length() > 0) && ((val_next == org.apache.tika.parser.iptc.IptcAnpaParser.CR) || (val_next == org.apache.tika.parser.iptc.IptcAnpaParser.LF))) {
+-						val_next = (read < value.length) ? value[read++] : 0x0;
+-						if ((val_next != org.apache.tika.parser.iptc.IptcAnpaParser.CR) && (val_next != org.apache.tika.parser.iptc.IptcAnpaParser.LF)) {
+-							--read;
+-						}
+-					} 
+-				} else 
+-				{
+@@ -534,6 +517,0 @@
+-					if (FORMAT == this.FMT_IPTC_BLM) {
+-						if (val_next == org.apache.tika.parser.iptc.IptcAnpaParser.TB) {
+-							value[--read] = org.apache.tika.parser.iptc.IptcAnpaParser.CT;
+-							continue;
+-						}
+-					}
+@@ -542 +520,23 @@
+-					if (FORMAT == this.FMT_IPTC_RTR) {
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
+@@ -550 +550 @@
+-						}
++						}} 					if (val_next == org.apache.tika.parser.iptc.IptcAnpaParser.CT) { 						--read;} 					if (val_next == org.apache.tika.parser.iptc.IptcAnpaParser.LT) { 						val_next = (read < value.length) ? value[read++] : 0x0;} 					while ((bdy_title.length() > 0) && ((val_next == org.apache.tika.parser.iptc.IptcAnpaParser.CR) || (val_next == org.apache.tika.parser.iptc.IptcAnpaParser.LF))) { 						val_next = (read < value.length) ? value[read++] : 0x0; 						if ((val_next != org.apache.tika.parser.iptc.IptcAnpaParser.CR) && (val_next != org.apache.tika.parser.iptc.IptcAnpaParser.LF)) { 							--read;}} } else { 					if (FORMAT == this.FMT_IPTC_BLM) { 						if (val_next == org.apache.tika.parser.iptc.IptcAnpaParser.TB) { 							value[--read] = org.apache.tika.parser.iptc.IptcAnpaParser.CT; 							continue;}} 					if (FORMAT == this.FMT_IPTC_RTR) { 						if (val_next != org.apache.tika.parser.iptc.IptcAnpaParser.CT) { 							if ((((val_next != org.apache.tika.parser.iptc.IptcAnpaParser.SP) && (val_next != org.apache.tika.parser.iptc.IptcAnpaParser.TB)) && (val_next != org.apache.tika.parser.iptc.IptcAnpaParser.CR)) && (val_next != org.apache.tika.parser.iptc.IptcAnpaParser.LF)) { 								--read;} 							value[--read] = org.apache.tika.parser.iptc.IptcAnpaParser.CT; 							continue;}
+
+
+
+[2478791] INFO Stats - Storing ing JSON at /workdir/jGenProg_vul4j_apache_tika_VUL4J-36/./output_astor/AstorMain-apache_tika-VUL4J-36//astor_output.json
+[2478793] INFO Stats - astor_output:
+{"general":{"NR_RIGHT_COMPILATIONS":37,"NR_ERRONEOUS_VARIANCES":null,"EXECUTION_IDENTIFIER":"apache_tika-VUL4J-36","OUTPUT_STATUS":"STOP_BY_PATCH_FOUND","NR_FAILLING_COMPILATIONS":7,"NR_GENERATIONS":44,"TOTAL_TIME":2351.441,"NR_FAILING_VALIDATION_PROCESS":null},"patches":[{"VARIANT_ID":"88","VALIDATION":"|true|0|0|[]|","patchhunks":[{"LOCATION":"org.apache.tika.parser.iptc.IptcAnpaParser","PATH":"\\\/workdir\\\/jGenProg_vul4j_apache_tika_VUL4J-36\\\/tika-parsers\\\/src\\\/main\\\/java\\\/org\\\/apache\\\/tika\\\/parser\\\/iptc\\\/IptcAnpaParser.java","INGREDIENT_SCOPE":"LOCAL","SUSPICIOUNESS":"1","INGREDIENT_PARENT":"if (val_next != org.apache.tika.parser.iptc.IptcAnpaParser.CT) {\\n\\n\\tif ((((val_next != org.apache.tika.parser.iptc.IptcAnpaParser.SP) && (val_next != org.apache.tika.parser.iptc.IptcAnpaParser.TB)) && (val_next != org.apache.tika.parser.iptc.IptcAnpaParser.CR)) && (val_next != org.apache.tika.parser.iptc.IptcAnpaParser.LF)) {\\n\\t\\t--read;\\n\\t}\\n\\tvalue[--read] = org.apache.tika.parser.iptc.IptcAnpaParser.CT;\\n\\tcontinue;\\n}","PATCH_HUNK_TYPE":"CtIfImpl|CtBlockImpl","ORIGINAL_CODE":"if (read > value.length) { \\tbreak;}","BUGGY_CODE_TYPE":"CtIfImpl|CtBlockImpl","OPERATOR":"ReplaceOp","MODIFIED_FILE_PATH":"\\\/workdir\\\/jGenProg_vul4j_apache_tika_VUL4J-36\\\/.\\\/output_astor\\\/AstorMain-apache_tika-VUL4J-36\\\/\\\/src\\\/\\\/variant-88\\\/org\\\/apache\\\/tika\\\/parser\\\/iptc\\\/IptcAnpaParser.java","LINE":"511","MP_RANKING":"3","PATCH_HUNK_CODE":"if (val_next != org.apache.tika.parser.iptc.IptcAnpaParser.CT) {\\n\\n\\tif ((((val_next != org.apache.tika.parser.iptc.IptcAnpaParser.SP) && (val_next != org.apache.tika.parser.iptc.IptcAnpaParser.TB)) && (val_next != org.apache.tika.parser.iptc.IptcAnpaParser.CR)) && (val_next != org.apache.tika.parser.iptc.IptcAnpaParser.LF)) {\\n\\t\\t--read;\\n\\t}\\n\\tvalue[--read] = org.apache.tika.parser.iptc.IptcAnpaParser.CT;\\n\\tcontinue;\\n}"}],"TIME":"2351","GENERATION":"44","FOLDER_SOLUTION_CODE":"\\\/workdir\\\/jGenProg_vul4j_apache_tika_VUL4J-36\\\/.\\\/output_astor\\\/AstorMain-apache_tika-VUL4J-36\\\/\\\/src\\\/\\\/variant-88","PATCH_DIFF_ORIG":"--- \\\/workdir\\\/jGenProg_vul4j_apache_tika_VUL4J-36\\\/tika-parsers\\\/src\\\/main\\\/java\\\/org\\\/apache\\\/tika\\\/parser\\\/iptc\\\/IptcAnpaParserjava\\n+++ \\\/workdir\\\/jGenProg_vul4j_apache_tika_VUL4J-36\\\/tika-parsers\\\/src\\\/main\\\/java\\\/org\\\/apache\\\/tika\\\/parser\\\/iptc\\\/IptcAnpaParserjava\\n@@ -511,2 +510,0 @@\\n-\\t\\t\\t\\t\\t\\tif (read > value.length) { \\t\\t\\t\\t\\t\\t\\tbreak;}\\n-\\t\\t\\t\\t\\t} \\n@@ -514,3 +511,0 @@\\n-\\t\\t\\t\\t\\tif (val_next == org.apache.tika.parser.iptc.IptcAnpaParser.CT) {\\n-\\t\\t\\t\\t\\t\\t--read;\\n-\\t\\t\\t\\t\\t}\\n@@ -518 +512,0 @@\\n-\\t\\t\\t\\t\\tif (val_next == org.apache.tika.parser.iptc.IptcAnpaParser.LT) {\\n@@ -520,2 +513,0 @@\\n-\\t\\t\\t\\t\\t\\tval_next = (read < value.length) ? value[read++] : 0x0;\\n-\\t\\t\\t\\t\\t}\\n@@ -523,8 +514,0 @@\\n-\\t\\t\\t\\t\\twhile ((bdy_title.length() > 0) && ((val_next == org.apache.tika.parser.iptc.IptcAnpaParser.CR) || (val_next == org.apache.tika.parser.iptc.IptcAnpaParser.LF))) {\\n-\\t\\t\\t\\t\\t\\tval_next = (read < value.length) ? value[read++] : 0x0;\\n-\\t\\t\\t\\t\\t\\tif ((val_next != org.apache.tika.parser.iptc.IptcAnpaParser.CR) && (val_next != org.apache.tika.parser.iptc.IptcAnpaParser.LF)) {\\n-\\t\\t\\t\\t\\t\\t\\t--read;\\n-\\t\\t\\t\\t\\t\\t}\\n-\\t\\t\\t\\t\\t} \\n-\\t\\t\\t\\t} else \\n-\\t\\t\\t\\t{\\n@@ -534,6 +517,0 @@\\n-\\t\\t\\t\\t\\tif (FORMAT == this.FMT_IPTC_BLM) {\\n-\\t\\t\\t\\t\\t\\tif (val_next == org.apache.tika.parser.iptc.IptcAnpaParser.TB) {\\n-\\t\\t\\t\\t\\t\\t\\tvalue[--read] = org.apache.tika.parser.iptc.IptcAnpaParser.CT;\\n-\\t\\t\\t\\t\\t\\t\\tcontinue;\\n-\\t\\t\\t\\t\\t\\t}\\n-\\t\\t\\t\\t\\t}\\n@@ -542 +520,23 @@\\n-\\t\\t\\t\\t\\tif (FORMAT == this.FMT_IPTC_RTR) {\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n@@ -550 +550 @@\\n-\\t\\t\\t\\t\\t\\t}\\n+\\t\\t\\t\\t\\t\\t}} \\t\\t\\t\\t\\tif (val_next == org.apache.tika.parser.iptc.IptcAnpaParser.CT) { \\t\\t\\t\\t\\t\\t--read;} \\t\\t\\t\\t\\tif (val_next == org.apache.tika.parser.iptc.IptcAnpaParser.LT) { \\t\\t\\t\\t\\t\\tval_next = (read < value.length) ? value[read++] : 0x0;} \\t\\t\\t\\t\\twhile ((bdy_title.length() > 0) && ((val_next == org.apache.tika.parser.iptc.IptcAnpaParser.CR) || (val_next == org.apache.tika.parser.iptc.IptcAnpaParser.LF))) { \\t\\t\\t\\t\\t\\tval_next = (read < value.length) ? value[read++] : 0x0; \\t\\t\\t\\t\\t\\tif ((val_next != org.apache.tika.parser.iptc.IptcAnpaParser.CR) && (val_next != org.apache.tika.parser.iptc.IptcAnpaParser.LF)) { \\t\\t\\t\\t\\t\\t\\t--read;}} } else { \\t\\t\\t\\t\\tif (FORMAT == this.FMT_IPTC_BLM) { \\t\\t\\t\\t\\t\\tif (val_next == org.apache.tika.parser.iptc.IptcAnpaParser.TB) { \\t\\t\\t\\t\\t\\t\\tvalue[--read] = org.apache.tika.parser.iptc.IptcAnpaParser.CT; \\t\\t\\t\\t\\t\\t\\tcontinue;}} \\t\\t\\t\\t\\tif (FORMAT == this.FMT_IPTC_RTR) { \\t\\t\\t\\t\\t\\tif (val_next != org.apache.tika.parser.iptc.IptcAnpaParser.CT) { \\t\\t\\t\\t\\t\\t\\tif ((((val_next != org.apache.tika.parser.iptc.IptcAnpaParser.SP) && (val_next != org.apache.tika.parser.iptc.IptcAnpaParser.TB)) && (val_next != org.apache.tika.parser.iptc.IptcAnpaParser.CR)) && (val_next != org.apache.tika.parser.iptc.IptcAnpaParser.LF)) { \\t\\t\\t\\t\\t\\t\\t\\t--read;} \\t\\t\\t\\t\\t\\t\\tvalue[--read] = org.apache.tika.parser.iptc.IptcAnpaParser.CT; \\t\\t\\t\\t\\t\\t\\tcontinue;}\\n\\n"}]}
+[2478793] INFO AstorMain - Time Total(s): 2478.783
+2659.15user 286.62system 41:21.07elapsed 118%CPU (0avgtext+0avgdata 3500548maxresident)k
+20528inputs+822840outputs (22major+13373913minor)pagefaults 0swaps
+
+
+Node: 9670332cfea8
+
+
+
+Date: Thu Sep  8 14:45:13 EDT 2022
+

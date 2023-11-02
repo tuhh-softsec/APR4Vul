@@ -1,0 +1,210 @@
+cd /workdir/jMutRepair_vul4j_apache_cxf_VUL4J-15;
+export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en";
+TZ="America/New_York"; export TZ;
+export PATH="/usr/lib/jvm/java-8-openjdk-amd64/bin:$PATH";
+export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64/bin";
+time java -Xmx4g -Xms1g -XX:MaxPermSize=512m -cp /script/../libs/jtestex7.jar:/script/../repair_tools/astor.jar fr.inria.main.evolution.AstorMain \
+	-mode jMutRepair \
+	-location . \
+	-id apache_cxf-VUL4J-15 \
+	-failing org.apache.cxf.jaxrs.provider.atom.AtomPojoProviderTest#testReadEntryNoBuilders2:org.apache.cxf.jaxrs.provider.atom.AtomPojoProviderTest#testReadFeedWithoutBuilders2 \
+	-jvm4testexecution /usr/lib/jvm/java-8-openjdk-amd64/bin \
+	-jvm4evosuitetestexecution /usr/lib/jvm/java-8-openjdk-amd64/bin \
+	-maxgen 1000000 \
+	-maxtime 120 \
+	-stopfirst true \
+	-seed 0 \
+	-scope local \
+	-population 1 \
+	-javacompliancelevel 8 \
+	-faultlocalization perfect \
+    -perfectdata /script/../data/benchmarks/vul4j/perfectfl/VUL4J-15 \
+    -validation externalcmd \
+    -testfailingcmd "mvn -pl rt/rs/extensions/providers -Dtest=org.apache.cxf.jaxrs.provider.atom.AtomPojoProviderTest test -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B" \
+    -testallcmd "mvn -pl rt/rs/extensions/providers -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B"  \ \
+	-srcjavafolder rt/rs/extensions/providers/src/main/java \
+	-srctestfolder rt/rs/extensions/providers/src/test/java \
+	-binjavafolder rt/rs/extensions/providers/target/classes \
+	-bintestfolder rt/rs/extensions/providers/target/test-classes \
+	-parameters x:x \
+	-dependencies /workdir/jMutRepair_vul4j_apache_cxf_VUL4J-15/rt/rs/extensions/providers/target/classes:/root/.m2/repository/org/apache/geronimo/specs/geronimo-javamail_1.4_spec/1.7.1/geronimo-javamail_1.4_spec-1.7.1.jar:/root/.m2/repository/stax/stax-api/1.0.1/stax-api-1.0.1.jar:/root/.m2/repository/org/apache/abdera/abdera-parser/1.1.3/abdera-parser-1.1.3.jar:/root/.m2/repository/com/sun/xml/bind/jaxb-core/2.2.11/jaxb-core-2.2.11.jar:/root/.m2/repository/org/ow2/asm/asm/5.0.4/asm-5.0.4.jar:/root/.m2/repository/org/apache/ws/commons/axiom/axiom-impl/1.2.14/axiom-impl-1.2.14.jar:/root/.m2/repository/org/apache/cxf/cxf-rt-databinding-xmlbeans/3.2.0-SNAPSHOT/cxf-rt-databinding-xmlbeans-3.2.0-SNAPSHOT.jar:/root/.m2/repository/org/apache/james/apache-mime4j-core/0.7.2/apache-mime4j-core-0.7.2.jar:/root/.m2/repository/cglib/cglib/3.1/cglib-3.1.jar:/root/.m2/repository/org/objenesis/objenesis/2.1/objenesis-2.1.jar:/root/.m2/repository/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0.jar:/root/.m2/repository/org/glassfish/javax.json/1.0.4/javax.json-1.0.4.jar:/root/.m2/repository/org/apache/cxf/cxf-rt-bindings-soap/3.2.0-SNAPSHOT/cxf-rt-bindings-soap-3.2.0-SNAPSHOT.jar:/root/.m2/repository/org/apache/cxf/cxf-rt-wsdl/3.2.0-SNAPSHOT/cxf-rt-wsdl-3.2.0-SNAPSHOT.jar:/root/.m2/repository/org/codehaus/jettison/jettison/1.3.8/jettison-1.3.8.jar:/root/.m2/repository/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar:/root/.m2/repository/org/apache/tuscany/sdo/tuscany-sdo-api-r2.1/1.1.1/tuscany-sdo-api-r2.1-1.1.1.jar:/root/.m2/repository/org/eclipse/xsd/xsd/2.2.3/xsd-2.2.3.jar:/root/.m2/repository/org/eclipse/emf/codegen-ecore/2.2.3/codegen-ecore-2.2.3.jar:/root/.m2/repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar:/root/.m2/repository/org/apache/cxf/cxf-rt-transports-http/3.2.0-SNAPSHOT/cxf-rt-transports-http-3.2.0-SNAPSHOT.jar:/root/.m2/repository/javax/json/javax.json-api/1.0/javax.json-api-1.0.jar:/root/.m2/repository/org/eclipse/emf/ecore-xmi/2.2.3/ecore-xmi-2.2.3.jar:/root/.m2/repository/org/apache/ws/commons/axiom/axiom-api/1.2.14/axiom-api-1.2.14.jar:/root/.m2/repository/org/apache/cxf/cxf-rt-frontend-jaxrs/3.2.0-SNAPSHOT/cxf-rt-frontend-jaxrs-3.2.0-SNAPSHOT.jar:/root/.m2/repository/commons-codec/commons-codec/1.10/commons-codec-1.10.jar:/root/.m2/repository/org/apache/tuscany/sdo/tuscany-sdo-impl/1.1.1/tuscany-sdo-impl-1.1.1.jar:/root/.m2/repository/backport-util-concurrent/backport-util-concurrent/3.0/backport-util-concurrent-3.0.jar:/root/.m2/repository/jaxen/jaxen/1.1.4/jaxen-1.1.4.jar:/root/.m2/repository/org/eclipse/emf/common/2.2.3/common-2.2.3.jar:/root/.m2/repository/org/easymock/easymock/3.3.1/easymock-3.3.1.jar:/root/.m2/repository/org/apache/tuscany/sdo/tuscany-sdo-lib/1.1.1/tuscany-sdo-lib-1.1.1.jar:/root/.m2/repository/org/apache/cxf/cxf-rt-databinding-jaxb/3.2.0-SNAPSHOT/cxf-rt-databinding-jaxb-3.2.0-SNAPSHOT.jar:/root/.m2/repository/org/eclipse/emf/ecore-change/2.2.3/ecore-change-2.2.3.jar:/root/.m2/repository/javax/annotation/javax.annotation-api/1.2/javax.annotation-api-1.2.jar:/root/.m2/repository/org/apache/tuscany/sdo/tuscany-sdo-tools/1.1.1/tuscany-sdo-tools-1.1.1.jar:/root/.m2/repository/org/eclipse/emf/codegen/2.2.3/codegen-2.2.3.jar:/root/.m2/repository/org/apache/xmlbeans/xmlbeans/2.6.0/xmlbeans-2.6.0.jar:/root/.m2/repository/org/codehaus/woodstox/woodstox-core-asl/4.4.1/woodstox-core-asl-4.4.1.jar:/root/.m2/repository/org/apache/abdera/abdera-i18n/1.1.3/abdera-i18n-1.1.3.jar:/root/.m2/repository/org/apache/geronimo/specs/geronimo-activation_1.1_spec/1.1/geronimo-activation_1.1_spec-1.1.jar:/root/.m2/repository/org/apache/abdera/abdera-extensions-json/1.1.3/abdera-extensions-json-1.1.3.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/apache/cxf/cxf-rt-rs-json-basic/3.2.0-SNAPSHOT/cxf-rt-rs-json-basic-3.2.0-SNAPSHOT.jar:/root/.m2/repository/org/apache/abdera/abdera-extensions-main/1.1.3/abdera-extensions-main-1.1.3.jar:/root/.m2/repository/javax/ws/rs/javax.ws.rs-api/2.1-m01/javax.ws.rs-api-2.1-m01.jar:/root/.m2/repository/org/springframework/spring-beans/4.2.6.RELEASE/spring-beans-4.2.6.RELEASE.jar:/root/.m2/repository/org/eclipse/emf/ecore/2.2.3/ecore-2.2.3.jar:/root/.m2/repository/org/apache/cxf/cxf-rt-databinding-aegis/3.2.0-SNAPSHOT/cxf-rt-databinding-aegis-3.2.0-SNAPSHOT.jar:/root/.m2/repository/org/apache/cxf/cxf-rt-databinding-sdo/3.2.0-SNAPSHOT/cxf-rt-databinding-sdo-3.2.0-SNAPSHOT.jar:/root/.m2/repository/org/springframework/spring-expression/4.2.6.RELEASE/spring-expression-4.2.6.RELEASE.jar:/root/.m2/repository/org/springframework/spring-aop/4.2.6.RELEASE/spring-aop-4.2.6.RELEASE.jar:/root/.m2/repository/wsdl4j/wsdl4j/1.6.3/wsdl4j-1.6.3.jar:/root/.m2/repository/xml-apis/xml-apis/1.0.b2/xml-apis-1.0.b2.jar:/root/.m2/repository/org/springframework/spring-context/4.2.6.RELEASE/spring-context-4.2.6.RELEASE.jar:/root/.m2/repository/org/codehaus/woodstox/stax2-api/3.1.4/stax2-api-3.1.4.jar:/root/.m2/repository/junit/junit/4.12/junit-4.12.jar:/root/.m2/repository/org/apache/ws/xmlschema/xmlschema-core/2.2.1/xmlschema-core-2.2.1.jar:/root/.m2/repository/org/apache/cxf/cxf-core/3.2.0-SNAPSHOT/cxf-core-3.2.0-SNAPSHOT.jar:/root/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/root/.m2/repository/com/sun/xml/bind/jaxb-impl/2.2.11/jaxb-impl-2.2.11.jar:/root/.m2/repository/org/apache/abdera/abdera-core/1.1.3/abdera-core-1.1.3.jar:/root/.m2/repository/org/springframework/spring-core/4.2.6.RELEASE/spring-core-4.2.6.RELEASE.jar;
+	echo "\n\nNode: `hostname`\n";
+	echo "\n\nDate: `date`\n";
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en
+OpenJDK 64-Bit Server VM warning: ignoring option MaxPermSize=512m; support was removed in 8.0
+[0] INFO ProjectConfiguration - Version of the JVM used: 1.8.0_342
+[1] INFO main - Java version of the JDK used to run tests: 1.8.0_342
+[1] INFO main - The compliance of the JVM is:  8
+[15] INFO main - command line arguments: [-mode  jMutRepair  -location  .  -id  apache_cxf-VUL4J-15  -failing  org.apache.cxf.jaxrs.provider.atom.AtomPojoProviderTest#testReadEntryNoBuilders2:org.apache.cxf.jaxrs.provider.atom.AtomPojoProviderTest#testReadFeedWithoutBuilders2  -jvm4testexecution  /usr/lib/jvm/java-8-openjdk-amd64/bin  -jvm4evosuitetestexecution  /usr/lib/jvm/java-8-openjdk-amd64/bin  -maxgen  1000000  -maxtime  120  -stopfirst  true  -seed  0  -scope  local  -population  1  -javacompliancelevel  8  -faultlocalization  perfect  -perfectdata  /script/../data/benchmarks/vul4j/perfectfl/VUL4J-15  -validation  externalcmd  -testfailingcmd  mvn -pl rt/rs/extensions/providers -Dtest=org.apache.cxf.jaxrs.provider.atom.AtomPojoProviderTest test -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B  -testallcmd  mvn -pl rt/rs/extensions/providers -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B     -srcjavafolder  rt/rs/extensions/providers/src/main/java  -srctestfolder  rt/rs/extensions/providers/src/test/java  -binjavafolder  rt/rs/extensions/providers/target/classes  -bintestfolder  rt/rs/extensions/providers/target/test-classes  -parameters  x:x  -dependencies  /workdir/jMutRepair_vul4j_apache_cxf_VUL4J-15/rt/rs/extensions/providers/target/classes:/root/.m2/repository/org/apache/geronimo/specs/geronimo-javamail_1.4_spec/1.7.1/geronimo-javamail_1.4_spec-1.7.1.jar:/root/.m2/repository/stax/stax-api/1.0.1/stax-api-1.0.1.jar:/root/.m2/repository/org/apache/abdera/abdera-parser/1.1.3/abdera-parser-1.1.3.jar:/root/.m2/repository/com/sun/xml/bind/jaxb-core/2.2.11/jaxb-core-2.2.11.jar:/root/.m2/repository/org/ow2/asm/asm/5.0.4/asm-5.0.4.jar:/root/.m2/repository/org/apache/ws/commons/axiom/axiom-impl/1.2.14/axiom-impl-1.2.14.jar:/root/.m2/repository/org/apache/cxf/cxf-rt-databinding-xmlbeans/3.2.0-SNAPSHOT/cxf-rt-databinding-xmlbeans-3.2.0-SNAPSHOT.jar:/root/.m2/repository/org/apache/james/apache-mime4j-core/0.7.2/apache-mime4j-core-0.7.2.jar:/root/.m2/repository/cglib/cglib/3.1/cglib-3.1.jar:/root/.m2/repository/org/objenesis/objenesis/2.1/objenesis-2.1.jar:/root/.m2/repository/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0.jar:/root/.m2/repository/org/glassfish/javax.json/1.0.4/javax.json-1.0.4.jar:/root/.m2/repository/org/apache/cxf/cxf-rt-bindings-soap/3.2.0-SNAPSHOT/cxf-rt-bindings-soap-3.2.0-SNAPSHOT.jar:/root/.m2/repository/org/apache/cxf/cxf-rt-wsdl/3.2.0-SNAPSHOT/cxf-rt-wsdl-3.2.0-SNAPSHOT.jar:/root/.m2/repository/org/codehaus/jettison/jettison/1.3.8/jettison-1.3.8.jar:/root/.m2/repository/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar:/root/.m2/repository/org/apache/tuscany/sdo/tuscany-sdo-api-r2.1/1.1.1/tuscany-sdo-api-r2.1-1.1.1.jar:/root/.m2/repository/org/eclipse/xsd/xsd/2.2.3/xsd-2.2.3.jar:/root/.m2/repository/org/eclipse/emf/codegen-ecore/2.2.3/codegen-ecore-2.2.3.jar:/root/.m2/repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar:/root/.m2/repository/org/apache/cxf/cxf-rt-transports-http/3.2.0-SNAPSHOT/cxf-rt-transports-http-3.2.0-SNAPSHOT.jar:/root/.m2/repository/javax/json/javax.json-api/1.0/javax.json-api-1.0.jar:/root/.m2/repository/org/eclipse/emf/ecore-xmi/2.2.3/ecore-xmi-2.2.3.jar:/root/.m2/repository/org/apache/ws/commons/axiom/axiom-api/1.2.14/axiom-api-1.2.14.jar:/root/.m2/repository/org/apache/cxf/cxf-rt-frontend-jaxrs/3.2.0-SNAPSHOT/cxf-rt-frontend-jaxrs-3.2.0-SNAPSHOT.jar:/root/.m2/repository/commons-codec/commons-codec/1.10/commons-codec-1.10.jar:/root/.m2/repository/org/apache/tuscany/sdo/tuscany-sdo-impl/1.1.1/tuscany-sdo-impl-1.1.1.jar:/root/.m2/repository/backport-util-concurrent/backport-util-concurrent/3.0/backport-util-concurrent-3.0.jar:/root/.m2/repository/jaxen/jaxen/1.1.4/jaxen-1.1.4.jar:/root/.m2/repository/org/eclipse/emf/common/2.2.3/common-2.2.3.jar:/root/.m2/repository/org/easymock/easymock/3.3.1/easymock-3.3.1.jar:/root/.m2/repository/org/apache/tuscany/sdo/tuscany-sdo-lib/1.1.1/tuscany-sdo-lib-1.1.1.jar:/root/.m2/repository/org/apache/cxf/cxf-rt-databinding-jaxb/3.2.0-SNAPSHOT/cxf-rt-databinding-jaxb-3.2.0-SNAPSHOT.jar:/root/.m2/repository/org/eclipse/emf/ecore-change/2.2.3/ecore-change-2.2.3.jar:/root/.m2/repository/javax/annotation/javax.annotation-api/1.2/javax.annotation-api-1.2.jar:/root/.m2/repository/org/apache/tuscany/sdo/tuscany-sdo-tools/1.1.1/tuscany-sdo-tools-1.1.1.jar:/root/.m2/repository/org/eclipse/emf/codegen/2.2.3/codegen-2.2.3.jar:/root/.m2/repository/org/apache/xmlbeans/xmlbeans/2.6.0/xmlbeans-2.6.0.jar:/root/.m2/repository/org/codehaus/woodstox/woodstox-core-asl/4.4.1/woodstox-core-asl-4.4.1.jar:/root/.m2/repository/org/apache/abdera/abdera-i18n/1.1.3/abdera-i18n-1.1.3.jar:/root/.m2/repository/org/apache/geronimo/specs/geronimo-activation_1.1_spec/1.1/geronimo-activation_1.1_spec-1.1.jar:/root/.m2/repository/org/apache/abdera/abdera-extensions-json/1.1.3/abdera-extensions-json-1.1.3.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/apache/cxf/cxf-rt-rs-json-basic/3.2.0-SNAPSHOT/cxf-rt-rs-json-basic-3.2.0-SNAPSHOT.jar:/root/.m2/repository/org/apache/abdera/abdera-extensions-main/1.1.3/abdera-extensions-main-1.1.3.jar:/root/.m2/repository/javax/ws/rs/javax.ws.rs-api/2.1-m01/javax.ws.rs-api-2.1-m01.jar:/root/.m2/repository/org/springframework/spring-beans/4.2.6.RELEASE/spring-beans-4.2.6.RELEASE.jar:/root/.m2/repository/org/eclipse/emf/ecore/2.2.3/ecore-2.2.3.jar:/root/.m2/repository/org/apache/cxf/cxf-rt-databinding-aegis/3.2.0-SNAPSHOT/cxf-rt-databinding-aegis-3.2.0-SNAPSHOT.jar:/root/.m2/repository/org/apache/cxf/cxf-rt-databinding-sdo/3.2.0-SNAPSHOT/cxf-rt-databinding-sdo-3.2.0-SNAPSHOT.jar:/root/.m2/repository/org/springframework/spring-expression/4.2.6.RELEASE/spring-expression-4.2.6.RELEASE.jar:/root/.m2/repository/org/springframework/spring-aop/4.2.6.RELEASE/spring-aop-4.2.6.RELEASE.jar:/root/.m2/repository/wsdl4j/wsdl4j/1.6.3/wsdl4j-1.6.3.jar:/root/.m2/repository/xml-apis/xml-apis/1.0.b2/xml-apis-1.0.b2.jar:/root/.m2/repository/org/springframework/spring-context/4.2.6.RELEASE/spring-context-4.2.6.RELEASE.jar:/root/.m2/repository/org/codehaus/woodstox/stax2-api/3.1.4/stax2-api-3.1.4.jar:/root/.m2/repository/junit/junit/4.12/junit-4.12.jar:/root/.m2/repository/org/apache/ws/xmlschema/xmlschema-core/2.2.1/xmlschema-core-2.2.1.jar:/root/.m2/repository/org/apache/cxf/cxf-core/3.2.0-SNAPSHOT/cxf-core-3.2.0-SNAPSHOT.jar:/root/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/root/.m2/repository/com/sun/xml/bind/jaxb-impl/2.2.11/jaxb-impl-2.2.11.jar:/root/.m2/repository/org/apache/abdera/abdera-core/1.1.3/abdera-core-1.1.3.jar:/root/.m2/repository/org/springframework/spring-core/4.2.6.RELEASE/spring-core-4.2.6.RELEASE.jar]
+[20] INFO AstorMain - Running Astor on a JDK at /usr/lib/jvm/java-8-openjdk-amd64/jre
+[42] INFO main - Source folders: [/workdir/jMutRepair_vul4j_apache_cxf_VUL4J-15/./rt/rs/extensions/providers/src/main/java]
+[44] INFO main - Source Test folders: [/workdir/jMutRepair_vul4j_apache_cxf_VUL4J-15/./rt/rs/extensions/providers/src/test/java]
+[1143] INFO AstorCoreEngine - ---- Creating spoon model
+[1198] INFO MutationSupporter - Creating model,  Code location from working folder: /workdir/jMutRepair_vul4j_apache_cxf_VUL4J-15/./rt/rs/extensions/providers/src/main/java
+[1198] INFO MutationSupporter - building model: /workdir/jMutRepair_vul4j_apache_cxf_VUL4J-15/./rt/rs/extensions/providers/src/main/java, compliance level: 8
+[1242] INFO MutationSupporter - Classpath (Dependencies) for building SpoonModel: [/workdir/jMutRepair_vul4j_apache_cxf_VUL4J-15/rt/rs/extensions/providers/target/classes/, /root/.m2/repository/org/apache/geronimo/specs/geronimo-javamail_1.4_spec/1.7.1/geronimo-javamail_1.4_spec-1.7.1.jar, /root/.m2/repository/stax/stax-api/1.0.1/stax-api-1.0.1.jar, /root/.m2/repository/org/apache/abdera/abdera-parser/1.1.3/abdera-parser-1.1.3.jar, /root/.m2/repository/com/sun/xml/bind/jaxb-core/2.2.11/jaxb-core-2.2.11.jar, /root/.m2/repository/org/ow2/asm/asm/5.0.4/asm-5.0.4.jar, /root/.m2/repository/org/apache/ws/commons/axiom/axiom-impl/1.2.14/axiom-impl-1.2.14.jar, /root/.m2/repository/org/apache/cxf/cxf-rt-databinding-xmlbeans/3.2.0-SNAPSHOT/cxf-rt-databinding-xmlbeans-3.2.0-SNAPSHOT.jar, /root/.m2/repository/org/apache/james/apache-mime4j-core/0.7.2/apache-mime4j-core-0.7.2.jar, /root/.m2/repository/cglib/cglib/3.1/cglib-3.1.jar, /root/.m2/repository/org/objenesis/objenesis/2.1/objenesis-2.1.jar, /root/.m2/repository/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0.jar, /root/.m2/repository/org/glassfish/javax.json/1.0.4/javax.json-1.0.4.jar, /root/.m2/repository/org/apache/cxf/cxf-rt-bindings-soap/3.2.0-SNAPSHOT/cxf-rt-bindings-soap-3.2.0-SNAPSHOT.jar, /root/.m2/repository/org/apache/cxf/cxf-rt-wsdl/3.2.0-SNAPSHOT/cxf-rt-wsdl-3.2.0-SNAPSHOT.jar, /root/.m2/repository/org/codehaus/jettison/jettison/1.3.8/jettison-1.3.8.jar, /root/.m2/repository/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar, /root/.m2/repository/org/apache/tuscany/sdo/tuscany-sdo-api-r2.1/1.1.1/tuscany-sdo-api-r2.1-1.1.1.jar, /root/.m2/repository/org/eclipse/xsd/xsd/2.2.3/xsd-2.2.3.jar, /root/.m2/repository/org/eclipse/emf/codegen-ecore/2.2.3/codegen-ecore-2.2.3.jar, /root/.m2/repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar, /root/.m2/repository/org/apache/cxf/cxf-rt-transports-http/3.2.0-SNAPSHOT/cxf-rt-transports-http-3.2.0-SNAPSHOT.jar, /root/.m2/repository/javax/json/javax.json-api/1.0/javax.json-api-1.0.jar, /root/.m2/repository/org/eclipse/emf/ecore-xmi/2.2.3/ecore-xmi-2.2.3.jar, /root/.m2/repository/org/apache/ws/commons/axiom/axiom-api/1.2.14/axiom-api-1.2.14.jar, /root/.m2/repository/org/apache/cxf/cxf-rt-frontend-jaxrs/3.2.0-SNAPSHOT/cxf-rt-frontend-jaxrs-3.2.0-SNAPSHOT.jar, /root/.m2/repository/commons-codec/commons-codec/1.10/commons-codec-1.10.jar, /root/.m2/repository/org/apache/tuscany/sdo/tuscany-sdo-impl/1.1.1/tuscany-sdo-impl-1.1.1.jar, /root/.m2/repository/backport-util-concurrent/backport-util-concurrent/3.0/backport-util-concurrent-3.0.jar, /root/.m2/repository/jaxen/jaxen/1.1.4/jaxen-1.1.4.jar, /root/.m2/repository/org/eclipse/emf/common/2.2.3/common-2.2.3.jar, /root/.m2/repository/org/easymock/easymock/3.3.1/easymock-3.3.1.jar, /root/.m2/repository/org/apache/tuscany/sdo/tuscany-sdo-lib/1.1.1/tuscany-sdo-lib-1.1.1.jar, /root/.m2/repository/org/apache/cxf/cxf-rt-databinding-jaxb/3.2.0-SNAPSHOT/cxf-rt-databinding-jaxb-3.2.0-SNAPSHOT.jar, /root/.m2/repository/org/eclipse/emf/ecore-change/2.2.3/ecore-change-2.2.3.jar, /root/.m2/repository/javax/annotation/javax.annotation-api/1.2/javax.annotation-api-1.2.jar, /root/.m2/repository/org/apache/tuscany/sdo/tuscany-sdo-tools/1.1.1/tuscany-sdo-tools-1.1.1.jar, /root/.m2/repository/org/eclipse/emf/codegen/2.2.3/codegen-2.2.3.jar, /root/.m2/repository/org/apache/xmlbeans/xmlbeans/2.6.0/xmlbeans-2.6.0.jar, /root/.m2/repository/org/codehaus/woodstox/woodstox-core-asl/4.4.1/woodstox-core-asl-4.4.1.jar, /root/.m2/repository/org/apache/abdera/abdera-i18n/1.1.3/abdera-i18n-1.1.3.jar, /root/.m2/repository/org/apache/geronimo/specs/geronimo-activation_1.1_spec/1.1/geronimo-activation_1.1_spec-1.1.jar, /root/.m2/repository/org/apache/abdera/abdera-extensions-json/1.1.3/abdera-extensions-json-1.1.3.jar, /root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar, /root/.m2/repository/org/apache/cxf/cxf-rt-rs-json-basic/3.2.0-SNAPSHOT/cxf-rt-rs-json-basic-3.2.0-SNAPSHOT.jar, /root/.m2/repository/org/apache/abdera/abdera-extensions-main/1.1.3/abdera-extensions-main-1.1.3.jar, /root/.m2/repository/javax/ws/rs/javax.ws.rs-api/2.1-m01/javax.ws.rs-api-2.1-m01.jar, /root/.m2/repository/org/springframework/spring-beans/4.2.6.RELEASE/spring-beans-4.2.6.RELEASE.jar, /root/.m2/repository/org/eclipse/emf/ecore/2.2.3/ecore-2.2.3.jar, /root/.m2/repository/org/apache/cxf/cxf-rt-databinding-aegis/3.2.0-SNAPSHOT/cxf-rt-databinding-aegis-3.2.0-SNAPSHOT.jar, /root/.m2/repository/org/apache/cxf/cxf-rt-databinding-sdo/3.2.0-SNAPSHOT/cxf-rt-databinding-sdo-3.2.0-SNAPSHOT.jar, /root/.m2/repository/org/springframework/spring-expression/4.2.6.RELEASE/spring-expression-4.2.6.RELEASE.jar, /root/.m2/repository/org/springframework/spring-aop/4.2.6.RELEASE/spring-aop-4.2.6.RELEASE.jar, /root/.m2/repository/wsdl4j/wsdl4j/1.6.3/wsdl4j-1.6.3.jar, /root/.m2/repository/xml-apis/xml-apis/1.0.b2/xml-apis-1.0.b2.jar, /root/.m2/repository/org/springframework/spring-context/4.2.6.RELEASE/spring-context-4.2.6.RELEASE.jar, /root/.m2/repository/org/codehaus/woodstox/stax2-api/3.1.4/stax2-api-3.1.4.jar, /root/.m2/repository/junit/junit/4.12/junit-4.12.jar, /root/.m2/repository/org/apache/ws/xmlschema/xmlschema-core/2.2.1/xmlschema-core-2.2.1.jar, /root/.m2/repository/org/apache/cxf/cxf-core/3.2.0-SNAPSHOT/cxf-core-3.2.0-SNAPSHOT.jar, /root/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar, /root/.m2/repository/com/sun/xml/bind/jaxb-impl/2.2.11/jaxb-impl-2.2.11.jar, /root/.m2/repository/org/apache/abdera/abdera-core/1.1.3/abdera-core-1.1.3.jar, /root/.m2/repository/org/springframework/spring-core/4.2.6.RELEASE/spring-core-4.2.6.RELEASE.jar]
+[13178] INFO AstorCoreEngine - Number of CtTypes created: 23
+[13256] INFO AstorCoreEngine - Test retrieved from classes: 0
+[13435] INFO AstorCoreEngine - Setting up the max to 1790 milliseconds (1 sec)
+[13435] INFO AstorCoreEngine - ---- Initial suspicious size: 2
+[14669] INFO main - Total suspicious from FL: 2,  0
+[14669] INFO main - Total ModPoint created: 0
+[14669] INFO main - Creating program variant #1, [Variant id: 1, #gens: 0, #ops: 0, parent:-]
+[14670] ERROR AstorCoreEngine - [warning] Any modification point in variant
+[14670] ERROR AstorCoreEngine - Variant with any gen
+[14702] WARN ConfigurationProperties - ----------------------------
+[14702] INFO ConfigurationProperties - ---Configuration properties
+[14705] INFO ConfigurationProperties - p:lastJUnitVersion= ./examples/libs/junit-4.11.jar
+[14705] INFO ConfigurationProperties - p:alternativecompliancelevel= 8
+[14705] INFO ConfigurationProperties - p:ignoredTestCases= 
+[14705] INFO ConfigurationProperties - p:workingDirectory= /workdir/jMutRepair_vul4j_apache_cxf_VUL4J-15/./output_astor
+[14705] INFO ConfigurationProperties - p:manipulatesuper= false
+[14705] INFO ConfigurationProperties - p:validation= externalcmd
+[14705] INFO ConfigurationProperties - p:jvm4testexecution= /usr/lib/jvm/java-8-openjdk-amd64/bin
+[14705] INFO ConfigurationProperties - p:operatorspace= mutationspace
+[14705] INFO ConfigurationProperties - p:diffcontext= 0
+[14705] INFO ConfigurationProperties - p:binjavafolder= rt/rs/extensions/providers/target/classes
+[14705] INFO ConfigurationProperties - p:synthesis_depth= 3
+[14705] INFO ConfigurationProperties - p:gzoltartestpackagetoexclude= junit.framework
+[14705] INFO ConfigurationProperties - p:skipfitnessinitialpopulation= false
+[14705] INFO ConfigurationProperties - p:evosuiteresultfolder= evosuite
+[14705] INFO ConfigurationProperties - p:flthreshold= 0.1
+[14705] INFO ConfigurationProperties - p:regressionforfaultlocalization= true
+[14705] INFO ConfigurationProperties - p:collectonlyusedmethod= false
+[14705] INFO ConfigurationProperties - p:preservelinenumbers= true
+[14706] INFO ConfigurationProperties - p:tmax2= 1790
+[14706] INFO ConfigurationProperties - p:tmax1= 10000
+[14706] INFO ConfigurationProperties - p:probagenmutation= false
+[14724] INFO ConfigurationProperties - p:nomodificationconvergence= 100
+[14724] INFO ConfigurationProperties - p:diff_type= relative
+[14724] INFO ConfigurationProperties - p:targetelementprocessor= if-conditions:return-op-mutation
+[14724] INFO ConfigurationProperties - p:srctestfolder= rt/rs/extensions/providers/src/test/java
+[14724] INFO ConfigurationProperties - p:forceExecuteRegression= false
+[14725] INFO ConfigurationProperties - p:clusteringfilename= clustering.csv
+[14725] INFO ConfigurationProperties - p:failing= org.apache.cxf.jaxrs.provider.atom.AtomPojoProviderTest#testReadEntryNoBuilders2:org.apache.cxf.jaxrs.provider.atom.AtomPojoProviderTest#testReadFeedWithoutBuilders2
+[14725] INFO ConfigurationProperties - p:logtestexecution= false
+[14725] INFO ConfigurationProperties - p:evo_buggy_class= true
+[14725] INFO ConfigurationProperties - p:numberExecutions= 1
+[14725] INFO ConfigurationProperties - p:maxnumbersolutions= 1000000
+[14725] INFO ConfigurationProperties - p:evo_affected_by_op= true
+[14725] INFO ConfigurationProperties - p:population= 1
+[14725] INFO ConfigurationProperties - p:considerzerovaluesusp= false
+[14725] INFO ConfigurationProperties - p:maxCombinationVariableLimit= false
+[14725] INFO ConfigurationProperties - p:savesolution= true
+[14725] INFO ConfigurationProperties - p:javacompliancelevel= 8
+[14725] INFO ConfigurationProperties - p:x= x
+[14725] INFO ConfigurationProperties - p:uniqueoptogen= false
+[14725] INFO ConfigurationProperties - p:gzoltarpackagetonotinstrument= junit.framework
+[14725] INFO ConfigurationProperties - p:projectIdentifier= apache_cxf-VUL4J-15
+[14725] INFO ConfigurationProperties - p:modificationpointnavigation= weight
+[14725] INFO ConfigurationProperties - p:stopfirst= true
+[14726] INFO ConfigurationProperties - p:multipointmodification= false
+[14726] INFO ConfigurationProperties - p:elementsToMutate= 10
+[14726] INFO ConfigurationProperties - p:jsonoutputname= astor_output
+[14726] INFO ConfigurationProperties - p:evoDSE= false
+[14726] INFO ConfigurationProperties - p:bintestfolder= rt/rs/extensions/providers/target/test-classes
+[14726] INFO ConfigurationProperties - p:testbystep= false
+[14726] INFO ConfigurationProperties - p:version-location= ./math-version/
+[14728] INFO ConfigurationProperties - p:reintroduce= PARENTS:ORIGINAL
+[14728] INFO ConfigurationProperties - p:perfectdata= /script/../data/benchmarks/vul4j/perfectfl/VUL4J-15
+[14728] INFO ConfigurationProperties - p:executorjar= ./lib/jtestex7.jar
+[14728] INFO ConfigurationProperties - p:maxGeneration= 1000000
+[14728] INFO ConfigurationProperties - p:max_synthesis_step= 10000
+[14728] INFO ConfigurationProperties - p:projectinfocommand= com.github.tdurieux:project-config-maven-plugin:info
+[14728] INFO ConfigurationProperties - p:maxVarCombination= 1000
+[14728] INFO ConfigurationProperties - p:maxtime= 120
+[14728] INFO ConfigurationProperties - p:evosuitejar= ./lib/evosuite-master-1.0.4-SNAPSHOT.jar
+[14728] INFO ConfigurationProperties - p:jvmversion= 1.8.0_342
+[14728] INFO ConfigurationProperties - p:commandTrunk= 50000
+[14728] INFO ConfigurationProperties - p:faultlocalization= perfect
+[14728] INFO ConfigurationProperties - p:resetmodel= true
+[14728] INFO ConfigurationProperties - p:maxsuspcandidates= 1000
+[14728] INFO ConfigurationProperties - p:mode= jMutRepair
+[14728] INFO ConfigurationProperties - p:learningdir= 
+[14729] INFO ConfigurationProperties - p:jvm4evosuitetestexecution= /usr/lib/jvm/java-8-openjdk-amd64/bin
+[14729] INFO ConfigurationProperties - p:filterfaultlocalization= true
+[14729] INFO ConfigurationProperties - p:mutationrate= 1 
+[14729] INFO ConfigurationProperties - p:pathToMVNRepository= 
+[14729] INFO ConfigurationProperties - p:resourcesfolder= /src/main/resources:/src/test/resources:
+[14729] INFO ConfigurationProperties - p:timezone= America/Los_Angeles
+[14729] INFO ConfigurationProperties - p:runjava7code= false
+[14729] INFO ConfigurationProperties - p:testfailingcmd= mvn -pl rt/rs/extensions/providers -Dtest=org.apache.cxf.jaxrs.provider.atom.AtomPojoProviderTest test -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B
+[14729] INFO ConfigurationProperties - p:evoRunOnBuggyClass= true
+[14729] INFO ConfigurationProperties - p:compiler= fr.inria.astor.core.manipulation.bytecode.compiler.SpoonClassCompiler
+[14729] INFO ConfigurationProperties - p:limitbysuspicious= true
+[14729] INFO ConfigurationProperties - p:logsattemps= true
+[14729] INFO ConfigurationProperties - p:dependenciespath= /workdir/jMutRepair_vul4j_apache_cxf_VUL4J-15/rt/rs/extensions/providers/target/classes:/root/.m2/repository/org/apache/geronimo/specs/geronimo-javamail_1.4_spec/1.7.1/geronimo-javamail_1.4_spec-1.7.1.jar:/root/.m2/repository/stax/stax-api/1.0.1/stax-api-1.0.1.jar:/root/.m2/repository/org/apache/abdera/abdera-parser/1.1.3/abdera-parser-1.1.3.jar:/root/.m2/repository/com/sun/xml/bind/jaxb-core/2.2.11/jaxb-core-2.2.11.jar:/root/.m2/repository/org/ow2/asm/asm/5.0.4/asm-5.0.4.jar:/root/.m2/repository/org/apache/ws/commons/axiom/axiom-impl/1.2.14/axiom-impl-1.2.14.jar:/root/.m2/repository/org/apache/cxf/cxf-rt-databinding-xmlbeans/3.2.0-SNAPSHOT/cxf-rt-databinding-xmlbeans-3.2.0-SNAPSHOT.jar:/root/.m2/repository/org/apache/james/apache-mime4j-core/0.7.2/apache-mime4j-core-0.7.2.jar:/root/.m2/repository/cglib/cglib/3.1/cglib-3.1.jar:/root/.m2/repository/org/objenesis/objenesis/2.1/objenesis-2.1.jar:/root/.m2/repository/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0.jar:/root/.m2/repository/org/glassfish/javax.json/1.0.4/javax.json-1.0.4.jar:/root/.m2/repository/org/apache/cxf/cxf-rt-bindings-soap/3.2.0-SNAPSHOT/cxf-rt-bindings-soap-3.2.0-SNAPSHOT.jar:/root/.m2/repository/org/apache/cxf/cxf-rt-wsdl/3.2.0-SNAPSHOT/cxf-rt-wsdl-3.2.0-SNAPSHOT.jar:/root/.m2/repository/org/codehaus/jettison/jettison/1.3.8/jettison-1.3.8.jar:/root/.m2/repository/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar:/root/.m2/repository/org/apache/tuscany/sdo/tuscany-sdo-api-r2.1/1.1.1/tuscany-sdo-api-r2.1-1.1.1.jar:/root/.m2/repository/org/eclipse/xsd/xsd/2.2.3/xsd-2.2.3.jar:/root/.m2/repository/org/eclipse/emf/codegen-ecore/2.2.3/codegen-ecore-2.2.3.jar:/root/.m2/repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar:/root/.m2/repository/org/apache/cxf/cxf-rt-transports-http/3.2.0-SNAPSHOT/cxf-rt-transports-http-3.2.0-SNAPSHOT.jar:/root/.m2/repository/javax/json/javax.json-api/1.0/javax.json-api-1.0.jar:/root/.m2/repository/org/eclipse/emf/ecore-xmi/2.2.3/ecore-xmi-2.2.3.jar:/root/.m2/repository/org/apache/ws/commons/axiom/axiom-api/1.2.14/axiom-api-1.2.14.jar:/root/.m2/repository/org/apache/cxf/cxf-rt-frontend-jaxrs/3.2.0-SNAPSHOT/cxf-rt-frontend-jaxrs-3.2.0-SNAPSHOT.jar:/root/.m2/repository/commons-codec/commons-codec/1.10/commons-codec-1.10.jar:/root/.m2/repository/org/apache/tuscany/sdo/tuscany-sdo-impl/1.1.1/tuscany-sdo-impl-1.1.1.jar:/root/.m2/repository/backport-util-concurrent/backport-util-concurrent/3.0/backport-util-concurrent-3.0.jar:/root/.m2/repository/jaxen/jaxen/1.1.4/jaxen-1.1.4.jar:/root/.m2/repository/org/eclipse/emf/common/2.2.3/common-2.2.3.jar:/root/.m2/repository/org/easymock/easymock/3.3.1/easymock-3.3.1.jar:/root/.m2/repository/org/apache/tuscany/sdo/tuscany-sdo-lib/1.1.1/tuscany-sdo-lib-1.1.1.jar:/root/.m2/repository/org/apache/cxf/cxf-rt-databinding-jaxb/3.2.0-SNAPSHOT/cxf-rt-databinding-jaxb-3.2.0-SNAPSHOT.jar:/root/.m2/repository/org/eclipse/emf/ecore-change/2.2.3/ecore-change-2.2.3.jar:/root/.m2/repository/javax/annotation/javax.annotation-api/1.2/javax.annotation-api-1.2.jar:/root/.m2/repository/org/apache/tuscany/sdo/tuscany-sdo-tools/1.1.1/tuscany-sdo-tools-1.1.1.jar:/root/.m2/repository/org/eclipse/emf/codegen/2.2.3/codegen-2.2.3.jar:/root/.m2/repository/org/apache/xmlbeans/xmlbeans/2.6.0/xmlbeans-2.6.0.jar:/root/.m2/repository/org/codehaus/woodstox/woodstox-core-asl/4.4.1/woodstox-core-asl-4.4.1.jar:/root/.m2/repository/org/apache/abdera/abdera-i18n/1.1.3/abdera-i18n-1.1.3.jar:/root/.m2/repository/org/apache/geronimo/specs/geronimo-activation_1.1_spec/1.1/geronimo-activation_1.1_spec-1.1.jar:/root/.m2/repository/org/apache/abdera/abdera-extensions-json/1.1.3/abdera-extensions-json-1.1.3.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/apache/cxf/cxf-rt-rs-json-basic/3.2.0-SNAPSHOT/cxf-rt-rs-json-basic-3.2.0-SNAPSHOT.jar:/root/.m2/repository/org/apache/abdera/abdera-extensions-main/1.1.3/abdera-extensions-main-1.1.3.jar:/root/.m2/repository/javax/ws/rs/javax.ws.rs-api/2.1-m01/javax.ws.rs-api-2.1-m01.jar:/root/.m2/repository/org/springframework/spring-beans/4.2.6.RELEASE/spring-beans-4.2.6.RELEASE.jar:/root/.m2/repository/org/eclipse/emf/ecore/2.2.3/ecore-2.2.3.jar:/root/.m2/repository/org/apache/cxf/cxf-rt-databinding-aegis/3.2.0-SNAPSHOT/cxf-rt-databinding-aegis-3.2.0-SNAPSHOT.jar:/root/.m2/repository/org/apache/cxf/cxf-rt-databinding-sdo/3.2.0-SNAPSHOT/cxf-rt-databinding-sdo-3.2.0-SNAPSHOT.jar:/root/.m2/repository/org/springframework/spring-expression/4.2.6.RELEASE/spring-expression-4.2.6.RELEASE.jar:/root/.m2/repository/org/springframework/spring-aop/4.2.6.RELEASE/spring-aop-4.2.6.RELEASE.jar:/root/.m2/repository/wsdl4j/wsdl4j/1.6.3/wsdl4j-1.6.3.jar:/root/.m2/repository/xml-apis/xml-apis/1.0.b2/xml-apis-1.0.b2.jar:/root/.m2/repository/org/springframework/spring-context/4.2.6.RELEASE/spring-context-4.2.6.RELEASE.jar:/root/.m2/repository/org/codehaus/woodstox/stax2-api/3.1.4/stax2-api-3.1.4.jar:/root/.m2/repository/junit/junit/4.12/junit-4.12.jar:/root/.m2/repository/org/apache/ws/xmlschema/xmlschema-core/2.2.1/xmlschema-core-2.2.1.jar:/root/.m2/repository/org/apache/cxf/cxf-core/3.2.0-SNAPSHOT/cxf-core-3.2.0-SNAPSHOT.jar:/root/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/root/.m2/repository/com/sun/xml/bind/jaxb-impl/2.2.11/jaxb-impl-2.2.11.jar:/root/.m2/repository/org/apache/abdera/abdera-core/1.1.3/abdera-core-1.1.3.jar:/root/.m2/repository/org/springframework/spring-core/4.2.6.RELEASE/spring-core-4.2.6.RELEASE.jar
+[14730] INFO ConfigurationProperties - p:packageToInstrument= 
+[14730] INFO ConfigurationProperties - p:skipfaultlocalization= false
+[14730] INFO ConfigurationProperties - p:scope= local
+[14730] INFO ConfigurationProperties - p:transformingredient= false
+[14730] INFO ConfigurationProperties - p:fitnessfunction= fr.inria.astor.core.solutionsearch.population.TestCaseFitnessFunction
+[14730] INFO ConfigurationProperties - p:maxnumvariablesperingredient= 10
+[14730] INFO ConfigurationProperties - p:parsesourcefromoriginal= true
+[14730] INFO ConfigurationProperties - p:pvariantfoldername= variant-
+[14730] INFO ConfigurationProperties - p:savespoonmodelondisk= false
+[14730] INFO ConfigurationProperties - p:srcjavafolder= rt/rs/extensions/providers/src/main/java
+[14730] INFO ConfigurationProperties - p:populationcontroller= fr.inria.astor.core.solutionsearch.population.TestCaseBasedFitnessPopulationController
+[14730] INFO ConfigurationProperties - p:ignoreflakyinfl= false
+[14730] INFO ConfigurationProperties - p:cleantemplates= true
+[14730] INFO ConfigurationProperties - p:applyCrossover= false
+[14730] INFO ConfigurationProperties - p:maxmodificationpoints= 1000
+[14730] INFO ConfigurationProperties - p:duplicateingredientsinspace= false
+[14730] INFO ConfigurationProperties - p:metid= 0
+[14730] INFO ConfigurationProperties - p:continuewhenmodelfail= true
+[14730] INFO ConfigurationProperties - p:saveall= false
+[14731] INFO ConfigurationProperties - p:seed= 0
+[14756] INFO ConfigurationProperties - p:savecompletepatched= true
+[14756] INFO ConfigurationProperties - p:resetoperations= false
+[14756] INFO ConfigurationProperties - p:keepcomments= false
+[14756] INFO ConfigurationProperties - p:processoutputinfile= false
+[14756] INFO ConfigurationProperties - p:location= .
+[14756] INFO ConfigurationProperties - p:probabilistictransformation= true
+[14756] INFO ConfigurationProperties - p:overridemaxtime= true
+[14756] INFO ConfigurationProperties - p:outputjsonresult= true
+[14756] INFO ConfigurationProperties - p:allpoints= false
+[14756] INFO ConfigurationProperties - p:antipattern= false
+[14756] INFO ConfigurationProperties - p:bugId= 280
+[14756] INFO ConfigurationProperties - p:evosuitetimeout= 120
+[14757] INFO ConfigurationProperties - p:maxtimefactor= 10
+[14757] INFO ConfigurationProperties - p:nrPlaceholders= 1
+[14757] INFO ConfigurationProperties - p:testallcmd= mvn -pl rt/rs/extensions/providers -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B
+[14757] INFO ConfigurationProperties - p:forcesubprocesskilling= false
+[14757] INFO ConfigurationProperties - ----------------------------
+[14758] INFO AstorCoreEngine - Time Repair Loop (s): 0.001
+[14758] INFO AstorCoreEngine - generationsexecuted: 1
+[14759] WARN AstorCoreEngine - ----SUMMARY_EXECUTION---
+[14759] WARN AstorCoreEngine - End Repair Search: NOT Found solution
+[14759] WARN AstorCoreEngine - Number suspicious:1
+[14760] INFO AstorCoreEngine - 
+ --SOLUTIONS DESCRIPTION--
+
+
+Astor Output:
+
+General stats:
+EXECUTION_IDENTIFIER=apache_cxf-VUL4J-15
+TOTAL_TIME=0.001
+NR_GENERATIONS=null
+NR_RIGHT_COMPILATIONS=null
+NR_FAILLING_COMPILATIONS=null
+NR_ERRONEOUS_VARIANCES=null
+NR_FAILING_VALIDATION_PROCESS=null
+OUTPUT_STATUS=EXHAUSTIVE_NAVIGATED
+
+Patch stats:
+
+[14770] INFO Stats - Storing ing JSON at /workdir/jMutRepair_vul4j_apache_cxf_VUL4J-15/./output_astor/AstorMain-apache_cxf-VUL4J-15//astor_output.json
+[14771] INFO Stats - astor_output:
+{"general":{"NR_RIGHT_COMPILATIONS":null,"NR_ERRONEOUS_VARIANCES":null,"EXECUTION_IDENTIFIER":"apache_cxf-VUL4J-15","OUTPUT_STATUS":"EXHAUSTIVE_NAVIGATED","NR_FAILLING_COMPILATIONS":null,"NR_GENERATIONS":null,"TOTAL_TIME":0.001,"NR_FAILING_VALIDATION_PROCESS":null},"patches":[]}
+[14771] INFO AstorMain - Time Total(s): 14.745
+13.62user 2.36system 0:16.58elapsed 96%CPU (0avgtext+0avgdata 370812maxresident)k
+136inputs+1784outputs (0major+101569minor)pagefaults 0swaps
+
+
+Node: 9670332cfea8
+
+
+
+Date: Fri Sep  9 06:19:24 EDT 2022
+

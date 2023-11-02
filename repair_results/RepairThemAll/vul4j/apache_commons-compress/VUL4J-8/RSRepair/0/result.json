@@ -1,0 +1,18 @@
+{
+  "repair_end": "2022-10-11 17:46:56.481986", 
+  "repair_begin": "2022-10-11 13:46:52.746521", 
+  "patches": [
+    {
+      "edits": [
+        {
+          "path": "src/main/java/org/apache/commons/compress/archivers/zip/NioZipEncoding.java", 
+          "line": 112, 
+          "faulty": "if (res.isOverflow()) {\n  int increment=estimateIncrementalEncodingSize(enc,cb.remaining());\n  out=ZipEncodingHelper.growBufferBy(out,increment);\n}", 
+          "type": "Delete", 
+          "seed": "useEncryption(true);"
+        }
+      ], 
+      "patch": "--- /workdir/RSRepair_vul4j_apache_commons-compress_VUL4J-8/src/main/java/org/apache/commons/compress/archivers/zip/NioZipEncoding.java\t2022-10-11 12:31:29.573898114 -0400\n+++ /workdir/RSRepair_vul4j_apache_commons-compress_VUL4J-8/patches_427q/Patch_0/patched/org/apache/commons/compress/archivers/zip/NioZipEncoding.java\t2022-10-11 12:31:29.589898195 -0400\n@@ -109,10 +109,8 @@\n                     out = encodeFully(enc, encodeSurrogate(tmp, cb.get()), out);\n                 }\n \n-            } else if (res.isOverflow()) {\n-                int increment = estimateIncrementalEncodingSize(enc, cb.remaining());\n-                out = ZipEncodingHelper.growBufferBy(out, increment);\n-            }\n+            } else\n+\t\t\t\t;\n         }\n         // tell the encoder we are done\n         enc.encode(cb, out, true);\n\n\n"
+    }
+  ]
+}

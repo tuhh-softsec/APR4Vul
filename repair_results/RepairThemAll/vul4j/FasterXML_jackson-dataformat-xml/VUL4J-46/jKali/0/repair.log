@@ -1,0 +1,247 @@
+cd /workdir/jKali_vul4j_FasterXML_jackson-dataformat-xml_VUL4J-46;
+export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en";
+TZ="America/New_York"; export TZ;
+export PATH="/usr/lib/jvm/java-8-openjdk-amd64/bin:$PATH";
+export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64/bin";
+time java -Xmx4g -Xms1g -XX:MaxPermSize=512m -cp /script/../libs/jtestex7.jar:/script/../repair_tools/astor.jar fr.inria.main.evolution.AstorMain \
+	-mode jkali \
+	-location . \
+	-id FasterXML_jackson-dataformat-xml-VUL4J-46 \
+	-failing com.fasterxml.jackson.dataformat.xml.TestCVE_2016_3720#testCVE_2016_3720 \
+	-jvm4testexecution /usr/lib/jvm/jdk1.7.0_80/bin \
+	-jvm4evosuitetestexecution /usr/lib/jvm/jdk1.7.0_80/bin \
+	-maxgen 1000000 \
+	-maxtime 120 \
+	-stopfirst true \
+	-seed 0 \
+	-scope local \
+	-population 1 \
+	-javacompliancelevel 7 \
+	-faultlocalization perfect \
+    -perfectdata /script/../data/benchmarks/vul4j/perfectfl/VUL4J-46 \
+    -validation externalcmd \
+    -testfailingcmd "mvn test -Dtest=com.fasterxml.jackson.dataformat.xml.TestCVE_2016_3720 -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B" \
+    -testallcmd "mvn test -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B"  \ \
+	-srcjavafolder src/main/java \
+	-srctestfolder src/test/java \
+	-binjavafolder target/classes \
+	-bintestfolder target/test-classes \
+	-parameters x:x \
+	-dependencies /root/.m2/repository/com/fasterxml/jackson/module/jackson-module-jaxb-annotations/2.7.3/jackson-module-jaxb-annotations-2.7.3.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.7.0/jackson-annotations-2.7.0.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.7.3/jackson-databind-2.7.3.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.7.3/jackson-core-2.7.3.jar:/root/.m2/repository/org/codehaus/woodstox/stax2-api/3.1.4/stax2-api-3.1.4.jar:/root/.m2/repository/junit/junit/4.12/junit-4.12.jar:/root/.m2/repository/com/fasterxml/woodstox/woodstox-core/5.0.2/woodstox-core-5.0.2.jar:/root/.m2/repository/javax/xml/stream/stax-api/1.0-2/stax-api-1.0-2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar;
+	echo "\n\nNode: `hostname`\n";
+	echo "\n\nDate: `date`\n";
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en
+OpenJDK 64-Bit Server VM warning: ignoring option MaxPermSize=512m; support was removed in 8.0
+[0] INFO ProjectConfiguration - Version of the JVM used: 1.7.0_80
+[1] INFO main - Java version of the JDK used to run tests: 1.7.0_80
+[1] INFO main - The compliance of the JVM is:  7
+[3] INFO main - command line arguments: [-mode  jkali  -location  .  -id  FasterXML_jackson-dataformat-xml-VUL4J-46  -failing  com.fasterxml.jackson.dataformat.xml.TestCVE_2016_3720#testCVE_2016_3720  -jvm4testexecution  /usr/lib/jvm/jdk1.7.0_80/bin  -jvm4evosuitetestexecution  /usr/lib/jvm/jdk1.7.0_80/bin  -maxgen  1000000  -maxtime  120  -stopfirst  true  -seed  0  -scope  local  -population  1  -javacompliancelevel  7  -faultlocalization  perfect  -perfectdata  /script/../data/benchmarks/vul4j/perfectfl/VUL4J-46  -validation  externalcmd  -testfailingcmd  mvn test -Dtest=com.fasterxml.jackson.dataformat.xml.TestCVE_2016_3720 -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B  -testallcmd  mvn test -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B     -srcjavafolder  src/main/java  -srctestfolder  src/test/java  -binjavafolder  target/classes  -bintestfolder  target/test-classes  -parameters  x:x  -dependencies  /root/.m2/repository/com/fasterxml/jackson/module/jackson-module-jaxb-annotations/2.7.3/jackson-module-jaxb-annotations-2.7.3.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.7.0/jackson-annotations-2.7.0.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.7.3/jackson-databind-2.7.3.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.7.3/jackson-core-2.7.3.jar:/root/.m2/repository/org/codehaus/woodstox/stax2-api/3.1.4/stax2-api-3.1.4.jar:/root/.m2/repository/junit/junit/4.12/junit-4.12.jar:/root/.m2/repository/com/fasterxml/woodstox/woodstox-core/5.0.2/woodstox-core-5.0.2.jar:/root/.m2/repository/javax/xml/stream/stax-api/1.0-2/stax-api-1.0-2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar]
+[10] INFO AstorMain - Running Astor on a JDK at /usr/lib/jvm/java-8-openjdk-amd64/jre
+[43] INFO main - Source folders: [/workdir/jKali_vul4j_FasterXML_jackson-dataformat-xml_VUL4J-46/./src/main/java]
+[43] INFO main - Source Test folders: [/workdir/jKali_vul4j_FasterXML_jackson-dataformat-xml_VUL4J-46/./src/test/java]
+[1855] INFO AstorCoreEngine - ---- Creating spoon model
+[1944] INFO MutationSupporter - Creating model,  Code location from working folder: /workdir/jKali_vul4j_FasterXML_jackson-dataformat-xml_VUL4J-46/./src/main/java
+[1944] INFO MutationSupporter - building model: /workdir/jKali_vul4j_FasterXML_jackson-dataformat-xml_VUL4J-46/./src/main/java, compliance level: 7
+[1983] INFO MutationSupporter - Classpath (Dependencies) for building SpoonModel: [/root/.m2/repository/com/fasterxml/jackson/module/jackson-module-jaxb-annotations/2.7.3/jackson-module-jaxb-annotations-2.7.3.jar, /root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.7.0/jackson-annotations-2.7.0.jar, /root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.7.3/jackson-databind-2.7.3.jar, /root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.7.3/jackson-core-2.7.3.jar, /root/.m2/repository/org/codehaus/woodstox/stax2-api/3.1.4/stax2-api-3.1.4.jar, /root/.m2/repository/junit/junit/4.12/junit-4.12.jar, /root/.m2/repository/com/fasterxml/woodstox/woodstox-core/5.0.2/woodstox-core-5.0.2.jar, /root/.m2/repository/javax/xml/stream/stax-api/1.0-2/stax-api-1.0-2.jar, /root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar]
+[10832] ERROR MutationSupporter - Problem compiling the model with compliance level 7
+[10832] ERROR MutationSupporter - PackageVersion cannot be resolved to a variable at /workdir/jKali_vul4j_FasterXML_jackson-dataformat-xml_VUL4J-46/src/main/java/com/fasterxml/jackson/dataformat/xml/XmlMapper.java:98
+spoon.compiler.ModelBuildingException: PackageVersion cannot be resolved to a variable at /workdir/jKali_vul4j_FasterXML_jackson-dataformat-xml_VUL4J-46/src/main/java/com/fasterxml/jackson/dataformat/xml/XmlMapper.java:98
+	at spoon.support.compiler.jdt.JDTBasedSpoonCompiler.report(JDTBasedSpoonCompiler.java:649)
+	at spoon.support.compiler.jdt.JDTBasedSpoonCompiler.reportProblems(JDTBasedSpoonCompiler.java:631)
+	at spoon.support.compiler.jdt.JDTBasedSpoonCompiler.build(JDTBasedSpoonCompiler.java:118)
+	at spoon.support.compiler.jdt.JDTBasedSpoonCompiler.build(JDTBasedSpoonCompiler.java:99)
+	at fr.inria.astor.core.manipulation.MutationSupporter.buildModel(MutationSupporter.java:85)
+	at fr.inria.astor.core.manipulation.MutationSupporter.buildSpoonModel(MutationSupporter.java:240)
+	at fr.inria.astor.core.solutionsearch.AstorCoreEngine.initModel(AstorCoreEngine.java:775)
+	at fr.inria.main.evolution.AstorMain.createEngine(AstorMain.java:113)
+	at fr.inria.main.evolution.AstorMain.run(AstorMain.java:173)
+	at fr.inria.main.evolution.AstorMain.execute(AstorMain.java:233)
+	at fr.inria.main.evolution.AstorMain.main(AstorMain.java:204)
+[10834] INFO MutationSupporter - Recompiling with compliance level 8
+[10834] INFO MutationSupporter - building model: /workdir/jKali_vul4j_FasterXML_jackson-dataformat-xml_VUL4J-46/./src/main/java, compliance level: 8
+[10841] INFO MutationSupporter - Classpath (Dependencies) for building SpoonModel: [/root/.m2/repository/com/fasterxml/jackson/module/jackson-module-jaxb-annotations/2.7.3/jackson-module-jaxb-annotations-2.7.3.jar, /root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.7.0/jackson-annotations-2.7.0.jar, /root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.7.3/jackson-databind-2.7.3.jar, /root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.7.3/jackson-core-2.7.3.jar, /root/.m2/repository/org/codehaus/woodstox/stax2-api/3.1.4/stax2-api-3.1.4.jar, /root/.m2/repository/junit/junit/4.12/junit-4.12.jar, /root/.m2/repository/com/fasterxml/woodstox/woodstox-core/5.0.2/woodstox-core-5.0.2.jar, /root/.m2/repository/javax/xml/stream/stax-api/1.0-2/stax-api-1.0-2.jar, /root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar]
+spoon.compiler.ModelBuildingException: PackageVersion cannot be resolved to a variable at /workdir/jKali_vul4j_FasterXML_jackson-dataformat-xml_VUL4J-46/src/main/java/com/fasterxml/jackson/dataformat/xml/XmlMapper.java:98
+	at spoon.support.compiler.jdt.JDTBasedSpoonCompiler.report(JDTBasedSpoonCompiler.java:649)
+	at spoon.support.compiler.jdt.JDTBasedSpoonCompiler.reportProblems(JDTBasedSpoonCompiler.java:631)
+	at spoon.support.compiler.jdt.JDTBasedSpoonCompiler.build(JDTBasedSpoonCompiler.java:118)
+	at spoon.support.compiler.jdt.JDTBasedSpoonCompiler.build(JDTBasedSpoonCompiler.java:99)
+	at fr.inria.astor.core.manipulation.MutationSupporter.buildModel(MutationSupporter.java:85)
+	at fr.inria.astor.core.manipulation.MutationSupporter.buildSpoonModel(MutationSupporter.java:253)
+	at fr.inria.astor.core.solutionsearch.AstorCoreEngine.initModel(AstorCoreEngine.java:775)
+	at fr.inria.main.evolution.AstorMain.createEngine(AstorMain.java:113)
+	at fr.inria.main.evolution.AstorMain.run(AstorMain.java:173)
+	at fr.inria.main.evolution.AstorMain.execute(AstorMain.java:233)
+	at fr.inria.main.evolution.AstorMain.main(AstorMain.java:204)
+[14137] ERROR MutationSupporter - Error compiling: PackageVersion cannot be resolved to a variable at /workdir/jKali_vul4j_FasterXML_jackson-dataformat-xml_VUL4J-46/src/main/java/com/fasterxml/jackson/dataformat/xml/XmlMapper.java:98
+[14407] ERROR MutationSupporter - Astor continues when model build fails. Classes created: 33
+[14542] INFO AstorCoreEngine - Number of CtTypes created: 33
+[14747] INFO AstorCoreEngine - Test retrieved from classes: 0
+[14913] INFO AstorCoreEngine - Setting up the max to 1660 milliseconds (1 sec)
+[14913] INFO AstorCoreEngine - ---- Initial suspicious size: 1
+[15596] INFO main - Total suspicious from FL: 1,  1
+[15596] INFO main - Total ModPoint created: 1
+[15596] INFO main - Creating program variant #1, [Variant id: 1, #gens: 1, #ops: 0, parent:-]
+[15596] INFO main - Run previously failing tests...
+[43662] INFO main - Failed tests: 1
+[43664] INFO AstorCoreEngine - The original fitness is : 1.0
+[43664] WARN ConfigurationProperties - ----------------------------
+[43664] INFO ConfigurationProperties - ---Configuration properties
+[43665] INFO ConfigurationProperties - p:lastJUnitVersion= ./examples/libs/junit-4.11.jar
+[43665] INFO ConfigurationProperties - p:alternativecompliancelevel= 8
+[43665] INFO ConfigurationProperties - p:ignoredTestCases= 
+[43665] INFO ConfigurationProperties - p:workingDirectory= /workdir/jKali_vul4j_FasterXML_jackson-dataformat-xml_VUL4J-46/./output_astor
+[43665] INFO ConfigurationProperties - p:manipulatesuper= false
+[43665] INFO ConfigurationProperties - p:validation= externalcmd
+[43665] INFO ConfigurationProperties - p:jvm4testexecution= /usr/lib/jvm/jdk1.7.0_80/bin
+[43665] INFO ConfigurationProperties - p:operatorspace= suppression
+[43665] INFO ConfigurationProperties - p:diffcontext= 0
+[43665] INFO ConfigurationProperties - p:binjavafolder= target/classes
+[43665] INFO ConfigurationProperties - p:synthesis_depth= 3
+[43665] INFO ConfigurationProperties - p:gzoltartestpackagetoexclude= junit.framework
+[43665] INFO ConfigurationProperties - p:skipfitnessinitialpopulation= false
+[43665] INFO ConfigurationProperties - p:evosuiteresultfolder= evosuite
+[43665] INFO ConfigurationProperties - p:flthreshold= 0.1
+[43665] INFO ConfigurationProperties - p:regressionforfaultlocalization= true
+[43665] INFO ConfigurationProperties - p:collectonlyusedmethod= false
+[43665] INFO ConfigurationProperties - p:preservelinenumbers= true
+[43666] INFO ConfigurationProperties - p:tmax2= 1660
+[43666] INFO ConfigurationProperties - p:tmax1= 10000
+[43666] INFO ConfigurationProperties - p:probagenmutation= false
+[43666] INFO ConfigurationProperties - p:nomodificationconvergence= 100
+[43666] INFO ConfigurationProperties - p:diff_type= relative
+[43666] INFO ConfigurationProperties - p:targetelementprocessor= statements
+[43666] INFO ConfigurationProperties - p:srctestfolder= src/test/java
+[43666] INFO ConfigurationProperties - p:forceExecuteRegression= false
+[43666] INFO ConfigurationProperties - p:clusteringfilename= clustering.csv
+[43666] INFO ConfigurationProperties - p:failing= com.fasterxml.jackson.dataformat.xml.TestCVE_2016_3720#testCVE_2016_3720
+[43666] INFO ConfigurationProperties - p:logtestexecution= false
+[43666] INFO ConfigurationProperties - p:evo_buggy_class= true
+[43666] INFO ConfigurationProperties - p:numberExecutions= 1
+[43666] INFO ConfigurationProperties - p:maxnumbersolutions= 1000000
+[43667] INFO ConfigurationProperties - p:evo_affected_by_op= true
+[43667] INFO ConfigurationProperties - p:population= 1
+[43667] INFO ConfigurationProperties - p:considerzerovaluesusp= false
+[43667] INFO ConfigurationProperties - p:maxCombinationVariableLimit= false
+[43667] INFO ConfigurationProperties - p:savesolution= true
+[43667] INFO ConfigurationProperties - p:javacompliancelevel= 7
+[43667] INFO ConfigurationProperties - p:x= x
+[43667] INFO ConfigurationProperties - p:uniqueoptogen= false
+[43667] INFO ConfigurationProperties - p:gzoltarpackagetonotinstrument= junit.framework
+[43667] INFO ConfigurationProperties - p:projectIdentifier= FasterXML_jackson-dataformat-xml-VUL4J-46
+[43667] INFO ConfigurationProperties - p:modificationpointnavigation= weight
+[43667] INFO ConfigurationProperties - p:stopfirst= true
+[43667] INFO ConfigurationProperties - p:multipointmodification= false
+[43667] INFO ConfigurationProperties - p:elementsToMutate= 10
+[43667] INFO ConfigurationProperties - p:jsonoutputname= astor_output
+[43667] INFO ConfigurationProperties - p:evoDSE= false
+[43667] INFO ConfigurationProperties - p:bintestfolder= target/test-classes
+[43667] INFO ConfigurationProperties - p:testbystep= false
+[43667] INFO ConfigurationProperties - p:version-location= ./math-version/
+[43667] INFO ConfigurationProperties - p:reintroduce= PARENTS:ORIGINAL
+[43667] INFO ConfigurationProperties - p:perfectdata= /script/../data/benchmarks/vul4j/perfectfl/VUL4J-46
+[43667] INFO ConfigurationProperties - p:executorjar= ./lib/jtestex7.jar
+[43668] INFO ConfigurationProperties - p:maxGeneration= 1000000
+[43668] INFO ConfigurationProperties - p:max_synthesis_step= 10000
+[43668] INFO ConfigurationProperties - p:projectinfocommand= com.github.tdurieux:project-config-maven-plugin:info
+[43668] INFO ConfigurationProperties - p:maxVarCombination= 1000
+[43668] INFO ConfigurationProperties - p:maxtime= 120
+[43668] INFO ConfigurationProperties - p:evosuitejar= ./lib/evosuite-master-1.0.4-SNAPSHOT.jar
+[43668] INFO ConfigurationProperties - p:jvmversion= 1.7.0_80
+[43668] INFO ConfigurationProperties - p:commandTrunk= 50000
+[43668] INFO ConfigurationProperties - p:faultlocalization= perfect
+[43668] INFO ConfigurationProperties - p:resetmodel= true
+[43668] INFO ConfigurationProperties - p:maxsuspcandidates= 1000
+[43668] INFO ConfigurationProperties - p:mode= jkali
+[43668] INFO ConfigurationProperties - p:learningdir= 
+[43668] INFO ConfigurationProperties - p:jvm4evosuitetestexecution= /usr/lib/jvm/jdk1.7.0_80/bin
+[43668] INFO ConfigurationProperties - p:filterfaultlocalization= true
+[43668] INFO ConfigurationProperties - p:mutationrate= 1 
+[43668] INFO ConfigurationProperties - p:pathToMVNRepository= 
+[43668] INFO ConfigurationProperties - p:resourcesfolder= /src/main/resources:/src/test/resources:
+[43668] INFO ConfigurationProperties - p:timezone= America/Los_Angeles
+[43668] INFO ConfigurationProperties - p:runjava7code= false
+[43668] INFO ConfigurationProperties - p:testfailingcmd= mvn test -Dtest=com.fasterxml.jackson.dataformat.xml.TestCVE_2016_3720 -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B
+[43669] INFO ConfigurationProperties - p:evoRunOnBuggyClass= true
+[43669] INFO ConfigurationProperties - p:compiler= fr.inria.astor.core.manipulation.bytecode.compiler.SpoonClassCompiler
+[43669] INFO ConfigurationProperties - p:limitbysuspicious= true
+[43669] INFO ConfigurationProperties - p:logsattemps= true
+[43669] INFO ConfigurationProperties - p:dependenciespath= /root/.m2/repository/com/fasterxml/jackson/module/jackson-module-jaxb-annotations/2.7.3/jackson-module-jaxb-annotations-2.7.3.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.7.0/jackson-annotations-2.7.0.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.7.3/jackson-databind-2.7.3.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.7.3/jackson-core-2.7.3.jar:/root/.m2/repository/org/codehaus/woodstox/stax2-api/3.1.4/stax2-api-3.1.4.jar:/root/.m2/repository/junit/junit/4.12/junit-4.12.jar:/root/.m2/repository/com/fasterxml/woodstox/woodstox-core/5.0.2/woodstox-core-5.0.2.jar:/root/.m2/repository/javax/xml/stream/stax-api/1.0-2/stax-api-1.0-2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar
+[43669] INFO ConfigurationProperties - p:packageToInstrument= 
+[43669] INFO ConfigurationProperties - p:skipfaultlocalization= false
+[43669] INFO ConfigurationProperties - p:scope= local
+[43669] INFO ConfigurationProperties - p:transformingredient= false
+[43669] INFO ConfigurationProperties - p:fitnessfunction= fr.inria.astor.core.solutionsearch.population.TestCaseFitnessFunction
+[43669] INFO ConfigurationProperties - p:maxnumvariablesperingredient= 10
+[43669] INFO ConfigurationProperties - p:parsesourcefromoriginal= true
+[43669] INFO ConfigurationProperties - p:pvariantfoldername= variant-
+[43669] INFO ConfigurationProperties - p:savespoonmodelondisk= false
+[43669] INFO ConfigurationProperties - p:srcjavafolder= src/main/java
+[43669] INFO ConfigurationProperties - p:populationcontroller= fr.inria.astor.core.solutionsearch.population.TestCaseBasedFitnessPopulationController
+[43669] INFO ConfigurationProperties - p:ignoreflakyinfl= false
+[43669] INFO ConfigurationProperties - p:cleantemplates= true
+[43669] INFO ConfigurationProperties - p:applyCrossover= false
+[43669] INFO ConfigurationProperties - p:maxmodificationpoints= 1000
+[43669] INFO ConfigurationProperties - p:duplicateingredientsinspace= false
+[43669] INFO ConfigurationProperties - p:metid= 0
+[43670] INFO ConfigurationProperties - p:continuewhenmodelfail= true
+[43670] INFO ConfigurationProperties - p:saveall= false
+[43670] INFO ConfigurationProperties - p:seed= 0
+[43670] INFO ConfigurationProperties - p:savecompletepatched= true
+[43670] INFO ConfigurationProperties - p:resetoperations= false
+[43673] INFO ConfigurationProperties - p:keepcomments= false
+[43673] INFO ConfigurationProperties - p:processoutputinfile= false
+[43673] INFO ConfigurationProperties - p:location= .
+[43673] INFO ConfigurationProperties - p:probabilistictransformation= true
+[43673] INFO ConfigurationProperties - p:overridemaxtime= true
+[43673] INFO ConfigurationProperties - p:outputjsonresult= true
+[43673] INFO ConfigurationProperties - p:allpoints= false
+[43673] INFO ConfigurationProperties - p:antipattern= false
+[43673] INFO ConfigurationProperties - p:bugId= 280
+[43673] INFO ConfigurationProperties - p:evosuitetimeout= 120
+[43673] INFO ConfigurationProperties - p:maxtimefactor= 10
+[43673] INFO ConfigurationProperties - p:nrPlaceholders= 1
+[43673] INFO ConfigurationProperties - p:testallcmd= mvn test -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B
+[43673] INFO ConfigurationProperties - p:forcesubprocesskilling= false
+[43674] INFO ConfigurationProperties - ----------------------------
+[43676] INFO AstorCoreEngine - mod_point MP=com.fasterxml.jackson.dataformat.xml.XmlFactory line: 113, pointed element: CtAssignmentImpl
+[43685] INFO AstorCoreEngine - -->op: OP_INSTANCE:
+RemoveOp:(spoon.support.reflect.code.CtAssignmentImpl) `xmlIn = javax.xml.stream.XMLInputFactory.newInstance() ` -topatch--> `-` (null) 
+[47037] INFO main - Run previously failing tests...
+[76375] INFO main - Failed tests: 1
+[76394] INFO AstorCoreEngine - Time Repair Loop (s): 32.72
+[76395] INFO AstorCoreEngine - generationsexecuted: 1
+[76395] WARN AstorCoreEngine - ----SUMMARY_EXECUTION---
+[76395] WARN AstorCoreEngine - End Repair Search: NOT Found solution
+[76395] WARN AstorCoreEngine - Number suspicious:1
+[76397] INFO AstorCoreEngine - 
+ --SOLUTIONS DESCRIPTION--
+
+
+Astor Output:
+
+General stats:
+EXECUTION_IDENTIFIER=FasterXML_jackson-dataformat-xml-VUL4J-46
+TOTAL_TIME=32.72
+NR_GENERATIONS=null
+NR_RIGHT_COMPILATIONS=1
+NR_FAILLING_COMPILATIONS=null
+NR_ERRONEOUS_VARIANCES=null
+NR_FAILING_VALIDATION_PROCESS=null
+OUTPUT_STATUS=EXHAUSTIVE_NAVIGATED
+
+Patch stats:
+
+[76437] INFO Stats - Storing ing JSON at /workdir/jKali_vul4j_FasterXML_jackson-dataformat-xml_VUL4J-46/./output_astor/AstorMain-FasterXML_jackson-dataformat-xml-VUL4J-46//astor_output.json
+[76437] INFO Stats - astor_output:
+{"general":{"NR_RIGHT_COMPILATIONS":1,"NR_ERRONEOUS_VARIANCES":null,"EXECUTION_IDENTIFIER":"FasterXML_jackson-dataformat-xml-VUL4J-46","OUTPUT_STATUS":"EXHAUSTIVE_NAVIGATED","NR_FAILLING_COMPILATIONS":null,"NR_GENERATIONS":null,"TOTAL_TIME":32.72,"NR_FAILING_VALIDATION_PROCESS":null},"patches":[]}
+[76438] INFO AstorMain - Time Total(s): 76.426
+55.84user 7.37system 1:18.45elapsed 80%CPU (0avgtext+0avgdata 507872maxresident)k
+1672inputs+5304outputs (0major+356904minor)pagefaults 0swaps
+
+
+Node: 9670332cfea8
+
+
+
+Date: Thu Sep  8 22:18:10 EDT 2022
+

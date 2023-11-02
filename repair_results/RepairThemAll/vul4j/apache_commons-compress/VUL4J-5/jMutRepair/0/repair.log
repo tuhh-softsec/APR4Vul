@@ -1,0 +1,210 @@
+cd /workdir/jMutRepair_vul4j_apache_commons-compress_VUL4J-5;
+export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en";
+TZ="America/New_York"; export TZ;
+export PATH="/usr/lib/jvm/java-8-openjdk-amd64/bin:$PATH";
+export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64/bin";
+time java -Xmx4g -Xms1g -XX:MaxPermSize=512m -cp /script/../libs/jtestex7.jar:/script/../repair_tools/astor.jar fr.inria.main.evolution.AstorMain \
+	-mode jMutRepair \
+	-location . \
+	-id apache_commons-compress-VUL4J-5 \
+	-failing org.apache.commons.compress.archivers.examples.ExpanderTest#fileCantEscapeDoubleDotPathWithSimilarSibling \
+	-jvm4testexecution /usr/lib/jvm/jdk1.7.0_80/bin \
+	-jvm4evosuitetestexecution /usr/lib/jvm/jdk1.7.0_80/bin \
+	-maxgen 1000000 \
+	-maxtime 120 \
+	-stopfirst true \
+	-seed 0 \
+	-scope local \
+	-population 1 \
+	-javacompliancelevel 7 \
+	-faultlocalization perfect \
+    -perfectdata /script/../data/benchmarks/vul4j/perfectfl/VUL4J-5 \
+    -validation externalcmd \
+    -testfailingcmd "mvn test -Dtest=org.apache.commons.compress.archivers.examples.ExpanderTest#fileCantEscapeDoubleDotPathWithSimilarSibling -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B" \
+    -testallcmd "mvn test -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B"  \ \
+	-srcjavafolder src/main/java \
+	-srctestfolder src/test/java \
+	-binjavafolder target/classes \
+	-bintestfolder target/test-classes \
+	-parameters x:x \
+	-dependencies /root/.m2/repository/org/ops4j/pax/swissbox/pax-swissbox-optional-jcl/1.8.2/pax-swissbox-optional-jcl-1.8.2.jar:/root/.m2/repository/org/powermock/powermock-module-junit4-common/1.7.3/powermock-module-junit4-common-1.7.3.jar:/root/.m2/repository/org/ops4j/base/ops4j-base-util-property/1.5.0/ops4j-base-util-property-1.5.0.jar:/root/.m2/repository/org/ops4j/pax/exam/pax-exam/4.11.0/pax-exam-4.11.0.jar:/root/.m2/repository/javax/inject/javax.inject/1/javax.inject-1.jar:/root/.m2/repository/org/ops4j/pax/swissbox/pax-swissbox-lifecycle/1.8.2/pax-swissbox-lifecycle-1.8.2.jar:/root/.m2/repository/org/ops4j/pax/exam/pax-exam-junit4/4.11.0/pax-exam-junit4-4.11.0.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/ops4j/pax/tinybundles/tinybundles/2.1.1/tinybundles-2.1.1.jar:/root/.m2/repository/org/powermock/powermock-api-mockito-common/1.7.3/powermock-api-mockito-common-1.7.3.jar:/root/.m2/repository/org/powermock/powermock-core/1.7.3/powermock-core-1.7.3.jar:/root/.m2/repository/org/ops4j/base/ops4j-base-lang/1.5.0/ops4j-base-lang-1.5.0.jar:/root/.m2/repository/org/powermock/powermock-api-support/1.7.3/powermock-api-support-1.7.3.jar:/root/.m2/repository/org/mockito/mockito-core/1.10.19/mockito-core-1.10.19.jar:/root/.m2/repository/org/objenesis/objenesis/2.1/objenesis-2.1.jar:/root/.m2/repository/org/ops4j/base/ops4j-base-spi/1.5.0/ops4j-base-spi-1.5.0.jar:/root/.m2/repository/org/ops4j/pax/exam/pax-exam-container-native/4.11.0/pax-exam-container-native-4.11.0.jar:/root/.m2/repository/org/ops4j/base/ops4j-base-io/1.5.0/ops4j-base-io-1.5.0.jar:/root/.m2/repository/org/ops4j/pax/url/pax-url-aether/2.4.5/pax-url-aether-2.4.5.jar:/root/.m2/repository/org/powermock/powermock-module-junit4/1.7.3/powermock-module-junit4-1.7.3.jar:/root/.m2/repository/org/powermock/powermock-reflect/1.7.3/powermock-reflect-1.7.3.jar:/root/.m2/repository/org/slf4j/jcl-over-slf4j/1.6.6/jcl-over-slf4j-1.6.6.jar:/root/.m2/repository/com/github/luben/zstd-jni/1.3.3-3/zstd-jni-1.3.3-3.jar:/root/.m2/repository/org/osgi/org.osgi.core/6.0.0/org.osgi.core-6.0.0.jar:/root/.m2/repository/org/ops4j/pax/url/pax-url-classpath/2.4.5/pax-url-classpath-2.4.5.jar:/root/.m2/repository/org/ops4j/base/ops4j-base-net/1.5.0/ops4j-base-net-1.5.0.jar:/root/.m2/repository/biz/aQute/bnd/bndlib/2.4.0/bndlib-2.4.0.jar:/root/.m2/repository/org/ops4j/pax/exam/pax-exam-cm/4.11.0/pax-exam-cm-4.11.0.jar:/root/.m2/repository/org/javassist/javassist/3.21.0-GA/javassist-3.21.0-GA.jar:/root/.m2/repository/org/ops4j/pax/swissbox/pax-swissbox-core/1.8.2/pax-swissbox-core-1.8.2.jar:/root/.m2/repository/org/ops4j/base/ops4j-base-monitors/1.5.0/ops4j-base-monitors-1.5.0.jar:/root/.m2/repository/org/ops4j/base/ops4j-base-store/1.5.0/ops4j-base-store-1.5.0.jar:/root/.m2/repository/org/ops4j/pax/url/pax-url-commons/2.4.5/pax-url-commons-2.4.5.jar:/root/.m2/repository/org/ops4j/pax/swissbox/pax-swissbox-tracker/1.8.2/pax-swissbox-tracker-1.8.2.jar:/root/.m2/repository/org/tukaani/xz/1.8/xz-1.8.jar:/root/.m2/repository/org/ops4j/pax/exam/pax-exam-link-mvn/4.11.0/pax-exam-link-mvn-4.11.0.jar:/root/.m2/repository/org/apache/felix/org.apache.felix.framework/5.6.10/org.apache.felix.framework-5.6.10.jar:/root/.m2/repository/org/powermock/powermock-api-mockito/1.7.3/powermock-api-mockito-1.7.3.jar:/root/.m2/repository/junit/junit/4.12/junit-4.12.jar:/root/.m2/repository/org/ops4j/pax/exam/pax-exam-spi/4.11.0/pax-exam-spi-4.11.0.jar:/root/.m2/repository/org/ops4j/pax/url/pax-url-link/2.4.5/pax-url-link-2.4.5.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.21/slf4j-api-1.7.21.jar:/root/.m2/repository/org/brotli/dec/0.1.2/dec-0.1.2.jar:/root/.m2/repository/org/ops4j/pax/swissbox/pax-swissbox-property/1.8.2/pax-swissbox-property-1.8.2.jar;
+	echo "\n\nNode: `hostname`\n";
+	echo "\n\nDate: `date`\n";
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en
+OpenJDK 64-Bit Server VM warning: ignoring option MaxPermSize=512m; support was removed in 8.0
+[0] INFO ProjectConfiguration - Version of the JVM used: 1.7.0_80
+[0] INFO main - Java version of the JDK used to run tests: 1.7.0_80
+[0] INFO main - The compliance of the JVM is:  7
+[5] INFO main - command line arguments: [-mode  jMutRepair  -location  .  -id  apache_commons-compress-VUL4J-5  -failing  org.apache.commons.compress.archivers.examples.ExpanderTest#fileCantEscapeDoubleDotPathWithSimilarSibling  -jvm4testexecution  /usr/lib/jvm/jdk1.7.0_80/bin  -jvm4evosuitetestexecution  /usr/lib/jvm/jdk1.7.0_80/bin  -maxgen  1000000  -maxtime  120  -stopfirst  true  -seed  0  -scope  local  -population  1  -javacompliancelevel  7  -faultlocalization  perfect  -perfectdata  /script/../data/benchmarks/vul4j/perfectfl/VUL4J-5  -validation  externalcmd  -testfailingcmd  mvn test -Dtest=org.apache.commons.compress.archivers.examples.ExpanderTest#fileCantEscapeDoubleDotPathWithSimilarSibling -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B  -testallcmd  mvn test -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B     -srcjavafolder  src/main/java  -srctestfolder  src/test/java  -binjavafolder  target/classes  -bintestfolder  target/test-classes  -parameters  x:x  -dependencies  /root/.m2/repository/org/ops4j/pax/swissbox/pax-swissbox-optional-jcl/1.8.2/pax-swissbox-optional-jcl-1.8.2.jar:/root/.m2/repository/org/powermock/powermock-module-junit4-common/1.7.3/powermock-module-junit4-common-1.7.3.jar:/root/.m2/repository/org/ops4j/base/ops4j-base-util-property/1.5.0/ops4j-base-util-property-1.5.0.jar:/root/.m2/repository/org/ops4j/pax/exam/pax-exam/4.11.0/pax-exam-4.11.0.jar:/root/.m2/repository/javax/inject/javax.inject/1/javax.inject-1.jar:/root/.m2/repository/org/ops4j/pax/swissbox/pax-swissbox-lifecycle/1.8.2/pax-swissbox-lifecycle-1.8.2.jar:/root/.m2/repository/org/ops4j/pax/exam/pax-exam-junit4/4.11.0/pax-exam-junit4-4.11.0.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/ops4j/pax/tinybundles/tinybundles/2.1.1/tinybundles-2.1.1.jar:/root/.m2/repository/org/powermock/powermock-api-mockito-common/1.7.3/powermock-api-mockito-common-1.7.3.jar:/root/.m2/repository/org/powermock/powermock-core/1.7.3/powermock-core-1.7.3.jar:/root/.m2/repository/org/ops4j/base/ops4j-base-lang/1.5.0/ops4j-base-lang-1.5.0.jar:/root/.m2/repository/org/powermock/powermock-api-support/1.7.3/powermock-api-support-1.7.3.jar:/root/.m2/repository/org/mockito/mockito-core/1.10.19/mockito-core-1.10.19.jar:/root/.m2/repository/org/objenesis/objenesis/2.1/objenesis-2.1.jar:/root/.m2/repository/org/ops4j/base/ops4j-base-spi/1.5.0/ops4j-base-spi-1.5.0.jar:/root/.m2/repository/org/ops4j/pax/exam/pax-exam-container-native/4.11.0/pax-exam-container-native-4.11.0.jar:/root/.m2/repository/org/ops4j/base/ops4j-base-io/1.5.0/ops4j-base-io-1.5.0.jar:/root/.m2/repository/org/ops4j/pax/url/pax-url-aether/2.4.5/pax-url-aether-2.4.5.jar:/root/.m2/repository/org/powermock/powermock-module-junit4/1.7.3/powermock-module-junit4-1.7.3.jar:/root/.m2/repository/org/powermock/powermock-reflect/1.7.3/powermock-reflect-1.7.3.jar:/root/.m2/repository/org/slf4j/jcl-over-slf4j/1.6.6/jcl-over-slf4j-1.6.6.jar:/root/.m2/repository/com/github/luben/zstd-jni/1.3.3-3/zstd-jni-1.3.3-3.jar:/root/.m2/repository/org/osgi/org.osgi.core/6.0.0/org.osgi.core-6.0.0.jar:/root/.m2/repository/org/ops4j/pax/url/pax-url-classpath/2.4.5/pax-url-classpath-2.4.5.jar:/root/.m2/repository/org/ops4j/base/ops4j-base-net/1.5.0/ops4j-base-net-1.5.0.jar:/root/.m2/repository/biz/aQute/bnd/bndlib/2.4.0/bndlib-2.4.0.jar:/root/.m2/repository/org/ops4j/pax/exam/pax-exam-cm/4.11.0/pax-exam-cm-4.11.0.jar:/root/.m2/repository/org/javassist/javassist/3.21.0-GA/javassist-3.21.0-GA.jar:/root/.m2/repository/org/ops4j/pax/swissbox/pax-swissbox-core/1.8.2/pax-swissbox-core-1.8.2.jar:/root/.m2/repository/org/ops4j/base/ops4j-base-monitors/1.5.0/ops4j-base-monitors-1.5.0.jar:/root/.m2/repository/org/ops4j/base/ops4j-base-store/1.5.0/ops4j-base-store-1.5.0.jar:/root/.m2/repository/org/ops4j/pax/url/pax-url-commons/2.4.5/pax-url-commons-2.4.5.jar:/root/.m2/repository/org/ops4j/pax/swissbox/pax-swissbox-tracker/1.8.2/pax-swissbox-tracker-1.8.2.jar:/root/.m2/repository/org/tukaani/xz/1.8/xz-1.8.jar:/root/.m2/repository/org/ops4j/pax/exam/pax-exam-link-mvn/4.11.0/pax-exam-link-mvn-4.11.0.jar:/root/.m2/repository/org/apache/felix/org.apache.felix.framework/5.6.10/org.apache.felix.framework-5.6.10.jar:/root/.m2/repository/org/powermock/powermock-api-mockito/1.7.3/powermock-api-mockito-1.7.3.jar:/root/.m2/repository/junit/junit/4.12/junit-4.12.jar:/root/.m2/repository/org/ops4j/pax/exam/pax-exam-spi/4.11.0/pax-exam-spi-4.11.0.jar:/root/.m2/repository/org/ops4j/pax/url/pax-url-link/2.4.5/pax-url-link-2.4.5.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.21/slf4j-api-1.7.21.jar:/root/.m2/repository/org/brotli/dec/0.1.2/dec-0.1.2.jar:/root/.m2/repository/org/ops4j/pax/swissbox/pax-swissbox-property/1.8.2/pax-swissbox-property-1.8.2.jar]
+[8] INFO AstorMain - Running Astor on a JDK at /usr/lib/jvm/java-8-openjdk-amd64/jre
+[32] INFO main - Source folders: [/workdir/jMutRepair_vul4j_apache_commons-compress_VUL4J-5/./src/main/java]
+[34] INFO main - Source Test folders: [/workdir/jMutRepair_vul4j_apache_commons-compress_VUL4J-5/./src/test/java]
+[4129] INFO AstorCoreEngine - ---- Creating spoon model
+[4191] INFO MutationSupporter - Creating model,  Code location from working folder: /workdir/jMutRepair_vul4j_apache_commons-compress_VUL4J-5/./src/main/java
+[4192] INFO MutationSupporter - building model: /workdir/jMutRepair_vul4j_apache_commons-compress_VUL4J-5/./src/main/java, compliance level: 7
+[4710] INFO MutationSupporter - Classpath (Dependencies) for building SpoonModel: [/root/.m2/repository/org/ops4j/pax/swissbox/pax-swissbox-optional-jcl/1.8.2/pax-swissbox-optional-jcl-1.8.2.jar, /root/.m2/repository/org/powermock/powermock-module-junit4-common/1.7.3/powermock-module-junit4-common-1.7.3.jar, /root/.m2/repository/org/ops4j/base/ops4j-base-util-property/1.5.0/ops4j-base-util-property-1.5.0.jar, /root/.m2/repository/org/ops4j/pax/exam/pax-exam/4.11.0/pax-exam-4.11.0.jar, /root/.m2/repository/javax/inject/javax.inject/1/javax.inject-1.jar, /root/.m2/repository/org/ops4j/pax/swissbox/pax-swissbox-lifecycle/1.8.2/pax-swissbox-lifecycle-1.8.2.jar, /root/.m2/repository/org/ops4j/pax/exam/pax-exam-junit4/4.11.0/pax-exam-junit4-4.11.0.jar, /root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar, /root/.m2/repository/org/ops4j/pax/tinybundles/tinybundles/2.1.1/tinybundles-2.1.1.jar, /root/.m2/repository/org/powermock/powermock-api-mockito-common/1.7.3/powermock-api-mockito-common-1.7.3.jar, /root/.m2/repository/org/powermock/powermock-core/1.7.3/powermock-core-1.7.3.jar, /root/.m2/repository/org/ops4j/base/ops4j-base-lang/1.5.0/ops4j-base-lang-1.5.0.jar, /root/.m2/repository/org/powermock/powermock-api-support/1.7.3/powermock-api-support-1.7.3.jar, /root/.m2/repository/org/mockito/mockito-core/1.10.19/mockito-core-1.10.19.jar, /root/.m2/repository/org/objenesis/objenesis/2.1/objenesis-2.1.jar, /root/.m2/repository/org/ops4j/base/ops4j-base-spi/1.5.0/ops4j-base-spi-1.5.0.jar, /root/.m2/repository/org/ops4j/pax/exam/pax-exam-container-native/4.11.0/pax-exam-container-native-4.11.0.jar, /root/.m2/repository/org/ops4j/base/ops4j-base-io/1.5.0/ops4j-base-io-1.5.0.jar, /root/.m2/repository/org/ops4j/pax/url/pax-url-aether/2.4.5/pax-url-aether-2.4.5.jar, /root/.m2/repository/org/powermock/powermock-module-junit4/1.7.3/powermock-module-junit4-1.7.3.jar, /root/.m2/repository/org/powermock/powermock-reflect/1.7.3/powermock-reflect-1.7.3.jar, /root/.m2/repository/org/slf4j/jcl-over-slf4j/1.6.6/jcl-over-slf4j-1.6.6.jar, /root/.m2/repository/com/github/luben/zstd-jni/1.3.3-3/zstd-jni-1.3.3-3.jar, /root/.m2/repository/org/osgi/org.osgi.core/6.0.0/org.osgi.core-6.0.0.jar, /root/.m2/repository/org/ops4j/pax/url/pax-url-classpath/2.4.5/pax-url-classpath-2.4.5.jar, /root/.m2/repository/org/ops4j/base/ops4j-base-net/1.5.0/ops4j-base-net-1.5.0.jar, /root/.m2/repository/biz/aQute/bnd/bndlib/2.4.0/bndlib-2.4.0.jar, /root/.m2/repository/org/ops4j/pax/exam/pax-exam-cm/4.11.0/pax-exam-cm-4.11.0.jar, /root/.m2/repository/org/javassist/javassist/3.21.0-GA/javassist-3.21.0-GA.jar, /root/.m2/repository/org/ops4j/pax/swissbox/pax-swissbox-core/1.8.2/pax-swissbox-core-1.8.2.jar, /root/.m2/repository/org/ops4j/base/ops4j-base-monitors/1.5.0/ops4j-base-monitors-1.5.0.jar, /root/.m2/repository/org/ops4j/base/ops4j-base-store/1.5.0/ops4j-base-store-1.5.0.jar, /root/.m2/repository/org/ops4j/pax/url/pax-url-commons/2.4.5/pax-url-commons-2.4.5.jar, /root/.m2/repository/org/ops4j/pax/swissbox/pax-swissbox-tracker/1.8.2/pax-swissbox-tracker-1.8.2.jar, /root/.m2/repository/org/tukaani/xz/1.8/xz-1.8.jar, /root/.m2/repository/org/ops4j/pax/exam/pax-exam-link-mvn/4.11.0/pax-exam-link-mvn-4.11.0.jar, /root/.m2/repository/org/apache/felix/org.apache.felix.framework/5.6.10/org.apache.felix.framework-5.6.10.jar, /root/.m2/repository/org/powermock/powermock-api-mockito/1.7.3/powermock-api-mockito-1.7.3.jar, /root/.m2/repository/junit/junit/4.12/junit-4.12.jar, /root/.m2/repository/org/ops4j/pax/exam/pax-exam-spi/4.11.0/pax-exam-spi-4.11.0.jar, /root/.m2/repository/org/ops4j/pax/url/pax-url-link/2.4.5/pax-url-link-2.4.5.jar, /root/.m2/repository/org/slf4j/slf4j-api/1.7.21/slf4j-api-1.7.21.jar, /root/.m2/repository/org/brotli/dec/0.1.2/dec-0.1.2.jar, /root/.m2/repository/org/ops4j/pax/swissbox/pax-swissbox-property/1.8.2/pax-swissbox-property-1.8.2.jar]
+[30331] INFO AstorCoreEngine - Number of CtTypes created: 206
+[31042] INFO AstorCoreEngine - Test retrieved from classes: 0
+[31290] INFO AstorCoreEngine - Setting up the max to 2470 milliseconds (2 sec)
+[31290] INFO AstorCoreEngine - ---- Initial suspicious size: 1
+[32082] INFO main - Total suspicious from FL: 1,  0
+[32082] INFO main - Total ModPoint created: 0
+[32082] INFO main - Creating program variant #1, [Variant id: 1, #gens: 0, #ops: 0, parent:-]
+[32082] ERROR AstorCoreEngine - [warning] Any modification point in variant
+[32082] ERROR AstorCoreEngine - Variant with any gen
+[32083] WARN ConfigurationProperties - ----------------------------
+[32083] INFO ConfigurationProperties - ---Configuration properties
+[32083] INFO ConfigurationProperties - p:lastJUnitVersion= ./examples/libs/junit-4.11.jar
+[32083] INFO ConfigurationProperties - p:alternativecompliancelevel= 8
+[32083] INFO ConfigurationProperties - p:ignoredTestCases= 
+[32083] INFO ConfigurationProperties - p:workingDirectory= /workdir/jMutRepair_vul4j_apache_commons-compress_VUL4J-5/./output_astor
+[32083] INFO ConfigurationProperties - p:manipulatesuper= false
+[32083] INFO ConfigurationProperties - p:validation= externalcmd
+[32083] INFO ConfigurationProperties - p:jvm4testexecution= /usr/lib/jvm/jdk1.7.0_80/bin
+[32084] INFO ConfigurationProperties - p:operatorspace= mutationspace
+[32084] INFO ConfigurationProperties - p:diffcontext= 0
+[32084] INFO ConfigurationProperties - p:binjavafolder= target/classes
+[32084] INFO ConfigurationProperties - p:synthesis_depth= 3
+[32084] INFO ConfigurationProperties - p:gzoltartestpackagetoexclude= junit.framework
+[32084] INFO ConfigurationProperties - p:skipfitnessinitialpopulation= false
+[32084] INFO ConfigurationProperties - p:evosuiteresultfolder= evosuite
+[32084] INFO ConfigurationProperties - p:flthreshold= 0.1
+[32084] INFO ConfigurationProperties - p:regressionforfaultlocalization= true
+[32084] INFO ConfigurationProperties - p:collectonlyusedmethod= false
+[32084] INFO ConfigurationProperties - p:preservelinenumbers= true
+[32084] INFO ConfigurationProperties - p:tmax2= 2470
+[32084] INFO ConfigurationProperties - p:tmax1= 10000
+[32084] INFO ConfigurationProperties - p:probagenmutation= false
+[32084] INFO ConfigurationProperties - p:nomodificationconvergence= 100
+[32084] INFO ConfigurationProperties - p:diff_type= relative
+[32084] INFO ConfigurationProperties - p:targetelementprocessor= if-conditions:return-op-mutation
+[32084] INFO ConfigurationProperties - p:srctestfolder= src/test/java
+[32084] INFO ConfigurationProperties - p:forceExecuteRegression= false
+[32084] INFO ConfigurationProperties - p:clusteringfilename= clustering.csv
+[32084] INFO ConfigurationProperties - p:failing= org.apache.commons.compress.archivers.examples.ExpanderTest#fileCantEscapeDoubleDotPathWithSimilarSibling
+[32085] INFO ConfigurationProperties - p:logtestexecution= false
+[32085] INFO ConfigurationProperties - p:evo_buggy_class= true
+[32085] INFO ConfigurationProperties - p:numberExecutions= 1
+[32085] INFO ConfigurationProperties - p:maxnumbersolutions= 1000000
+[32085] INFO ConfigurationProperties - p:evo_affected_by_op= true
+[32085] INFO ConfigurationProperties - p:population= 1
+[32085] INFO ConfigurationProperties - p:considerzerovaluesusp= false
+[32085] INFO ConfigurationProperties - p:maxCombinationVariableLimit= false
+[32085] INFO ConfigurationProperties - p:savesolution= true
+[32085] INFO ConfigurationProperties - p:javacompliancelevel= 7
+[32085] INFO ConfigurationProperties - p:x= x
+[32085] INFO ConfigurationProperties - p:uniqueoptogen= false
+[32085] INFO ConfigurationProperties - p:gzoltarpackagetonotinstrument= junit.framework
+[32086] INFO ConfigurationProperties - p:projectIdentifier= apache_commons-compress-VUL4J-5
+[32086] INFO ConfigurationProperties - p:modificationpointnavigation= weight
+[32086] INFO ConfigurationProperties - p:stopfirst= true
+[32086] INFO ConfigurationProperties - p:multipointmodification= false
+[32086] INFO ConfigurationProperties - p:elementsToMutate= 10
+[32086] INFO ConfigurationProperties - p:jsonoutputname= astor_output
+[32086] INFO ConfigurationProperties - p:evoDSE= false
+[32086] INFO ConfigurationProperties - p:bintestfolder= target/test-classes
+[32086] INFO ConfigurationProperties - p:testbystep= false
+[32086] INFO ConfigurationProperties - p:version-location= ./math-version/
+[32087] INFO ConfigurationProperties - p:reintroduce= PARENTS:ORIGINAL
+[32087] INFO ConfigurationProperties - p:perfectdata= /script/../data/benchmarks/vul4j/perfectfl/VUL4J-5
+[32109] INFO ConfigurationProperties - p:executorjar= ./lib/jtestex7.jar
+[32109] INFO ConfigurationProperties - p:maxGeneration= 1000000
+[32109] INFO ConfigurationProperties - p:max_synthesis_step= 10000
+[32109] INFO ConfigurationProperties - p:projectinfocommand= com.github.tdurieux:project-config-maven-plugin:info
+[32109] INFO ConfigurationProperties - p:maxVarCombination= 1000
+[32109] INFO ConfigurationProperties - p:maxtime= 120
+[32109] INFO ConfigurationProperties - p:evosuitejar= ./lib/evosuite-master-1.0.4-SNAPSHOT.jar
+[32109] INFO ConfigurationProperties - p:jvmversion= 1.7.0_80
+[32109] INFO ConfigurationProperties - p:commandTrunk= 50000
+[32109] INFO ConfigurationProperties - p:faultlocalization= perfect
+[32109] INFO ConfigurationProperties - p:resetmodel= true
+[32109] INFO ConfigurationProperties - p:maxsuspcandidates= 1000
+[32109] INFO ConfigurationProperties - p:mode= jMutRepair
+[32109] INFO ConfigurationProperties - p:learningdir= 
+[32110] INFO ConfigurationProperties - p:jvm4evosuitetestexecution= /usr/lib/jvm/jdk1.7.0_80/bin
+[32110] INFO ConfigurationProperties - p:filterfaultlocalization= true
+[32110] INFO ConfigurationProperties - p:mutationrate= 1 
+[32110] INFO ConfigurationProperties - p:pathToMVNRepository= 
+[32110] INFO ConfigurationProperties - p:resourcesfolder= /src/main/resources:/src/test/resources:
+[32110] INFO ConfigurationProperties - p:timezone= America/Los_Angeles
+[32110] INFO ConfigurationProperties - p:runjava7code= false
+[32110] INFO ConfigurationProperties - p:testfailingcmd= mvn test -Dtest=org.apache.commons.compress.archivers.examples.ExpanderTest#fileCantEscapeDoubleDotPathWithSimilarSibling -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B
+[32110] INFO ConfigurationProperties - p:evoRunOnBuggyClass= true
+[32110] INFO ConfigurationProperties - p:compiler= fr.inria.astor.core.manipulation.bytecode.compiler.SpoonClassCompiler
+[32110] INFO ConfigurationProperties - p:limitbysuspicious= true
+[32110] INFO ConfigurationProperties - p:logsattemps= true
+[32110] INFO ConfigurationProperties - p:dependenciespath= /root/.m2/repository/org/ops4j/pax/swissbox/pax-swissbox-optional-jcl/1.8.2/pax-swissbox-optional-jcl-1.8.2.jar:/root/.m2/repository/org/powermock/powermock-module-junit4-common/1.7.3/powermock-module-junit4-common-1.7.3.jar:/root/.m2/repository/org/ops4j/base/ops4j-base-util-property/1.5.0/ops4j-base-util-property-1.5.0.jar:/root/.m2/repository/org/ops4j/pax/exam/pax-exam/4.11.0/pax-exam-4.11.0.jar:/root/.m2/repository/javax/inject/javax.inject/1/javax.inject-1.jar:/root/.m2/repository/org/ops4j/pax/swissbox/pax-swissbox-lifecycle/1.8.2/pax-swissbox-lifecycle-1.8.2.jar:/root/.m2/repository/org/ops4j/pax/exam/pax-exam-junit4/4.11.0/pax-exam-junit4-4.11.0.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/ops4j/pax/tinybundles/tinybundles/2.1.1/tinybundles-2.1.1.jar:/root/.m2/repository/org/powermock/powermock-api-mockito-common/1.7.3/powermock-api-mockito-common-1.7.3.jar:/root/.m2/repository/org/powermock/powermock-core/1.7.3/powermock-core-1.7.3.jar:/root/.m2/repository/org/ops4j/base/ops4j-base-lang/1.5.0/ops4j-base-lang-1.5.0.jar:/root/.m2/repository/org/powermock/powermock-api-support/1.7.3/powermock-api-support-1.7.3.jar:/root/.m2/repository/org/mockito/mockito-core/1.10.19/mockito-core-1.10.19.jar:/root/.m2/repository/org/objenesis/objenesis/2.1/objenesis-2.1.jar:/root/.m2/repository/org/ops4j/base/ops4j-base-spi/1.5.0/ops4j-base-spi-1.5.0.jar:/root/.m2/repository/org/ops4j/pax/exam/pax-exam-container-native/4.11.0/pax-exam-container-native-4.11.0.jar:/root/.m2/repository/org/ops4j/base/ops4j-base-io/1.5.0/ops4j-base-io-1.5.0.jar:/root/.m2/repository/org/ops4j/pax/url/pax-url-aether/2.4.5/pax-url-aether-2.4.5.jar:/root/.m2/repository/org/powermock/powermock-module-junit4/1.7.3/powermock-module-junit4-1.7.3.jar:/root/.m2/repository/org/powermock/powermock-reflect/1.7.3/powermock-reflect-1.7.3.jar:/root/.m2/repository/org/slf4j/jcl-over-slf4j/1.6.6/jcl-over-slf4j-1.6.6.jar:/root/.m2/repository/com/github/luben/zstd-jni/1.3.3-3/zstd-jni-1.3.3-3.jar:/root/.m2/repository/org/osgi/org.osgi.core/6.0.0/org.osgi.core-6.0.0.jar:/root/.m2/repository/org/ops4j/pax/url/pax-url-classpath/2.4.5/pax-url-classpath-2.4.5.jar:/root/.m2/repository/org/ops4j/base/ops4j-base-net/1.5.0/ops4j-base-net-1.5.0.jar:/root/.m2/repository/biz/aQute/bnd/bndlib/2.4.0/bndlib-2.4.0.jar:/root/.m2/repository/org/ops4j/pax/exam/pax-exam-cm/4.11.0/pax-exam-cm-4.11.0.jar:/root/.m2/repository/org/javassist/javassist/3.21.0-GA/javassist-3.21.0-GA.jar:/root/.m2/repository/org/ops4j/pax/swissbox/pax-swissbox-core/1.8.2/pax-swissbox-core-1.8.2.jar:/root/.m2/repository/org/ops4j/base/ops4j-base-monitors/1.5.0/ops4j-base-monitors-1.5.0.jar:/root/.m2/repository/org/ops4j/base/ops4j-base-store/1.5.0/ops4j-base-store-1.5.0.jar:/root/.m2/repository/org/ops4j/pax/url/pax-url-commons/2.4.5/pax-url-commons-2.4.5.jar:/root/.m2/repository/org/ops4j/pax/swissbox/pax-swissbox-tracker/1.8.2/pax-swissbox-tracker-1.8.2.jar:/root/.m2/repository/org/tukaani/xz/1.8/xz-1.8.jar:/root/.m2/repository/org/ops4j/pax/exam/pax-exam-link-mvn/4.11.0/pax-exam-link-mvn-4.11.0.jar:/root/.m2/repository/org/apache/felix/org.apache.felix.framework/5.6.10/org.apache.felix.framework-5.6.10.jar:/root/.m2/repository/org/powermock/powermock-api-mockito/1.7.3/powermock-api-mockito-1.7.3.jar:/root/.m2/repository/junit/junit/4.12/junit-4.12.jar:/root/.m2/repository/org/ops4j/pax/exam/pax-exam-spi/4.11.0/pax-exam-spi-4.11.0.jar:/root/.m2/repository/org/ops4j/pax/url/pax-url-link/2.4.5/pax-url-link-2.4.5.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.21/slf4j-api-1.7.21.jar:/root/.m2/repository/org/brotli/dec/0.1.2/dec-0.1.2.jar:/root/.m2/repository/org/ops4j/pax/swissbox/pax-swissbox-property/1.8.2/pax-swissbox-property-1.8.2.jar
+[32110] INFO ConfigurationProperties - p:packageToInstrument= 
+[32110] INFO ConfigurationProperties - p:skipfaultlocalization= false
+[32110] INFO ConfigurationProperties - p:scope= local
+[32111] INFO ConfigurationProperties - p:transformingredient= false
+[32111] INFO ConfigurationProperties - p:fitnessfunction= fr.inria.astor.core.solutionsearch.population.TestCaseFitnessFunction
+[32111] INFO ConfigurationProperties - p:maxnumvariablesperingredient= 10
+[32111] INFO ConfigurationProperties - p:parsesourcefromoriginal= true
+[32111] INFO ConfigurationProperties - p:pvariantfoldername= variant-
+[32111] INFO ConfigurationProperties - p:savespoonmodelondisk= false
+[32111] INFO ConfigurationProperties - p:srcjavafolder= src/main/java
+[32111] INFO ConfigurationProperties - p:populationcontroller= fr.inria.astor.core.solutionsearch.population.TestCaseBasedFitnessPopulationController
+[32111] INFO ConfigurationProperties - p:ignoreflakyinfl= false
+[32111] INFO ConfigurationProperties - p:cleantemplates= true
+[32111] INFO ConfigurationProperties - p:applyCrossover= false
+[32111] INFO ConfigurationProperties - p:maxmodificationpoints= 1000
+[32111] INFO ConfigurationProperties - p:duplicateingredientsinspace= false
+[32111] INFO ConfigurationProperties - p:metid= 0
+[32111] INFO ConfigurationProperties - p:continuewhenmodelfail= true
+[32111] INFO ConfigurationProperties - p:saveall= false
+[32111] INFO ConfigurationProperties - p:seed= 0
+[32111] INFO ConfigurationProperties - p:savecompletepatched= true
+[32111] INFO ConfigurationProperties - p:resetoperations= false
+[32112] INFO ConfigurationProperties - p:keepcomments= false
+[32112] INFO ConfigurationProperties - p:processoutputinfile= false
+[32112] INFO ConfigurationProperties - p:location= .
+[32112] INFO ConfigurationProperties - p:probabilistictransformation= true
+[32112] INFO ConfigurationProperties - p:overridemaxtime= true
+[32112] INFO ConfigurationProperties - p:outputjsonresult= true
+[32112] INFO ConfigurationProperties - p:allpoints= false
+[32112] INFO ConfigurationProperties - p:antipattern= false
+[32112] INFO ConfigurationProperties - p:bugId= 280
+[32112] INFO ConfigurationProperties - p:evosuitetimeout= 120
+[32112] INFO ConfigurationProperties - p:maxtimefactor= 10
+[32112] INFO ConfigurationProperties - p:nrPlaceholders= 1
+[32112] INFO ConfigurationProperties - p:testallcmd= mvn test -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B
+[32112] INFO ConfigurationProperties - p:forcesubprocesskilling= false
+[32112] INFO ConfigurationProperties - ----------------------------
+[32150] INFO AstorCoreEngine - Time Repair Loop (s): 0.001
+[32151] INFO AstorCoreEngine - generationsexecuted: 1
+[32151] WARN AstorCoreEngine - ----SUMMARY_EXECUTION---
+[32151] WARN AstorCoreEngine - End Repair Search: NOT Found solution
+[32151] WARN AstorCoreEngine - Number suspicious:1
+[32152] INFO AstorCoreEngine - 
+ --SOLUTIONS DESCRIPTION--
+
+
+Astor Output:
+
+General stats:
+EXECUTION_IDENTIFIER=apache_commons-compress-VUL4J-5
+TOTAL_TIME=0.001
+NR_GENERATIONS=null
+NR_RIGHT_COMPILATIONS=null
+NR_FAILLING_COMPILATIONS=null
+NR_ERRONEOUS_VARIANCES=null
+NR_FAILING_VALIDATION_PROCESS=null
+OUTPUT_STATUS=EXHAUSTIVE_NAVIGATED
+
+Patch stats:
+
+[32188] INFO Stats - Storing ing JSON at /workdir/jMutRepair_vul4j_apache_commons-compress_VUL4J-5/./output_astor/AstorMain-apache_commons-compress-VUL4J-5//astor_output.json
+[32188] INFO Stats - astor_output:
+{"general":{"NR_RIGHT_COMPILATIONS":null,"NR_ERRONEOUS_VARIANCES":null,"EXECUTION_IDENTIFIER":"apache_commons-compress-VUL4J-5","OUTPUT_STATUS":"EXHAUSTIVE_NAVIGATED","NR_FAILLING_COMPILATIONS":null,"NR_GENERATIONS":null,"TOTAL_TIME":0.001,"NR_FAILING_VALIDATION_PROCESS":null},"patches":[]}
+[32189] INFO AstorMain - Time Total(s): 32.178
+29.96user 4.49system 0:34.73elapsed 99%CPU (0avgtext+0avgdata 528480maxresident)k
+192inputs+68512outputs (0major+148221minor)pagefaults 0swaps
+
+
+Node: 9670332cfea8
+
+
+
+Date: Fri Sep  9 06:08:05 EDT 2022
+

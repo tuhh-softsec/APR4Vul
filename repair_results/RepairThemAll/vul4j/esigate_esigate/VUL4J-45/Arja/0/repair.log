@@ -1,0 +1,53 @@
+cd /workdir/Arja_vul4j_esigate_esigate_VUL4J-45;
+export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en";
+TZ="America/New_York"; export TZ;
+export PATH="/usr/lib/jvm/java-8-openjdk-amd64/bin:$PATH";
+export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64";
+timeout 240m java -Xmx4g -Xms1g -XX:MaxPermSize=512m -cp /script/../libs/jmetal.jar:/script/../repair_tools/arja.jar us.msu.cse.repair.Main \
+	Arja \
+	-DexternalProjRoot /script/../libs/arja_external \
+	-DprojectDir /workdir/Arja_vul4j_esigate_esigate_VUL4J-45 \
+    -DtestFiltered false \
+    -DrunTestCommand "mvn test -pl esigate-core -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B" \
+	-DsrcJavaDir /workdir/Arja_vul4j_esigate_esigate_VUL4J-45/esigate-core/src/main/java \
+	-DbinJavaDir /workdir/Arja_vul4j_esigate_esigate_VUL4J-45/esigate-core/target/classes \
+	-DbinTestDir /workdir/Arja_vul4j_esigate_esigate_VUL4J-45/esigate-core/target/test-classes \
+	-DdiffFormat true \
+	-Dseed 0 \
+	-DgzoltarDataDir /script/../data/benchmarks/vul4j/perfectfl/VUL4J-45 \
+	-Ddependences /root/.m2/repository/junit/junit/4.8.2/junit-4.8.2.jar:/root/.m2/repository/net/sf/ehcache/ehcache-core/2.2.0/ehcache-core-2.2.0.jar:/root/.m2/repository/xml-apis/xml-apis/1.4.01/xml-apis-1.4.01.jar:/root/.m2/repository/commons-codec/commons-codec/1.10/commons-codec-1.10.jar:/root/.m2/repository/commons-io/commons-io/2.0.1/commons-io-2.0.1.jar:/root/.m2/repository/org/slf4j/slf4j-simple/1.7.7/slf4j-simple-1.7.7.jar:/root/.m2/repository/org/objenesis/objenesis/2.6/objenesis-2.6.jar:/root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.7.9/byte-buddy-agent-1.7.9.jar:/root/.m2/repository/net/spy/spymemcached/2.10.3/spymemcached-2.10.3.jar:/root/.m2/repository/org/apache/httpcomponents/httpclient-cache/4.5.4/httpclient-cache-4.5.4.jar:/root/.m2/repository/org/apache/httpcomponents/httpcore/4.4.7/httpcore-4.4.7.jar:/root/.m2/repository/com/codahale/metrics/metrics-core/3.0.2/metrics-core-3.0.2.jar:/root/.m2/repository/nu/validator/htmlparser/htmlparser/1.4/htmlparser-1.4.jar:/root/.m2/repository/org/apache/httpcomponents/httpclient/4.5.4/httpclient-4.5.4.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.7.9/byte-buddy-1.7.9.jar:/root/.m2/repository/org/apache/commons/commons-lang3/3.3.2/commons-lang3-3.3.2.jar:/root/.m2/repository/org/slf4j/jcl-over-slf4j/1.7.7/jcl-over-slf4j-1.7.7.jar:/root/.m2/repository/org/mockito/mockito-core/2.16.0/mockito-core-2.16.0.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.7/slf4j-api-1.7.7.jar;
+	echo "\n\nNode: `hostname`\n";
+	echo "\n\nDate: `date`\n";
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en
+OpenJDK 64-Bit Server VM warning: ignoring option MaxPermSize=512m; support was removed in 8.0
+Fault localization starts...
+Number of positive tests: 495
+Number of negative tests: 1
+Negative tests: [org.esigate.xml.XsltRendererTest#testSecureRendering]
+Faulty Lines: 
+org.esigate.xml.XsltRenderer#91:1.0
+org.esigate.xml.XsltRenderer#57:1.0
+Fault localization is finished!
+AST parsing starts...
+AST parsing is finished!
+Detection of local variables starts...
+Detection of local variables is finished!
+Detection of fields starts...
+Detection of fields is finished!
+Detection of methods starts...
+Detection of methods is finished!
+Ingredient screener starts...
+Ingredient screener is finished!
+Initialization of manipulations starts...
+Initialization of manipulations is finished!
+Filtering of the tests starts...
+Number of positive tests considered: 495
+Filtering of the tests is finished!
+
+
+Node: b97f25038321
+
+
+
+Date: Fri Sep 16 16:40:33 EDT 2022
+

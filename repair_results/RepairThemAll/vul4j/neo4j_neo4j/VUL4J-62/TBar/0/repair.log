@@ -1,0 +1,317 @@
+cd /workdir/TBar_vul4j_neo4j_neo4j_VUL4J-62;
+export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en";
+TZ="America/New_York"; export TZ;
+export PATH="/usr/lib/jvm/java-8-openjdk-amd64/bin:$PATH";
+export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64";
+timeout 240m java -Xmx4g -Xms1g -XX:MaxPermSize=512m \
+    -cp /script/../libs/tbar_external/com.gzoltar-0.1.1-jdk7.jar:/script/../repair_tools/tbar.jar edu.lu.uni.serval.tbar.main.Main \
+    "/workdir/TBar_vul4j_neo4j_neo4j_VUL4J-62" "org.neo4j.server.security.enterprise.auth.integration.bolt.LdapAuthIT#shouldFailLoginWrongPasswordWithLdapOnlyUsingStartTls" "/enterprise/security/src/main/java/" "/enterprise/security/src/test/java/" "/enterprise/security/target/classes/" "/enterprise/security/target/test-classes/" "/script/../data/benchmarks/vul4j/perfectfl/VUL4J-62/spectra.txt" "mvn test -pl enterprise/security -Dtest=org.neo4j.server.security.enterprise.auth.integration.bolt.LdapAuthIT#shouldFailLoginWrongPasswordWithLdapOnlyUsingStartTls -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B" "mvn failsafe:integration-test -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B" "/workdir/TBar_vul4j_neo4j_neo4j_VUL4J-62/enterprise/security/target/classes:/root/.m2/repository/org/apache/directory/server/apacheds-server-integ/2.0.0-M21/apacheds-server-integ-2.0.0-M21.jar:/root/.m2/repository/org/neo4j/neo4j-unsafe/3.4.9-SNAPSHOT/neo4j-unsafe-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/apache/directory/api/api-ldap-extras-util/1.0.0-M33/api-ldap-extras-util-1.0.0-M33.jar:/root/.m2/repository/com/google/guava/guava/24.1-jre/guava-24.1-jre.jar:/root/.m2/repository/org/apache/shiro/shiro-cache/1.4.0/shiro-cache-1.4.0.jar:/root/.m2/repository/org/apache/directory/server/apacheds-interceptors-event/2.0.0-M21/apacheds-interceptors-event-2.0.0-M21.jar:/root/.m2/repository/org/apache/commons/commons-text/1.3/commons-text-1.3.jar:/root/.m2/repository/org/neo4j/neo4j-io/3.4.9-SNAPSHOT/neo4j-io-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/apache/directory/mavibot/mavibot/1.0.0-M8/mavibot-1.0.0-M8.jar:/root/.m2/repository/org/neo4j/neo4j-cypher-ir-3.4/3.4.9-SNAPSHOT/neo4j-cypher-ir-3.4-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/neo4j/neo4j-procedure-api/3.4.9-SNAPSHOT/neo4j-procedure-api-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/apache/directory/api/api-ldap-codec-standalone/1.0.0-M33/api-ldap-codec-standalone-1.0.0-M33.jar:/root/.m2/repository/org/parboiled/parboiled-core/1.1.7/parboiled-core-1.1.7.jar:/root/.m2/repository/org/neo4j/neo4j-cypher-logical-plans-3.4/3.4.9-SNAPSHOT/neo4j-cypher-logical-plans-3.4-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/apache/directory/server/apacheds-interceptors-subtree/2.0.0-M21/apacheds-interceptors-subtree-2.0.0-M21.jar:/root/.m2/repository/org/ow2/asm/asm-tree/6.2/asm-tree-6.2.jar:/root/.m2/repository/org/apache/directory/server/apacheds-interceptors-admin/2.0.0-M21/apacheds-interceptors-admin-2.0.0-M21.jar:/root/.m2/repository/org/neo4j/neo4j-enterprise-kernel/3.4.9-SNAPSHOT/neo4j-enterprise-kernel-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/neo4j/neo4j-security/3.4.9-SNAPSHOT/neo4j-security-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/neo4j/neo4j/3.4.9-SNAPSHOT/neo4j-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/neo4j/neo4j-graphdb-api/3.4.9-SNAPSHOT/neo4j-graphdb-api-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar:/root/.m2/repository/org/neo4j/neo4j-bolt/3.4.9-SNAPSHOT/neo4j-bolt-3.4.9-SNAPSHOT-tests.jar:/root/.m2/repository/org/apache/commons/commons-lang3/3.7/commons-lang3-3.7.jar:/root/.m2/repository/commons-io/commons-io/2.6/commons-io-2.6.jar:/root/.m2/repository/org/jprocesses/jProcesses/1.6.4/jProcesses-1.6.4.jar:/root/.m2/repository/org/apache/directory/api/api-ldap-model/1.0.0-M33/api-ldap-model-1.0.0-M33.jar:/root/.m2/repository/com/profesorfalken/WMI4Java/1.6.1/WMI4Java-1.6.1.jar:/root/.m2/repository/org/neo4j/neo4j-cypher-compiler-3.3/3.3.7/neo4j-cypher-compiler-3.3-3.3.7.jar:/root/.m2/repository/commons-codec/commons-codec/1.11/commons-codec-1.11.jar:/root/.m2/repository/org/neo4j/neo4j-cypher-logical-plans-3.3/3.3.7/neo4j-cypher-logical-plans-3.3-3.3.7.jar:/root/.m2/repository/org/neo4j/neo4j-lucene-upgrade/3.4.9-SNAPSHOT/neo4j-lucene-upgrade-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/neo4j/neo4j-dbms/3.4.9-SNAPSHOT/neo4j-dbms-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/apache/directory/server/apacheds-interceptors-normalization/2.0.0-M21/apacheds-interceptors-normalization-2.0.0-M21.jar:/root/.m2/repository/org/apache/directory/server/apacheds-xdbm-partition/2.0.0-M21/apacheds-xdbm-partition-2.0.0-M21.jar:/root/.m2/repository/com/profesorfalken/jPowerShell/1.9/jPowerShell-1.9.jar:/root/.m2/repository/org/apache/directory/server/apacheds-server-config/2.0.0-M21/apacheds-server-config-2.0.0-M21.jar:/root/.m2/repository/org/neo4j/neo4j-import-tool/3.4.9-SNAPSHOT/neo4j-import-tool-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/apache/mina/mina-core/2.0.10/mina-core-2.0.10.jar:/root/.m2/repository/org/apache/directory/api/api-dsml-engine/1.0.0-M33/api-dsml-engine-1.0.0-M33.jar:/root/.m2/repository/org/objenesis/objenesis/2.6/objenesis-2.6.jar:/root/.m2/repository/net/sf/opencsv/opencsv/2.3/opencsv-2.3.jar:/root/.m2/repository/xml-apis/xml-apis/1.0.b2/xml-apis-1.0.b2.jar:/root/.m2/repository/org/neo4j/neo4j-collections/3.4.9-SNAPSHOT/neo4j-collections-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/neo4j/neo4j-cypher-frontend-2.3/2.3.12/neo4j-cypher-frontend-2.3-2.3.12.jar:/root/.m2/repository/commons-pool/commons-pool/1.6/commons-pool-1.6.jar:/root/.m2/repository/org/apache/directory/server/apacheds-interceptors-trigger/2.0.0-M21/apacheds-interceptors-trigger-2.0.0-M21.jar:/root/.m2/repository/org/apache/shiro/shiro-config-ogdl/1.4.0/shiro-config-ogdl-1.4.0.jar:/root/.m2/repository/org/checkerframework/checker-compat-qual/2.0.0/checker-compat-qual-2.0.0.jar:/root/.m2/repository/org/apache/shiro/shiro-event/1.4.0/shiro-event-1.4.0.jar:/root/.m2/repository/org/apache/directory/server/apacheds-core-avl/2.0.0-M21/apacheds-core-avl-2.0.0-M21.jar:/root/.m2/repository/org/neo4j/neo4j-cypher-frontend-3.3/3.3.7/neo4j-cypher-frontend-3.3-3.3.7.jar:/root/.m2/repository/org/apache/directory/api/api-ldap-extras-aci/1.0.0-M33/api-ldap-extras-aci-1.0.0-M33.jar:/root/.m2/repository/org/neo4j/neo4j-cypher-util-3.4/3.4.9-SNAPSHOT/neo4j-cypher-util-3.4-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/neo4j/neo4j-cypher-compiler-3.1/3.1.9/neo4j-cypher-compiler-3.1-3.1.9.jar:/root/.m2/repository/org/apache/shiro/shiro-config-core/1.4.0/shiro-config-core-1.4.0.jar:/root/.m2/repository/org/apache/directory/api/api-ldap-client-api/1.0.0-M33/api-ldap-client-api-1.0.0-M33.jar:/root/.m2/repository/org/slf4j/slf4j-nop/1.7.25/slf4j-nop-1.7.25.jar:/root/.m2/repository/org/apache/directory/server/apacheds-interceptors-number/2.0.0-M21/apacheds-interceptors-number-2.0.0-M21.jar:/root/.m2/repository/org/apache/directory/server/apacheds-ldif-partition/2.0.0-M21/apacheds-ldif-partition-2.0.0-M21.jar:/root/.m2/repository/org/scala-lang/scala-reflect/2.11.12/scala-reflect-2.11.12.jar:/root/.m2/repository/org/apache/directory/server/apacheds-protocol-shared/2.0.0-M21/apacheds-protocol-shared-2.0.0-M21.jar:/root/.m2/repository/org/eclipse/jetty/jetty-io/9.4.11.v20180605/jetty-io-9.4.11.v20180605.jar:/root/.m2/repository/org/neo4j/neo4j-kernel-api/3.4.9-SNAPSHOT/neo4j-kernel-api-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/apache/servicemix/bundles/org.apache.servicemix.bundles.xpp3/1.1.4c_6/org.apache.servicemix.bundles.xpp3-1.1.4c_6.jar:/root/.m2/repository/org/neo4j/neo4j-graph-algo/3.4.9-SNAPSHOT/neo4j-graph-algo-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/apache/directory/server/apacheds-core-shared/2.0.0-M21/apacheds-core-shared-2.0.0-M21.jar:/root/.m2/repository/org/apache/servicemix/bundles/org.apache.servicemix.bundles.dom4j/1.6.1_5/org.apache.servicemix.bundles.dom4j-1.6.1_5.jar:/root/.m2/repository/com/google/guava/guava-testlib/24.1-jre/guava-testlib-24.1-jre.jar:/root/.m2/repository/org/apache/shiro/shiro-crypto-core/1.4.0/shiro-crypto-core-1.4.0.jar:/root/.m2/repository/org/ow2/asm/asm-analysis/6.2/asm-analysis-6.2.jar:/root/.m2/repository/org/neo4j/neo4j-spatial-index/3.4.9-SNAPSHOT/neo4j-spatial-index-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/apache/directory/server/apacheds-core-integ/2.0.0-M21/apacheds-core-integ-2.0.0-M21.jar:/root/.m2/repository/org/neo4j/neo4j-consistency-check/3.4.9-SNAPSHOT/neo4j-consistency-check-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/apache/directory/api/api-ldap-extras-trigger/1.0.0-M33/api-ldap-extras-trigger-1.0.0-M33.jar:/root/.m2/repository/org/neo4j/neo4j-jmx/3.4.9-SNAPSHOT/neo4j-jmx-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/parboiled/parboiled-scala_2.11/1.1.7/parboiled-scala_2.11-1.1.7.jar:/root/.m2/repository/org/neo4j/neo4j-security/3.4.9-SNAPSHOT/neo4j-security-3.4.9-SNAPSHOT-tests.jar:/root/.m2/repository/org/neo4j/neo4j-bolt/3.4.9-SNAPSHOT/neo4j-bolt-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/neo4j/openCypher-frontend-1/3.4.9-SNAPSHOT/openCypher-frontend-1-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/eclipse/jetty/jetty-server/9.4.11.v20180605/jetty-server-9.4.11.v20180605.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/neo4j/neo4j-cypher-planner-3.4/3.4.9-SNAPSHOT/neo4j-cypher-planner-3.4-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/codehaus/mojo/animal-sniffer-annotations/1.14/animal-sniffer-annotations-1.14.jar:/root/.m2/repository/org/apache/directory/server/apacheds-jdbm-partition/2.0.0-M21/apacheds-jdbm-partition-2.0.0-M21.jar:/root/.m2/repository/org/scala-lang/scala-library/2.11.12/scala-library-2.11.12.jar:/root/.m2/repository/org/apache/directory/api/api-util/1.0.0-M33/api-util-1.0.0-M33.jar:/root/.m2/repository/org/apache/directory/server/apacheds-core-jndi/2.0.0-M21/apacheds-core-jndi-2.0.0-M21.jar:/root/.m2/repository/org/neo4j/neo4j-common/3.4.9-SNAPSHOT/neo4j-common-3.4.9-SNAPSHOT-tests.jar:/root/.m2/repository/com/google/errorprone/error_prone_annotations/2.1.3/error_prone_annotations-2.1.3.jar:/root/.m2/repository/org/eclipse/jetty/jetty-http/9.4.11.v20180605/jetty-http-9.4.11.v20180605.jar:/root/.m2/repository/org/apache/directory/server/apacheds-server-annotations/2.0.0-M21/apacheds-server-annotations-2.0.0-M21.jar:/root/.m2/repository/org/codehaus/jackson/jackson-mapper-asl/1.9.13/jackson-mapper-asl-1.9.13.jar:/root/.m2/repository/org/bouncycastle/bcpkix-jdk15on/1.60/bcpkix-jdk15on-1.60.jar:/root/.m2/repository/org/apache/directory/server/apacheds-interceptors-changelog/2.0.0-M21/apacheds-interceptors-changelog-2.0.0-M21.jar:/root/.m2/repository/org/apache/directory/api/api-asn1-ber/1.0.0-M33/api-asn1-ber-1.0.0-M33.jar:/root/.m2/repository/org/apache/directory/server/apacheds-protocol-ldap/2.0.0-M21/apacheds-protocol-ldap-2.0.0-M21.jar:/root/.m2/repository/org/eclipse/jetty/websocket/websocket-api/9.4.11.v20180605/websocket-api-9.4.11.v20180605.jar:/root/.m2/repository/org/apache/directory/server/apacheds-i18n/2.0.0-M21/apacheds-i18n-2.0.0-M21.jar:/root/.m2/repository/org/apache/directory/api/api-ldap-extras-codec/1.0.0-M33/api-ldap-extras-codec-1.0.0-M33.jar:/root/.m2/repository/org/neo4j/neo4j-logging/3.4.9-SNAPSHOT/neo4j-logging-3.4.9-SNAPSHOT-tests.jar:/root/.m2/repository/org/apache/directory/server/apacheds-interceptors-referral/2.0.0-M21/apacheds-interceptors-referral-2.0.0-M21.jar:/root/.m2/repository/org/neo4j/neo4j-kernel/3.4.9-SNAPSHOT/neo4j-kernel-3.4.9-SNAPSHOT-tests.jar:/root/.m2/repository/org/apache/directory/server/apacheds-interceptors-operational/2.0.0-M21/apacheds-interceptors-operational-2.0.0-M21.jar:/root/.m2/repository/org/apache/directory/server/apacheds-core-annotations/2.0.0-M21/apacheds-core-annotations-2.0.0-M21.jar:/root/.m2/repository/org/neo4j/neo4j-index/3.4.9-SNAPSHOT/neo4j-index-3.4.9-SNAPSHOT.jar:/root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.8.5/byte-buddy-agent-1.8.5.jar:/root/.m2/repository/org/apache/shiro/shiro-core/1.4.0/shiro-core-1.4.0.jar:/root/.m2/repository/org/apache/directory/server/apacheds-interceptor-kerberos/2.0.0-M21/apacheds-interceptor-kerberos-2.0.0-M21.jar:/root/.m2/repository/org/neo4j/neo4j-cypher/3.4.9-SNAPSHOT/neo4j-cypher-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/apache/directory/api/api-ldap-extras-sp/1.0.0-M33/api-ldap-extras-sp-1.0.0-M33.jar:/root/.m2/repository/org/codehaus/jackson/jackson-core-asl/1.9.13/jackson-core-asl-1.9.13.jar:/root/.m2/repository/org/apache/shiro/shiro-lang/1.4.0/shiro-lang-1.4.0.jar:/root/.m2/repository/org/neo4j/neo4j-io/3.4.9-SNAPSHOT/neo4j-io-3.4.9-SNAPSHOT-tests.jar:/root/.m2/repository/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0.jar:/root/.m2/repository/org/neo4j/neo4j-udc/3.4.9-SNAPSHOT/neo4j-udc-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/neo4j/neo4j-kernel/3.4.9-SNAPSHOT/neo4j-kernel-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/neo4j/neo4j-logging/3.4.9-SNAPSHOT/neo4j-logging-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/neo4j/neo4j-configuration/3.4.9-SNAPSHOT/neo4j-configuration-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/apache/directory/server/apacheds-interceptors-hash/2.0.0-M21/apacheds-interceptors-hash-2.0.0-M21.jar:/root/.m2/repository/org/apache/directory/server/apacheds-interceptors-journal/2.0.0-M21/apacheds-interceptors-journal-2.0.0-M21.jar:/root/.m2/repository/org/neo4j/neo4j-cypher-compiler-2.3/2.3.12/neo4j-cypher-compiler-2.3-2.3.12.jar:/root/.m2/repository/org/neo4j/neo4j-cypher-interpreted-runtime/3.4.9-SNAPSHOT/neo4j-cypher-interpreted-runtime-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/neo4j/neo4j-graph-matching/3.1.9/neo4j-graph-matching-3.1.9.jar:/root/.m2/repository/org/neo4j/neo4j-cypher-expression-3.4/3.4.9-SNAPSHOT/neo4j-cypher-expression-3.4-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/mockito/mockito-core/2.18.3/mockito-core-2.18.3.jar:/root/.m2/repository/org/neo4j/neo4j-command-line/3.4.9-SNAPSHOT/neo4j-command-line-3.4.9-SNAPSHOT.jar:/root/.m2/repository/com/github/ben-manes/caffeine/caffeine/2.6.2/caffeine-2.6.2.jar:/root/.m2/repository/org/eclipse/jetty/jetty-client/9.4.11.v20180605/jetty-client-9.4.11.v20180605.jar:/root/.m2/repository/org/neo4j/neo4j-codegen/3.4.9-SNAPSHOT/neo4j-codegen-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/apache/directory/api/api-ldap-schema-data/1.0.0-M33/api-ldap-schema-data-1.0.0-M33.jar:/root/.m2/repository/org/eclipse/jetty/jetty-xml/9.4.11.v20180605/jetty-xml-9.4.11.v20180605.jar:/root/.m2/repository/org/apache/directory/server/apacheds-core/2.0.0-M21/apacheds-core-2.0.0-M21.jar:/root/.m2/repository/org/neo4j/neo4j-primitive-collections/3.4.9-SNAPSHOT/neo4j-primitive-collections-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/apache/directory/server/apacheds-mavibot-partition/2.0.0-M21/apacheds-mavibot-partition-2.0.0-M21.jar:/root/.m2/repository/org/apache/lucene/lucene-codecs/5.5.5/lucene-codecs-5.5.5.jar:/root/.m2/repository/org/neo4j/neo4j-cypher-runtime-util/3.4.9-SNAPSHOT/neo4j-cypher-runtime-util-3.4.9-SNAPSHOT.jar:/root/.m2/repository/commons-beanutils/commons-beanutils/1.9.3/commons-beanutils-1.9.3.jar:/root/.m2/repository/org/apache/directory/server/apacheds-kerberos-codec/2.0.0-M21/apacheds-kerberos-codec-2.0.0-M21.jar:/root/.m2/repository/org/apache/lucene/lucene-analyzers-common/5.5.5/lucene-analyzers-common-5.5.5.jar:/root/.m2/repository/org/apache/directory/api/api-i18n/1.0.0-M33/api-i18n-1.0.0-M33.jar:/root/.m2/repository/org/apache/directory/server/apacheds-protocol-kerberos/2.0.0-M21/apacheds-protocol-kerberos-2.0.0-M21.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/1.3.9/jsr305-1.3.9.jar:/root/.m2/repository/org/apache/directory/jdbm/apacheds-jdbm1/2.0.0-M3/apacheds-jdbm1-2.0.0-M3.jar:/root/.m2/repository/org/hamcrest/hamcrest-library/1.3/hamcrest-library-1.3.jar:/root/.m2/repository/org/neo4j/neo4j-ssl/3.4.9-SNAPSHOT/neo4j-ssl-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/apache/directory/api/api-asn1-api/1.0.0-M33/api-asn1-api-1.0.0-M33.jar:/root/.m2/repository/org/apache/directory/server/apacheds-core-api/2.0.0-M21/apacheds-core-api-2.0.0-M21.jar:/root/.m2/repository/org/eclipse/jetty/websocket/websocket-common/9.4.11.v20180605/websocket-common-9.4.11.v20180605.jar:/root/.m2/repository/org/apache/directory/server/apacheds-test-framework/2.0.0-M21/apacheds-test-framework-2.0.0-M21.jar:/root/.m2/repository/org/neo4j/neo4j-auth-plugin-api/3.4.9-SNAPSHOT/neo4j-auth-plugin-api-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/ow2/asm/asm-util/6.2/asm-util-6.2.jar:/root/.m2/repository/org/neo4j/neo4j-enterprise-kernel/3.4.9-SNAPSHOT/neo4j-enterprise-kernel-3.4.9-SNAPSHOT-tests.jar:/root/.m2/repository/org/apache/directory/api/api-ldap-net-mina/1.0.0-M33/api-ldap-net-mina-1.0.0-M33.jar:/root/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:/root/.m2/repository/org/apache/directory/api/api-ldap-extras-codec-api/1.0.0-M33/api-ldap-extras-codec-api-1.0.0-M33.jar:/root/.m2/repository/org/apache/commons/commons-compress/1.16.1/commons-compress-1.16.1.jar:/root/.m2/repository/ldapsdk/ldapsdk/4.1/ldapsdk-4.1.jar:/root/.m2/repository/com/google/j2objc/j2objc-annotations/1.1/j2objc-annotations-1.1.jar:/root/.m2/repository/org/neo4j/neo4j-cypher-ir-3.3/3.3.7/neo4j-cypher-ir-3.3-3.3.7.jar:/root/.m2/repository/org/neo4j/neo4j-cypher-planner-spi-3.4/3.4.9-SNAPSHOT/neo4j-cypher-planner-spi-3.4-3.4.9-SNAPSHOT.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/../lib/tools.jar:/root/.m2/repository/org/neo4j/neo4j-resource/3.4.9-SNAPSHOT/neo4j-resource-3.4.9-SNAPSHOT.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.8.5/byte-buddy-1.8.5.jar:/root/.m2/repository/org/apache/servicemix/bundles/org.apache.servicemix.bundles.antlr/2.7.7_5/org.apache.servicemix.bundles.antlr-2.7.7_5.jar:/root/.m2/repository/org/eclipse/jetty/websocket/websocket-client/9.4.11.v20180605/websocket-client-9.4.11.v20180605.jar:/root/.m2/repository/org/apache/directory/server/apacheds-interceptors-exception/2.0.0-M21/apacheds-interceptors-exception-2.0.0-M21.jar:/root/.m2/repository/org/apache/directory/server/apacheds-core-constants/2.0.0-M21/apacheds-core-constants-2.0.0-M21.jar:/root/.m2/repository/net/sf/ehcache/ehcache/2.8.5/ehcache-2.8.5.jar:/root/.m2/repository/io/netty/netty-all/4.1.24.Final/netty-all-4.1.24.Final.jar:/root/.m2/repository/org/apache/directory/api/api-ldap-codec-core/1.0.0-M33/api-ldap-codec-core-1.0.0-M33.jar:/root/.m2/repository/org/ow2/asm/asm/6.2/asm-6.2.jar:/root/.m2/repository/org/neo4j/neo4j-csv/3.4.9-SNAPSHOT/neo4j-csv-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/apache/lucene/lucene-backward-codecs/5.5.0/lucene-backward-codecs-5.5.0.jar:/root/.m2/repository/org/bouncycastle/bcprov-jdk15on/1.60/bcprov-jdk15on-1.60.jar:/root/.m2/repository/org/apache/directory/server/apacheds-interceptors-collective/2.0.0-M21/apacheds-interceptors-collective-2.0.0-M21.jar:/root/.m2/repository/org/apache/lucene/lucene-core/5.5.5/lucene-core-5.5.5.jar:/root/.m2/repository/org/apache/directory/server/apacheds-interceptors-authn/2.0.0-M21/apacheds-interceptors-authn-2.0.0-M21.jar:/root/.m2/repository/org/apache/directory/server/apacheds-interceptors-authz/2.0.0-M21/apacheds-interceptors-authz-2.0.0-M21.jar:/root/.m2/repository/org/neo4j/neo4j-lucene-index/3.4.9-SNAPSHOT/neo4j-lucene-index-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/neo4j/neo4j-cypher-frontend-3.1/3.1.9/neo4j-cypher-frontend-3.1-3.1.9.jar:/root/.m2/repository/org/neo4j/neo4j-values/3.4.9-SNAPSHOT/neo4j-values-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/apache/directory/server/apacheds-interceptors-schema/2.0.0-M21/apacheds-interceptors-schema-2.0.0-M21.jar:/root/.m2/repository/org/eclipse/jetty/jetty-util/9.4.11.v20180605/jetty-util-9.4.11.v20180605.jar:/root/.m2/repository/org/apache/shiro/shiro-crypto-hash/1.4.0/shiro-crypto-hash-1.4.0.jar:/root/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar:/root/.m2/repository/org/apache/directory/api/api-dsml-parser/1.0.0-M33/api-dsml-parser-1.0.0-M33.jar:/root/.m2/repository/commons-lang/commons-lang/2.6/commons-lang-2.6.jar:/root/.m2/repository/org/apache/lucene/lucene-queryparser/5.5.5/lucene-queryparser-5.5.5.jar:/root/.m2/repository/org/neo4j/neo4j-common/3.4.9-SNAPSHOT/neo4j-common-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/apache/shiro/shiro-crypto-cipher/1.4.0/shiro-crypto-cipher-1.4.0.jar:/root/.m2/repository/com/googlecode/concurrentlinkedhashmap/concurrentlinkedhashmap-lru/1.4.2/concurrentlinkedhashmap-lru-1.4.2.jar:/root/.m2/repository/junit/junit/4.12/junit-4.12.jar";
+echo "\n\nNode: `hostname`\n";
+echo "\n\nDate: `date`\n";
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en
+OpenJDK 64-Bit Server VM warning: ignoring option MaxPermSize=512m; support was removed in 8.0
+10:17:26,377 |-INFO in ch.qos.logback.classic.LoggerContext[TBar] - Could NOT find resource [logback-test.xml]
+10:17:26,378 |-INFO in ch.qos.logback.classic.LoggerContext[TBar] - Could NOT find resource [logback.groovy]
+10:17:26,378 |-INFO in ch.qos.logback.classic.LoggerContext[TBar] - Found resource [logback.xml] at [jar:file:/repair_tools/tbar.jar!/logback.xml]
+10:17:26,393 |-INFO in ch.qos.logback.core.joran.spi.ConfigurationWatchList@5a42bbf4 - URL [jar:file:/repair_tools/tbar.jar!/logback.xml] is not of type file
+10:17:26,434 |-INFO in ch.qos.logback.classic.joran.action.ConfigurationAction - debug attribute not set
+10:17:26,436 |-INFO in ch.qos.logback.classic.joran.action.ContextNameAction - Setting logger context name as [TBar]
+10:17:26,436 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - About to instantiate appender of type [ch.qos.logback.core.ConsoleAppender]
+10:17:26,438 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - Naming appender as [STDOUT]
+10:17:26,485 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting level of logger [org.hibernate.engine.query.HQLQueryPlan] to DEBUG
+10:17:26,485 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting additivity of logger [org.hibernate.engine.query.HQLQueryPlan] to false
+10:17:26,486 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting level of logger [com.piedra.logback] to DEBUG
+10:17:26,486 |-ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - Could not find an appender named [FILE]. Did you define it below instead of above in the configuration file?
+10:17:26,486 |-ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - See http://logback.qos.ch/codes.html#appender_order for more details.
+10:17:26,486 |-INFO in ch.qos.logback.classic.joran.action.RootLoggerAction - Setting level of ROOT logger to DEBUG
+10:17:26,486 |-INFO in ch.qos.logback.core.joran.action.AppenderRefAction - Attaching appender named [STDOUT] to Logger[ROOT]
+10:17:26,486 |-ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - Could not find an appender named [ROLLINGFILE]. Did you define it below instead of above in the configuration file?
+10:17:26,486 |-ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - See http://logback.qos.ch/codes.html#appender_order for more details.
+10:17:26,486 |-INFO in ch.qos.logback.classic.joran.action.ConfigurationAction - End of configuration.
+10:17:26,488 |-INFO in ch.qos.logback.classic.joran.JoranConfigurator@270421f5 - Registering current configuration as safe fallback point
+
+2022-11-23 10:17:26.656 [main] INFO  edu.lu.uni.serval.tbar.AbstractFixer - TBar_vul4j_neo4j_neo4j_VUL4J-62 Failed Tests: 1
+2022-11-23 10:17:26.659 [main] INFO  edu.lu.uni.serval.tbar.TBarFixer - =======StaticBugFixer: Start to fix suspicious code======
+2022-11-23 10:17:26.659 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.neo4j.server.security.enterprise.auth.LdapRealm ===233
+2022-11-23 10:17:27.295 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+ctx.addToEnvironment( Context.SECURITY_CREDENTIALS, credentials );
+2022-11-23 10:17:30.809 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -230,7 +230,7 @@ public class LdapRealm extends DefaultLdapRealm implements RealmLifecycle, Shiro
+-            ctx.addToEnvironment( Context.SECURITY_CREDENTIALS, credentials );
++            ctx.addToEnvironment( principal, principal );
+2022-11-23 10:17:30.809 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-11-23 10:17:32.092 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-11-23 10:17:32.269 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -230,7 +230,7 @@ public class LdapRealm extends DefaultLdapRealm implements RealmLifecycle, Shiro
+-            ctx.addToEnvironment( Context.SECURITY_CREDENTIALS, credentials );
++            ctx.addToEnvironment( Context.SECURITY_CREDENTIALS, principal );
+2022-11-23 10:17:32.269 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-11-23 10:17:33.778 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+exit code: 1
+2022-11-23 10:17:46.908 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -230,7 +230,7 @@ public class LdapRealm extends DefaultLdapRealm implements RealmLifecycle, Shiro
+-            ctx.addToEnvironment( Context.SECURITY_CREDENTIALS, credentials );
++            assertValidUserSearchSettings().addToEnvironment( Context.SECURITY_CREDENTIALS, credentials );
+2022-11-23 10:17:46.908 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-11-23 10:17:48.335 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-11-23 10:17:48.379 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -230,7 +230,7 @@ public class LdapRealm extends DefaultLdapRealm implements RealmLifecycle, Shiro
+-            ctx.addToEnvironment( Context.SECURITY_CREDENTIALS, credentials );
++            getGroupToRoleMapping().addToEnvironment( Context.SECURITY_CREDENTIALS, credentials );
+2022-11-23 10:17:48.379 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-11-23 10:17:49.875 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-11-23 10:17:49.911 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -230,7 +230,7 @@ public class LdapRealm extends DefaultLdapRealm implements RealmLifecycle, Shiro
+-            ctx.addToEnvironment( Context.SECURITY_CREDENTIALS, credentials );
++            initialize().addToEnvironment( Context.SECURITY_CREDENTIALS, credentials );
+2022-11-23 10:17:49.911 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-11-23 10:17:51.447 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-11-23 10:17:51.495 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -230,7 +230,7 @@ public class LdapRealm extends DefaultLdapRealm implements RealmLifecycle, Shiro
+-            ctx.addToEnvironment( Context.SECURITY_CREDENTIALS, credentials );
++            start().addToEnvironment( Context.SECURITY_CREDENTIALS, credentials );
+2022-11-23 10:17:51.495 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-11-23 10:17:52.916 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-11-23 10:17:52.949 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -230,7 +230,7 @@ public class LdapRealm extends DefaultLdapRealm implements RealmLifecycle, Shiro
+-            ctx.addToEnvironment( Context.SECURITY_CREDENTIALS, credentials );
++            stop().addToEnvironment( Context.SECURITY_CREDENTIALS, credentials );
+2022-11-23 10:17:52.949 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-11-23 10:17:54.287 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-11-23 10:17:54.319 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -230,7 +230,7 @@ public class LdapRealm extends DefaultLdapRealm implements RealmLifecycle, Shiro
+-            ctx.addToEnvironment( Context.SECURITY_CREDENTIALS, credentials );
++            shutdown().addToEnvironment( Context.SECURITY_CREDENTIALS, credentials );
+2022-11-23 10:17:54.319 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-11-23 10:17:55.698 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-11-23 10:17:55.728 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -230,7 +230,7 @@ public class LdapRealm extends DefaultLdapRealm implements RealmLifecycle, Shiro
+-            ctx.addToEnvironment( Context.SECURITY_CREDENTIALS, credentials );
++            ctx.addToEnvironment( Context.SECURITY_CREDENTIALS, assertValidUserSearchSettings() );
+2022-11-23 10:17:55.728 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-11-23 10:17:56.886 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-11-23 10:17:56.915 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -230,7 +230,7 @@ public class LdapRealm extends DefaultLdapRealm implements RealmLifecycle, Shiro
+-            ctx.addToEnvironment( Context.SECURITY_CREDENTIALS, credentials );
++            ctx.addToEnvironment( Context.SECURITY_CREDENTIALS, getGroupToRoleMapping() );
+2022-11-23 10:17:56.915 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-11-23 10:17:58.347 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+exit code: 1
+2022-11-23 10:18:11.411 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -230,7 +230,7 @@ public class LdapRealm extends DefaultLdapRealm implements RealmLifecycle, Shiro
+-            ctx.addToEnvironment( Context.SECURITY_CREDENTIALS, credentials );
++            ctx.addToEnvironment( Context.SECURITY_CREDENTIALS, initialize() );
+2022-11-23 10:18:11.411 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-11-23 10:18:12.957 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-11-23 10:18:12.992 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -230,7 +230,7 @@ public class LdapRealm extends DefaultLdapRealm implements RealmLifecycle, Shiro
+-            ctx.addToEnvironment( Context.SECURITY_CREDENTIALS, credentials );
++            ctx.addToEnvironment( Context.SECURITY_CREDENTIALS, start() );
+2022-11-23 10:18:12.993 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-11-23 10:18:14.486 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-11-23 10:18:14.521 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -230,7 +230,7 @@ public class LdapRealm extends DefaultLdapRealm implements RealmLifecycle, Shiro
+-            ctx.addToEnvironment( Context.SECURITY_CREDENTIALS, credentials );
++            ctx.addToEnvironment( Context.SECURITY_CREDENTIALS, stop() );
+2022-11-23 10:18:14.521 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-11-23 10:18:15.899 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-11-23 10:18:15.932 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -230,7 +230,7 @@ public class LdapRealm extends DefaultLdapRealm implements RealmLifecycle, Shiro
+-            ctx.addToEnvironment( Context.SECURITY_CREDENTIALS, credentials );
++            ctx.addToEnvironment( Context.SECURITY_CREDENTIALS, shutdown() );
+2022-11-23 10:18:15.932 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-11-23 10:18:17.270 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-11-23 10:18:17.364 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -230,9 +230,12 @@ public class LdapRealm extends DefaultLdapRealm implements RealmLifecycle, Shiro
+-            ctx.addToEnvironment( Context.SECURITY_CREDENTIALS, credentials );
++            if (ctx != null) {
++	ctx.addToEnvironment( Context.SECURITY_CREDENTIALS, credentials );
++	}
++
+2022-11-23 10:18:17.364 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-11-23 10:18:18.859 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-11-23 10:18:18.895 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -230,7 +230,10 @@ public class LdapRealm extends DefaultLdapRealm implements RealmLifecycle, Shiro
+-            ctx.addToEnvironment( Context.SECURITY_CREDENTIALS, credentials );
++            if (ctx == null) {
++	    throw new IllegalArgumentException("Null 'ctx' argument.");
++	}
++ctx.addToEnvironment( Context.SECURITY_CREDENTIALS, credentials );
+2022-11-23 10:18:18.895 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-11-23 10:18:20.350 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+exit code: 1
+2022-11-23 10:18:34.170 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -230,7 +230,10 @@ public class LdapRealm extends DefaultLdapRealm implements RealmLifecycle, Shiro
+-            ctx.addToEnvironment( Context.SECURITY_CREDENTIALS, credentials );
++            if (ctx == null) {
++	    return null;
++	}
++ctx.addToEnvironment( Context.SECURITY_CREDENTIALS, credentials );
+2022-11-23 10:18:34.170 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-11-23 10:18:35.499 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+exit code: 1
+2022-11-23 10:18:48.004 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -230,7 +230,8 @@ public class LdapRealm extends DefaultLdapRealm implements RealmLifecycle, Shiro
+-            ctx.addToEnvironment( Context.SECURITY_CREDENTIALS, credentials );
++            if (ctx == null) ctx = new LdapContext();
++ ctx.addToEnvironment( Context.SECURITY_CREDENTIALS, credentials );
+2022-11-23 10:18:48.004 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-11-23 10:18:49.223 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-11-23 10:18:49.259 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -230,7 +230,8 @@ public class LdapRealm extends DefaultLdapRealm implements RealmLifecycle, Shiro
+-            ctx.addToEnvironment( Context.SECURITY_CREDENTIALS, credentials );
++            if (ctx == null) return new LdapContext();
++	 ctx.addToEnvironment( Context.SECURITY_CREDENTIALS, credentials );
+2022-11-23 10:18:49.259 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-11-23 10:18:50.683 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-11-23 10:18:50.717 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -230,7 +230,10 @@ public class LdapRealm extends DefaultLdapRealm implements RealmLifecycle, Shiro
+-            ctx.addToEnvironment( Context.SECURITY_CREDENTIALS, credentials );
++            if (Context.SECURITY_CREDENTIALS != null) {
++	ctx.addToEnvironment( Context.SECURITY_CREDENTIALS, credentials );
++	}
++
+2022-11-23 10:18:50.717 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-11-23 10:18:52.295 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+exit code: 1
+2022-11-23 10:19:04.433 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -230,7 +230,10 @@ public class LdapRealm extends DefaultLdapRealm implements RealmLifecycle, Shiro
+-            ctx.addToEnvironment( Context.SECURITY_CREDENTIALS, credentials );
++            if (Context.SECURITY_CREDENTIALS == null) {
++	    throw new IllegalArgumentException("Null 'Context.SECURITY_CREDENTIALS' argument.");
++	}
++ctx.addToEnvironment( Context.SECURITY_CREDENTIALS, credentials );
+2022-11-23 10:19:04.433 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-11-23 10:19:05.865 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+exit code: 1
+2022-11-23 10:19:18.667 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -230,7 +230,10 @@ public class LdapRealm extends DefaultLdapRealm implements RealmLifecycle, Shiro
+-            ctx.addToEnvironment( Context.SECURITY_CREDENTIALS, credentials );
++            if (Context.SECURITY_CREDENTIALS == null) {
++	    return null;
++	}
++ctx.addToEnvironment( Context.SECURITY_CREDENTIALS, credentials );
+2022-11-23 10:19:18.668 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-11-23 10:19:20.230 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+exit code: 1
+2022-11-23 10:19:33.510 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -230,7 +230,8 @@ public class LdapRealm extends DefaultLdapRealm implements RealmLifecycle, Shiro
+-            ctx.addToEnvironment( Context.SECURITY_CREDENTIALS, credentials );
++            if (Context.SECURITY_CREDENTIALS == null) Context.SECURITY_CREDENTIALS = new null();
++ ctx.addToEnvironment( Context.SECURITY_CREDENTIALS, credentials );
+2022-11-23 10:19:33.510 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-11-23 10:19:34.038 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-11-23 10:19:34.084 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -230,7 +230,8 @@ public class LdapRealm extends DefaultLdapRealm implements RealmLifecycle, Shiro
+-            ctx.addToEnvironment( Context.SECURITY_CREDENTIALS, credentials );
++            if (Context.SECURITY_CREDENTIALS == null) return new LdapContext();
++	 ctx.addToEnvironment( Context.SECURITY_CREDENTIALS, credentials );
+2022-11-23 10:19:34.084 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-11-23 10:19:35.711 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-11-23 10:19:35.746 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -230,7 +230,10 @@ public class LdapRealm extends DefaultLdapRealm implements RealmLifecycle, Shiro
+-            ctx.addToEnvironment( Context.SECURITY_CREDENTIALS, credentials );
++            if (credentials != null) {
++	ctx.addToEnvironment( Context.SECURITY_CREDENTIALS, credentials );
++	}
++
+2022-11-23 10:19:35.746 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-11-23 10:19:37.280 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+exit code: 1
+2022-11-23 10:19:49.704 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -230,7 +230,10 @@ public class LdapRealm extends DefaultLdapRealm implements RealmLifecycle, Shiro
+-            ctx.addToEnvironment( Context.SECURITY_CREDENTIALS, credentials );
++            if (credentials == null) {
++	    throw new IllegalArgumentException("Null 'credentials' argument.");
++	}
++ctx.addToEnvironment( Context.SECURITY_CREDENTIALS, credentials );
+2022-11-23 10:19:49.705 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-11-23 10:19:51.085 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+exit code: 1
+2022-11-23 10:20:03.895 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -230,7 +230,10 @@ public class LdapRealm extends DefaultLdapRealm implements RealmLifecycle, Shiro
+-            ctx.addToEnvironment( Context.SECURITY_CREDENTIALS, credentials );
++            if (credentials == null) {
++	    return null;
++	}
++ctx.addToEnvironment( Context.SECURITY_CREDENTIALS, credentials );
+2022-11-23 10:20:03.895 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-11-23 10:20:05.783 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+exit code: 1
+2022-11-23 10:20:19.917 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -230,7 +230,8 @@ public class LdapRealm extends DefaultLdapRealm implements RealmLifecycle, Shiro
+-            ctx.addToEnvironment( Context.SECURITY_CREDENTIALS, credentials );
++            if (credentials == null) credentials = principal;
++ ctx.addToEnvironment( Context.SECURITY_CREDENTIALS, credentials );
+2022-11-23 10:20:19.917 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-11-23 10:20:21.594 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+exit code: 1
+2022-11-23 10:20:34.636 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -230,7 +230,8 @@ public class LdapRealm extends DefaultLdapRealm implements RealmLifecycle, Shiro
+-            ctx.addToEnvironment( Context.SECURITY_CREDENTIALS, credentials );
++            if (credentials == null) credentials = new Object();
++ ctx.addToEnvironment( Context.SECURITY_CREDENTIALS, credentials );
+2022-11-23 10:20:34.636 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-11-23 10:20:36.056 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+exit code: 1
+2022-11-23 10:20:49.374 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -230,7 +230,8 @@ public class LdapRealm extends DefaultLdapRealm implements RealmLifecycle, Shiro
+-            ctx.addToEnvironment( Context.SECURITY_CREDENTIALS, credentials );
++            if (credentials == null) return new LdapContext();
++	 ctx.addToEnvironment( Context.SECURITY_CREDENTIALS, credentials );
+2022-11-23 10:20:49.374 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-11-23 10:20:50.694 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-11-23 10:20:50.723 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -230,9 +230,12 @@ public class LdapRealm extends DefaultLdapRealm implements RealmLifecycle, Shiro
+-            ctx.addToEnvironment( Context.SECURITY_CREDENTIALS, credentials );
++            if (ctx != null && Context.SECURITY_CREDENTIALS != null && credentials != null) {
++	ctx.addToEnvironment( Context.SECURITY_CREDENTIALS, credentials );
++	}
++
+2022-11-23 10:20:50.724 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-11-23 10:20:52.033 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-11-23 10:20:52.134 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -220,7 +220,8 @@ public class LdapRealm extends DefaultLdapRealm implements RealmLifecycle, Shiro
+-            ctx = new InitialLdapContext( env, null );
++            ctx.addToEnvironment( Context.SECURITY_CREDENTIALS, credentials );
++	ctx = new InitialLdapContext( env, null );
+@@ -230,7 +231,7 @@ public class LdapRealm extends DefaultLdapRealm implements RealmLifecycle, Shiro
+-            ctx.addToEnvironment( Context.SECURITY_CREDENTIALS, credentials );
++
+2022-11-23 10:20:52.134 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-11-23 10:20:53.568 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-11-23 10:21:06.173 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test the whole test suite.
+2022-11-23 10:21:13.037 [main] INFO  edu.lu.uni.serval.tbar.AbstractFixer - Succeeded to fix the bug BuggyProject====================
+diff --git a/enterprise/security/src/main/java/org/neo4j/server/security/enterprise/auth/LdapRealm.java b/enterprise/security/src/main/java/org/neo4j/server/security/enterprise/auth/LdapRealm.java
+index 248d43e0af0e..70195ccfb6e4 100644
+--- a/enterprise/security/src/main/java/org/neo4j/server/security/enterprise/auth/LdapRealm.java
++++ b/enterprise/security/src/main/java/org/neo4j/server/security/enterprise/auth/LdapRealm.java
+@@ -220,7 +220,8 @@ public class LdapRealm extends DefaultLdapRealm implements RealmLifecycle, Shiro
+ 
+         try
+         {
+-            ctx = new InitialLdapContext( env, null );
++            ctx.addToEnvironment( Context.SECURITY_CREDENTIALS, credentials );
++	ctx = new InitialLdapContext( env, null );
+ 
+             StartTlsRequest startTlsRequest = new StartTlsRequest();
+             StartTlsResponse tls = (StartTlsResponse) ctx.extendedOperation( startTlsRequest );
+@@ -230,7 +231,7 @@ public class LdapRealm extends DefaultLdapRealm implements RealmLifecycle, Shiro
+             ctx.addToEnvironment( Context.SECURITY_AUTHENTICATION,
+                     jndiLdapContextFactory.getAuthenticationMechanism() );
+             ctx.addToEnvironment( Context.SECURITY_PRINCIPAL, principal );
+-            ctx.addToEnvironment( Context.SECURITY_CREDENTIALS, credentials );
++            
+ 
+             return ctx;
+         }
+2022-11-23 10:21:13.079 [main] INFO  edu.lu.uni.serval.tbar.TBarFixer - =======StaticBugFixer: Finish off fixing======
+Succeeded to fix bug
+
+
+Node: 2c8178711f7b
+
+
+
+Date: Wed Nov 23 10:21:13 EST 2022
+

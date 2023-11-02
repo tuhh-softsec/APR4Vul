@@ -1,0 +1,653 @@
+cd /workdir/jGenProg_vul4j_apache_camel_VUL4J-4;
+export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en";
+TZ="America/New_York"; export TZ;
+export PATH="/usr/lib/jvm/java-8-openjdk-amd64/bin:$PATH";
+export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64/bin";
+time java -Xmx4g -Xms1g -XX:MaxPermSize=512m -cp /script/../libs/jtestex7.jar:/script/../repair_tools/astor.jar fr.inria.main.evolution.AstorMain \
+	-mode jgenprog \
+	-location . \
+	-id apache_camel-VUL4J-4 \
+	-failing org.apache.camel.builder.xml.XPathFeatureTest#testXPathNoTypeConverter:org.apache.camel.builder.xml.XPathFeatureTest#testXPath:org.apache.camel.builder.xml.XPathFeatureTest#testXPathResultOnInvalidData \
+	-jvm4testexecution /usr/lib/jvm/java-8-openjdk-amd64/bin \
+	-jvm4evosuitetestexecution /usr/lib/jvm/java-8-openjdk-amd64/bin \
+	-maxgen 1000000 \
+	-maxtime 120 \
+	-stopfirst true \
+	-seed 0 \
+	-scope local \
+	-population 1 \
+	-javacompliancelevel 8 \
+	-faultlocalization perfect \
+    -perfectdata /script/../data/benchmarks/vul4j/perfectfl/VUL4J-4 \
+    -validation externalcmd \
+    -testfailingcmd "mvn test -pl camel-core -Dtest=org.apache.camel.builder.xml.XPathFeatureTest -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B" \
+    -testallcmd "mvn test -pl camel-core -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B"  \ \
+	-srcjavafolder camel-core/src/main/java \
+	-srctestfolder camel-core/src/test/java \
+	-binjavafolder camel-core/target/classes \
+	-bintestfolder camel-core/target/test-classes \
+	-parameters x:x \
+	-dependencies /root/.m2/repository/org/apache/camel/apt/2.15-SNAPSHOT/apt-2.15-SNAPSHOT.jar:/root/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.4.3/jackson-core-2.4.3.jar:/root/.m2/repository/com/sun/xml/bind/jaxb-core/2.2.11/jaxb-core-2.2.11.jar:/root/.m2/repository/org/codehaus/woodstox/woodstox-core-asl/4.4.1/woodstox-core-asl-4.4.1.jar:/root/.m2/repository/org/apache/camel/spi-annotations/2.15-SNAPSHOT/spi-annotations-2.15-SNAPSHOT.jar:/root/.m2/repository/cglib/cglib-nodep/2.2.2/cglib-nodep-2.2.2.jar:/root/.m2/repository/org/easymock/easymock/3.2/easymock-3.2.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.4.0/jackson-annotations-2.4.0.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/xml-resolver/xml-resolver/1.2/xml-resolver-1.2.jar:/root/.m2/repository/com/googlecode/concurrentlinkedhashmap/concurrentlinkedhashmap-lru/1.4.2/concurrentlinkedhashmap-lru-1.4.2.jar:/root/.m2/repository/org/slf4j/slf4j-log4j12/1.7.10/slf4j-log4j12-1.7.10.jar:/root/.m2/repository/org/codehaus/woodstox/stax2-api/3.1.4/stax2-api-3.1.4.jar:/root/.m2/repository/junit/junit/4.12/junit-4.12.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.6.6/slf4j-api-1.6.6.jar:/root/.m2/repository/org/osgi/org.osgi.core/4.3.1/org.osgi.core-4.3.1.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.4.3/jackson-databind-2.4.3.jar:/root/.m2/repository/com/sun/xml/bind/jaxb-impl/2.2.11/jaxb-impl-2.2.11.jar:/root/.m2/repository/org/objenesis/objenesis/1.3/objenesis-1.3.jar;
+	echo "\n\nNode: `hostname`\n";
+	echo "\n\nDate: `date`\n";
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en
+OpenJDK 64-Bit Server VM warning: ignoring option MaxPermSize=512m; support was removed in 8.0
+[1] INFO ProjectConfiguration - Version of the JVM used: 1.8.0_342
+[1] INFO main - Java version of the JDK used to run tests: 1.8.0_342
+[1] INFO main - The compliance of the JVM is:  8
+[3] INFO main - command line arguments: [-mode  jgenprog  -location  .  -id  apache_camel-VUL4J-4  -failing  org.apache.camel.builder.xml.XPathFeatureTest#testXPathNoTypeConverter:org.apache.camel.builder.xml.XPathFeatureTest#testXPath:org.apache.camel.builder.xml.XPathFeatureTest#testXPathResultOnInvalidData  -jvm4testexecution  /usr/lib/jvm/java-8-openjdk-amd64/bin  -jvm4evosuitetestexecution  /usr/lib/jvm/java-8-openjdk-amd64/bin  -maxgen  1000000  -maxtime  120  -stopfirst  true  -seed  0  -scope  local  -population  1  -javacompliancelevel  8  -faultlocalization  perfect  -perfectdata  /script/../data/benchmarks/vul4j/perfectfl/VUL4J-4  -validation  externalcmd  -testfailingcmd  mvn test -pl camel-core -Dtest=org.apache.camel.builder.xml.XPathFeatureTest -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B  -testallcmd  mvn test -pl camel-core -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B     -srcjavafolder  camel-core/src/main/java  -srctestfolder  camel-core/src/test/java  -binjavafolder  camel-core/target/classes  -bintestfolder  camel-core/target/test-classes  -parameters  x:x  -dependencies  /root/.m2/repository/org/apache/camel/apt/2.15-SNAPSHOT/apt-2.15-SNAPSHOT.jar:/root/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.4.3/jackson-core-2.4.3.jar:/root/.m2/repository/com/sun/xml/bind/jaxb-core/2.2.11/jaxb-core-2.2.11.jar:/root/.m2/repository/org/codehaus/woodstox/woodstox-core-asl/4.4.1/woodstox-core-asl-4.4.1.jar:/root/.m2/repository/org/apache/camel/spi-annotations/2.15-SNAPSHOT/spi-annotations-2.15-SNAPSHOT.jar:/root/.m2/repository/cglib/cglib-nodep/2.2.2/cglib-nodep-2.2.2.jar:/root/.m2/repository/org/easymock/easymock/3.2/easymock-3.2.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.4.0/jackson-annotations-2.4.0.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/xml-resolver/xml-resolver/1.2/xml-resolver-1.2.jar:/root/.m2/repository/com/googlecode/concurrentlinkedhashmap/concurrentlinkedhashmap-lru/1.4.2/concurrentlinkedhashmap-lru-1.4.2.jar:/root/.m2/repository/org/slf4j/slf4j-log4j12/1.7.10/slf4j-log4j12-1.7.10.jar:/root/.m2/repository/org/codehaus/woodstox/stax2-api/3.1.4/stax2-api-3.1.4.jar:/root/.m2/repository/junit/junit/4.12/junit-4.12.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.6.6/slf4j-api-1.6.6.jar:/root/.m2/repository/org/osgi/org.osgi.core/4.3.1/org.osgi.core-4.3.1.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.4.3/jackson-databind-2.4.3.jar:/root/.m2/repository/com/sun/xml/bind/jaxb-impl/2.2.11/jaxb-impl-2.2.11.jar:/root/.m2/repository/org/objenesis/objenesis/1.3/objenesis-1.3.jar]
+[4] INFO AstorMain - Running Astor on a JDK at /usr/lib/jvm/java-8-openjdk-amd64/jre
+[9] INFO main - Source folders: [/workdir/jGenProg_vul4j_apache_camel_VUL4J-4/./camel-core/src/main/java]
+[9] INFO main - Source Test folders: [/workdir/jGenProg_vul4j_apache_camel_VUL4J-4/./camel-core/src/test/java]
+[1441] INFO AstorCoreEngine - ---- Creating spoon model
+[1462] INFO MutationSupporter - Creating model,  Code location from working folder: /workdir/jGenProg_vul4j_apache_camel_VUL4J-4/./camel-core/src/main/java
+[1462] INFO MutationSupporter - building model: /workdir/jGenProg_vul4j_apache_camel_VUL4J-4/./camel-core/src/main/java, compliance level: 8
+[1526] INFO MutationSupporter - Classpath (Dependencies) for building SpoonModel: [/root/.m2/repository/org/apache/camel/apt/2.15-SNAPSHOT/apt-2.15-SNAPSHOT.jar, /root/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar, /root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.4.3/jackson-core-2.4.3.jar, /root/.m2/repository/com/sun/xml/bind/jaxb-core/2.2.11/jaxb-core-2.2.11.jar, /root/.m2/repository/org/codehaus/woodstox/woodstox-core-asl/4.4.1/woodstox-core-asl-4.4.1.jar, /root/.m2/repository/org/apache/camel/spi-annotations/2.15-SNAPSHOT/spi-annotations-2.15-SNAPSHOT.jar, /root/.m2/repository/cglib/cglib-nodep/2.2.2/cglib-nodep-2.2.2.jar, /root/.m2/repository/org/easymock/easymock/3.2/easymock-3.2.jar, /root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.4.0/jackson-annotations-2.4.0.jar, /root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar, /root/.m2/repository/xml-resolver/xml-resolver/1.2/xml-resolver-1.2.jar, /root/.m2/repository/com/googlecode/concurrentlinkedhashmap/concurrentlinkedhashmap-lru/1.4.2/concurrentlinkedhashmap-lru-1.4.2.jar, /root/.m2/repository/org/slf4j/slf4j-log4j12/1.7.10/slf4j-log4j12-1.7.10.jar, /root/.m2/repository/org/codehaus/woodstox/stax2-api/3.1.4/stax2-api-3.1.4.jar, /root/.m2/repository/junit/junit/4.12/junit-4.12.jar, /root/.m2/repository/org/slf4j/slf4j-api/1.6.6/slf4j-api-1.6.6.jar, /root/.m2/repository/org/osgi/org.osgi.core/4.3.1/org.osgi.core-4.3.1.jar, /root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.4.3/jackson-databind-2.4.3.jar, /root/.m2/repository/com/sun/xml/bind/jaxb-impl/2.2.11/jaxb-impl-2.2.11.jar, /root/.m2/repository/org/objenesis/objenesis/1.3/objenesis-1.3.jar]
+[9865] ERROR MutationSupporter - Problem compiling the model with compliance level 8
+[9865] ERROR MutationSupporter - Type mismatch: cannot convert from Class<capture#10-of ? extends Object> to Class<T> at /workdir/jGenProg_vul4j_apache_camel_VUL4J-4/camel-core/src/main/java/org/apache/camel/component/mock/MockEndpoint.java:656
+spoon.compiler.ModelBuildingException: Type mismatch: cannot convert from Class<capture#10-of ? extends Object> to Class<T> at /workdir/jGenProg_vul4j_apache_camel_VUL4J-4/camel-core/src/main/java/org/apache/camel/component/mock/MockEndpoint.java:656
+	at spoon.support.compiler.jdt.JDTBasedSpoonCompiler.report(JDTBasedSpoonCompiler.java:649)
+	at spoon.support.compiler.jdt.JDTBasedSpoonCompiler.reportProblems(JDTBasedSpoonCompiler.java:631)
+	at spoon.support.compiler.jdt.JDTBasedSpoonCompiler.build(JDTBasedSpoonCompiler.java:118)
+	at spoon.support.compiler.jdt.JDTBasedSpoonCompiler.build(JDTBasedSpoonCompiler.java:99)
+	at fr.inria.astor.core.manipulation.MutationSupporter.buildModel(MutationSupporter.java:85)
+	at fr.inria.astor.core.manipulation.MutationSupporter.buildSpoonModel(MutationSupporter.java:240)
+	at fr.inria.astor.core.solutionsearch.AstorCoreEngine.initModel(AstorCoreEngine.java:775)
+	at fr.inria.main.evolution.AstorMain.createEngine(AstorMain.java:113)
+	at fr.inria.main.evolution.AstorMain.run(AstorMain.java:173)
+	at fr.inria.main.evolution.AstorMain.execute(AstorMain.java:233)
+	at fr.inria.main.evolution.AstorMain.main(AstorMain.java:204)
+[9866] INFO MutationSupporter - Recompiling with compliance level 8
+[9866] INFO MutationSupporter - building model: /workdir/jGenProg_vul4j_apache_camel_VUL4J-4/./camel-core/src/main/java, compliance level: 8
+[9932] INFO MutationSupporter - Classpath (Dependencies) for building SpoonModel: [/root/.m2/repository/org/apache/camel/apt/2.15-SNAPSHOT/apt-2.15-SNAPSHOT.jar, /root/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar, /root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.4.3/jackson-core-2.4.3.jar, /root/.m2/repository/com/sun/xml/bind/jaxb-core/2.2.11/jaxb-core-2.2.11.jar, /root/.m2/repository/org/codehaus/woodstox/woodstox-core-asl/4.4.1/woodstox-core-asl-4.4.1.jar, /root/.m2/repository/org/apache/camel/spi-annotations/2.15-SNAPSHOT/spi-annotations-2.15-SNAPSHOT.jar, /root/.m2/repository/cglib/cglib-nodep/2.2.2/cglib-nodep-2.2.2.jar, /root/.m2/repository/org/easymock/easymock/3.2/easymock-3.2.jar, /root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.4.0/jackson-annotations-2.4.0.jar, /root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar, /root/.m2/repository/xml-resolver/xml-resolver/1.2/xml-resolver-1.2.jar, /root/.m2/repository/com/googlecode/concurrentlinkedhashmap/concurrentlinkedhashmap-lru/1.4.2/concurrentlinkedhashmap-lru-1.4.2.jar, /root/.m2/repository/org/slf4j/slf4j-log4j12/1.7.10/slf4j-log4j12-1.7.10.jar, /root/.m2/repository/org/codehaus/woodstox/stax2-api/3.1.4/stax2-api-3.1.4.jar, /root/.m2/repository/junit/junit/4.12/junit-4.12.jar, /root/.m2/repository/org/slf4j/slf4j-api/1.6.6/slf4j-api-1.6.6.jar, /root/.m2/repository/org/osgi/org.osgi.core/4.3.1/org.osgi.core-4.3.1.jar, /root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.4.3/jackson-databind-2.4.3.jar, /root/.m2/repository/com/sun/xml/bind/jaxb-impl/2.2.11/jaxb-impl-2.2.11.jar, /root/.m2/repository/org/objenesis/objenesis/1.3/objenesis-1.3.jar]
+spoon.compiler.ModelBuildingException: Type mismatch: cannot convert from Class<capture#10-of ? extends Object> to Class<T> at /workdir/jGenProg_vul4j_apache_camel_VUL4J-4/camel-core/src/main/java/org/apache/camel/component/mock/MockEndpoint.java:656
+	at spoon.support.compiler.jdt.JDTBasedSpoonCompiler.report(JDTBasedSpoonCompiler.java:649)
+	at spoon.support.compiler.jdt.JDTBasedSpoonCompiler.reportProblems(JDTBasedSpoonCompiler.java:631)
+	at spoon.support.compiler.jdt.JDTBasedSpoonCompiler.build(JDTBasedSpoonCompiler.java:118)
+	at spoon.support.compiler.jdt.JDTBasedSpoonCompiler.build(JDTBasedSpoonCompiler.java:99)
+	at fr.inria.astor.core.manipulation.MutationSupporter.buildModel(MutationSupporter.java:85)
+	at fr.inria.astor.core.manipulation.MutationSupporter.buildSpoonModel(MutationSupporter.java:253)
+	at fr.inria.astor.core.solutionsearch.AstorCoreEngine.initModel(AstorCoreEngine.java:775)
+	at fr.inria.main.evolution.AstorMain.createEngine(AstorMain.java:113)
+	at fr.inria.main.evolution.AstorMain.run(AstorMain.java:173)
+	at fr.inria.main.evolution.AstorMain.execute(AstorMain.java:233)
+	at fr.inria.main.evolution.AstorMain.main(AstorMain.java:204)
+[14216] ERROR MutationSupporter - Error compiling: Type mismatch: cannot convert from Class<capture#10-of ? extends Object> to Class<T> at /workdir/jGenProg_vul4j_apache_camel_VUL4J-4/camel-core/src/main/java/org/apache/camel/component/mock/MockEndpoint.java:656
+[14487] ERROR MutationSupporter - Astor continues when model build fails. Classes created: 1244
+[14721] INFO AstorCoreEngine - Number of CtTypes created: 1244
+[15169] INFO AstorCoreEngine - Test retrieved from classes: 0
+[15265] INFO AstorCoreEngine - Setting up the max to 970 milliseconds (0 sec)
+[15266] INFO AstorCoreEngine - ---- Initial suspicious size: 1
+[15587] INFO main - Total suspicious from FL: 1,  1
+[15587] INFO main - Total ModPoint created: 1
+[15587] INFO main - Creating program variant #1, [Variant id: 1, #gens: 1, #ops: 0, parent:-]
+[15587] INFO main - Run previously failing tests...
+[23497] INFO main - Failed tests: 3
+[23497] INFO AstorCoreEngine - The original fitness is : 3.0
+[37683] WARN ConfigurationProperties - ----------------------------
+[37683] INFO ConfigurationProperties - ---Configuration properties
+[37683] INFO ConfigurationProperties - p:lastJUnitVersion= ./examples/libs/junit-4.11.jar
+[37683] INFO ConfigurationProperties - p:alternativecompliancelevel= 8
+[37683] INFO ConfigurationProperties - p:ignoredTestCases= 
+[37683] INFO ConfigurationProperties - p:workingDirectory= /workdir/jGenProg_vul4j_apache_camel_VUL4J-4/./output_astor
+[37683] INFO ConfigurationProperties - p:manipulatesuper= false
+[37683] INFO ConfigurationProperties - p:validation= externalcmd
+[37683] INFO ConfigurationProperties - p:jvm4testexecution= /usr/lib/jvm/java-8-openjdk-amd64/bin
+[37683] INFO ConfigurationProperties - p:operatorspace= irr-statements
+[37683] INFO ConfigurationProperties - p:diffcontext= 0
+[37683] INFO ConfigurationProperties - p:binjavafolder= camel-core/target/classes
+[37683] INFO ConfigurationProperties - p:synthesis_depth= 3
+[37683] INFO ConfigurationProperties - p:gzoltartestpackagetoexclude= junit.framework
+[37683] INFO ConfigurationProperties - p:skipfitnessinitialpopulation= false
+[37683] INFO ConfigurationProperties - p:evosuiteresultfolder= evosuite
+[37683] INFO ConfigurationProperties - p:flthreshold= 0.1
+[37683] INFO ConfigurationProperties - p:regressionforfaultlocalization= true
+[37683] INFO ConfigurationProperties - p:collectonlyusedmethod= false
+[37683] INFO ConfigurationProperties - p:preservelinenumbers= true
+[37683] INFO ConfigurationProperties - p:tmax2= 970
+[37683] INFO ConfigurationProperties - p:tmax1= 10000
+[37683] INFO ConfigurationProperties - p:probagenmutation= false
+[37683] INFO ConfigurationProperties - p:nomodificationconvergence= 100
+[37683] INFO ConfigurationProperties - p:diff_type= relative
+[37683] INFO ConfigurationProperties - p:targetelementprocessor= statements
+[37683] INFO ConfigurationProperties - p:srctestfolder= camel-core/src/test/java
+[37684] INFO ConfigurationProperties - p:forceExecuteRegression= false
+[37684] INFO ConfigurationProperties - p:clusteringfilename= clustering.csv
+[37684] INFO ConfigurationProperties - p:failing= org.apache.camel.builder.xml.XPathFeatureTest#testXPathNoTypeConverter:org.apache.camel.builder.xml.XPathFeatureTest#testXPath:org.apache.camel.builder.xml.XPathFeatureTest#testXPathResultOnInvalidData
+[37684] INFO ConfigurationProperties - p:logtestexecution= false
+[37684] INFO ConfigurationProperties - p:evo_buggy_class= true
+[37684] INFO ConfigurationProperties - p:numberExecutions= 1
+[37684] INFO ConfigurationProperties - p:maxnumbersolutions= 1000000
+[37684] INFO ConfigurationProperties - p:evo_affected_by_op= true
+[37684] INFO ConfigurationProperties - p:population= 1
+[37684] INFO ConfigurationProperties - p:considerzerovaluesusp= false
+[37684] INFO ConfigurationProperties - p:maxCombinationVariableLimit= false
+[37684] INFO ConfigurationProperties - p:savesolution= true
+[37684] INFO ConfigurationProperties - p:javacompliancelevel= 8
+[37684] INFO ConfigurationProperties - p:x= x
+[37684] INFO ConfigurationProperties - p:uniqueoptogen= false
+[37684] INFO ConfigurationProperties - p:gzoltarpackagetonotinstrument= junit.framework
+[37684] INFO ConfigurationProperties - p:projectIdentifier= apache_camel-VUL4J-4
+[37684] INFO ConfigurationProperties - p:modificationpointnavigation= weight
+[37684] INFO ConfigurationProperties - p:stopfirst= true
+[37684] INFO ConfigurationProperties - p:multipointmodification= false
+[37684] INFO ConfigurationProperties - p:elementsToMutate= 10
+[37684] INFO ConfigurationProperties - p:jsonoutputname= astor_output
+[37684] INFO ConfigurationProperties - p:evoDSE= false
+[37684] INFO ConfigurationProperties - p:bintestfolder= camel-core/target/test-classes
+[37684] INFO ConfigurationProperties - p:testbystep= false
+[37684] INFO ConfigurationProperties - p:version-location= ./math-version/
+[37684] INFO ConfigurationProperties - p:reintroduce= PARENTS:ORIGINAL
+[37684] INFO ConfigurationProperties - p:perfectdata= /script/../data/benchmarks/vul4j/perfectfl/VUL4J-4
+[37684] INFO ConfigurationProperties - p:executorjar= ./lib/jtestex7.jar
+[37684] INFO ConfigurationProperties - p:maxGeneration= 1000000
+[37684] INFO ConfigurationProperties - p:max_synthesis_step= 10000
+[37684] INFO ConfigurationProperties - p:projectinfocommand= com.github.tdurieux:project-config-maven-plugin:info
+[37684] INFO ConfigurationProperties - p:maxVarCombination= 1000
+[37684] INFO ConfigurationProperties - p:maxtime= 120
+[37684] INFO ConfigurationProperties - p:evosuitejar= ./lib/evosuite-master-1.0.4-SNAPSHOT.jar
+[37684] INFO ConfigurationProperties - p:jvmversion= 1.8.0_342
+[37684] INFO ConfigurationProperties - p:commandTrunk= 50000
+[37684] INFO ConfigurationProperties - p:faultlocalization= perfect
+[37684] INFO ConfigurationProperties - p:resetmodel= true
+[37684] INFO ConfigurationProperties - p:maxsuspcandidates= 1000
+[37684] INFO ConfigurationProperties - p:mode= jgenprog
+[37687] INFO ConfigurationProperties - p:learningdir= 
+[37687] INFO ConfigurationProperties - p:jvm4evosuitetestexecution= /usr/lib/jvm/java-8-openjdk-amd64/bin
+[37687] INFO ConfigurationProperties - p:filterfaultlocalization= true
+[37687] INFO ConfigurationProperties - p:mutationrate= 1 
+[37687] INFO ConfigurationProperties - p:pathToMVNRepository= 
+[37687] INFO ConfigurationProperties - p:resourcesfolder= /src/main/resources:/src/test/resources:
+[37687] INFO ConfigurationProperties - p:timezone= America/Los_Angeles
+[37687] INFO ConfigurationProperties - p:runjava7code= false
+[37687] INFO ConfigurationProperties - p:testfailingcmd= mvn test -pl camel-core -Dtest=org.apache.camel.builder.xml.XPathFeatureTest -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B
+[37687] INFO ConfigurationProperties - p:evoRunOnBuggyClass= true
+[37687] INFO ConfigurationProperties - p:compiler= fr.inria.astor.core.manipulation.bytecode.compiler.SpoonClassCompiler
+[37687] INFO ConfigurationProperties - p:limitbysuspicious= true
+[37687] INFO ConfigurationProperties - p:logsattemps= true
+[37687] INFO ConfigurationProperties - p:dependenciespath= /root/.m2/repository/org/apache/camel/apt/2.15-SNAPSHOT/apt-2.15-SNAPSHOT.jar:/root/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.4.3/jackson-core-2.4.3.jar:/root/.m2/repository/com/sun/xml/bind/jaxb-core/2.2.11/jaxb-core-2.2.11.jar:/root/.m2/repository/org/codehaus/woodstox/woodstox-core-asl/4.4.1/woodstox-core-asl-4.4.1.jar:/root/.m2/repository/org/apache/camel/spi-annotations/2.15-SNAPSHOT/spi-annotations-2.15-SNAPSHOT.jar:/root/.m2/repository/cglib/cglib-nodep/2.2.2/cglib-nodep-2.2.2.jar:/root/.m2/repository/org/easymock/easymock/3.2/easymock-3.2.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.4.0/jackson-annotations-2.4.0.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/xml-resolver/xml-resolver/1.2/xml-resolver-1.2.jar:/root/.m2/repository/com/googlecode/concurrentlinkedhashmap/concurrentlinkedhashmap-lru/1.4.2/concurrentlinkedhashmap-lru-1.4.2.jar:/root/.m2/repository/org/slf4j/slf4j-log4j12/1.7.10/slf4j-log4j12-1.7.10.jar:/root/.m2/repository/org/codehaus/woodstox/stax2-api/3.1.4/stax2-api-3.1.4.jar:/root/.m2/repository/junit/junit/4.12/junit-4.12.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.6.6/slf4j-api-1.6.6.jar:/root/.m2/repository/org/osgi/org.osgi.core/4.3.1/org.osgi.core-4.3.1.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.4.3/jackson-databind-2.4.3.jar:/root/.m2/repository/com/sun/xml/bind/jaxb-impl/2.2.11/jaxb-impl-2.2.11.jar:/root/.m2/repository/org/objenesis/objenesis/1.3/objenesis-1.3.jar
+[37687] INFO ConfigurationProperties - p:packageToInstrument= 
+[37687] INFO ConfigurationProperties - p:skipfaultlocalization= false
+[37687] INFO ConfigurationProperties - p:scope= local
+[37687] INFO ConfigurationProperties - p:transformingredient= false
+[37687] INFO ConfigurationProperties - p:fitnessfunction= fr.inria.astor.core.solutionsearch.population.TestCaseFitnessFunction
+[37687] INFO ConfigurationProperties - p:maxnumvariablesperingredient= 10
+[37687] INFO ConfigurationProperties - p:parsesourcefromoriginal= true
+[37687] INFO ConfigurationProperties - p:pvariantfoldername= variant-
+[37687] INFO ConfigurationProperties - p:savespoonmodelondisk= false
+[37687] INFO ConfigurationProperties - p:srcjavafolder= camel-core/src/main/java
+[37687] INFO ConfigurationProperties - p:populationcontroller= fr.inria.astor.core.solutionsearch.population.TestCaseBasedFitnessPopulationController
+[37687] INFO ConfigurationProperties - p:ignoreflakyinfl= false
+[37687] INFO ConfigurationProperties - p:cleantemplates= true
+[37687] INFO ConfigurationProperties - p:applyCrossover= false
+[37687] INFO ConfigurationProperties - p:maxmodificationpoints= 1000
+[37687] INFO ConfigurationProperties - p:duplicateingredientsinspace= false
+[37687] INFO ConfigurationProperties - p:metid= 0
+[37687] INFO ConfigurationProperties - p:continuewhenmodelfail= true
+[37687] INFO ConfigurationProperties - p:saveall= false
+[37687] INFO ConfigurationProperties - p:seed= 0
+[37687] INFO ConfigurationProperties - p:savecompletepatched= true
+[37687] INFO ConfigurationProperties - p:resetoperations= false
+[37687] INFO ConfigurationProperties - p:keepcomments= false
+[37687] INFO ConfigurationProperties - p:processoutputinfile= false
+[37687] INFO ConfigurationProperties - p:location= .
+[37687] INFO ConfigurationProperties - p:probabilistictransformation= true
+[37687] INFO ConfigurationProperties - p:overridemaxtime= true
+[37687] INFO ConfigurationProperties - p:outputjsonresult= true
+[37687] INFO ConfigurationProperties - p:allpoints= false
+[37687] INFO ConfigurationProperties - p:antipattern= false
+[37687] INFO ConfigurationProperties - p:bugId= 280
+[37687] INFO ConfigurationProperties - p:evosuitetimeout= 120
+[37688] INFO ConfigurationProperties - p:maxtimefactor= 10
+[37688] INFO ConfigurationProperties - p:nrPlaceholders= 1
+[37688] INFO ConfigurationProperties - p:testallcmd= mvn test -pl camel-core -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B
+[37688] INFO ConfigurationProperties - p:forcesubprocesskilling= false
+[37688] INFO ConfigurationProperties - ----------------------------
+[37688] INFO AstorCoreEngine - ----Starting Solution Search
+[37689] WARN AstorCoreEngine - ----------Running generation: 1, population size: 1
+java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
+	at java.util.ArrayList.rangeCheck(ArrayList.java:659)
+	at java.util.ArrayList.get(ArrayList.java:435)
+	at fr.inria.astor.core.validation.ExternalCmdValidator.validate(ExternalCmdValidator.java:35)
+	at fr.inria.astor.core.solutionsearch.AstorCoreEngine.validateInstance(AstorCoreEngine.java:522)
+	at fr.inria.astor.core.solutionsearch.AstorCoreEngine.processCreatedVariant(AstorCoreEngine.java:443)
+	at fr.inria.astor.core.solutionsearch.EvolutionarySearchEngine.processGenerations(EvolutionarySearchEngine.java:164)
+	at fr.inria.astor.core.solutionsearch.EvolutionarySearchEngine.startEvolution(EvolutionarySearchEngine.java:70)
+	at fr.inria.main.evolution.AstorMain.run(AstorMain.java:189)
+	at fr.inria.main.evolution.AstorMain.execute(AstorMain.java:233)
+	at fr.inria.main.evolution.AstorMain.main(AstorMain.java:204)
+java.io.FileNotFoundException:  (No such file or directory)
+	at java.io.FileOutputStream.open0(Native Method)
+	at java.io.FileOutputStream.open(FileOutputStream.java:270)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:213)
+	at org.apache.commons.io.FileUtils.openOutputStream(FileUtils.java:360)
+	at org.apache.commons.io.FileUtils.writeStringToFile(FileUtils.java:1981)
+	at org.apache.commons.io.FileUtils.write(FileUtils.java:2107)
+	at org.apache.commons.io.FileUtils.write(FileUtils.java:2076)
+	at fr.inria.astor.core.validation.ExternalCmdValidator.validate(ExternalCmdValidator.java:75)
+	at fr.inria.astor.core.solutionsearch.AstorCoreEngine.validateInstance(AstorCoreEngine.java:522)
+	at fr.inria.astor.core.solutionsearch.AstorCoreEngine.processCreatedVariant(AstorCoreEngine.java:443)
+	at fr.inria.astor.core.solutionsearch.EvolutionarySearchEngine.processGenerations(EvolutionarySearchEngine.java:164)
+	at fr.inria.astor.core.solutionsearch.EvolutionarySearchEngine.startEvolution(EvolutionarySearchEngine.java:70)
+	at fr.inria.main.evolution.AstorMain.run(AstorMain.java:189)
+	at fr.inria.main.evolution.AstorMain.execute(AstorMain.java:233)
+	at fr.inria.main.evolution.AstorMain.main(AstorMain.java:204)
+[40356] WARN AstorCoreEngine - ----------Running generation: 2, population size: 1
+[40794] INFO main - Run previously failing tests...
+[49947] INFO main - Failed tests: 3
+[49951] WARN AstorCoreEngine - ----------Running generation: 3, population size: 1
+[50331] INFO main - Run previously failing tests...
+[59886] INFO main - Failed tests: 0
+[59886] INFO main - Run whole testsuite...
+[1274742] INFO main - Failed tests: 0
+[1274743] INFO AstorCoreEngine - -Found Solution, child variant #6
+[1274767] INFO AstorCoreEngine - Time Repair Loop (s): 1237.079
+[1274768] INFO AstorCoreEngine - generationsexecuted: 3
+[1274768] WARN AstorCoreEngine - ----SUMMARY_EXECUTION---
+[1274770] WARN AstorCoreEngine - End Repair Search: Found solution
+[1274770] WARN AstorCoreEngine - Solution stored at: /workdir/jGenProg_vul4j_apache_camel_VUL4J-4/./output_astor/AstorMain-apache_camel-VUL4J-4//src/
+[1274770] WARN AstorCoreEngine - Number solutions:1
+[1274770] INFO AstorCoreEngine - f (sol): 0.0, [Variant id: 6 (SOL) , #gens: 1, #ops: 1, parent:5]
+[1274770] WARN AstorCoreEngine - Number suspicious:1
+[1274859] INFO AstorCoreEngine - 
+ --SOLUTIONS DESCRIPTION--
+
+ ----
+ProgramVariant 6
+ 
+time(sec)= 1237
+operation: ReplaceOp
+location= org.apache.camel.builder.xml.XPathBuilder
+line= 1117
+lineSuspiciousness= 1
+lineSuspiciousness= 0
+original statement= if (answer == null) {
+
+	if (body instanceof org.apache.camel.WrappedFile) {
+
+		java.io.InputStream is = exchange.getContext().getTypeConverter().convertTo(java.io.InputStream.class, exchange, body);
+		answer = new org.xml.sax.InputSource(is);
+	} else if (body instanceof org.apache.camel.component.bean.BeanInvocation) {
+
+		org.apache.camel.component.bean.BeanInvocation bi = exchange.getContext().getTypeConverter().convertTo(org.apache.camel.component.bean.BeanInvocation.class, exchange, body);
+		if (((bi.getArgs() != null) && (bi.getArgs().length == 1)) && (bi.getArgs()[0] == null)) {
+
+			answer = null;
+		}
+	} else if (body instanceof java.lang.String) {
+		answer = new org.xml.sax.InputSource(new java.io.StringReader(((java.lang.String) (body))));
+	}
+}
+buggy kind= CtIfImpl|CtBlockImpl
+fixed statement= if (propertiesFunction == null) {
+	propertiesFunction = createPropertiesFunction();
+}
+Patch kind= CtIfImpl|CtBlockImpl
+generation= 3
+ingredientScope= LOCAL
+validation=|true|0|0|[]|
+diffpatch=--- /workdir/jGenProg_vul4j_apache_camel_VUL4J-4/camel-core/src/main/java/org/apache/camel/builder/xml/XPathBuilderjava
++++ /workdir/jGenProg_vul4j_apache_camel_VUL4J-4/camel-core/src/main/java/org/apache/camel/builder/xml/XPathBuilderjava
+@@ -720,12 +720,2 @@
+-		if (answer == null) {
+-			if (body instanceof org.apache.camel.WrappedFile) {
+-				java.io.InputStream is = exchange.getContext().getTypeConverter().convertTo(java.io.InputStream.class, exchange, body);
+-				answer = new org.xml.sax.InputSource(is);
+-			} else if (body instanceof org.apache.camel.component.bean.BeanInvocation) {
+-				org.apache.camel.component.bean.BeanInvocation bi = exchange.getContext().getTypeConverter().convertTo(org.apache.camel.component.bean.BeanInvocation.class, exchange, body);
+-				if (((bi.getArgs() != null) && (bi.getArgs().length == 1)) && (bi.getArgs()[0] == null)) {
+-					answer = null;
+-				}
+-			} else if (body instanceof java.lang.String) {
+-				answer = new org.xml.sax.InputSource(new java.io.StringReader(((java.lang.String) (body))));
+-			}
++		if (propertiesFunction == null) {
++			propertiesFunction = createPropertiesFunction();
+
+
+diffpatchoriginal=--- /workdir/jGenProg_vul4j_apache_camel_VUL4J-4/camel-core/src/main/java/org/apache/camel/builder/xml/XPathBuilderjava
++++ /workdir/jGenProg_vul4j_apache_camel_VUL4J-4/camel-core/src/main/java/org/apache/camel/builder/xml/XPathBuilderjava
+@@ -1117 +1116,0 @@
+-		if (answer == null) {
+@@ -1119 +1117,0 @@
+-			if (body instanceof org.apache.camel.WrappedFile) {
+@@ -1121,58 +1119,60 @@
+-				java.io.InputStream is = exchange.getContext().getTypeConverter().convertTo(java.io.InputStream.class, exchange, body);
+-				answer = new org.xml.sax.InputSource(is);
+-			} else if (body instanceof org.apache.camel.component.bean.BeanInvocation) {
+-
+-				org.apache.camel.component.bean.BeanInvocation bi = exchange.getContext().getTypeConverter().convertTo(org.apache.camel.component.bean.BeanInvocation.class, exchange, body);
+-				if (((bi.getArgs() != null) && (bi.getArgs().length == 1)) && (bi.getArgs()[0] == null)) {
+-
+-					answer = null;
+-				}
+-			} else if (body instanceof java.lang.String) {
+-				answer = new org.xml.sax.InputSource(new java.io.StringReader(((java.lang.String) (body))));
+-			}
+-		}
+-
+-		if ((type == null) && (answer == null)) {
+-
+-			answer = body;
+-		} else if (answer == null) {
+-
+-			if (cause != null) {
+-				throw cause;
+-			} else {
+-				throw new org.apache.camel.NoTypeConversionAvailableException(body, type);
+-			}
+-		}
+-
+-		return answer;
+-	}
+-
+-	private org.apache.camel.builder.xml.MessageVariableResolver getVariableResolver() {
+-		return variableResolver;
+-	}
+-
+-	@java.lang.Override
+-	public void doStart() throws java.lang.Exception {
+-		if (xpathFactory == null) {
+-			xpathFactory = createXPathFactory();
+-		}
+-		if (namespaceContext == null) {
+-			namespaceContext = createNamespaceContext(xpathFactory);
+-		}
+-		for (java.util.Map.Entry<java.lang.String, java.lang.String> entry : namespaces.entrySet()) {
+-			namespaceContext.add(entry.getKey(), entry.getValue());
+-		}
+-
+-
+-		if (bodyFunction == null) {
+-			bodyFunction = createBodyFunction();
+-		}
+-		if (headerFunction == null) {
+-			headerFunction = createHeaderFunction();
+-		}
+-		if (outBodyFunction == null) {
+-			outBodyFunction = createOutBodyFunction();
+-		}
+-		if (outHeaderFunction == null) {
+-			outHeaderFunction = createOutHeaderFunction();
+-		}
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
+@@ -1181 +1181 @@
+-		}
++		} 		if ((type == null) && (answer == null)) { 			answer = body;} else if (answer == null) { 			if (cause != null) { 				throw cause;} else { 				throw new org.apache.camel.NoTypeConversionAvailableException(body, type);}} 		return answer;} 	private org.apache.camel.builder.xml.MessageVariableResolver getVariableResolver() { 		return variableResolver;} 	@java.lang.Override 	public void doStart() throws java.lang.Exception { 		if (xpathFactory == null) { 			xpathFactory = createXPathFactory();} 		if (namespaceContext == null) { 			namespaceContext = createNamespaceContext(xpathFactory);} 		for (java.util.Map.Entry<java.lang.String, java.lang.String> entry : namespaces.entrySet()) { 			namespaceContext.add(entry.getKey(), entry.getValue());} 		if (bodyFunction == null) { 			bodyFunction = createBodyFunction();} 		if (headerFunction == null) { 			headerFunction = createHeaderFunction();} 		if (outBodyFunction == null) { 			outBodyFunction = createOutBodyFunction();} 		if (outHeaderFunction == null) { 			outHeaderFunction = createOutHeaderFunction();} 		if (propertiesFunction == null) { 			propertiesFunction = createPropertiesFunction();}
+
+
+
+[1274860] INFO AstorCoreEngine - Generation 1
+[1274860] INFO AstorCoreEngine - Generation 2
+[1274860] INFO AstorCoreEngine - Generation 3
+Astor Output:
+
+General stats:
+EXECUTION_IDENTIFIER=apache_camel-VUL4J-4
+TOTAL_TIME=1237.079
+NR_GENERATIONS=3
+NR_RIGHT_COMPILATIONS=3
+NR_FAILLING_COMPILATIONS=null
+NR_ERRONEOUS_VARIANCES=null
+NR_FAILING_VALIDATION_PROCESS=null
+OUTPUT_STATUS=STOP_BY_PATCH_FOUND
+
+Patch stats:
+
+Patch 1
+VARIANT_ID=6
+TIME=1237
+VALIDATION=|true|0|0|[]|
+GENERATION=3
+FOLDER_SOLUTION_CODE=/workdir/jGenProg_vul4j_apache_camel_VUL4J-4/./output_astor/AstorMain-apache_camel-VUL4J-4//src//variant-6
+--Patch Hunk #1
+OPERATOR=ReplaceOp
+
+LOCATION=org.apache.camel.builder.xml.XPathBuilder
+
+PATH=/workdir/jGenProg_vul4j_apache_camel_VUL4J-4/camel-core/src/main/java/org/apache/camel/builder/xml/XPathBuilder.java
+
+MODIFIED_FILE_PATH=/workdir/jGenProg_vul4j_apache_camel_VUL4J-4/./output_astor/AstorMain-apache_camel-VUL4J-4//src//variant-6/org/apache/camel/builder/xml/XPathBuilder.java
+
+LINE=1117
+
+SUSPICIOUNESS=1
+
+MP_RANKING=0
+
+ORIGINAL_CODE=if (answer == null) {
+
+	if (body instanceof org.apache.camel.WrappedFile) {
+
+		java.io.InputStream is = exchange.getContext().getTypeConverter().convertTo(java.io.InputStream.class, exchange, body);
+		answer = new org.xml.sax.InputSource(is);
+	} else if (body instanceof org.apache.camel.component.bean.BeanInvocation) {
+
+		org.apache.camel.component.bean.BeanInvocation bi = exchange.getContext().getTypeConverter().convertTo(org.apache.camel.component.bean.BeanInvocation.class, exchange, body);
+		if (((bi.getArgs() != null) && (bi.getArgs().length == 1)) && (bi.getArgs()[0] == null)) {
+
+			answer = null;
+		}
+	} else if (body instanceof java.lang.String) {
+		answer = new org.xml.sax.InputSource(new java.io.StringReader(((java.lang.String) (body))));
+	}
+}
+
+BUGGY_CODE_TYPE=CtIfImpl|CtBlockImpl
+
+PATCH_HUNK_CODE=if (propertiesFunction == null) {
+	propertiesFunction = createPropertiesFunction();
+}
+
+PATCH_HUNK_TYPE=CtIfImpl|CtBlockImpl
+
+INGREDIENT_SCOPE=LOCAL
+
+INGREDIENT_PARENT=if (propertiesFunction == null) {
+	propertiesFunction = createPropertiesFunction();
+}
+
+PATCH_DIFF_ORIG=--- /workdir/jGenProg_vul4j_apache_camel_VUL4J-4/camel-core/src/main/java/org/apache/camel/builder/xml/XPathBuilderjava
++++ /workdir/jGenProg_vul4j_apache_camel_VUL4J-4/camel-core/src/main/java/org/apache/camel/builder/xml/XPathBuilderjava
+@@ -1117 +1116,0 @@
+-		if (answer == null) {
+@@ -1119 +1117,0 @@
+-			if (body instanceof org.apache.camel.WrappedFile) {
+@@ -1121,58 +1119,60 @@
+-				java.io.InputStream is = exchange.getContext().getTypeConverter().convertTo(java.io.InputStream.class, exchange, body);
+-				answer = new org.xml.sax.InputSource(is);
+-			} else if (body instanceof org.apache.camel.component.bean.BeanInvocation) {
+-
+-				org.apache.camel.component.bean.BeanInvocation bi = exchange.getContext().getTypeConverter().convertTo(org.apache.camel.component.bean.BeanInvocation.class, exchange, body);
+-				if (((bi.getArgs() != null) && (bi.getArgs().length == 1)) && (bi.getArgs()[0] == null)) {
+-
+-					answer = null;
+-				}
+-			} else if (body instanceof java.lang.String) {
+-				answer = new org.xml.sax.InputSource(new java.io.StringReader(((java.lang.String) (body))));
+-			}
+-		}
+-
+-		if ((type == null) && (answer == null)) {
+-
+-			answer = body;
+-		} else if (answer == null) {
+-
+-			if (cause != null) {
+-				throw cause;
+-			} else {
+-				throw new org.apache.camel.NoTypeConversionAvailableException(body, type);
+-			}
+-		}
+-
+-		return answer;
+-	}
+-
+-	private org.apache.camel.builder.xml.MessageVariableResolver getVariableResolver() {
+-		return variableResolver;
+-	}
+-
+-	@java.lang.Override
+-	public void doStart() throws java.lang.Exception {
+-		if (xpathFactory == null) {
+-			xpathFactory = createXPathFactory();
+-		}
+-		if (namespaceContext == null) {
+-			namespaceContext = createNamespaceContext(xpathFactory);
+-		}
+-		for (java.util.Map.Entry<java.lang.String, java.lang.String> entry : namespaces.entrySet()) {
+-			namespaceContext.add(entry.getKey(), entry.getValue());
+-		}
+-
+-
+-		if (bodyFunction == null) {
+-			bodyFunction = createBodyFunction();
+-		}
+-		if (headerFunction == null) {
+-			headerFunction = createHeaderFunction();
+-		}
+-		if (outBodyFunction == null) {
+-			outBodyFunction = createOutBodyFunction();
+-		}
+-		if (outHeaderFunction == null) {
+-			outHeaderFunction = createOutHeaderFunction();
+-		}
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
+@@ -1181 +1181 @@
+-		}
++		} 		if ((type == null) && (answer == null)) { 			answer = body;} else if (answer == null) { 			if (cause != null) { 				throw cause;} else { 				throw new org.apache.camel.NoTypeConversionAvailableException(body, type);}} 		return answer;} 	private org.apache.camel.builder.xml.MessageVariableResolver getVariableResolver() { 		return variableResolver;} 	@java.lang.Override 	public void doStart() throws java.lang.Exception { 		if (xpathFactory == null) { 			xpathFactory = createXPathFactory();} 		if (namespaceContext == null) { 			namespaceContext = createNamespaceContext(xpathFactory);} 		for (java.util.Map.Entry<java.lang.String, java.lang.String> entry : namespaces.entrySet()) { 			namespaceContext.add(entry.getKey(), entry.getValue());} 		if (bodyFunction == null) { 			bodyFunction = createBodyFunction();} 		if (headerFunction == null) { 			headerFunction = createHeaderFunction();} 		if (outBodyFunction == null) { 			outBodyFunction = createOutBodyFunction();} 		if (outHeaderFunction == null) { 			outHeaderFunction = createOutHeaderFunction();} 		if (propertiesFunction == null) { 			propertiesFunction = createPropertiesFunction();}
+
+
+
+[1274870] INFO Stats - Storing ing JSON at /workdir/jGenProg_vul4j_apache_camel_VUL4J-4/./output_astor/AstorMain-apache_camel-VUL4J-4//astor_output.json
+[1274870] INFO Stats - astor_output:
+{"general":{"NR_RIGHT_COMPILATIONS":3,"NR_ERRONEOUS_VARIANCES":null,"EXECUTION_IDENTIFIER":"apache_camel-VUL4J-4","OUTPUT_STATUS":"STOP_BY_PATCH_FOUND","NR_FAILLING_COMPILATIONS":null,"NR_GENERATIONS":3,"TOTAL_TIME":1237.079,"NR_FAILING_VALIDATION_PROCESS":null},"patches":[{"VARIANT_ID":"6","VALIDATION":"|true|0|0|[]|","patchhunks":[{"LOCATION":"org.apache.camel.builder.xml.XPathBuilder","PATH":"\\\/workdir\\\/jGenProg_vul4j_apache_camel_VUL4J-4\\\/camel-core\\\/src\\\/main\\\/java\\\/org\\\/apache\\\/camel\\\/builder\\\/xml\\\/XPathBuilder.java","INGREDIENT_SCOPE":"LOCAL","SUSPICIOUNESS":"1","INGREDIENT_PARENT":"if (propertiesFunction == null) {\\n\\tpropertiesFunction = createPropertiesFunction();\\n}","PATCH_HUNK_TYPE":"CtIfImpl|CtBlockImpl","ORIGINAL_CODE":"if (answer == null) {\\n\\n\\tif (body instanceof org.apache.camel.WrappedFile) {\\n\\n\\t\\tjava.io.InputStream is = exchange.getContext().getTypeConverter().convertTo(java.io.InputStream.class, exchange, body);\\n\\t\\tanswer = new org.xml.sax.InputSource(is);\\n\\t} else if (body instanceof org.apache.camel.component.bean.BeanInvocation) {\\n\\n\\t\\torg.apache.camel.component.bean.BeanInvocation bi = exchange.getContext().getTypeConverter().convertTo(org.apache.camel.component.bean.BeanInvocation.class, exchange, body);\\n\\t\\tif (((bi.getArgs() != null) && (bi.getArgs().length == 1)) && (bi.getArgs()[0] == null)) {\\n\\n\\t\\t\\tanswer = null;\\n\\t\\t}\\n\\t} else if (body instanceof java.lang.String) {\\n\\t\\tanswer = new org.xml.sax.InputSource(new java.io.StringReader(((java.lang.String) (body))));\\n\\t}\\n}","BUGGY_CODE_TYPE":"CtIfImpl|CtBlockImpl","OPERATOR":"ReplaceOp","MODIFIED_FILE_PATH":"\\\/workdir\\\/jGenProg_vul4j_apache_camel_VUL4J-4\\\/.\\\/output_astor\\\/AstorMain-apache_camel-VUL4J-4\\\/\\\/src\\\/\\\/variant-6\\\/org\\\/apache\\\/camel\\\/builder\\\/xml\\\/XPathBuilder.java","LINE":"1117","MP_RANKING":"0","PATCH_HUNK_CODE":"if (propertiesFunction == null) {\\n\\tpropertiesFunction = createPropertiesFunction();\\n}"}],"TIME":"1237","GENERATION":"3","FOLDER_SOLUTION_CODE":"\\\/workdir\\\/jGenProg_vul4j_apache_camel_VUL4J-4\\\/.\\\/output_astor\\\/AstorMain-apache_camel-VUL4J-4\\\/\\\/src\\\/\\\/variant-6","PATCH_DIFF_ORIG":"--- \\\/workdir\\\/jGenProg_vul4j_apache_camel_VUL4J-4\\\/camel-core\\\/src\\\/main\\\/java\\\/org\\\/apache\\\/camel\\\/builder\\\/xml\\\/XPathBuilderjava\\n+++ \\\/workdir\\\/jGenProg_vul4j_apache_camel_VUL4J-4\\\/camel-core\\\/src\\\/main\\\/java\\\/org\\\/apache\\\/camel\\\/builder\\\/xml\\\/XPathBuilderjava\\n@@ -1117 +1116,0 @@\\n-\\t\\tif (answer == null) {\\n@@ -1119 +1117,0 @@\\n-\\t\\t\\tif (body instanceof org.apache.camel.WrappedFile) {\\n@@ -1121,58 +1119,60 @@\\n-\\t\\t\\t\\tjava.io.InputStream is = exchange.getContext().getTypeConverter().convertTo(java.io.InputStream.class, exchange, body);\\n-\\t\\t\\t\\tanswer = new org.xml.sax.InputSource(is);\\n-\\t\\t\\t} else if (body instanceof org.apache.camel.component.bean.BeanInvocation) {\\n-\\n-\\t\\t\\t\\torg.apache.camel.component.bean.BeanInvocation bi = exchange.getContext().getTypeConverter().convertTo(org.apache.camel.component.bean.BeanInvocation.class, exchange, body);\\n-\\t\\t\\t\\tif (((bi.getArgs() != null) && (bi.getArgs().length == 1)) && (bi.getArgs()[0] == null)) {\\n-\\n-\\t\\t\\t\\t\\tanswer = null;\\n-\\t\\t\\t\\t}\\n-\\t\\t\\t} else if (body instanceof java.lang.String) {\\n-\\t\\t\\t\\tanswer = new org.xml.sax.InputSource(new java.io.StringReader(((java.lang.String) (body))));\\n-\\t\\t\\t}\\n-\\t\\t}\\n-\\n-\\t\\tif ((type == null) && (answer == null)) {\\n-\\n-\\t\\t\\tanswer = body;\\n-\\t\\t} else if (answer == null) {\\n-\\n-\\t\\t\\tif (cause != null) {\\n-\\t\\t\\t\\tthrow cause;\\n-\\t\\t\\t} else {\\n-\\t\\t\\t\\tthrow new org.apache.camel.NoTypeConversionAvailableException(body, type);\\n-\\t\\t\\t}\\n-\\t\\t}\\n-\\n-\\t\\treturn answer;\\n-\\t}\\n-\\n-\\tprivate org.apache.camel.builder.xml.MessageVariableResolver getVariableResolver() {\\n-\\t\\treturn variableResolver;\\n-\\t}\\n-\\n-\\t@java.lang.Override\\n-\\tpublic void doStart() throws java.lang.Exception {\\n-\\t\\tif (xpathFactory == null) {\\n-\\t\\t\\txpathFactory = createXPathFactory();\\n-\\t\\t}\\n-\\t\\tif (namespaceContext == null) {\\n-\\t\\t\\tnamespaceContext = createNamespaceContext(xpathFactory);\\n-\\t\\t}\\n-\\t\\tfor (java.util.Map.Entry<java.lang.String, java.lang.String> entry : namespaces.entrySet()) {\\n-\\t\\t\\tnamespaceContext.add(entry.getKey(), entry.getValue());\\n-\\t\\t}\\n-\\n-\\n-\\t\\tif (bodyFunction == null) {\\n-\\t\\t\\tbodyFunction = createBodyFunction();\\n-\\t\\t}\\n-\\t\\tif (headerFunction == null) {\\n-\\t\\t\\theaderFunction = createHeaderFunction();\\n-\\t\\t}\\n-\\t\\tif (outBodyFunction == null) {\\n-\\t\\t\\toutBodyFunction = createOutBodyFunction();\\n-\\t\\t}\\n-\\t\\tif (outHeaderFunction == null) {\\n-\\t\\t\\toutHeaderFunction = createOutHeaderFunction();\\n-\\t\\t}\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n@@ -1181 +1181 @@\\n-\\t\\t}\\n+\\t\\t} \\t\\tif ((type == null) && (answer == null)) { \\t\\t\\tanswer = body;} else if (answer == null) { \\t\\t\\tif (cause != null) { \\t\\t\\t\\tthrow cause;} else { \\t\\t\\t\\tthrow new org.apache.camel.NoTypeConversionAvailableException(body, type);}} \\t\\treturn answer;} \\tprivate org.apache.camel.builder.xml.MessageVariableResolver getVariableResolver() { \\t\\treturn variableResolver;} \\t@java.lang.Override \\tpublic void doStart() throws java.lang.Exception { \\t\\tif (xpathFactory == null) { \\t\\t\\txpathFactory = createXPathFactory();} \\t\\tif (namespaceContext == null) { \\t\\t\\tnamespaceContext = createNamespaceContext(xpathFactory);} \\t\\tfor (java.util.Map.Entry<java.lang.String, java.lang.String> entry : namespaces.entrySet()) { \\t\\t\\tnamespaceContext.add(entry.getKey(), entry.getValue());} \\t\\tif (bodyFunction == null) { \\t\\t\\tbodyFunction = createBodyFunction();} \\t\\tif (headerFunction == null) { \\t\\t\\theaderFunction = createHeaderFunction();} \\t\\tif (outBodyFunction == null) { \\t\\t\\toutBodyFunction = createOutBodyFunction();} \\t\\tif (outHeaderFunction == null) { \\t\\t\\toutHeaderFunction = createOutHeaderFunction();} \\t\\tif (propertiesFunction == null) { \\t\\t\\tpropertiesFunction = createPropertiesFunction();}\\n\\n"}]}
+[1274871] INFO AstorMain - Time Total(s): 1274.865
+247.99user 18.27system 21:15.21elapsed 20%CPU (0avgtext+0avgdata 1775560maxresident)k
+32112inputs+237144outputs (160major+1522647minor)pagefaults 0swaps
+
+
+Node: 2c8178711f7b
+
+
+
+Date: Tue Nov 15 09:23:37 EST 2022
+

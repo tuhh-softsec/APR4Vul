@@ -1,0 +1,348 @@
+cd /workdir/jKali_vul4j_x-stream_xstream_VUL4J-78;
+export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en";
+TZ="America/New_York"; export TZ;
+export PATH="/usr/lib/jvm/java-8-openjdk-amd64/bin:$PATH";
+export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64/bin";
+time java -Xmx4g -Xms1g -XX:MaxPermSize=512m -cp /script/../libs/jtestex7.jar:/script/../repair_tools/astor.jar fr.inria.main.evolution.AstorMain \
+	-mode jkali \
+	-location . \
+	-id x-stream_xstream-VUL4J-78 \
+	-failing com.thoughtworks.acceptance.SecurityVulnerabilityTest#testCannotInjectEventHandlerWithUnconfiguredSecurityFramework \
+	-jvm4testexecution /usr/lib/jvm/jdk1.7.0_80/bin \
+	-jvm4evosuitetestexecution /usr/lib/jvm/jdk1.7.0_80/bin \
+	-maxgen 1000000 \
+	-maxtime 120 \
+	-stopfirst true \
+	-seed 0 \
+	-scope local \
+	-population 1 \
+	-javacompliancelevel 7 \
+	-faultlocalization perfect \
+    -perfectdata /script/../data/benchmarks/vul4j/perfectfl/VUL4J-78 \
+    -validation externalcmd \
+    -testfailingcmd "mvn test -pl xstream -Dtest=com.thoughtworks.acceptance.SecurityVulnerabilityTest -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B" \
+    -testallcmd "mvn test -pl xstream -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B"  \ \
+	-srcjavafolder xstream/src/java \
+	-srctestfolder xstream/src/test \
+	-binjavafolder xstream/target/classes \
+	-bintestfolder xstream/target/test-classes \
+	-parameters x:x \
+	-dependencies /root/.m2/repository/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar:/root/.m2/repository/xmlpull/xmlpull/1.1.3.1/xmlpull-1.1.3.1.jar:/root/.m2/repository/stax/stax-api/1.0.1/stax-api-1.0.1.jar:/root/.m2/repository/cglib/cglib-nodep/2.2/cglib-nodep-2.2.jar:/root/.m2/repository/org/jdom/jdom2/2.0.5/jdom2-2.0.5.jar:/root/.m2/repository/org/codehaus/woodstox/wstx-asl/3.2.7/wstx-asl-3.2.7.jar:/root/.m2/repository/org/json/json/20080701/json-20080701.jar:/root/.m2/repository/org/jdom/jdom/1.1.3/jdom-1.1.3.jar:/root/.m2/repository/javax/activation/activation/1.1.1/activation-1.1.1.jar:/root/.m2/repository/stax/stax/1.2.0/stax-1.2.0.jar:/root/.m2/repository/junit/junit/3.8.1/junit-3.8.1.jar:/root/.m2/repository/com/megginson/sax/xml-writer/0.2/xml-writer-0.2.jar:/root/.m2/repository/commons-lang/commons-lang/2.4/commons-lang-2.4.jar:/root/.m2/repository/xpp3/xpp3_min/1.1.4c/xpp3_min-1.1.4c.jar:/root/.m2/repository/org/codehaus/jettison/jettison/1.2/jettison-1.2.jar:/root/.m2/repository/net/sf/kxml/kxml2/2.3.0/kxml2-2.3.0.jar:/root/.m2/repository/jmock/jmock/1.0.1/jmock-1.0.1.jar:/root/.m2/repository/joda-time/joda-time/1.6/joda-time-1.6.jar:/root/.m2/repository/oro/oro/2.0.8/oro-2.0.8.jar:/root/.m2/repository/xom/xom/1.1/xom-1.1.jar:/root/.m2/repository/net/sf/kxml/kxml2-min/2.3.0/kxml2-min-2.3.0.jar;
+	echo "\n\nNode: `hostname`\n";
+	echo "\n\nDate: `date`\n";
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en
+OpenJDK 64-Bit Server VM warning: ignoring option MaxPermSize=512m; support was removed in 8.0
+[0] INFO ProjectConfiguration - Version of the JVM used: 1.7.0_80
+[0] INFO main - Java version of the JDK used to run tests: 1.7.0_80
+[0] INFO main - The compliance of the JVM is:  7
+[3] INFO main - command line arguments: [-mode  jkali  -location  .  -id  x-stream_xstream-VUL4J-78  -failing  com.thoughtworks.acceptance.SecurityVulnerabilityTest#testCannotInjectEventHandlerWithUnconfiguredSecurityFramework  -jvm4testexecution  /usr/lib/jvm/jdk1.7.0_80/bin  -jvm4evosuitetestexecution  /usr/lib/jvm/jdk1.7.0_80/bin  -maxgen  1000000  -maxtime  120  -stopfirst  true  -seed  0  -scope  local  -population  1  -javacompliancelevel  7  -faultlocalization  perfect  -perfectdata  /script/../data/benchmarks/vul4j/perfectfl/VUL4J-78  -validation  externalcmd  -testfailingcmd  mvn test -pl xstream -Dtest=com.thoughtworks.acceptance.SecurityVulnerabilityTest -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B  -testallcmd  mvn test -pl xstream -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B     -srcjavafolder  xstream/src/java  -srctestfolder  xstream/src/test  -binjavafolder  xstream/target/classes  -bintestfolder  xstream/target/test-classes  -parameters  x:x  -dependencies  /root/.m2/repository/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar:/root/.m2/repository/xmlpull/xmlpull/1.1.3.1/xmlpull-1.1.3.1.jar:/root/.m2/repository/stax/stax-api/1.0.1/stax-api-1.0.1.jar:/root/.m2/repository/cglib/cglib-nodep/2.2/cglib-nodep-2.2.jar:/root/.m2/repository/org/jdom/jdom2/2.0.5/jdom2-2.0.5.jar:/root/.m2/repository/org/codehaus/woodstox/wstx-asl/3.2.7/wstx-asl-3.2.7.jar:/root/.m2/repository/org/json/json/20080701/json-20080701.jar:/root/.m2/repository/org/jdom/jdom/1.1.3/jdom-1.1.3.jar:/root/.m2/repository/javax/activation/activation/1.1.1/activation-1.1.1.jar:/root/.m2/repository/stax/stax/1.2.0/stax-1.2.0.jar:/root/.m2/repository/junit/junit/3.8.1/junit-3.8.1.jar:/root/.m2/repository/com/megginson/sax/xml-writer/0.2/xml-writer-0.2.jar:/root/.m2/repository/commons-lang/commons-lang/2.4/commons-lang-2.4.jar:/root/.m2/repository/xpp3/xpp3_min/1.1.4c/xpp3_min-1.1.4c.jar:/root/.m2/repository/org/codehaus/jettison/jettison/1.2/jettison-1.2.jar:/root/.m2/repository/net/sf/kxml/kxml2/2.3.0/kxml2-2.3.0.jar:/root/.m2/repository/jmock/jmock/1.0.1/jmock-1.0.1.jar:/root/.m2/repository/joda-time/joda-time/1.6/joda-time-1.6.jar:/root/.m2/repository/oro/oro/2.0.8/oro-2.0.8.jar:/root/.m2/repository/xom/xom/1.1/xom-1.1.jar:/root/.m2/repository/net/sf/kxml/kxml2-min/2.3.0/kxml2-min-2.3.0.jar]
+[5] INFO AstorMain - Running Astor on a JDK at /usr/lib/jvm/java-8-openjdk-amd64/jre
+[27] INFO main - Source folders: [/workdir/jKali_vul4j_x-stream_xstream_VUL4J-78/./xstream/src/java]
+[28] INFO main - Source Test folders: [/workdir/jKali_vul4j_x-stream_xstream_VUL4J-78/./xstream/src/test]
+[5167] INFO AstorCoreEngine - ---- Creating spoon model
+[5269] INFO MutationSupporter - Creating model,  Code location from working folder: /workdir/jKali_vul4j_x-stream_xstream_VUL4J-78/./xstream/src/java
+[5269] INFO MutationSupporter - building model: /workdir/jKali_vul4j_x-stream_xstream_VUL4J-78/./xstream/src/java, compliance level: 7
+[5502] INFO MutationSupporter - Classpath (Dependencies) for building SpoonModel: [/root/.m2/repository/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar, /root/.m2/repository/xmlpull/xmlpull/1.1.3.1/xmlpull-1.1.3.1.jar, /root/.m2/repository/stax/stax-api/1.0.1/stax-api-1.0.1.jar, /root/.m2/repository/cglib/cglib-nodep/2.2/cglib-nodep-2.2.jar, /root/.m2/repository/org/jdom/jdom2/2.0.5/jdom2-2.0.5.jar, /root/.m2/repository/org/codehaus/woodstox/wstx-asl/3.2.7/wstx-asl-3.2.7.jar, /root/.m2/repository/org/json/json/20080701/json-20080701.jar, /root/.m2/repository/org/jdom/jdom/1.1.3/jdom-1.1.3.jar, /root/.m2/repository/javax/activation/activation/1.1.1/activation-1.1.1.jar, /root/.m2/repository/stax/stax/1.2.0/stax-1.2.0.jar, /root/.m2/repository/junit/junit/3.8.1/junit-3.8.1.jar, /root/.m2/repository/com/megginson/sax/xml-writer/0.2/xml-writer-0.2.jar, /root/.m2/repository/commons-lang/commons-lang/2.4/commons-lang-2.4.jar, /root/.m2/repository/xpp3/xpp3_min/1.1.4c/xpp3_min-1.1.4c.jar, /root/.m2/repository/org/codehaus/jettison/jettison/1.2/jettison-1.2.jar, /root/.m2/repository/net/sf/kxml/kxml2/2.3.0/kxml2-2.3.0.jar, /root/.m2/repository/jmock/jmock/1.0.1/jmock-1.0.1.jar, /root/.m2/repository/joda-time/joda-time/1.6/joda-time-1.6.jar, /root/.m2/repository/oro/oro/2.0.8/oro-2.0.8.jar, /root/.m2/repository/xom/xom/1.1/xom-1.1.jar, /root/.m2/repository/net/sf/kxml/kxml2-min/2.3.0/kxml2-min-2.3.0.jar]
+[29149] ERROR MutationSupporter - Problem compiling the model with compliance level 7
+[29149] ERROR MutationSupporter - The method parseChronoLocalDate(String, String, Set<Chronology>) in the type AbstractChronoLocalDateConverter<ThaiBuddhistEra> is not applicable for the arguments (String, String, Set<ThaiBuddhistChronology>) at /workdir/jKali_vul4j_x-stream_xstream_VUL4J-78/xstream/src/java/com/thoughtworks/xstream/converters/time/ThaiBuddhistDateConverter.java:35
+spoon.compiler.ModelBuildingException: The method parseChronoLocalDate(String, String, Set<Chronology>) in the type AbstractChronoLocalDateConverter<ThaiBuddhistEra> is not applicable for the arguments (String, String, Set<ThaiBuddhistChronology>) at /workdir/jKali_vul4j_x-stream_xstream_VUL4J-78/xstream/src/java/com/thoughtworks/xstream/converters/time/ThaiBuddhistDateConverter.java:35
+	at spoon.support.compiler.jdt.JDTBasedSpoonCompiler.report(JDTBasedSpoonCompiler.java:649)
+	at spoon.support.compiler.jdt.JDTBasedSpoonCompiler.reportProblems(JDTBasedSpoonCompiler.java:631)
+	at spoon.support.compiler.jdt.JDTBasedSpoonCompiler.build(JDTBasedSpoonCompiler.java:118)
+	at spoon.support.compiler.jdt.JDTBasedSpoonCompiler.build(JDTBasedSpoonCompiler.java:99)
+	at fr.inria.astor.core.manipulation.MutationSupporter.buildModel(MutationSupporter.java:85)
+	at fr.inria.astor.core.manipulation.MutationSupporter.buildSpoonModel(MutationSupporter.java:240)
+	at fr.inria.astor.core.solutionsearch.AstorCoreEngine.initModel(AstorCoreEngine.java:775)
+	at fr.inria.main.evolution.AstorMain.createEngine(AstorMain.java:113)
+	at fr.inria.main.evolution.AstorMain.run(AstorMain.java:173)
+	at fr.inria.main.evolution.AstorMain.execute(AstorMain.java:233)
+	at fr.inria.main.evolution.AstorMain.main(AstorMain.java:204)
+[29150] INFO MutationSupporter - Recompiling with compliance level 8
+[29150] INFO MutationSupporter - building model: /workdir/jKali_vul4j_x-stream_xstream_VUL4J-78/./xstream/src/java, compliance level: 8
+[29308] INFO MutationSupporter - Classpath (Dependencies) for building SpoonModel: [/root/.m2/repository/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar, /root/.m2/repository/xmlpull/xmlpull/1.1.3.1/xmlpull-1.1.3.1.jar, /root/.m2/repository/stax/stax-api/1.0.1/stax-api-1.0.1.jar, /root/.m2/repository/cglib/cglib-nodep/2.2/cglib-nodep-2.2.jar, /root/.m2/repository/org/jdom/jdom2/2.0.5/jdom2-2.0.5.jar, /root/.m2/repository/org/codehaus/woodstox/wstx-asl/3.2.7/wstx-asl-3.2.7.jar, /root/.m2/repository/org/json/json/20080701/json-20080701.jar, /root/.m2/repository/org/jdom/jdom/1.1.3/jdom-1.1.3.jar, /root/.m2/repository/javax/activation/activation/1.1.1/activation-1.1.1.jar, /root/.m2/repository/stax/stax/1.2.0/stax-1.2.0.jar, /root/.m2/repository/junit/junit/3.8.1/junit-3.8.1.jar, /root/.m2/repository/com/megginson/sax/xml-writer/0.2/xml-writer-0.2.jar, /root/.m2/repository/commons-lang/commons-lang/2.4/commons-lang-2.4.jar, /root/.m2/repository/xpp3/xpp3_min/1.1.4c/xpp3_min-1.1.4c.jar, /root/.m2/repository/org/codehaus/jettison/jettison/1.2/jettison-1.2.jar, /root/.m2/repository/net/sf/kxml/kxml2/2.3.0/kxml2-2.3.0.jar, /root/.m2/repository/jmock/jmock/1.0.1/jmock-1.0.1.jar, /root/.m2/repository/joda-time/joda-time/1.6/joda-time-1.6.jar, /root/.m2/repository/oro/oro/2.0.8/oro-2.0.8.jar, /root/.m2/repository/xom/xom/1.1/xom-1.1.jar, /root/.m2/repository/net/sf/kxml/kxml2-min/2.3.0/kxml2-min-2.3.0.jar]
+[37691] INFO AstorCoreEngine - Number of CtTypes created: 354
+[38020] INFO AstorCoreEngine - Test retrieved from classes: 0
+[38240] INFO AstorCoreEngine - Setting up the max to 2190 milliseconds (2 sec)
+[38240] INFO AstorCoreEngine - ---- Initial suspicious size: 7
+[45839] INFO main - Total suspicious from FL: 7,  6
+[45839] INFO main - Total ModPoint created: 6
+[45839] INFO main - Creating program variant #1, [Variant id: 1, #gens: 6, #ops: 0, parent:-]
+[45840] INFO main - Run previously failing tests...
+[70571] INFO main - Failed tests: 1
+[70574] INFO AstorCoreEngine - The original fitness is : 1.0
+[70574] WARN ConfigurationProperties - ----------------------------
+[70574] INFO ConfigurationProperties - ---Configuration properties
+[70575] INFO ConfigurationProperties - p:lastJUnitVersion= ./examples/libs/junit-4.11.jar
+[70575] INFO ConfigurationProperties - p:alternativecompliancelevel= 8
+[70575] INFO ConfigurationProperties - p:ignoredTestCases= 
+[70575] INFO ConfigurationProperties - p:workingDirectory= /workdir/jKali_vul4j_x-stream_xstream_VUL4J-78/./output_astor
+[70575] INFO ConfigurationProperties - p:manipulatesuper= false
+[70575] INFO ConfigurationProperties - p:validation= externalcmd
+[70575] INFO ConfigurationProperties - p:jvm4testexecution= /usr/lib/jvm/jdk1.7.0_80/bin
+[70575] INFO ConfigurationProperties - p:operatorspace= suppression
+[70575] INFO ConfigurationProperties - p:diffcontext= 0
+[70575] INFO ConfigurationProperties - p:binjavafolder= xstream/target/classes
+[70575] INFO ConfigurationProperties - p:synthesis_depth= 3
+[70575] INFO ConfigurationProperties - p:gzoltartestpackagetoexclude= junit.framework
+[70575] INFO ConfigurationProperties - p:skipfitnessinitialpopulation= false
+[70575] INFO ConfigurationProperties - p:evosuiteresultfolder= evosuite
+[70575] INFO ConfigurationProperties - p:flthreshold= 0.1
+[70575] INFO ConfigurationProperties - p:regressionforfaultlocalization= true
+[70575] INFO ConfigurationProperties - p:collectonlyusedmethod= false
+[70576] INFO ConfigurationProperties - p:preservelinenumbers= true
+[70576] INFO ConfigurationProperties - p:tmax2= 2190
+[70576] INFO ConfigurationProperties - p:tmax1= 10000
+[70576] INFO ConfigurationProperties - p:probagenmutation= false
+[70576] INFO ConfigurationProperties - p:nomodificationconvergence= 100
+[70576] INFO ConfigurationProperties - p:diff_type= relative
+[70576] INFO ConfigurationProperties - p:targetelementprocessor= statements
+[70576] INFO ConfigurationProperties - p:srctestfolder= xstream/src/test
+[70576] INFO ConfigurationProperties - p:forceExecuteRegression= false
+[70576] INFO ConfigurationProperties - p:clusteringfilename= clustering.csv
+[70576] INFO ConfigurationProperties - p:failing= com.thoughtworks.acceptance.SecurityVulnerabilityTest#testCannotInjectEventHandlerWithUnconfiguredSecurityFramework
+[70576] INFO ConfigurationProperties - p:logtestexecution= false
+[70576] INFO ConfigurationProperties - p:evo_buggy_class= true
+[70576] INFO ConfigurationProperties - p:numberExecutions= 1
+[70576] INFO ConfigurationProperties - p:maxnumbersolutions= 1000000
+[70576] INFO ConfigurationProperties - p:evo_affected_by_op= true
+[70576] INFO ConfigurationProperties - p:population= 1
+[70576] INFO ConfigurationProperties - p:considerzerovaluesusp= false
+[70576] INFO ConfigurationProperties - p:maxCombinationVariableLimit= false
+[70577] INFO ConfigurationProperties - p:savesolution= true
+[70577] INFO ConfigurationProperties - p:javacompliancelevel= 7
+[70577] INFO ConfigurationProperties - p:x= x
+[70577] INFO ConfigurationProperties - p:uniqueoptogen= false
+[70577] INFO ConfigurationProperties - p:gzoltarpackagetonotinstrument= junit.framework
+[70577] INFO ConfigurationProperties - p:projectIdentifier= x-stream_xstream-VUL4J-78
+[70577] INFO ConfigurationProperties - p:modificationpointnavigation= weight
+[70577] INFO ConfigurationProperties - p:stopfirst= true
+[70577] INFO ConfigurationProperties - p:multipointmodification= false
+[70577] INFO ConfigurationProperties - p:elementsToMutate= 10
+[70577] INFO ConfigurationProperties - p:jsonoutputname= astor_output
+[70577] INFO ConfigurationProperties - p:evoDSE= false
+[70577] INFO ConfigurationProperties - p:bintestfolder= xstream/target/test-classes
+[70577] INFO ConfigurationProperties - p:testbystep= false
+[70577] INFO ConfigurationProperties - p:version-location= ./math-version/
+[70577] INFO ConfigurationProperties - p:reintroduce= PARENTS:ORIGINAL
+[70577] INFO ConfigurationProperties - p:perfectdata= /script/../data/benchmarks/vul4j/perfectfl/VUL4J-78
+[70577] INFO ConfigurationProperties - p:executorjar= ./lib/jtestex7.jar
+[70577] INFO ConfigurationProperties - p:maxGeneration= 1000000
+[70578] INFO ConfigurationProperties - p:max_synthesis_step= 10000
+[70578] INFO ConfigurationProperties - p:projectinfocommand= com.github.tdurieux:project-config-maven-plugin:info
+[70578] INFO ConfigurationProperties - p:maxVarCombination= 1000
+[70578] INFO ConfigurationProperties - p:maxtime= 120
+[70578] INFO ConfigurationProperties - p:evosuitejar= ./lib/evosuite-master-1.0.4-SNAPSHOT.jar
+[70578] INFO ConfigurationProperties - p:jvmversion= 1.7.0_80
+[70578] INFO ConfigurationProperties - p:commandTrunk= 50000
+[70578] INFO ConfigurationProperties - p:faultlocalization= perfect
+[70578] INFO ConfigurationProperties - p:resetmodel= true
+[70578] INFO ConfigurationProperties - p:maxsuspcandidates= 1000
+[70578] INFO ConfigurationProperties - p:mode= jkali
+[70578] INFO ConfigurationProperties - p:learningdir= 
+[70578] INFO ConfigurationProperties - p:jvm4evosuitetestexecution= /usr/lib/jvm/jdk1.7.0_80/bin
+[70578] INFO ConfigurationProperties - p:filterfaultlocalization= true
+[70578] INFO ConfigurationProperties - p:mutationrate= 1 
+[70578] INFO ConfigurationProperties - p:pathToMVNRepository= 
+[70578] INFO ConfigurationProperties - p:resourcesfolder= /src/main/resources:/src/test/resources:
+[70578] INFO ConfigurationProperties - p:timezone= America/Los_Angeles
+[70578] INFO ConfigurationProperties - p:runjava7code= false
+[70578] INFO ConfigurationProperties - p:testfailingcmd= mvn test -pl xstream -Dtest=com.thoughtworks.acceptance.SecurityVulnerabilityTest -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B
+[70592] INFO ConfigurationProperties - p:evoRunOnBuggyClass= true
+[70592] INFO ConfigurationProperties - p:compiler= fr.inria.astor.core.manipulation.bytecode.compiler.SpoonClassCompiler
+[70592] INFO ConfigurationProperties - p:limitbysuspicious= true
+[70592] INFO ConfigurationProperties - p:logsattemps= true
+[70592] INFO ConfigurationProperties - p:dependenciespath= /root/.m2/repository/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar:/root/.m2/repository/xmlpull/xmlpull/1.1.3.1/xmlpull-1.1.3.1.jar:/root/.m2/repository/stax/stax-api/1.0.1/stax-api-1.0.1.jar:/root/.m2/repository/cglib/cglib-nodep/2.2/cglib-nodep-2.2.jar:/root/.m2/repository/org/jdom/jdom2/2.0.5/jdom2-2.0.5.jar:/root/.m2/repository/org/codehaus/woodstox/wstx-asl/3.2.7/wstx-asl-3.2.7.jar:/root/.m2/repository/org/json/json/20080701/json-20080701.jar:/root/.m2/repository/org/jdom/jdom/1.1.3/jdom-1.1.3.jar:/root/.m2/repository/javax/activation/activation/1.1.1/activation-1.1.1.jar:/root/.m2/repository/stax/stax/1.2.0/stax-1.2.0.jar:/root/.m2/repository/junit/junit/3.8.1/junit-3.8.1.jar:/root/.m2/repository/com/megginson/sax/xml-writer/0.2/xml-writer-0.2.jar:/root/.m2/repository/commons-lang/commons-lang/2.4/commons-lang-2.4.jar:/root/.m2/repository/xpp3/xpp3_min/1.1.4c/xpp3_min-1.1.4c.jar:/root/.m2/repository/org/codehaus/jettison/jettison/1.2/jettison-1.2.jar:/root/.m2/repository/net/sf/kxml/kxml2/2.3.0/kxml2-2.3.0.jar:/root/.m2/repository/jmock/jmock/1.0.1/jmock-1.0.1.jar:/root/.m2/repository/joda-time/joda-time/1.6/joda-time-1.6.jar:/root/.m2/repository/oro/oro/2.0.8/oro-2.0.8.jar:/root/.m2/repository/xom/xom/1.1/xom-1.1.jar:/root/.m2/repository/net/sf/kxml/kxml2-min/2.3.0/kxml2-min-2.3.0.jar
+[70592] INFO ConfigurationProperties - p:packageToInstrument= 
+[70593] INFO ConfigurationProperties - p:skipfaultlocalization= false
+[70593] INFO ConfigurationProperties - p:scope= local
+[70593] INFO ConfigurationProperties - p:transformingredient= false
+[70593] INFO ConfigurationProperties - p:fitnessfunction= fr.inria.astor.core.solutionsearch.population.TestCaseFitnessFunction
+[70593] INFO ConfigurationProperties - p:maxnumvariablesperingredient= 10
+[70593] INFO ConfigurationProperties - p:parsesourcefromoriginal= true
+[70593] INFO ConfigurationProperties - p:pvariantfoldername= variant-
+[70593] INFO ConfigurationProperties - p:savespoonmodelondisk= false
+[70593] INFO ConfigurationProperties - p:srcjavafolder= xstream/src/java
+[70593] INFO ConfigurationProperties - p:populationcontroller= fr.inria.astor.core.solutionsearch.population.TestCaseBasedFitnessPopulationController
+[70593] INFO ConfigurationProperties - p:ignoreflakyinfl= false
+[70593] INFO ConfigurationProperties - p:cleantemplates= true
+[70593] INFO ConfigurationProperties - p:applyCrossover= false
+[70593] INFO ConfigurationProperties - p:maxmodificationpoints= 1000
+[70593] INFO ConfigurationProperties - p:duplicateingredientsinspace= false
+[70593] INFO ConfigurationProperties - p:metid= 0
+[70593] INFO ConfigurationProperties - p:continuewhenmodelfail= true
+[70593] INFO ConfigurationProperties - p:saveall= false
+[70594] INFO ConfigurationProperties - p:seed= 0
+[70594] INFO ConfigurationProperties - p:savecompletepatched= true
+[70594] INFO ConfigurationProperties - p:resetoperations= false
+[70594] INFO ConfigurationProperties - p:keepcomments= false
+[70594] INFO ConfigurationProperties - p:processoutputinfile= false
+[70594] INFO ConfigurationProperties - p:location= .
+[70594] INFO ConfigurationProperties - p:probabilistictransformation= true
+[70594] INFO ConfigurationProperties - p:overridemaxtime= true
+[70594] INFO ConfigurationProperties - p:outputjsonresult= true
+[70594] INFO ConfigurationProperties - p:allpoints= false
+[70594] INFO ConfigurationProperties - p:antipattern= false
+[70594] INFO ConfigurationProperties - p:bugId= 280
+[70594] INFO ConfigurationProperties - p:evosuitetimeout= 120
+[70594] INFO ConfigurationProperties - p:maxtimefactor= 10
+[70594] INFO ConfigurationProperties - p:nrPlaceholders= 1
+[70594] INFO ConfigurationProperties - p:testallcmd= mvn test -pl xstream -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B
+[70594] INFO ConfigurationProperties - p:forcesubprocesskilling= false
+[70594] INFO ConfigurationProperties - ----------------------------
+[70596] INFO AstorCoreEngine - mod_point MP=com.thoughtworks.xstream.XStream line: 699, pointed element: CtAssignmentImpl
+[70600] INFO AstorCoreEngine - -->op: OP_INSTANCE:
+RemoveOp:(spoon.support.reflect.code.CtAssignmentImpl) `insecureWarning = true ` -topatch--> `-` (null) 
+[74547] INFO main - Run previously failing tests...
+[94896] INFO main - Failed tests: 1
+[94929] INFO AstorCoreEngine - mod_point MP=com.thoughtworks.xstream.XStream line: 714, pointed element: CtIfImpl
+[94979] INFO AstorCoreEngine - -->op: OP_INSTANCE:
+ReplaceIfBooleanOp:(spoon.support.reflect.code.CtIfImpl) `if (xstream.insecureWarning) { 	xstream.addPermission(com.thoughtworks.xstream.security.NoTypePermis[...] ` -topatch--> `if (true) { 	xstream.addPermission(com.thoughtworks.xstream.security.NoTypePermission.NONE); 	xstrea[...]` (spoon.support.reflect.code.CtIfImpl) 
+[96923] INFO main - Run previously failing tests...
+[117715] INFO main - Failed tests: 1
+[117719] INFO AstorCoreEngine - mod_point MP=com.thoughtworks.xstream.XStream line: 714, pointed element: CtIfImpl
+[117789] INFO AstorCoreEngine - -->op: OP_INSTANCE:
+ReplaceIfBooleanOp:(spoon.support.reflect.code.CtIfImpl) `if (xstream.insecureWarning) { 	xstream.addPermission(com.thoughtworks.xstream.security.NoTypePermis[...] ` -topatch--> `if (false) { 	xstream.addPermission(com.thoughtworks.xstream.security.NoTypePermission.NONE); 	xstre[...]` (spoon.support.reflect.code.CtIfImpl) 
+[119297] INFO main - Run previously failing tests...
+[136395] INFO main - Failed tests: 1
+[136408] INFO AstorCoreEngine - mod_point MP=com.thoughtworks.xstream.XStream line: 714, pointed element: CtIfImpl
+[136428] INFO AstorCoreEngine - -->op: OP_INSTANCE:
+RemoveOp:(spoon.support.reflect.code.CtIfImpl) `if (xstream.insecureWarning) { 	xstream.addPermission(com.thoughtworks.xstream.security.NoTypePermis[...] ` -topatch--> `-` (null) 
+[137608] INFO main - Run previously failing tests...
+[156792] INFO main - Failed tests: 1
+[156802] INFO AstorCoreEngine - mod_point MP=com.thoughtworks.xstream.XStream line: 1482, pointed element: CtIfImpl
+[156806] INFO AstorCoreEngine - -->op: OP_INSTANCE:
+ReplaceIfBooleanOp:(spoon.support.reflect.code.CtIfImpl) `if (insecureWarning) { 	insecureWarning = false; 	java.lang.System.err.println("Security framework o[...] ` -topatch--> `if (true) { 	insecureWarning = false; 	java.lang.System.err.println("Security framework of XStream n[...]` (spoon.support.reflect.code.CtIfImpl) 
+[157643] INFO main - Run previously failing tests...
+[174034] INFO main - Failed tests: 1
+[174036] INFO AstorCoreEngine - mod_point MP=com.thoughtworks.xstream.XStream line: 1482, pointed element: CtIfImpl
+[174041] INFO AstorCoreEngine - -->op: OP_INSTANCE:
+ReplaceIfBooleanOp:(spoon.support.reflect.code.CtIfImpl) `if (insecureWarning) { 	insecureWarning = false; 	java.lang.System.err.println("Security framework o[...] ` -topatch--> `if (false) { 	insecureWarning = false; 	java.lang.System.err.println("Security framework of XStream [...]` (spoon.support.reflect.code.CtIfImpl) 
+[175015] INFO main - Run previously failing tests...
+[191611] INFO main - Failed tests: 0
+[191612] INFO main - Run whole testsuite...
+[225980] INFO main - Failed tests: 0
+[225983] INFO AstorCoreEngine - -Found Solution, child variant #7
+[226327] INFO AstorCoreEngine - Time Repair Loop (s): 155.732
+[226327] INFO AstorCoreEngine - generationsexecuted: 1
+[226327] WARN AstorCoreEngine - ----SUMMARY_EXECUTION---
+[226327] WARN AstorCoreEngine - End Repair Search: Found solution
+[226327] WARN AstorCoreEngine - Solution stored at: /workdir/jKali_vul4j_x-stream_xstream_VUL4J-78/./output_astor/AstorMain-x-stream_xstream-VUL4J-78//src/
+[226328] WARN AstorCoreEngine - Number solutions:1
+[226328] INFO AstorCoreEngine - f (sol): 0.0, [Variant id: 7 (SOL) , #gens: 6, #ops: 1, parent:1]
+[226328] WARN AstorCoreEngine - Number suspicious:1
+[226566] INFO AstorCoreEngine - 
+ --SOLUTIONS DESCRIPTION--
+
+ ----
+ProgramVariant 7
+ 
+time(sec)= 103
+operation: ReplaceIfBooleanOp
+location= com.thoughtworks.xstream.XStream
+line= 1482
+lineSuspiciousness= 1
+lineSuspiciousness= 2
+original statement= if (insecureWarning) {
+	insecureWarning = false;
+	java.lang.System.err.println("Security framework of XStream not initialized, XStream is probably vulnerable.");
+}
+buggy kind= CtIfImpl|CtBlockImpl
+fixed statement= if (false) {
+	insecureWarning = false;
+	java.lang.System.err.println("Security framework of XStream not initialized, XStream is probably vulnerable.");
+}
+Patch kind= CtIfImpl|CtBlockImpl
+generation= 1
+ingredientScope= -
+validation=|true|0|0|[]|
+diffpatch=--- /workdir/jKali_vul4j_x-stream_xstream_VUL4J-78/xstream/src/java/com/thoughtworks/xstream/XStreamjava
++++ /workdir/jKali_vul4j_x-stream_xstream_VUL4J-78/xstream/src/java/com/thoughtworks/xstream/XStreamjava
+@@ -753 +753 @@
+-			if (insecureWarning) {
++			if (false) {
+
+
+diffpatchoriginal=--- /workdir/jKali_vul4j_x-stream_xstream_VUL4J-78/xstream/src/java/com/thoughtworks/xstream/XStreamjava
++++ /workdir/jKali_vul4j_x-stream_xstream_VUL4J-78/xstream/src/java/com/thoughtworks/xstream/XStreamjava
+@@ -1482 +1482 @@
+-			if (insecureWarning) {
++			if (false) {
+
+
+
+[226568] INFO AstorCoreEngine - Generation 1
+Astor Output:
+
+General stats:
+EXECUTION_IDENTIFIER=x-stream_xstream-VUL4J-78
+TOTAL_TIME=155.732
+NR_GENERATIONS=null
+NR_RIGHT_COMPILATIONS=6
+NR_FAILLING_COMPILATIONS=null
+NR_ERRONEOUS_VARIANCES=null
+NR_FAILING_VALIDATION_PROCESS=null
+OUTPUT_STATUS=STOP_BY_PATCH_FOUND
+
+Patch stats:
+
+Patch 1
+VARIANT_ID=7
+TIME=103
+VALIDATION=|true|0|0|[]|
+GENERATION=1
+FOLDER_SOLUTION_CODE=/workdir/jKali_vul4j_x-stream_xstream_VUL4J-78/./output_astor/AstorMain-x-stream_xstream-VUL4J-78//src//variant-7
+--Patch Hunk #1
+OPERATOR=ReplaceIfBooleanOp
+
+LOCATION=com.thoughtworks.xstream.XStream
+
+PATH=/workdir/jKali_vul4j_x-stream_xstream_VUL4J-78/xstream/src/java/com/thoughtworks/xstream/XStream.java
+
+MODIFIED_FILE_PATH=/workdir/jKali_vul4j_x-stream_xstream_VUL4J-78/./output_astor/AstorMain-x-stream_xstream-VUL4J-78//src//variant-7/com/thoughtworks/xstream/XStream.java
+
+LINE=1482
+
+SUSPICIOUNESS=1
+
+MP_RANKING=2
+
+ORIGINAL_CODE=if (insecureWarning) {
+	insecureWarning = false;
+	java.lang.System.err.println("Security framework of XStream not initialized, XStream is probably vulnerable.");
+}
+
+BUGGY_CODE_TYPE=CtIfImpl|CtBlockImpl
+
+PATCH_HUNK_CODE=if (false) {
+	insecureWarning = false;
+	java.lang.System.err.println("Security framework of XStream not initialized, XStream is probably vulnerable.");
+}
+
+PATCH_HUNK_TYPE=CtIfImpl|CtBlockImpl
+
+INGREDIENT_SCOPE=null
+
+INGREDIENT_PARENT=null
+
+PATCH_DIFF_ORIG=--- /workdir/jKali_vul4j_x-stream_xstream_VUL4J-78/xstream/src/java/com/thoughtworks/xstream/XStreamjava
++++ /workdir/jKali_vul4j_x-stream_xstream_VUL4J-78/xstream/src/java/com/thoughtworks/xstream/XStreamjava
+@@ -1482 +1482 @@
+-			if (insecureWarning) {
++			if (false) {
+
+
+
+[226600] INFO Stats - Storing ing JSON at /workdir/jKali_vul4j_x-stream_xstream_VUL4J-78/./output_astor/AstorMain-x-stream_xstream-VUL4J-78//astor_output.json
+[226600] INFO Stats - astor_output:
+{"general":{"NR_RIGHT_COMPILATIONS":6,"NR_ERRONEOUS_VARIANCES":null,"EXECUTION_IDENTIFIER":"x-stream_xstream-VUL4J-78","OUTPUT_STATUS":"STOP_BY_PATCH_FOUND","NR_FAILLING_COMPILATIONS":null,"NR_GENERATIONS":null,"TOTAL_TIME":155.732,"NR_FAILING_VALIDATION_PROCESS":null},"patches":[{"VARIANT_ID":"7","VALIDATION":"|true|0|0|[]|","patchhunks":[{"LOCATION":"com.thoughtworks.xstream.XStream","PATH":"\\\/workdir\\\/jKali_vul4j_x-stream_xstream_VUL4J-78\\\/xstream\\\/src\\\/java\\\/com\\\/thoughtworks\\\/xstream\\\/XStream.java","ORIGINAL_CODE":"if (insecureWarning) {\\n\\tinsecureWarning = false;\\n\\tjava.lang.System.err.println(\\\"Security framework of XStream not initialized, XStream is probably vulnerable.\\\");\\n}","BUGGY_CODE_TYPE":"CtIfImpl|CtBlockImpl","OPERATOR":"ReplaceIfBooleanOp","MODIFIED_FILE_PATH":"\\\/workdir\\\/jKali_vul4j_x-stream_xstream_VUL4J-78\\\/.\\\/output_astor\\\/AstorMain-x-stream_xstream-VUL4J-78\\\/\\\/src\\\/\\\/variant-7\\\/com\\\/thoughtworks\\\/xstream\\\/XStream.java","LINE":"1482","SUSPICIOUNESS":"1","MP_RANKING":"2","PATCH_HUNK_CODE":"if (false) {\\n\\tinsecureWarning = false;\\n\\tjava.lang.System.err.println(\\\"Security framework of XStream not initialized, XStream is probably vulnerable.\\\");\\n}","PATCH_HUNK_TYPE":"CtIfImpl|CtBlockImpl"}],"TIME":"103","GENERATION":"1","FOLDER_SOLUTION_CODE":"\\\/workdir\\\/jKali_vul4j_x-stream_xstream_VUL4J-78\\\/.\\\/output_astor\\\/AstorMain-x-stream_xstream-VUL4J-78\\\/\\\/src\\\/\\\/variant-7","PATCH_DIFF_ORIG":"--- \\\/workdir\\\/jKali_vul4j_x-stream_xstream_VUL4J-78\\\/xstream\\\/src\\\/java\\\/com\\\/thoughtworks\\\/xstream\\\/XStreamjava\\n+++ \\\/workdir\\\/jKali_vul4j_x-stream_xstream_VUL4J-78\\\/xstream\\\/src\\\/java\\\/com\\\/thoughtworks\\\/xstream\\\/XStreamjava\\n@@ -1482 +1482 @@\\n-\\t\\t\\tif (insecureWarning) {\\n+\\t\\t\\tif (false) {\\n\\n"}]}
+[226600] INFO AstorMain - Time Total(s): 226.593
+231.68user 34.32system 3:48.56elapsed 116%CPU (0avgtext+0avgdata 945156maxresident)k
+584inputs+25576outputs (2major+1205981minor)pagefaults 0swaps
+
+
+Node: 9670332cfea8
+
+
+
+Date: Thu Sep  8 23:03:02 EDT 2022
+

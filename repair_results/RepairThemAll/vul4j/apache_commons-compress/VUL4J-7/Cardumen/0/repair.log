@@ -1,0 +1,445 @@
+cd /workdir/Cardumen_vul4j_apache_commons-compress_VUL4J-7;
+export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en";
+TZ="America/New_York"; export TZ;
+export PATH="/usr/lib/jvm/java-8-openjdk-amd64/bin:$PATH";
+export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64/bin";
+time java -Xmx4g -Xms1g -XX:MaxPermSize=512m -cp /script/../libs/jtestex7.jar:/script/../repair_tools/astor.jar fr.inria.main.evolution.AstorMain \
+	-mode cardumen \
+	-location . \
+	-id apache_commons-compress-VUL4J-7 \
+	-failing org.apache.commons.compress.archivers.zip.ZipArchiveInputStreamTest#singleByteReadThrowsAtEofForCorruptedStoredEntry:org.apache.commons.compress.archivers.zip.ZipArchiveInputStreamTest#multiByteReadThrowsAtEofForCorruptedStoredEntry \
+	-jvm4testexecution /usr/lib/jvm/jdk1.7.0_80/bin \
+	-jvm4evosuitetestexecution /usr/lib/jvm/jdk1.7.0_80/bin \
+	-maxgen 1000000 \
+	-maxtime 120 \
+	-stopfirst true \
+	-seed 0 \
+	-scope local \
+	-population 1 \
+	-javacompliancelevel 7 \
+	-faultlocalization perfect \
+    -perfectdata /script/../data/benchmarks/vul4j/perfectfl/VUL4J-7 \
+    -validation externalcmd \
+    -testfailingcmd "mvn test -Dtest=org.apache.commons.compress.archivers.zip.ZipArchiveInputStreamTest#singleByteReadThrowsAtEofForCorruptedStoredEntry,org.apache.commons.compress.archivers.zip.ZipArchiveInputStreamTest#multiByteReadThrowsAtEofForCorruptedStoredEntry -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B" \
+    -testallcmd "mvn test -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B"  \ \
+	-srcjavafolder src/main/java \
+	-srctestfolder src/test/java \
+	-binjavafolder target/classes \
+	-bintestfolder target/test-classes \
+	-parameters x:x:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000 \
+	-dependencies /root/.m2/repository/org/ops4j/pax/swissbox/pax-swissbox-optional-jcl/1.8.2/pax-swissbox-optional-jcl-1.8.2.jar:/root/.m2/repository/org/powermock/powermock-module-junit4-common/1.7.3/powermock-module-junit4-common-1.7.3.jar:/root/.m2/repository/org/ops4j/base/ops4j-base-util-property/1.5.0/ops4j-base-util-property-1.5.0.jar:/root/.m2/repository/org/ops4j/pax/exam/pax-exam/4.11.0/pax-exam-4.11.0.jar:/root/.m2/repository/javax/inject/javax.inject/1/javax.inject-1.jar:/root/.m2/repository/org/ops4j/pax/swissbox/pax-swissbox-lifecycle/1.8.2/pax-swissbox-lifecycle-1.8.2.jar:/root/.m2/repository/org/ops4j/pax/exam/pax-exam-junit4/4.11.0/pax-exam-junit4-4.11.0.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/ops4j/pax/tinybundles/tinybundles/2.1.1/tinybundles-2.1.1.jar:/root/.m2/repository/org/powermock/powermock-api-mockito-common/1.7.3/powermock-api-mockito-common-1.7.3.jar:/root/.m2/repository/org/powermock/powermock-core/1.7.3/powermock-core-1.7.3.jar:/root/.m2/repository/org/ops4j/base/ops4j-base-lang/1.5.0/ops4j-base-lang-1.5.0.jar:/root/.m2/repository/org/powermock/powermock-api-support/1.7.3/powermock-api-support-1.7.3.jar:/root/.m2/repository/org/mockito/mockito-core/1.10.19/mockito-core-1.10.19.jar:/root/.m2/repository/org/objenesis/objenesis/2.1/objenesis-2.1.jar:/root/.m2/repository/org/ops4j/base/ops4j-base-spi/1.5.0/ops4j-base-spi-1.5.0.jar:/root/.m2/repository/org/ops4j/pax/exam/pax-exam-container-native/4.11.0/pax-exam-container-native-4.11.0.jar:/root/.m2/repository/org/ops4j/base/ops4j-base-io/1.5.0/ops4j-base-io-1.5.0.jar:/root/.m2/repository/org/ops4j/pax/url/pax-url-aether/2.4.5/pax-url-aether-2.4.5.jar:/root/.m2/repository/org/powermock/powermock-module-junit4/1.7.3/powermock-module-junit4-1.7.3.jar:/root/.m2/repository/org/powermock/powermock-reflect/1.7.3/powermock-reflect-1.7.3.jar:/root/.m2/repository/org/slf4j/jcl-over-slf4j/1.6.6/jcl-over-slf4j-1.6.6.jar:/root/.m2/repository/com/github/luben/zstd-jni/1.3.3-3/zstd-jni-1.3.3-3.jar:/root/.m2/repository/org/osgi/org.osgi.core/6.0.0/org.osgi.core-6.0.0.jar:/root/.m2/repository/org/ops4j/pax/url/pax-url-classpath/2.4.5/pax-url-classpath-2.4.5.jar:/root/.m2/repository/org/ops4j/base/ops4j-base-net/1.5.0/ops4j-base-net-1.5.0.jar:/root/.m2/repository/biz/aQute/bnd/bndlib/2.4.0/bndlib-2.4.0.jar:/root/.m2/repository/org/ops4j/pax/exam/pax-exam-cm/4.11.0/pax-exam-cm-4.11.0.jar:/root/.m2/repository/org/javassist/javassist/3.21.0-GA/javassist-3.21.0-GA.jar:/root/.m2/repository/org/ops4j/pax/swissbox/pax-swissbox-core/1.8.2/pax-swissbox-core-1.8.2.jar:/root/.m2/repository/org/ops4j/base/ops4j-base-monitors/1.5.0/ops4j-base-monitors-1.5.0.jar:/root/.m2/repository/org/ops4j/base/ops4j-base-store/1.5.0/ops4j-base-store-1.5.0.jar:/root/.m2/repository/org/ops4j/pax/url/pax-url-commons/2.4.5/pax-url-commons-2.4.5.jar:/root/.m2/repository/org/ops4j/pax/swissbox/pax-swissbox-tracker/1.8.2/pax-swissbox-tracker-1.8.2.jar:/root/.m2/repository/org/tukaani/xz/1.8/xz-1.8.jar:/root/.m2/repository/org/ops4j/pax/exam/pax-exam-link-mvn/4.11.0/pax-exam-link-mvn-4.11.0.jar:/root/.m2/repository/org/apache/felix/org.apache.felix.framework/5.6.10/org.apache.felix.framework-5.6.10.jar:/root/.m2/repository/org/powermock/powermock-api-mockito/1.7.3/powermock-api-mockito-1.7.3.jar:/root/.m2/repository/junit/junit/4.12/junit-4.12.jar:/root/.m2/repository/org/ops4j/pax/exam/pax-exam-spi/4.11.0/pax-exam-spi-4.11.0.jar:/root/.m2/repository/org/ops4j/pax/url/pax-url-link/2.4.5/pax-url-link-2.4.5.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.21/slf4j-api-1.7.21.jar:/root/.m2/repository/org/brotli/dec/0.1.2/dec-0.1.2.jar:/root/.m2/repository/org/ops4j/pax/swissbox/pax-swissbox-property/1.8.2/pax-swissbox-property-1.8.2.jar;
+	echo "\n\nNode: `hostname`\n";
+	echo "\n\nDate: `date`\n";
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en
+OpenJDK 64-Bit Server VM warning: ignoring option MaxPermSize=512m; support was removed in 8.0
+[0] INFO ProjectConfiguration - Version of the JVM used: 1.7.0_80
+[0] INFO main - Java version of the JDK used to run tests: 1.7.0_80
+[0] INFO main - The compliance of the JVM is:  7
+[4] INFO main - command line arguments: [-mode  cardumen  -location  .  -id  apache_commons-compress-VUL4J-7  -failing  org.apache.commons.compress.archivers.zip.ZipArchiveInputStreamTest#singleByteReadThrowsAtEofForCorruptedStoredEntry:org.apache.commons.compress.archivers.zip.ZipArchiveInputStreamTest#multiByteReadThrowsAtEofForCorruptedStoredEntry  -jvm4testexecution  /usr/lib/jvm/jdk1.7.0_80/bin  -jvm4evosuitetestexecution  /usr/lib/jvm/jdk1.7.0_80/bin  -maxgen  1000000  -maxtime  120  -stopfirst  true  -seed  0  -scope  local  -population  1  -javacompliancelevel  7  -faultlocalization  perfect  -perfectdata  /script/../data/benchmarks/vul4j/perfectfl/VUL4J-7  -validation  externalcmd  -testfailingcmd  mvn test -Dtest=org.apache.commons.compress.archivers.zip.ZipArchiveInputStreamTest#singleByteReadThrowsAtEofForCorruptedStoredEntry org.apache.commons.compress.archivers.zip.ZipArchiveInputStreamTest#multiByteReadThrowsAtEofForCorruptedStoredEntry -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B  -testallcmd  mvn test -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B     -srcjavafolder  src/main/java  -srctestfolder  src/test/java  -binjavafolder  target/classes  -bintestfolder  target/test-classes  -parameters  x:x:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000  -dependencies  /root/.m2/repository/org/ops4j/pax/swissbox/pax-swissbox-optional-jcl/1.8.2/pax-swissbox-optional-jcl-1.8.2.jar:/root/.m2/repository/org/powermock/powermock-module-junit4-common/1.7.3/powermock-module-junit4-common-1.7.3.jar:/root/.m2/repository/org/ops4j/base/ops4j-base-util-property/1.5.0/ops4j-base-util-property-1.5.0.jar:/root/.m2/repository/org/ops4j/pax/exam/pax-exam/4.11.0/pax-exam-4.11.0.jar:/root/.m2/repository/javax/inject/javax.inject/1/javax.inject-1.jar:/root/.m2/repository/org/ops4j/pax/swissbox/pax-swissbox-lifecycle/1.8.2/pax-swissbox-lifecycle-1.8.2.jar:/root/.m2/repository/org/ops4j/pax/exam/pax-exam-junit4/4.11.0/pax-exam-junit4-4.11.0.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/ops4j/pax/tinybundles/tinybundles/2.1.1/tinybundles-2.1.1.jar:/root/.m2/repository/org/powermock/powermock-api-mockito-common/1.7.3/powermock-api-mockito-common-1.7.3.jar:/root/.m2/repository/org/powermock/powermock-core/1.7.3/powermock-core-1.7.3.jar:/root/.m2/repository/org/ops4j/base/ops4j-base-lang/1.5.0/ops4j-base-lang-1.5.0.jar:/root/.m2/repository/org/powermock/powermock-api-support/1.7.3/powermock-api-support-1.7.3.jar:/root/.m2/repository/org/mockito/mockito-core/1.10.19/mockito-core-1.10.19.jar:/root/.m2/repository/org/objenesis/objenesis/2.1/objenesis-2.1.jar:/root/.m2/repository/org/ops4j/base/ops4j-base-spi/1.5.0/ops4j-base-spi-1.5.0.jar:/root/.m2/repository/org/ops4j/pax/exam/pax-exam-container-native/4.11.0/pax-exam-container-native-4.11.0.jar:/root/.m2/repository/org/ops4j/base/ops4j-base-io/1.5.0/ops4j-base-io-1.5.0.jar:/root/.m2/repository/org/ops4j/pax/url/pax-url-aether/2.4.5/pax-url-aether-2.4.5.jar:/root/.m2/repository/org/powermock/powermock-module-junit4/1.7.3/powermock-module-junit4-1.7.3.jar:/root/.m2/repository/org/powermock/powermock-reflect/1.7.3/powermock-reflect-1.7.3.jar:/root/.m2/repository/org/slf4j/jcl-over-slf4j/1.6.6/jcl-over-slf4j-1.6.6.jar:/root/.m2/repository/com/github/luben/zstd-jni/1.3.3-3/zstd-jni-1.3.3-3.jar:/root/.m2/repository/org/osgi/org.osgi.core/6.0.0/org.osgi.core-6.0.0.jar:/root/.m2/repository/org/ops4j/pax/url/pax-url-classpath/2.4.5/pax-url-classpath-2.4.5.jar:/root/.m2/repository/org/ops4j/base/ops4j-base-net/1.5.0/ops4j-base-net-1.5.0.jar:/root/.m2/repository/biz/aQute/bnd/bndlib/2.4.0/bndlib-2.4.0.jar:/root/.m2/repository/org/ops4j/pax/exam/pax-exam-cm/4.11.0/pax-exam-cm-4.11.0.jar:/root/.m2/repository/org/javassist/javassist/3.21.0-GA/javassist-3.21.0-GA.jar:/root/.m2/repository/org/ops4j/pax/swissbox/pax-swissbox-core/1.8.2/pax-swissbox-core-1.8.2.jar:/root/.m2/repository/org/ops4j/base/ops4j-base-monitors/1.5.0/ops4j-base-monitors-1.5.0.jar:/root/.m2/repository/org/ops4j/base/ops4j-base-store/1.5.0/ops4j-base-store-1.5.0.jar:/root/.m2/repository/org/ops4j/pax/url/pax-url-commons/2.4.5/pax-url-commons-2.4.5.jar:/root/.m2/repository/org/ops4j/pax/swissbox/pax-swissbox-tracker/1.8.2/pax-swissbox-tracker-1.8.2.jar:/root/.m2/repository/org/tukaani/xz/1.8/xz-1.8.jar:/root/.m2/repository/org/ops4j/pax/exam/pax-exam-link-mvn/4.11.0/pax-exam-link-mvn-4.11.0.jar:/root/.m2/repository/org/apache/felix/org.apache.felix.framework/5.6.10/org.apache.felix.framework-5.6.10.jar:/root/.m2/repository/org/powermock/powermock-api-mockito/1.7.3/powermock-api-mockito-1.7.3.jar:/root/.m2/repository/junit/junit/4.12/junit-4.12.jar:/root/.m2/repository/org/ops4j/pax/exam/pax-exam-spi/4.11.0/pax-exam-spi-4.11.0.jar:/root/.m2/repository/org/ops4j/pax/url/pax-url-link/2.4.5/pax-url-link-2.4.5.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.21/slf4j-api-1.7.21.jar:/root/.m2/repository/org/brotli/dec/0.1.2/dec-0.1.2.jar:/root/.m2/repository/org/ops4j/pax/swissbox/pax-swissbox-property/1.8.2/pax-swissbox-property-1.8.2.jar]
+[5] INFO AstorMain - Running Astor on a JDK at /usr/lib/jvm/java-8-openjdk-amd64/jre
+[40] INFO main - Source folders: [/workdir/Cardumen_vul4j_apache_commons-compress_VUL4J-7/./src/main/java]
+[40] INFO main - Source Test folders: [/workdir/Cardumen_vul4j_apache_commons-compress_VUL4J-7/./src/test/java]
+[3352] INFO AstorCoreEngine - ---- Creating spoon model
+[3433] INFO MutationSupporter - Creating model,  Code location from working folder: /workdir/Cardumen_vul4j_apache_commons-compress_VUL4J-7/./src/main/java
+[3433] INFO MutationSupporter - building model: /workdir/Cardumen_vul4j_apache_commons-compress_VUL4J-7/./src/main/java, compliance level: 7
+[3597] INFO MutationSupporter - Classpath (Dependencies) for building SpoonModel: [/root/.m2/repository/org/ops4j/pax/swissbox/pax-swissbox-optional-jcl/1.8.2/pax-swissbox-optional-jcl-1.8.2.jar, /root/.m2/repository/org/powermock/powermock-module-junit4-common/1.7.3/powermock-module-junit4-common-1.7.3.jar, /root/.m2/repository/org/ops4j/base/ops4j-base-util-property/1.5.0/ops4j-base-util-property-1.5.0.jar, /root/.m2/repository/org/ops4j/pax/exam/pax-exam/4.11.0/pax-exam-4.11.0.jar, /root/.m2/repository/javax/inject/javax.inject/1/javax.inject-1.jar, /root/.m2/repository/org/ops4j/pax/swissbox/pax-swissbox-lifecycle/1.8.2/pax-swissbox-lifecycle-1.8.2.jar, /root/.m2/repository/org/ops4j/pax/exam/pax-exam-junit4/4.11.0/pax-exam-junit4-4.11.0.jar, /root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar, /root/.m2/repository/org/ops4j/pax/tinybundles/tinybundles/2.1.1/tinybundles-2.1.1.jar, /root/.m2/repository/org/powermock/powermock-api-mockito-common/1.7.3/powermock-api-mockito-common-1.7.3.jar, /root/.m2/repository/org/powermock/powermock-core/1.7.3/powermock-core-1.7.3.jar, /root/.m2/repository/org/ops4j/base/ops4j-base-lang/1.5.0/ops4j-base-lang-1.5.0.jar, /root/.m2/repository/org/powermock/powermock-api-support/1.7.3/powermock-api-support-1.7.3.jar, /root/.m2/repository/org/mockito/mockito-core/1.10.19/mockito-core-1.10.19.jar, /root/.m2/repository/org/objenesis/objenesis/2.1/objenesis-2.1.jar, /root/.m2/repository/org/ops4j/base/ops4j-base-spi/1.5.0/ops4j-base-spi-1.5.0.jar, /root/.m2/repository/org/ops4j/pax/exam/pax-exam-container-native/4.11.0/pax-exam-container-native-4.11.0.jar, /root/.m2/repository/org/ops4j/base/ops4j-base-io/1.5.0/ops4j-base-io-1.5.0.jar, /root/.m2/repository/org/ops4j/pax/url/pax-url-aether/2.4.5/pax-url-aether-2.4.5.jar, /root/.m2/repository/org/powermock/powermock-module-junit4/1.7.3/powermock-module-junit4-1.7.3.jar, /root/.m2/repository/org/powermock/powermock-reflect/1.7.3/powermock-reflect-1.7.3.jar, /root/.m2/repository/org/slf4j/jcl-over-slf4j/1.6.6/jcl-over-slf4j-1.6.6.jar, /root/.m2/repository/com/github/luben/zstd-jni/1.3.3-3/zstd-jni-1.3.3-3.jar, /root/.m2/repository/org/osgi/org.osgi.core/6.0.0/org.osgi.core-6.0.0.jar, /root/.m2/repository/org/ops4j/pax/url/pax-url-classpath/2.4.5/pax-url-classpath-2.4.5.jar, /root/.m2/repository/org/ops4j/base/ops4j-base-net/1.5.0/ops4j-base-net-1.5.0.jar, /root/.m2/repository/biz/aQute/bnd/bndlib/2.4.0/bndlib-2.4.0.jar, /root/.m2/repository/org/ops4j/pax/exam/pax-exam-cm/4.11.0/pax-exam-cm-4.11.0.jar, /root/.m2/repository/org/javassist/javassist/3.21.0-GA/javassist-3.21.0-GA.jar, /root/.m2/repository/org/ops4j/pax/swissbox/pax-swissbox-core/1.8.2/pax-swissbox-core-1.8.2.jar, /root/.m2/repository/org/ops4j/base/ops4j-base-monitors/1.5.0/ops4j-base-monitors-1.5.0.jar, /root/.m2/repository/org/ops4j/base/ops4j-base-store/1.5.0/ops4j-base-store-1.5.0.jar, /root/.m2/repository/org/ops4j/pax/url/pax-url-commons/2.4.5/pax-url-commons-2.4.5.jar, /root/.m2/repository/org/ops4j/pax/swissbox/pax-swissbox-tracker/1.8.2/pax-swissbox-tracker-1.8.2.jar, /root/.m2/repository/org/tukaani/xz/1.8/xz-1.8.jar, /root/.m2/repository/org/ops4j/pax/exam/pax-exam-link-mvn/4.11.0/pax-exam-link-mvn-4.11.0.jar, /root/.m2/repository/org/apache/felix/org.apache.felix.framework/5.6.10/org.apache.felix.framework-5.6.10.jar, /root/.m2/repository/org/powermock/powermock-api-mockito/1.7.3/powermock-api-mockito-1.7.3.jar, /root/.m2/repository/junit/junit/4.12/junit-4.12.jar, /root/.m2/repository/org/ops4j/pax/exam/pax-exam-spi/4.11.0/pax-exam-spi-4.11.0.jar, /root/.m2/repository/org/ops4j/pax/url/pax-url-link/2.4.5/pax-url-link-2.4.5.jar, /root/.m2/repository/org/slf4j/slf4j-api/1.7.21/slf4j-api-1.7.21.jar, /root/.m2/repository/org/brotli/dec/0.1.2/dec-0.1.2.jar, /root/.m2/repository/org/ops4j/pax/swissbox/pax-swissbox-property/1.8.2/pax-swissbox-property-1.8.2.jar]
+[22742] INFO AstorCoreEngine - Number of CtTypes created: 206
+[23378] INFO AstorCoreEngine - Test retrieved from classes: 0
+[23644] INFO AstorCoreEngine - Setting up the max to 2660 milliseconds (2 sec)
+[23644] INFO AstorCoreEngine - ---- Initial suspicious size: 1
+[23807] INFO main - Total suspicious from FL: 1,  1
+[23807] INFO main - Total ModPoint created: 1
+[23808] INFO main - Creating program variant #1, [Variant id: 1, #gens: 1, #ops: 0, parent:-]
+[23808] INFO main - Run previously failing tests...
+[62179] INFO main - Failed tests: 2
+[62181] INFO AstorCoreEngine - The original fitness is : 2.0
+[284728] INFO ExpressionTypeIngredientSpace - Ingredient search space info : number keys 43 , number values 393 
+[284728] WARN ConfigurationProperties - ----------------------------
+[284728] INFO ConfigurationProperties - ---Configuration properties
+[284729] INFO ConfigurationProperties - p:lastJUnitVersion= ./examples/libs/junit-4.11.jar
+[284729] INFO ConfigurationProperties - p:alternativecompliancelevel= 8
+[284729] INFO ConfigurationProperties - p:ignoredTestCases= 
+[284729] INFO ConfigurationProperties - p:workingDirectory= /workdir/Cardumen_vul4j_apache_commons-compress_VUL4J-7/./output_astor
+[284729] INFO ConfigurationProperties - p:manipulatesuper= false
+[284729] INFO ConfigurationProperties - p:validation= externalcmd
+[284729] INFO ConfigurationProperties - p:jvm4testexecution= /usr/lib/jvm/jdk1.7.0_80/bin
+[284729] INFO ConfigurationProperties - p:operatorspace= r-expression
+[284729] INFO ConfigurationProperties - p:diffcontext= 0
+[284729] INFO ConfigurationProperties - p:binjavafolder= target/classes
+[284729] INFO ConfigurationProperties - p:synthesis_depth= 3
+[284729] INFO ConfigurationProperties - p:gzoltartestpackagetoexclude= junit.framework
+[284729] INFO ConfigurationProperties - p:skipfitnessinitialpopulation= false
+[284729] INFO ConfigurationProperties - p:evosuiteresultfolder= evosuite
+[284729] INFO ConfigurationProperties - p:flthreshold= 0.1
+[284729] INFO ConfigurationProperties - p:regressionforfaultlocalization= true
+[284729] INFO ConfigurationProperties - p:collectonlyusedmethod= false
+[284729] INFO ConfigurationProperties - p:preservelinenumbers= true
+[284729] INFO ConfigurationProperties - p:tmax2= 2660
+[284730] INFO ConfigurationProperties - p:ingredienttransformstrategy= name-probability-based
+[284730] INFO ConfigurationProperties - p:tmax1= 10000
+[284730] INFO ConfigurationProperties - p:probagenmutation= false
+[284730] INFO ConfigurationProperties - p:nomodificationconvergence= 100
+[284730] INFO ConfigurationProperties - p:diff_type= relative
+[284730] INFO ConfigurationProperties - p:targetelementprocessor= expression
+[284730] INFO ConfigurationProperties - p:srctestfolder= src/test/java
+[284730] INFO ConfigurationProperties - p:forceExecuteRegression= false
+[284730] INFO ConfigurationProperties - p:clusteringfilename= clustering.csv
+[284730] INFO ConfigurationProperties - p:failing= org.apache.commons.compress.archivers.zip.ZipArchiveInputStreamTest#singleByteReadThrowsAtEofForCorruptedStoredEntry:org.apache.commons.compress.archivers.zip.ZipArchiveInputStreamTest#multiByteReadThrowsAtEofForCorruptedStoredEntry
+[284730] INFO ConfigurationProperties - p:logtestexecution= false
+[284730] INFO ConfigurationProperties - p:evo_buggy_class= true
+[284730] INFO ConfigurationProperties - p:numberExecutions= 1
+[284730] INFO ConfigurationProperties - p:maxnumbersolutions= 1000000
+[284730] INFO ConfigurationProperties - p:evo_affected_by_op= true
+[284730] INFO ConfigurationProperties - p:population= 1
+[284730] INFO ConfigurationProperties - p:considerzerovaluesusp= false
+[284730] INFO ConfigurationProperties - p:maxCombinationVariableLimit= true
+[284730] INFO ConfigurationProperties - p:savesolution= true
+[284730] INFO ConfigurationProperties - p:javacompliancelevel= 7
+[284730] INFO ConfigurationProperties - p:x= x
+[284730] INFO ConfigurationProperties - p:uniqueoptogen= false
+[284731] INFO ConfigurationProperties - p:gzoltarpackagetonotinstrument= junit.framework
+[284731] INFO ConfigurationProperties - p:projectIdentifier= apache_commons-compress-VUL4J-7
+[284731] INFO ConfigurationProperties - p:modificationpointnavigation= weight
+[284747] INFO ConfigurationProperties - p:stopfirst= true
+[284747] INFO ConfigurationProperties - p:multipointmodification= false
+[284747] INFO ConfigurationProperties - p:elementsToMutate= 10
+[284747] INFO ConfigurationProperties - p:jsonoutputname= astor_output
+[284747] INFO ConfigurationProperties - p:evoDSE= false
+[284747] INFO ConfigurationProperties - p:bintestfolder= target/test-classes
+[284747] INFO ConfigurationProperties - p:testbystep= false
+[284750] INFO ConfigurationProperties - p:version-location= ./math-version/
+[284750] INFO ConfigurationProperties - p:reintroduce= PARENTS:ORIGINAL
+[284751] INFO ConfigurationProperties - p:perfectdata= /script/../data/benchmarks/vul4j/perfectfl/VUL4J-7
+[284751] INFO ConfigurationProperties - p:executorjar= ./lib/jtestex7.jar
+[284751] INFO ConfigurationProperties - p:maxGeneration= 1000000
+[284751] INFO ConfigurationProperties - p:max_synthesis_step= 10000
+[284751] INFO ConfigurationProperties - p:projectinfocommand= com.github.tdurieux:project-config-maven-plugin:info
+[284751] INFO ConfigurationProperties - p:maxVarCombination= 1000
+[284751] INFO ConfigurationProperties - p:maxtime= 120
+[284751] INFO ConfigurationProperties - p:evosuitejar= ./lib/evosuite-master-1.0.4-SNAPSHOT.jar
+[284751] INFO ConfigurationProperties - p:jvmversion= 1.7.0_80
+[284752] INFO ConfigurationProperties - p:commandTrunk= 50000
+[284752] INFO ConfigurationProperties - p:faultlocalization= perfect
+[284752] INFO ConfigurationProperties - p:resetmodel= true
+[284752] INFO ConfigurationProperties - p:maxsuspcandidates= 1000
+[284752] INFO ConfigurationProperties - p:mode= cardumen
+[284752] INFO ConfigurationProperties - p:learningdir= 
+[284752] INFO ConfigurationProperties - p:jvm4evosuitetestexecution= /usr/lib/jvm/jdk1.7.0_80/bin
+[284760] INFO ConfigurationProperties - p:filterfaultlocalization= true
+[284760] INFO ConfigurationProperties - p:mutationrate= 1 
+[284760] INFO ConfigurationProperties - p:pathToMVNRepository= 
+[284761] INFO ConfigurationProperties - p:resourcesfolder= /src/main/resources:/src/test/resources:
+[284761] INFO ConfigurationProperties - p:timezone= America/Los_Angeles
+[284761] INFO ConfigurationProperties - p:runjava7code= false
+[284761] INFO ConfigurationProperties - p:testfailingcmd= mvn test -Dtest=org.apache.commons.compress.archivers.zip.ZipArchiveInputStreamTest#singleByteReadThrowsAtEofForCorruptedStoredEntry,org.apache.commons.compress.archivers.zip.ZipArchiveInputStreamTest#multiByteReadThrowsAtEofForCorruptedStoredEntry -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B
+[284761] INFO ConfigurationProperties - p:evoRunOnBuggyClass= true
+[284761] INFO ConfigurationProperties - p:compiler= fr.inria.astor.core.manipulation.bytecode.compiler.SpoonClassCompiler
+[284761] INFO ConfigurationProperties - p:limitbysuspicious= true
+[284761] INFO ConfigurationProperties - p:logsattemps= true
+[284761] INFO ConfigurationProperties - p:dependenciespath= /root/.m2/repository/org/ops4j/pax/swissbox/pax-swissbox-optional-jcl/1.8.2/pax-swissbox-optional-jcl-1.8.2.jar:/root/.m2/repository/org/powermock/powermock-module-junit4-common/1.7.3/powermock-module-junit4-common-1.7.3.jar:/root/.m2/repository/org/ops4j/base/ops4j-base-util-property/1.5.0/ops4j-base-util-property-1.5.0.jar:/root/.m2/repository/org/ops4j/pax/exam/pax-exam/4.11.0/pax-exam-4.11.0.jar:/root/.m2/repository/javax/inject/javax.inject/1/javax.inject-1.jar:/root/.m2/repository/org/ops4j/pax/swissbox/pax-swissbox-lifecycle/1.8.2/pax-swissbox-lifecycle-1.8.2.jar:/root/.m2/repository/org/ops4j/pax/exam/pax-exam-junit4/4.11.0/pax-exam-junit4-4.11.0.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/ops4j/pax/tinybundles/tinybundles/2.1.1/tinybundles-2.1.1.jar:/root/.m2/repository/org/powermock/powermock-api-mockito-common/1.7.3/powermock-api-mockito-common-1.7.3.jar:/root/.m2/repository/org/powermock/powermock-core/1.7.3/powermock-core-1.7.3.jar:/root/.m2/repository/org/ops4j/base/ops4j-base-lang/1.5.0/ops4j-base-lang-1.5.0.jar:/root/.m2/repository/org/powermock/powermock-api-support/1.7.3/powermock-api-support-1.7.3.jar:/root/.m2/repository/org/mockito/mockito-core/1.10.19/mockito-core-1.10.19.jar:/root/.m2/repository/org/objenesis/objenesis/2.1/objenesis-2.1.jar:/root/.m2/repository/org/ops4j/base/ops4j-base-spi/1.5.0/ops4j-base-spi-1.5.0.jar:/root/.m2/repository/org/ops4j/pax/exam/pax-exam-container-native/4.11.0/pax-exam-container-native-4.11.0.jar:/root/.m2/repository/org/ops4j/base/ops4j-base-io/1.5.0/ops4j-base-io-1.5.0.jar:/root/.m2/repository/org/ops4j/pax/url/pax-url-aether/2.4.5/pax-url-aether-2.4.5.jar:/root/.m2/repository/org/powermock/powermock-module-junit4/1.7.3/powermock-module-junit4-1.7.3.jar:/root/.m2/repository/org/powermock/powermock-reflect/1.7.3/powermock-reflect-1.7.3.jar:/root/.m2/repository/org/slf4j/jcl-over-slf4j/1.6.6/jcl-over-slf4j-1.6.6.jar:/root/.m2/repository/com/github/luben/zstd-jni/1.3.3-3/zstd-jni-1.3.3-3.jar:/root/.m2/repository/org/osgi/org.osgi.core/6.0.0/org.osgi.core-6.0.0.jar:/root/.m2/repository/org/ops4j/pax/url/pax-url-classpath/2.4.5/pax-url-classpath-2.4.5.jar:/root/.m2/repository/org/ops4j/base/ops4j-base-net/1.5.0/ops4j-base-net-1.5.0.jar:/root/.m2/repository/biz/aQute/bnd/bndlib/2.4.0/bndlib-2.4.0.jar:/root/.m2/repository/org/ops4j/pax/exam/pax-exam-cm/4.11.0/pax-exam-cm-4.11.0.jar:/root/.m2/repository/org/javassist/javassist/3.21.0-GA/javassist-3.21.0-GA.jar:/root/.m2/repository/org/ops4j/pax/swissbox/pax-swissbox-core/1.8.2/pax-swissbox-core-1.8.2.jar:/root/.m2/repository/org/ops4j/base/ops4j-base-monitors/1.5.0/ops4j-base-monitors-1.5.0.jar:/root/.m2/repository/org/ops4j/base/ops4j-base-store/1.5.0/ops4j-base-store-1.5.0.jar:/root/.m2/repository/org/ops4j/pax/url/pax-url-commons/2.4.5/pax-url-commons-2.4.5.jar:/root/.m2/repository/org/ops4j/pax/swissbox/pax-swissbox-tracker/1.8.2/pax-swissbox-tracker-1.8.2.jar:/root/.m2/repository/org/tukaani/xz/1.8/xz-1.8.jar:/root/.m2/repository/org/ops4j/pax/exam/pax-exam-link-mvn/4.11.0/pax-exam-link-mvn-4.11.0.jar:/root/.m2/repository/org/apache/felix/org.apache.felix.framework/5.6.10/org.apache.felix.framework-5.6.10.jar:/root/.m2/repository/org/powermock/powermock-api-mockito/1.7.3/powermock-api-mockito-1.7.3.jar:/root/.m2/repository/junit/junit/4.12/junit-4.12.jar:/root/.m2/repository/org/ops4j/pax/exam/pax-exam-spi/4.11.0/pax-exam-spi-4.11.0.jar:/root/.m2/repository/org/ops4j/pax/url/pax-url-link/2.4.5/pax-url-link-2.4.5.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.21/slf4j-api-1.7.21.jar:/root/.m2/repository/org/brotli/dec/0.1.2/dec-0.1.2.jar:/root/.m2/repository/org/ops4j/pax/swissbox/pax-swissbox-property/1.8.2/pax-swissbox-property-1.8.2.jar
+[284761] INFO ConfigurationProperties - p:packageToInstrument= 
+[284761] INFO ConfigurationProperties - p:skipfaultlocalization= false
+[284761] INFO ConfigurationProperties - p:scope= local
+[284761] INFO ConfigurationProperties - p:transformingredient= false
+[284761] INFO ConfigurationProperties - p:fitnessfunction= fr.inria.astor.core.solutionsearch.population.TestCaseFitnessFunction
+[284761] INFO ConfigurationProperties - p:maxnumvariablesperingredient= 10
+[284761] INFO ConfigurationProperties - p:parsesourcefromoriginal= true
+[284762] INFO ConfigurationProperties - p:pvariantfoldername= variant-
+[284762] INFO ConfigurationProperties - p:savespoonmodelondisk= false
+[284762] INFO ConfigurationProperties - p:srcjavafolder= src/main/java
+[284762] INFO ConfigurationProperties - p:populationcontroller= fr.inria.astor.core.solutionsearch.population.TestCaseBasedFitnessPopulationController
+[284762] INFO ConfigurationProperties - p:ignoreflakyinfl= false
+[284762] INFO ConfigurationProperties - p:cleantemplates= true
+[284762] INFO ConfigurationProperties - p:applyCrossover= false
+[284762] INFO ConfigurationProperties - p:maxmodificationpoints= 1000
+[284762] INFO ConfigurationProperties - p:duplicateingredientsinspace= false
+[284762] INFO ConfigurationProperties - p:metid= 0
+[284762] INFO ConfigurationProperties - p:continuewhenmodelfail= true
+[284762] INFO ConfigurationProperties - p:saveall= false
+[284762] INFO ConfigurationProperties - p:seed= 0
+[284762] INFO ConfigurationProperties - p:savecompletepatched= true
+[284762] INFO ConfigurationProperties - p:resetoperations= false
+[284762] INFO ConfigurationProperties - p:keepcomments= false
+[284762] INFO ConfigurationProperties - p:processoutputinfile= false
+[284762] INFO ConfigurationProperties - p:location= .
+[284762] INFO ConfigurationProperties - p:probabilistictransformation= true
+[284762] INFO ConfigurationProperties - p:overridemaxtime= true
+[284762] INFO ConfigurationProperties - p:ingredientstrategy= name-probability-based
+[284762] INFO ConfigurationProperties - p:outputjsonresult= true
+[284762] INFO ConfigurationProperties - p:allpoints= false
+[284763] INFO ConfigurationProperties - p:antipattern= false
+[284763] INFO ConfigurationProperties - p:bugId= 280
+[284763] INFO ConfigurationProperties - p:evosuitetimeout= 120
+[284763] INFO ConfigurationProperties - p:maxtimefactor= 10
+[284763] INFO ConfigurationProperties - p:nrPlaceholders= 1
+[284763] INFO ConfigurationProperties - p:testallcmd= mvn test -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B
+[284763] INFO ConfigurationProperties - p:forcesubprocesskilling= false
+[284764] INFO ConfigurationProperties - ----------------------------
+[284764] INFO AstorCoreEngine - ----Starting Solution Search
+[284765] WARN AstorCoreEngine - ----------Running generation: 1, population size: 1
+[294899] INFO main - Run previously failing tests...
+[452210] INFO main - Failed tests: 2
+[452259] WARN AstorCoreEngine - ----------Running generation: 2, population size: 1
+[454847] INFO main - Run previously failing tests...
+[516987] INFO main - Failed tests: 2
+[517001] WARN AstorCoreEngine - ----------Running generation: 3, population size: 1
+[520000] INFO main - Run previously failing tests...
+[577203] INFO main - Failed tests: 2
+[577216] WARN AstorCoreEngine - ----------Running generation: 4, population size: 1
+[580807] INFO main - Run previously failing tests...
+[736174] INFO main - Failed tests: 2
+[736209] WARN AstorCoreEngine - ----------Running generation: 5, population size: 1
+[738107] INFO main - Run previously failing tests...
+[791560] INFO main - Failed tests: 2
+[791593] WARN AstorCoreEngine - ----------Running generation: 6, population size: 1
+[794495] INFO main - Run previously failing tests...
+[853055] INFO main - Failed tests: 2
+[853077] WARN AstorCoreEngine - ----------Running generation: 7, population size: 1
+[856501] INFO main - Run previously failing tests...
+[901585] INFO main - Failed tests: 2
+[901656] WARN AstorCoreEngine - ----------Running generation: 8, population size: 1
+[904075] INFO main - Run previously failing tests...
+[957008] INFO main - Failed tests: 2
+[957036] WARN AstorCoreEngine - ----------Running generation: 9, population size: 1
+[959126] INFO main - Run previously failing tests...
+[1068559] INFO main - Failed tests: 2
+[1068586] WARN AstorCoreEngine - ----------Running generation: 10, population size: 1
+[1070053] INFO main - Run previously failing tests...
+[1125476] INFO main - Failed tests: 2
+[1125493] WARN AstorCoreEngine - ----------Running generation: 11, population size: 1
+[1127324] INFO main - Run previously failing tests...
+[1183693] INFO main - Failed tests: 2
+[1183709] WARN AstorCoreEngine - ----------Running generation: 12, population size: 1
+[1185403] INFO main - Run previously failing tests...
+[1340319] INFO main - Failed tests: 2
+[1340340] WARN AstorCoreEngine - ----------Running generation: 13, population size: 1
+[1342740] INFO main - Run previously failing tests...
+[1398821] INFO main - Failed tests: 2
+[1398844] WARN AstorCoreEngine - ----------Running generation: 14, population size: 1
+[1400457] INFO main - Run previously failing tests...
+[1558963] INFO main - Failed tests: 2
+[1558991] WARN AstorCoreEngine - ----------Running generation: 15, population size: 1
+[1560574] INFO main - Run previously failing tests...
+[1712209] INFO main - Failed tests: 2
+[1712216] WARN AstorCoreEngine - ----------Running generation: 16, population size: 1
+[1714184] INFO main - Run previously failing tests...
+[1769021] INFO main - Failed tests: 2
+[1769062] WARN AstorCoreEngine - ----------Running generation: 17, population size: 1
+[1770463] INFO main - Run previously failing tests...
+[1955358] INFO main - Failed tests: 2
+[1955386] WARN AstorCoreEngine - ----------Running generation: 18, population size: 1
+[1955796] WARN AstorCoreEngine - ----------Running generation: 19, population size: 1
+[1956832] INFO main - Run previously failing tests...
+[2006483] INFO main - Failed tests: 2
+[2006500] WARN AstorCoreEngine - ----------Running generation: 20, population size: 1
+[2008093] INFO main - Run previously failing tests...
+[2158400] INFO main - Failed tests: 2
+[2158416] WARN AstorCoreEngine - ----------Running generation: 21, population size: 1
+[2160468] WARN AstorCoreEngine - ----------Running generation: 22, population size: 1
+[2162140] INFO main - Run previously failing tests...
+[2307903] INFO main - Failed tests: 2
+[2307925] WARN AstorCoreEngine - ----------Running generation: 23, population size: 1
+[2309364] INFO main - Run previously failing tests...
+[2459732] INFO main - Failed tests: 2
+[2459750] WARN AstorCoreEngine - ----------Running generation: 24, population size: 1
+[2461076] INFO main - Run previously failing tests...
+[2609540] INFO main - Failed tests: 2
+[2609560] WARN AstorCoreEngine - ----------Running generation: 25, population size: 1
+[2610275] INFO main - Run previously failing tests...
+[2667707] INFO main - Failed tests: 2
+[2667729] WARN AstorCoreEngine - ----------Running generation: 26, population size: 1
+[2668652] INFO main - Run previously failing tests...
+[2805835] INFO main - Failed tests: 2
+[2805842] WARN AstorCoreEngine - ----------Running generation: 27, population size: 1
+[2808011] INFO main - Run previously failing tests...
+[2951268] INFO main - Failed tests: 2
+[2951274] WARN AstorCoreEngine - ----------Running generation: 28, population size: 1
+[2953223] INFO main - Run previously failing tests...
+[3083682] INFO main - Failed tests: 2
+[3083689] WARN AstorCoreEngine - ----------Running generation: 29, population size: 1
+[3084712] INFO main - Run previously failing tests...
+[3224746] INFO main - Failed tests: 2
+[3224761] WARN AstorCoreEngine - ----------Running generation: 30, population size: 1
+[3226537] INFO main - Run previously failing tests...
+[3397379] INFO main - Failed tests: 2
+[3397395] WARN AstorCoreEngine - ----------Running generation: 31, population size: 1
+[3399067] INFO main - Run previously failing tests...
+[3586781] INFO main - Failed tests: 2
+[3586800] WARN AstorCoreEngine - ----------Running generation: 32, population size: 1
+[3588304] INFO main - Run previously failing tests...
+[3644939] INFO main - Failed tests: 2
+[3644952] WARN AstorCoreEngine - ----------Running generation: 33, population size: 1
+[3646529] INFO main - Run previously failing tests...
+[3708863] INFO main - Failed tests: 2
+[3708879] WARN AstorCoreEngine - ----------Running generation: 34, population size: 1
+[3710393] INFO main - Run previously failing tests...
+[3776364] INFO main - Failed tests: 2
+[3776371] WARN AstorCoreEngine - ----------Running generation: 35, population size: 1
+[3777686] INFO main - Run previously failing tests...
+[3958620] INFO main - Failed tests: 2
+[3958649] WARN AstorCoreEngine - ----------Running generation: 36, population size: 1
+[3960246] INFO main - Run previously failing tests...
+[4021459] INFO main - Failed tests: 2
+[4021485] WARN AstorCoreEngine - ----------Running generation: 37, population size: 1
+[4022832] INFO main - Run previously failing tests...
+[4084150] INFO main - Failed tests: 2
+[4084168] WARN AstorCoreEngine - ----------Running generation: 38, population size: 1
+[4086635] INFO main - Run previously failing tests...
+[4143437] INFO main - Failed tests: 2
+[4143453] WARN AstorCoreEngine - ----------Running generation: 39, population size: 1
+[4145088] INFO main - Run previously failing tests...
+[4196200] INFO main - Failed tests: 2
+[4196212] WARN AstorCoreEngine - ----------Running generation: 40, population size: 1
+[4198027] INFO main - Run previously failing tests...
+[4248211] INFO main - Failed tests: 2
+[4248225] WARN AstorCoreEngine - ----------Running generation: 41, population size: 1
+[4249734] INFO main - Run previously failing tests...
+[4398036] INFO main - Failed tests: 2
+[4398052] WARN AstorCoreEngine - ----------Running generation: 42, population size: 1
+[4399518] INFO main - Run previously failing tests...
+[4454781] INFO main - Failed tests: 2
+[4454791] WARN AstorCoreEngine - ----------Running generation: 43, population size: 1
+[4456203] INFO main - Run previously failing tests...
+[4511816] INFO main - Failed tests: 2
+[4511825] WARN AstorCoreEngine - ----------Running generation: 44, population size: 1
+[4513586] INFO main - Run previously failing tests...
+[4566840] INFO main - Failed tests: 2
+[4566847] WARN AstorCoreEngine - ----------Running generation: 45, population size: 1
+[4568169] INFO main - Run previously failing tests...
+[4623773] INFO main - Failed tests: 2
+[4623780] WARN AstorCoreEngine - ----------Running generation: 46, population size: 1
+[4627000] INFO main - Run previously failing tests...
+[4685535] INFO main - Failed tests: 2
+[4685542] WARN AstorCoreEngine - ----------Running generation: 47, population size: 1
+[4686570] INFO main - Run previously failing tests...
+[4826377] INFO main - Failed tests: 2
+[4826395] WARN AstorCoreEngine - ----------Running generation: 48, population size: 1
+[4827715] INFO main - Run previously failing tests...
+[4958423] INFO main - Failed tests: 2
+[4958490] WARN AstorCoreEngine - ----------Running generation: 49, population size: 1
+[4959907] INFO main - Run previously failing tests...
+[5007117] INFO main - Failed tests: 2
+[5007130] WARN AstorCoreEngine - ----------Running generation: 50, population size: 1
+[5008879] INFO main - Run previously failing tests...
+[5140146] INFO main - Failed tests: 2
+[5140153] WARN AstorCoreEngine - ----------Running generation: 51, population size: 1
+[5141149] INFO main - Run previously failing tests...
+[5192064] INFO main - Failed tests: 2
+[5192072] WARN AstorCoreEngine - ----------Running generation: 52, population size: 1
+[5193359] INFO main - Run previously failing tests...
+[5312731] INFO main - Failed tests: 2
+[5312744] WARN AstorCoreEngine - ----------Running generation: 53, population size: 1
+[5314464] INFO main - Run previously failing tests...
+[5473336] INFO main - Failed tests: 2
+[5473351] WARN AstorCoreEngine - ----------Running generation: 54, population size: 1
+[5474795] INFO main - Run previously failing tests...
+[5639040] INFO main - Failed tests: 2
+[5639046] WARN AstorCoreEngine - ----------Running generation: 55, population size: 1
+[5639572] WARN AstorCoreEngine - ----------Running generation: 56, population size: 1
+[5641176] INFO main - Run previously failing tests...
+[5694727] INFO main - Failed tests: 2
+[5694742] WARN AstorCoreEngine - ----------Running generation: 57, population size: 1
+[5695879] INFO main - Run previously failing tests...
+[5836379] INFO main - Failed tests: 2
+[5836396] WARN AstorCoreEngine - ----------Running generation: 58, population size: 1
+[5837949] INFO main - Run previously failing tests...
+[5893899] INFO main - Failed tests: 2
+[5893943] WARN AstorCoreEngine - ----------Running generation: 59, population size: 1
+[5895856] INFO main - Run previously failing tests...
+[5947724] INFO main - Failed tests: 2
+[5947746] WARN AstorCoreEngine - ----------Running generation: 60, population size: 1
+[5949204] INFO main - Run previously failing tests...
+[6000049] INFO main - Failed tests: 2
+[6000075] WARN AstorCoreEngine - ----------Running generation: 61, population size: 1
+[6002231] INFO main - Run previously failing tests...
+[6124845] INFO main - Failed tests: 2
+[6124868] WARN AstorCoreEngine - ----------Running generation: 62, population size: 1
+[6126626] INFO main - Run previously failing tests...
+[6178961] INFO main - Failed tests: 2
+[6178970] WARN AstorCoreEngine - ----------Running generation: 63, population size: 1
+[6181315] INFO main - Run previously failing tests...
+[6296837] INFO main - Failed tests: 2
+[6296852] WARN AstorCoreEngine - ----------Running generation: 64, population size: 1
+[6298374] INFO main - Run previously failing tests...
+[6349798] INFO main - Failed tests: 2
+[6349815] WARN AstorCoreEngine - ----------Running generation: 65, population size: 1
+[6351355] INFO main - Run previously failing tests...
+[6404976] INFO main - Failed tests: 2
+[6404999] WARN AstorCoreEngine - ----------Running generation: 66, population size: 1
+[6406503] INFO main - Run previously failing tests...
+[6545321] INFO main - Failed tests: 2
+[6545347] WARN AstorCoreEngine - ----------Running generation: 67, population size: 1
+[6546961] INFO main - Run previously failing tests...
+[6713303] INFO main - Failed tests: 2
+[6713318] WARN AstorCoreEngine - ----------Running generation: 68, population size: 1
+[6714211] INFO main - Run previously failing tests...
+[6764910] INFO main - Failed tests: 2
+[6764921] WARN AstorCoreEngine - ----------Running generation: 69, population size: 1
+[6766465] INFO main - Run previously failing tests...
+[6906011] INFO main - Failed tests: 2
+[6906040] WARN AstorCoreEngine - ----------Running generation: 70, population size: 1
+[6907247] INFO main - Run previously failing tests...
+[7060248] INFO main - Failed tests: 2
+[7060261] WARN AstorCoreEngine - ----------Running generation: 71, population size: 1
+[7061791] INFO main - Run previously failing tests...
+[7125957] INFO main - Failed tests: 2
+[7125962] WARN AstorCoreEngine - ----------Running generation: 72, population size: 1
+[7127722] INFO main - Run previously failing tests...
+[7189966] INFO main - Failed tests: 2
+[7189983] WARN AstorCoreEngine - ----------Running generation: 73, population size: 1
+[7191322] INFO main - Run previously failing tests...
+[7336805] INFO main - Failed tests: 2
+[7336821] WARN AstorCoreEngine - ----------Running generation: 74, population size: 1
+[7338623] INFO main - Run previously failing tests...
+[7396019] INFO main - Failed tests: 2
+[7396034] WARN AstorCoreEngine - ----------Running generation: 75, population size: 1
+[7397331] INFO main - Run previously failing tests...
+[7451856] INFO main - Failed tests: 2
+[7451870] WARN AstorCoreEngine - ----------Running generation: 76, population size: 1
+[7453430] INFO main - Run previously failing tests...
+[7601099] INFO main - Failed tests: 2
+[7601111] INFO AstorCoreEngine - 
+ No more time for operating
+[7601131] INFO AstorCoreEngine - Time Repair Loop (s): 7316.367
+[7601132] INFO AstorCoreEngine - generationsexecuted: 76
+[7601132] WARN AstorCoreEngine - ----SUMMARY_EXECUTION---
+[7601132] WARN AstorCoreEngine - End Repair Search: NOT Found solution
+[7601132] WARN AstorCoreEngine - Number suspicious:1
+[7601134] INFO AstorCoreEngine - Total mod points: 1
+[7601447] INFO ExpressionTypeIngredientSpace - Storing ing JSON at /workdir/Cardumen_vul4j_apache_commons-compress_VUL4J-7/./output_astor/AstorMain-apache_commons-compress-VUL4J-7//src/ingredients.json
+[7601450] INFO IngredientStats - Storing ing JSON at /workdir/Cardumen_vul4j_apache_commons-compress_VUL4J-7/./output_astor/AstorMain-apache_commons-compress-VUL4J-7//ingredientSpaceSize.json
+[7601450] INFO IngredientStats - ingredientSpaceSize:{"allAttempts":76,"space":[{"a":47,"v":4},{"a":51,"v":5},{"a":58,"v":3},{"a":40,"v":3},{"a":55,"v":1},{"a":43,"v":7},{"a":50,"v":1},{"a":48,"v":12},{"a":54,"v":2},{"a":44,"v":2},{"a":59,"v":1},{"a":45,"v":2},{"a":41,"v":5},{"a":53,"v":1},{"a":46,"v":2},{"a":57,"v":4},{"a":52,"v":9},{"a":42,"v":11},{"a":56,"v":1}]}
+[7601456] INFO IngredientStats - Storing ing JSON at /workdir/Cardumen_vul4j_apache_commons-compress_VUL4J-7/./output_astor/AstorMain-apache_commons-compress-VUL4J-7//combinationsTemplatesingredientSpaceSize.json
+[7601456] INFO IngredientStats - combinationsTemplatesingredientSpaceSize:{"allAttempts":203,"space":[{"a":215,"v":1},{"a":358,"v":3},{"a":999,"v":1},{"a":8,"v":1},{"a":35,"v":2},{"a":59,"v":1},{"a":180,"v":2},{"a":34,"v":1},{"a":360,"v":16},{"a":9,"v":1},{"a":60,"v":4},{"a":6,"v":16},{"a":1,"v":105},{"a":216,"v":2},{"a":720,"v":4},{"a":4,"v":2},{"a":36,"v":4},{"a":11,"v":1},{"a":359,"v":6},{"a":3,"v":1},{"a":1000,"v":2},{"a":12,"v":2},{"a":2,"v":3},{"a":356,"v":2},{"a":998,"v":1},{"a":719,"v":1},{"a":357,"v":3},{"a":10,"v":2},{"a":5,"v":5},{"a":0,"v":8}]}
+[7601485] INFO AstorCoreEngine - 
+ --SOLUTIONS DESCRIPTION--
+
+
+Astor Output:
+
+General stats:
+EXECUTION_IDENTIFIER=apache_commons-compress-VUL4J-7
+TOTAL_TIME=7316.367
+NR_GENERATIONS=76
+NR_RIGHT_COMPILATIONS=73
+NR_FAILLING_COMPILATIONS=1
+NR_ERRONEOUS_VARIANCES=null
+NR_FAILING_VALIDATION_PROCESS=null
+OUTPUT_STATUS=TIME_OUT
+
+Patch stats:
+
+[7601524] INFO Stats - Storing ing JSON at /workdir/Cardumen_vul4j_apache_commons-compress_VUL4J-7/./output_astor/AstorMain-apache_commons-compress-VUL4J-7//astor_output.json
+[7601538] INFO Stats - astor_output:
+{"general":{"NR_RIGHT_COMPILATIONS":73,"NR_ERRONEOUS_VARIANCES":null,"EXECUTION_IDENTIFIER":"apache_commons-compress-VUL4J-7","OUTPUT_STATUS":"TIME_OUT","NR_FAILLING_COMPILATIONS":1,"NR_GENERATIONS":76,"TOTAL_TIME":7316.367,"NR_FAILING_VALIDATION_PROCESS":null},"patches":[]}
+[7601538] INFO AstorMain - Time Total(s): 7601.529
+4066.43user 1091.93system 2:06:43elapsed 67%CPU (0avgtext+0avgdata 6706480maxresident)k
+216inputs+406504outputs (1major+100733295minor)pagefaults 0swaps
+
+
+Node: 9670332cfea8
+
+
+
+Date: Fri Sep  9 01:37:36 EDT 2022
+

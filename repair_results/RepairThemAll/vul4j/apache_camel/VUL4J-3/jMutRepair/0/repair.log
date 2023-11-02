@@ -1,0 +1,241 @@
+cd /workdir/jMutRepair_vul4j_apache_camel_VUL4J-3;
+export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en";
+TZ="America/New_York"; export TZ;
+export PATH="/usr/lib/jvm/java-8-openjdk-amd64/bin:$PATH";
+export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64/bin";
+time java -Xmx4g -Xms1g -XX:MaxPermSize=512m -cp /script/../libs/jtestex7.jar:/script/../repair_tools/astor.jar fr.inria.main.evolution.AstorMain \
+	-mode jMutRepair \
+	-location . \
+	-id apache_camel-VUL4J-3 \
+	-failing org.apache.camel.component.xslt.XsltDTDTest#testSendingStringMessage \
+	-jvm4testexecution /usr/lib/jvm/java-8-openjdk-amd64/bin \
+	-jvm4evosuitetestexecution /usr/lib/jvm/java-8-openjdk-amd64/bin \
+	-maxgen 1000000 \
+	-maxtime 120 \
+	-stopfirst true \
+	-seed 0 \
+	-scope local \
+	-population 1 \
+	-javacompliancelevel 8 \
+	-faultlocalization perfect \
+    -perfectdata /script/../data/benchmarks/vul4j/perfectfl/VUL4J-3 \
+    -validation externalcmd \
+    -testfailingcmd "mvn test -pl camel-core -Dtest=org.apache.camel.component.xslt.XsltDTDTest -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B" \
+    -testallcmd "mvn test -pl camel-core -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B"  \ \
+	-srcjavafolder camel-core/src/main/java \
+	-srctestfolder camel-core/src/test/java \
+	-binjavafolder camel-core/target/classes \
+	-bintestfolder camel-core/target/test-classes \
+	-parameters x:x \
+	-dependencies /root/.m2/repository/org/apache/camel/apt/2.15-SNAPSHOT/apt-2.15-SNAPSHOT.jar:/root/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.4.3/jackson-core-2.4.3.jar:/root/.m2/repository/com/sun/xml/bind/jaxb-core/2.2.11/jaxb-core-2.2.11.jar:/root/.m2/repository/org/codehaus/woodstox/woodstox-core-asl/4.4.1/woodstox-core-asl-4.4.1.jar:/root/.m2/repository/org/apache/camel/spi-annotations/2.15-SNAPSHOT/spi-annotations-2.15-SNAPSHOT.jar:/root/.m2/repository/cglib/cglib-nodep/2.2.2/cglib-nodep-2.2.2.jar:/root/.m2/repository/org/easymock/easymock/3.2/easymock-3.2.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.4.0/jackson-annotations-2.4.0.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/xml-resolver/xml-resolver/1.2/xml-resolver-1.2.jar:/root/.m2/repository/com/googlecode/concurrentlinkedhashmap/concurrentlinkedhashmap-lru/1.4.2/concurrentlinkedhashmap-lru-1.4.2.jar:/root/.m2/repository/org/slf4j/slf4j-log4j12/1.7.10/slf4j-log4j12-1.7.10.jar:/root/.m2/repository/org/codehaus/woodstox/stax2-api/3.1.4/stax2-api-3.1.4.jar:/root/.m2/repository/junit/junit/4.12/junit-4.12.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.6.6/slf4j-api-1.6.6.jar:/root/.m2/repository/org/osgi/org.osgi.core/4.3.1/org.osgi.core-4.3.1.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.4.3/jackson-databind-2.4.3.jar:/root/.m2/repository/com/sun/xml/bind/jaxb-impl/2.2.11/jaxb-impl-2.2.11.jar:/root/.m2/repository/org/objenesis/objenesis/1.3/objenesis-1.3.jar;
+	echo "\n\nNode: `hostname`\n";
+	echo "\n\nDate: `date`\n";
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en
+OpenJDK 64-Bit Server VM warning: ignoring option MaxPermSize=512m; support was removed in 8.0
+[0] INFO ProjectConfiguration - Version of the JVM used: 1.8.0_342
+[0] INFO main - Java version of the JDK used to run tests: 1.8.0_342
+[0] INFO main - The compliance of the JVM is:  8
+[2] INFO main - command line arguments: [-mode  jMutRepair  -location  .  -id  apache_camel-VUL4J-3  -failing  org.apache.camel.component.xslt.XsltDTDTest#testSendingStringMessage  -jvm4testexecution  /usr/lib/jvm/java-8-openjdk-amd64/bin  -jvm4evosuitetestexecution  /usr/lib/jvm/java-8-openjdk-amd64/bin  -maxgen  1000000  -maxtime  120  -stopfirst  true  -seed  0  -scope  local  -population  1  -javacompliancelevel  8  -faultlocalization  perfect  -perfectdata  /script/../data/benchmarks/vul4j/perfectfl/VUL4J-3  -validation  externalcmd  -testfailingcmd  mvn test -pl camel-core -Dtest=org.apache.camel.component.xslt.XsltDTDTest -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B  -testallcmd  mvn test -pl camel-core -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B     -srcjavafolder  camel-core/src/main/java  -srctestfolder  camel-core/src/test/java  -binjavafolder  camel-core/target/classes  -bintestfolder  camel-core/target/test-classes  -parameters  x:x  -dependencies  /root/.m2/repository/org/apache/camel/apt/2.15-SNAPSHOT/apt-2.15-SNAPSHOT.jar:/root/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.4.3/jackson-core-2.4.3.jar:/root/.m2/repository/com/sun/xml/bind/jaxb-core/2.2.11/jaxb-core-2.2.11.jar:/root/.m2/repository/org/codehaus/woodstox/woodstox-core-asl/4.4.1/woodstox-core-asl-4.4.1.jar:/root/.m2/repository/org/apache/camel/spi-annotations/2.15-SNAPSHOT/spi-annotations-2.15-SNAPSHOT.jar:/root/.m2/repository/cglib/cglib-nodep/2.2.2/cglib-nodep-2.2.2.jar:/root/.m2/repository/org/easymock/easymock/3.2/easymock-3.2.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.4.0/jackson-annotations-2.4.0.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/xml-resolver/xml-resolver/1.2/xml-resolver-1.2.jar:/root/.m2/repository/com/googlecode/concurrentlinkedhashmap/concurrentlinkedhashmap-lru/1.4.2/concurrentlinkedhashmap-lru-1.4.2.jar:/root/.m2/repository/org/slf4j/slf4j-log4j12/1.7.10/slf4j-log4j12-1.7.10.jar:/root/.m2/repository/org/codehaus/woodstox/stax2-api/3.1.4/stax2-api-3.1.4.jar:/root/.m2/repository/junit/junit/4.12/junit-4.12.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.6.6/slf4j-api-1.6.6.jar:/root/.m2/repository/org/osgi/org.osgi.core/4.3.1/org.osgi.core-4.3.1.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.4.3/jackson-databind-2.4.3.jar:/root/.m2/repository/com/sun/xml/bind/jaxb-impl/2.2.11/jaxb-impl-2.2.11.jar:/root/.m2/repository/org/objenesis/objenesis/1.3/objenesis-1.3.jar]
+[3] INFO AstorMain - Running Astor on a JDK at /usr/lib/jvm/java-8-openjdk-amd64/jre
+[6] INFO main - Source folders: [/workdir/jMutRepair_vul4j_apache_camel_VUL4J-3/./camel-core/src/main/java]
+[7] INFO main - Source Test folders: [/workdir/jMutRepair_vul4j_apache_camel_VUL4J-3/./camel-core/src/test/java]
+[1348] INFO AstorCoreEngine - ---- Creating spoon model
+[1365] INFO MutationSupporter - Creating model,  Code location from working folder: /workdir/jMutRepair_vul4j_apache_camel_VUL4J-3/./camel-core/src/main/java
+[1365] INFO MutationSupporter - building model: /workdir/jMutRepair_vul4j_apache_camel_VUL4J-3/./camel-core/src/main/java, compliance level: 8
+[1439] INFO MutationSupporter - Classpath (Dependencies) for building SpoonModel: [/root/.m2/repository/org/apache/camel/apt/2.15-SNAPSHOT/apt-2.15-SNAPSHOT.jar, /root/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar, /root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.4.3/jackson-core-2.4.3.jar, /root/.m2/repository/com/sun/xml/bind/jaxb-core/2.2.11/jaxb-core-2.2.11.jar, /root/.m2/repository/org/codehaus/woodstox/woodstox-core-asl/4.4.1/woodstox-core-asl-4.4.1.jar, /root/.m2/repository/org/apache/camel/spi-annotations/2.15-SNAPSHOT/spi-annotations-2.15-SNAPSHOT.jar, /root/.m2/repository/cglib/cglib-nodep/2.2.2/cglib-nodep-2.2.2.jar, /root/.m2/repository/org/easymock/easymock/3.2/easymock-3.2.jar, /root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.4.0/jackson-annotations-2.4.0.jar, /root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar, /root/.m2/repository/xml-resolver/xml-resolver/1.2/xml-resolver-1.2.jar, /root/.m2/repository/com/googlecode/concurrentlinkedhashmap/concurrentlinkedhashmap-lru/1.4.2/concurrentlinkedhashmap-lru-1.4.2.jar, /root/.m2/repository/org/slf4j/slf4j-log4j12/1.7.10/slf4j-log4j12-1.7.10.jar, /root/.m2/repository/org/codehaus/woodstox/stax2-api/3.1.4/stax2-api-3.1.4.jar, /root/.m2/repository/junit/junit/4.12/junit-4.12.jar, /root/.m2/repository/org/slf4j/slf4j-api/1.6.6/slf4j-api-1.6.6.jar, /root/.m2/repository/org/osgi/org.osgi.core/4.3.1/org.osgi.core-4.3.1.jar, /root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.4.3/jackson-databind-2.4.3.jar, /root/.m2/repository/com/sun/xml/bind/jaxb-impl/2.2.11/jaxb-impl-2.2.11.jar, /root/.m2/repository/org/objenesis/objenesis/1.3/objenesis-1.3.jar]
+[10680] ERROR MutationSupporter - Problem compiling the model with compliance level 8
+[10680] ERROR MutationSupporter - Type mismatch: cannot convert from Class<capture#10-of ? extends Object> to Class<T> at /workdir/jMutRepair_vul4j_apache_camel_VUL4J-3/camel-core/src/main/java/org/apache/camel/component/mock/MockEndpoint.java:656
+spoon.compiler.ModelBuildingException: Type mismatch: cannot convert from Class<capture#10-of ? extends Object> to Class<T> at /workdir/jMutRepair_vul4j_apache_camel_VUL4J-3/camel-core/src/main/java/org/apache/camel/component/mock/MockEndpoint.java:656
+	at spoon.support.compiler.jdt.JDTBasedSpoonCompiler.report(JDTBasedSpoonCompiler.java:649)
+	at spoon.support.compiler.jdt.JDTBasedSpoonCompiler.reportProblems(JDTBasedSpoonCompiler.java:631)
+	at spoon.support.compiler.jdt.JDTBasedSpoonCompiler.build(JDTBasedSpoonCompiler.java:118)
+	at spoon.support.compiler.jdt.JDTBasedSpoonCompiler.build(JDTBasedSpoonCompiler.java:99)
+	at fr.inria.astor.core.manipulation.MutationSupporter.buildModel(MutationSupporter.java:85)
+	at fr.inria.astor.core.manipulation.MutationSupporter.buildSpoonModel(MutationSupporter.java:240)
+	at fr.inria.astor.core.solutionsearch.AstorCoreEngine.initModel(AstorCoreEngine.java:775)
+	at fr.inria.main.evolution.AstorMain.createEngine(AstorMain.java:113)
+	at fr.inria.main.evolution.AstorMain.run(AstorMain.java:173)
+	at fr.inria.main.evolution.AstorMain.execute(AstorMain.java:233)
+	at fr.inria.main.evolution.AstorMain.main(AstorMain.java:204)
+[10697] INFO MutationSupporter - Recompiling with compliance level 8
+[10697] INFO MutationSupporter - building model: /workdir/jMutRepair_vul4j_apache_camel_VUL4J-3/./camel-core/src/main/java, compliance level: 8
+[10757] INFO MutationSupporter - Classpath (Dependencies) for building SpoonModel: [/root/.m2/repository/org/apache/camel/apt/2.15-SNAPSHOT/apt-2.15-SNAPSHOT.jar, /root/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar, /root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.4.3/jackson-core-2.4.3.jar, /root/.m2/repository/com/sun/xml/bind/jaxb-core/2.2.11/jaxb-core-2.2.11.jar, /root/.m2/repository/org/codehaus/woodstox/woodstox-core-asl/4.4.1/woodstox-core-asl-4.4.1.jar, /root/.m2/repository/org/apache/camel/spi-annotations/2.15-SNAPSHOT/spi-annotations-2.15-SNAPSHOT.jar, /root/.m2/repository/cglib/cglib-nodep/2.2.2/cglib-nodep-2.2.2.jar, /root/.m2/repository/org/easymock/easymock/3.2/easymock-3.2.jar, /root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.4.0/jackson-annotations-2.4.0.jar, /root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar, /root/.m2/repository/xml-resolver/xml-resolver/1.2/xml-resolver-1.2.jar, /root/.m2/repository/com/googlecode/concurrentlinkedhashmap/concurrentlinkedhashmap-lru/1.4.2/concurrentlinkedhashmap-lru-1.4.2.jar, /root/.m2/repository/org/slf4j/slf4j-log4j12/1.7.10/slf4j-log4j12-1.7.10.jar, /root/.m2/repository/org/codehaus/woodstox/stax2-api/3.1.4/stax2-api-3.1.4.jar, /root/.m2/repository/junit/junit/4.12/junit-4.12.jar, /root/.m2/repository/org/slf4j/slf4j-api/1.6.6/slf4j-api-1.6.6.jar, /root/.m2/repository/org/osgi/org.osgi.core/4.3.1/org.osgi.core-4.3.1.jar, /root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.4.3/jackson-databind-2.4.3.jar, /root/.m2/repository/com/sun/xml/bind/jaxb-impl/2.2.11/jaxb-impl-2.2.11.jar, /root/.m2/repository/org/objenesis/objenesis/1.3/objenesis-1.3.jar]
+spoon.compiler.ModelBuildingException: Type mismatch: cannot convert from Class<capture#10-of ? extends Object> to Class<T> at /workdir/jMutRepair_vul4j_apache_camel_VUL4J-3/camel-core/src/main/java/org/apache/camel/component/mock/MockEndpoint.java:656
+	at spoon.support.compiler.jdt.JDTBasedSpoonCompiler.report(JDTBasedSpoonCompiler.java:649)
+	at spoon.support.compiler.jdt.JDTBasedSpoonCompiler.reportProblems(JDTBasedSpoonCompiler.java:631)
+	at spoon.support.compiler.jdt.JDTBasedSpoonCompiler.build(JDTBasedSpoonCompiler.java:118)
+	at spoon.support.compiler.jdt.JDTBasedSpoonCompiler.build(JDTBasedSpoonCompiler.java:99)
+	at fr.inria.astor.core.manipulation.MutationSupporter.buildModel(MutationSupporter.java:85)
+	at fr.inria.astor.core.manipulation.MutationSupporter.buildSpoonModel(MutationSupporter.java:253)
+	at fr.inria.astor.core.solutionsearch.AstorCoreEngine.initModel(AstorCoreEngine.java:775)
+	at fr.inria.main.evolution.AstorMain.createEngine(AstorMain.java:113)
+	at fr.inria.main.evolution.AstorMain.run(AstorMain.java:173)
+	at fr.inria.main.evolution.AstorMain.execute(AstorMain.java:233)
+	at fr.inria.main.evolution.AstorMain.main(AstorMain.java:204)
+[15811] ERROR MutationSupporter - Error compiling: Type mismatch: cannot convert from Class<capture#10-of ? extends Object> to Class<T> at /workdir/jMutRepair_vul4j_apache_camel_VUL4J-3/camel-core/src/main/java/org/apache/camel/component/mock/MockEndpoint.java:656
+[16199] ERROR MutationSupporter - Astor continues when model build fails. Classes created: 1244
+[16428] INFO AstorCoreEngine - Number of CtTypes created: 1244
+[16904] INFO AstorCoreEngine - Test retrieved from classes: 0
+[16957] INFO AstorCoreEngine - Setting up the max to 530 milliseconds (0 sec)
+[16957] INFO AstorCoreEngine - ---- Initial suspicious size: 2
+[17164] INFO main - Total suspicious from FL: 2,  0
+[17165] INFO main - Total ModPoint created: 0
+[17165] INFO main - Creating program variant #1, [Variant id: 1, #gens: 0, #ops: 0, parent:-]
+[17165] ERROR AstorCoreEngine - [warning] Any modification point in variant
+[17165] ERROR AstorCoreEngine - Variant with any gen
+[17165] WARN ConfigurationProperties - ----------------------------
+[17165] INFO ConfigurationProperties - ---Configuration properties
+[17165] INFO ConfigurationProperties - p:lastJUnitVersion= ./examples/libs/junit-4.11.jar
+[17165] INFO ConfigurationProperties - p:alternativecompliancelevel= 8
+[17165] INFO ConfigurationProperties - p:ignoredTestCases= 
+[17165] INFO ConfigurationProperties - p:workingDirectory= /workdir/jMutRepair_vul4j_apache_camel_VUL4J-3/./output_astor
+[17165] INFO ConfigurationProperties - p:manipulatesuper= false
+[17165] INFO ConfigurationProperties - p:validation= externalcmd
+[17165] INFO ConfigurationProperties - p:jvm4testexecution= /usr/lib/jvm/java-8-openjdk-amd64/bin
+[17165] INFO ConfigurationProperties - p:operatorspace= mutationspace
+[17165] INFO ConfigurationProperties - p:diffcontext= 0
+[17165] INFO ConfigurationProperties - p:binjavafolder= camel-core/target/classes
+[17165] INFO ConfigurationProperties - p:synthesis_depth= 3
+[17165] INFO ConfigurationProperties - p:gzoltartestpackagetoexclude= junit.framework
+[17165] INFO ConfigurationProperties - p:skipfitnessinitialpopulation= false
+[17165] INFO ConfigurationProperties - p:evosuiteresultfolder= evosuite
+[17165] INFO ConfigurationProperties - p:flthreshold= 0.1
+[17165] INFO ConfigurationProperties - p:regressionforfaultlocalization= true
+[17165] INFO ConfigurationProperties - p:collectonlyusedmethod= false
+[17165] INFO ConfigurationProperties - p:preservelinenumbers= true
+[17165] INFO ConfigurationProperties - p:tmax2= 530
+[17165] INFO ConfigurationProperties - p:tmax1= 10000
+[17165] INFO ConfigurationProperties - p:probagenmutation= false
+[17165] INFO ConfigurationProperties - p:nomodificationconvergence= 100
+[17165] INFO ConfigurationProperties - p:diff_type= relative
+[17165] INFO ConfigurationProperties - p:targetelementprocessor= if-conditions:return-op-mutation
+[17165] INFO ConfigurationProperties - p:srctestfolder= camel-core/src/test/java
+[17165] INFO ConfigurationProperties - p:forceExecuteRegression= false
+[17165] INFO ConfigurationProperties - p:clusteringfilename= clustering.csv
+[17165] INFO ConfigurationProperties - p:failing= org.apache.camel.component.xslt.XsltDTDTest#testSendingStringMessage
+[17165] INFO ConfigurationProperties - p:logtestexecution= false
+[17165] INFO ConfigurationProperties - p:evo_buggy_class= true
+[17165] INFO ConfigurationProperties - p:numberExecutions= 1
+[17166] INFO ConfigurationProperties - p:maxnumbersolutions= 1000000
+[17166] INFO ConfigurationProperties - p:evo_affected_by_op= true
+[17166] INFO ConfigurationProperties - p:population= 1
+[17166] INFO ConfigurationProperties - p:considerzerovaluesusp= false
+[17166] INFO ConfigurationProperties - p:maxCombinationVariableLimit= false
+[17166] INFO ConfigurationProperties - p:savesolution= true
+[17166] INFO ConfigurationProperties - p:javacompliancelevel= 8
+[17166] INFO ConfigurationProperties - p:x= x
+[17166] INFO ConfigurationProperties - p:uniqueoptogen= false
+[17166] INFO ConfigurationProperties - p:gzoltarpackagetonotinstrument= junit.framework
+[17166] INFO ConfigurationProperties - p:projectIdentifier= apache_camel-VUL4J-3
+[17166] INFO ConfigurationProperties - p:modificationpointnavigation= weight
+[17166] INFO ConfigurationProperties - p:stopfirst= true
+[17166] INFO ConfigurationProperties - p:multipointmodification= false
+[17166] INFO ConfigurationProperties - p:elementsToMutate= 10
+[17166] INFO ConfigurationProperties - p:jsonoutputname= astor_output
+[17166] INFO ConfigurationProperties - p:evoDSE= false
+[17166] INFO ConfigurationProperties - p:bintestfolder= camel-core/target/test-classes
+[17166] INFO ConfigurationProperties - p:testbystep= false
+[17166] INFO ConfigurationProperties - p:version-location= ./math-version/
+[17166] INFO ConfigurationProperties - p:reintroduce= PARENTS:ORIGINAL
+[17166] INFO ConfigurationProperties - p:perfectdata= /script/../data/benchmarks/vul4j/perfectfl/VUL4J-3
+[17166] INFO ConfigurationProperties - p:executorjar= ./lib/jtestex7.jar
+[17166] INFO ConfigurationProperties - p:maxGeneration= 1000000
+[17166] INFO ConfigurationProperties - p:max_synthesis_step= 10000
+[17166] INFO ConfigurationProperties - p:projectinfocommand= com.github.tdurieux:project-config-maven-plugin:info
+[17166] INFO ConfigurationProperties - p:maxVarCombination= 1000
+[17166] INFO ConfigurationProperties - p:maxtime= 120
+[17166] INFO ConfigurationProperties - p:evosuitejar= ./lib/evosuite-master-1.0.4-SNAPSHOT.jar
+[17166] INFO ConfigurationProperties - p:jvmversion= 1.8.0_342
+[17166] INFO ConfigurationProperties - p:commandTrunk= 50000
+[17166] INFO ConfigurationProperties - p:faultlocalization= perfect
+[17166] INFO ConfigurationProperties - p:resetmodel= true
+[17166] INFO ConfigurationProperties - p:maxsuspcandidates= 1000
+[17166] INFO ConfigurationProperties - p:mode= jMutRepair
+[17166] INFO ConfigurationProperties - p:learningdir= 
+[17166] INFO ConfigurationProperties - p:jvm4evosuitetestexecution= /usr/lib/jvm/java-8-openjdk-amd64/bin
+[17166] INFO ConfigurationProperties - p:filterfaultlocalization= true
+[17166] INFO ConfigurationProperties - p:mutationrate= 1 
+[17166] INFO ConfigurationProperties - p:pathToMVNRepository= 
+[17166] INFO ConfigurationProperties - p:resourcesfolder= /src/main/resources:/src/test/resources:
+[17166] INFO ConfigurationProperties - p:timezone= America/Los_Angeles
+[17166] INFO ConfigurationProperties - p:runjava7code= false
+[17166] INFO ConfigurationProperties - p:testfailingcmd= mvn test -pl camel-core -Dtest=org.apache.camel.component.xslt.XsltDTDTest -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B
+[17166] INFO ConfigurationProperties - p:evoRunOnBuggyClass= true
+[17166] INFO ConfigurationProperties - p:compiler= fr.inria.astor.core.manipulation.bytecode.compiler.SpoonClassCompiler
+[17166] INFO ConfigurationProperties - p:limitbysuspicious= true
+[17166] INFO ConfigurationProperties - p:logsattemps= true
+[17166] INFO ConfigurationProperties - p:dependenciespath= /root/.m2/repository/org/apache/camel/apt/2.15-SNAPSHOT/apt-2.15-SNAPSHOT.jar:/root/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.4.3/jackson-core-2.4.3.jar:/root/.m2/repository/com/sun/xml/bind/jaxb-core/2.2.11/jaxb-core-2.2.11.jar:/root/.m2/repository/org/codehaus/woodstox/woodstox-core-asl/4.4.1/woodstox-core-asl-4.4.1.jar:/root/.m2/repository/org/apache/camel/spi-annotations/2.15-SNAPSHOT/spi-annotations-2.15-SNAPSHOT.jar:/root/.m2/repository/cglib/cglib-nodep/2.2.2/cglib-nodep-2.2.2.jar:/root/.m2/repository/org/easymock/easymock/3.2/easymock-3.2.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.4.0/jackson-annotations-2.4.0.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/xml-resolver/xml-resolver/1.2/xml-resolver-1.2.jar:/root/.m2/repository/com/googlecode/concurrentlinkedhashmap/concurrentlinkedhashmap-lru/1.4.2/concurrentlinkedhashmap-lru-1.4.2.jar:/root/.m2/repository/org/slf4j/slf4j-log4j12/1.7.10/slf4j-log4j12-1.7.10.jar:/root/.m2/repository/org/codehaus/woodstox/stax2-api/3.1.4/stax2-api-3.1.4.jar:/root/.m2/repository/junit/junit/4.12/junit-4.12.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.6.6/slf4j-api-1.6.6.jar:/root/.m2/repository/org/osgi/org.osgi.core/4.3.1/org.osgi.core-4.3.1.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.4.3/jackson-databind-2.4.3.jar:/root/.m2/repository/com/sun/xml/bind/jaxb-impl/2.2.11/jaxb-impl-2.2.11.jar:/root/.m2/repository/org/objenesis/objenesis/1.3/objenesis-1.3.jar
+[17166] INFO ConfigurationProperties - p:packageToInstrument= 
+[17167] INFO ConfigurationProperties - p:skipfaultlocalization= false
+[17167] INFO ConfigurationProperties - p:scope= local
+[17167] INFO ConfigurationProperties - p:transformingredient= false
+[17167] INFO ConfigurationProperties - p:fitnessfunction= fr.inria.astor.core.solutionsearch.population.TestCaseFitnessFunction
+[17167] INFO ConfigurationProperties - p:maxnumvariablesperingredient= 10
+[17167] INFO ConfigurationProperties - p:parsesourcefromoriginal= true
+[17167] INFO ConfigurationProperties - p:pvariantfoldername= variant-
+[17167] INFO ConfigurationProperties - p:savespoonmodelondisk= false
+[17167] INFO ConfigurationProperties - p:srcjavafolder= camel-core/src/main/java
+[17167] INFO ConfigurationProperties - p:populationcontroller= fr.inria.astor.core.solutionsearch.population.TestCaseBasedFitnessPopulationController
+[17167] INFO ConfigurationProperties - p:ignoreflakyinfl= false
+[17167] INFO ConfigurationProperties - p:cleantemplates= true
+[17167] INFO ConfigurationProperties - p:applyCrossover= false
+[17167] INFO ConfigurationProperties - p:maxmodificationpoints= 1000
+[17167] INFO ConfigurationProperties - p:duplicateingredientsinspace= false
+[17167] INFO ConfigurationProperties - p:metid= 0
+[17167] INFO ConfigurationProperties - p:continuewhenmodelfail= true
+[17167] INFO ConfigurationProperties - p:saveall= false
+[17167] INFO ConfigurationProperties - p:seed= 0
+[17167] INFO ConfigurationProperties - p:savecompletepatched= true
+[17167] INFO ConfigurationProperties - p:resetoperations= false
+[17167] INFO ConfigurationProperties - p:keepcomments= false
+[17167] INFO ConfigurationProperties - p:processoutputinfile= false
+[17167] INFO ConfigurationProperties - p:location= .
+[17167] INFO ConfigurationProperties - p:probabilistictransformation= true
+[17167] INFO ConfigurationProperties - p:overridemaxtime= true
+[17167] INFO ConfigurationProperties - p:outputjsonresult= true
+[17167] INFO ConfigurationProperties - p:allpoints= false
+[17167] INFO ConfigurationProperties - p:antipattern= false
+[17167] INFO ConfigurationProperties - p:bugId= 280
+[17167] INFO ConfigurationProperties - p:evosuitetimeout= 120
+[17167] INFO ConfigurationProperties - p:maxtimefactor= 10
+[17167] INFO ConfigurationProperties - p:nrPlaceholders= 1
+[17167] INFO ConfigurationProperties - p:testallcmd= mvn test -pl camel-core -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B
+[17167] INFO ConfigurationProperties - p:forcesubprocesskilling= false
+[17167] INFO ConfigurationProperties - ----------------------------
+[17169] INFO AstorCoreEngine - Time Repair Loop (s): 0.001
+[17169] INFO AstorCoreEngine - generationsexecuted: 1
+[17169] WARN AstorCoreEngine - ----SUMMARY_EXECUTION---
+[17169] WARN AstorCoreEngine - End Repair Search: NOT Found solution
+[17170] WARN AstorCoreEngine - Number suspicious:1
+[17170] INFO AstorCoreEngine - 
+ --SOLUTIONS DESCRIPTION--
+
+
+Astor Output:
+
+General stats:
+EXECUTION_IDENTIFIER=apache_camel-VUL4J-3
+TOTAL_TIME=0.001
+NR_GENERATIONS=null
+NR_RIGHT_COMPILATIONS=null
+NR_FAILLING_COMPILATIONS=null
+NR_ERRONEOUS_VARIANCES=null
+NR_FAILING_VALIDATION_PROCESS=null
+OUTPUT_STATUS=EXHAUSTIVE_NAVIGATED
+
+Patch stats:
+
+[17176] INFO Stats - Storing ing JSON at /workdir/jMutRepair_vul4j_apache_camel_VUL4J-3/./output_astor/AstorMain-apache_camel-VUL4J-3//astor_output.json
+[17176] INFO Stats - astor_output:
+{"general":{"NR_RIGHT_COMPILATIONS":null,"NR_ERRONEOUS_VARIANCES":null,"EXECUTION_IDENTIFIER":"apache_camel-VUL4J-3","OUTPUT_STATUS":"EXHAUSTIVE_NAVIGATED","NR_FAILLING_COMPILATIONS":null,"NR_GENERATIONS":null,"TOTAL_TIME":0.001,"NR_FAILING_VALIDATION_PROCESS":null},"patches":[]}
+[17176] INFO AstorMain - Time Total(s): 17.172
+31.00user 2.21system 0:17.51elapsed 189%CPU (0avgtext+0avgdata 1279384maxresident)k
+1776inputs+95584outputs (0major+347983minor)pagefaults 0swaps
+
+
+Node: 2c8178711f7b
+
+
+
+Date: Tue Nov 29 07:20:12 EST 2022
+

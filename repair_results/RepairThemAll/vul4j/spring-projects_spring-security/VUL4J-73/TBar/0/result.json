@@ -1,0 +1,10 @@
+{
+  "repair_end": "2022-09-14 22:51:46.886174", 
+  "repair_begin": "2022-09-14 22:44:54.650914", 
+  "patches": [
+    {
+      "edits": [], 
+      "patch": "diff --git a/core/src/main/java/org/springframework/security/authentication/encoding/PlaintextPasswordEncoder.java b/core/src/main/java/org/springframework/security/authentication/encoding/PlaintextPasswordEncoder.java\nindex b1e546a138e6..ee3aae0a8f01 100644\n--- a/core/src/main/java/org/springframework/security/authentication/encoding/PlaintextPasswordEncoder.java\n+++ b/core/src/main/java/org/springframework/security/authentication/encoding/PlaintextPasswordEncoder.java\n@@ -51,7 +51,10 @@ public class PlaintextPasswordEncoder extends BasePasswordEncoder {\n \t}\n \n \tpublic boolean isPasswordValid(String encPass, String rawPass, Object salt) {\n-\t\tString pass1 = encPass + \"\";\n+\t\tif (encPass == null) {\n+\t    return false;\n+\t}\n+String pass1 = encPass + \"\";\n \n \t\t// Strict delimiters is false because pass2 never persisted anywhere\n \t\t// and we want to avoid unnecessary exceptions as a result (the"
+    }
+  ]
+}

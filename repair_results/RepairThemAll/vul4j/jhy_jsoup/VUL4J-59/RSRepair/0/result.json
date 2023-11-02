@@ -1,0 +1,42 @@
+{
+  "repair_end": "2022-10-17 19:36:56.070405", 
+  "repair_begin": "2022-10-17 15:36:52.637532", 
+  "patches": [
+    {
+      "edits": [
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 760, 
+          "faulty": "t.transition(Data);", 
+          "type": "Replace", 
+          "seed": "r.unconsume();"
+        }
+      ], 
+      "patch": "--- /workdir/RSRepair_vul4j_jhy_jsoup_VUL4J-59/src/main/java/org/jsoup/parser/TokeniserState.java\t2022-10-17 15:12:42.125077319 -0400\n+++ /workdir/RSRepair_vul4j_jhy_jsoup_VUL4J-59/patches_exih/Patch_2/patched/org/jsoup/parser/TokeniserState.java\t2022-10-17 15:12:42.133077357 -0400\n@@ -757,7 +757,7 @@\n                     break;\n                 case eof:\n                     t.eofError(this);\n-                    t.transition(Data);\n+\t\t\t\tr.unconsume();\n                     break;\n                 case '>':\n                     t.error(this);\n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "InsertBefore", 
+          "seed": "t.emitTagPending();"
+        }
+      ], 
+      "patch": "--- /workdir/RSRepair_vul4j_jhy_jsoup_VUL4J-59/src/main/java/org/jsoup/parser/TokeniserState.java\t2022-10-17 11:43:33.825042192 -0400\n+++ /workdir/RSRepair_vul4j_jhy_jsoup_VUL4J-59/patches_exih/Patch_1/patched/org/jsoup/parser/TokeniserState.java\t2022-10-17 11:43:33.829042212 -0400\n@@ -756,7 +756,10 @@\n                     t.transition(AttributeValue_unquoted);\n                     break;\n                 case eof:\n-                    t.eofError(this);\n+\t\t\t\t{\n+\t\t\t\t\tt.emitTagPending();\n+\t\t\t\t\tt.eofError(this);\n+\t\t\t\t}\n                     t.transition(Data);\n                     break;\n                 case '>':\n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 760, 
+          "faulty": "t.transition(Data);", 
+          "type": "InsertBefore", 
+          "seed": "t.emitTagPending();"
+        }
+      ], 
+      "patch": "--- /workdir/RSRepair_vul4j_jhy_jsoup_VUL4J-59/src/main/java/org/jsoup/parser/TokeniserState.java\t2022-10-17 11:41:48.904531453 -0400\n+++ /workdir/RSRepair_vul4j_jhy_jsoup_VUL4J-59/patches_exih/Patch_0/patched/org/jsoup/parser/TokeniserState.java\t2022-10-17 11:41:48.924531550 -0400\n@@ -757,7 +757,10 @@\n                     break;\n                 case eof:\n                     t.eofError(this);\n-                    t.transition(Data);\n+\t\t\t\t{\n+\t\t\t\t\tt.emitTagPending();\n+\t\t\t\t\tt.transition(Data);\n+\t\t\t\t}\n                     break;\n                 case '>':\n                     t.error(this);\n\n\n"
+    }
+  ]
+}

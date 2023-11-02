@@ -1,0 +1,562 @@
+cd /workdir/jGenProg_vul4j_spring-projects_spring-data-rest_VUL4J-68;
+export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en";
+TZ="America/New_York"; export TZ;
+export PATH="/usr/lib/jvm/java-8-openjdk-amd64/bin:$PATH";
+export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64/bin";
+time java -Xmx4g -Xms1g -XX:MaxPermSize=512m -cp /script/../libs/jtestex7.jar:/script/../repair_tools/astor.jar fr.inria.main.evolution.AstorMain \
+	-mode jgenprog \
+	-location . \
+	-id spring-projects_spring-data-rest-VUL4J-68 \
+	-failing org.springframework.data.rest.webmvc.json.patch.JsonPatchTests#rejectsInvalidPaths \
+	-jvm4testexecution /usr/lib/jvm/java-8-openjdk-amd64/bin \
+	-jvm4evosuitetestexecution /usr/lib/jvm/java-8-openjdk-amd64/bin \
+	-maxgen 1000000 \
+	-maxtime 120 \
+	-stopfirst true \
+	-seed 0 \
+	-scope local \
+	-population 1 \
+	-javacompliancelevel 8 \
+	-faultlocalization perfect \
+    -perfectdata /script/../data/benchmarks/vul4j/perfectfl/VUL4J-68 \
+    -validation externalcmd \
+    -testfailingcmd "mvn test -pl spring-data-rest-webmvc -Dtest=org.springframework.data.rest.webmvc.json.patch.JsonPatchTests#rejectsInvalidPaths -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B" \
+    -testallcmd "mvn test -pl spring-data-rest-webmvc -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B"  \ \
+	-srcjavafolder spring-data-rest-webmvc/src/main/java \
+	-srctestfolder spring-data-rest-webmvc/src/test/java \
+	-binjavafolder spring-data-rest-webmvc/target/classes \
+	-bintestfolder spring-data-rest-webmvc/target/test-classes \
+	-parameters x:x \
+	-dependencies /root/.m2/repository/org/springframework/spring-expression/5.0.0.RELEASE/spring-expression-5.0.0.RELEASE.jar:/root/.m2/repository/org/springframework/spring-orm/5.0.0.RELEASE/spring-orm-5.0.0.RELEASE.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.6.14/byte-buddy-1.6.14.jar:/root/.m2/repository/javax/servlet/javax.servlet-api/3.0.1/javax.servlet-api-3.0.1.jar:/root/.m2/repository/org/springframework/data/spring-data-keyvalue/2.0.0.BUILD-SNAPSHOT/spring-data-keyvalue-2.0.0.BUILD-SNAPSHOT.jar:/root/.m2/repository/org/jboss/logging/jboss-logging-annotations/1.2.0.Beta1/jboss-logging-annotations-1.2.0.Beta1.jar:/root/.m2/repository/org/springframework/spring-jcl/5.0.0.RELEASE/spring-jcl-5.0.0.RELEASE.jar:/root/.m2/repository/org/springframework/spring-aop/5.0.0.RELEASE/spring-aop-5.0.0.RELEASE.jar:/root/.m2/repository/com/querydsl/querydsl-core/4.1.4/querydsl-core-4.1.4.jar:/root/.m2/repository/org/springframework/spring-tx/5.0.0.RELEASE/spring-tx-5.0.0.RELEASE.jar:/root/.m2/repository/org/projectlombok/lombok/1.16.18/lombok-1.16.18.jar:/root/.m2/repository/com/google/guava/guava/18.0/guava-18.0.jar:/root/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-joda/2.9.1/jackson-datatype-joda-2.9.1.jar:/root/.m2/repository/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar:/root/.m2/repository/org/springframework/spring-test/5.0.0.RELEASE/spring-test-5.0.0.RELEASE.jar:/root/.m2/repository/org/atteo/evo-inflector/1.2.2/evo-inflector-1.2.2.jar:/root/.m2/repository/org/springframework/spring-webmvc/5.0.0.RELEASE/spring-webmvc-5.0.0.RELEASE.jar:/root/.m2/repository/org/eclipse/persistence/javax.persistence/2.0.0/javax.persistence-2.0.0.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar:/root/.m2/repository/org/assertj/assertj-core/3.8.0/assertj-core-3.8.0.jar:/root/.m2/repository/org/hibernate/common/hibernate-commons-annotations/4.0.5.Final/hibernate-commons-annotations-4.0.5.Final.jar:/root/.m2/repository/org/springframework/spring-context/5.0.0.RELEASE/spring-context-5.0.0.RELEASE.jar:/root/.m2/repository/com/infradna/tool/bridge-method-annotation/1.13/bridge-method-annotation-1.13.jar:/root/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-hibernate4/2.9.1/jackson-datatype-hibernate4-2.9.1.jar:/root/.m2/repository/org/springframework/plugin/spring-plugin-core/1.2.0.RELEASE/spring-plugin-core-1.2.0.RELEASE.jar:/root/.m2/repository/org/javassist/javassist/3.18.1-GA/javassist-3.18.1-GA.jar:/root/.m2/repository/ch/qos/logback/logback-core/1.2.3/logback-core-1.2.3.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.9.1/jackson-databind-2.9.1.jar:/root/.m2/repository/asm/asm/3.3.1/asm-3.3.1.jar:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.3/logback-classic-1.2.3.jar:/root/.m2/repository/com/mysema/commons/mysema-commons-lang/0.2.4/mysema-commons-lang-0.2.4.jar:/root/.m2/repository/org/hibernate/javax/persistence/hibernate-jpa-2.1-api/1.0.0.Final/hibernate-jpa-2.1-api-1.0.0.Final.jar:/root/.m2/repository/org/springframework/spring-beans/5.0.0.RELEASE/spring-beans-5.0.0.RELEASE.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.9.1/jackson-core-2.9.1.jar:/root/.m2/repository/org/mockito/mockito-core/2.8.47/mockito-core-2.8.47.jar:/root/.m2/repository/org/jboss/spec/javax/transaction/jboss-transaction-api_1.2_spec/1.0.0.Final/jboss-transaction-api_1.2_spec-1.0.0.Final.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/springframework/spring-core/5.0.0.RELEASE/spring-core-5.0.0.RELEASE.jar:/root/.m2/repository/net/minidev/asm/1.0/asm-1.0.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.9.1/jackson-annotations-2.9.1.jar:/root/.m2/repository/org/jboss/jandex/1.1.0.Final/jandex-1.1.0.Final.jar:/root/.m2/repository/antlr/antlr/2.7.7/antlr-2.7.7.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/1.3.9/jsr305-1.3.9.jar:/root/.m2/repository/org/springframework/data/spring-data-rest-core/3.0.0.BUILD-SNAPSHOT/spring-data-rest-core-3.0.0.BUILD-SNAPSHOT.jar:/root/.m2/repository/org/jboss/logging/jboss-logging/3.1.3.GA/jboss-logging-3.1.3.GA.jar:/root/.m2/repository/javax/transaction/jta/1.1/jta-1.1.jar:/root/.m2/repository/net/minidev/json-smart/2.0/json-smart-2.0.jar:/root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.6.14/byte-buddy-agent-1.6.14.jar:/root/.m2/repository/org/hamcrest/hamcrest-library/1.3/hamcrest-library-1.3.jar:/root/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.9.1/jackson-datatype-jdk8-2.9.1.jar:/root/.m2/repository/org/objenesis/objenesis/2.5/objenesis-2.5.jar:/root/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-hibernate5/2.9.1/jackson-datatype-hibernate5-2.9.1.jar:/root/.m2/repository/com/jayway/jsonpath/json-path/1.1.0/json-path-1.1.0.jar:/root/.m2/repository/xml-apis/xml-apis/1.0.b2/xml-apis-1.0.b2.jar:/root/.m2/repository/javax/validation/validation-api/1.1.0.Final/validation-api-1.1.0.Final.jar:/root/.m2/repository/org/hibernate/hibernate-core/4.3.10.Final/hibernate-core-4.3.10.Final.jar:/root/.m2/repository/joda-time/joda-time/2.7/joda-time-2.7.jar:/root/.m2/repository/junit/junit/4.12/junit-4.12.jar:/root/.m2/repository/org/springframework/hateoas/spring-hateoas/0.23.0.RELEASE/spring-hateoas-0.23.0.RELEASE.jar:/root/.m2/repository/org/springframework/spring-web/5.0.0.RELEASE/spring-web-5.0.0.RELEASE.jar:/root/.m2/repository/org/springframework/spring-jdbc/5.0.0.RELEASE/spring-jdbc-5.0.0.RELEASE.jar:/root/.m2/repository/org/springframework/data/spring-data-commons/2.0.0.BUILD-SNAPSHOT/spring-data-commons-2.0.0.BUILD-SNAPSHOT.jar;
+	echo "\n\nNode: `hostname`\n";
+	echo "\n\nDate: `date`\n";
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en
+OpenJDK 64-Bit Server VM warning: ignoring option MaxPermSize=512m; support was removed in 8.0
+[1] INFO ProjectConfiguration - Version of the JVM used: 1.8.0_342
+[1] INFO main - Java version of the JDK used to run tests: 1.8.0_342
+[1] INFO main - The compliance of the JVM is:  8
+[4] INFO main - command line arguments: [-mode  jgenprog  -location  .  -id  spring-projects_spring-data-rest-VUL4J-68  -failing  org.springframework.data.rest.webmvc.json.patch.JsonPatchTests#rejectsInvalidPaths  -jvm4testexecution  /usr/lib/jvm/java-8-openjdk-amd64/bin  -jvm4evosuitetestexecution  /usr/lib/jvm/java-8-openjdk-amd64/bin  -maxgen  1000000  -maxtime  120  -stopfirst  true  -seed  0  -scope  local  -population  1  -javacompliancelevel  8  -faultlocalization  perfect  -perfectdata  /script/../data/benchmarks/vul4j/perfectfl/VUL4J-68  -validation  externalcmd  -testfailingcmd  mvn test -pl spring-data-rest-webmvc -Dtest=org.springframework.data.rest.webmvc.json.patch.JsonPatchTests#rejectsInvalidPaths -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B  -testallcmd  mvn test -pl spring-data-rest-webmvc -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B     -srcjavafolder  spring-data-rest-webmvc/src/main/java  -srctestfolder  spring-data-rest-webmvc/src/test/java  -binjavafolder  spring-data-rest-webmvc/target/classes  -bintestfolder  spring-data-rest-webmvc/target/test-classes  -parameters  x:x  -dependencies  /root/.m2/repository/org/springframework/spring-expression/5.0.0.RELEASE/spring-expression-5.0.0.RELEASE.jar:/root/.m2/repository/org/springframework/spring-orm/5.0.0.RELEASE/spring-orm-5.0.0.RELEASE.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.6.14/byte-buddy-1.6.14.jar:/root/.m2/repository/javax/servlet/javax.servlet-api/3.0.1/javax.servlet-api-3.0.1.jar:/root/.m2/repository/org/springframework/data/spring-data-keyvalue/2.0.0.BUILD-SNAPSHOT/spring-data-keyvalue-2.0.0.BUILD-SNAPSHOT.jar:/root/.m2/repository/org/jboss/logging/jboss-logging-annotations/1.2.0.Beta1/jboss-logging-annotations-1.2.0.Beta1.jar:/root/.m2/repository/org/springframework/spring-jcl/5.0.0.RELEASE/spring-jcl-5.0.0.RELEASE.jar:/root/.m2/repository/org/springframework/spring-aop/5.0.0.RELEASE/spring-aop-5.0.0.RELEASE.jar:/root/.m2/repository/com/querydsl/querydsl-core/4.1.4/querydsl-core-4.1.4.jar:/root/.m2/repository/org/springframework/spring-tx/5.0.0.RELEASE/spring-tx-5.0.0.RELEASE.jar:/root/.m2/repository/org/projectlombok/lombok/1.16.18/lombok-1.16.18.jar:/root/.m2/repository/com/google/guava/guava/18.0/guava-18.0.jar:/root/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-joda/2.9.1/jackson-datatype-joda-2.9.1.jar:/root/.m2/repository/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar:/root/.m2/repository/org/springframework/spring-test/5.0.0.RELEASE/spring-test-5.0.0.RELEASE.jar:/root/.m2/repository/org/atteo/evo-inflector/1.2.2/evo-inflector-1.2.2.jar:/root/.m2/repository/org/springframework/spring-webmvc/5.0.0.RELEASE/spring-webmvc-5.0.0.RELEASE.jar:/root/.m2/repository/org/eclipse/persistence/javax.persistence/2.0.0/javax.persistence-2.0.0.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar:/root/.m2/repository/org/assertj/assertj-core/3.8.0/assertj-core-3.8.0.jar:/root/.m2/repository/org/hibernate/common/hibernate-commons-annotations/4.0.5.Final/hibernate-commons-annotations-4.0.5.Final.jar:/root/.m2/repository/org/springframework/spring-context/5.0.0.RELEASE/spring-context-5.0.0.RELEASE.jar:/root/.m2/repository/com/infradna/tool/bridge-method-annotation/1.13/bridge-method-annotation-1.13.jar:/root/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-hibernate4/2.9.1/jackson-datatype-hibernate4-2.9.1.jar:/root/.m2/repository/org/springframework/plugin/spring-plugin-core/1.2.0.RELEASE/spring-plugin-core-1.2.0.RELEASE.jar:/root/.m2/repository/org/javassist/javassist/3.18.1-GA/javassist-3.18.1-GA.jar:/root/.m2/repository/ch/qos/logback/logback-core/1.2.3/logback-core-1.2.3.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.9.1/jackson-databind-2.9.1.jar:/root/.m2/repository/asm/asm/3.3.1/asm-3.3.1.jar:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.3/logback-classic-1.2.3.jar:/root/.m2/repository/com/mysema/commons/mysema-commons-lang/0.2.4/mysema-commons-lang-0.2.4.jar:/root/.m2/repository/org/hibernate/javax/persistence/hibernate-jpa-2.1-api/1.0.0.Final/hibernate-jpa-2.1-api-1.0.0.Final.jar:/root/.m2/repository/org/springframework/spring-beans/5.0.0.RELEASE/spring-beans-5.0.0.RELEASE.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.9.1/jackson-core-2.9.1.jar:/root/.m2/repository/org/mockito/mockito-core/2.8.47/mockito-core-2.8.47.jar:/root/.m2/repository/org/jboss/spec/javax/transaction/jboss-transaction-api_1.2_spec/1.0.0.Final/jboss-transaction-api_1.2_spec-1.0.0.Final.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/springframework/spring-core/5.0.0.RELEASE/spring-core-5.0.0.RELEASE.jar:/root/.m2/repository/net/minidev/asm/1.0/asm-1.0.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.9.1/jackson-annotations-2.9.1.jar:/root/.m2/repository/org/jboss/jandex/1.1.0.Final/jandex-1.1.0.Final.jar:/root/.m2/repository/antlr/antlr/2.7.7/antlr-2.7.7.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/1.3.9/jsr305-1.3.9.jar:/root/.m2/repository/org/springframework/data/spring-data-rest-core/3.0.0.BUILD-SNAPSHOT/spring-data-rest-core-3.0.0.BUILD-SNAPSHOT.jar:/root/.m2/repository/org/jboss/logging/jboss-logging/3.1.3.GA/jboss-logging-3.1.3.GA.jar:/root/.m2/repository/javax/transaction/jta/1.1/jta-1.1.jar:/root/.m2/repository/net/minidev/json-smart/2.0/json-smart-2.0.jar:/root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.6.14/byte-buddy-agent-1.6.14.jar:/root/.m2/repository/org/hamcrest/hamcrest-library/1.3/hamcrest-library-1.3.jar:/root/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.9.1/jackson-datatype-jdk8-2.9.1.jar:/root/.m2/repository/org/objenesis/objenesis/2.5/objenesis-2.5.jar:/root/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-hibernate5/2.9.1/jackson-datatype-hibernate5-2.9.1.jar:/root/.m2/repository/com/jayway/jsonpath/json-path/1.1.0/json-path-1.1.0.jar:/root/.m2/repository/xml-apis/xml-apis/1.0.b2/xml-apis-1.0.b2.jar:/root/.m2/repository/javax/validation/validation-api/1.1.0.Final/validation-api-1.1.0.Final.jar:/root/.m2/repository/org/hibernate/hibernate-core/4.3.10.Final/hibernate-core-4.3.10.Final.jar:/root/.m2/repository/joda-time/joda-time/2.7/joda-time-2.7.jar:/root/.m2/repository/junit/junit/4.12/junit-4.12.jar:/root/.m2/repository/org/springframework/hateoas/spring-hateoas/0.23.0.RELEASE/spring-hateoas-0.23.0.RELEASE.jar:/root/.m2/repository/org/springframework/spring-web/5.0.0.RELEASE/spring-web-5.0.0.RELEASE.jar:/root/.m2/repository/org/springframework/spring-jdbc/5.0.0.RELEASE/spring-jdbc-5.0.0.RELEASE.jar:/root/.m2/repository/org/springframework/data/spring-data-commons/2.0.0.BUILD-SNAPSHOT/spring-data-commons-2.0.0.BUILD-SNAPSHOT.jar]
+[7] INFO AstorMain - Running Astor on a JDK at /usr/lib/jvm/java-8-openjdk-amd64/jre
+[44] INFO main - Source folders: [/workdir/jGenProg_vul4j_spring-projects_spring-data-rest_VUL4J-68/./spring-data-rest-webmvc/src/main/java]
+[44] INFO main - Source Test folders: [/workdir/jGenProg_vul4j_spring-projects_spring-data-rest_VUL4J-68/./spring-data-rest-webmvc/src/test/java]
+[1900] INFO AstorCoreEngine - ---- Creating spoon model
+[1958] INFO MutationSupporter - Creating model,  Code location from working folder: /workdir/jGenProg_vul4j_spring-projects_spring-data-rest_VUL4J-68/./spring-data-rest-webmvc/src/main/java
+[1958] INFO MutationSupporter - building model: /workdir/jGenProg_vul4j_spring-projects_spring-data-rest_VUL4J-68/./spring-data-rest-webmvc/src/main/java, compliance level: 8
+[2074] INFO MutationSupporter - Classpath (Dependencies) for building SpoonModel: [/root/.m2/repository/org/springframework/spring-expression/5.0.0.RELEASE/spring-expression-5.0.0.RELEASE.jar, /root/.m2/repository/org/springframework/spring-orm/5.0.0.RELEASE/spring-orm-5.0.0.RELEASE.jar, /root/.m2/repository/net/bytebuddy/byte-buddy/1.6.14/byte-buddy-1.6.14.jar, /root/.m2/repository/javax/servlet/javax.servlet-api/3.0.1/javax.servlet-api-3.0.1.jar, /root/.m2/repository/org/springframework/data/spring-data-keyvalue/2.0.0.BUILD-SNAPSHOT/spring-data-keyvalue-2.0.0.BUILD-SNAPSHOT.jar, /root/.m2/repository/org/jboss/logging/jboss-logging-annotations/1.2.0.Beta1/jboss-logging-annotations-1.2.0.Beta1.jar, /root/.m2/repository/org/springframework/spring-jcl/5.0.0.RELEASE/spring-jcl-5.0.0.RELEASE.jar, /root/.m2/repository/org/springframework/spring-aop/5.0.0.RELEASE/spring-aop-5.0.0.RELEASE.jar, /root/.m2/repository/com/querydsl/querydsl-core/4.1.4/querydsl-core-4.1.4.jar, /root/.m2/repository/org/springframework/spring-tx/5.0.0.RELEASE/spring-tx-5.0.0.RELEASE.jar, /root/.m2/repository/org/projectlombok/lombok/1.16.18/lombok-1.16.18.jar, /root/.m2/repository/com/google/guava/guava/18.0/guava-18.0.jar, /root/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-joda/2.9.1/jackson-datatype-joda-2.9.1.jar, /root/.m2/repository/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar, /root/.m2/repository/org/springframework/spring-test/5.0.0.RELEASE/spring-test-5.0.0.RELEASE.jar, /root/.m2/repository/org/atteo/evo-inflector/1.2.2/evo-inflector-1.2.2.jar, /root/.m2/repository/org/springframework/spring-webmvc/5.0.0.RELEASE/spring-webmvc-5.0.0.RELEASE.jar, /root/.m2/repository/org/eclipse/persistence/javax.persistence/2.0.0/javax.persistence-2.0.0.jar, /root/.m2/repository/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar, /root/.m2/repository/org/assertj/assertj-core/3.8.0/assertj-core-3.8.0.jar, /root/.m2/repository/org/hibernate/common/hibernate-commons-annotations/4.0.5.Final/hibernate-commons-annotations-4.0.5.Final.jar, /root/.m2/repository/org/springframework/spring-context/5.0.0.RELEASE/spring-context-5.0.0.RELEASE.jar, /root/.m2/repository/com/infradna/tool/bridge-method-annotation/1.13/bridge-method-annotation-1.13.jar, /root/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-hibernate4/2.9.1/jackson-datatype-hibernate4-2.9.1.jar, /root/.m2/repository/org/springframework/plugin/spring-plugin-core/1.2.0.RELEASE/spring-plugin-core-1.2.0.RELEASE.jar, /root/.m2/repository/org/javassist/javassist/3.18.1-GA/javassist-3.18.1-GA.jar, /root/.m2/repository/ch/qos/logback/logback-core/1.2.3/logback-core-1.2.3.jar, /root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.9.1/jackson-databind-2.9.1.jar, /root/.m2/repository/asm/asm/3.3.1/asm-3.3.1.jar, /root/.m2/repository/ch/qos/logback/logback-classic/1.2.3/logback-classic-1.2.3.jar, /root/.m2/repository/com/mysema/commons/mysema-commons-lang/0.2.4/mysema-commons-lang-0.2.4.jar, /root/.m2/repository/org/hibernate/javax/persistence/hibernate-jpa-2.1-api/1.0.0.Final/hibernate-jpa-2.1-api-1.0.0.Final.jar, /root/.m2/repository/org/springframework/spring-beans/5.0.0.RELEASE/spring-beans-5.0.0.RELEASE.jar, /root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.9.1/jackson-core-2.9.1.jar, /root/.m2/repository/org/mockito/mockito-core/2.8.47/mockito-core-2.8.47.jar, /root/.m2/repository/org/jboss/spec/javax/transaction/jboss-transaction-api_1.2_spec/1.0.0.Final/jboss-transaction-api_1.2_spec-1.0.0.Final.jar, /root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar, /root/.m2/repository/org/springframework/spring-core/5.0.0.RELEASE/spring-core-5.0.0.RELEASE.jar, /root/.m2/repository/net/minidev/asm/1.0/asm-1.0.jar, /root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.9.1/jackson-annotations-2.9.1.jar, /root/.m2/repository/org/jboss/jandex/1.1.0.Final/jandex-1.1.0.Final.jar, /root/.m2/repository/antlr/antlr/2.7.7/antlr-2.7.7.jar, /root/.m2/repository/com/google/code/findbugs/jsr305/1.3.9/jsr305-1.3.9.jar, /root/.m2/repository/org/springframework/data/spring-data-rest-core/3.0.0.BUILD-SNAPSHOT/spring-data-rest-core-3.0.0.BUILD-SNAPSHOT.jar, /root/.m2/repository/org/jboss/logging/jboss-logging/3.1.3.GA/jboss-logging-3.1.3.GA.jar, /root/.m2/repository/javax/transaction/jta/1.1/jta-1.1.jar, /root/.m2/repository/net/minidev/json-smart/2.0/json-smart-2.0.jar, /root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.6.14/byte-buddy-agent-1.6.14.jar, /root/.m2/repository/org/hamcrest/hamcrest-library/1.3/hamcrest-library-1.3.jar, /root/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.9.1/jackson-datatype-jdk8-2.9.1.jar, /root/.m2/repository/org/objenesis/objenesis/2.5/objenesis-2.5.jar, /root/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-hibernate5/2.9.1/jackson-datatype-hibernate5-2.9.1.jar, /root/.m2/repository/com/jayway/jsonpath/json-path/1.1.0/json-path-1.1.0.jar, /root/.m2/repository/xml-apis/xml-apis/1.0.b2/xml-apis-1.0.b2.jar, /root/.m2/repository/javax/validation/validation-api/1.1.0.Final/validation-api-1.1.0.Final.jar, /root/.m2/repository/org/hibernate/hibernate-core/4.3.10.Final/hibernate-core-4.3.10.Final.jar, /root/.m2/repository/joda-time/joda-time/2.7/joda-time-2.7.jar, /root/.m2/repository/junit/junit/4.12/junit-4.12.jar, /root/.m2/repository/org/springframework/hateoas/spring-hateoas/0.23.0.RELEASE/spring-hateoas-0.23.0.RELEASE.jar, /root/.m2/repository/org/springframework/spring-web/5.0.0.RELEASE/spring-web-5.0.0.RELEASE.jar, /root/.m2/repository/org/springframework/spring-jdbc/5.0.0.RELEASE/spring-jdbc-5.0.0.RELEASE.jar, /root/.m2/repository/org/springframework/data/spring-data-commons/2.0.0.BUILD-SNAPSHOT/spring-data-commons-2.0.0.BUILD-SNAPSHOT.jar]
+[19924] ERROR MutationSupporter - Problem compiling the model with compliance level 8
+[19925] ERROR MutationSupporter - The method of(HttpHeadersPreparer) is undefined for the type ResourceStatus at /workdir/jGenProg_vul4j_spring-projects_spring-data-rest_VUL4J-68/spring-data-rest-webmvc/src/main/java/org/springframework/data/rest/webmvc/RepositorySearchController.java:103
+spoon.compiler.ModelBuildingException: The method of(HttpHeadersPreparer) is undefined for the type ResourceStatus at /workdir/jGenProg_vul4j_spring-projects_spring-data-rest_VUL4J-68/spring-data-rest-webmvc/src/main/java/org/springframework/data/rest/webmvc/RepositorySearchController.java:103
+	at spoon.support.compiler.jdt.JDTBasedSpoonCompiler.report(JDTBasedSpoonCompiler.java:649)
+	at spoon.support.compiler.jdt.JDTBasedSpoonCompiler.reportProblems(JDTBasedSpoonCompiler.java:631)
+	at spoon.support.compiler.jdt.JDTBasedSpoonCompiler.build(JDTBasedSpoonCompiler.java:118)
+	at spoon.support.compiler.jdt.JDTBasedSpoonCompiler.build(JDTBasedSpoonCompiler.java:99)
+	at fr.inria.astor.core.manipulation.MutationSupporter.buildModel(MutationSupporter.java:85)
+	at fr.inria.astor.core.manipulation.MutationSupporter.buildSpoonModel(MutationSupporter.java:240)
+	at fr.inria.astor.core.solutionsearch.AstorCoreEngine.initModel(AstorCoreEngine.java:775)
+	at fr.inria.main.evolution.AstorMain.createEngine(AstorMain.java:113)
+	at fr.inria.main.evolution.AstorMain.run(AstorMain.java:173)
+	at fr.inria.main.evolution.AstorMain.execute(AstorMain.java:233)
+	at fr.inria.main.evolution.AstorMain.main(AstorMain.java:204)
+[19926] INFO MutationSupporter - Recompiling with compliance level 8
+[19926] INFO MutationSupporter - building model: /workdir/jGenProg_vul4j_spring-projects_spring-data-rest_VUL4J-68/./spring-data-rest-webmvc/src/main/java, compliance level: 8
+[19976] INFO MutationSupporter - Classpath (Dependencies) for building SpoonModel: [/root/.m2/repository/org/springframework/spring-expression/5.0.0.RELEASE/spring-expression-5.0.0.RELEASE.jar, /root/.m2/repository/org/springframework/spring-orm/5.0.0.RELEASE/spring-orm-5.0.0.RELEASE.jar, /root/.m2/repository/net/bytebuddy/byte-buddy/1.6.14/byte-buddy-1.6.14.jar, /root/.m2/repository/javax/servlet/javax.servlet-api/3.0.1/javax.servlet-api-3.0.1.jar, /root/.m2/repository/org/springframework/data/spring-data-keyvalue/2.0.0.BUILD-SNAPSHOT/spring-data-keyvalue-2.0.0.BUILD-SNAPSHOT.jar, /root/.m2/repository/org/jboss/logging/jboss-logging-annotations/1.2.0.Beta1/jboss-logging-annotations-1.2.0.Beta1.jar, /root/.m2/repository/org/springframework/spring-jcl/5.0.0.RELEASE/spring-jcl-5.0.0.RELEASE.jar, /root/.m2/repository/org/springframework/spring-aop/5.0.0.RELEASE/spring-aop-5.0.0.RELEASE.jar, /root/.m2/repository/com/querydsl/querydsl-core/4.1.4/querydsl-core-4.1.4.jar, /root/.m2/repository/org/springframework/spring-tx/5.0.0.RELEASE/spring-tx-5.0.0.RELEASE.jar, /root/.m2/repository/org/projectlombok/lombok/1.16.18/lombok-1.16.18.jar, /root/.m2/repository/com/google/guava/guava/18.0/guava-18.0.jar, /root/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-joda/2.9.1/jackson-datatype-joda-2.9.1.jar, /root/.m2/repository/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar, /root/.m2/repository/org/springframework/spring-test/5.0.0.RELEASE/spring-test-5.0.0.RELEASE.jar, /root/.m2/repository/org/atteo/evo-inflector/1.2.2/evo-inflector-1.2.2.jar, /root/.m2/repository/org/springframework/spring-webmvc/5.0.0.RELEASE/spring-webmvc-5.0.0.RELEASE.jar, /root/.m2/repository/org/eclipse/persistence/javax.persistence/2.0.0/javax.persistence-2.0.0.jar, /root/.m2/repository/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar, /root/.m2/repository/org/assertj/assertj-core/3.8.0/assertj-core-3.8.0.jar, /root/.m2/repository/org/hibernate/common/hibernate-commons-annotations/4.0.5.Final/hibernate-commons-annotations-4.0.5.Final.jar, /root/.m2/repository/org/springframework/spring-context/5.0.0.RELEASE/spring-context-5.0.0.RELEASE.jar, /root/.m2/repository/com/infradna/tool/bridge-method-annotation/1.13/bridge-method-annotation-1.13.jar, /root/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-hibernate4/2.9.1/jackson-datatype-hibernate4-2.9.1.jar, /root/.m2/repository/org/springframework/plugin/spring-plugin-core/1.2.0.RELEASE/spring-plugin-core-1.2.0.RELEASE.jar, /root/.m2/repository/org/javassist/javassist/3.18.1-GA/javassist-3.18.1-GA.jar, /root/.m2/repository/ch/qos/logback/logback-core/1.2.3/logback-core-1.2.3.jar, /root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.9.1/jackson-databind-2.9.1.jar, /root/.m2/repository/asm/asm/3.3.1/asm-3.3.1.jar, /root/.m2/repository/ch/qos/logback/logback-classic/1.2.3/logback-classic-1.2.3.jar, /root/.m2/repository/com/mysema/commons/mysema-commons-lang/0.2.4/mysema-commons-lang-0.2.4.jar, /root/.m2/repository/org/hibernate/javax/persistence/hibernate-jpa-2.1-api/1.0.0.Final/hibernate-jpa-2.1-api-1.0.0.Final.jar, /root/.m2/repository/org/springframework/spring-beans/5.0.0.RELEASE/spring-beans-5.0.0.RELEASE.jar, /root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.9.1/jackson-core-2.9.1.jar, /root/.m2/repository/org/mockito/mockito-core/2.8.47/mockito-core-2.8.47.jar, /root/.m2/repository/org/jboss/spec/javax/transaction/jboss-transaction-api_1.2_spec/1.0.0.Final/jboss-transaction-api_1.2_spec-1.0.0.Final.jar, /root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar, /root/.m2/repository/org/springframework/spring-core/5.0.0.RELEASE/spring-core-5.0.0.RELEASE.jar, /root/.m2/repository/net/minidev/asm/1.0/asm-1.0.jar, /root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.9.1/jackson-annotations-2.9.1.jar, /root/.m2/repository/org/jboss/jandex/1.1.0.Final/jandex-1.1.0.Final.jar, /root/.m2/repository/antlr/antlr/2.7.7/antlr-2.7.7.jar, /root/.m2/repository/com/google/code/findbugs/jsr305/1.3.9/jsr305-1.3.9.jar, /root/.m2/repository/org/springframework/data/spring-data-rest-core/3.0.0.BUILD-SNAPSHOT/spring-data-rest-core-3.0.0.BUILD-SNAPSHOT.jar, /root/.m2/repository/org/jboss/logging/jboss-logging/3.1.3.GA/jboss-logging-3.1.3.GA.jar, /root/.m2/repository/javax/transaction/jta/1.1/jta-1.1.jar, /root/.m2/repository/net/minidev/json-smart/2.0/json-smart-2.0.jar, /root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.6.14/byte-buddy-agent-1.6.14.jar, /root/.m2/repository/org/hamcrest/hamcrest-library/1.3/hamcrest-library-1.3.jar, /root/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.9.1/jackson-datatype-jdk8-2.9.1.jar, /root/.m2/repository/org/objenesis/objenesis/2.5/objenesis-2.5.jar, /root/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-hibernate5/2.9.1/jackson-datatype-hibernate5-2.9.1.jar, /root/.m2/repository/com/jayway/jsonpath/json-path/1.1.0/json-path-1.1.0.jar, /root/.m2/repository/xml-apis/xml-apis/1.0.b2/xml-apis-1.0.b2.jar, /root/.m2/repository/javax/validation/validation-api/1.1.0.Final/validation-api-1.1.0.Final.jar, /root/.m2/repository/org/hibernate/hibernate-core/4.3.10.Final/hibernate-core-4.3.10.Final.jar, /root/.m2/repository/joda-time/joda-time/2.7/joda-time-2.7.jar, /root/.m2/repository/junit/junit/4.12/junit-4.12.jar, /root/.m2/repository/org/springframework/hateoas/spring-hateoas/0.23.0.RELEASE/spring-hateoas-0.23.0.RELEASE.jar, /root/.m2/repository/org/springframework/spring-web/5.0.0.RELEASE/spring-web-5.0.0.RELEASE.jar, /root/.m2/repository/org/springframework/spring-jdbc/5.0.0.RELEASE/spring-jdbc-5.0.0.RELEASE.jar, /root/.m2/repository/org/springframework/data/spring-data-commons/2.0.0.BUILD-SNAPSHOT/spring-data-commons-2.0.0.BUILD-SNAPSHOT.jar]
+spoon.compiler.ModelBuildingException: The method of(HttpHeadersPreparer) is undefined for the type ResourceStatus at /workdir/jGenProg_vul4j_spring-projects_spring-data-rest_VUL4J-68/spring-data-rest-webmvc/src/main/java/org/springframework/data/rest/webmvc/RepositorySearchController.java:103
+	at spoon.support.compiler.jdt.JDTBasedSpoonCompiler.report(JDTBasedSpoonCompiler.java:649)
+	at spoon.support.compiler.jdt.JDTBasedSpoonCompiler.reportProblems(JDTBasedSpoonCompiler.java:631)
+	at spoon.support.compiler.jdt.JDTBasedSpoonCompiler.build(JDTBasedSpoonCompiler.java:118)
+	at spoon.support.compiler.jdt.JDTBasedSpoonCompiler.build(JDTBasedSpoonCompiler.java:99)
+	at fr.inria.astor.core.manipulation.MutationSupporter.buildModel(MutationSupporter.java:85)
+	at fr.inria.astor.core.manipulation.MutationSupporter.buildSpoonModel(MutationSupporter.java:253)
+	at fr.inria.astor.core.solutionsearch.AstorCoreEngine.initModel(AstorCoreEngine.java:775)
+	at fr.inria.main.evolution.AstorMain.createEngine(AstorMain.java:113)
+	at fr.inria.main.evolution.AstorMain.run(AstorMain.java:173)
+	at fr.inria.main.evolution.AstorMain.execute(AstorMain.java:233)
+	at fr.inria.main.evolution.AstorMain.main(AstorMain.java:204)
+[27875] ERROR MutationSupporter - Error compiling: The method of(HttpHeadersPreparer) is undefined for the type ResourceStatus at /workdir/jGenProg_vul4j_spring-projects_spring-data-rest_VUL4J-68/spring-data-rest-webmvc/src/main/java/org/springframework/data/rest/webmvc/RepositorySearchController.java:103
+[28133] ERROR MutationSupporter - Astor continues when model build fails. Classes created: 108
+[28436] INFO AstorCoreEngine - Number of CtTypes created: 108
+[28999] INFO AstorCoreEngine - Test retrieved from classes: 0
+[29121] INFO AstorCoreEngine - Setting up the max to 1230 milliseconds (1 sec)
+[29122] INFO AstorCoreEngine - ---- Initial suspicious size: 4
+[29350] INFO main - Total suspicious from FL: 4,  4
+[29350] INFO main - Total ModPoint created: 4
+[29351] INFO main - Creating program variant #1, [Variant id: 1, #gens: 4, #ops: 0, parent:-]
+[29351] INFO main - Run previously failing tests...
+[67818] INFO main - Failed tests: 1
+[67820] INFO AstorCoreEngine - The original fitness is : 1.0
+[70195] WARN ConfigurationProperties - ----------------------------
+[70195] INFO ConfigurationProperties - ---Configuration properties
+[70195] INFO ConfigurationProperties - p:lastJUnitVersion= ./examples/libs/junit-4.11.jar
+[70195] INFO ConfigurationProperties - p:alternativecompliancelevel= 8
+[70195] INFO ConfigurationProperties - p:ignoredTestCases= 
+[70195] INFO ConfigurationProperties - p:workingDirectory= /workdir/jGenProg_vul4j_spring-projects_spring-data-rest_VUL4J-68/./output_astor
+[70195] INFO ConfigurationProperties - p:manipulatesuper= false
+[70195] INFO ConfigurationProperties - p:validation= externalcmd
+[70195] INFO ConfigurationProperties - p:jvm4testexecution= /usr/lib/jvm/java-8-openjdk-amd64/bin
+[70195] INFO ConfigurationProperties - p:operatorspace= irr-statements
+[70195] INFO ConfigurationProperties - p:diffcontext= 0
+[70195] INFO ConfigurationProperties - p:binjavafolder= spring-data-rest-webmvc/target/classes
+[70196] INFO ConfigurationProperties - p:synthesis_depth= 3
+[70196] INFO ConfigurationProperties - p:gzoltartestpackagetoexclude= junit.framework
+[70196] INFO ConfigurationProperties - p:skipfitnessinitialpopulation= false
+[70196] INFO ConfigurationProperties - p:evosuiteresultfolder= evosuite
+[70196] INFO ConfigurationProperties - p:flthreshold= 0.1
+[70196] INFO ConfigurationProperties - p:regressionforfaultlocalization= true
+[70196] INFO ConfigurationProperties - p:collectonlyusedmethod= false
+[70196] INFO ConfigurationProperties - p:preservelinenumbers= true
+[70196] INFO ConfigurationProperties - p:tmax2= 1230
+[70196] INFO ConfigurationProperties - p:tmax1= 10000
+[70196] INFO ConfigurationProperties - p:probagenmutation= false
+[70196] INFO ConfigurationProperties - p:nomodificationconvergence= 100
+[70197] INFO ConfigurationProperties - p:diff_type= relative
+[70197] INFO ConfigurationProperties - p:targetelementprocessor= statements
+[70197] INFO ConfigurationProperties - p:srctestfolder= spring-data-rest-webmvc/src/test/java
+[70197] INFO ConfigurationProperties - p:forceExecuteRegression= false
+[70197] INFO ConfigurationProperties - p:clusteringfilename= clustering.csv
+[70197] INFO ConfigurationProperties - p:failing= org.springframework.data.rest.webmvc.json.patch.JsonPatchTests#rejectsInvalidPaths
+[70197] INFO ConfigurationProperties - p:logtestexecution= false
+[70197] INFO ConfigurationProperties - p:evo_buggy_class= true
+[70197] INFO ConfigurationProperties - p:numberExecutions= 1
+[70197] INFO ConfigurationProperties - p:maxnumbersolutions= 1000000
+[70197] INFO ConfigurationProperties - p:evo_affected_by_op= true
+[70197] INFO ConfigurationProperties - p:population= 1
+[70200] INFO ConfigurationProperties - p:considerzerovaluesusp= false
+[70200] INFO ConfigurationProperties - p:maxCombinationVariableLimit= false
+[70200] INFO ConfigurationProperties - p:savesolution= true
+[70200] INFO ConfigurationProperties - p:javacompliancelevel= 8
+[70200] INFO ConfigurationProperties - p:x= x
+[70200] INFO ConfigurationProperties - p:uniqueoptogen= false
+[70200] INFO ConfigurationProperties - p:gzoltarpackagetonotinstrument= junit.framework
+[70200] INFO ConfigurationProperties - p:projectIdentifier= spring-projects_spring-data-rest-VUL4J-68
+[70200] INFO ConfigurationProperties - p:modificationpointnavigation= weight
+[70200] INFO ConfigurationProperties - p:stopfirst= true
+[70200] INFO ConfigurationProperties - p:multipointmodification= false
+[70200] INFO ConfigurationProperties - p:elementsToMutate= 10
+[70200] INFO ConfigurationProperties - p:jsonoutputname= astor_output
+[70200] INFO ConfigurationProperties - p:evoDSE= false
+[70200] INFO ConfigurationProperties - p:bintestfolder= spring-data-rest-webmvc/target/test-classes
+[70201] INFO ConfigurationProperties - p:testbystep= false
+[70201] INFO ConfigurationProperties - p:version-location= ./math-version/
+[70201] INFO ConfigurationProperties - p:reintroduce= PARENTS:ORIGINAL
+[70201] INFO ConfigurationProperties - p:perfectdata= /script/../data/benchmarks/vul4j/perfectfl/VUL4J-68
+[70204] INFO ConfigurationProperties - p:executorjar= ./lib/jtestex7.jar
+[70204] INFO ConfigurationProperties - p:maxGeneration= 1000000
+[70204] INFO ConfigurationProperties - p:max_synthesis_step= 10000
+[70205] INFO ConfigurationProperties - p:projectinfocommand= com.github.tdurieux:project-config-maven-plugin:info
+[70205] INFO ConfigurationProperties - p:maxVarCombination= 1000
+[70205] INFO ConfigurationProperties - p:maxtime= 120
+[70205] INFO ConfigurationProperties - p:evosuitejar= ./lib/evosuite-master-1.0.4-SNAPSHOT.jar
+[70205] INFO ConfigurationProperties - p:jvmversion= 1.8.0_342
+[70205] INFO ConfigurationProperties - p:commandTrunk= 50000
+[70205] INFO ConfigurationProperties - p:faultlocalization= perfect
+[70205] INFO ConfigurationProperties - p:resetmodel= true
+[70206] INFO ConfigurationProperties - p:maxsuspcandidates= 1000
+[70206] INFO ConfigurationProperties - p:mode= jgenprog
+[70206] INFO ConfigurationProperties - p:learningdir= 
+[70206] INFO ConfigurationProperties - p:jvm4evosuitetestexecution= /usr/lib/jvm/java-8-openjdk-amd64/bin
+[70206] INFO ConfigurationProperties - p:filterfaultlocalization= true
+[70206] INFO ConfigurationProperties - p:mutationrate= 1 
+[70206] INFO ConfigurationProperties - p:pathToMVNRepository= 
+[70206] INFO ConfigurationProperties - p:resourcesfolder= /src/main/resources:/src/test/resources:
+[70206] INFO ConfigurationProperties - p:timezone= America/Los_Angeles
+[70206] INFO ConfigurationProperties - p:runjava7code= false
+[70206] INFO ConfigurationProperties - p:testfailingcmd= mvn test -pl spring-data-rest-webmvc -Dtest=org.springframework.data.rest.webmvc.json.patch.JsonPatchTests#rejectsInvalidPaths -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B
+[70207] INFO ConfigurationProperties - p:evoRunOnBuggyClass= true
+[70207] INFO ConfigurationProperties - p:compiler= fr.inria.astor.core.manipulation.bytecode.compiler.SpoonClassCompiler
+[70207] INFO ConfigurationProperties - p:limitbysuspicious= true
+[70207] INFO ConfigurationProperties - p:logsattemps= true
+[70207] INFO ConfigurationProperties - p:dependenciespath= /root/.m2/repository/org/springframework/spring-expression/5.0.0.RELEASE/spring-expression-5.0.0.RELEASE.jar:/root/.m2/repository/org/springframework/spring-orm/5.0.0.RELEASE/spring-orm-5.0.0.RELEASE.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.6.14/byte-buddy-1.6.14.jar:/root/.m2/repository/javax/servlet/javax.servlet-api/3.0.1/javax.servlet-api-3.0.1.jar:/root/.m2/repository/org/springframework/data/spring-data-keyvalue/2.0.0.BUILD-SNAPSHOT/spring-data-keyvalue-2.0.0.BUILD-SNAPSHOT.jar:/root/.m2/repository/org/jboss/logging/jboss-logging-annotations/1.2.0.Beta1/jboss-logging-annotations-1.2.0.Beta1.jar:/root/.m2/repository/org/springframework/spring-jcl/5.0.0.RELEASE/spring-jcl-5.0.0.RELEASE.jar:/root/.m2/repository/org/springframework/spring-aop/5.0.0.RELEASE/spring-aop-5.0.0.RELEASE.jar:/root/.m2/repository/com/querydsl/querydsl-core/4.1.4/querydsl-core-4.1.4.jar:/root/.m2/repository/org/springframework/spring-tx/5.0.0.RELEASE/spring-tx-5.0.0.RELEASE.jar:/root/.m2/repository/org/projectlombok/lombok/1.16.18/lombok-1.16.18.jar:/root/.m2/repository/com/google/guava/guava/18.0/guava-18.0.jar:/root/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-joda/2.9.1/jackson-datatype-joda-2.9.1.jar:/root/.m2/repository/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar:/root/.m2/repository/org/springframework/spring-test/5.0.0.RELEASE/spring-test-5.0.0.RELEASE.jar:/root/.m2/repository/org/atteo/evo-inflector/1.2.2/evo-inflector-1.2.2.jar:/root/.m2/repository/org/springframework/spring-webmvc/5.0.0.RELEASE/spring-webmvc-5.0.0.RELEASE.jar:/root/.m2/repository/org/eclipse/persistence/javax.persistence/2.0.0/javax.persistence-2.0.0.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar:/root/.m2/repository/org/assertj/assertj-core/3.8.0/assertj-core-3.8.0.jar:/root/.m2/repository/org/hibernate/common/hibernate-commons-annotations/4.0.5.Final/hibernate-commons-annotations-4.0.5.Final.jar:/root/.m2/repository/org/springframework/spring-context/5.0.0.RELEASE/spring-context-5.0.0.RELEASE.jar:/root/.m2/repository/com/infradna/tool/bridge-method-annotation/1.13/bridge-method-annotation-1.13.jar:/root/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-hibernate4/2.9.1/jackson-datatype-hibernate4-2.9.1.jar:/root/.m2/repository/org/springframework/plugin/spring-plugin-core/1.2.0.RELEASE/spring-plugin-core-1.2.0.RELEASE.jar:/root/.m2/repository/org/javassist/javassist/3.18.1-GA/javassist-3.18.1-GA.jar:/root/.m2/repository/ch/qos/logback/logback-core/1.2.3/logback-core-1.2.3.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.9.1/jackson-databind-2.9.1.jar:/root/.m2/repository/asm/asm/3.3.1/asm-3.3.1.jar:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.3/logback-classic-1.2.3.jar:/root/.m2/repository/com/mysema/commons/mysema-commons-lang/0.2.4/mysema-commons-lang-0.2.4.jar:/root/.m2/repository/org/hibernate/javax/persistence/hibernate-jpa-2.1-api/1.0.0.Final/hibernate-jpa-2.1-api-1.0.0.Final.jar:/root/.m2/repository/org/springframework/spring-beans/5.0.0.RELEASE/spring-beans-5.0.0.RELEASE.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.9.1/jackson-core-2.9.1.jar:/root/.m2/repository/org/mockito/mockito-core/2.8.47/mockito-core-2.8.47.jar:/root/.m2/repository/org/jboss/spec/javax/transaction/jboss-transaction-api_1.2_spec/1.0.0.Final/jboss-transaction-api_1.2_spec-1.0.0.Final.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/springframework/spring-core/5.0.0.RELEASE/spring-core-5.0.0.RELEASE.jar:/root/.m2/repository/net/minidev/asm/1.0/asm-1.0.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.9.1/jackson-annotations-2.9.1.jar:/root/.m2/repository/org/jboss/jandex/1.1.0.Final/jandex-1.1.0.Final.jar:/root/.m2/repository/antlr/antlr/2.7.7/antlr-2.7.7.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/1.3.9/jsr305-1.3.9.jar:/root/.m2/repository/org/springframework/data/spring-data-rest-core/3.0.0.BUILD-SNAPSHOT/spring-data-rest-core-3.0.0.BUILD-SNAPSHOT.jar:/root/.m2/repository/org/jboss/logging/jboss-logging/3.1.3.GA/jboss-logging-3.1.3.GA.jar:/root/.m2/repository/javax/transaction/jta/1.1/jta-1.1.jar:/root/.m2/repository/net/minidev/json-smart/2.0/json-smart-2.0.jar:/root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.6.14/byte-buddy-agent-1.6.14.jar:/root/.m2/repository/org/hamcrest/hamcrest-library/1.3/hamcrest-library-1.3.jar:/root/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.9.1/jackson-datatype-jdk8-2.9.1.jar:/root/.m2/repository/org/objenesis/objenesis/2.5/objenesis-2.5.jar:/root/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-hibernate5/2.9.1/jackson-datatype-hibernate5-2.9.1.jar:/root/.m2/repository/com/jayway/jsonpath/json-path/1.1.0/json-path-1.1.0.jar:/root/.m2/repository/xml-apis/xml-apis/1.0.b2/xml-apis-1.0.b2.jar:/root/.m2/repository/javax/validation/validation-api/1.1.0.Final/validation-api-1.1.0.Final.jar:/root/.m2/repository/org/hibernate/hibernate-core/4.3.10.Final/hibernate-core-4.3.10.Final.jar:/root/.m2/repository/joda-time/joda-time/2.7/joda-time-2.7.jar:/root/.m2/repository/junit/junit/4.12/junit-4.12.jar:/root/.m2/repository/org/springframework/hateoas/spring-hateoas/0.23.0.RELEASE/spring-hateoas-0.23.0.RELEASE.jar:/root/.m2/repository/org/springframework/spring-web/5.0.0.RELEASE/spring-web-5.0.0.RELEASE.jar:/root/.m2/repository/org/springframework/spring-jdbc/5.0.0.RELEASE/spring-jdbc-5.0.0.RELEASE.jar:/root/.m2/repository/org/springframework/data/spring-data-commons/2.0.0.BUILD-SNAPSHOT/spring-data-commons-2.0.0.BUILD-SNAPSHOT.jar
+[70207] INFO ConfigurationProperties - p:packageToInstrument= 
+[70207] INFO ConfigurationProperties - p:skipfaultlocalization= false
+[70207] INFO ConfigurationProperties - p:scope= local
+[70207] INFO ConfigurationProperties - p:transformingredient= false
+[70207] INFO ConfigurationProperties - p:fitnessfunction= fr.inria.astor.core.solutionsearch.population.TestCaseFitnessFunction
+[70207] INFO ConfigurationProperties - p:maxnumvariablesperingredient= 10
+[70207] INFO ConfigurationProperties - p:parsesourcefromoriginal= true
+[70207] INFO ConfigurationProperties - p:pvariantfoldername= variant-
+[70207] INFO ConfigurationProperties - p:savespoonmodelondisk= false
+[70207] INFO ConfigurationProperties - p:srcjavafolder= spring-data-rest-webmvc/src/main/java
+[70207] INFO ConfigurationProperties - p:populationcontroller= fr.inria.astor.core.solutionsearch.population.TestCaseBasedFitnessPopulationController
+[70207] INFO ConfigurationProperties - p:ignoreflakyinfl= false
+[70222] INFO ConfigurationProperties - p:cleantemplates= true
+[70222] INFO ConfigurationProperties - p:applyCrossover= false
+[70222] INFO ConfigurationProperties - p:maxmodificationpoints= 1000
+[70222] INFO ConfigurationProperties - p:duplicateingredientsinspace= false
+[70222] INFO ConfigurationProperties - p:metid= 0
+[70222] INFO ConfigurationProperties - p:continuewhenmodelfail= true
+[70223] INFO ConfigurationProperties - p:saveall= false
+[70223] INFO ConfigurationProperties - p:seed= 0
+[70223] INFO ConfigurationProperties - p:savecompletepatched= true
+[70223] INFO ConfigurationProperties - p:resetoperations= false
+[70223] INFO ConfigurationProperties - p:keepcomments= false
+[70223] INFO ConfigurationProperties - p:processoutputinfile= false
+[70223] INFO ConfigurationProperties - p:location= .
+[70223] INFO ConfigurationProperties - p:probabilistictransformation= true
+[70223] INFO ConfigurationProperties - p:overridemaxtime= true
+[70223] INFO ConfigurationProperties - p:outputjsonresult= true
+[70223] INFO ConfigurationProperties - p:allpoints= false
+[70223] INFO ConfigurationProperties - p:antipattern= false
+[70223] INFO ConfigurationProperties - p:bugId= 280
+[70223] INFO ConfigurationProperties - p:evosuitetimeout= 120
+[70223] INFO ConfigurationProperties - p:maxtimefactor= 10
+[70223] INFO ConfigurationProperties - p:nrPlaceholders= 1
+[70223] INFO ConfigurationProperties - p:testallcmd= mvn test -pl spring-data-rest-webmvc -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B
+[70223] INFO ConfigurationProperties - p:forcesubprocesskilling= false
+[70223] INFO ConfigurationProperties - ----------------------------
+[70223] INFO AstorCoreEngine - ----Starting Solution Search
+[70225] WARN AstorCoreEngine - ----------Running generation: 1, population size: 1
+[70447] WARN AstorCoreEngine - ----------Running generation: 2, population size: 1
+[74122] INFO main - Run previously failing tests...
+[109925] INFO main - Failed tests: 1
+[109986] WARN AstorCoreEngine - ----------Running generation: 3, population size: 1
+[112301] INFO main - Run previously failing tests...
+[149457] INFO main - Failed tests: 1
+[149476] WARN AstorCoreEngine - ----------Running generation: 4, population size: 1
+[149686] WARN AstorCoreEngine - ----------Running generation: 5, population size: 1
+[151660] WARN AstorCoreEngine - ----------Running generation: 6, population size: 1
+[153549] INFO main - Run previously failing tests...
+[195079] INFO main - Failed tests: 1
+[195088] WARN AstorCoreEngine - ----------Running generation: 7, population size: 1
+[197292] INFO main - Run previously failing tests...
+[237852] INFO main - Failed tests: 1
+[237876] WARN AstorCoreEngine - ----------Running generation: 8, population size: 1
+[240274] WARN AstorCoreEngine - ----------Running generation: 9, population size: 1
+[242598] INFO main - Run previously failing tests...
+[284268] INFO main - Failed tests: 1
+[284286] WARN AstorCoreEngine - ----------Running generation: 10, population size: 1
+[284437] WARN AstorCoreEngine - ----------Running generation: 11, population size: 1
+[286297] WARN AstorCoreEngine - ----------Running generation: 12, population size: 1
+[289342] WARN AstorCoreEngine - ----------Running generation: 13, population size: 1
+[290923] WARN AstorCoreEngine - ----------Running generation: 14, population size: 1
+[292115] INFO main - Run previously failing tests...
+[334005] INFO main - Failed tests: 1
+[334039] WARN AstorCoreEngine - ----------Running generation: 15, population size: 1
+[334130] WARN AstorCoreEngine - ----------Running generation: 16, population size: 1
+[334189] WARN AstorCoreEngine - ----------Running generation: 17, population size: 1
+[334340] WARN AstorCoreEngine - ----------Running generation: 18, population size: 1
+[335520] WARN AstorCoreEngine - ----------Running generation: 19, population size: 1
+[336828] WARN AstorCoreEngine - ----------Running generation: 20, population size: 1
+[338233] INFO main - Run previously failing tests...
+java.io.IOException: Stream closed
+	at java.io.BufferedInputStream.getBufIfOpen(BufferedInputStream.java:170)
+	at java.io.BufferedInputStream.read1(BufferedInputStream.java:283)
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:345)
+	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
+	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
+	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
+	at java.io.InputStreamReader.read(InputStreamReader.java:184)
+	at java.io.BufferedReader.fill(BufferedReader.java:161)
+	at java.io.BufferedReader.readLine(BufferedReader.java:324)
+	at java.io.BufferedReader.readLine(BufferedReader.java:389)
+	at fr.inria.astor.core.validation.StreamReaderThread.run(ExternalCmdValidator.java:180)
+java.lang.IllegalStateException: Exception Occurred
+	at fr.inria.astor.core.validation.ExternalCmdValidator.runShell(ExternalCmdValidator.java:142)
+	at fr.inria.astor.core.validation.ExternalCmdValidator.runTests(ExternalCmdValidator.java:98)
+	at fr.inria.astor.core.validation.ExternalCmdValidator.validate(ExternalCmdValidator.java:44)
+	at fr.inria.astor.core.solutionsearch.AstorCoreEngine.validateInstance(AstorCoreEngine.java:522)
+	at fr.inria.astor.core.solutionsearch.AstorCoreEngine.processCreatedVariant(AstorCoreEngine.java:443)
+	at fr.inria.astor.core.solutionsearch.EvolutionarySearchEngine.processGenerations(EvolutionarySearchEngine.java:164)
+	at fr.inria.astor.core.solutionsearch.EvolutionarySearchEngine.startEvolution(EvolutionarySearchEngine.java:70)
+	at fr.inria.main.evolution.AstorMain.run(AstorMain.java:189)
+	at fr.inria.main.evolution.AstorMain.execute(AstorMain.java:233)
+	at fr.inria.main.evolution.AstorMain.main(AstorMain.java:204)
+[380573] WARN AstorCoreEngine - ----------Running generation: 21, population size: 1
+[380749] WARN AstorCoreEngine - ----------Running generation: 22, population size: 1
+[382096] WARN AstorCoreEngine - ----------Running generation: 23, population size: 1
+[384503] INFO main - Run previously failing tests...
+[438103] INFO main - Failed tests: 1
+[438126] WARN AstorCoreEngine - ----------Running generation: 24, population size: 1
+[438274] WARN AstorCoreEngine - ----------Running generation: 25, population size: 1
+[439595] INFO main - Run previously failing tests...
+[479176] INFO main - Failed tests: 1
+[479197] WARN AstorCoreEngine - ----------Running generation: 26, population size: 1
+[480802] WARN AstorCoreEngine - ----------Running generation: 27, population size: 1
+[480833] WARN AstorCoreEngine - ----------Running generation: 28, population size: 1
+[482155] INFO main - Run previously failing tests...
+[520424] INFO main - Failed tests: 1
+[520451] WARN AstorCoreEngine - ----------Running generation: 29, population size: 1
+[522247] INFO main - Run previously failing tests...
+[561178] INFO main - Failed tests: 1
+[561218] WARN AstorCoreEngine - ----------Running generation: 30, population size: 1
+[561357] WARN AstorCoreEngine - ----------Running generation: 31, population size: 1
+[561443] WARN AstorCoreEngine - ----------Running generation: 32, population size: 1
+[563245] INFO main - Run previously failing tests...
+[597830] INFO main - Failed tests: 1
+[597854] WARN AstorCoreEngine - ----------Running generation: 33, population size: 1
+[597948] WARN AstorCoreEngine - ----------Running generation: 34, population size: 1
+[599465] INFO main - Run previously failing tests...
+[637786] INFO main - Failed tests: 1
+[637833] WARN AstorCoreEngine - ----------Running generation: 35, population size: 1
+[637908] WARN AstorCoreEngine - ----------Running generation: 36, population size: 1
+[638017] WARN AstorCoreEngine - ----------Running generation: 37, population size: 1
+[638108] WARN AstorCoreEngine - ----------Running generation: 38, population size: 1
+[639644] INFO main - Run previously failing tests...
+[677763] INFO main - Failed tests: 1
+[677783] WARN AstorCoreEngine - ----------Running generation: 39, population size: 1
+[677877] WARN AstorCoreEngine - ----------Running generation: 40, population size: 1
+[679617] WARN AstorCoreEngine - ----------Running generation: 41, population size: 1
+[679776] WARN AstorCoreEngine - ----------Running generation: 42, population size: 1
+[679859] WARN AstorCoreEngine - ----------Running generation: 43, population size: 1
+[680806] WARN AstorCoreEngine - ----------Running generation: 44, population size: 1
+[680842] WARN AstorCoreEngine - ----------Running generation: 45, population size: 1
+[680926] WARN AstorCoreEngine - ----------Running generation: 46, population size: 1
+[680986] WARN AstorCoreEngine - ----------Running generation: 47, population size: 1
+[681084] WARN AstorCoreEngine - ----------Running generation: 48, population size: 1
+[681114] WARN AstorCoreEngine - ----------Running generation: 49, population size: 1
+[681167] WARN AstorCoreEngine - ----------Running generation: 50, population size: 1
+[682243] INFO main - Run previously failing tests...
+[723703] INFO main - Failed tests: 1
+[723719] WARN AstorCoreEngine - ----------Running generation: 51, population size: 1
+[723801] WARN AstorCoreEngine - ----------Running generation: 52, population size: 1
+[723869] WARN AstorCoreEngine - ----------Running generation: 53, population size: 1
+[723911] WARN AstorCoreEngine - ----------Running generation: 54, population size: 1
+[723952] WARN AstorCoreEngine - ----------Running generation: 55, population size: 1
+[724062] WARN AstorCoreEngine - ----------Running generation: 56, population size: 1
+[724154] WARN AstorCoreEngine - ----------Running generation: 57, population size: 1
+[724241] WARN AstorCoreEngine - ----------Running generation: 58, population size: 1
+[724318] WARN AstorCoreEngine - ----------Running generation: 59, population size: 1
+[724371] WARN AstorCoreEngine - ----------Running generation: 60, population size: 1
+[724513] WARN AstorCoreEngine - ----------Running generation: 61, population size: 1
+[724551] WARN AstorCoreEngine - ----------Running generation: 62, population size: 1
+[724591] WARN AstorCoreEngine - ----------Running generation: 63, population size: 1
+[724648] WARN AstorCoreEngine - ----------Running generation: 64, population size: 1
+[724729] WARN AstorCoreEngine - ----------Running generation: 65, population size: 1
+[724814] WARN AstorCoreEngine - ----------Running generation: 66, population size: 1
+[724872] WARN AstorCoreEngine - ----------Running generation: 67, population size: 1
+[726186] INFO main - Run previously failing tests...
+[761338] INFO main - Failed tests: 1
+[761385] WARN AstorCoreEngine - ----------Running generation: 68, population size: 1
+[761441] WARN AstorCoreEngine - ----------Running generation: 69, population size: 1
+[761574] WARN AstorCoreEngine - ----------Running generation: 70, population size: 1
+[761613] WARN AstorCoreEngine - ----------Running generation: 71, population size: 1
+[761654] WARN AstorCoreEngine - ----------Running generation: 72, population size: 1
+[761693] WARN AstorCoreEngine - ----------Running generation: 73, population size: 1
+[761774] WARN AstorCoreEngine - ----------Running generation: 74, population size: 1
+[761853] WARN AstorCoreEngine - ----------Running generation: 75, population size: 1
+[761925] WARN AstorCoreEngine - ----------Running generation: 76, population size: 1
+[762043] WARN AstorCoreEngine - ----------Running generation: 77, population size: 1
+[762139] WARN AstorCoreEngine - ----------Running generation: 78, population size: 1
+[762199] WARN AstorCoreEngine - ----------Running generation: 79, population size: 1
+[762241] WARN AstorCoreEngine - ----------Running generation: 80, population size: 1
+[763678] WARN AstorCoreEngine - ----------Running generation: 81, population size: 1
+[765187] WARN AstorCoreEngine - ----------Running generation: 82, population size: 1
+[765259] WARN AstorCoreEngine - ----------Running generation: 83, population size: 1
+[765340] WARN AstorCoreEngine - ----------Running generation: 84, population size: 1
+[765435] WARN AstorCoreEngine - ----------Running generation: 85, population size: 1
+[765567] WARN AstorCoreEngine - ----------Running generation: 86, population size: 1
+[765654] WARN AstorCoreEngine - ----------Running generation: 87, population size: 1
+[767395] WARN AstorCoreEngine - ----------Running generation: 88, population size: 1
+[769520] WARN AstorCoreEngine - ----------Running generation: 89, population size: 1
+[769579] WARN AstorCoreEngine - ----------Running generation: 90, population size: 1
+[771184] WARN AstorCoreEngine - ----------Running generation: 91, population size: 1
+[771265] WARN AstorCoreEngine - ----------Running generation: 92, population size: 1
+[771348] WARN AstorCoreEngine - ----------Running generation: 93, population size: 1
+[772651] INFO main - Run previously failing tests...
+[813965] INFO main - Failed tests: 1
+[813984] WARN AstorCoreEngine - ----------Running generation: 94, population size: 1
+[815153] WARN AstorCoreEngine - ----------Running generation: 95, population size: 1
+[815236] WARN AstorCoreEngine - ----------Running generation: 96, population size: 1
+[815325] WARN AstorCoreEngine - ----------Running generation: 97, population size: 1
+[815431] WARN AstorCoreEngine - ----------Running generation: 98, population size: 1
+[815477] WARN AstorCoreEngine - ----------Running generation: 99, population size: 1
+[815507] WARN AstorCoreEngine - ----------Running generation: 100, population size: 1
+[815540] WARN AstorCoreEngine - ----------Running generation: 101, population size: 1
+[815557] WARN AstorCoreEngine - ----------Running generation: 102, population size: 1
+[815589] WARN AstorCoreEngine - ----------Running generation: 103, population size: 1
+[815613] WARN AstorCoreEngine - ----------Running generation: 104, population size: 1
+[815665] WARN AstorCoreEngine - ----------Running generation: 105, population size: 1
+[815731] WARN AstorCoreEngine - ----------Running generation: 106, population size: 1
+[815773] WARN AstorCoreEngine - ----------Running generation: 107, population size: 1
+[815797] WARN AstorCoreEngine - ----------Running generation: 108, population size: 1
+[815824] WARN AstorCoreEngine - ----------Running generation: 109, population size: 1
+[815917] WARN AstorCoreEngine - ----------Running generation: 110, population size: 1
+[816031] WARN AstorCoreEngine - ----------Running generation: 111, population size: 1
+[816107] WARN AstorCoreEngine - ----------Running generation: 112, population size: 1
+[816287] WARN AstorCoreEngine - ----------Running generation: 113, population size: 1
+[816500] WARN AstorCoreEngine - ----------Running generation: 114, population size: 1
+[818124] WARN AstorCoreEngine - ----------Running generation: 115, population size: 1
+[818197] WARN AstorCoreEngine - ----------Running generation: 116, population size: 1
+[818336] WARN AstorCoreEngine - ----------Running generation: 117, population size: 1
+[818429] WARN AstorCoreEngine - ----------Running generation: 118, population size: 1
+[818464] WARN AstorCoreEngine - ----------Running generation: 119, population size: 1
+[818587] WARN AstorCoreEngine - ----------Running generation: 120, population size: 1
+[818628] WARN AstorCoreEngine - ----------Running generation: 121, population size: 1
+[818712] WARN AstorCoreEngine - ----------Running generation: 122, population size: 1
+[818825] WARN AstorCoreEngine - ----------Running generation: 123, population size: 1
+[818895] WARN AstorCoreEngine - ----------Running generation: 124, population size: 1
+[818916] WARN AstorCoreEngine - ----------Running generation: 125, population size: 1
+[818943] WARN AstorCoreEngine - ----------Running generation: 126, population size: 1
+[818972] WARN AstorCoreEngine - ----------Running generation: 127, population size: 1
+[818999] WARN AstorCoreEngine - ----------Running generation: 128, population size: 1
+[819058] WARN AstorCoreEngine - ----------Running generation: 129, population size: 1
+[819102] WARN AstorCoreEngine - ----------Running generation: 130, population size: 1
+[819188] WARN AstorCoreEngine - ----------Running generation: 131, population size: 1
+[819280] WARN AstorCoreEngine - ----------Running generation: 132, population size: 1
+[819314] WARN AstorCoreEngine - ----------Running generation: 133, population size: 1
+[819371] WARN AstorCoreEngine - ----------Running generation: 134, population size: 1
+[820318] WARN AstorCoreEngine - ----------Running generation: 135, population size: 1
+[820369] WARN AstorCoreEngine - ----------Running generation: 136, population size: 1
+[820425] WARN AstorCoreEngine - ----------Running generation: 137, population size: 1
+[820487] WARN AstorCoreEngine - ----------Running generation: 138, population size: 1
+[820572] WARN AstorCoreEngine - ----------Running generation: 139, population size: 1
+[820619] WARN AstorCoreEngine - ----------Running generation: 140, population size: 1
+[820668] WARN AstorCoreEngine - ----------Running generation: 141, population size: 1
+[820769] WARN AstorCoreEngine - ----------Running generation: 142, population size: 1
+[820849] WARN AstorCoreEngine - ----------Running generation: 143, population size: 1
+[820930] WARN AstorCoreEngine - ----------Running generation: 144, population size: 1
+[820975] WARN AstorCoreEngine - ----------Running generation: 145, population size: 1
+[821041] WARN AstorCoreEngine - ----------Running generation: 146, population size: 1
+[821124] WARN AstorCoreEngine - ----------Running generation: 147, population size: 1
+[821163] WARN AstorCoreEngine - ----------Running generation: 148, population size: 1
+[821220] WARN AstorCoreEngine - ----------Running generation: 149, population size: 1
+[821292] WARN AstorCoreEngine - ----------Running generation: 150, population size: 1
+[821320] WARN AstorCoreEngine - ----------Running generation: 151, population size: 1
+[821341] WARN AstorCoreEngine - ----------Running generation: 152, population size: 1
+[821393] WARN AstorCoreEngine - ----------Running generation: 153, population size: 1
+[821491] WARN AstorCoreEngine - ----------Running generation: 154, population size: 1
+[821560] WARN AstorCoreEngine - ----------Running generation: 155, population size: 1
+[821636] WARN AstorCoreEngine - ----------Running generation: 156, population size: 1
+[821706] WARN AstorCoreEngine - ----------Running generation: 157, population size: 1
+[821887] WARN AstorCoreEngine - ----------Running generation: 158, population size: 1
+[821972] WARN AstorCoreEngine - ----------Running generation: 159, population size: 1
+[822006] WARN AstorCoreEngine - ----------Running generation: 160, population size: 1
+[822045] WARN AstorCoreEngine - ----------Running generation: 161, population size: 1
+[822092] WARN AstorCoreEngine - ----------Running generation: 162, population size: 1
+[823026] WARN AstorCoreEngine - ----------Running generation: 163, population size: 1
+[823074] WARN AstorCoreEngine - ----------Running generation: 164, population size: 1
+[823115] WARN AstorCoreEngine - ----------Running generation: 165, population size: 1
+[823162] WARN AstorCoreEngine - ----------Running generation: 166, population size: 1
+[823279] WARN AstorCoreEngine - ----------Running generation: 167, population size: 1
+[823319] WARN AstorCoreEngine - ----------Running generation: 168, population size: 1
+[823382] WARN AstorCoreEngine - ----------Running generation: 169, population size: 1
+[823441] WARN AstorCoreEngine - ----------Running generation: 170, population size: 1
+[823477] WARN AstorCoreEngine - ----------Running generation: 171, population size: 1
+[823514] WARN AstorCoreEngine - ----------Running generation: 172, population size: 1
+[823578] WARN AstorCoreEngine - ----------Running generation: 173, population size: 1
+[823619] WARN AstorCoreEngine - ----------Running generation: 174, population size: 1
+[823649] WARN AstorCoreEngine - ----------Running generation: 175, population size: 1
+[823908] WARN AstorCoreEngine - ----------Running generation: 176, population size: 1
+[823943] WARN AstorCoreEngine - ----------Running generation: 177, population size: 1
+[824017] WARN AstorCoreEngine - ----------Running generation: 178, population size: 1
+[824092] WARN AstorCoreEngine - ----------Running generation: 179, population size: 1
+[824128] WARN AstorCoreEngine - ----------Running generation: 180, population size: 1
+[824184] WARN AstorCoreEngine - ----------Running generation: 181, population size: 1
+[824212] WARN AstorCoreEngine - ----------Running generation: 182, population size: 1
+[824266] WARN AstorCoreEngine - ----------Running generation: 183, population size: 1
+[824310] WARN AstorCoreEngine - ----------Running generation: 184, population size: 1
+[824366] WARN AstorCoreEngine - ----------Running generation: 185, population size: 1
+[824400] WARN AstorCoreEngine - ----------Running generation: 186, population size: 1
+[824443] WARN AstorCoreEngine - ----------Running generation: 187, population size: 1
+[824511] WARN AstorCoreEngine - ----------Running generation: 188, population size: 1
+[824572] WARN AstorCoreEngine - ----------Running generation: 189, population size: 1
+[824633] WARN AstorCoreEngine - ----------Running generation: 190, population size: 1
+[824676] WARN AstorCoreEngine - ----------Running generation: 191, population size: 1
+[824716] WARN AstorCoreEngine - ----------Running generation: 192, population size: 1
+[824751] WARN AstorCoreEngine - ----------Running generation: 193, population size: 1
+[824774] WARN AstorCoreEngine - ----------Running generation: 194, population size: 1
+[824801] WARN AstorCoreEngine - ----------Running generation: 195, population size: 1
+[824846] WARN AstorCoreEngine - ----------Running generation: 196, population size: 1
+[824880] WARN AstorCoreEngine - ----------Running generation: 197, population size: 1
+[824948] WARN AstorCoreEngine - ----------Running generation: 198, population size: 1
+[824966] WARN AstorCoreEngine - ----------Running generation: 199, population size: 1
+[825002] WARN AstorCoreEngine - ----------Running generation: 200, population size: 1
+[825039] WARN AstorCoreEngine - ----------Running generation: 201, population size: 1
+[825065] WARN AstorCoreEngine - ----------Running generation: 202, population size: 1
+[825118] WARN AstorCoreEngine - ----------Running generation: 203, population size: 1
+[825141] WARN AstorCoreEngine - ----------Running generation: 204, population size: 1
+[825161] WARN AstorCoreEngine - ----------Running generation: 205, population size: 1
+[825197] WARN AstorCoreEngine - ----------Running generation: 206, population size: 1
+[825228] WARN AstorCoreEngine - ----------Running generation: 207, population size: 1
+[825269] WARN AstorCoreEngine - ----------Running generation: 208, population size: 1
+[825298] WARN AstorCoreEngine - ----------Running generation: 209, population size: 1
+[825367] WARN AstorCoreEngine - ----------Running generation: 210, population size: 1
+[825432] WARN AstorCoreEngine - ----------Running generation: 211, population size: 1
+[825489] WARN AstorCoreEngine - ----------Running generation: 212, population size: 1
+[825582] WARN AstorCoreEngine - ----------Running generation: 213, population size: 1
+[825644] WARN AstorCoreEngine - ----------Running generation: 214, population size: 1
+[825669] WARN AstorCoreEngine - ----------Running generation: 215, population size: 1
+[825714] WARN AstorCoreEngine - ----------Running generation: 216, population size: 1
+[825734] WARN AstorCoreEngine - ----------Running generation: 217, population size: 1
+[825751] WARN AstorCoreEngine - ----------Running generation: 218, population size: 1
+[825799] WARN AstorCoreEngine - ----------Running generation: 219, population size: 1
+[825845] WARN AstorCoreEngine - ----------Running generation: 220, population size: 1
+[825876] WARN AstorCoreEngine - ----------Running generation: 221, population size: 1
+[825947] WARN AstorCoreEngine - ----------Running generation: 222, population size: 1
+[825983] WARN AstorCoreEngine - ----------Running generation: 223, population size: 1
+[826000] WARN AstorCoreEngine - ----------Running generation: 224, population size: 1
+[826053] WARN AstorCoreEngine - ----------Running generation: 225, population size: 1
+[826079] WARN AstorCoreEngine - ----------Running generation: 226, population size: 1
+[826108] WARN AstorCoreEngine - ----------Running generation: 227, population size: 1
+[826144] WARN AstorCoreEngine - ----------Running generation: 228, population size: 1
+[826161] WARN AstorCoreEngine - ----------Running generation: 229, population size: 1
+[826200] WARN AstorCoreEngine - ----------Running generation: 230, population size: 1
+[826251] WARN AstorCoreEngine - ----------Running generation: 231, population size: 1
+[826277] WARN AstorCoreEngine - ----------Running generation: 232, population size: 1
+[826329] WARN AstorCoreEngine - ----------Running generation: 233, population size: 1
+[826375] WARN AstorCoreEngine - ----------Running generation: 234, population size: 1
+[826422] WARN AstorCoreEngine - ----------Running generation: 235, population size: 1
+[826459] WARN AstorCoreEngine - ----------Running generation: 236, population size: 1
+[826554] WARN AstorCoreEngine - ----------Running generation: 237, population size: 1
+[826568] WARN AstorCoreEngine - ----------Running generation: 238, population size: 1
+[826608] WARN AstorCoreEngine - ----------Running generation: 239, population size: 1
+[826692] WARN AstorCoreEngine - ----------Running generation: 240, population size: 1
+[826721] WARN AstorCoreEngine - ----------Running generation: 241, population size: 1
+[826741] WARN AstorCoreEngine - ----------Running generation: 242, population size: 1
+[826767] WARN AstorCoreEngine - ----------Running generation: 243, population size: 1
+[826795] WARN AstorCoreEngine - ----------Running generation: 244, population size: 1
+[826893] WARN AstorCoreEngine - ----------Running generation: 245, population size: 1
+[826954] WARN AstorCoreEngine - ----------Running generation: 246, population size: 1
+[827024] WARN AstorCoreEngine - ----------Running generation: 247, population size: 1
+[827152] WARN AstorCoreEngine - ----------Running generation: 248, population size: 1
+[827274] WARN AstorCoreEngine - ----------Running generation: 249, population size: 1
+[827330] WARN AstorCoreEngine - ----------Running generation: 250, population size: 1
+[827372] WARN AstorCoreEngine - ----------Running generation: 251, population size: 1
+[827391] WARN AstorCoreEngine - ----------Running generation: 252, population size: 1
+[827410] WARN AstorCoreEngine - ----------Running generation: 253, population size: 1
+[827435] WARN AstorCoreEngine - ----------Running generation: 254, population size: 1
+[827463] WARN AstorCoreEngine - ----------Running generation: 255, population size: 1
+[827511] WARN AstorCoreEngine - ----------Running generation: 256, population size: 1
+[827551] WARN AstorCoreEngine - ----------Running generation: 257, population size: 1
+[827627] WARN AstorCoreEngine - ----------Running generation: 258, population size: 1
+[827707] WARN AstorCoreEngine - ----------Running generation: 259, population size: 1
+[827732] WARN AstorCoreEngine - ----------Running generation: 260, population size: 1
+[827817] WARN AstorCoreEngine - ----------Running generation: 261, population size: 1
+[827910] WARN AstorCoreEngine - ----------Running generation: 262, population size: 1
+[827924] ERROR AstorCoreEngine - Stopping main loop at 262 generation
+[827925] INFO AstorCoreEngine - Time Repair Loop (s): 757.701
+[827925] INFO AstorCoreEngine - generationsexecuted: 262
+[827926] WARN AstorCoreEngine - ----SUMMARY_EXECUTION---
+[827926] WARN AstorCoreEngine - End Repair Search: NOT Found solution
+[827926] WARN AstorCoreEngine - Number suspicious:1
+[827934] INFO AstorCoreEngine - 
+ --SOLUTIONS DESCRIPTION--
+
+
+Astor Output:
+
+General stats:
+EXECUTION_IDENTIFIER=spring-projects_spring-data-rest-VUL4J-68
+TOTAL_TIME=757.701
+NR_GENERATIONS=262
+NR_RIGHT_COMPILATIONS=17
+NR_FAILLING_COMPILATIONS=20
+NR_ERRONEOUS_VARIANCES=null
+NR_FAILING_VALIDATION_PROCESS=null
+OUTPUT_STATUS=CONVERGED
+
+Patch stats:
+
+[827957] INFO Stats - Storing ing JSON at /workdir/jGenProg_vul4j_spring-projects_spring-data-rest_VUL4J-68/./output_astor/AstorMain-spring-projects_spring-data-rest-VUL4J-68//astor_output.json
+[827957] INFO Stats - astor_output:
+{"general":{"NR_RIGHT_COMPILATIONS":17,"NR_ERRONEOUS_VARIANCES":null,"EXECUTION_IDENTIFIER":"spring-projects_spring-data-rest-VUL4J-68","OUTPUT_STATUS":"CONVERGED","NR_FAILLING_COMPILATIONS":20,"NR_GENERATIONS":262,"TOTAL_TIME":757.701,"NR_FAILING_VALIDATION_PROCESS":null},"patches":[]}
+[827958] INFO AstorMain - Time Total(s): 827.947
+846.41user 101.54system 13:49.86elapsed 114%CPU (0avgtext+0avgdata 1316260maxresident)k
+4112inputs+101616outputs (0major+3586375minor)pagefaults 0swaps
+
+
+Node: 9670332cfea8
+
+
+
+Date: Thu Sep  8 19:04:49 EDT 2022
+

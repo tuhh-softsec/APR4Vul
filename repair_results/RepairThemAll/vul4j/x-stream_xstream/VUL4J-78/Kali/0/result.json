@@ -1,0 +1,17 @@
+{
+  "repair_end": "2022-10-07 14:20:18.440823", 
+  "repair_begin": "2022-10-07 14:18:18.941565", 
+  "patches": [
+    {
+      "edits": [
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 1482, 
+          "faulty": "if (insecureWarning) {\n  insecureWarning=false;\n  System.err.println(\"Security framework of XStream not initialized, XStream is probably vulnerable.\");\n}", 
+          "type": "RedirectBranch false"
+        }
+      ], 
+      "patch": "--- /workdir/Kali_vul4j_x-stream_xstream_VUL4J-78/xstream/src/java/com/thoughtworks/xstream/XStream.java\t2022-10-07 10:20:18.385645756 -0400\n+++ /workdir/Kali_vul4j_x-stream_xstream_VUL4J-78/patches_yvmc/Patch_0/patched/com/thoughtworks/xstream/XStream.java\t2022-10-07 10:20:18.385645756 -0400\n@@ -1479,7 +1479,7 @@\n      */\n     public Object unmarshal(HierarchicalStreamReader reader, Object root, DataHolder dataHolder) {\n         try {\n-            if (insecureWarning) {\n+            if (false) {\n                 insecureWarning = false;\n                 System.err.println(\"Security framework of XStream not initialized, XStream is probably vulnerable.\");\n             }\n\n\n"
+    }
+  ]
+}

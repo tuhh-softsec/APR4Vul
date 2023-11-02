@@ -1,0 +1,922 @@
+cd /workdir/TBar_vul4j_apache_santuario-java_VUL4J-21;
+export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en";
+TZ="America/New_York"; export TZ;
+export PATH="/usr/lib/jvm/java-8-openjdk-amd64/bin:$PATH";
+export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64";
+timeout 240m java -Xmx4g -Xms1g -XX:MaxPermSize=512m \
+    -cp /script/../libs/tbar_external/com.gzoltar-0.1.1-jdk7.jar:/script/../repair_tools/tbar.jar edu.lu.uni.serval.tbar.main.Main \
+    "/workdir/TBar_vul4j_apache_santuario-java_VUL4J-21" "org.apache.xml.security.test.stax.signature.SignatureVerificationTest#testEnvelopedSignatureTampered_ContentFirst,org.apache.xml.security.test.stax.signature.SignatureVerificationTest#testEnvelopedSignatureTampered_SignatureFirst" "/src/main/java/" "/src/test/java/" "/target/classes/" "/target/test-classes/" "/script/../data/benchmarks/vul4j/perfectfl/VUL4J-21/spectra.txt" "mvn test -Dtest=org.apache.xml.security.test.stax.signature.SignatureVerificationTest -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B" "mvn test -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B" "/root/.m2/repository/xalan/xalan/2.7.2/xalan-2.7.2.jar:/root/.m2/repository/org/eclipse/jetty/jetty-client/8.1.4.v20120524/jetty-client-8.1.4.v20120524.jar:/root/.m2/repository/org/codehaus/woodstox/woodstox-core-asl/4.4.1/woodstox-core-asl-4.4.1.jar:/root/.m2/repository/org/eclipse/jetty/jetty-continuation/8.1.4.v20120524/jetty-continuation-8.1.4.v20120524.jar:/root/.m2/repository/org/eclipse/jetty/jetty-util/8.1.4.v20120524/jetty-util-8.1.4.v20120524.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/eclipse/jetty/jetty-servlet/8.1.4.v20120524/jetty-servlet-8.1.4.v20120524.jar:/root/.m2/repository/xmlunit/xmlunit/1.5/xmlunit-1.5.jar:/root/.m2/repository/org/eclipse/jetty/jetty-servlets/8.1.4.v20120524/jetty-servlets-8.1.4.v20120524.jar:/root/.m2/repository/xerces/xercesImpl/2.11.0/xercesImpl-2.11.0.jar:/root/.m2/repository/org/eclipse/jetty/jetty-http/8.1.4.v20120524/jetty-http-8.1.4.v20120524.jar:/root/.m2/repository/org/eclipse/jetty/jetty-io/8.1.4.v20120524/jetty-io-8.1.4.v20120524.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.7/slf4j-api-1.7.7.jar:/root/.m2/repository/org/eclipse/jetty/orbit/javax.servlet/3.0.0.v201112011016/javax.servlet-3.0.0.v201112011016.jar:/root/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar:/root/.m2/repository/org/eclipse/jetty/jetty-security/8.1.4.v20120524/jetty-security-8.1.4.v20120524.jar:/root/.m2/repository/xml-apis/xml-apis/1.4.01/xml-apis-1.4.01.jar:/root/.m2/repository/xalan/serializer/2.7.2/serializer-2.7.2.jar:/root/.m2/repository/org/slf4j/slf4j-log4j12/1.7.7/slf4j-log4j12-1.7.7.jar:/root/.m2/repository/javax/xml/stream/stax-api/1.0-2/stax-api-1.0-2.jar:/root/.m2/repository/org/eclipse/jetty/jetty-server/8.1.4.v20120524/jetty-server-8.1.4.v20120524.jar:/root/.m2/repository/commons-codec/commons-codec/1.9/commons-codec-1.9.jar:/root/.m2/repository/org/codehaus/woodstox/stax2-api/3.1.4/stax2-api-3.1.4.jar:/root/.m2/repository/junit/junit/4.11/junit-4.11.jar:/root/.m2/repository/org/bouncycastle/bcprov-jdk15on/1.51/bcprov-jdk15on-1.51.jar";
+echo "\n\nNode: `hostname`\n";
+echo "\n\nDate: `date`\n";
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en
+OpenJDK 64-Bit Server VM warning: ignoring option MaxPermSize=512m; support was removed in 8.0
+07:05:46,635 |-INFO in ch.qos.logback.classic.LoggerContext[TBar] - Could NOT find resource [logback-test.xml]
+07:05:46,635 |-INFO in ch.qos.logback.classic.LoggerContext[TBar] - Could NOT find resource [logback.groovy]
+07:05:46,635 |-INFO in ch.qos.logback.classic.LoggerContext[TBar] - Found resource [logback.xml] at [jar:file:/repair_tools/tbar.jar!/logback.xml]
+07:05:46,647 |-INFO in ch.qos.logback.core.joran.spi.ConfigurationWatchList@5a42bbf4 - URL [jar:file:/repair_tools/tbar.jar!/logback.xml] is not of type file
+07:05:46,686 |-INFO in ch.qos.logback.classic.joran.action.ConfigurationAction - debug attribute not set
+07:05:46,688 |-INFO in ch.qos.logback.classic.joran.action.ContextNameAction - Setting logger context name as [TBar]
+07:05:46,688 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - About to instantiate appender of type [ch.qos.logback.core.ConsoleAppender]
+07:05:46,690 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - Naming appender as [STDOUT]
+07:05:46,729 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting level of logger [org.hibernate.engine.query.HQLQueryPlan] to DEBUG
+07:05:46,729 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting additivity of logger [org.hibernate.engine.query.HQLQueryPlan] to false
+07:05:46,729 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting level of logger [com.piedra.logback] to DEBUG
+07:05:46,729 |-ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - Could not find an appender named [FILE]. Did you define it below instead of above in the configuration file?
+07:05:46,729 |-ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - See http://logback.qos.ch/codes.html#appender_order for more details.
+07:05:46,729 |-INFO in ch.qos.logback.classic.joran.action.RootLoggerAction - Setting level of ROOT logger to DEBUG
+07:05:46,729 |-INFO in ch.qos.logback.core.joran.action.AppenderRefAction - Attaching appender named [STDOUT] to Logger[ROOT]
+07:05:46,730 |-ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - Could not find an appender named [ROLLINGFILE]. Did you define it below instead of above in the configuration file?
+07:05:46,730 |-ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - See http://logback.qos.ch/codes.html#appender_order for more details.
+07:05:46,730 |-INFO in ch.qos.logback.classic.joran.action.ConfigurationAction - End of configuration.
+07:05:46,731 |-INFO in ch.qos.logback.classic.joran.JoranConfigurator@270421f5 - Registering current configuration as safe fallback point
+
+2022-09-14 07:05:47.096 [main] INFO  edu.lu.uni.serval.tbar.AbstractFixer - TBar_vul4j_apache_santuario-java_VUL4J-21 Failed Tests: 2
+2022-09-14 07:05:47.099 [main] INFO  edu.lu.uni.serval.tbar.TBarFixer - =======StaticBugFixer: Start to fix suspicious code======
+2022-09-14 07:05:47.099 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.apache.xml.security.stax.impl.InputProcessorChainImpl ===205
+2022-09-14 07:05:47.474 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+inputProcessorChain = new InputProcessorChainImpl(inboundSecurityContext, documentContext.clone(),
+                    inputProcessors.indexOf(inputProcessor) + 1, new ArrayList<InputProcessor>(this.inputProcessors));
+2022-09-14 07:05:48.416 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -202,8 +202,11 @@ public class InputProcessorChainImpl implements InputProcessorChain {
+-            inputProcessorChain = new InputProcessorChainImpl(inboundSecurityContext, documentContext.clone(),
++            if (inboundSecurityContext != null) {
++	inputProcessorChain = new InputProcessorChainImpl(inboundSecurityContext, documentContext.clone(),
++	}
++
+2022-09-14 07:05:48.416 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:05:49.108 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:05:49.122 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -202,7 +202,10 @@ public class InputProcessorChainImpl implements InputProcessorChain {
+-            inputProcessorChain = new InputProcessorChainImpl(inboundSecurityContext, documentContext.clone(),
++            if (inboundSecurityContext == null) {
++	    throw new IllegalArgumentException("Null 'inboundSecurityContext' argument.");
++	}
++inputProcessorChain = new InputProcessorChainImpl(inboundSecurityContext, documentContext.clone(),
+2022-09-14 07:05:49.122 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:05:49.689 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:06:00.809 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -202,7 +202,10 @@ public class InputProcessorChainImpl implements InputProcessorChain {
+-            inputProcessorChain = new InputProcessorChainImpl(inboundSecurityContext, documentContext.clone(),
++            if (inboundSecurityContext == null) {
++	    return null;
++	}
++inputProcessorChain = new InputProcessorChainImpl(inboundSecurityContext, documentContext.clone(),
+2022-09-14 07:06:00.809 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:06:01.476 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:06:12.852 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -202,7 +202,8 @@ public class InputProcessorChainImpl implements InputProcessorChain {
+-            inputProcessorChain = new InputProcessorChainImpl(inboundSecurityContext, documentContext.clone(),
++            if (inboundSecurityContext == null) inboundSecurityContext = new InboundSecurityContext();
++ inputProcessorChain = new InputProcessorChainImpl(inboundSecurityContext, documentContext.clone(),
+2022-09-14 07:06:12.852 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:06:13.477 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:06:13.489 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -202,7 +202,8 @@ public class InputProcessorChainImpl implements InputProcessorChain {
+-            inputProcessorChain = new InputProcessorChainImpl(inboundSecurityContext, documentContext.clone(),
++            if (inboundSecurityContext == null) return new InputProcessorChain();
++	 inputProcessorChain = new InputProcessorChainImpl(inboundSecurityContext, documentContext.clone(),
+2022-09-14 07:06:13.489 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:06:14.144 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:06:14.161 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -202,8 +202,11 @@ public class InputProcessorChainImpl implements InputProcessorChain {
+-            inputProcessorChain = new InputProcessorChainImpl(inboundSecurityContext, documentContext.clone(),
++            if (documentContext != null) {
++	inputProcessorChain = new InputProcessorChainImpl(inboundSecurityContext, documentContext.clone(),
++	}
++
+2022-09-14 07:06:14.161 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:06:14.848 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:06:14.860 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -202,7 +202,10 @@ public class InputProcessorChainImpl implements InputProcessorChain {
+-            inputProcessorChain = new InputProcessorChainImpl(inboundSecurityContext, documentContext.clone(),
++            if (documentContext == null) {
++	    throw new IllegalArgumentException("Null 'documentContext' argument.");
++	}
++inputProcessorChain = new InputProcessorChainImpl(inboundSecurityContext, documentContext.clone(),
+2022-09-14 07:06:14.860 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:06:15.576 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:06:26.723 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -202,7 +202,10 @@ public class InputProcessorChainImpl implements InputProcessorChain {
+-            inputProcessorChain = new InputProcessorChainImpl(inboundSecurityContext, documentContext.clone(),
++            if (documentContext == null) {
++	    return null;
++	}
++inputProcessorChain = new InputProcessorChainImpl(inboundSecurityContext, documentContext.clone(),
+2022-09-14 07:06:26.723 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:06:27.378 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:06:37.912 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -202,7 +202,8 @@ public class InputProcessorChainImpl implements InputProcessorChain {
+-            inputProcessorChain = new InputProcessorChainImpl(inboundSecurityContext, documentContext.clone(),
++            if (documentContext == null) documentContext = new DocumentContextImpl();
++ inputProcessorChain = new InputProcessorChainImpl(inboundSecurityContext, documentContext.clone(),
+2022-09-14 07:06:37.912 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:06:38.614 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:06:38.632 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -202,7 +202,8 @@ public class InputProcessorChainImpl implements InputProcessorChain {
+-            inputProcessorChain = new InputProcessorChainImpl(inboundSecurityContext, documentContext.clone(),
++            if (documentContext == null) return new InputProcessorChain();
++	 inputProcessorChain = new InputProcessorChainImpl(inboundSecurityContext, documentContext.clone(),
+2022-09-14 07:06:38.632 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:06:39.277 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:06:39.295 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -202,8 +202,11 @@ public class InputProcessorChainImpl implements InputProcessorChain {
+-            inputProcessorChain = new InputProcessorChainImpl(inboundSecurityContext, documentContext.clone(),
++            if (inputProcessors != null) {
++	inputProcessorChain = new InputProcessorChainImpl(inboundSecurityContext, documentContext.clone(),
++	}
++
+2022-09-14 07:06:39.295 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:06:39.989 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:06:40.009 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -202,7 +202,10 @@ public class InputProcessorChainImpl implements InputProcessorChain {
+-            inputProcessorChain = new InputProcessorChainImpl(inboundSecurityContext, documentContext.clone(),
++            if (inputProcessors == null) {
++	    throw new IllegalArgumentException("Null 'inputProcessors' argument.");
++	}
++inputProcessorChain = new InputProcessorChainImpl(inboundSecurityContext, documentContext.clone(),
+2022-09-14 07:06:40.009 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:06:40.679 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:06:51.607 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -202,7 +202,10 @@ public class InputProcessorChainImpl implements InputProcessorChain {
+-            inputProcessorChain = new InputProcessorChainImpl(inboundSecurityContext, documentContext.clone(),
++            if (inputProcessors == null) {
++	    return null;
++	}
++inputProcessorChain = new InputProcessorChainImpl(inboundSecurityContext, documentContext.clone(),
+2022-09-14 07:06:51.607 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:06:52.246 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:07:03.258 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -202,7 +202,8 @@ public class InputProcessorChainImpl implements InputProcessorChain {
+-            inputProcessorChain = new InputProcessorChainImpl(inboundSecurityContext, documentContext.clone(),
++            if (inputProcessors == null) inputProcessors = new List();
++ inputProcessorChain = new InputProcessorChainImpl(inboundSecurityContext, documentContext.clone(),
+2022-09-14 07:07:03.258 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:07:03.889 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:07:03.899 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -202,7 +202,8 @@ public class InputProcessorChainImpl implements InputProcessorChain {
+-            inputProcessorChain = new InputProcessorChainImpl(inboundSecurityContext, documentContext.clone(),
++            if (inputProcessors == null) return new InputProcessorChain();
++	 inputProcessorChain = new InputProcessorChainImpl(inboundSecurityContext, documentContext.clone(),
+2022-09-14 07:07:03.899 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:07:04.542 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:07:04.552 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -202,8 +202,11 @@ public class InputProcessorChainImpl implements InputProcessorChain {
+-            inputProcessorChain = new InputProcessorChainImpl(inboundSecurityContext, documentContext.clone(),
++            if (inputProcessor != null) {
++	inputProcessorChain = new InputProcessorChainImpl(inboundSecurityContext, documentContext.clone(),
++	}
++
+2022-09-14 07:07:04.552 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:07:05.232 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:07:05.242 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -202,7 +202,10 @@ public class InputProcessorChainImpl implements InputProcessorChain {
+-            inputProcessorChain = new InputProcessorChainImpl(inboundSecurityContext, documentContext.clone(),
++            if (inputProcessor == null) {
++	    throw new IllegalArgumentException("Null 'inputProcessor' argument.");
++	}
++inputProcessorChain = new InputProcessorChainImpl(inboundSecurityContext, documentContext.clone(),
+2022-09-14 07:07:05.242 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:07:05.926 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:07:16.757 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -202,7 +202,10 @@ public class InputProcessorChainImpl implements InputProcessorChain {
+-            inputProcessorChain = new InputProcessorChainImpl(inboundSecurityContext, documentContext.clone(),
++            if (inputProcessor == null) {
++	    return null;
++	}
++inputProcessorChain = new InputProcessorChainImpl(inboundSecurityContext, documentContext.clone(),
+2022-09-14 07:07:16.758 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:07:17.427 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:07:28.352 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -202,7 +202,8 @@ public class InputProcessorChainImpl implements InputProcessorChain {
+-            inputProcessorChain = new InputProcessorChainImpl(inboundSecurityContext, documentContext.clone(),
++            if (inputProcessor == null) inputProcessor = new InputProcessor();
++ inputProcessorChain = new InputProcessorChainImpl(inboundSecurityContext, documentContext.clone(),
+2022-09-14 07:07:28.352 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:07:29.032 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:07:29.044 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -202,7 +202,8 @@ public class InputProcessorChainImpl implements InputProcessorChain {
+-            inputProcessorChain = new InputProcessorChainImpl(inboundSecurityContext, documentContext.clone(),
++            if (inputProcessor == null) return new InputProcessorChain();
++	 inputProcessorChain = new InputProcessorChainImpl(inboundSecurityContext, documentContext.clone(),
+2022-09-14 07:07:29.044 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:07:29.721 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:07:29.732 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -202,8 +202,11 @@ public class InputProcessorChainImpl implements InputProcessorChain {
+-            inputProcessorChain = new InputProcessorChainImpl(inboundSecurityContext, documentContext.clone(),
++            if (this.inputProcessors != null) {
++	inputProcessorChain = new InputProcessorChainImpl(inboundSecurityContext, documentContext.clone(),
++	}
++
+2022-09-14 07:07:29.732 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:07:30.302 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:07:30.315 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -202,7 +202,10 @@ public class InputProcessorChainImpl implements InputProcessorChain {
+-            inputProcessorChain = new InputProcessorChainImpl(inboundSecurityContext, documentContext.clone(),
++            if (this.inputProcessors == null) {
++	    throw new IllegalArgumentException("Null 'this.inputProcessors' argument.");
++	}
++inputProcessorChain = new InputProcessorChainImpl(inboundSecurityContext, documentContext.clone(),
+2022-09-14 07:07:30.315 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:07:31.024 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:07:41.661 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -202,7 +202,10 @@ public class InputProcessorChainImpl implements InputProcessorChain {
+-            inputProcessorChain = new InputProcessorChainImpl(inboundSecurityContext, documentContext.clone(),
++            if (this.inputProcessors == null) {
++	    return null;
++	}
++inputProcessorChain = new InputProcessorChainImpl(inboundSecurityContext, documentContext.clone(),
+2022-09-14 07:07:41.661 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:07:42.276 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:07:53.093 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -202,7 +202,8 @@ public class InputProcessorChainImpl implements InputProcessorChain {
+-            inputProcessorChain = new InputProcessorChainImpl(inboundSecurityContext, documentContext.clone(),
++            if (this.inputProcessors == null) this.inputProcessors = new List();
++ inputProcessorChain = new InputProcessorChainImpl(inboundSecurityContext, documentContext.clone(),
+2022-09-14 07:07:53.093 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:07:53.669 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:07:53.679 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -202,7 +202,8 @@ public class InputProcessorChainImpl implements InputProcessorChain {
+-            inputProcessorChain = new InputProcessorChainImpl(inboundSecurityContext, documentContext.clone(),
++            if (this.inputProcessors == null) return new InputProcessorChain();
++	 inputProcessorChain = new InputProcessorChainImpl(inboundSecurityContext, documentContext.clone(),
+2022-09-14 07:07:53.679 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:07:54.309 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:07:54.319 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -202,8 +202,11 @@ public class InputProcessorChainImpl implements InputProcessorChain {
+-            inputProcessorChain = new InputProcessorChainImpl(inboundSecurityContext, documentContext.clone(),
++            if (inboundSecurityContext != null && documentContext != null && inputProcessors != null && inputProcessor != null && this.inputProcessors != null) {
++	inputProcessorChain = new InputProcessorChainImpl(inboundSecurityContext, documentContext.clone(),
++	}
++
+2022-09-14 07:07:54.319 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:07:54.921 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:07:54.993 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -203,7 +203,7 @@ public class InputProcessorChainImpl implements InputProcessorChain {
+-                    inputProcessors.indexOf(inputProcessor) + 1, new ArrayList<InputProcessor>(this.inputProcessors));
++                    inputProcessors.indexOf(inputProcessor) + 1, new ArrayList<InputProcessor>());
+2022-09-14 07:07:54.993 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:07:55.745 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:08:06.932 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -202,7 +202,7 @@ public class InputProcessorChainImpl implements InputProcessorChain {
+-            inputProcessorChain = new InputProcessorChainImpl(inboundSecurityContext, documentContext.clone(),
++            inputProcessorChain = new InputProcessorChainImpl(inputProcessorChain, inboundSecurityContext, documentContext.clone(),
+2022-09-14 07:08:06.933 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:08:07.634 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:08:07.645 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -202,7 +202,7 @@ public class InputProcessorChainImpl implements InputProcessorChain {
+-            inputProcessorChain = new InputProcessorChainImpl(inboundSecurityContext, documentContext.clone(),
++            inputProcessorChain = new InputProcessorChainImpl(inputProcessor, inboundSecurityContext, documentContext.clone(),
+2022-09-14 07:08:07.646 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:08:08.334 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:08:08.346 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -202,7 +202,7 @@ public class InputProcessorChainImpl implements InputProcessorChain {
+-            inputProcessorChain = new InputProcessorChainImpl(inboundSecurityContext, documentContext.clone(),
++            inputProcessorChain = new InputProcessorChainImpl(log, inboundSecurityContext, documentContext.clone(),
+2022-09-14 07:08:08.346 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:08:08.983 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:08:08.994 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -202,7 +202,7 @@ public class InputProcessorChainImpl implements InputProcessorChain {
+-            inputProcessorChain = new InputProcessorChainImpl(inboundSecurityContext, documentContext.clone(),
++            inputProcessorChain = new InputProcessorChainImpl(isDebugEnabled, inboundSecurityContext, documentContext.clone(),
+2022-09-14 07:08:08.994 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:08:09.675 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:08:09.686 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -202,7 +202,7 @@ public class InputProcessorChainImpl implements InputProcessorChain {
+-            inputProcessorChain = new InputProcessorChainImpl(inboundSecurityContext, documentContext.clone(),
++            inputProcessorChain = new InputProcessorChainImpl(this.inputProcessors, inboundSecurityContext, documentContext.clone(),
+2022-09-14 07:08:09.686 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:08:10.319 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:08:10.332 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -202,7 +202,7 @@ public class InputProcessorChainImpl implements InputProcessorChain {
+-            inputProcessorChain = new InputProcessorChainImpl(inboundSecurityContext, documentContext.clone(),
++            inputProcessorChain = new InputProcessorChainImpl(this.startPos, inboundSecurityContext, documentContext.clone(),
+2022-09-14 07:08:10.332 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:08:10.976 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:08:10.986 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -202,7 +202,7 @@ public class InputProcessorChainImpl implements InputProcessorChain {
+-            inputProcessorChain = new InputProcessorChainImpl(inboundSecurityContext, documentContext.clone(),
++            inputProcessorChain = new InputProcessorChainImpl(this.curPos, inboundSecurityContext, documentContext.clone(),
+2022-09-14 07:08:10.986 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:08:11.576 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:08:11.588 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -202,7 +202,7 @@ public class InputProcessorChainImpl implements InputProcessorChain {
+-            inputProcessorChain = new InputProcessorChainImpl(inboundSecurityContext, documentContext.clone(),
++            inputProcessorChain = new InputProcessorChainImpl(this.inboundSecurityContext, inboundSecurityContext, documentContext.clone(),
+2022-09-14 07:08:11.588 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:08:12.236 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:08:12.248 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -202,7 +202,7 @@ public class InputProcessorChainImpl implements InputProcessorChain {
+-            inputProcessorChain = new InputProcessorChainImpl(inboundSecurityContext, documentContext.clone(),
++            inputProcessorChain = new InputProcessorChainImpl(this.documentContext, inboundSecurityContext, documentContext.clone(),
+2022-09-14 07:08:12.248 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:08:12.977 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:08:12.987 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -202,7 +202,7 @@ public class InputProcessorChainImpl implements InputProcessorChain {
+-            inputProcessorChain = new InputProcessorChainImpl(inboundSecurityContext, documentContext.clone(),
++            inputProcessorChain = new InputProcessorChainImpl(inboundSecurityContext, inputProcessorChain, documentContext.clone(),
+2022-09-14 07:08:12.987 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:08:13.539 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:08:13.563 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -202,7 +202,7 @@ public class InputProcessorChainImpl implements InputProcessorChain {
+-            inputProcessorChain = new InputProcessorChainImpl(inboundSecurityContext, documentContext.clone(),
++            inputProcessorChain = new InputProcessorChainImpl(inboundSecurityContext, inputProcessor, documentContext.clone(),
+2022-09-14 07:08:13.564 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:08:14.193 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:08:14.203 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -202,7 +202,7 @@ public class InputProcessorChainImpl implements InputProcessorChain {
+-            inputProcessorChain = new InputProcessorChainImpl(inboundSecurityContext, documentContext.clone(),
++            inputProcessorChain = new InputProcessorChainImpl(inboundSecurityContext, log, documentContext.clone(),
+2022-09-14 07:08:14.203 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:08:14.831 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:08:14.841 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -202,7 +202,7 @@ public class InputProcessorChainImpl implements InputProcessorChain {
+-            inputProcessorChain = new InputProcessorChainImpl(inboundSecurityContext, documentContext.clone(),
++            inputProcessorChain = new InputProcessorChainImpl(inboundSecurityContext, isDebugEnabled, documentContext.clone(),
+2022-09-14 07:08:14.841 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:08:15.490 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:08:15.503 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -202,7 +202,7 @@ public class InputProcessorChainImpl implements InputProcessorChain {
+-            inputProcessorChain = new InputProcessorChainImpl(inboundSecurityContext, documentContext.clone(),
++            inputProcessorChain = new InputProcessorChainImpl(inboundSecurityContext, this.inputProcessors, documentContext.clone(),
+2022-09-14 07:08:15.503 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:08:16.145 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:08:16.162 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -202,7 +202,7 @@ public class InputProcessorChainImpl implements InputProcessorChain {
+-            inputProcessorChain = new InputProcessorChainImpl(inboundSecurityContext, documentContext.clone(),
++            inputProcessorChain = new InputProcessorChainImpl(inboundSecurityContext, this.startPos, documentContext.clone(),
+2022-09-14 07:08:16.163 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:08:16.821 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:08:16.838 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -202,7 +202,7 @@ public class InputProcessorChainImpl implements InputProcessorChain {
+-            inputProcessorChain = new InputProcessorChainImpl(inboundSecurityContext, documentContext.clone(),
++            inputProcessorChain = new InputProcessorChainImpl(inboundSecurityContext, this.curPos, documentContext.clone(),
+2022-09-14 07:08:16.838 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:08:17.524 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:08:17.535 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -202,7 +202,7 @@ public class InputProcessorChainImpl implements InputProcessorChain {
+-            inputProcessorChain = new InputProcessorChainImpl(inboundSecurityContext, documentContext.clone(),
++            inputProcessorChain = new InputProcessorChainImpl(inboundSecurityContext, this.inboundSecurityContext, documentContext.clone(),
+2022-09-14 07:08:17.535 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:08:18.188 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:08:18.199 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -202,7 +202,7 @@ public class InputProcessorChainImpl implements InputProcessorChain {
+-            inputProcessorChain = new InputProcessorChainImpl(inboundSecurityContext, documentContext.clone(),
++            inputProcessorChain = new InputProcessorChainImpl(inboundSecurityContext, this.documentContext, documentContext.clone(),
+2022-09-14 07:08:18.200 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:08:18.836 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:08:18.846 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -203,7 +203,7 @@ public class InputProcessorChainImpl implements InputProcessorChain {
+-                    inputProcessors.indexOf(inputProcessor) + 1, new ArrayList<InputProcessor>(this.inputProcessors));
++                    inputProcessorChain, inputProcessors.indexOf(inputProcessor) + 1, new ArrayList<InputProcessor>(this.inputProcessors));
+2022-09-14 07:08:18.846 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:08:19.490 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:08:19.505 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -203,7 +203,7 @@ public class InputProcessorChainImpl implements InputProcessorChain {
+-                    inputProcessors.indexOf(inputProcessor) + 1, new ArrayList<InputProcessor>(this.inputProcessors));
++                    inputProcessor, inputProcessors.indexOf(inputProcessor) + 1, new ArrayList<InputProcessor>(this.inputProcessors));
+2022-09-14 07:08:19.506 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:08:20.116 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:08:20.127 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -203,7 +203,7 @@ public class InputProcessorChainImpl implements InputProcessorChain {
+-                    inputProcessors.indexOf(inputProcessor) + 1, new ArrayList<InputProcessor>(this.inputProcessors));
++                    log, inputProcessors.indexOf(inputProcessor) + 1, new ArrayList<InputProcessor>(this.inputProcessors));
+2022-09-14 07:08:20.127 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:08:20.729 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:08:20.740 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -203,7 +203,7 @@ public class InputProcessorChainImpl implements InputProcessorChain {
+-                    inputProcessors.indexOf(inputProcessor) + 1, new ArrayList<InputProcessor>(this.inputProcessors));
++                    isDebugEnabled, inputProcessors.indexOf(inputProcessor) + 1, new ArrayList<InputProcessor>(this.inputProcessors));
+2022-09-14 07:08:20.740 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:08:21.329 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:08:21.340 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -203,7 +203,7 @@ public class InputProcessorChainImpl implements InputProcessorChain {
+-                    inputProcessors.indexOf(inputProcessor) + 1, new ArrayList<InputProcessor>(this.inputProcessors));
++                    this.inputProcessors, inputProcessors.indexOf(inputProcessor) + 1, new ArrayList<InputProcessor>(this.inputProcessors));
+2022-09-14 07:08:21.340 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:08:21.995 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:08:22.006 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -203,7 +203,7 @@ public class InputProcessorChainImpl implements InputProcessorChain {
+-                    inputProcessors.indexOf(inputProcessor) + 1, new ArrayList<InputProcessor>(this.inputProcessors));
++                    this.startPos, inputProcessors.indexOf(inputProcessor) + 1, new ArrayList<InputProcessor>(this.inputProcessors));
+2022-09-14 07:08:22.006 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:08:22.678 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:08:22.688 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -203,7 +203,7 @@ public class InputProcessorChainImpl implements InputProcessorChain {
+-                    inputProcessors.indexOf(inputProcessor) + 1, new ArrayList<InputProcessor>(this.inputProcessors));
++                    this.curPos, inputProcessors.indexOf(inputProcessor) + 1, new ArrayList<InputProcessor>(this.inputProcessors));
+2022-09-14 07:08:22.688 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:08:23.319 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:08:23.330 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -203,7 +203,7 @@ public class InputProcessorChainImpl implements InputProcessorChain {
+-                    inputProcessors.indexOf(inputProcessor) + 1, new ArrayList<InputProcessor>(this.inputProcessors));
++                    this.inboundSecurityContext, inputProcessors.indexOf(inputProcessor) + 1, new ArrayList<InputProcessor>(this.inputProcessors));
+2022-09-14 07:08:23.330 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:08:24.042 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:08:24.052 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -203,7 +203,7 @@ public class InputProcessorChainImpl implements InputProcessorChain {
+-                    inputProcessors.indexOf(inputProcessor) + 1, new ArrayList<InputProcessor>(this.inputProcessors));
++                    this.documentContext, inputProcessors.indexOf(inputProcessor) + 1, new ArrayList<InputProcessor>(this.inputProcessors));
+2022-09-14 07:08:24.052 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:08:24.659 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:08:24.669 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -203,7 +203,7 @@ public class InputProcessorChainImpl implements InputProcessorChain {
+-                    inputProcessors.indexOf(inputProcessor) + 1, new ArrayList<InputProcessor>(this.inputProcessors));
++                    inputProcessors.indexOf(inputProcessor) + 1, inputProcessorChain, new ArrayList<InputProcessor>(this.inputProcessors));
+2022-09-14 07:08:24.669 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:08:25.293 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:08:25.303 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -203,7 +203,7 @@ public class InputProcessorChainImpl implements InputProcessorChain {
+-                    inputProcessors.indexOf(inputProcessor) + 1, new ArrayList<InputProcessor>(this.inputProcessors));
++                    inputProcessors.indexOf(inputProcessor) + 1, inputProcessor, new ArrayList<InputProcessor>(this.inputProcessors));
+2022-09-14 07:08:25.304 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:08:25.921 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:08:25.932 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -203,7 +203,7 @@ public class InputProcessorChainImpl implements InputProcessorChain {
+-                    inputProcessors.indexOf(inputProcessor) + 1, new ArrayList<InputProcessor>(this.inputProcessors));
++                    inputProcessors.indexOf(inputProcessor) + 1, log, new ArrayList<InputProcessor>(this.inputProcessors));
+2022-09-14 07:08:25.932 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:08:26.531 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:08:26.542 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -203,7 +203,7 @@ public class InputProcessorChainImpl implements InputProcessorChain {
+-                    inputProcessors.indexOf(inputProcessor) + 1, new ArrayList<InputProcessor>(this.inputProcessors));
++                    inputProcessors.indexOf(inputProcessor) + 1, isDebugEnabled, new ArrayList<InputProcessor>(this.inputProcessors));
+2022-09-14 07:08:26.542 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:08:27.173 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:08:27.184 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -203,7 +203,7 @@ public class InputProcessorChainImpl implements InputProcessorChain {
+-                    inputProcessors.indexOf(inputProcessor) + 1, new ArrayList<InputProcessor>(this.inputProcessors));
++                    inputProcessors.indexOf(inputProcessor) + 1, this.inputProcessors, new ArrayList<InputProcessor>(this.inputProcessors));
+2022-09-14 07:08:27.184 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:08:27.846 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:08:27.867 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -203,7 +203,7 @@ public class InputProcessorChainImpl implements InputProcessorChain {
+-                    inputProcessors.indexOf(inputProcessor) + 1, new ArrayList<InputProcessor>(this.inputProcessors));
++                    inputProcessors.indexOf(inputProcessor) + 1, this.startPos, new ArrayList<InputProcessor>(this.inputProcessors));
+2022-09-14 07:08:27.867 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:08:28.458 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:08:28.472 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -203,7 +203,7 @@ public class InputProcessorChainImpl implements InputProcessorChain {
+-                    inputProcessors.indexOf(inputProcessor) + 1, new ArrayList<InputProcessor>(this.inputProcessors));
++                    inputProcessors.indexOf(inputProcessor) + 1, this.curPos, new ArrayList<InputProcessor>(this.inputProcessors));
+2022-09-14 07:08:28.473 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:08:29.114 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:08:29.126 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -203,7 +203,7 @@ public class InputProcessorChainImpl implements InputProcessorChain {
+-                    inputProcessors.indexOf(inputProcessor) + 1, new ArrayList<InputProcessor>(this.inputProcessors));
++                    inputProcessors.indexOf(inputProcessor) + 1, this.inboundSecurityContext, new ArrayList<InputProcessor>(this.inputProcessors));
+2022-09-14 07:08:29.127 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:08:29.786 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:08:29.798 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -203,7 +203,7 @@ public class InputProcessorChainImpl implements InputProcessorChain {
+-                    inputProcessors.indexOf(inputProcessor) + 1, new ArrayList<InputProcessor>(this.inputProcessors));
++                    inputProcessors.indexOf(inputProcessor) + 1, this.documentContext, new ArrayList<InputProcessor>(this.inputProcessors));
+2022-09-14 07:08:29.798 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:08:30.422 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:08:30.432 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -203,7 +203,7 @@ public class InputProcessorChainImpl implements InputProcessorChain {
+-                    inputProcessors.indexOf(inputProcessor) + 1, new ArrayList<InputProcessor>(this.inputProcessors));
++                    inputProcessors.indexOf(inputProcessor) + 1, new ArrayList<InputProcessor>(this.inputProcessors), inputProcessorChain);
+2022-09-14 07:08:30.432 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:08:31.060 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:08:31.070 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -203,7 +203,7 @@ public class InputProcessorChainImpl implements InputProcessorChain {
+-                    inputProcessors.indexOf(inputProcessor) + 1, new ArrayList<InputProcessor>(this.inputProcessors));
++                    inputProcessors.indexOf(inputProcessor) + 1, new ArrayList<InputProcessor>(this.inputProcessors), inputProcessor);
+2022-09-14 07:08:31.070 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:08:31.706 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:08:31.716 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -203,7 +203,7 @@ public class InputProcessorChainImpl implements InputProcessorChain {
+-                    inputProcessors.indexOf(inputProcessor) + 1, new ArrayList<InputProcessor>(this.inputProcessors));
++                    inputProcessors.indexOf(inputProcessor) + 1, new ArrayList<InputProcessor>(this.inputProcessors), log);
+2022-09-14 07:08:31.717 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:08:32.385 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:08:32.395 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -203,7 +203,7 @@ public class InputProcessorChainImpl implements InputProcessorChain {
+-                    inputProcessors.indexOf(inputProcessor) + 1, new ArrayList<InputProcessor>(this.inputProcessors));
++                    inputProcessors.indexOf(inputProcessor) + 1, new ArrayList<InputProcessor>(this.inputProcessors), isDebugEnabled);
+2022-09-14 07:08:32.395 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:08:33.004 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:08:33.013 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -203,7 +203,7 @@ public class InputProcessorChainImpl implements InputProcessorChain {
+-                    inputProcessors.indexOf(inputProcessor) + 1, new ArrayList<InputProcessor>(this.inputProcessors));
++                    inputProcessors.indexOf(inputProcessor) + 1, new ArrayList<InputProcessor>(this.inputProcessors), this.inputProcessors);
+2022-09-14 07:08:33.014 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:08:33.543 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:08:33.552 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -203,7 +203,7 @@ public class InputProcessorChainImpl implements InputProcessorChain {
+-                    inputProcessors.indexOf(inputProcessor) + 1, new ArrayList<InputProcessor>(this.inputProcessors));
++                    inputProcessors.indexOf(inputProcessor) + 1, new ArrayList<InputProcessor>(this.inputProcessors), this.startPos);
+2022-09-14 07:08:33.552 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:08:34.236 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:08:34.245 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -203,7 +203,7 @@ public class InputProcessorChainImpl implements InputProcessorChain {
+-                    inputProcessors.indexOf(inputProcessor) + 1, new ArrayList<InputProcessor>(this.inputProcessors));
++                    inputProcessors.indexOf(inputProcessor) + 1, new ArrayList<InputProcessor>(this.inputProcessors), this.curPos);
+2022-09-14 07:08:34.245 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:08:34.891 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:08:34.901 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -203,7 +203,7 @@ public class InputProcessorChainImpl implements InputProcessorChain {
+-                    inputProcessors.indexOf(inputProcessor) + 1, new ArrayList<InputProcessor>(this.inputProcessors));
++                    inputProcessors.indexOf(inputProcessor) + 1, new ArrayList<InputProcessor>(this.inputProcessors), this.inboundSecurityContext);
+2022-09-14 07:08:34.901 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:08:35.536 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:08:35.547 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -203,7 +203,7 @@ public class InputProcessorChainImpl implements InputProcessorChain {
+-                    inputProcessors.indexOf(inputProcessor) + 1, new ArrayList<InputProcessor>(this.inputProcessors));
++                    inputProcessors.indexOf(inputProcessor) + 1, new ArrayList<InputProcessor>(this.inputProcessors), this.documentContext);
+2022-09-14 07:08:35.547 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:08:36.198 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:08:36.210 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -202,7 +202,7 @@ public class InputProcessorChainImpl implements InputProcessorChain {
+-            inputProcessorChain = new InputProcessorChainImpl(inboundSecurityContext, documentContext.clone(),
++            inputProcessorChain = new InputProcessorChainImpl(documentContext.clone(),
+2022-09-14 07:08:36.211 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:08:36.854 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:08:36.865 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -202,8 +202,7 @@ public class InputProcessorChainImpl implements InputProcessorChain {
+-            inputProcessorChain = new InputProcessorChainImpl(inboundSecurityContext, documentContext.clone(),
+-                    inputProcessors.indexOf(inputProcessor) + 1, new ArrayList<InputProcessor>(this.inputProcessors));
++            inputProcessorChain = new InputProcessorChainImpl(inboundSecurityContext, inputProcessors.indexOf(inputProcessor) + 1, new ArrayList<InputProcessor>(this.inputProcessors));
+2022-09-14 07:08:36.865 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:08:37.429 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:08:37.439 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -203,7 +203,7 @@ public class InputProcessorChainImpl implements InputProcessorChain {
+-                    inputProcessors.indexOf(inputProcessor) + 1, new ArrayList<InputProcessor>(this.inputProcessors));
++                    new ArrayList<InputProcessor>(this.inputProcessors));
+2022-09-14 07:08:37.439 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:08:38.072 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:08:38.082 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -203,7 +203,7 @@ public class InputProcessorChainImpl implements InputProcessorChain {
+-                    inputProcessors.indexOf(inputProcessor) + 1, new ArrayList<InputProcessor>(this.inputProcessors));
++                    inputProcessors.indexOf(inputProcessor) + 1);
+2022-09-14 07:08:38.082 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:08:38.700 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:08:38.773 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -203,7 +203,7 @@ public class InputProcessorChainImpl implements InputProcessorChain {
+-                    inputProcessors.indexOf(inputProcessor) + 1, new ArrayList<InputProcessor>(this.inputProcessors));
++                    inputProcessors.indexOf(inputProcessor) - 1, new ArrayList<InputProcessor>(this.inputProcessors));
+2022-09-14 07:08:38.773 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:08:39.427 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:08:50.891 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -203,7 +203,7 @@ public class InputProcessorChainImpl implements InputProcessorChain {
+-                    inputProcessors.indexOf(inputProcessor) + 1, new ArrayList<InputProcessor>(this.inputProcessors));
++                    inputProcessors.indexOf(inputProcessor) + 1d, new ArrayList<InputProcessor>(this.inputProcessors));
+2022-09-14 07:08:50.892 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:08:51.508 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:08:51.518 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -203,7 +203,7 @@ public class InputProcessorChainImpl implements InputProcessorChain {
+-                    inputProcessors.indexOf(inputProcessor) + 1, new ArrayList<InputProcessor>(this.inputProcessors));
++                    inputProcessors.indexOf(inputProcessor) + 1f, new ArrayList<InputProcessor>(this.inputProcessors));
+2022-09-14 07:08:51.519 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:08:52.164 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:08:52.194 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -202,8 +202,7 @@ public class InputProcessorChainImpl implements InputProcessorChain {
+-            inputProcessorChain = new InputProcessorChainImpl(inboundSecurityContext, documentContext.clone(),
+-                    inputProcessors.indexOf(inputProcessor) + 1, new ArrayList<InputProcessor>(this.inputProcessors));
++
+2022-09-14 07:08:52.194 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:08:52.804 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:08:52.815 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -198,15 +198,5 @@ public class InputProcessorChainImpl implements InputProcessorChain {
+-    @Override
+-    public InputProcessorChain createSubChain(InputProcessor inputProcessor) throws XMLStreamException, XMLSecurityException {
+-        InputProcessorChainImpl inputProcessorChain;
+-        try {
+-            inputProcessorChain = new InputProcessorChainImpl(inboundSecurityContext, documentContext.clone(),
+-                    inputProcessors.indexOf(inputProcessor) + 1, new ArrayList<InputProcessor>(this.inputProcessors));
+-        } catch (CloneNotSupportedException e) {
+-            throw new XMLSecurityException(e);
+-        }
+-        return inputProcessorChain;
+-    }
++
+2022-09-14 07:08:52.815 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:08:53.446 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:08:53.485 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -202,7 +202,8 @@ public class InputProcessorChainImpl implements InputProcessorChain {
+-            inputProcessorChain = new InputProcessorChainImpl(inboundSecurityContext, documentContext.clone(),
++            reset();
++	inputProcessorChain = new InputProcessorChainImpl(inboundSecurityContext, documentContext.clone(),
+2022-09-14 07:08:53.485 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:08:54.230 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:09:05.596 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -204,6 +204,7 @@ public class InputProcessorChainImpl implements InputProcessorChain {
++	reset();
+2022-09-14 07:09:05.596 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:09:06.243 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:09:17.028 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -202,8 +202,7 @@ public class InputProcessorChainImpl implements InputProcessorChain {
+-            inputProcessorChain = new InputProcessorChainImpl(inboundSecurityContext, documentContext.clone(),
+-                    inputProcessors.indexOf(inputProcessor) + 1, new ArrayList<InputProcessor>(this.inputProcessors));
++            addProcessor(inputProcessor);
+2022-09-14 07:09:17.028 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:09:17.609 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:09:17.620 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -202,7 +202,8 @@ public class InputProcessorChainImpl implements InputProcessorChain {
+-            inputProcessorChain = new InputProcessorChainImpl(inboundSecurityContext, documentContext.clone(),
++            addProcessor(inputProcessor);
++	inputProcessorChain = new InputProcessorChainImpl(inboundSecurityContext, documentContext.clone(),
+2022-09-14 07:09:17.620 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:09:18.341 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:09:29.082 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -204,6 +204,7 @@ public class InputProcessorChainImpl implements InputProcessorChain {
++	addProcessor(inputProcessor);
+2022-09-14 07:09:29.083 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:09:29.694 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:09:40.145 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -202,8 +202,7 @@ public class InputProcessorChainImpl implements InputProcessorChain {
+-            inputProcessorChain = new InputProcessorChainImpl(inboundSecurityContext, documentContext.clone(),
+-                    inputProcessors.indexOf(inputProcessor) + 1, new ArrayList<InputProcessor>(this.inputProcessors));
++            removeProcessor(inputProcessor);
+2022-09-14 07:09:40.145 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:09:40.758 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:09:40.768 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -202,7 +202,8 @@ public class InputProcessorChainImpl implements InputProcessorChain {
+-            inputProcessorChain = new InputProcessorChainImpl(inboundSecurityContext, documentContext.clone(),
++            removeProcessor(inputProcessor);
++	inputProcessorChain = new InputProcessorChainImpl(inboundSecurityContext, documentContext.clone(),
+2022-09-14 07:09:40.768 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:09:41.490 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:09:52.470 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -204,6 +204,7 @@ public class InputProcessorChainImpl implements InputProcessorChain {
++	removeProcessor(inputProcessor);
+2022-09-14 07:09:52.470 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:09:53.173 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:10:04.069 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.apache.xml.security.stax.impl.processor.input.XMLSecurityInputProcessor ===141
+2022-09-14 07:10:04.099 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+InputProcessorChain subInputProcessorChain = inputProcessorChain.createSubChain(this);
+2022-09-14 07:10:04.130 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -138,7 +138,7 @@ public class XMLSecurityInputProcessor extends AbstractInputProcessor {
+-                    InputProcessorChain subInputProcessorChain = inputProcessorChain.createSubChain(this);
++                    InputProcessorChain subInputProcessorChain = subInputProcessorChain.createSubChain(this);
+2022-09-14 07:10:04.130 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:10:04.751 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:10:04.782 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -138,7 +138,10 @@ public class XMLSecurityInputProcessor extends AbstractInputProcessor {
+-                    InputProcessorChain subInputProcessorChain = inputProcessorChain.createSubChain(this);
++                    if (inputProcessorChain != null) {
++	InputProcessorChain subInputProcessorChain = inputProcessorChain.createSubChain(this);
++	}
++
+2022-09-14 07:10:04.782 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:10:05.496 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:10:05.508 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -138,7 +138,10 @@ public class XMLSecurityInputProcessor extends AbstractInputProcessor {
+-                    InputProcessorChain subInputProcessorChain = inputProcessorChain.createSubChain(this);
++                    if (inputProcessorChain == null) {
++	    throw new IllegalArgumentException("Null 'inputProcessorChain' argument.");
++	}
++InputProcessorChain subInputProcessorChain = inputProcessorChain.createSubChain(this);
+2022-09-14 07:10:05.508 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:10:06.213 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:10:17.087 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -138,7 +138,10 @@ public class XMLSecurityInputProcessor extends AbstractInputProcessor {
+-                    InputProcessorChain subInputProcessorChain = inputProcessorChain.createSubChain(this);
++                    if (inputProcessorChain == null) {
++	    return null;
++	}
++InputProcessorChain subInputProcessorChain = inputProcessorChain.createSubChain(this);
+2022-09-14 07:10:17.087 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:10:17.763 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:10:28.732 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -138,7 +138,8 @@ public class XMLSecurityInputProcessor extends AbstractInputProcessor {
+-                    InputProcessorChain subInputProcessorChain = inputProcessorChain.createSubChain(this);
++                    if (inputProcessorChain == null) inputProcessorChain = subInputProcessorChain;
++ InputProcessorChain subInputProcessorChain = inputProcessorChain.createSubChain(this);
+2022-09-14 07:10:28.732 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:10:29.380 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:10:29.394 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -138,7 +138,8 @@ public class XMLSecurityInputProcessor extends AbstractInputProcessor {
+-                    InputProcessorChain subInputProcessorChain = inputProcessorChain.createSubChain(this);
++                    if (inputProcessorChain == null) inputProcessorChain = new InputProcessorChain();
++ InputProcessorChain subInputProcessorChain = inputProcessorChain.createSubChain(this);
+2022-09-14 07:10:29.394 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:10:29.994 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:10:30.004 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -138,7 +138,8 @@ public class XMLSecurityInputProcessor extends AbstractInputProcessor {
+-                    InputProcessorChain subInputProcessorChain = inputProcessorChain.createSubChain(this);
++                    if (inputProcessorChain == null) return new XMLSecEvent();
++	 InputProcessorChain subInputProcessorChain = inputProcessorChain.createSubChain(this);
+2022-09-14 07:10:30.005 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:10:30.626 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:10:30.637 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -138,7 +138,8 @@ public class XMLSecurityInputProcessor extends AbstractInputProcessor {
+-                    InputProcessorChain subInputProcessorChain = inputProcessorChain.createSubChain(this);
++                    if (inputProcessorChain == null) return xmlSecEvent;
++	 InputProcessorChain subInputProcessorChain = inputProcessorChain.createSubChain(this);
+2022-09-14 07:10:30.637 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:10:31.301 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:10:42.415 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -138,7 +138,7 @@ public class XMLSecurityInputProcessor extends AbstractInputProcessor {
+-                    InputProcessorChain subInputProcessorChain = inputProcessorChain.createSubChain(this);
++                    InputProcessorChain subInputProcessorChain = inputProcessorChain.addProcessor(this);
+2022-09-14 07:10:42.415 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:10:43.011 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:10:43.023 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -138,7 +138,7 @@ public class XMLSecurityInputProcessor extends AbstractInputProcessor {
+-                    InputProcessorChain subInputProcessorChain = inputProcessorChain.createSubChain(this);
++                    InputProcessorChain subInputProcessorChain = inputProcessorChain.removeProcessor(this);
+2022-09-14 07:10:43.023 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:10:43.678 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:10:43.688 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -138,7 +138,7 @@ public class XMLSecurityInputProcessor extends AbstractInputProcessor {
+-                    InputProcessorChain subInputProcessorChain = inputProcessorChain.createSubChain(this);
++                    InputProcessorChain subInputProcessorChain = inputProcessorChain.createSubChain();
+2022-09-14 07:10:43.688 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:10:44.300 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:10:44.372 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -138,7 +138,7 @@ public class XMLSecurityInputProcessor extends AbstractInputProcessor {
+-                    InputProcessorChain subInputProcessorChain = inputProcessorChain.createSubChain(this);
++
+2022-09-14 07:10:44.372 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:10:44.997 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:10:45.013 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -55,100 +55,7 @@ public class XMLSecurityInputProcessor extends AbstractInputProcessor {
+-    @Override
+-    public XMLSecEvent processNextEvent(InputProcessorChain inputProcessorChain)
+-            throws XMLStreamException, XMLSecurityException {
+-
+-        //add the buffer processor (for signature) when this processor is called for the first time
+-        if (internalBufferProcessor == null) {
+-            internalBufferProcessor = new InternalBufferProcessor(getSecurityProperties());
+-            inputProcessorChain.addProcessor(internalBufferProcessor);
+-        }
+-
+-        XMLSecEvent xmlSecEvent = inputProcessorChain.processEvent();
+-        switch (xmlSecEvent.getEventType()) {
+-            case XMLStreamConstants.START_ELEMENT:
+-                final XMLSecStartElement xmlSecStartElement = xmlSecEvent.asStartElement();
+-
+-                if (xmlSecStartElement.getName().equals(XMLSecurityConstants.TAG_dsig_Signature)) {
+-                    signatureElementFound = true;
+-                    startIndexForProcessor = internalBufferProcessor.getXmlSecEventList().size() - 1;
+-                } else if (xmlSecStartElement.getName().equals(XMLSecurityConstants.TAG_xenc_EncryptedData)) {
+-                    encryptedDataElementFound = true;
+-
+-                    XMLDecryptInputProcessor decryptInputProcessor = new XMLDecryptInputProcessor(getSecurityProperties());
+-                    decryptInputProcessor.setPhase(XMLSecurityConstants.Phase.PREPROCESSING);
+-                    decryptInputProcessor.addAfterProcessor(XMLEventReaderInputProcessor.class.getName());
+-                    decryptInputProcessor.addBeforeProcessor(XMLSecurityInputProcessor.class.getName());
+-                    decryptInputProcessor.addBeforeProcessor(XMLSecurityInputProcessor.InternalBufferProcessor.class.getName());
+-                    inputProcessorChain.addProcessor(decryptInputProcessor);
+-
+-                    final ArrayDeque<XMLSecEvent> xmlSecEventList = internalBufferProcessor.getXmlSecEventList();
+-                    //remove the last event (EncryptedData)
+-                    xmlSecEventList.pollFirst();
+-
+-                    // temporary processor to return the EncryptedData element for the DecryptionProcessor
+-                    AbstractInputProcessor abstractInputProcessor = new AbstractInputProcessor(getSecurityProperties()) {
+-                        @Override
+-                        public XMLSecEvent processNextHeaderEvent(InputProcessorChain inputProcessorChain)
+-                                throws XMLStreamException, XMLSecurityException {
+-                            return processNextEvent(inputProcessorChain);
+-                        }
+-
+-                        @Override
+-                        public XMLSecEvent processNextEvent(InputProcessorChain inputProcessorChain)
+-                                throws XMLStreamException, XMLSecurityException {
+-                            inputProcessorChain.removeProcessor(this);
+-                            return xmlSecStartElement;
+-                        }
+-                    };
+-                    abstractInputProcessor.setPhase(XMLSecurityConstants.Phase.PREPROCESSING);
+-                    abstractInputProcessor.addBeforeProcessor(decryptInputProcessor);
+-                    inputProcessorChain.addProcessor(abstractInputProcessor);
+-
+-                    //fetch the next event from the original chain
+-                    inputProcessorChain.reset();
+-                    xmlSecEvent = inputProcessorChain.processEvent();
+-
+-                    //check if the decrypted element is a Signature element
+-                    if (xmlSecEvent.isStartElement() &&
+-                            xmlSecEvent.asStartElement().getName().equals(XMLSecurityConstants.TAG_dsig_Signature)) {
+-                        signatureElementFound = true;
+-                        startIndexForProcessor = internalBufferProcessor.getXmlSecEventList().size() - 1;
+-                    }
+-                }
+-                break;
+-            case XMLStreamConstants.END_ELEMENT:
+-                XMLSecEndElement xmlSecEndElement = xmlSecEvent.asEndElement();
+-                // Handle the signature
+-                if (signatureElementFound
+-                        && xmlSecEndElement.getName().equals(XMLSecurityConstants.TAG_dsig_Signature)) {
+-                    XMLSignatureInputHandler inputHandler = new XMLSignatureInputHandler();
+-
+-                    final ArrayDeque<XMLSecEvent> xmlSecEventList = internalBufferProcessor.getXmlSecEventList();
+-                    inputHandler.handle(inputProcessorChain, getSecurityProperties(),
+-                            xmlSecEventList, startIndexForProcessor);
+-
+-                    inputProcessorChain.removeProcessor(internalBufferProcessor);
+-
+-                    //add the replay processor to the chain...
+-                    InternalReplayProcessor internalReplayProcessor =
+-                            new InternalReplayProcessor(getSecurityProperties(), xmlSecEventList);
+-                    internalReplayProcessor.addBeforeProcessor(XMLSignatureReferenceVerifyInputProcessor.class.getName());
+-                    inputProcessorChain.addProcessor(internalReplayProcessor);
+-
+-                    //...and let the SignatureVerificationProcessor process the buffered events (enveloped signature).
+-                    InputProcessorChain subInputProcessorChain = inputProcessorChain.createSubChain(this);
+-                    while (!xmlSecEventList.isEmpty()) {
+-                        subInputProcessorChain.reset();
+-                        subInputProcessorChain.processEvent();
+-                    }
+-                }
+-                break;
+-        }
+-
+-        return xmlSecEvent;
+-    }
++
+2022-09-14 07:10:45.013 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:10:45.641 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:10:45.668 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -138,7 +138,7 @@ public class XMLSecurityInputProcessor extends AbstractInputProcessor {
+-                    InputProcessorChain subInputProcessorChain = inputProcessorChain.createSubChain(this);
++                    doFinal(inputProcessorChain);
+2022-09-14 07:10:45.668 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:10:46.317 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:10:46.328 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -138,7 +138,8 @@ public class XMLSecurityInputProcessor extends AbstractInputProcessor {
+-                    InputProcessorChain subInputProcessorChain = inputProcessorChain.createSubChain(this);
++                    doFinal(inputProcessorChain);
++	InputProcessorChain subInputProcessorChain = inputProcessorChain.createSubChain(this);
+2022-09-14 07:10:46.328 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:10:47.026 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:10:58.157 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -139,6 +139,7 @@ public class XMLSecurityInputProcessor extends AbstractInputProcessor {
++	doFinal(inputProcessorChain);
+2022-09-14 07:10:58.157 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:10:58.817 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:11:09.788 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.apache.xml.security.stax.impl.processor.input.XMLSecurityInputProcessor ===142
+2022-09-14 07:11:09.798 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+while (!xmlSecEventList.isEmpty()) {
+                        subInputProcessorChain.reset();
+                        subInputProcessorChain.processEvent();
+                    }
+2022-09-14 07:11:09.867 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -139,10 +139,13 @@ public class XMLSecurityInputProcessor extends AbstractInputProcessor {
+-                    while (!xmlSecEventList.isEmpty()) {
++                    if (xmlSecEventList != null) {
++	while (!xmlSecEventList.isEmpty()) {
++	}
++
+2022-09-14 07:11:09.867 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:11:10.517 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:11:21.702 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -139,7 +139,10 @@ public class XMLSecurityInputProcessor extends AbstractInputProcessor {
+-                    while (!xmlSecEventList.isEmpty()) {
++                    if (xmlSecEventList == null) {
++	    throw new IllegalArgumentException("Null 'xmlSecEventList' argument.");
++	}
++while (!xmlSecEventList.isEmpty()) {
+2022-09-14 07:11:21.702 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:11:22.482 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:11:33.643 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -139,7 +139,10 @@ public class XMLSecurityInputProcessor extends AbstractInputProcessor {
+-                    while (!xmlSecEventList.isEmpty()) {
++                    if (xmlSecEventList == null) {
++	    return null;
++	}
++while (!xmlSecEventList.isEmpty()) {
+2022-09-14 07:11:33.644 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:11:34.389 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:11:45.510 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -139,7 +139,8 @@ public class XMLSecurityInputProcessor extends AbstractInputProcessor {
+-                    while (!xmlSecEventList.isEmpty()) {
++                    if (xmlSecEventList == null) xmlSecEventList = new ArrayDeque();
++ while (!xmlSecEventList.isEmpty()) {
+2022-09-14 07:11:45.510 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:11:46.177 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:11:46.187 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -139,7 +139,8 @@ public class XMLSecurityInputProcessor extends AbstractInputProcessor {
+-                    while (!xmlSecEventList.isEmpty()) {
++                    if (xmlSecEventList == null) return new XMLSecEvent();
++	 while (!xmlSecEventList.isEmpty()) {
+2022-09-14 07:11:46.187 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:11:46.810 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:11:46.820 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -139,7 +139,8 @@ public class XMLSecurityInputProcessor extends AbstractInputProcessor {
+-                    while (!xmlSecEventList.isEmpty()) {
++                    if (xmlSecEventList == null) return xmlSecEvent;
++	 while (!xmlSecEventList.isEmpty()) {
+2022-09-14 07:11:46.820 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:11:47.534 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:11:58.743 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -139,10 +139,7 @@ public class XMLSecurityInputProcessor extends AbstractInputProcessor {
+-                    while (!xmlSecEventList.isEmpty()) {
+-                        subInputProcessorChain.reset();
+-                        subInputProcessorChain.processEvent();
+-                    }
++
+2022-09-14 07:11:58.744 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:11:59.399 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:12:10.743 [main] INFO  edu.lu.uni.serval.tbar.TBarFixer - =======StaticBugFixer: Finish off fixing======
+Failed to fix bug
+
+
+Node: ee2bf67284b9
+
+
+
+Date: Wed Sep 14 07:12:10 EDT 2022
+

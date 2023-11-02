@@ -1,0 +1,343 @@
+cd /workdir/jMutRepair_vul4j_codehaus-plexus_plexus-utils_VUL4J-42;
+export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en";
+TZ="America/New_York"; export TZ;
+export PATH="/usr/lib/jvm/java-8-openjdk-amd64/bin:$PATH";
+export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64/bin";
+time java -Xmx4g -Xms1g -XX:MaxPermSize=512m -cp /script/../libs/jtestex7.jar:/script/../repair_tools/astor.jar fr.inria.main.evolution.AstorMain \
+	-mode jMutRepair \
+	-location . \
+	-id codehaus-plexus_plexus-utils-VUL4J-42 \
+	-failing org.codehaus.plexus.util.cli.CommandlineTest#testGetShellCommandLineBash:org.codehaus.plexus.util.cli.CommandlineTest#testGetShellCommandLineBash_WithWorkingDirectory:org.codehaus.plexus.util.cli.CommandlineTest#testGetShellCommandLineNonWindows:org.codehaus.plexus.util.cli.CommandlineTest#testGetShellCommandLineBash_WithSingleQuotedArg:org.codehaus.plexus.util.cli.CommandlineTest#testPathWithShellExpansionStrings:org.codehaus.plexus.util.cli.shell.BourneShellTest#testQuoteWorkingDirectoryAndExecutable:org.codehaus.plexus.util.cli.shell.BourneShellTest#testQuoteWorkingDirectoryAndExecutable_WDPathWithSingleQuotes:org.codehaus.plexus.util.cli.shell.BourneShellTest#testQuoteWorkingDirectoryAndExecutable_WDPathWithSingleQuotes_BackslashFileSep:org.codehaus.plexus.util.cli.shell.BourneShellTest#testPreserveSingleQuotesOnArgument:org.codehaus.plexus.util.cli.shell.BourneShellTest#testEscapeSingleQuotesOnArgument:org.codehaus.plexus.util.cli.shell.BourneShellTest#testArgumentsWithsemicolon:org.codehaus.plexus.util.cli.shell.BourneShellTest#testBourneShellQuotingCharacters \
+	-jvm4testexecution /usr/lib/jvm/jdk1.7.0_80/bin \
+	-jvm4evosuitetestexecution /usr/lib/jvm/jdk1.7.0_80/bin \
+	-maxgen 1000000 \
+	-maxtime 120 \
+	-stopfirst true \
+	-seed 0 \
+	-scope local \
+	-population 1 \
+	-javacompliancelevel 7 \
+	-faultlocalization perfect \
+    -perfectdata /script/../data/benchmarks/vul4j/perfectfl/VUL4J-42 \
+    -validation externalcmd \
+    -testfailingcmd "mvn test -Dtest=org.codehaus.plexus.util.cli.CommandlineTest,org.codehaus.plexus.util.cli.shell.BourneShellTest -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B" \
+    -testallcmd "mvn test -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B"  \ \
+	-srcjavafolder src/main/java \
+	-srctestfolder src/test/java \
+	-binjavafolder target/classes \
+	-bintestfolder target/test-classes \
+	-parameters x:x \
+	-dependencies /root/.m2/repository/junit/junit/3.8.2/junit-3.8.2.jar;
+	echo "\n\nNode: `hostname`\n";
+	echo "\n\nDate: `date`\n";
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en
+OpenJDK 64-Bit Server VM warning: ignoring option MaxPermSize=512m; support was removed in 8.0
+[1] INFO ProjectConfiguration - Version of the JVM used: 1.7.0_80
+[1] INFO main - Java version of the JDK used to run tests: 1.7.0_80
+[1] INFO main - The compliance of the JVM is:  7
+[4] INFO main - command line arguments: [-mode  jMutRepair  -location  .  -id  codehaus-plexus_plexus-utils-VUL4J-42  -failing  org.codehaus.plexus.util.cli.CommandlineTest#testGetShellCommandLineBash:org.codehaus.plexus.util.cli.CommandlineTest#testGetShellCommandLineBash_WithWorkingDirectory:org.codehaus.plexus.util.cli.CommandlineTest#testGetShellCommandLineNonWindows:org.codehaus.plexus.util.cli.CommandlineTest#testGetShellCommandLineBash_WithSingleQuotedArg:org.codehaus.plexus.util.cli.CommandlineTest#testPathWithShellExpansionStrings:org.codehaus.plexus.util.cli.shell.BourneShellTest#testQuoteWorkingDirectoryAndExecutable:org.codehaus.plexus.util.cli.shell.BourneShellTest#testQuoteWorkingDirectoryAndExecutable_WDPathWithSingleQuotes:org.codehaus.plexus.util.cli.shell.BourneShellTest#testQuoteWorkingDirectoryAndExecutable_WDPathWithSingleQuotes_BackslashFileSep:org.codehaus.plexus.util.cli.shell.BourneShellTest#testPreserveSingleQuotesOnArgument:org.codehaus.plexus.util.cli.shell.BourneShellTest#testEscapeSingleQuotesOnArgument:org.codehaus.plexus.util.cli.shell.BourneShellTest#testArgumentsWithsemicolon:org.codehaus.plexus.util.cli.shell.BourneShellTest#testBourneShellQuotingCharacters  -jvm4testexecution  /usr/lib/jvm/jdk1.7.0_80/bin  -jvm4evosuitetestexecution  /usr/lib/jvm/jdk1.7.0_80/bin  -maxgen  1000000  -maxtime  120  -stopfirst  true  -seed  0  -scope  local  -population  1  -javacompliancelevel  7  -faultlocalization  perfect  -perfectdata  /script/../data/benchmarks/vul4j/perfectfl/VUL4J-42  -validation  externalcmd  -testfailingcmd  mvn test -Dtest=org.codehaus.plexus.util.cli.CommandlineTest org.codehaus.plexus.util.cli.shell.BourneShellTest -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B  -testallcmd  mvn test -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B     -srcjavafolder  src/main/java  -srctestfolder  src/test/java  -binjavafolder  target/classes  -bintestfolder  target/test-classes  -parameters  x:x  -dependencies  /root/.m2/repository/junit/junit/3.8.2/junit-3.8.2.jar]
+[5] INFO AstorMain - Running Astor on a JDK at /usr/lib/jvm/java-8-openjdk-amd64/jre
+[23] INFO main - Source folders: [/workdir/jMutRepair_vul4j_codehaus-plexus_plexus-utils_VUL4J-42/./src/main/java]
+[24] INFO main - Source Test folders: [/workdir/jMutRepair_vul4j_codehaus-plexus_plexus-utils_VUL4J-42/./src/test/java]
+[1290] INFO AstorCoreEngine - ---- Creating spoon model
+[1343] INFO MutationSupporter - Creating model,  Code location from working folder: /workdir/jMutRepair_vul4j_codehaus-plexus_plexus-utils_VUL4J-42/./src/main/java
+[1343] INFO MutationSupporter - building model: /workdir/jMutRepair_vul4j_codehaus-plexus_plexus-utils_VUL4J-42/./src/main/java, compliance level: 7
+[1401] INFO MutationSupporter - Classpath (Dependencies) for building SpoonModel: [/root/.m2/repository/junit/junit/3.8.2/junit-3.8.2.jar]
+[13469] INFO AstorCoreEngine - Number of CtTypes created: 83
+[13911] INFO AstorCoreEngine - Test retrieved from classes: 0
+[14099] INFO AstorCoreEngine - Setting up the max to 1880 milliseconds (1 sec)
+[14099] INFO AstorCoreEngine - ---- Initial suspicious size: 17
+[15439] INFO main - Total suspicious from FL: 17,  4
+[15439] INFO main - Total ModPoint created: 4
+[15439] INFO main - Creating program variant #1, [Variant id: 1, #gens: 4, #ops: 0, parent:-]
+[15440] INFO main - Run previously failing tests...
+[32120] INFO main - Failed tests: 12
+[32131] INFO AstorCoreEngine - The original fitness is : 12.0
+[32131] WARN ConfigurationProperties - ----------------------------
+[32131] INFO ConfigurationProperties - ---Configuration properties
+[32132] INFO ConfigurationProperties - p:lastJUnitVersion= ./examples/libs/junit-4.11.jar
+[32136] INFO ConfigurationProperties - p:alternativecompliancelevel= 8
+[32136] INFO ConfigurationProperties - p:ignoredTestCases= 
+[32136] INFO ConfigurationProperties - p:workingDirectory= /workdir/jMutRepair_vul4j_codehaus-plexus_plexus-utils_VUL4J-42/./output_astor
+[32136] INFO ConfigurationProperties - p:manipulatesuper= false
+[32136] INFO ConfigurationProperties - p:validation= externalcmd
+[32136] INFO ConfigurationProperties - p:jvm4testexecution= /usr/lib/jvm/jdk1.7.0_80/bin
+[32136] INFO ConfigurationProperties - p:operatorspace= mutationspace
+[32136] INFO ConfigurationProperties - p:diffcontext= 0
+[32136] INFO ConfigurationProperties - p:binjavafolder= target/classes
+[32136] INFO ConfigurationProperties - p:synthesis_depth= 3
+[32136] INFO ConfigurationProperties - p:gzoltartestpackagetoexclude= junit.framework
+[32136] INFO ConfigurationProperties - p:skipfitnessinitialpopulation= false
+[32136] INFO ConfigurationProperties - p:evosuiteresultfolder= evosuite
+[32136] INFO ConfigurationProperties - p:flthreshold= 0.1
+[32136] INFO ConfigurationProperties - p:regressionforfaultlocalization= true
+[32136] INFO ConfigurationProperties - p:collectonlyusedmethod= false
+[32137] INFO ConfigurationProperties - p:preservelinenumbers= true
+[32137] INFO ConfigurationProperties - p:tmax2= 1880
+[32137] INFO ConfigurationProperties - p:tmax1= 10000
+[32137] INFO ConfigurationProperties - p:probagenmutation= false
+[32137] INFO ConfigurationProperties - p:nomodificationconvergence= 100
+[32137] INFO ConfigurationProperties - p:diff_type= relative
+[32137] INFO ConfigurationProperties - p:targetelementprocessor= if-conditions:return-op-mutation
+[32137] INFO ConfigurationProperties - p:srctestfolder= src/test/java
+[32137] INFO ConfigurationProperties - p:forceExecuteRegression= false
+[32137] INFO ConfigurationProperties - p:clusteringfilename= clustering.csv
+[32137] INFO ConfigurationProperties - p:failing= org.codehaus.plexus.util.cli.CommandlineTest#testGetShellCommandLineBash:org.codehaus.plexus.util.cli.CommandlineTest#testGetShellCommandLineBash_WithWorkingDirectory:org.codehaus.plexus.util.cli.CommandlineTest#testGetShellCommandLineNonWindows:org.codehaus.plexus.util.cli.CommandlineTest#testGetShellCommandLineBash_WithSingleQuotedArg:org.codehaus.plexus.util.cli.CommandlineTest#testPathWithShellExpansionStrings:org.codehaus.plexus.util.cli.shell.BourneShellTest#testQuoteWorkingDirectoryAndExecutable:org.codehaus.plexus.util.cli.shell.BourneShellTest#testQuoteWorkingDirectoryAndExecutable_WDPathWithSingleQuotes:org.codehaus.plexus.util.cli.shell.BourneShellTest#testQuoteWorkingDirectoryAndExecutable_WDPathWithSingleQuotes_BackslashFileSep:org.codehaus.plexus.util.cli.shell.BourneShellTest#testPreserveSingleQuotesOnArgument:org.codehaus.plexus.util.cli.shell.BourneShellTest#testEscapeSingleQuotesOnArgument:org.codehaus.plexus.util.cli.shell.BourneShellTest#testArgumentsWithsemicolon:org.codehaus.plexus.util.cli.shell.BourneShellTest#testBourneShellQuotingCharacters
+[32137] INFO ConfigurationProperties - p:logtestexecution= false
+[32138] INFO ConfigurationProperties - p:evo_buggy_class= true
+[32138] INFO ConfigurationProperties - p:numberExecutions= 1
+[32138] INFO ConfigurationProperties - p:maxnumbersolutions= 1000000
+[32138] INFO ConfigurationProperties - p:evo_affected_by_op= true
+[32138] INFO ConfigurationProperties - p:population= 1
+[32138] INFO ConfigurationProperties - p:considerzerovaluesusp= false
+[32138] INFO ConfigurationProperties - p:maxCombinationVariableLimit= false
+[32138] INFO ConfigurationProperties - p:savesolution= true
+[32138] INFO ConfigurationProperties - p:javacompliancelevel= 7
+[32138] INFO ConfigurationProperties - p:x= x
+[32138] INFO ConfigurationProperties - p:uniqueoptogen= false
+[32138] INFO ConfigurationProperties - p:gzoltarpackagetonotinstrument= junit.framework
+[32138] INFO ConfigurationProperties - p:projectIdentifier= codehaus-plexus_plexus-utils-VUL4J-42
+[32139] INFO ConfigurationProperties - p:modificationpointnavigation= weight
+[32139] INFO ConfigurationProperties - p:stopfirst= true
+[32139] INFO ConfigurationProperties - p:multipointmodification= false
+[32139] INFO ConfigurationProperties - p:elementsToMutate= 10
+[32139] INFO ConfigurationProperties - p:jsonoutputname= astor_output
+[32139] INFO ConfigurationProperties - p:evoDSE= false
+[32139] INFO ConfigurationProperties - p:bintestfolder= target/test-classes
+[32139] INFO ConfigurationProperties - p:testbystep= false
+[32139] INFO ConfigurationProperties - p:version-location= ./math-version/
+[32139] INFO ConfigurationProperties - p:reintroduce= PARENTS:ORIGINAL
+[32139] INFO ConfigurationProperties - p:perfectdata= /script/../data/benchmarks/vul4j/perfectfl/VUL4J-42
+[32139] INFO ConfigurationProperties - p:executorjar= ./lib/jtestex7.jar
+[32139] INFO ConfigurationProperties - p:maxGeneration= 1000000
+[32139] INFO ConfigurationProperties - p:max_synthesis_step= 10000
+[32139] INFO ConfigurationProperties - p:projectinfocommand= com.github.tdurieux:project-config-maven-plugin:info
+[32139] INFO ConfigurationProperties - p:maxVarCombination= 1000
+[32139] INFO ConfigurationProperties - p:maxtime= 120
+[32139] INFO ConfigurationProperties - p:evosuitejar= ./lib/evosuite-master-1.0.4-SNAPSHOT.jar
+[32139] INFO ConfigurationProperties - p:jvmversion= 1.7.0_80
+[32139] INFO ConfigurationProperties - p:commandTrunk= 50000
+[32139] INFO ConfigurationProperties - p:faultlocalization= perfect
+[32140] INFO ConfigurationProperties - p:resetmodel= true
+[32140] INFO ConfigurationProperties - p:maxsuspcandidates= 1000
+[32140] INFO ConfigurationProperties - p:mode= jMutRepair
+[32140] INFO ConfigurationProperties - p:learningdir= 
+[32140] INFO ConfigurationProperties - p:jvm4evosuitetestexecution= /usr/lib/jvm/jdk1.7.0_80/bin
+[32140] INFO ConfigurationProperties - p:filterfaultlocalization= true
+[32140] INFO ConfigurationProperties - p:mutationrate= 1 
+[32140] INFO ConfigurationProperties - p:pathToMVNRepository= 
+[32140] INFO ConfigurationProperties - p:resourcesfolder= /src/main/resources:/src/test/resources:
+[32140] INFO ConfigurationProperties - p:timezone= America/Los_Angeles
+[32140] INFO ConfigurationProperties - p:runjava7code= false
+[32140] INFO ConfigurationProperties - p:testfailingcmd= mvn test -Dtest=org.codehaus.plexus.util.cli.CommandlineTest,org.codehaus.plexus.util.cli.shell.BourneShellTest -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B
+[32140] INFO ConfigurationProperties - p:evoRunOnBuggyClass= true
+[32140] INFO ConfigurationProperties - p:compiler= fr.inria.astor.core.manipulation.bytecode.compiler.SpoonClassCompiler
+[32140] INFO ConfigurationProperties - p:limitbysuspicious= true
+[32140] INFO ConfigurationProperties - p:logsattemps= true
+[32140] INFO ConfigurationProperties - p:dependenciespath= /root/.m2/repository/junit/junit/3.8.2/junit-3.8.2.jar
+[32140] INFO ConfigurationProperties - p:packageToInstrument= 
+[32141] INFO ConfigurationProperties - p:skipfaultlocalization= false
+[32141] INFO ConfigurationProperties - p:scope= local
+[32141] INFO ConfigurationProperties - p:transformingredient= false
+[32155] INFO ConfigurationProperties - p:fitnessfunction= fr.inria.astor.core.solutionsearch.population.TestCaseFitnessFunction
+[32156] INFO ConfigurationProperties - p:maxnumvariablesperingredient= 10
+[32156] INFO ConfigurationProperties - p:parsesourcefromoriginal= true
+[32156] INFO ConfigurationProperties - p:pvariantfoldername= variant-
+[32156] INFO ConfigurationProperties - p:savespoonmodelondisk= false
+[32156] INFO ConfigurationProperties - p:srcjavafolder= src/main/java
+[32156] INFO ConfigurationProperties - p:populationcontroller= fr.inria.astor.core.solutionsearch.population.TestCaseBasedFitnessPopulationController
+[32156] INFO ConfigurationProperties - p:ignoreflakyinfl= false
+[32157] INFO ConfigurationProperties - p:cleantemplates= true
+[32157] INFO ConfigurationProperties - p:applyCrossover= false
+[32157] INFO ConfigurationProperties - p:maxmodificationpoints= 1000
+[32157] INFO ConfigurationProperties - p:duplicateingredientsinspace= false
+[32157] INFO ConfigurationProperties - p:metid= 0
+[32157] INFO ConfigurationProperties - p:continuewhenmodelfail= true
+[32158] INFO ConfigurationProperties - p:saveall= false
+[32158] INFO ConfigurationProperties - p:seed= 0
+[32158] INFO ConfigurationProperties - p:savecompletepatched= true
+[32158] INFO ConfigurationProperties - p:resetoperations= false
+[32158] INFO ConfigurationProperties - p:keepcomments= false
+[32158] INFO ConfigurationProperties - p:processoutputinfile= false
+[32158] INFO ConfigurationProperties - p:location= .
+[32158] INFO ConfigurationProperties - p:probabilistictransformation= true
+[32158] INFO ConfigurationProperties - p:overridemaxtime= true
+[32158] INFO ConfigurationProperties - p:outputjsonresult= true
+[32158] INFO ConfigurationProperties - p:allpoints= false
+[32158] INFO ConfigurationProperties - p:antipattern= false
+[32158] INFO ConfigurationProperties - p:bugId= 280
+[32158] INFO ConfigurationProperties - p:evosuitetimeout= 120
+[32158] INFO ConfigurationProperties - p:maxtimefactor= 10
+[32158] INFO ConfigurationProperties - p:nrPlaceholders= 1
+[32158] INFO ConfigurationProperties - p:testallcmd= mvn test -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B
+[32158] INFO ConfigurationProperties - p:forcesubprocesskilling= false
+[32158] INFO ConfigurationProperties - ----------------------------
+[32221] INFO AstorCoreEngine - mod_point MP=org.codehaus.plexus.util.cli.Commandline line: 672, pointed element: CtIfImpl
+[32225] INFO AstorCoreEngine - -->op: OP_INSTANCE:
+IfExpresionMutOp:(spoon.support.reflect.code.CtBinaryOperatorImpl) `shell.getExecutable() == null ` -topatch--> `shell.getExecutable() != null` (spoon.support.reflect.code.CtBinaryOperatorImpl) 
+[36259] INFO main - Run previously failing tests...
+[58158] INFO main - Failed tests: 12
+[58185] INFO AstorCoreEngine - mod_point MP=org.codehaus.plexus.util.cli.Commandline line: 672, pointed element: CtIfImpl
+[58210] INFO AstorCoreEngine - -->op: OP_INSTANCE:
+IfExpresionMutOp:(spoon.support.reflect.code.CtBinaryOperatorImpl) `shell.getExecutable() == null ` -topatch--> `shell.getExecutable() >= null` (spoon.support.reflect.code.CtBinaryOperatorImpl) 
+[59944] INFO AstorCoreEngine - mod_point MP=org.codehaus.plexus.util.cli.Commandline line: 672, pointed element: CtIfImpl
+[59945] INFO AstorCoreEngine - -->op: OP_INSTANCE:
+IfExpresionMutOp:(spoon.support.reflect.code.CtBinaryOperatorImpl) `shell.getExecutable() == null ` -topatch--> `shell.getExecutable() > null` (spoon.support.reflect.code.CtBinaryOperatorImpl) 
+[61206] INFO AstorCoreEngine - mod_point MP=org.codehaus.plexus.util.cli.Commandline line: 672, pointed element: CtIfImpl
+[61209] INFO AstorCoreEngine - -->op: OP_INSTANCE:
+IfExpresionMutOp:(spoon.support.reflect.code.CtBinaryOperatorImpl) `shell.getExecutable() == null ` -topatch--> `shell.getExecutable() <= null` (spoon.support.reflect.code.CtBinaryOperatorImpl) 
+[61984] INFO AstorCoreEngine - mod_point MP=org.codehaus.plexus.util.cli.Commandline line: 672, pointed element: CtIfImpl
+[61986] INFO AstorCoreEngine - -->op: OP_INSTANCE:
+IfExpresionMutOp:(spoon.support.reflect.code.CtBinaryOperatorImpl) `shell.getExecutable() == null ` -topatch--> `shell.getExecutable() < null` (spoon.support.reflect.code.CtBinaryOperatorImpl) 
+[62657] INFO AstorCoreEngine - mod_point MP=org.codehaus.plexus.util.cli.Commandline line: 672, pointed element: CtIfImpl
+[62671] INFO AstorCoreEngine - -->op: OP_INSTANCE:
+IfExpresionMutOp:(spoon.support.reflect.code.CtBinaryOperatorImpl) `shell.getExecutable() == null ` -topatch--> `!                                                                                                   [...]` (spoon.support.reflect.code.CtUnaryOperatorImpl) 
+[63708] INFO main - Run previously failing tests...
+[87907] INFO main - Failed tests: 12
+[87934] INFO AstorCoreEngine - mod_point MP=org.codehaus.plexus.util.cli.shell.BourneShell line: 164, pointed element: CtIfImpl
+[87936] INFO AstorCoreEngine - -->op: OP_INSTANCE:
+IfExpresionMutOp:(spoon.support.reflect.code.CtBinaryOperatorImpl) `((path.indexOf(" ") == (-1)) && (path.indexOf("'") != (-1))) && (path.indexOf("\"") == (-1)) ` -topatch--> `((                                                                                                  [...]` (spoon.support.reflect.code.CtBinaryOperatorImpl) 
+[89280] INFO main - Run previously failing tests...
+[108160] INFO main - Failed tests: 14
+[108174] INFO AstorCoreEngine - mod_point MP=org.codehaus.plexus.util.cli.shell.BourneShell line: 164, pointed element: CtIfImpl
+[108197] INFO AstorCoreEngine - -->op: OP_INSTANCE:
+IfExpresionMutOp:(spoon.support.reflect.code.CtBinaryOperatorImpl) `((path.indexOf(" ") == (-1)) && (path.indexOf("'") != (-1))) && (path.indexOf("\"") == (-1)) ` -topatch--> `((                                                                                                  [...]` (spoon.support.reflect.code.CtBinaryOperatorImpl) 
+[109316] INFO main - Run previously failing tests...
+[130193] INFO main - Failed tests: 13
+[130213] INFO AstorCoreEngine - mod_point MP=org.codehaus.plexus.util.cli.shell.BourneShell line: 164, pointed element: CtIfImpl
+[130215] INFO AstorCoreEngine - -->op: OP_INSTANCE:
+IfExpresionMutOp:(spoon.support.reflect.code.CtBinaryOperatorImpl) `((path.indexOf(" ") == (-1)) && (path.indexOf("'") != (-1))) && (path.indexOf("\"") == (-1)) ` -topatch--> `((                                                                                                  [...]` (spoon.support.reflect.code.CtBinaryOperatorImpl) 
+[131283] INFO main - Run previously failing tests...
+[151274] INFO main - Failed tests: 14
+[151281] INFO AstorCoreEngine - mod_point MP=org.codehaus.plexus.util.cli.shell.BourneShell line: 164, pointed element: CtIfImpl
+[151311] INFO AstorCoreEngine - -->op: OP_INSTANCE:
+IfExpresionMutOp:(spoon.support.reflect.code.CtBinaryOperatorImpl) `((path.indexOf(" ") == (-1)) && (path.indexOf("'") != (-1))) && (path.indexOf("\"") == (-1)) ` -topatch--> `((                                                                                                  [...]` (spoon.support.reflect.code.CtBinaryOperatorImpl) 
+[152726] INFO main - Run previously failing tests...
+[175965] INFO main - Failed tests: 12
+[175997] INFO AstorCoreEngine - mod_point MP=org.codehaus.plexus.util.cli.shell.BourneShell line: 164, pointed element: CtIfImpl
+[176012] INFO AstorCoreEngine - -->op: OP_INSTANCE:
+IfExpresionMutOp:(spoon.support.reflect.code.CtBinaryOperatorImpl) `((path.indexOf(" ") == (-1)) && (path.indexOf("'") != (-1))) && (path.indexOf("\"") == (-1)) ` -topatch--> `((                                                                                                  [...]` (spoon.support.reflect.code.CtBinaryOperatorImpl) 
+[177509] INFO main - Run previously failing tests...
+[199137] INFO main - Failed tests: 14
+[199142] INFO AstorCoreEngine - mod_point MP=org.codehaus.plexus.util.cli.shell.BourneShell line: 164, pointed element: CtIfImpl
+[199146] INFO AstorCoreEngine - -->op: OP_INSTANCE:
+IfExpresionMutOp:(spoon.support.reflect.code.CtBinaryOperatorImpl) `((path.indexOf(" ") == (-1)) && (path.indexOf("'") != (-1))) && (path.indexOf("\"") == (-1)) ` -topatch--> `((!                                                                                                 [...]` (spoon.support.reflect.code.CtBinaryOperatorImpl) 
+[199926] INFO main - Run previously failing tests...
+[220475] INFO main - Failed tests: 14
+[220481] INFO AstorCoreEngine - mod_point MP=org.codehaus.plexus.util.cli.shell.BourneShell line: 164, pointed element: CtIfImpl
+[220493] INFO AstorCoreEngine - -->op: OP_INSTANCE:
+IfExpresionMutOp:(spoon.support.reflect.code.CtBinaryOperatorImpl) `((path.indexOf(" ") == (-1)) && (path.indexOf("'") != (-1))) && (path.indexOf("\"") == (-1)) ` -topatch--> `(                                                                                                   [...]` (spoon.support.reflect.code.CtBinaryOperatorImpl) 
+[221538] INFO main - Run previously failing tests...
+[242492] INFO main - Failed tests: 14
+[242494] INFO AstorCoreEngine - mod_point MP=org.codehaus.plexus.util.cli.shell.BourneShell line: 164, pointed element: CtIfImpl
+[242496] INFO AstorCoreEngine - -->op: OP_INSTANCE:
+IfExpresionMutOp:(spoon.support.reflect.code.CtBinaryOperatorImpl) `((path.indexOf(" ") == (-1)) && (path.indexOf("'") != (-1))) && (path.indexOf("\"") == (-1)) ` -topatch--> `(                                                                                                   [...]` (spoon.support.reflect.code.CtBinaryOperatorImpl) 
+[243512] INFO main - Run previously failing tests...
+[260861] INFO main - Failed tests: 12
+[260872] INFO AstorCoreEngine - mod_point MP=org.codehaus.plexus.util.cli.shell.BourneShell line: 164, pointed element: CtIfImpl
+[260877] INFO AstorCoreEngine - -->op: OP_INSTANCE:
+IfExpresionMutOp:(spoon.support.reflect.code.CtBinaryOperatorImpl) `((path.indexOf(" ") == (-1)) && (path.indexOf("'") != (-1))) && (path.indexOf("\"") == (-1)) ` -topatch--> `(                                                                                                   [...]` (spoon.support.reflect.code.CtBinaryOperatorImpl) 
+[261795] INFO main - Run previously failing tests...
+[282637] INFO main - Failed tests: 12
+[282642] INFO AstorCoreEngine - mod_point MP=org.codehaus.plexus.util.cli.shell.BourneShell line: 164, pointed element: CtIfImpl
+[282647] INFO AstorCoreEngine - -->op: OP_INSTANCE:
+IfExpresionMutOp:(spoon.support.reflect.code.CtBinaryOperatorImpl) `((path.indexOf(" ") == (-1)) && (path.indexOf("'") != (-1))) && (path.indexOf("\"") == (-1)) ` -topatch--> `(                                                                                                   [...]` (spoon.support.reflect.code.CtBinaryOperatorImpl) 
+[283804] INFO main - Run previously failing tests...
+[304822] INFO main - Failed tests: 14
+[304835] INFO AstorCoreEngine - mod_point MP=org.codehaus.plexus.util.cli.shell.BourneShell line: 164, pointed element: CtIfImpl
+[304859] INFO AstorCoreEngine - -->op: OP_INSTANCE:
+IfExpresionMutOp:(spoon.support.reflect.code.CtBinaryOperatorImpl) `((path.indexOf(" ") == (-1)) && (path.indexOf("'") != (-1))) && (path.indexOf("\"") == (-1)) ` -topatch--> `(                                                                                                   [...]` (spoon.support.reflect.code.CtBinaryOperatorImpl) 
+[305614] INFO main - Run previously failing tests...
+[324424] INFO main - Failed tests: 14
+[324442] INFO AstorCoreEngine - mod_point MP=org.codehaus.plexus.util.cli.shell.BourneShell line: 164, pointed element: CtIfImpl
+[324444] INFO AstorCoreEngine - -->op: OP_INSTANCE:
+IfExpresionMutOp:(spoon.support.reflect.code.CtBinaryOperatorImpl) `((path.indexOf(" ") == (-1)) && (path.indexOf("'") != (-1))) && (path.indexOf("\"") == (-1)) ` -topatch--> `(                                                                                                   [...]` (spoon.support.reflect.code.CtBinaryOperatorImpl) 
+[325130] INFO main - Run previously failing tests...
+[347838] INFO main - Failed tests: 14
+[347849] INFO AstorCoreEngine - mod_point MP=org.codehaus.plexus.util.cli.shell.BourneShell line: 164, pointed element: CtIfImpl
+[347882] INFO AstorCoreEngine - -->op: OP_INSTANCE:
+IfExpresionMutOp:(spoon.support.reflect.code.CtBinaryOperatorImpl) `((path.indexOf(" ") == (-1)) && (path.indexOf("'") != (-1))) && (path.indexOf("\"") == (-1)) ` -topatch--> `(                                                                                                   [...]` (spoon.support.reflect.code.CtBinaryOperatorImpl) 
+[348830] INFO main - Run previously failing tests...
+[369340] INFO main - Failed tests: 13
+[369350] INFO AstorCoreEngine - mod_point MP=org.codehaus.plexus.util.cli.shell.BourneShell line: 164, pointed element: CtIfImpl
+[369352] INFO AstorCoreEngine - -->op: OP_INSTANCE:
+IfExpresionMutOp:(spoon.support.reflect.code.CtBinaryOperatorImpl) `((path.indexOf(" ") == (-1)) && (path.indexOf("'") != (-1))) && (path.indexOf("\"") == (-1)) ` -topatch--> `(!                                                                                                  [...]` (spoon.support.reflect.code.CtBinaryOperatorImpl) 
+[370152] INFO main - Run previously failing tests...
+[390590] INFO main - Failed tests: 14
+[390594] INFO AstorCoreEngine - mod_point MP=org.codehaus.plexus.util.cli.shell.BourneShell line: 164, pointed element: CtIfImpl
+[390599] INFO AstorCoreEngine - -->op: OP_INSTANCE:
+IfExpresionMutOp:(spoon.support.reflect.code.CtBinaryOperatorImpl) `((path.indexOf(" ") == (-1)) && (path.indexOf("'") != (-1))) && (path.indexOf("\"") == (-1)) ` -topatch--> `((path.indexOf(" ") == (-1)) && (path.indexOf("'") != (-1))) && (path.indexOf("\"") != (-1))` (spoon.support.reflect.code.CtBinaryOperatorImpl) 
+[391504] INFO main - Run previously failing tests...
+[415604] INFO main - Failed tests: 14
+[415606] INFO AstorCoreEngine - mod_point MP=org.codehaus.plexus.util.cli.shell.BourneShell line: 164, pointed element: CtIfImpl
+[415611] INFO AstorCoreEngine - -->op: OP_INSTANCE:
+IfExpresionMutOp:(spoon.support.reflect.code.CtBinaryOperatorImpl) `((path.indexOf(" ") == (-1)) && (path.indexOf("'") != (-1))) && (path.indexOf("\"") == (-1)) ` -topatch--> `((path.indexOf(" ") == (-1)) && (path.indexOf("'") != (-1))) && (path.indexOf("\"") >= (-1))` (spoon.support.reflect.code.CtBinaryOperatorImpl) 
+[416847] INFO main - Run previously failing tests...
+[439507] INFO main - Failed tests: 12
+[439518] INFO AstorCoreEngine - mod_point MP=org.codehaus.plexus.util.cli.shell.BourneShell line: 164, pointed element: CtIfImpl
+[439533] INFO AstorCoreEngine - -->op: OP_INSTANCE:
+IfExpresionMutOp:(spoon.support.reflect.code.CtBinaryOperatorImpl) `((path.indexOf(" ") == (-1)) && (path.indexOf("'") != (-1))) && (path.indexOf("\"") == (-1)) ` -topatch--> `((path.indexOf(" ") == (-1)) && (path.indexOf("'") != (-1))) && (path.indexOf("\"") > (-1))` (spoon.support.reflect.code.CtBinaryOperatorImpl) 
+[440794] INFO main - Run previously failing tests...
+[466568] INFO main - Failed tests: 14
+[466577] INFO AstorCoreEngine - mod_point MP=org.codehaus.plexus.util.cli.shell.BourneShell line: 164, pointed element: CtIfImpl
+[466582] INFO AstorCoreEngine - -->op: OP_INSTANCE:
+IfExpresionMutOp:(spoon.support.reflect.code.CtBinaryOperatorImpl) `((path.indexOf(" ") == (-1)) && (path.indexOf("'") != (-1))) && (path.indexOf("\"") == (-1)) ` -topatch--> `((path.indexOf(" ") == (-1)) && (path.indexOf("'") != (-1))) && (path.indexOf("\"") <= (-1))` (spoon.support.reflect.code.CtBinaryOperatorImpl) 
+[467836] INFO main - Run previously failing tests...
+[489198] INFO main - Failed tests: 12
+[489223] INFO AstorCoreEngine - mod_point MP=org.codehaus.plexus.util.cli.shell.BourneShell line: 164, pointed element: CtIfImpl
+[489226] INFO AstorCoreEngine - -->op: OP_INSTANCE:
+IfExpresionMutOp:(spoon.support.reflect.code.CtBinaryOperatorImpl) `((path.indexOf(" ") == (-1)) && (path.indexOf("'") != (-1))) && (path.indexOf("\"") == (-1)) ` -topatch--> `((path.indexOf(" ") == (-1)) && (path.indexOf("'") != (-1))) && (path.indexOf("\"") < (-1))` (spoon.support.reflect.code.CtBinaryOperatorImpl) 
+[490463] INFO main - Run previously failing tests...
+[512906] INFO main - Failed tests: 14
+[512915] INFO AstorCoreEngine - mod_point MP=org.codehaus.plexus.util.cli.shell.BourneShell line: 164, pointed element: CtIfImpl
+[512920] INFO AstorCoreEngine - -->op: OP_INSTANCE:
+IfExpresionMutOp:(spoon.support.reflect.code.CtBinaryOperatorImpl) `((path.indexOf(" ") == (-1)) && (path.indexOf("'") != (-1))) && (path.indexOf("\"") == (-1)) ` -topatch--> `((path.indexOf(" ") == (-1)) && (path.indexOf("'") != (-1))) && (!(path.indexOf("\"") == (-1)))` (spoon.support.reflect.code.CtBinaryOperatorImpl) 
+[513422] INFO main - Run previously failing tests...
+[541307] INFO main - Failed tests: 14
+[541312] INFO AstorCoreEngine - mod_point MP=org.codehaus.plexus.util.cli.shell.BourneShell line: 164, pointed element: CtIfImpl
+[541319] INFO AstorCoreEngine - -->op: OP_INSTANCE:
+IfExpresionMutOp:(spoon.support.reflect.code.CtBinaryOperatorImpl) `((path.indexOf(" ") == (-1)) && (path.indexOf("'") != (-1))) && (path.indexOf("\"") == (-1)) ` -topatch--> `((path.indexOf(" ") == (-1)) && (path.indexOf("'") != (-1))) || (path.indexOf("\"") == (-1))` (spoon.support.reflect.code.CtBinaryOperatorImpl) 
+[542129] INFO main - Run previously failing tests...
+[566962] INFO main - Failed tests: 13
+[566966] INFO AstorCoreEngine - mod_point MP=org.codehaus.plexus.util.cli.shell.BourneShell line: 164, pointed element: CtIfImpl
+[566971] INFO AstorCoreEngine - -->op: OP_INSTANCE:
+IfExpresionMutOp:(spoon.support.reflect.code.CtBinaryOperatorImpl) `((path.indexOf(" ") == (-1)) && (path.indexOf("'") != (-1))) && (path.indexOf("\"") == (-1)) ` -topatch--> `!                                                                                                   [...]` (spoon.support.reflect.code.CtUnaryOperatorImpl) 
+[568051] INFO main - Run previously failing tests...
+[591007] INFO main - Failed tests: 16
+[591016] INFO AstorCoreEngine - Time Repair Loop (s): 558.857
+[591017] INFO AstorCoreEngine - generationsexecuted: 1
+[591017] WARN AstorCoreEngine - ----SUMMARY_EXECUTION---
+[591017] WARN AstorCoreEngine - End Repair Search: NOT Found solution
+[591017] WARN AstorCoreEngine - Number suspicious:1
+[591020] INFO AstorCoreEngine - 
+ --SOLUTIONS DESCRIPTION--
+
+
+Astor Output:
+
+General stats:
+EXECUTION_IDENTIFIER=codehaus-plexus_plexus-utils-VUL4J-42
+TOTAL_TIME=558.857
+NR_GENERATIONS=null
+NR_RIGHT_COMPILATIONS=24
+NR_FAILLING_COMPILATIONS=4
+NR_ERRONEOUS_VARIANCES=null
+NR_FAILING_VALIDATION_PROCESS=null
+OUTPUT_STATUS=EXHAUSTIVE_NAVIGATED
+
+Patch stats:
+
+[591087] INFO Stats - Storing ing JSON at /workdir/jMutRepair_vul4j_codehaus-plexus_plexus-utils_VUL4J-42/./output_astor/AstorMain-codehaus-plexus_plexus-utils-VUL4J-42//astor_output.json
+[591087] INFO Stats - astor_output:
+{"general":{"NR_RIGHT_COMPILATIONS":24,"NR_ERRONEOUS_VARIANCES":null,"EXECUTION_IDENTIFIER":"codehaus-plexus_plexus-utils-VUL4J-42","OUTPUT_STATUS":"EXHAUSTIVE_NAVIGATED","NR_FAILLING_COMPILATIONS":4,"NR_GENERATIONS":null,"TOTAL_TIME":558.857,"NR_FAILING_VALIDATION_PROCESS":null},"patches":[]}
+[591088] INFO AstorMain - Time Total(s): 591.07
+330.41user 69.95system 9:52.69elapsed 67%CPU (0avgtext+0avgdata 717216maxresident)k
+240inputs+20600outputs (3major+2616670minor)pagefaults 0swaps
+
+
+Node: 9670332cfea8
+
+
+
+Date: Fri Sep  9 06:41:22 EDT 2022
+

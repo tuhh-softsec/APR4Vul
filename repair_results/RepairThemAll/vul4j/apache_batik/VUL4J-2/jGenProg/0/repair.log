@@ -1,0 +1,470 @@
+cd /workdir/jGenProg_vul4j_apache_batik_VUL4J-2;
+export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en";
+TZ="America/New_York"; export TZ;
+export PATH="/usr/lib/jvm/java-8-openjdk-amd64/bin:$PATH";
+export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64/bin";
+time java -Xmx4g -Xms1g -XX:MaxPermSize=512m -cp /script/../libs/jtestex7.jar:/script/../repair_tools/astor.jar fr.inria.main.evolution.AstorMain \
+	-mode jgenprog \
+	-location . \
+	-id apache_batik-VUL4J-2 \
+	-failing "org.apache.batik.dom.util.TestCVE_2017_5662#testCVE_2017_5662" \
+	-jvm4testexecution /usr/lib/jvm/java-8-openjdk-amd64/bin \
+	-jvm4evosuitetestexecution /usr/lib/jvm/java-8-openjdk-amd64/bin \
+	-maxgen 1000000 \
+	-maxtime 120 \
+	-stopfirst true \
+	-seed 0 \
+	-scope local \
+	-population 1 \
+	-javacompliancelevel 8 \
+	-faultlocalization perfect \
+    -perfectdata /script/../data/benchmarks/vul4j/perfectfl/VUL4J-2 \
+    -validation externalcmd \
+    -testfailingcmd "mvn test -pl batik-dom -Dtest=org.apache.batik.dom.util.TestCVE_2017_5662 -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B" \
+    -testallcmd "mvn test -pl batik-dom -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B"  \ \
+	-srcjavafolder batik-dom/src/main/java \
+	-srctestfolder batik-dom/src/test/java \
+	-binjavafolder batik-dom/target/classes \
+	-bintestfolder batik-dom/target/test-classes \
+	-parameters x:x \
+	-dependencies /root/.m2/repository/xalan/xalan/2.7.2/xalan-2.7.2.jar:/root/.m2/repository/org/apache/xmlgraphics/batik-css/1.9.0-SNAPSHOT/batik-css-1.9.0-SNAPSHOT.jar:/root/.m2/repository/org/apache/xmlgraphics/batik-i18n/1.9.0-SNAPSHOT/batik-i18n-1.9.0-SNAPSHOT.jar:/root/.m2/repository/xalan/serializer/2.7.2/serializer-2.7.2.jar:/root/.m2/repository/xml-apis/xml-apis/1.3.04/xml-apis-1.3.04.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/apache/xmlgraphics/batik-constants/1.9.0-SNAPSHOT/batik-constants-1.9.0-SNAPSHOT.jar:/root/.m2/repository/org/apache/xmlgraphics/xmlgraphics-commons/2.2.0-SNAPSHOT/xmlgraphics-commons-2.2.0-SNAPSHOT.jar:/root/.m2/repository/commons-io/commons-io/1.3.2/commons-io-1.3.2.jar:/root/.m2/repository/org/apache/xmlgraphics/batik-xml/1.9.0-SNAPSHOT/batik-xml-1.9.0-SNAPSHOT.jar:/root/.m2/repository/xml-apis/xml-apis-ext/1.3.04/xml-apis-ext-1.3.04.jar:/root/.m2/repository/org/apache/xmlgraphics/batik-util/1.9.0-SNAPSHOT/batik-util-1.9.0-SNAPSHOT.jar:/root/.m2/repository/junit/junit/4.11/junit-4.11.jar:/root/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/root/.m2/repository/org/apache/xmlgraphics/batik-ext/1.9.0-SNAPSHOT/batik-ext-1.9.0-SNAPSHOT.jar;
+	echo "\n\nNode: `hostname`\n";
+	echo "\n\nDate: `date`\n";
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en
+OpenJDK 64-Bit Server VM warning: ignoring option MaxPermSize=512m; support was removed in 8.0
+[0] INFO ProjectConfiguration - Version of the JVM used: 1.8.0_342
+[0] INFO main - Java version of the JDK used to run tests: 1.8.0_342
+[0] INFO main - The compliance of the JVM is:  8
+[2] INFO main - command line arguments: [-mode  jgenprog  -location  .  -id  apache_batik-VUL4J-2  -failing  org.apache.batik.dom.util.TestCVE_2017_5662#testCVE_2017_5662  -jvm4testexecution  /usr/lib/jvm/java-8-openjdk-amd64/bin  -jvm4evosuitetestexecution  /usr/lib/jvm/java-8-openjdk-amd64/bin  -maxgen  1000000  -maxtime  120  -stopfirst  true  -seed  0  -scope  local  -population  1  -javacompliancelevel  8  -faultlocalization  perfect  -perfectdata  /script/../data/benchmarks/vul4j/perfectfl/VUL4J-2  -validation  externalcmd  -testfailingcmd  mvn test -pl batik-dom -Dtest=org.apache.batik.dom.util.TestCVE_2017_5662 -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B  -testallcmd  mvn test -pl batik-dom -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B     -srcjavafolder  batik-dom/src/main/java  -srctestfolder  batik-dom/src/test/java  -binjavafolder  batik-dom/target/classes  -bintestfolder  batik-dom/target/test-classes  -parameters  x:x  -dependencies  /root/.m2/repository/xalan/xalan/2.7.2/xalan-2.7.2.jar:/root/.m2/repository/org/apache/xmlgraphics/batik-css/1.9.0-SNAPSHOT/batik-css-1.9.0-SNAPSHOT.jar:/root/.m2/repository/org/apache/xmlgraphics/batik-i18n/1.9.0-SNAPSHOT/batik-i18n-1.9.0-SNAPSHOT.jar:/root/.m2/repository/xalan/serializer/2.7.2/serializer-2.7.2.jar:/root/.m2/repository/xml-apis/xml-apis/1.3.04/xml-apis-1.3.04.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/apache/xmlgraphics/batik-constants/1.9.0-SNAPSHOT/batik-constants-1.9.0-SNAPSHOT.jar:/root/.m2/repository/org/apache/xmlgraphics/xmlgraphics-commons/2.2.0-SNAPSHOT/xmlgraphics-commons-2.2.0-SNAPSHOT.jar:/root/.m2/repository/commons-io/commons-io/1.3.2/commons-io-1.3.2.jar:/root/.m2/repository/org/apache/xmlgraphics/batik-xml/1.9.0-SNAPSHOT/batik-xml-1.9.0-SNAPSHOT.jar:/root/.m2/repository/xml-apis/xml-apis-ext/1.3.04/xml-apis-ext-1.3.04.jar:/root/.m2/repository/org/apache/xmlgraphics/batik-util/1.9.0-SNAPSHOT/batik-util-1.9.0-SNAPSHOT.jar:/root/.m2/repository/junit/junit/4.11/junit-4.11.jar:/root/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/root/.m2/repository/org/apache/xmlgraphics/batik-ext/1.9.0-SNAPSHOT/batik-ext-1.9.0-SNAPSHOT.jar]
+[3] INFO AstorMain - Running Astor on a JDK at /usr/lib/jvm/java-8-openjdk-amd64/jre
+[7] INFO main - Source folders: [/workdir/jGenProg_vul4j_apache_batik_VUL4J-2/./batik-dom/src/main/java]
+[8] INFO main - Source Test folders: [/workdir/jGenProg_vul4j_apache_batik_VUL4J-2/./batik-dom/src/test/java]
+[395] INFO AstorCoreEngine - ---- Creating spoon model
+[411] INFO MutationSupporter - Creating model,  Code location from working folder: /workdir/jGenProg_vul4j_apache_batik_VUL4J-2/./batik-dom/src/main/java
+[411] INFO MutationSupporter - building model: /workdir/jGenProg_vul4j_apache_batik_VUL4J-2/./batik-dom/src/main/java, compliance level: 8
+[417] INFO MutationSupporter - Classpath (Dependencies) for building SpoonModel: [/root/.m2/repository/xalan/xalan/2.7.2/xalan-2.7.2.jar, /root/.m2/repository/org/apache/xmlgraphics/batik-css/1.9.0-SNAPSHOT/batik-css-1.9.0-SNAPSHOT.jar, /root/.m2/repository/org/apache/xmlgraphics/batik-i18n/1.9.0-SNAPSHOT/batik-i18n-1.9.0-SNAPSHOT.jar, /root/.m2/repository/xalan/serializer/2.7.2/serializer-2.7.2.jar, /root/.m2/repository/xml-apis/xml-apis/1.3.04/xml-apis-1.3.04.jar, /root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar, /root/.m2/repository/org/apache/xmlgraphics/batik-constants/1.9.0-SNAPSHOT/batik-constants-1.9.0-SNAPSHOT.jar, /root/.m2/repository/org/apache/xmlgraphics/xmlgraphics-commons/2.2.0-SNAPSHOT/xmlgraphics-commons-2.2.0-SNAPSHOT.jar, /root/.m2/repository/commons-io/commons-io/1.3.2/commons-io-1.3.2.jar, /root/.m2/repository/org/apache/xmlgraphics/batik-xml/1.9.0-SNAPSHOT/batik-xml-1.9.0-SNAPSHOT.jar, /root/.m2/repository/xml-apis/xml-apis-ext/1.3.04/xml-apis-ext-1.3.04.jar, /root/.m2/repository/org/apache/xmlgraphics/batik-util/1.9.0-SNAPSHOT/batik-util-1.9.0-SNAPSHOT.jar, /root/.m2/repository/junit/junit/4.11/junit-4.11.jar, /root/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar, /root/.m2/repository/org/apache/xmlgraphics/batik-ext/1.9.0-SNAPSHOT/batik-ext-1.9.0-SNAPSHOT.jar]
+[2953] INFO AstorCoreEngine - Number of CtTypes created: 77
+[3082] INFO AstorCoreEngine - Test retrieved from classes: 0
+[3105] INFO AstorCoreEngine - Setting up the max to 230 milliseconds (0 sec)
+[3105] INFO AstorCoreEngine - ---- Initial suspicious size: 4
+[3208] INFO main - Total suspicious from FL: 4,  4
+[3208] INFO main - Total ModPoint created: 4
+[3208] INFO main - Creating program variant #1, [Variant id: 1, #gens: 4, #ops: 0, parent:-]
+[3208] INFO main - Run previously failing tests...
+exit code: 1
+[7396] INFO main - Failed tests: 2
+[7396] INFO AstorCoreEngine - The original fitness is : 2.0
+[12685] WARN ConfigurationProperties - ----------------------------
+[12685] INFO ConfigurationProperties - ---Configuration properties
+[12685] INFO ConfigurationProperties - p:lastJUnitVersion= ./examples/libs/junit-4.11.jar
+[12686] INFO ConfigurationProperties - p:alternativecompliancelevel= 8
+[12686] INFO ConfigurationProperties - p:ignoredTestCases= 
+[12686] INFO ConfigurationProperties - p:workingDirectory= /workdir/jGenProg_vul4j_apache_batik_VUL4J-2/./output_astor
+[12686] INFO ConfigurationProperties - p:manipulatesuper= false
+[12686] INFO ConfigurationProperties - p:validation= externalcmd
+[12686] INFO ConfigurationProperties - p:jvm4testexecution= /usr/lib/jvm/java-8-openjdk-amd64/bin
+[12686] INFO ConfigurationProperties - p:operatorspace= irr-statements
+[12686] INFO ConfigurationProperties - p:diffcontext= 0
+[12686] INFO ConfigurationProperties - p:binjavafolder= batik-dom/target/classes
+[12686] INFO ConfigurationProperties - p:synthesis_depth= 3
+[12686] INFO ConfigurationProperties - p:gzoltartestpackagetoexclude= junit.framework
+[12686] INFO ConfigurationProperties - p:skipfitnessinitialpopulation= false
+[12686] INFO ConfigurationProperties - p:evosuiteresultfolder= evosuite
+[12686] INFO ConfigurationProperties - p:flthreshold= 0.1
+[12686] INFO ConfigurationProperties - p:regressionforfaultlocalization= true
+[12686] INFO ConfigurationProperties - p:collectonlyusedmethod= false
+[12686] INFO ConfigurationProperties - p:preservelinenumbers= true
+[12686] INFO ConfigurationProperties - p:tmax2= 230
+[12686] INFO ConfigurationProperties - p:tmax1= 10000
+[12687] INFO ConfigurationProperties - p:probagenmutation= false
+[12687] INFO ConfigurationProperties - p:nomodificationconvergence= 100
+[12687] INFO ConfigurationProperties - p:diff_type= relative
+[12687] INFO ConfigurationProperties - p:targetelementprocessor= statements
+[12687] INFO ConfigurationProperties - p:srctestfolder= batik-dom/src/test/java
+[12687] INFO ConfigurationProperties - p:forceExecuteRegression= false
+[12687] INFO ConfigurationProperties - p:clusteringfilename= clustering.csv
+[12687] INFO ConfigurationProperties - p:failing= org.apache.batik.dom.util.TestCVE_2017_5662#testCVE_2017_5662
+[12687] INFO ConfigurationProperties - p:logtestexecution= false
+[12687] INFO ConfigurationProperties - p:evo_buggy_class= true
+[12687] INFO ConfigurationProperties - p:numberExecutions= 1
+[12687] INFO ConfigurationProperties - p:maxnumbersolutions= 1000000
+[12687] INFO ConfigurationProperties - p:evo_affected_by_op= true
+[12687] INFO ConfigurationProperties - p:population= 1
+[12688] INFO ConfigurationProperties - p:considerzerovaluesusp= false
+[12688] INFO ConfigurationProperties - p:maxCombinationVariableLimit= false
+[12688] INFO ConfigurationProperties - p:savesolution= true
+[12688] INFO ConfigurationProperties - p:javacompliancelevel= 8
+[12688] INFO ConfigurationProperties - p:x= x
+[12688] INFO ConfigurationProperties - p:uniqueoptogen= false
+[12688] INFO ConfigurationProperties - p:gzoltarpackagetonotinstrument= junit.framework
+[12691] INFO ConfigurationProperties - p:projectIdentifier= apache_batik-VUL4J-2
+[12691] INFO ConfigurationProperties - p:modificationpointnavigation= weight
+[12691] INFO ConfigurationProperties - p:stopfirst= true
+[12691] INFO ConfigurationProperties - p:multipointmodification= false
+[12691] INFO ConfigurationProperties - p:elementsToMutate= 10
+[12691] INFO ConfigurationProperties - p:jsonoutputname= astor_output
+[12691] INFO ConfigurationProperties - p:evoDSE= false
+[12691] INFO ConfigurationProperties - p:bintestfolder= batik-dom/target/test-classes
+[12691] INFO ConfigurationProperties - p:testbystep= false
+[12691] INFO ConfigurationProperties - p:version-location= ./math-version/
+[12691] INFO ConfigurationProperties - p:reintroduce= PARENTS:ORIGINAL
+[12691] INFO ConfigurationProperties - p:perfectdata= /script/../data/benchmarks/vul4j/perfectfl/VUL4J-2
+[12691] INFO ConfigurationProperties - p:executorjar= ./lib/jtestex7.jar
+[12691] INFO ConfigurationProperties - p:maxGeneration= 1000000
+[12691] INFO ConfigurationProperties - p:max_synthesis_step= 10000
+[12691] INFO ConfigurationProperties - p:projectinfocommand= com.github.tdurieux:project-config-maven-plugin:info
+[12691] INFO ConfigurationProperties - p:maxVarCombination= 1000
+[12691] INFO ConfigurationProperties - p:maxtime= 120
+[12691] INFO ConfigurationProperties - p:evosuitejar= ./lib/evosuite-master-1.0.4-SNAPSHOT.jar
+[12691] INFO ConfigurationProperties - p:jvmversion= 1.8.0_342
+[12691] INFO ConfigurationProperties - p:commandTrunk= 50000
+[12691] INFO ConfigurationProperties - p:faultlocalization= perfect
+[12691] INFO ConfigurationProperties - p:resetmodel= true
+[12691] INFO ConfigurationProperties - p:maxsuspcandidates= 1000
+[12692] INFO ConfigurationProperties - p:mode= jgenprog
+[12692] INFO ConfigurationProperties - p:learningdir= 
+[12692] INFO ConfigurationProperties - p:jvm4evosuitetestexecution= /usr/lib/jvm/java-8-openjdk-amd64/bin
+[12692] INFO ConfigurationProperties - p:filterfaultlocalization= true
+[12692] INFO ConfigurationProperties - p:mutationrate= 1 
+[12692] INFO ConfigurationProperties - p:pathToMVNRepository= 
+[12692] INFO ConfigurationProperties - p:resourcesfolder= /src/main/resources:/src/test/resources:
+[12692] INFO ConfigurationProperties - p:timezone= America/Los_Angeles
+[12692] INFO ConfigurationProperties - p:runjava7code= false
+[12692] INFO ConfigurationProperties - p:testfailingcmd= mvn test -pl batik-dom -Dtest=org.apache.batik.dom.util.TestCVE_2017_5662 -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B
+[12692] INFO ConfigurationProperties - p:evoRunOnBuggyClass= true
+[12692] INFO ConfigurationProperties - p:compiler= fr.inria.astor.core.manipulation.bytecode.compiler.SpoonClassCompiler
+[12692] INFO ConfigurationProperties - p:limitbysuspicious= true
+[12692] INFO ConfigurationProperties - p:logsattemps= true
+[12692] INFO ConfigurationProperties - p:dependenciespath= /root/.m2/repository/xalan/xalan/2.7.2/xalan-2.7.2.jar:/root/.m2/repository/org/apache/xmlgraphics/batik-css/1.9.0-SNAPSHOT/batik-css-1.9.0-SNAPSHOT.jar:/root/.m2/repository/org/apache/xmlgraphics/batik-i18n/1.9.0-SNAPSHOT/batik-i18n-1.9.0-SNAPSHOT.jar:/root/.m2/repository/xalan/serializer/2.7.2/serializer-2.7.2.jar:/root/.m2/repository/xml-apis/xml-apis/1.3.04/xml-apis-1.3.04.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/apache/xmlgraphics/batik-constants/1.9.0-SNAPSHOT/batik-constants-1.9.0-SNAPSHOT.jar:/root/.m2/repository/org/apache/xmlgraphics/xmlgraphics-commons/2.2.0-SNAPSHOT/xmlgraphics-commons-2.2.0-SNAPSHOT.jar:/root/.m2/repository/commons-io/commons-io/1.3.2/commons-io-1.3.2.jar:/root/.m2/repository/org/apache/xmlgraphics/batik-xml/1.9.0-SNAPSHOT/batik-xml-1.9.0-SNAPSHOT.jar:/root/.m2/repository/xml-apis/xml-apis-ext/1.3.04/xml-apis-ext-1.3.04.jar:/root/.m2/repository/org/apache/xmlgraphics/batik-util/1.9.0-SNAPSHOT/batik-util-1.9.0-SNAPSHOT.jar:/root/.m2/repository/junit/junit/4.11/junit-4.11.jar:/root/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/root/.m2/repository/org/apache/xmlgraphics/batik-ext/1.9.0-SNAPSHOT/batik-ext-1.9.0-SNAPSHOT.jar
+[12692] INFO ConfigurationProperties - p:packageToInstrument= 
+[12692] INFO ConfigurationProperties - p:skipfaultlocalization= false
+[12692] INFO ConfigurationProperties - p:scope= local
+[12692] INFO ConfigurationProperties - p:transformingredient= false
+[12692] INFO ConfigurationProperties - p:fitnessfunction= fr.inria.astor.core.solutionsearch.population.TestCaseFitnessFunction
+[12692] INFO ConfigurationProperties - p:maxnumvariablesperingredient= 10
+[12692] INFO ConfigurationProperties - p:parsesourcefromoriginal= true
+[12692] INFO ConfigurationProperties - p:pvariantfoldername= variant-
+[12692] INFO ConfigurationProperties - p:savespoonmodelondisk= false
+[12692] INFO ConfigurationProperties - p:srcjavafolder= batik-dom/src/main/java
+[12692] INFO ConfigurationProperties - p:populationcontroller= fr.inria.astor.core.solutionsearch.population.TestCaseBasedFitnessPopulationController
+[12692] INFO ConfigurationProperties - p:ignoreflakyinfl= false
+[12692] INFO ConfigurationProperties - p:cleantemplates= true
+[12692] INFO ConfigurationProperties - p:applyCrossover= false
+[12692] INFO ConfigurationProperties - p:maxmodificationpoints= 1000
+[12692] INFO ConfigurationProperties - p:duplicateingredientsinspace= false
+[12692] INFO ConfigurationProperties - p:metid= 0
+[12692] INFO ConfigurationProperties - p:continuewhenmodelfail= true
+[12692] INFO ConfigurationProperties - p:saveall= false
+[12692] INFO ConfigurationProperties - p:seed= 0
+[12692] INFO ConfigurationProperties - p:savecompletepatched= true
+[12692] INFO ConfigurationProperties - p:resetoperations= false
+[12692] INFO ConfigurationProperties - p:keepcomments= false
+[12692] INFO ConfigurationProperties - p:processoutputinfile= false
+[12692] INFO ConfigurationProperties - p:location= .
+[12693] INFO ConfigurationProperties - p:probabilistictransformation= true
+[12693] INFO ConfigurationProperties - p:overridemaxtime= true
+[12693] INFO ConfigurationProperties - p:outputjsonresult= true
+[12693] INFO ConfigurationProperties - p:allpoints= false
+[12693] INFO ConfigurationProperties - p:antipattern= false
+[12693] INFO ConfigurationProperties - p:bugId= 280
+[12693] INFO ConfigurationProperties - p:evosuitetimeout= 120
+[12693] INFO ConfigurationProperties - p:maxtimefactor= 10
+[12693] INFO ConfigurationProperties - p:nrPlaceholders= 1
+[12693] INFO ConfigurationProperties - p:testallcmd= mvn test -pl batik-dom -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B
+[12693] INFO ConfigurationProperties - p:forcesubprocesskilling= false
+[12693] INFO ConfigurationProperties - ----------------------------
+[12693] INFO AstorCoreEngine - ----Starting Solution Search
+[12693] WARN AstorCoreEngine - ----------Running generation: 1, population size: 1
+[13296] WARN AstorCoreEngine - ----------Running generation: 2, population size: 1
+[13566] WARN AstorCoreEngine - ----------Running generation: 3, population size: 1
+[13796] WARN AstorCoreEngine - ----------Running generation: 4, population size: 1
+[14032] INFO main - Run previously failing tests...
+exit code: 1
+[19852] INFO main - Failed tests: 2
+[19854] WARN AstorCoreEngine - ----------Running generation: 5, population size: 1
+[19993] INFO main - Run previously failing tests...
+exit code: 1
+[26025] INFO main - Failed tests: 2
+[26027] WARN AstorCoreEngine - ----------Running generation: 6, population size: 1
+[26162] INFO main - Run previously failing tests...
+exit code: 1
+[32027] INFO main - Failed tests: 2
+[32028] WARN AstorCoreEngine - ----------Running generation: 7, population size: 1
+[32163] INFO main - Run previously failing tests...
+exit code: 1
+[37997] INFO main - Failed tests: 2
+[37998] WARN AstorCoreEngine - ----------Running generation: 8, population size: 1
+[38117] WARN AstorCoreEngine - ----------Running generation: 9, population size: 1
+[38197] WARN AstorCoreEngine - ----------Running generation: 10, population size: 1
+[38307] INFO main - Run previously failing tests...
+exit code: 1
+[44872] INFO main - Failed tests: 2
+[44873] WARN AstorCoreEngine - ----------Running generation: 11, population size: 1
+[44965] WARN AstorCoreEngine - ----------Running generation: 12, population size: 1
+[45069] WARN AstorCoreEngine - ----------Running generation: 13, population size: 1
+[45153] WARN AstorCoreEngine - ----------Running generation: 14, population size: 1
+[45218] WARN AstorCoreEngine - ----------Running generation: 15, population size: 1
+[45316] INFO main - Run previously failing tests...
+exit code: 1
+[51029] INFO main - Failed tests: 2
+[51030] WARN AstorCoreEngine - ----------Running generation: 16, population size: 1
+[51190] INFO main - Run previously failing tests...
+exit code: 1
+[56919] INFO main - Failed tests: 2
+[56920] WARN AstorCoreEngine - ----------Running generation: 17, population size: 1
+[57059] INFO main - Run previously failing tests...
+exit code: 1
+[62526] INFO main - Failed tests: 2
+[62527] WARN AstorCoreEngine - ----------Running generation: 18, population size: 1
+[62663] INFO main - Run previously failing tests...
+exit code: 1
+[68427] INFO main - Failed tests: 2
+[68429] WARN AstorCoreEngine - ----------Running generation: 19, population size: 1
+[68572] WARN AstorCoreEngine - ----------Running generation: 20, population size: 1
+[68675] WARN AstorCoreEngine - ----------Running generation: 21, population size: 1
+[68791] INFO main - Run previously failing tests...
+exit code: 1
+[74882] INFO main - Failed tests: 2
+[74884] WARN AstorCoreEngine - ----------Running generation: 22, population size: 1
+[74973] WARN AstorCoreEngine - ----------Running generation: 23, population size: 1
+[75084] INFO main - Run previously failing tests...
+exit code: 1
+[81126] INFO main - Failed tests: 2
+[81127] WARN AstorCoreEngine - ----------Running generation: 24, population size: 1
+[81196] WARN AstorCoreEngine - ----------Running generation: 25, population size: 1
+[81298] INFO main - Run previously failing tests...
+exit code: 1
+[87341] INFO main - Failed tests: 2
+[87342] WARN AstorCoreEngine - ----------Running generation: 26, population size: 1
+[87405] WARN AstorCoreEngine - ----------Running generation: 27, population size: 1
+[87494] WARN AstorCoreEngine - ----------Running generation: 28, population size: 1
+[87586] INFO main - Run previously failing tests...
+exit code: 1
+[93293] INFO main - Failed tests: 2
+[93294] WARN AstorCoreEngine - ----------Running generation: 29, population size: 1
+[93390] INFO main - Run previously failing tests...
+exit code: 1
+[99324] INFO main - Failed tests: 2
+[99325] WARN AstorCoreEngine - ----------Running generation: 30, population size: 1
+[99404] INFO main - Run previously failing tests...
+exit code: 1
+[104833] INFO main - Failed tests: 2
+[104834] WARN AstorCoreEngine - ----------Running generation: 31, population size: 1
+[104958] INFO main - Run previously failing tests...
+exit code: 1
+[110626] INFO main - Failed tests: 2
+[110627] WARN AstorCoreEngine - ----------Running generation: 32, population size: 1
+[110700] INFO main - Run previously failing tests...
+exit code: 1
+[116397] INFO main - Failed tests: 2
+[116398] WARN AstorCoreEngine - ----------Running generation: 33, population size: 1
+[116489] WARN AstorCoreEngine - ----------Running generation: 34, population size: 1
+[116589] INFO main - Run previously failing tests...
+exit code: 1
+[122230] INFO main - Failed tests: 2
+[122231] WARN AstorCoreEngine - ----------Running generation: 35, population size: 1
+[122270] WARN AstorCoreEngine - ----------Running generation: 36, population size: 1
+[122288] WARN AstorCoreEngine - ----------Running generation: 37, population size: 1
+[122386] INFO main - Run previously failing tests...
+exit code: 1
+[127684] INFO main - Failed tests: 2
+[127685] WARN AstorCoreEngine - ----------Running generation: 38, population size: 1
+[127797] INFO main - Run previously failing tests...
+exit code: 1
+[133732] INFO main - Failed tests: 2
+[133733] WARN AstorCoreEngine - ----------Running generation: 39, population size: 1
+[133835] WARN AstorCoreEngine - ----------Running generation: 40, population size: 1
+[133896] INFO main - Run previously failing tests...
+exit code: 1
+[139545] INFO main - Failed tests: 2
+[139546] WARN AstorCoreEngine - ----------Running generation: 41, population size: 1
+[139603] WARN AstorCoreEngine - ----------Running generation: 42, population size: 1
+[139670] WARN AstorCoreEngine - ----------Running generation: 43, population size: 1
+[139720] WARN AstorCoreEngine - ----------Running generation: 44, population size: 1
+[139790] WARN AstorCoreEngine - ----------Running generation: 45, population size: 1
+[139860] INFO main - Run previously failing tests...
+exit code: 1
+[145700] INFO main - Failed tests: 2
+[145700] WARN AstorCoreEngine - ----------Running generation: 46, population size: 1
+[145778] INFO main - Run previously failing tests...
+exit code: 1
+[151047] INFO main - Failed tests: 2
+[151048] WARN AstorCoreEngine - ----------Running generation: 47, population size: 1
+[151167] WARN AstorCoreEngine - ----------Running generation: 48, population size: 1
+[151226] INFO main - Run previously failing tests...
+exit code: 1
+[156794] INFO main - Failed tests: 2
+[156795] WARN AstorCoreEngine - ----------Running generation: 49, population size: 1
+[156882] INFO main - Run previously failing tests...
+exit code: 1
+[162377] INFO main - Failed tests: 2
+[162378] WARN AstorCoreEngine - ----------Running generation: 50, population size: 1
+[162440] INFO main - Run previously failing tests...
+exit code: 1
+[168277] INFO main - Failed tests: 2
+[168278] WARN AstorCoreEngine - ----------Running generation: 51, population size: 1
+[168336] WARN AstorCoreEngine - ----------Running generation: 52, population size: 1
+[168384] WARN AstorCoreEngine - ----------Running generation: 53, population size: 1
+[168441] INFO main - Run previously failing tests...
+exit code: 1
+[174174] INFO main - Failed tests: 2
+[174175] WARN AstorCoreEngine - ----------Running generation: 54, population size: 1
+[174261] INFO main - Run previously failing tests...
+exit code: 1
+[179920] INFO main - Failed tests: 2
+[179920] WARN AstorCoreEngine - ----------Running generation: 55, population size: 1
+[179986] WARN AstorCoreEngine - ----------Running generation: 56, population size: 1
+[180056] WARN AstorCoreEngine - ----------Running generation: 57, population size: 1
+[180113] INFO main - Run previously failing tests...
+exit code: 1
+[186113] INFO main - Failed tests: 2
+[186113] WARN AstorCoreEngine - ----------Running generation: 58, population size: 1
+[186225] WARN AstorCoreEngine - ----------Running generation: 59, population size: 1
+[186296] WARN AstorCoreEngine - ----------Running generation: 60, population size: 1
+[186419] WARN AstorCoreEngine - ----------Running generation: 61, population size: 1
+[186497] WARN AstorCoreEngine - ----------Running generation: 62, population size: 1
+[186571] WARN AstorCoreEngine - ----------Running generation: 63, population size: 1
+[186630] WARN AstorCoreEngine - ----------Running generation: 64, population size: 1
+[186724] INFO main - Run previously failing tests...
+exit code: 1
+java.io.IOException: Stream closed
+	at java.io.BufferedInputStream.getBufIfOpen(BufferedInputStream.java:170)
+	at java.io.BufferedInputStream.read1(BufferedInputStream.java:283)
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:345)
+	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
+	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
+	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
+	at java.io.InputStreamReader.read(InputStreamReader.java:184)
+	at java.io.BufferedReader.fill(BufferedReader.java:161)
+	at java.io.BufferedReader.readLine(BufferedReader.java:324)
+	at java.io.BufferedReader.readLine(BufferedReader.java:389)
+	at fr.inria.astor.core.validation.StreamReaderThread.run(ExternalCmdValidator.java:179)
+java.lang.IllegalStateException: Exception Occurred
+	at fr.inria.astor.core.validation.ExternalCmdValidator.runShell(ExternalCmdValidator.java:139)
+	at fr.inria.astor.core.validation.ExternalCmdValidator.runTests(ExternalCmdValidator.java:90)
+	at fr.inria.astor.core.validation.ExternalCmdValidator.validate(ExternalCmdValidator.java:44)
+	at fr.inria.astor.core.solutionsearch.AstorCoreEngine.validateInstance(AstorCoreEngine.java:522)
+	at fr.inria.astor.core.solutionsearch.AstorCoreEngine.processCreatedVariant(AstorCoreEngine.java:443)
+	at fr.inria.astor.core.solutionsearch.EvolutionarySearchEngine.processGenerations(EvolutionarySearchEngine.java:164)
+	at fr.inria.astor.core.solutionsearch.EvolutionarySearchEngine.startEvolution(EvolutionarySearchEngine.java:70)
+	at fr.inria.main.evolution.AstorMain.run(AstorMain.java:189)
+	at fr.inria.main.evolution.AstorMain.execute(AstorMain.java:233)
+	at fr.inria.main.evolution.AstorMain.main(AstorMain.java:204)
+[192440] WARN AstorCoreEngine - ----------Running generation: 65, population size: 1
+[192563] INFO main - Run previously failing tests...
+exit code: 1
+[198319] INFO main - Failed tests: 2
+[198320] WARN AstorCoreEngine - ----------Running generation: 66, population size: 1
+[198372] WARN AstorCoreEngine - ----------Running generation: 67, population size: 1
+[198423] WARN AstorCoreEngine - ----------Running generation: 68, population size: 1
+[198496] WARN AstorCoreEngine - ----------Running generation: 69, population size: 1
+[198569] WARN AstorCoreEngine - ----------Running generation: 70, population size: 1
+[198627] INFO main - Run previously failing tests...
+exit code: 1
+[204324] INFO main - Failed tests: 2
+[204326] WARN AstorCoreEngine - ----------Running generation: 71, population size: 1
+[204390] WARN AstorCoreEngine - ----------Running generation: 72, population size: 1
+[204466] INFO main - Run previously failing tests...
+exit code: 1
+[210522] INFO main - Failed tests: 2
+[210523] WARN AstorCoreEngine - ----------Running generation: 73, population size: 1
+[210601] INFO main - Run previously failing tests...
+exit code: 1
+[216057] INFO main - Failed tests: 2
+[216058] WARN AstorCoreEngine - ----------Running generation: 74, population size: 1
+[216116] WARN AstorCoreEngine - ----------Running generation: 75, population size: 1
+[216206] INFO main - Run previously failing tests...
+exit code: 1
+[221783] INFO main - Failed tests: 2
+[221784] WARN AstorCoreEngine - ----------Running generation: 76, population size: 1
+[221838] INFO main - Run previously failing tests...
+exit code: 1
+[227887] INFO main - Failed tests: 2
+[227888] WARN AstorCoreEngine - ----------Running generation: 77, population size: 1
+[227988] INFO main - Run previously failing tests...
+exit code: 1
+[233874] INFO main - Failed tests: 2
+[233875] WARN AstorCoreEngine - ----------Running generation: 78, population size: 1
+[233932] INFO main - Run previously failing tests...
+exit code: 1
+[239725] INFO main - Failed tests: 2
+[239726] WARN AstorCoreEngine - ----------Running generation: 79, population size: 1
+[239773] WARN AstorCoreEngine - ----------Running generation: 80, population size: 1
+[239820] WARN AstorCoreEngine - ----------Running generation: 81, population size: 1
+[239885] INFO main - Run previously failing tests...
+exit code: 1
+[245614] INFO main - Failed tests: 2
+[245615] WARN AstorCoreEngine - ----------Running generation: 82, population size: 1
+[245681] WARN AstorCoreEngine - ----------Running generation: 83, population size: 1
+[245755] INFO main - Run previously failing tests...
+exit code: 1
+[252463] INFO main - Failed tests: 2
+[252464] WARN AstorCoreEngine - ----------Running generation: 84, population size: 1
+[252515] WARN AstorCoreEngine - ----------Running generation: 85, population size: 1
+[252585] WARN AstorCoreEngine - ----------Running generation: 86, population size: 1
+[252660] INFO main - Run previously failing tests...
+exit code: 1
+[258897] INFO main - Failed tests: 2
+[258898] WARN AstorCoreEngine - ----------Running generation: 87, population size: 1
+[258927] WARN AstorCoreEngine - ----------Running generation: 88, population size: 1
+[258996] INFO main - Run previously failing tests...
+exit code: 1
+[265393] INFO main - Failed tests: 2
+[265394] WARN AstorCoreEngine - ----------Running generation: 89, population size: 1
+[265439] WARN AstorCoreEngine - ----------Running generation: 90, population size: 1
+[265469] WARN AstorCoreEngine - ----------Running generation: 91, population size: 1
+[265526] WARN AstorCoreEngine - ----------Running generation: 92, population size: 1
+[265550] WARN AstorCoreEngine - ----------Running generation: 93, population size: 1
+[265597] WARN AstorCoreEngine - ----------Running generation: 94, population size: 1
+[265660] WARN AstorCoreEngine - ----------Running generation: 95, population size: 1
+[265661] ERROR AstorCoreEngine - Error at generation 95
+java.lang.NullPointerException
+java.lang.NullPointerException
+	at fr.inria.astor.core.manipulation.sourcecode.VariableResolver.changeShadowedVars(VariableResolver.java:759)
+	at fr.inria.astor.core.solutionsearch.spaces.ingredients.transformations.NoIngredientTransformationWithCheck.transform(NoIngredientTransformationWithCheck.java:39)
+	at fr.inria.astor.core.solutionsearch.spaces.operators.IngredientBasedOperator.createOperatorInstances(IngredientBasedOperator.java:35)
+	at fr.inria.astor.core.ingredientbased.IngredientBasedEvolutionaryRepairApproachImpl.createOperatorInstanceForPoint(IngredientBasedEvolutionaryRepairApproachImpl.java:101)
+	at fr.inria.astor.core.solutionsearch.EvolutionarySearchEngine.modifyProgramVariant(EvolutionarySearchEngine.java:275)
+	at fr.inria.astor.core.solutionsearch.EvolutionarySearchEngine.createNewProgramVariant(EvolutionarySearchEngine.java:209)
+	at fr.inria.astor.core.solutionsearch.EvolutionarySearchEngine.processGenerations(EvolutionarySearchEngine.java:148)
+	at fr.inria.astor.core.solutionsearch.EvolutionarySearchEngine.startEvolution(EvolutionarySearchEngine.java:70)
+	at fr.inria.main.evolution.AstorMain.run(AstorMain.java:189)
+	at fr.inria.main.evolution.AstorMain.execute(AstorMain.java:233)
+	at fr.inria.main.evolution.AstorMain.main(AstorMain.java:204)
+[265661] INFO AstorCoreEngine - Time Repair Loop (s): 252.968
+[265661] INFO AstorCoreEngine - generationsexecuted: 95
+[265661] WARN AstorCoreEngine - ----SUMMARY_EXECUTION---
+[265662] WARN AstorCoreEngine - End Repair Search: NOT Found solution
+[265662] WARN AstorCoreEngine - Number suspicious:1
+[265663] INFO AstorCoreEngine - 
+ --SOLUTIONS DESCRIPTION--
+
+
+Astor Output:
+
+General stats:
+EXECUTION_IDENTIFIER=apache_batik-VUL4J-2
+TOTAL_TIME=252.968
+NR_GENERATIONS=95
+NR_RIGHT_COMPILATIONS=42
+NR_FAILLING_COMPILATIONS=50
+NR_ERRONEOUS_VARIANCES=null
+NR_FAILING_VALIDATION_PROCESS=null
+OUTPUT_STATUS=ERROR
+
+Patch stats:
+
+[265667] INFO Stats - Storing ing JSON at /workdir/jGenProg_vul4j_apache_batik_VUL4J-2/./output_astor/AstorMain-apache_batik-VUL4J-2//astor_output.json
+[265667] INFO Stats - astor_output:
+{"general":{"NR_RIGHT_COMPILATIONS":42,"NR_ERRONEOUS_VARIANCES":null,"EXECUTION_IDENTIFIER":"apache_batik-VUL4J-2","OUTPUT_STATUS":"ERROR","NR_FAILLING_COMPILATIONS":50,"NR_GENERATIONS":95,"TOTAL_TIME":252.968,"NR_FAILING_VALIDATION_PROCESS":null},"patches":[]}
+[265667] INFO AstorMain - Time Total(s): 265.663
+455.64user 25.64system 4:25.98elapsed 180%CPU (0avgtext+0avgdata 1124588maxresident)k
+5016inputs+77544outputs (0major+3851466minor)pagefaults 0swaps
+
+
+Node: 1cb1d8aedd75
+
+
+
+Date: Tue Nov 29 16:10:22 EST 2022
+

@@ -1,0 +1,52 @@
+diff --git a/camel-core/src/main/java/org/apache/camel/converter/jaxp/XmlConverter.java b/camel-core/src/main/java/org/apache/camel/converter/jaxp/XmlConverter.java
+index bad0e86b5b12..3079e7cb201d 100644
+--- a/camel-core/src/main/java/org/apache/camel/converter/jaxp/XmlConverter.java
++++ b/camel-core/src/main/java/org/apache/camel/converter/jaxp/XmlConverter.java
+@@ -596,6 +596,12 @@ public SAXSource toSAXSourceFromStream(StreamSource source, Exchange exchange) t
+                 } catch (Exception e) {
+                     LOG.warn("SAXParser doesn't support the feature {} with value {}, due to {}.", new Object[]{javax.xml.XMLConstants.FEATURE_SECURE_PROCESSING, "true", e});
+                 }
++                try {
++                    sfactory.setFeature("http://xml.org/sax/features/external-general-entities", false);
++                } catch (SAXException e) {
++                    LOG.warn("SAXParser doesn't support the feature {} with value {}, due to {}."
++                            , new Object[]{"http://xml.org/sax/features/external-general-entities", false, e});                
++                }
+             }
+             sfactory.setNamespaceAware(true);
+             SAXParser parser = sfactory.newSAXParser();
+diff --git a/camel-core/src/test/java/org/apache/camel/component/xslt/XsltDTDTest.java b/camel-core/src/test/java/org/apache/camel/component/xslt/XsltDTDTest.java
+index db5d63cd4dc9..c0d2723066d1 100644
+--- a/camel-core/src/test/java/org/apache/camel/component/xslt/XsltDTDTest.java
++++ b/camel-core/src/test/java/org/apache/camel/component/xslt/XsltDTDTest.java
+@@ -57,19 +57,25 @@ private void sendEntityMessage(Object message) throws Exception {
+         Exchange exchange = list.get(0);
+         String xml = exchange.getIn().getBody(String.class);
+         assertTrue("Get a wrong transformed message", xml.indexOf("<transformed subject=\"\">") > 0);
+-        
+-        
+-        
++
+         try {
++            endpoint.reset();
++            endpoint.expectedMessageCount(1);
++
+             template.sendBody("direct:start2", message);
+-            fail("Expect an exception here");
++
++            assertMockEndpointsSatisfied();
++
++            list = endpoint.getReceivedExchanges();
++            exchange = list.get(0);
++            xml = exchange.getIn().getBody(String.class);
++            assertTrue("Get a wrong transformed message", xml.indexOf("<transformed subject=\"\">") > 0);
+         } catch (Exception ex) {
+             // expect an exception here
+             assertTrue("Get a wrong exception", ex instanceof CamelExecutionException);
+             // the file could not be found
+             assertTrue("Get a wrong exception cause", ex.getCause() instanceof TransformerException);
+         }
+-        
+     }
+     
+ 

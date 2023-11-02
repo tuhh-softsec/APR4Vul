@@ -1,0 +1,850 @@
+cd /workdir/jGenProg_vul4j_jenkinsci_junit-plugin_VUL4J-56;
+export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en";
+TZ="America/New_York"; export TZ;
+export PATH="/usr/lib/jvm/java-8-openjdk-amd64/bin:$PATH";
+export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64/bin";
+time java -Xmx4g -Xms1g -XX:MaxPermSize=512m -cp /script/../libs/jtestex7.jar:/script/../repair_tools/astor.jar fr.inria.main.evolution.AstorMain \
+	-mode jgenprog \
+	-location . \
+	-id jenkinsci_junit-plugin-VUL4J-56 \
+	-failing hudson.tasks.junit.JUnitResultArchiverTest#testXxe \
+	-jvm4testexecution /usr/lib/jvm/java-8-openjdk-amd64/bin \
+	-jvm4evosuitetestexecution /usr/lib/jvm/java-8-openjdk-amd64/bin \
+	-maxgen 1000000 \
+	-maxtime 120 \
+	-stopfirst true \
+	-seed 0 \
+	-scope local \
+	-population 1 \
+	-javacompliancelevel 8 \
+	-faultlocalization perfect \
+    -perfectdata /script/../data/benchmarks/vul4j/perfectfl/VUL4J-56 \
+    -validation externalcmd \
+    -testfailingcmd "mvn test -Dtest=hudson.tasks.junit.JUnitResultArchiverTest#testXxe -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B" \
+    -testallcmd "mvn test -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B"  \ \
+	-srcjavafolder src/main/java \
+	-srctestfolder src/test/java \
+	-binjavafolder target/classes \
+	-bintestfolder target/test-classes \
+	-parameters x:x \
+	-dependencies /root/.m2/repository/org/jvnet/localizer/localizer/1.23/localizer-1.23.jar:/root/.m2/repository/com/github/stephenc/findbugs/findbugs-annotations/1.3.9-1/findbugs-annotations-1.3.9-1.jar:/root/.m2/repository/org/jenkins-ci/plugins/workflow/workflow-support/2.14/workflow-support-2.14.jar:/root/.m2/repository/org/ow2/asm/asm-analysis/4.0/asm-analysis-4.0.jar:/root/.m2/repository/org/jenkins-ci/plugins/workflow/workflow-durable-task-step/2.13/workflow-durable-task-step-2.13.jar:/root/.m2/repository/org/ow2/asm/asm-tree/4.0/asm-tree-4.0.jar:/root/.m2/repository/org/mockito/mockito-core/1.8.5/mockito-core-1.8.5.jar:/root/.m2/repository/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0.jar:/root/.m2/repository/xerces/xercesImpl/2.11.0/xercesImpl-2.11.0.jar:/root/.m2/repository/commons-httpclient/commons-httpclient/3.1/commons-httpclient-3.1.jar:/root/.m2/repository/antlr/antlr/2.7.6/antlr-2.7.6.jar:/root/.m2/repository/jfree/jfreechart/1.0.9/jfreechart-1.0.9.jar:/root/.m2/repository/org/jenkins-ci/jmdns/3.4.0-jenkins-3/jmdns-3.4.0-jenkins-3.jar:/root/.m2/repository/org/jenkins-ci/ui/handlebars/1.1.1/handlebars-1.1.1-core-assets.jar:/root/.m2/repository/org/jenkins-ci/plugins/junit/1.3/junit-1.3.jar:/root/.m2/repository/org/eclipse/jetty/websocket/websocket-client/9.2.12.v20150709/websocket-client-9.2.12.v20150709.jar:/root/.m2/repository/com/google/inject/guice/4.0-beta/guice-4.0-beta.jar:/root/.m2/repository/com/sun/xml/txw2/txw2/20110809/txw2-20110809.jar:/root/.m2/repository/org/jenkins-ci/plugins/workflow/workflow-cps/2.37/workflow-cps-2.37.jar:/root/.m2/repository/net/java/dev/jna/jna/4.2.1/jna-4.2.1.jar:/root/.m2/repository/org/jenkins-ci/ui/ace-editor/1.0.1/ace-editor-1.0.1.jar:/root/.m2/repository/org/ow2/asm/asm-commons/4.0/asm-commons-4.0.jar:/root/.m2/repository/net/java/sezpoz/sezpoz/1.11/sezpoz-1.11.jar:/root/.m2/repository/org/kohsuke/jinterop/j-interopdeps/2.0.6-kohsuke-1/j-interopdeps-2.0.6-kohsuke-1.jar:/root/.m2/repository/org/jenkins-ci/modules/slave-installer/1.5/slave-installer-1.5.jar:/root/.m2/repository/xml-apis/xml-apis/1.4.01/xml-apis-1.4.01.jar:/root/.m2/repository/org/kohsuke/groovy-sandbox/1.12/groovy-sandbox-1.12.jar:/root/.m2/repository/xalan/serializer/2.7.2/serializer-2.7.2.jar:/root/.m2/repository/org/kohsuke/access-modifier-annotation/1.4/access-modifier-annotation-1.4.jar:/root/.m2/repository/org/jvnet/libzfs/libzfs/0.5/libzfs-0.5.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar:/root/.m2/repository/org/jenkins-ci/plugins/workflow/workflow-step-api/2.12/workflow-step-api-2.12.jar:/root/.m2/repository/org/ow2/asm/asm/4.0/asm-4.0.jar:/root/.m2/repository/org/slf4j/log4j-over-slf4j/1.7.25/log4j-over-slf4j-1.7.25.jar:/root/.m2/repository/org/bouncycastle/bcpkix-jdk15on/1.54/bcpkix-jdk15on-1.54.jar:/root/.m2/repository/org/jenkins-ci/modules/instance-identity/1.5.1/instance-identity-1.5.1.jar:/root/.m2/repository/javax/mail/mail/1.4.4/mail-1.4.4.jar:/root/.m2/repository/org/eclipse/jetty/websocket/websocket-api/9.2.12.v20150709/websocket-api-9.2.12.v20150709.jar:/root/.m2/repository/com/jcraft/jzlib/1.1.3-kohsuke-1/jzlib-1.1.3-kohsuke-1.jar:/root/.m2/repository/org/jenkins-ci/commons-jexl/1.1-jenkins-20111212/commons-jexl-1.1-jenkins-20111212.jar:/root/.m2/repository/org/jenkins-ci/plugins/workflow/workflow-basic-steps/2.6/workflow-basic-steps-2.6.jar:/root/.m2/repository/com/github/jnr/jnr-constants/0.8.5/jnr-constants-0.8.5.jar:/root/.m2/repository/javax/annotation/javax.annotation-api/1.2/javax.annotation-api-1.2.jar:/root/.m2/repository/org/jenkins-ci/plugins/pipeline-stage-step/2.2/pipeline-stage-step-2.2.jar:/root/.m2/repository/org/kohsuke/windows-package-checker/1.2/windows-package-checker-1.2.jar:/root/.m2/repository/org/jenkins-ci/plugins/mailer/1.18/mailer-1.18.jar:/root/.m2/repository/org/jenkins-ci/dom4j/dom4j/1.6.1-jenkins-4/dom4j-1.6.1-jenkins-4.jar:/root/.m2/repository/org/codehaus/woodstox/wstx-asl/3.2.9/wstx-asl-3.2.9.jar:/root/.m2/repository/org/fusesource/jansi/jansi/1.11/jansi-1.11.jar:/root/.m2/repository/org/jenkins-ci/main/jenkins-war/2.7.3/jenkins-war-2.7.3.war:/root/.m2/repository/org/apache/commons/commons-compress/1.10/commons-compress-1.10.jar:/root/.m2/repository/relaxngDatatype/relaxngDatatype/20020414/relaxngDatatype-20020414.jar:/root/.m2/repository/commons-io/commons-io/2.4/commons-io-2.4.jar:/root/.m2/repository/com/cloudbees/diff4j/1.2/diff4j-1.2.jar:/root/.m2/repository/org/jenkins-ci/main/jenkins-test-harness/2.31/jenkins-test-harness-2.31.jar:/root/.m2/repository/org/eclipse/jetty/jetty-server/9.4.5.v20170502/jetty-server-9.4.5.v20170502.jar:/root/.m2/repository/org/jenkins-ci/main/remoting/2.60/remoting-2.60.jar:/root/.m2/repository/org/jenkins-ci/plugins/workflow/workflow-job/2.11.1/workflow-job-2.11.1.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/1.3.9/jsr305-1.3.9.jar:/root/.m2/repository/args4j/args4j/2.0.31/args4j-2.0.31.jar:/root/.m2/repository/org/kohsuke/stapler/stapler-groovy/1.243/stapler-groovy-1.243.jar:/root/.m2/repository/org/eclipse/jetty/websocket/websocket-common/9.2.12.v20150709/websocket-common-9.2.12.v20150709.jar:/root/.m2/repository/org/jenkins-ci/plugins/durable-task/1.14/durable-task-1.14.jar:/root/.m2/repository/org/springframework/spring-web/2.5.6.SEC03/spring-web-2.5.6.SEC03.jar:/root/.m2/repository/org/hamcrest/hamcrest-library/1.3/hamcrest-library-1.3.jar:/root/.m2/repository/org/objenesis/objenesis/1.0/objenesis-1.0.jar:/root/.m2/repository/com/cloudbees/groovy-cps/1.17/groovy-cps-1.17.jar:/root/.m2/repository/org/kohsuke/stapler/stapler-adjunct-timeline/1.4/stapler-adjunct-timeline-1.4.jar:/root/.m2/repository/org/jenkins-ci/modules/upstart-slave-installer/1.1/upstart-slave-installer-1.1.jar:/root/.m2/repository/net/sourceforge/nekohtml/nekohtml/1.9.22/nekohtml-1.9.22.jar:/root/.m2/repository/com/github/jnr/jnr-x86asm/1.0.2/jnr-x86asm-1.0.2.jar:/root/.m2/repository/javax/xml/stream/stax-api/1.0-2/stax-api-1.0-2.jar:/root/.m2/repository/org/jboss/marshalling/jboss-marshalling/1.4.9.Final/jboss-marshalling-1.4.9.Final.jar:/root/.m2/repository/org/jenkins-ci/main/cli/2.7.3/cli-2.7.3.jar:/root/.m2/repository/org/jvnet/tiger-types/2.2/tiger-types-2.2.jar:/root/.m2/repository/org/kohsuke/stapler/stapler/1.243/stapler-1.243.jar:/root/.m2/repository/jline/jline/2.12/jline-2.12.jar:/root/.m2/repository/org/jvnet/hudson/jtidy/4aug2000r7-dev-hudson-1/jtidy-4aug2000r7-dev-hudson-1.jar:/root/.m2/repository/org/kohsuke/stapler/stapler-jrebel/1.243/stapler-jrebel-1.243.jar:/root/.m2/repository/org/jenkins-ci/modules/ssh-cli-auth/1.2/ssh-cli-auth-1.2.jar:/root/.m2/repository/org/jruby/ext/posix/jna-posix/1.0.3-jenkins-1/jna-posix-1.0.3-jenkins-1.jar:/root/.m2/repository/net/sourceforge/cssparser/cssparser/0.9.16/cssparser-0.9.16.jar:/root/.m2/repository/org/kohsuke/stapler/stapler-adjunct-codemirror/1.3/stapler-adjunct-codemirror-1.3.jar:/root/.m2/repository/org/jvnet/hudson/embedded-rhino-debugger/1.2/embedded-rhino-debugger-1.2.jar:/root/.m2/repository/org/jenkins-ci/constant-pool-scanner/1.2/constant-pool-scanner-1.2.jar:/root/.m2/repository/commons-discovery/commons-discovery/0.4/commons-discovery-0.4.jar:/root/.m2/repository/oro/oro/2.0.8/oro-2.0.8.jar:/root/.m2/repository/org/apache/sshd/sshd-core/0.8.0/sshd-core-0.8.0.jar:/root/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/root/.m2/repository/org/apache/ant/ant/1.8.4/ant-1.8.4.jar:/root/.m2/repository/org/jenkins-ci/modules/sshd/1.6/sshd-1.6.jar:/root/.m2/repository/org/jvnet/hudson/xstream/1.4.7-jenkins-1/xstream-1.4.7-jenkins-1.jar:/root/.m2/repository/org/bouncycastle/bcprov-jdk15on/1.54/bcprov-jdk15on-1.54.jar:/root/.m2/repository/org/eclipse/jetty/jetty-servlet/9.4.5.v20170502/jetty-servlet-9.4.5.v20170502.jar:/root/.m2/repository/org/slf4j/slf4j-jdk14/1.7.25/slf4j-jdk14-1.7.25.jar:/root/.m2/repository/org/jenkins-ci/bytecode-compatibility-transformer/1.8/bytecode-compatibility-transformer-1.8.jar:/root/.m2/repository/org/jenkins-ci/main/jenkins-test-harness-htmlunit/2.18-1/jenkins-test-harness-htmlunit-2.18-1.jar:/root/.m2/repository/stax/stax-api/1.0.1/stax-api-1.0.1.jar:/root/.m2/repository/org/samba/jcifs/jcifs/1.2.19/jcifs-1.2.19.jar:/root/.m2/repository/xalan/xalan/2.7.2/xalan-2.7.2.jar:/root/.m2/repository/org/jenkins-ci/modules/systemd-slave-installer/1.1/systemd-slave-installer-1.1.jar:/root/.m2/repository/org/slf4j/jcl-over-slf4j/1.7.25/jcl-over-slf4j-1.7.25.jar:/root/.m2/repository/net/sf/ezmorph/ezmorph/1.0.6/ezmorph-1.0.6.jar:/root/.m2/repository/org/apache/mina/mina-core/2.0.5/mina-core-2.0.5.jar:/root/.m2/repository/org/jboss/marshalling/jboss-marshalling-river/1.4.9.Final/jboss-marshalling-river-1.4.9.Final.jar:/root/.m2/repository/org/jenkins-ci/crypto-util/1.1/crypto-util-1.1.jar:/root/.m2/repository/commons-beanutils/commons-beanutils/1.8.3/commons-beanutils-1.8.3.jar:/root/.m2/repository/org/jvnet/hudson/commons-jelly-tags-define/1.0.1-hudson-20071021/commons-jelly-tags-define-1.0.1-hudson-20071021.jar:/root/.m2/repository/org/kohsuke/jinterop/j-interop/2.0.6-kohsuke-1/j-interop-2.0.6-kohsuke-1.jar:/root/.m2/repository/org/springframework/spring-core/2.5.6.SEC03/spring-core-2.5.6.SEC03.jar:/root/.m2/repository/org/eclipse/jetty/jetty-io/9.4.5.v20170502/jetty-io-9.4.5.v20170502.jar:/root/.m2/repository/org/kohsuke/akuma/1.10/akuma-1.10.jar:/root/.m2/repository/org/kohsuke/stapler/json-lib/2.4-jenkins-2/json-lib-2.4-jenkins-2.jar:/root/.m2/repository/xpp3/xpp3/1.1.4c/xpp3-1.1.4c.jar:/root/.m2/repository/org/jenkins-ci/ui/jquery-detached/1.2.1/jquery-detached-1.2.1.jar:/root/.m2/repository/org/jenkins-ci/plugins/workflow/workflow-scm-step/2.4/workflow-scm-step-2.4.jar:/root/.m2/repository/org/eclipse/jetty/jetty-webapp/9.4.5.v20170502/jetty-webapp-9.4.5.v20170502.jar:/root/.m2/repository/org/apache/commons/commons-lang3/3.4/commons-lang3-3.4.jar:/root/.m2/repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar:/root/.m2/repository/org/springframework/spring-jdbc/1.2.9/spring-jdbc-1.2.9.jar:/root/.m2/repository/org/netbeans/modules/org-netbeans-insane/RELEASE72/org-netbeans-insane-RELEASE72.jar:/root/.m2/repository/org/eclipse/jetty/jetty-util/9.4.5.v20170502/jetty-util-9.4.5.v20170502.jar:/root/.m2/repository/commons-collections/commons-collections/3.2.1/commons-collections-3.2.1.jar:/root/.m2/repository/org/springframework/spring-context-support/2.5.6.SEC03/spring-context-support-2.5.6.SEC03.jar:/root/.m2/repository/commons-fileupload/commons-fileupload/1.3.1-jenkins-1/commons-fileupload-1.3.1-jenkins-1.jar:/root/.m2/repository/com/infradna/tool/bridge-method-annotation/1.13/bridge-method-annotation-1.13.jar:/root/.m2/repository/org/jenkins-ci/plugins/workflow/workflow-api/2.22/workflow-api-2.22.jar:/root/.m2/repository/net/jcip/jcip-annotations/1.0/jcip-annotations-1.0.jar:/root/.m2/repository/com/github/jnr/jffi/1.2.7/jffi-1.2.7.jar:/root/.m2/repository/org/jenkins-ci/plugins/workflow/workflow-cps/2.37/workflow-cps-2.37-tests.jar:/root/.m2/repository/commons-codec/commons-codec/1.8/commons-codec-1.8.jar:/root/.m2/repository/org/jenkins-ci/plugins/structs/1.7/structs-1.7.jar:/root/.m2/repository/org/springframework/spring-beans/2.5.6.SEC03/spring-beans-2.5.6.SEC03.jar:/root/.m2/repository/commons-digester/commons-digester/2.1/commons-digester-2.1.jar:/root/.m2/repository/org/jenkins-ci/plugins/icon-shim/icon-set/1.0.5/icon-set-1.0.5.jar:/root/.m2/repository/org/jenkins-ci/trilead-ssh2/build217-jenkins-8/trilead-ssh2-build217-jenkins-8.jar:/root/.m2/repository/org/eclipse/jetty/jetty-xml/9.4.5.v20170502/jetty-xml-9.4.5.v20170502.jar:/root/.m2/repository/org/springframework/spring-aop/2.5.6.SEC03/spring-aop-2.5.6.SEC03.jar:/root/.m2/repository/org/jenkins-ci/memory-monitor/1.9/memory-monitor-1.9.jar:/root/.m2/repository/org/jenkins-ci/version-number/1.1/version-number-1.1.jar:/root/.m2/repository/com/github/jnr/jnr-ffi/1.0.7/jnr-ffi-1.0.7.jar:/root/.m2/repository/org/jenkins-ci/ui/bootstrap/1.3.2/bootstrap-1.3.2-core-assets.jar:/root/.m2/repository/javax/inject/javax.inject/1/javax.inject-1.jar:/root/.m2/repository/commons-jelly/commons-jelly-tags-fmt/1.0/commons-jelly-tags-fmt-1.0.jar:/root/.m2/repository/org/jenkins-ci/ui/jquery-detached/1.2.1/jquery-detached-1.2.1-core-assets.jar:/root/.m2/repository/org/jenkins-ci/plugins/display-url-api/0.2/display-url-api-0.2.jar:/root/.m2/repository/org/eclipse/jetty/jetty-security/9.4.5.v20170502/jetty-security-9.4.5.v20170502.jar:/root/.m2/repository/com/google/code/findbugs/annotations/3.0.0/annotations-3.0.0.jar:/root/.m2/repository/com/github/jnr/jffi/1.2.7/jffi-1.2.7-native.jar:/root/.m2/repository/javax/servlet/jstl/1.1.0/jstl-1.1.0.jar:/root/.m2/repository/org/jenkins-ci/test-annotations/1.2/test-annotations-1.2.jar:/root/.m2/repository/org/kohsuke/trilead-putty-extension/1.2/trilead-putty-extension-1.2.jar:/root/.m2/repository/jaxen/jaxen/1.1-beta-11/jaxen-1.1-beta-11.jar:/root/.m2/repository/org/w3c/css/sac/1.3/sac-1.3.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/jvnet/winp/winp/1.22/winp-1.22.jar:/root/.m2/repository/org/jenkins-ci/commons-jelly/1.1-jenkins-20120928/commons-jelly-1.1-jenkins-20120928.jar:/root/.m2/repository/org/kohsuke/stapler/stapler-adjunct-zeroclipboard/1.3.5-1/stapler-adjunct-zeroclipboard-1.3.5-1.jar:/root/.m2/repository/org/jenkins-ci/plugins/workflow/workflow-support/2.14/workflow-support-2.14-tests.jar:/root/.m2/repository/jfree/jcommon/1.0.12/jcommon-1.0.12.jar:/root/.m2/repository/org/springframework/spring-webmvc/2.5.6.SEC03/spring-webmvc-2.5.6.SEC03.jar:/root/.m2/repository/org/jenkins-ci/plugins/script-security/1.30/script-security-1.30.jar:/root/.m2/repository/org/jenkins-ci/plugins/matrix-project/1.3/matrix-project-1.3.jar:/root/.m2/repository/org/codehaus/mojo/animal-sniffer-annotations/1.14/animal-sniffer-annotations-1.14.jar:/root/.m2/repository/org/jenkins-ci/modules/launchd-slave-installer/1.2/launchd-slave-installer-1.2.jar:/root/.m2/repository/org/jenkins-ci/modules/windows-slave-installer/1.6/windows-slave-installer-1.6.jar:/root/.m2/repository/org/jvnet/hudson/activation/1.1.1-hudson-1/activation-1.1.1-hudson-1.jar:/root/.m2/repository/org/jenkins-ci/main/jenkins-core/2.7.3/jenkins-core-2.7.3.jar:/root/.m2/repository/com/github/jnr/jnr-posix/3.0.1/jnr-posix-3.0.1.jar:/root/.m2/repository/commons-jelly/commons-jelly-tags-xml/1.1/commons-jelly-tags-xml-1.1.jar:/root/.m2/repository/org/jenkins-ci/annotation-indexer/1.11/annotation-indexer-1.11.jar:/root/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar:/root/.m2/repository/commons-lang/commons-lang/2.6/commons-lang-2.6.jar:/root/.m2/repository/org/apache/ant/ant-launcher/1.8.4/ant-launcher-1.8.4.jar:/root/.m2/repository/org/jenkins-ci/task-reactor/1.4/task-reactor-1.4.jar:/root/.m2/repository/com/sun/solaris/embedded_su4j/1.1/embedded_su4j-1.1.jar:/root/.m2/repository/org/ow2/asm/asm-util/4.0/asm-util-4.0.jar:/root/.m2/repository/org/jenkins-ci/plugins/scm-api/2.0.8/scm-api-2.0.8.jar:/root/.m2/repository/org/jvnet/robust-http-client/robust-http-client/1.2/robust-http-client-1.2.jar:/root/.m2/repository/org/jenkins-ci/symbol-annotation/1.7/symbol-annotation-1.7.jar:/root/.m2/repository/junit/junit/4.12/junit-4.12.jar:/root/.m2/repository/org/acegisecurity/acegi-security/1.0.7/acegi-security-1.0.7.jar:/root/.m2/repository/org/kohsuke/asm5/5.0.1/asm5-5.0.1.jar:/root/.m2/repository/org/springframework/spring-dao/1.2.9/spring-dao-1.2.9.jar:/root/.m2/repository/org/eclipse/jetty/jetty-http/9.4.5.v20170502/jetty-http-9.4.5.v20170502.jar:/root/.m2/repository/org/kohsuke/stapler/stapler-jelly/1.243/stapler-jelly-1.243.jar:/root/.m2/repository/org/mindrot/jbcrypt/0.3m/jbcrypt-0.3m.jar:/root/.m2/repository/com/google/guava/guava/11.0.1/guava-11.0.1.jar:/root/.m2/repository/org/springframework/spring-context/2.5.6.SEC03/spring-context-2.5.6.SEC03.jar:/root/.m2/repository/org/codehaus/groovy/groovy-all/2.4.7/groovy-all-2.4.7.jar:/root/.m2/repository/org/kohsuke/libpam4j/1.8/libpam4j-1.8.jar;
+	echo "\n\nNode: `hostname`\n";
+	echo "\n\nDate: `date`\n";
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en
+OpenJDK 64-Bit Server VM warning: ignoring option MaxPermSize=512m; support was removed in 8.0
+[0] INFO ProjectConfiguration - Version of the JVM used: 1.8.0_342
+[1] INFO main - Java version of the JDK used to run tests: 1.8.0_342
+[1] INFO main - The compliance of the JVM is:  8
+[14] INFO main - command line arguments: [-mode  jgenprog  -location  .  -id  jenkinsci_junit-plugin-VUL4J-56  -failing  hudson.tasks.junit.JUnitResultArchiverTest#testXxe  -jvm4testexecution  /usr/lib/jvm/java-8-openjdk-amd64/bin  -jvm4evosuitetestexecution  /usr/lib/jvm/java-8-openjdk-amd64/bin  -maxgen  1000000  -maxtime  120  -stopfirst  true  -seed  0  -scope  local  -population  1  -javacompliancelevel  8  -faultlocalization  perfect  -perfectdata  /script/../data/benchmarks/vul4j/perfectfl/VUL4J-56  -validation  externalcmd  -testfailingcmd  mvn test -Dtest=hudson.tasks.junit.JUnitResultArchiverTest#testXxe -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B  -testallcmd  mvn test -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B     -srcjavafolder  src/main/java  -srctestfolder  src/test/java  -binjavafolder  target/classes  -bintestfolder  target/test-classes  -parameters  x:x  -dependencies  /root/.m2/repository/org/jvnet/localizer/localizer/1.23/localizer-1.23.jar:/root/.m2/repository/com/github/stephenc/findbugs/findbugs-annotations/1.3.9-1/findbugs-annotations-1.3.9-1.jar:/root/.m2/repository/org/jenkins-ci/plugins/workflow/workflow-support/2.14/workflow-support-2.14.jar:/root/.m2/repository/org/ow2/asm/asm-analysis/4.0/asm-analysis-4.0.jar:/root/.m2/repository/org/jenkins-ci/plugins/workflow/workflow-durable-task-step/2.13/workflow-durable-task-step-2.13.jar:/root/.m2/repository/org/ow2/asm/asm-tree/4.0/asm-tree-4.0.jar:/root/.m2/repository/org/mockito/mockito-core/1.8.5/mockito-core-1.8.5.jar:/root/.m2/repository/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0.jar:/root/.m2/repository/xerces/xercesImpl/2.11.0/xercesImpl-2.11.0.jar:/root/.m2/repository/commons-httpclient/commons-httpclient/3.1/commons-httpclient-3.1.jar:/root/.m2/repository/antlr/antlr/2.7.6/antlr-2.7.6.jar:/root/.m2/repository/jfree/jfreechart/1.0.9/jfreechart-1.0.9.jar:/root/.m2/repository/org/jenkins-ci/jmdns/3.4.0-jenkins-3/jmdns-3.4.0-jenkins-3.jar:/root/.m2/repository/org/jenkins-ci/ui/handlebars/1.1.1/handlebars-1.1.1-core-assets.jar:/root/.m2/repository/org/jenkins-ci/plugins/junit/1.3/junit-1.3.jar:/root/.m2/repository/org/eclipse/jetty/websocket/websocket-client/9.2.12.v20150709/websocket-client-9.2.12.v20150709.jar:/root/.m2/repository/com/google/inject/guice/4.0-beta/guice-4.0-beta.jar:/root/.m2/repository/com/sun/xml/txw2/txw2/20110809/txw2-20110809.jar:/root/.m2/repository/org/jenkins-ci/plugins/workflow/workflow-cps/2.37/workflow-cps-2.37.jar:/root/.m2/repository/net/java/dev/jna/jna/4.2.1/jna-4.2.1.jar:/root/.m2/repository/org/jenkins-ci/ui/ace-editor/1.0.1/ace-editor-1.0.1.jar:/root/.m2/repository/org/ow2/asm/asm-commons/4.0/asm-commons-4.0.jar:/root/.m2/repository/net/java/sezpoz/sezpoz/1.11/sezpoz-1.11.jar:/root/.m2/repository/org/kohsuke/jinterop/j-interopdeps/2.0.6-kohsuke-1/j-interopdeps-2.0.6-kohsuke-1.jar:/root/.m2/repository/org/jenkins-ci/modules/slave-installer/1.5/slave-installer-1.5.jar:/root/.m2/repository/xml-apis/xml-apis/1.4.01/xml-apis-1.4.01.jar:/root/.m2/repository/org/kohsuke/groovy-sandbox/1.12/groovy-sandbox-1.12.jar:/root/.m2/repository/xalan/serializer/2.7.2/serializer-2.7.2.jar:/root/.m2/repository/org/kohsuke/access-modifier-annotation/1.4/access-modifier-annotation-1.4.jar:/root/.m2/repository/org/jvnet/libzfs/libzfs/0.5/libzfs-0.5.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar:/root/.m2/repository/org/jenkins-ci/plugins/workflow/workflow-step-api/2.12/workflow-step-api-2.12.jar:/root/.m2/repository/org/ow2/asm/asm/4.0/asm-4.0.jar:/root/.m2/repository/org/slf4j/log4j-over-slf4j/1.7.25/log4j-over-slf4j-1.7.25.jar:/root/.m2/repository/org/bouncycastle/bcpkix-jdk15on/1.54/bcpkix-jdk15on-1.54.jar:/root/.m2/repository/org/jenkins-ci/modules/instance-identity/1.5.1/instance-identity-1.5.1.jar:/root/.m2/repository/javax/mail/mail/1.4.4/mail-1.4.4.jar:/root/.m2/repository/org/eclipse/jetty/websocket/websocket-api/9.2.12.v20150709/websocket-api-9.2.12.v20150709.jar:/root/.m2/repository/com/jcraft/jzlib/1.1.3-kohsuke-1/jzlib-1.1.3-kohsuke-1.jar:/root/.m2/repository/org/jenkins-ci/commons-jexl/1.1-jenkins-20111212/commons-jexl-1.1-jenkins-20111212.jar:/root/.m2/repository/org/jenkins-ci/plugins/workflow/workflow-basic-steps/2.6/workflow-basic-steps-2.6.jar:/root/.m2/repository/com/github/jnr/jnr-constants/0.8.5/jnr-constants-0.8.5.jar:/root/.m2/repository/javax/annotation/javax.annotation-api/1.2/javax.annotation-api-1.2.jar:/root/.m2/repository/org/jenkins-ci/plugins/pipeline-stage-step/2.2/pipeline-stage-step-2.2.jar:/root/.m2/repository/org/kohsuke/windows-package-checker/1.2/windows-package-checker-1.2.jar:/root/.m2/repository/org/jenkins-ci/plugins/mailer/1.18/mailer-1.18.jar:/root/.m2/repository/org/jenkins-ci/dom4j/dom4j/1.6.1-jenkins-4/dom4j-1.6.1-jenkins-4.jar:/root/.m2/repository/org/codehaus/woodstox/wstx-asl/3.2.9/wstx-asl-3.2.9.jar:/root/.m2/repository/org/fusesource/jansi/jansi/1.11/jansi-1.11.jar:/root/.m2/repository/org/jenkins-ci/main/jenkins-war/2.7.3/jenkins-war-2.7.3.war:/root/.m2/repository/org/apache/commons/commons-compress/1.10/commons-compress-1.10.jar:/root/.m2/repository/relaxngDatatype/relaxngDatatype/20020414/relaxngDatatype-20020414.jar:/root/.m2/repository/commons-io/commons-io/2.4/commons-io-2.4.jar:/root/.m2/repository/com/cloudbees/diff4j/1.2/diff4j-1.2.jar:/root/.m2/repository/org/jenkins-ci/main/jenkins-test-harness/2.31/jenkins-test-harness-2.31.jar:/root/.m2/repository/org/eclipse/jetty/jetty-server/9.4.5.v20170502/jetty-server-9.4.5.v20170502.jar:/root/.m2/repository/org/jenkins-ci/main/remoting/2.60/remoting-2.60.jar:/root/.m2/repository/org/jenkins-ci/plugins/workflow/workflow-job/2.11.1/workflow-job-2.11.1.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/1.3.9/jsr305-1.3.9.jar:/root/.m2/repository/args4j/args4j/2.0.31/args4j-2.0.31.jar:/root/.m2/repository/org/kohsuke/stapler/stapler-groovy/1.243/stapler-groovy-1.243.jar:/root/.m2/repository/org/eclipse/jetty/websocket/websocket-common/9.2.12.v20150709/websocket-common-9.2.12.v20150709.jar:/root/.m2/repository/org/jenkins-ci/plugins/durable-task/1.14/durable-task-1.14.jar:/root/.m2/repository/org/springframework/spring-web/2.5.6.SEC03/spring-web-2.5.6.SEC03.jar:/root/.m2/repository/org/hamcrest/hamcrest-library/1.3/hamcrest-library-1.3.jar:/root/.m2/repository/org/objenesis/objenesis/1.0/objenesis-1.0.jar:/root/.m2/repository/com/cloudbees/groovy-cps/1.17/groovy-cps-1.17.jar:/root/.m2/repository/org/kohsuke/stapler/stapler-adjunct-timeline/1.4/stapler-adjunct-timeline-1.4.jar:/root/.m2/repository/org/jenkins-ci/modules/upstart-slave-installer/1.1/upstart-slave-installer-1.1.jar:/root/.m2/repository/net/sourceforge/nekohtml/nekohtml/1.9.22/nekohtml-1.9.22.jar:/root/.m2/repository/com/github/jnr/jnr-x86asm/1.0.2/jnr-x86asm-1.0.2.jar:/root/.m2/repository/javax/xml/stream/stax-api/1.0-2/stax-api-1.0-2.jar:/root/.m2/repository/org/jboss/marshalling/jboss-marshalling/1.4.9.Final/jboss-marshalling-1.4.9.Final.jar:/root/.m2/repository/org/jenkins-ci/main/cli/2.7.3/cli-2.7.3.jar:/root/.m2/repository/org/jvnet/tiger-types/2.2/tiger-types-2.2.jar:/root/.m2/repository/org/kohsuke/stapler/stapler/1.243/stapler-1.243.jar:/root/.m2/repository/jline/jline/2.12/jline-2.12.jar:/root/.m2/repository/org/jvnet/hudson/jtidy/4aug2000r7-dev-hudson-1/jtidy-4aug2000r7-dev-hudson-1.jar:/root/.m2/repository/org/kohsuke/stapler/stapler-jrebel/1.243/stapler-jrebel-1.243.jar:/root/.m2/repository/org/jenkins-ci/modules/ssh-cli-auth/1.2/ssh-cli-auth-1.2.jar:/root/.m2/repository/org/jruby/ext/posix/jna-posix/1.0.3-jenkins-1/jna-posix-1.0.3-jenkins-1.jar:/root/.m2/repository/net/sourceforge/cssparser/cssparser/0.9.16/cssparser-0.9.16.jar:/root/.m2/repository/org/kohsuke/stapler/stapler-adjunct-codemirror/1.3/stapler-adjunct-codemirror-1.3.jar:/root/.m2/repository/org/jvnet/hudson/embedded-rhino-debugger/1.2/embedded-rhino-debugger-1.2.jar:/root/.m2/repository/org/jenkins-ci/constant-pool-scanner/1.2/constant-pool-scanner-1.2.jar:/root/.m2/repository/commons-discovery/commons-discovery/0.4/commons-discovery-0.4.jar:/root/.m2/repository/oro/oro/2.0.8/oro-2.0.8.jar:/root/.m2/repository/org/apache/sshd/sshd-core/0.8.0/sshd-core-0.8.0.jar:/root/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/root/.m2/repository/org/apache/ant/ant/1.8.4/ant-1.8.4.jar:/root/.m2/repository/org/jenkins-ci/modules/sshd/1.6/sshd-1.6.jar:/root/.m2/repository/org/jvnet/hudson/xstream/1.4.7-jenkins-1/xstream-1.4.7-jenkins-1.jar:/root/.m2/repository/org/bouncycastle/bcprov-jdk15on/1.54/bcprov-jdk15on-1.54.jar:/root/.m2/repository/org/eclipse/jetty/jetty-servlet/9.4.5.v20170502/jetty-servlet-9.4.5.v20170502.jar:/root/.m2/repository/org/slf4j/slf4j-jdk14/1.7.25/slf4j-jdk14-1.7.25.jar:/root/.m2/repository/org/jenkins-ci/bytecode-compatibility-transformer/1.8/bytecode-compatibility-transformer-1.8.jar:/root/.m2/repository/org/jenkins-ci/main/jenkins-test-harness-htmlunit/2.18-1/jenkins-test-harness-htmlunit-2.18-1.jar:/root/.m2/repository/stax/stax-api/1.0.1/stax-api-1.0.1.jar:/root/.m2/repository/org/samba/jcifs/jcifs/1.2.19/jcifs-1.2.19.jar:/root/.m2/repository/xalan/xalan/2.7.2/xalan-2.7.2.jar:/root/.m2/repository/org/jenkins-ci/modules/systemd-slave-installer/1.1/systemd-slave-installer-1.1.jar:/root/.m2/repository/org/slf4j/jcl-over-slf4j/1.7.25/jcl-over-slf4j-1.7.25.jar:/root/.m2/repository/net/sf/ezmorph/ezmorph/1.0.6/ezmorph-1.0.6.jar:/root/.m2/repository/org/apache/mina/mina-core/2.0.5/mina-core-2.0.5.jar:/root/.m2/repository/org/jboss/marshalling/jboss-marshalling-river/1.4.9.Final/jboss-marshalling-river-1.4.9.Final.jar:/root/.m2/repository/org/jenkins-ci/crypto-util/1.1/crypto-util-1.1.jar:/root/.m2/repository/commons-beanutils/commons-beanutils/1.8.3/commons-beanutils-1.8.3.jar:/root/.m2/repository/org/jvnet/hudson/commons-jelly-tags-define/1.0.1-hudson-20071021/commons-jelly-tags-define-1.0.1-hudson-20071021.jar:/root/.m2/repository/org/kohsuke/jinterop/j-interop/2.0.6-kohsuke-1/j-interop-2.0.6-kohsuke-1.jar:/root/.m2/repository/org/springframework/spring-core/2.5.6.SEC03/spring-core-2.5.6.SEC03.jar:/root/.m2/repository/org/eclipse/jetty/jetty-io/9.4.5.v20170502/jetty-io-9.4.5.v20170502.jar:/root/.m2/repository/org/kohsuke/akuma/1.10/akuma-1.10.jar:/root/.m2/repository/org/kohsuke/stapler/json-lib/2.4-jenkins-2/json-lib-2.4-jenkins-2.jar:/root/.m2/repository/xpp3/xpp3/1.1.4c/xpp3-1.1.4c.jar:/root/.m2/repository/org/jenkins-ci/ui/jquery-detached/1.2.1/jquery-detached-1.2.1.jar:/root/.m2/repository/org/jenkins-ci/plugins/workflow/workflow-scm-step/2.4/workflow-scm-step-2.4.jar:/root/.m2/repository/org/eclipse/jetty/jetty-webapp/9.4.5.v20170502/jetty-webapp-9.4.5.v20170502.jar:/root/.m2/repository/org/apache/commons/commons-lang3/3.4/commons-lang3-3.4.jar:/root/.m2/repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar:/root/.m2/repository/org/springframework/spring-jdbc/1.2.9/spring-jdbc-1.2.9.jar:/root/.m2/repository/org/netbeans/modules/org-netbeans-insane/RELEASE72/org-netbeans-insane-RELEASE72.jar:/root/.m2/repository/org/eclipse/jetty/jetty-util/9.4.5.v20170502/jetty-util-9.4.5.v20170502.jar:/root/.m2/repository/commons-collections/commons-collections/3.2.1/commons-collections-3.2.1.jar:/root/.m2/repository/org/springframework/spring-context-support/2.5.6.SEC03/spring-context-support-2.5.6.SEC03.jar:/root/.m2/repository/commons-fileupload/commons-fileupload/1.3.1-jenkins-1/commons-fileupload-1.3.1-jenkins-1.jar:/root/.m2/repository/com/infradna/tool/bridge-method-annotation/1.13/bridge-method-annotation-1.13.jar:/root/.m2/repository/org/jenkins-ci/plugins/workflow/workflow-api/2.22/workflow-api-2.22.jar:/root/.m2/repository/net/jcip/jcip-annotations/1.0/jcip-annotations-1.0.jar:/root/.m2/repository/com/github/jnr/jffi/1.2.7/jffi-1.2.7.jar:/root/.m2/repository/org/jenkins-ci/plugins/workflow/workflow-cps/2.37/workflow-cps-2.37-tests.jar:/root/.m2/repository/commons-codec/commons-codec/1.8/commons-codec-1.8.jar:/root/.m2/repository/org/jenkins-ci/plugins/structs/1.7/structs-1.7.jar:/root/.m2/repository/org/springframework/spring-beans/2.5.6.SEC03/spring-beans-2.5.6.SEC03.jar:/root/.m2/repository/commons-digester/commons-digester/2.1/commons-digester-2.1.jar:/root/.m2/repository/org/jenkins-ci/plugins/icon-shim/icon-set/1.0.5/icon-set-1.0.5.jar:/root/.m2/repository/org/jenkins-ci/trilead-ssh2/build217-jenkins-8/trilead-ssh2-build217-jenkins-8.jar:/root/.m2/repository/org/eclipse/jetty/jetty-xml/9.4.5.v20170502/jetty-xml-9.4.5.v20170502.jar:/root/.m2/repository/org/springframework/spring-aop/2.5.6.SEC03/spring-aop-2.5.6.SEC03.jar:/root/.m2/repository/org/jenkins-ci/memory-monitor/1.9/memory-monitor-1.9.jar:/root/.m2/repository/org/jenkins-ci/version-number/1.1/version-number-1.1.jar:/root/.m2/repository/com/github/jnr/jnr-ffi/1.0.7/jnr-ffi-1.0.7.jar:/root/.m2/repository/org/jenkins-ci/ui/bootstrap/1.3.2/bootstrap-1.3.2-core-assets.jar:/root/.m2/repository/javax/inject/javax.inject/1/javax.inject-1.jar:/root/.m2/repository/commons-jelly/commons-jelly-tags-fmt/1.0/commons-jelly-tags-fmt-1.0.jar:/root/.m2/repository/org/jenkins-ci/ui/jquery-detached/1.2.1/jquery-detached-1.2.1-core-assets.jar:/root/.m2/repository/org/jenkins-ci/plugins/display-url-api/0.2/display-url-api-0.2.jar:/root/.m2/repository/org/eclipse/jetty/jetty-security/9.4.5.v20170502/jetty-security-9.4.5.v20170502.jar:/root/.m2/repository/com/google/code/findbugs/annotations/3.0.0/annotations-3.0.0.jar:/root/.m2/repository/com/github/jnr/jffi/1.2.7/jffi-1.2.7-native.jar:/root/.m2/repository/javax/servlet/jstl/1.1.0/jstl-1.1.0.jar:/root/.m2/repository/org/jenkins-ci/test-annotations/1.2/test-annotations-1.2.jar:/root/.m2/repository/org/kohsuke/trilead-putty-extension/1.2/trilead-putty-extension-1.2.jar:/root/.m2/repository/jaxen/jaxen/1.1-beta-11/jaxen-1.1-beta-11.jar:/root/.m2/repository/org/w3c/css/sac/1.3/sac-1.3.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/jvnet/winp/winp/1.22/winp-1.22.jar:/root/.m2/repository/org/jenkins-ci/commons-jelly/1.1-jenkins-20120928/commons-jelly-1.1-jenkins-20120928.jar:/root/.m2/repository/org/kohsuke/stapler/stapler-adjunct-zeroclipboard/1.3.5-1/stapler-adjunct-zeroclipboard-1.3.5-1.jar:/root/.m2/repository/org/jenkins-ci/plugins/workflow/workflow-support/2.14/workflow-support-2.14-tests.jar:/root/.m2/repository/jfree/jcommon/1.0.12/jcommon-1.0.12.jar:/root/.m2/repository/org/springframework/spring-webmvc/2.5.6.SEC03/spring-webmvc-2.5.6.SEC03.jar:/root/.m2/repository/org/jenkins-ci/plugins/script-security/1.30/script-security-1.30.jar:/root/.m2/repository/org/jenkins-ci/plugins/matrix-project/1.3/matrix-project-1.3.jar:/root/.m2/repository/org/codehaus/mojo/animal-sniffer-annotations/1.14/animal-sniffer-annotations-1.14.jar:/root/.m2/repository/org/jenkins-ci/modules/launchd-slave-installer/1.2/launchd-slave-installer-1.2.jar:/root/.m2/repository/org/jenkins-ci/modules/windows-slave-installer/1.6/windows-slave-installer-1.6.jar:/root/.m2/repository/org/jvnet/hudson/activation/1.1.1-hudson-1/activation-1.1.1-hudson-1.jar:/root/.m2/repository/org/jenkins-ci/main/jenkins-core/2.7.3/jenkins-core-2.7.3.jar:/root/.m2/repository/com/github/jnr/jnr-posix/3.0.1/jnr-posix-3.0.1.jar:/root/.m2/repository/commons-jelly/commons-jelly-tags-xml/1.1/commons-jelly-tags-xml-1.1.jar:/root/.m2/repository/org/jenkins-ci/annotation-indexer/1.11/annotation-indexer-1.11.jar:/root/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar:/root/.m2/repository/commons-lang/commons-lang/2.6/commons-lang-2.6.jar:/root/.m2/repository/org/apache/ant/ant-launcher/1.8.4/ant-launcher-1.8.4.jar:/root/.m2/repository/org/jenkins-ci/task-reactor/1.4/task-reactor-1.4.jar:/root/.m2/repository/com/sun/solaris/embedded_su4j/1.1/embedded_su4j-1.1.jar:/root/.m2/repository/org/ow2/asm/asm-util/4.0/asm-util-4.0.jar:/root/.m2/repository/org/jenkins-ci/plugins/scm-api/2.0.8/scm-api-2.0.8.jar:/root/.m2/repository/org/jvnet/robust-http-client/robust-http-client/1.2/robust-http-client-1.2.jar:/root/.m2/repository/org/jenkins-ci/symbol-annotation/1.7/symbol-annotation-1.7.jar:/root/.m2/repository/junit/junit/4.12/junit-4.12.jar:/root/.m2/repository/org/acegisecurity/acegi-security/1.0.7/acegi-security-1.0.7.jar:/root/.m2/repository/org/kohsuke/asm5/5.0.1/asm5-5.0.1.jar:/root/.m2/repository/org/springframework/spring-dao/1.2.9/spring-dao-1.2.9.jar:/root/.m2/repository/org/eclipse/jetty/jetty-http/9.4.5.v20170502/jetty-http-9.4.5.v20170502.jar:/root/.m2/repository/org/kohsuke/stapler/stapler-jelly/1.243/stapler-jelly-1.243.jar:/root/.m2/repository/org/mindrot/jbcrypt/0.3m/jbcrypt-0.3m.jar:/root/.m2/repository/com/google/guava/guava/11.0.1/guava-11.0.1.jar:/root/.m2/repository/org/springframework/spring-context/2.5.6.SEC03/spring-context-2.5.6.SEC03.jar:/root/.m2/repository/org/codehaus/groovy/groovy-all/2.4.7/groovy-all-2.4.7.jar:/root/.m2/repository/org/kohsuke/libpam4j/1.8/libpam4j-1.8.jar]
+[16] INFO AstorMain - Running Astor on a JDK at /usr/lib/jvm/java-8-openjdk-amd64/jre
+[25] INFO main - Source folders: [/workdir/jGenProg_vul4j_jenkinsci_junit-plugin_VUL4J-56/./src/main/java]
+[38] INFO main - Source Test folders: [/workdir/jGenProg_vul4j_jenkinsci_junit-plugin_VUL4J-56/./src/test/java]
+[3019] INFO AstorCoreEngine - ---- Creating spoon model
+[3112] INFO MutationSupporter - Creating model,  Code location from working folder: /workdir/jGenProg_vul4j_jenkinsci_junit-plugin_VUL4J-56/./src/main/java
+[3112] INFO MutationSupporter - building model: /workdir/jGenProg_vul4j_jenkinsci_junit-plugin_VUL4J-56/./src/main/java, compliance level: 8
+[3128] INFO MutationSupporter - Classpath (Dependencies) for building SpoonModel: [/root/.m2/repository/org/jvnet/localizer/localizer/1.23/localizer-1.23.jar, /root/.m2/repository/com/github/stephenc/findbugs/findbugs-annotations/1.3.9-1/findbugs-annotations-1.3.9-1.jar, /root/.m2/repository/org/jenkins-ci/plugins/workflow/workflow-support/2.14/workflow-support-2.14.jar, /root/.m2/repository/org/ow2/asm/asm-analysis/4.0/asm-analysis-4.0.jar, /root/.m2/repository/org/jenkins-ci/plugins/workflow/workflow-durable-task-step/2.13/workflow-durable-task-step-2.13.jar, /root/.m2/repository/org/ow2/asm/asm-tree/4.0/asm-tree-4.0.jar, /root/.m2/repository/org/mockito/mockito-core/1.8.5/mockito-core-1.8.5.jar, /root/.m2/repository/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0.jar, /root/.m2/repository/xerces/xercesImpl/2.11.0/xercesImpl-2.11.0.jar, /root/.m2/repository/commons-httpclient/commons-httpclient/3.1/commons-httpclient-3.1.jar, /root/.m2/repository/antlr/antlr/2.7.6/antlr-2.7.6.jar, /root/.m2/repository/jfree/jfreechart/1.0.9/jfreechart-1.0.9.jar, /root/.m2/repository/org/jenkins-ci/jmdns/3.4.0-jenkins-3/jmdns-3.4.0-jenkins-3.jar, /root/.m2/repository/org/jenkins-ci/ui/handlebars/1.1.1/handlebars-1.1.1-core-assets.jar, /root/.m2/repository/org/jenkins-ci/plugins/junit/1.3/junit-1.3.jar, /root/.m2/repository/org/eclipse/jetty/websocket/websocket-client/9.2.12.v20150709/websocket-client-9.2.12.v20150709.jar, /root/.m2/repository/com/google/inject/guice/4.0-beta/guice-4.0-beta.jar, /root/.m2/repository/com/sun/xml/txw2/txw2/20110809/txw2-20110809.jar, /root/.m2/repository/org/jenkins-ci/plugins/workflow/workflow-cps/2.37/workflow-cps-2.37.jar, /root/.m2/repository/net/java/dev/jna/jna/4.2.1/jna-4.2.1.jar, /root/.m2/repository/org/jenkins-ci/ui/ace-editor/1.0.1/ace-editor-1.0.1.jar, /root/.m2/repository/org/ow2/asm/asm-commons/4.0/asm-commons-4.0.jar, /root/.m2/repository/net/java/sezpoz/sezpoz/1.11/sezpoz-1.11.jar, /root/.m2/repository/org/kohsuke/jinterop/j-interopdeps/2.0.6-kohsuke-1/j-interopdeps-2.0.6-kohsuke-1.jar, /root/.m2/repository/org/jenkins-ci/modules/slave-installer/1.5/slave-installer-1.5.jar, /root/.m2/repository/xml-apis/xml-apis/1.4.01/xml-apis-1.4.01.jar, /root/.m2/repository/org/kohsuke/groovy-sandbox/1.12/groovy-sandbox-1.12.jar, /root/.m2/repository/xalan/serializer/2.7.2/serializer-2.7.2.jar, /root/.m2/repository/org/kohsuke/access-modifier-annotation/1.4/access-modifier-annotation-1.4.jar, /root/.m2/repository/org/jvnet/libzfs/libzfs/0.5/libzfs-0.5.jar, /root/.m2/repository/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar, /root/.m2/repository/org/jenkins-ci/plugins/workflow/workflow-step-api/2.12/workflow-step-api-2.12.jar, /root/.m2/repository/org/ow2/asm/asm/4.0/asm-4.0.jar, /root/.m2/repository/org/slf4j/log4j-over-slf4j/1.7.25/log4j-over-slf4j-1.7.25.jar, /root/.m2/repository/org/bouncycastle/bcpkix-jdk15on/1.54/bcpkix-jdk15on-1.54.jar, /root/.m2/repository/org/jenkins-ci/modules/instance-identity/1.5.1/instance-identity-1.5.1.jar, /root/.m2/repository/javax/mail/mail/1.4.4/mail-1.4.4.jar, /root/.m2/repository/org/eclipse/jetty/websocket/websocket-api/9.2.12.v20150709/websocket-api-9.2.12.v20150709.jar, /root/.m2/repository/com/jcraft/jzlib/1.1.3-kohsuke-1/jzlib-1.1.3-kohsuke-1.jar, /root/.m2/repository/org/jenkins-ci/commons-jexl/1.1-jenkins-20111212/commons-jexl-1.1-jenkins-20111212.jar, /root/.m2/repository/org/jenkins-ci/plugins/workflow/workflow-basic-steps/2.6/workflow-basic-steps-2.6.jar, /root/.m2/repository/com/github/jnr/jnr-constants/0.8.5/jnr-constants-0.8.5.jar, /root/.m2/repository/javax/annotation/javax.annotation-api/1.2/javax.annotation-api-1.2.jar, /root/.m2/repository/org/jenkins-ci/plugins/pipeline-stage-step/2.2/pipeline-stage-step-2.2.jar, /root/.m2/repository/org/kohsuke/windows-package-checker/1.2/windows-package-checker-1.2.jar, /root/.m2/repository/org/jenkins-ci/plugins/mailer/1.18/mailer-1.18.jar, /root/.m2/repository/org/jenkins-ci/dom4j/dom4j/1.6.1-jenkins-4/dom4j-1.6.1-jenkins-4.jar, /root/.m2/repository/org/codehaus/woodstox/wstx-asl/3.2.9/wstx-asl-3.2.9.jar, /root/.m2/repository/org/fusesource/jansi/jansi/1.11/jansi-1.11.jar, /root/.m2/repository/org/jenkins-ci/main/jenkins-war/2.7.3/jenkins-war-2.7.3.war, /root/.m2/repository/org/apache/commons/commons-compress/1.10/commons-compress-1.10.jar, /root/.m2/repository/relaxngDatatype/relaxngDatatype/20020414/relaxngDatatype-20020414.jar, /root/.m2/repository/commons-io/commons-io/2.4/commons-io-2.4.jar, /root/.m2/repository/com/cloudbees/diff4j/1.2/diff4j-1.2.jar, /root/.m2/repository/org/jenkins-ci/main/jenkins-test-harness/2.31/jenkins-test-harness-2.31.jar, /root/.m2/repository/org/eclipse/jetty/jetty-server/9.4.5.v20170502/jetty-server-9.4.5.v20170502.jar, /root/.m2/repository/org/jenkins-ci/main/remoting/2.60/remoting-2.60.jar, /root/.m2/repository/org/jenkins-ci/plugins/workflow/workflow-job/2.11.1/workflow-job-2.11.1.jar, /root/.m2/repository/com/google/code/findbugs/jsr305/1.3.9/jsr305-1.3.9.jar, /root/.m2/repository/args4j/args4j/2.0.31/args4j-2.0.31.jar, /root/.m2/repository/org/kohsuke/stapler/stapler-groovy/1.243/stapler-groovy-1.243.jar, /root/.m2/repository/org/eclipse/jetty/websocket/websocket-common/9.2.12.v20150709/websocket-common-9.2.12.v20150709.jar, /root/.m2/repository/org/jenkins-ci/plugins/durable-task/1.14/durable-task-1.14.jar, /root/.m2/repository/org/springframework/spring-web/2.5.6.SEC03/spring-web-2.5.6.SEC03.jar, /root/.m2/repository/org/hamcrest/hamcrest-library/1.3/hamcrest-library-1.3.jar, /root/.m2/repository/org/objenesis/objenesis/1.0/objenesis-1.0.jar, /root/.m2/repository/com/cloudbees/groovy-cps/1.17/groovy-cps-1.17.jar, /root/.m2/repository/org/kohsuke/stapler/stapler-adjunct-timeline/1.4/stapler-adjunct-timeline-1.4.jar, /root/.m2/repository/org/jenkins-ci/modules/upstart-slave-installer/1.1/upstart-slave-installer-1.1.jar, /root/.m2/repository/net/sourceforge/nekohtml/nekohtml/1.9.22/nekohtml-1.9.22.jar, /root/.m2/repository/com/github/jnr/jnr-x86asm/1.0.2/jnr-x86asm-1.0.2.jar, /root/.m2/repository/javax/xml/stream/stax-api/1.0-2/stax-api-1.0-2.jar, /root/.m2/repository/org/jboss/marshalling/jboss-marshalling/1.4.9.Final/jboss-marshalling-1.4.9.Final.jar, /root/.m2/repository/org/jenkins-ci/main/cli/2.7.3/cli-2.7.3.jar, /root/.m2/repository/org/jvnet/tiger-types/2.2/tiger-types-2.2.jar, /root/.m2/repository/org/kohsuke/stapler/stapler/1.243/stapler-1.243.jar, /root/.m2/repository/jline/jline/2.12/jline-2.12.jar, /root/.m2/repository/org/jvnet/hudson/jtidy/4aug2000r7-dev-hudson-1/jtidy-4aug2000r7-dev-hudson-1.jar, /root/.m2/repository/org/kohsuke/stapler/stapler-jrebel/1.243/stapler-jrebel-1.243.jar, /root/.m2/repository/org/jenkins-ci/modules/ssh-cli-auth/1.2/ssh-cli-auth-1.2.jar, /root/.m2/repository/org/jruby/ext/posix/jna-posix/1.0.3-jenkins-1/jna-posix-1.0.3-jenkins-1.jar, /root/.m2/repository/net/sourceforge/cssparser/cssparser/0.9.16/cssparser-0.9.16.jar, /root/.m2/repository/org/kohsuke/stapler/stapler-adjunct-codemirror/1.3/stapler-adjunct-codemirror-1.3.jar, /root/.m2/repository/org/jvnet/hudson/embedded-rhino-debugger/1.2/embedded-rhino-debugger-1.2.jar, /root/.m2/repository/org/jenkins-ci/constant-pool-scanner/1.2/constant-pool-scanner-1.2.jar, /root/.m2/repository/commons-discovery/commons-discovery/0.4/commons-discovery-0.4.jar, /root/.m2/repository/oro/oro/2.0.8/oro-2.0.8.jar, /root/.m2/repository/org/apache/sshd/sshd-core/0.8.0/sshd-core-0.8.0.jar, /root/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar, /root/.m2/repository/org/apache/ant/ant/1.8.4/ant-1.8.4.jar, /root/.m2/repository/org/jenkins-ci/modules/sshd/1.6/sshd-1.6.jar, /root/.m2/repository/org/jvnet/hudson/xstream/1.4.7-jenkins-1/xstream-1.4.7-jenkins-1.jar, /root/.m2/repository/org/bouncycastle/bcprov-jdk15on/1.54/bcprov-jdk15on-1.54.jar, /root/.m2/repository/org/eclipse/jetty/jetty-servlet/9.4.5.v20170502/jetty-servlet-9.4.5.v20170502.jar, /root/.m2/repository/org/slf4j/slf4j-jdk14/1.7.25/slf4j-jdk14-1.7.25.jar, /root/.m2/repository/org/jenkins-ci/bytecode-compatibility-transformer/1.8/bytecode-compatibility-transformer-1.8.jar, /root/.m2/repository/org/jenkins-ci/main/jenkins-test-harness-htmlunit/2.18-1/jenkins-test-harness-htmlunit-2.18-1.jar, /root/.m2/repository/stax/stax-api/1.0.1/stax-api-1.0.1.jar, /root/.m2/repository/org/samba/jcifs/jcifs/1.2.19/jcifs-1.2.19.jar, /root/.m2/repository/xalan/xalan/2.7.2/xalan-2.7.2.jar, /root/.m2/repository/org/jenkins-ci/modules/systemd-slave-installer/1.1/systemd-slave-installer-1.1.jar, /root/.m2/repository/org/slf4j/jcl-over-slf4j/1.7.25/jcl-over-slf4j-1.7.25.jar, /root/.m2/repository/net/sf/ezmorph/ezmorph/1.0.6/ezmorph-1.0.6.jar, /root/.m2/repository/org/apache/mina/mina-core/2.0.5/mina-core-2.0.5.jar, /root/.m2/repository/org/jboss/marshalling/jboss-marshalling-river/1.4.9.Final/jboss-marshalling-river-1.4.9.Final.jar, /root/.m2/repository/org/jenkins-ci/crypto-util/1.1/crypto-util-1.1.jar, /root/.m2/repository/commons-beanutils/commons-beanutils/1.8.3/commons-beanutils-1.8.3.jar, /root/.m2/repository/org/jvnet/hudson/commons-jelly-tags-define/1.0.1-hudson-20071021/commons-jelly-tags-define-1.0.1-hudson-20071021.jar, /root/.m2/repository/org/kohsuke/jinterop/j-interop/2.0.6-kohsuke-1/j-interop-2.0.6-kohsuke-1.jar, /root/.m2/repository/org/springframework/spring-core/2.5.6.SEC03/spring-core-2.5.6.SEC03.jar, /root/.m2/repository/org/eclipse/jetty/jetty-io/9.4.5.v20170502/jetty-io-9.4.5.v20170502.jar, /root/.m2/repository/org/kohsuke/akuma/1.10/akuma-1.10.jar, /root/.m2/repository/org/kohsuke/stapler/json-lib/2.4-jenkins-2/json-lib-2.4-jenkins-2.jar, /root/.m2/repository/xpp3/xpp3/1.1.4c/xpp3-1.1.4c.jar, /root/.m2/repository/org/jenkins-ci/ui/jquery-detached/1.2.1/jquery-detached-1.2.1.jar, /root/.m2/repository/org/jenkins-ci/plugins/workflow/workflow-scm-step/2.4/workflow-scm-step-2.4.jar, /root/.m2/repository/org/eclipse/jetty/jetty-webapp/9.4.5.v20170502/jetty-webapp-9.4.5.v20170502.jar, /root/.m2/repository/org/apache/commons/commons-lang3/3.4/commons-lang3-3.4.jar, /root/.m2/repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar, /root/.m2/repository/org/springframework/spring-jdbc/1.2.9/spring-jdbc-1.2.9.jar, /root/.m2/repository/org/netbeans/modules/org-netbeans-insane/RELEASE72/org-netbeans-insane-RELEASE72.jar, /root/.m2/repository/org/eclipse/jetty/jetty-util/9.4.5.v20170502/jetty-util-9.4.5.v20170502.jar, /root/.m2/repository/commons-collections/commons-collections/3.2.1/commons-collections-3.2.1.jar, /root/.m2/repository/org/springframework/spring-context-support/2.5.6.SEC03/spring-context-support-2.5.6.SEC03.jar, /root/.m2/repository/commons-fileupload/commons-fileupload/1.3.1-jenkins-1/commons-fileupload-1.3.1-jenkins-1.jar, /root/.m2/repository/com/infradna/tool/bridge-method-annotation/1.13/bridge-method-annotation-1.13.jar, /root/.m2/repository/org/jenkins-ci/plugins/workflow/workflow-api/2.22/workflow-api-2.22.jar, /root/.m2/repository/net/jcip/jcip-annotations/1.0/jcip-annotations-1.0.jar, /root/.m2/repository/com/github/jnr/jffi/1.2.7/jffi-1.2.7.jar, /root/.m2/repository/org/jenkins-ci/plugins/workflow/workflow-cps/2.37/workflow-cps-2.37-tests.jar, /root/.m2/repository/commons-codec/commons-codec/1.8/commons-codec-1.8.jar, /root/.m2/repository/org/jenkins-ci/plugins/structs/1.7/structs-1.7.jar, /root/.m2/repository/org/springframework/spring-beans/2.5.6.SEC03/spring-beans-2.5.6.SEC03.jar, /root/.m2/repository/commons-digester/commons-digester/2.1/commons-digester-2.1.jar, /root/.m2/repository/org/jenkins-ci/plugins/icon-shim/icon-set/1.0.5/icon-set-1.0.5.jar, /root/.m2/repository/org/jenkins-ci/trilead-ssh2/build217-jenkins-8/trilead-ssh2-build217-jenkins-8.jar, /root/.m2/repository/org/eclipse/jetty/jetty-xml/9.4.5.v20170502/jetty-xml-9.4.5.v20170502.jar, /root/.m2/repository/org/springframework/spring-aop/2.5.6.SEC03/spring-aop-2.5.6.SEC03.jar, /root/.m2/repository/org/jenkins-ci/memory-monitor/1.9/memory-monitor-1.9.jar, /root/.m2/repository/org/jenkins-ci/version-number/1.1/version-number-1.1.jar, /root/.m2/repository/com/github/jnr/jnr-ffi/1.0.7/jnr-ffi-1.0.7.jar, /root/.m2/repository/org/jenkins-ci/ui/bootstrap/1.3.2/bootstrap-1.3.2-core-assets.jar, /root/.m2/repository/javax/inject/javax.inject/1/javax.inject-1.jar, /root/.m2/repository/commons-jelly/commons-jelly-tags-fmt/1.0/commons-jelly-tags-fmt-1.0.jar, /root/.m2/repository/org/jenkins-ci/ui/jquery-detached/1.2.1/jquery-detached-1.2.1-core-assets.jar, /root/.m2/repository/org/jenkins-ci/plugins/display-url-api/0.2/display-url-api-0.2.jar, /root/.m2/repository/org/eclipse/jetty/jetty-security/9.4.5.v20170502/jetty-security-9.4.5.v20170502.jar, /root/.m2/repository/com/google/code/findbugs/annotations/3.0.0/annotations-3.0.0.jar, /root/.m2/repository/com/github/jnr/jffi/1.2.7/jffi-1.2.7-native.jar, /root/.m2/repository/javax/servlet/jstl/1.1.0/jstl-1.1.0.jar, /root/.m2/repository/org/jenkins-ci/test-annotations/1.2/test-annotations-1.2.jar, /root/.m2/repository/org/kohsuke/trilead-putty-extension/1.2/trilead-putty-extension-1.2.jar, /root/.m2/repository/jaxen/jaxen/1.1-beta-11/jaxen-1.1-beta-11.jar, /root/.m2/repository/org/w3c/css/sac/1.3/sac-1.3.jar, /root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar, /root/.m2/repository/org/jvnet/winp/winp/1.22/winp-1.22.jar, /root/.m2/repository/org/jenkins-ci/commons-jelly/1.1-jenkins-20120928/commons-jelly-1.1-jenkins-20120928.jar, /root/.m2/repository/org/kohsuke/stapler/stapler-adjunct-zeroclipboard/1.3.5-1/stapler-adjunct-zeroclipboard-1.3.5-1.jar, /root/.m2/repository/org/jenkins-ci/plugins/workflow/workflow-support/2.14/workflow-support-2.14-tests.jar, /root/.m2/repository/jfree/jcommon/1.0.12/jcommon-1.0.12.jar, /root/.m2/repository/org/springframework/spring-webmvc/2.5.6.SEC03/spring-webmvc-2.5.6.SEC03.jar, /root/.m2/repository/org/jenkins-ci/plugins/script-security/1.30/script-security-1.30.jar, /root/.m2/repository/org/jenkins-ci/plugins/matrix-project/1.3/matrix-project-1.3.jar, /root/.m2/repository/org/codehaus/mojo/animal-sniffer-annotations/1.14/animal-sniffer-annotations-1.14.jar, /root/.m2/repository/org/jenkins-ci/modules/launchd-slave-installer/1.2/launchd-slave-installer-1.2.jar, /root/.m2/repository/org/jenkins-ci/modules/windows-slave-installer/1.6/windows-slave-installer-1.6.jar, /root/.m2/repository/org/jvnet/hudson/activation/1.1.1-hudson-1/activation-1.1.1-hudson-1.jar, /root/.m2/repository/org/jenkins-ci/main/jenkins-core/2.7.3/jenkins-core-2.7.3.jar, /root/.m2/repository/com/github/jnr/jnr-posix/3.0.1/jnr-posix-3.0.1.jar, /root/.m2/repository/commons-jelly/commons-jelly-tags-xml/1.1/commons-jelly-tags-xml-1.1.jar, /root/.m2/repository/org/jenkins-ci/annotation-indexer/1.11/annotation-indexer-1.11.jar, /root/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar, /root/.m2/repository/commons-lang/commons-lang/2.6/commons-lang-2.6.jar, /root/.m2/repository/org/apache/ant/ant-launcher/1.8.4/ant-launcher-1.8.4.jar, /root/.m2/repository/org/jenkins-ci/task-reactor/1.4/task-reactor-1.4.jar, /root/.m2/repository/com/sun/solaris/embedded_su4j/1.1/embedded_su4j-1.1.jar, /root/.m2/repository/org/ow2/asm/asm-util/4.0/asm-util-4.0.jar, /root/.m2/repository/org/jenkins-ci/plugins/scm-api/2.0.8/scm-api-2.0.8.jar, /root/.m2/repository/org/jvnet/robust-http-client/robust-http-client/1.2/robust-http-client-1.2.jar, /root/.m2/repository/org/jenkins-ci/symbol-annotation/1.7/symbol-annotation-1.7.jar, /root/.m2/repository/junit/junit/4.12/junit-4.12.jar, /root/.m2/repository/org/acegisecurity/acegi-security/1.0.7/acegi-security-1.0.7.jar, /root/.m2/repository/org/kohsuke/asm5/5.0.1/asm5-5.0.1.jar, /root/.m2/repository/org/springframework/spring-dao/1.2.9/spring-dao-1.2.9.jar, /root/.m2/repository/org/eclipse/jetty/jetty-http/9.4.5.v20170502/jetty-http-9.4.5.v20170502.jar, /root/.m2/repository/org/kohsuke/stapler/stapler-jelly/1.243/stapler-jelly-1.243.jar, /root/.m2/repository/org/mindrot/jbcrypt/0.3m/jbcrypt-0.3m.jar, /root/.m2/repository/com/google/guava/guava/11.0.1/guava-11.0.1.jar, /root/.m2/repository/org/springframework/spring-context/2.5.6.SEC03/spring-context-2.5.6.SEC03.jar, /root/.m2/repository/org/codehaus/groovy/groovy-all/2.4.7/groovy-all-2.4.7.jar, /root/.m2/repository/org/kohsuke/libpam4j/1.8/libpam4j-1.8.jar]
+[18747] ERROR MutationSupporter - Problem compiling the model with compliance level 8
+[18747] ERROR MutationSupporter - The type AbstractTestResultAction collides with a package at /workdir/jGenProg_vul4j_jenkinsci_junit-plugin_VUL4J-56/src/main/java/hudson/tasks/test/AbstractTestResultAction.java:70
+spoon.compiler.ModelBuildingException: The type AbstractTestResultAction collides with a package at /workdir/jGenProg_vul4j_jenkinsci_junit-plugin_VUL4J-56/src/main/java/hudson/tasks/test/AbstractTestResultAction.java:70
+	at spoon.support.compiler.jdt.JDTBasedSpoonCompiler.report(JDTBasedSpoonCompiler.java:649)
+	at spoon.support.compiler.jdt.JDTBasedSpoonCompiler.reportProblems(JDTBasedSpoonCompiler.java:631)
+	at spoon.support.compiler.jdt.JDTBasedSpoonCompiler.build(JDTBasedSpoonCompiler.java:118)
+	at spoon.support.compiler.jdt.JDTBasedSpoonCompiler.build(JDTBasedSpoonCompiler.java:99)
+	at fr.inria.astor.core.manipulation.MutationSupporter.buildModel(MutationSupporter.java:85)
+	at fr.inria.astor.core.manipulation.MutationSupporter.buildSpoonModel(MutationSupporter.java:240)
+	at fr.inria.astor.core.solutionsearch.AstorCoreEngine.initModel(AstorCoreEngine.java:775)
+	at fr.inria.main.evolution.AstorMain.createEngine(AstorMain.java:113)
+	at fr.inria.main.evolution.AstorMain.run(AstorMain.java:173)
+	at fr.inria.main.evolution.AstorMain.execute(AstorMain.java:233)
+	at fr.inria.main.evolution.AstorMain.main(AstorMain.java:204)
+[18749] INFO MutationSupporter - Recompiling with compliance level 8
+[18749] INFO MutationSupporter - building model: /workdir/jGenProg_vul4j_jenkinsci_junit-plugin_VUL4J-56/./src/main/java, compliance level: 8
+[18756] INFO MutationSupporter - Classpath (Dependencies) for building SpoonModel: [/root/.m2/repository/org/jvnet/localizer/localizer/1.23/localizer-1.23.jar, /root/.m2/repository/com/github/stephenc/findbugs/findbugs-annotations/1.3.9-1/findbugs-annotations-1.3.9-1.jar, /root/.m2/repository/org/jenkins-ci/plugins/workflow/workflow-support/2.14/workflow-support-2.14.jar, /root/.m2/repository/org/ow2/asm/asm-analysis/4.0/asm-analysis-4.0.jar, /root/.m2/repository/org/jenkins-ci/plugins/workflow/workflow-durable-task-step/2.13/workflow-durable-task-step-2.13.jar, /root/.m2/repository/org/ow2/asm/asm-tree/4.0/asm-tree-4.0.jar, /root/.m2/repository/org/mockito/mockito-core/1.8.5/mockito-core-1.8.5.jar, /root/.m2/repository/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0.jar, /root/.m2/repository/xerces/xercesImpl/2.11.0/xercesImpl-2.11.0.jar, /root/.m2/repository/commons-httpclient/commons-httpclient/3.1/commons-httpclient-3.1.jar, /root/.m2/repository/antlr/antlr/2.7.6/antlr-2.7.6.jar, /root/.m2/repository/jfree/jfreechart/1.0.9/jfreechart-1.0.9.jar, /root/.m2/repository/org/jenkins-ci/jmdns/3.4.0-jenkins-3/jmdns-3.4.0-jenkins-3.jar, /root/.m2/repository/org/jenkins-ci/ui/handlebars/1.1.1/handlebars-1.1.1-core-assets.jar, /root/.m2/repository/org/jenkins-ci/plugins/junit/1.3/junit-1.3.jar, /root/.m2/repository/org/eclipse/jetty/websocket/websocket-client/9.2.12.v20150709/websocket-client-9.2.12.v20150709.jar, /root/.m2/repository/com/google/inject/guice/4.0-beta/guice-4.0-beta.jar, /root/.m2/repository/com/sun/xml/txw2/txw2/20110809/txw2-20110809.jar, /root/.m2/repository/org/jenkins-ci/plugins/workflow/workflow-cps/2.37/workflow-cps-2.37.jar, /root/.m2/repository/net/java/dev/jna/jna/4.2.1/jna-4.2.1.jar, /root/.m2/repository/org/jenkins-ci/ui/ace-editor/1.0.1/ace-editor-1.0.1.jar, /root/.m2/repository/org/ow2/asm/asm-commons/4.0/asm-commons-4.0.jar, /root/.m2/repository/net/java/sezpoz/sezpoz/1.11/sezpoz-1.11.jar, /root/.m2/repository/org/kohsuke/jinterop/j-interopdeps/2.0.6-kohsuke-1/j-interopdeps-2.0.6-kohsuke-1.jar, /root/.m2/repository/org/jenkins-ci/modules/slave-installer/1.5/slave-installer-1.5.jar, /root/.m2/repository/xml-apis/xml-apis/1.4.01/xml-apis-1.4.01.jar, /root/.m2/repository/org/kohsuke/groovy-sandbox/1.12/groovy-sandbox-1.12.jar, /root/.m2/repository/xalan/serializer/2.7.2/serializer-2.7.2.jar, /root/.m2/repository/org/kohsuke/access-modifier-annotation/1.4/access-modifier-annotation-1.4.jar, /root/.m2/repository/org/jvnet/libzfs/libzfs/0.5/libzfs-0.5.jar, /root/.m2/repository/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar, /root/.m2/repository/org/jenkins-ci/plugins/workflow/workflow-step-api/2.12/workflow-step-api-2.12.jar, /root/.m2/repository/org/ow2/asm/asm/4.0/asm-4.0.jar, /root/.m2/repository/org/slf4j/log4j-over-slf4j/1.7.25/log4j-over-slf4j-1.7.25.jar, /root/.m2/repository/org/bouncycastle/bcpkix-jdk15on/1.54/bcpkix-jdk15on-1.54.jar, /root/.m2/repository/org/jenkins-ci/modules/instance-identity/1.5.1/instance-identity-1.5.1.jar, /root/.m2/repository/javax/mail/mail/1.4.4/mail-1.4.4.jar, /root/.m2/repository/org/eclipse/jetty/websocket/websocket-api/9.2.12.v20150709/websocket-api-9.2.12.v20150709.jar, /root/.m2/repository/com/jcraft/jzlib/1.1.3-kohsuke-1/jzlib-1.1.3-kohsuke-1.jar, /root/.m2/repository/org/jenkins-ci/commons-jexl/1.1-jenkins-20111212/commons-jexl-1.1-jenkins-20111212.jar, /root/.m2/repository/org/jenkins-ci/plugins/workflow/workflow-basic-steps/2.6/workflow-basic-steps-2.6.jar, /root/.m2/repository/com/github/jnr/jnr-constants/0.8.5/jnr-constants-0.8.5.jar, /root/.m2/repository/javax/annotation/javax.annotation-api/1.2/javax.annotation-api-1.2.jar, /root/.m2/repository/org/jenkins-ci/plugins/pipeline-stage-step/2.2/pipeline-stage-step-2.2.jar, /root/.m2/repository/org/kohsuke/windows-package-checker/1.2/windows-package-checker-1.2.jar, /root/.m2/repository/org/jenkins-ci/plugins/mailer/1.18/mailer-1.18.jar, /root/.m2/repository/org/jenkins-ci/dom4j/dom4j/1.6.1-jenkins-4/dom4j-1.6.1-jenkins-4.jar, /root/.m2/repository/org/codehaus/woodstox/wstx-asl/3.2.9/wstx-asl-3.2.9.jar, /root/.m2/repository/org/fusesource/jansi/jansi/1.11/jansi-1.11.jar, /root/.m2/repository/org/jenkins-ci/main/jenkins-war/2.7.3/jenkins-war-2.7.3.war, /root/.m2/repository/org/apache/commons/commons-compress/1.10/commons-compress-1.10.jar, /root/.m2/repository/relaxngDatatype/relaxngDatatype/20020414/relaxngDatatype-20020414.jar, /root/.m2/repository/commons-io/commons-io/2.4/commons-io-2.4.jar, /root/.m2/repository/com/cloudbees/diff4j/1.2/diff4j-1.2.jar, /root/.m2/repository/org/jenkins-ci/main/jenkins-test-harness/2.31/jenkins-test-harness-2.31.jar, /root/.m2/repository/org/eclipse/jetty/jetty-server/9.4.5.v20170502/jetty-server-9.4.5.v20170502.jar, /root/.m2/repository/org/jenkins-ci/main/remoting/2.60/remoting-2.60.jar, /root/.m2/repository/org/jenkins-ci/plugins/workflow/workflow-job/2.11.1/workflow-job-2.11.1.jar, /root/.m2/repository/com/google/code/findbugs/jsr305/1.3.9/jsr305-1.3.9.jar, /root/.m2/repository/args4j/args4j/2.0.31/args4j-2.0.31.jar, /root/.m2/repository/org/kohsuke/stapler/stapler-groovy/1.243/stapler-groovy-1.243.jar, /root/.m2/repository/org/eclipse/jetty/websocket/websocket-common/9.2.12.v20150709/websocket-common-9.2.12.v20150709.jar, /root/.m2/repository/org/jenkins-ci/plugins/durable-task/1.14/durable-task-1.14.jar, /root/.m2/repository/org/springframework/spring-web/2.5.6.SEC03/spring-web-2.5.6.SEC03.jar, /root/.m2/repository/org/hamcrest/hamcrest-library/1.3/hamcrest-library-1.3.jar, /root/.m2/repository/org/objenesis/objenesis/1.0/objenesis-1.0.jar, /root/.m2/repository/com/cloudbees/groovy-cps/1.17/groovy-cps-1.17.jar, /root/.m2/repository/org/kohsuke/stapler/stapler-adjunct-timeline/1.4/stapler-adjunct-timeline-1.4.jar, /root/.m2/repository/org/jenkins-ci/modules/upstart-slave-installer/1.1/upstart-slave-installer-1.1.jar, /root/.m2/repository/net/sourceforge/nekohtml/nekohtml/1.9.22/nekohtml-1.9.22.jar, /root/.m2/repository/com/github/jnr/jnr-x86asm/1.0.2/jnr-x86asm-1.0.2.jar, /root/.m2/repository/javax/xml/stream/stax-api/1.0-2/stax-api-1.0-2.jar, /root/.m2/repository/org/jboss/marshalling/jboss-marshalling/1.4.9.Final/jboss-marshalling-1.4.9.Final.jar, /root/.m2/repository/org/jenkins-ci/main/cli/2.7.3/cli-2.7.3.jar, /root/.m2/repository/org/jvnet/tiger-types/2.2/tiger-types-2.2.jar, /root/.m2/repository/org/kohsuke/stapler/stapler/1.243/stapler-1.243.jar, /root/.m2/repository/jline/jline/2.12/jline-2.12.jar, /root/.m2/repository/org/jvnet/hudson/jtidy/4aug2000r7-dev-hudson-1/jtidy-4aug2000r7-dev-hudson-1.jar, /root/.m2/repository/org/kohsuke/stapler/stapler-jrebel/1.243/stapler-jrebel-1.243.jar, /root/.m2/repository/org/jenkins-ci/modules/ssh-cli-auth/1.2/ssh-cli-auth-1.2.jar, /root/.m2/repository/org/jruby/ext/posix/jna-posix/1.0.3-jenkins-1/jna-posix-1.0.3-jenkins-1.jar, /root/.m2/repository/net/sourceforge/cssparser/cssparser/0.9.16/cssparser-0.9.16.jar, /root/.m2/repository/org/kohsuke/stapler/stapler-adjunct-codemirror/1.3/stapler-adjunct-codemirror-1.3.jar, /root/.m2/repository/org/jvnet/hudson/embedded-rhino-debugger/1.2/embedded-rhino-debugger-1.2.jar, /root/.m2/repository/org/jenkins-ci/constant-pool-scanner/1.2/constant-pool-scanner-1.2.jar, /root/.m2/repository/commons-discovery/commons-discovery/0.4/commons-discovery-0.4.jar, /root/.m2/repository/oro/oro/2.0.8/oro-2.0.8.jar, /root/.m2/repository/org/apache/sshd/sshd-core/0.8.0/sshd-core-0.8.0.jar, /root/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar, /root/.m2/repository/org/apache/ant/ant/1.8.4/ant-1.8.4.jar, /root/.m2/repository/org/jenkins-ci/modules/sshd/1.6/sshd-1.6.jar, /root/.m2/repository/org/jvnet/hudson/xstream/1.4.7-jenkins-1/xstream-1.4.7-jenkins-1.jar, /root/.m2/repository/org/bouncycastle/bcprov-jdk15on/1.54/bcprov-jdk15on-1.54.jar, /root/.m2/repository/org/eclipse/jetty/jetty-servlet/9.4.5.v20170502/jetty-servlet-9.4.5.v20170502.jar, /root/.m2/repository/org/slf4j/slf4j-jdk14/1.7.25/slf4j-jdk14-1.7.25.jar, /root/.m2/repository/org/jenkins-ci/bytecode-compatibility-transformer/1.8/bytecode-compatibility-transformer-1.8.jar, /root/.m2/repository/org/jenkins-ci/main/jenkins-test-harness-htmlunit/2.18-1/jenkins-test-harness-htmlunit-2.18-1.jar, /root/.m2/repository/stax/stax-api/1.0.1/stax-api-1.0.1.jar, /root/.m2/repository/org/samba/jcifs/jcifs/1.2.19/jcifs-1.2.19.jar, /root/.m2/repository/xalan/xalan/2.7.2/xalan-2.7.2.jar, /root/.m2/repository/org/jenkins-ci/modules/systemd-slave-installer/1.1/systemd-slave-installer-1.1.jar, /root/.m2/repository/org/slf4j/jcl-over-slf4j/1.7.25/jcl-over-slf4j-1.7.25.jar, /root/.m2/repository/net/sf/ezmorph/ezmorph/1.0.6/ezmorph-1.0.6.jar, /root/.m2/repository/org/apache/mina/mina-core/2.0.5/mina-core-2.0.5.jar, /root/.m2/repository/org/jboss/marshalling/jboss-marshalling-river/1.4.9.Final/jboss-marshalling-river-1.4.9.Final.jar, /root/.m2/repository/org/jenkins-ci/crypto-util/1.1/crypto-util-1.1.jar, /root/.m2/repository/commons-beanutils/commons-beanutils/1.8.3/commons-beanutils-1.8.3.jar, /root/.m2/repository/org/jvnet/hudson/commons-jelly-tags-define/1.0.1-hudson-20071021/commons-jelly-tags-define-1.0.1-hudson-20071021.jar, /root/.m2/repository/org/kohsuke/jinterop/j-interop/2.0.6-kohsuke-1/j-interop-2.0.6-kohsuke-1.jar, /root/.m2/repository/org/springframework/spring-core/2.5.6.SEC03/spring-core-2.5.6.SEC03.jar, /root/.m2/repository/org/eclipse/jetty/jetty-io/9.4.5.v20170502/jetty-io-9.4.5.v20170502.jar, /root/.m2/repository/org/kohsuke/akuma/1.10/akuma-1.10.jar, /root/.m2/repository/org/kohsuke/stapler/json-lib/2.4-jenkins-2/json-lib-2.4-jenkins-2.jar, /root/.m2/repository/xpp3/xpp3/1.1.4c/xpp3-1.1.4c.jar, /root/.m2/repository/org/jenkins-ci/ui/jquery-detached/1.2.1/jquery-detached-1.2.1.jar, /root/.m2/repository/org/jenkins-ci/plugins/workflow/workflow-scm-step/2.4/workflow-scm-step-2.4.jar, /root/.m2/repository/org/eclipse/jetty/jetty-webapp/9.4.5.v20170502/jetty-webapp-9.4.5.v20170502.jar, /root/.m2/repository/org/apache/commons/commons-lang3/3.4/commons-lang3-3.4.jar, /root/.m2/repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar, /root/.m2/repository/org/springframework/spring-jdbc/1.2.9/spring-jdbc-1.2.9.jar, /root/.m2/repository/org/netbeans/modules/org-netbeans-insane/RELEASE72/org-netbeans-insane-RELEASE72.jar, /root/.m2/repository/org/eclipse/jetty/jetty-util/9.4.5.v20170502/jetty-util-9.4.5.v20170502.jar, /root/.m2/repository/commons-collections/commons-collections/3.2.1/commons-collections-3.2.1.jar, /root/.m2/repository/org/springframework/spring-context-support/2.5.6.SEC03/spring-context-support-2.5.6.SEC03.jar, /root/.m2/repository/commons-fileupload/commons-fileupload/1.3.1-jenkins-1/commons-fileupload-1.3.1-jenkins-1.jar, /root/.m2/repository/com/infradna/tool/bridge-method-annotation/1.13/bridge-method-annotation-1.13.jar, /root/.m2/repository/org/jenkins-ci/plugins/workflow/workflow-api/2.22/workflow-api-2.22.jar, /root/.m2/repository/net/jcip/jcip-annotations/1.0/jcip-annotations-1.0.jar, /root/.m2/repository/com/github/jnr/jffi/1.2.7/jffi-1.2.7.jar, /root/.m2/repository/org/jenkins-ci/plugins/workflow/workflow-cps/2.37/workflow-cps-2.37-tests.jar, /root/.m2/repository/commons-codec/commons-codec/1.8/commons-codec-1.8.jar, /root/.m2/repository/org/jenkins-ci/plugins/structs/1.7/structs-1.7.jar, /root/.m2/repository/org/springframework/spring-beans/2.5.6.SEC03/spring-beans-2.5.6.SEC03.jar, /root/.m2/repository/commons-digester/commons-digester/2.1/commons-digester-2.1.jar, /root/.m2/repository/org/jenkins-ci/plugins/icon-shim/icon-set/1.0.5/icon-set-1.0.5.jar, /root/.m2/repository/org/jenkins-ci/trilead-ssh2/build217-jenkins-8/trilead-ssh2-build217-jenkins-8.jar, /root/.m2/repository/org/eclipse/jetty/jetty-xml/9.4.5.v20170502/jetty-xml-9.4.5.v20170502.jar, /root/.m2/repository/org/springframework/spring-aop/2.5.6.SEC03/spring-aop-2.5.6.SEC03.jar, /root/.m2/repository/org/jenkins-ci/memory-monitor/1.9/memory-monitor-1.9.jar, /root/.m2/repository/org/jenkins-ci/version-number/1.1/version-number-1.1.jar, /root/.m2/repository/com/github/jnr/jnr-ffi/1.0.7/jnr-ffi-1.0.7.jar, /root/.m2/repository/org/jenkins-ci/ui/bootstrap/1.3.2/bootstrap-1.3.2-core-assets.jar, /root/.m2/repository/javax/inject/javax.inject/1/javax.inject-1.jar, /root/.m2/repository/commons-jelly/commons-jelly-tags-fmt/1.0/commons-jelly-tags-fmt-1.0.jar, /root/.m2/repository/org/jenkins-ci/ui/jquery-detached/1.2.1/jquery-detached-1.2.1-core-assets.jar, /root/.m2/repository/org/jenkins-ci/plugins/display-url-api/0.2/display-url-api-0.2.jar, /root/.m2/repository/org/eclipse/jetty/jetty-security/9.4.5.v20170502/jetty-security-9.4.5.v20170502.jar, /root/.m2/repository/com/google/code/findbugs/annotations/3.0.0/annotations-3.0.0.jar, /root/.m2/repository/com/github/jnr/jffi/1.2.7/jffi-1.2.7-native.jar, /root/.m2/repository/javax/servlet/jstl/1.1.0/jstl-1.1.0.jar, /root/.m2/repository/org/jenkins-ci/test-annotations/1.2/test-annotations-1.2.jar, /root/.m2/repository/org/kohsuke/trilead-putty-extension/1.2/trilead-putty-extension-1.2.jar, /root/.m2/repository/jaxen/jaxen/1.1-beta-11/jaxen-1.1-beta-11.jar, /root/.m2/repository/org/w3c/css/sac/1.3/sac-1.3.jar, /root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar, /root/.m2/repository/org/jvnet/winp/winp/1.22/winp-1.22.jar, /root/.m2/repository/org/jenkins-ci/commons-jelly/1.1-jenkins-20120928/commons-jelly-1.1-jenkins-20120928.jar, /root/.m2/repository/org/kohsuke/stapler/stapler-adjunct-zeroclipboard/1.3.5-1/stapler-adjunct-zeroclipboard-1.3.5-1.jar, /root/.m2/repository/org/jenkins-ci/plugins/workflow/workflow-support/2.14/workflow-support-2.14-tests.jar, /root/.m2/repository/jfree/jcommon/1.0.12/jcommon-1.0.12.jar, /root/.m2/repository/org/springframework/spring-webmvc/2.5.6.SEC03/spring-webmvc-2.5.6.SEC03.jar, /root/.m2/repository/org/jenkins-ci/plugins/script-security/1.30/script-security-1.30.jar, /root/.m2/repository/org/jenkins-ci/plugins/matrix-project/1.3/matrix-project-1.3.jar, /root/.m2/repository/org/codehaus/mojo/animal-sniffer-annotations/1.14/animal-sniffer-annotations-1.14.jar, /root/.m2/repository/org/jenkins-ci/modules/launchd-slave-installer/1.2/launchd-slave-installer-1.2.jar, /root/.m2/repository/org/jenkins-ci/modules/windows-slave-installer/1.6/windows-slave-installer-1.6.jar, /root/.m2/repository/org/jvnet/hudson/activation/1.1.1-hudson-1/activation-1.1.1-hudson-1.jar, /root/.m2/repository/org/jenkins-ci/main/jenkins-core/2.7.3/jenkins-core-2.7.3.jar, /root/.m2/repository/com/github/jnr/jnr-posix/3.0.1/jnr-posix-3.0.1.jar, /root/.m2/repository/commons-jelly/commons-jelly-tags-xml/1.1/commons-jelly-tags-xml-1.1.jar, /root/.m2/repository/org/jenkins-ci/annotation-indexer/1.11/annotation-indexer-1.11.jar, /root/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar, /root/.m2/repository/commons-lang/commons-lang/2.6/commons-lang-2.6.jar, /root/.m2/repository/org/apache/ant/ant-launcher/1.8.4/ant-launcher-1.8.4.jar, /root/.m2/repository/org/jenkins-ci/task-reactor/1.4/task-reactor-1.4.jar, /root/.m2/repository/com/sun/solaris/embedded_su4j/1.1/embedded_su4j-1.1.jar, /root/.m2/repository/org/ow2/asm/asm-util/4.0/asm-util-4.0.jar, /root/.m2/repository/org/jenkins-ci/plugins/scm-api/2.0.8/scm-api-2.0.8.jar, /root/.m2/repository/org/jvnet/robust-http-client/robust-http-client/1.2/robust-http-client-1.2.jar, /root/.m2/repository/org/jenkins-ci/symbol-annotation/1.7/symbol-annotation-1.7.jar, /root/.m2/repository/junit/junit/4.12/junit-4.12.jar, /root/.m2/repository/org/acegisecurity/acegi-security/1.0.7/acegi-security-1.0.7.jar, /root/.m2/repository/org/kohsuke/asm5/5.0.1/asm5-5.0.1.jar, /root/.m2/repository/org/springframework/spring-dao/1.2.9/spring-dao-1.2.9.jar, /root/.m2/repository/org/eclipse/jetty/jetty-http/9.4.5.v20170502/jetty-http-9.4.5.v20170502.jar, /root/.m2/repository/org/kohsuke/stapler/stapler-jelly/1.243/stapler-jelly-1.243.jar, /root/.m2/repository/org/mindrot/jbcrypt/0.3m/jbcrypt-0.3m.jar, /root/.m2/repository/com/google/guava/guava/11.0.1/guava-11.0.1.jar, /root/.m2/repository/org/springframework/spring-context/2.5.6.SEC03/spring-context-2.5.6.SEC03.jar, /root/.m2/repository/org/codehaus/groovy/groovy-all/2.4.7/groovy-all-2.4.7.jar, /root/.m2/repository/org/kohsuke/libpam4j/1.8/libpam4j-1.8.jar]
+spoon.compiler.ModelBuildingException: The type AbstractTestResultAction collides with a package at /workdir/jGenProg_vul4j_jenkinsci_junit-plugin_VUL4J-56/src/main/java/hudson/tasks/test/AbstractTestResultAction.java:70
+	at spoon.support.compiler.jdt.JDTBasedSpoonCompiler.report(JDTBasedSpoonCompiler.java:649)
+	at spoon.support.compiler.jdt.JDTBasedSpoonCompiler.reportProblems(JDTBasedSpoonCompiler.java:631)
+	at spoon.support.compiler.jdt.JDTBasedSpoonCompiler.build(JDTBasedSpoonCompiler.java:118)
+	at spoon.support.compiler.jdt.JDTBasedSpoonCompiler.build(JDTBasedSpoonCompiler.java:99)
+	at fr.inria.astor.core.manipulation.MutationSupporter.buildModel(MutationSupporter.java:85)
+	at fr.inria.astor.core.manipulation.MutationSupporter.buildSpoonModel(MutationSupporter.java:253)
+	at fr.inria.astor.core.solutionsearch.AstorCoreEngine.initModel(AstorCoreEngine.java:775)
+	at fr.inria.main.evolution.AstorMain.createEngine(AstorMain.java:113)
+	at fr.inria.main.evolution.AstorMain.run(AstorMain.java:173)
+	at fr.inria.main.evolution.AstorMain.execute(AstorMain.java:233)
+	at fr.inria.main.evolution.AstorMain.main(AstorMain.java:204)
+[25644] ERROR MutationSupporter - Error compiling: The type AbstractTestResultAction collides with a package at /workdir/jGenProg_vul4j_jenkinsci_junit-plugin_VUL4J-56/src/main/java/hudson/tasks/test/AbstractTestResultAction.java:70
+[25756] ERROR MutationSupporter - Astor continues when model build fails. Classes created: 33
+[25800] INFO AstorCoreEngine - Number of CtTypes created: 33
+[25923] INFO AstorCoreEngine - Test retrieved from classes: 0
+[26151] INFO AstorCoreEngine - Setting up the max to 2280 milliseconds (2 sec)
+[26151] INFO AstorCoreEngine - ---- Initial suspicious size: 1
+[26310] INFO main - Total suspicious from FL: 1,  1
+[26311] INFO main - Total ModPoint created: 1
+[26311] INFO main - Creating program variant #1, [Variant id: 1, #gens: 1, #ops: 0, parent:-]
+[26311] INFO main - Run previously failing tests...
+[102420] INFO main - Failed tests: 1
+[102422] INFO AstorCoreEngine - The original fitness is : 1.0
+[111311] WARN ConfigurationProperties - ----------------------------
+[111312] INFO ConfigurationProperties - ---Configuration properties
+[111312] INFO ConfigurationProperties - p:lastJUnitVersion= ./examples/libs/junit-4.11.jar
+[111312] INFO ConfigurationProperties - p:alternativecompliancelevel= 8
+[111312] INFO ConfigurationProperties - p:ignoredTestCases= 
+[111312] INFO ConfigurationProperties - p:workingDirectory= /workdir/jGenProg_vul4j_jenkinsci_junit-plugin_VUL4J-56/./output_astor
+[111312] INFO ConfigurationProperties - p:manipulatesuper= false
+[111312] INFO ConfigurationProperties - p:validation= externalcmd
+[111312] INFO ConfigurationProperties - p:jvm4testexecution= /usr/lib/jvm/java-8-openjdk-amd64/bin
+[111312] INFO ConfigurationProperties - p:operatorspace= irr-statements
+[111312] INFO ConfigurationProperties - p:diffcontext= 0
+[111313] INFO ConfigurationProperties - p:binjavafolder= target/classes
+[111313] INFO ConfigurationProperties - p:synthesis_depth= 3
+[111313] INFO ConfigurationProperties - p:gzoltartestpackagetoexclude= junit.framework
+[111313] INFO ConfigurationProperties - p:skipfitnessinitialpopulation= false
+[111313] INFO ConfigurationProperties - p:evosuiteresultfolder= evosuite
+[111313] INFO ConfigurationProperties - p:flthreshold= 0.1
+[111313] INFO ConfigurationProperties - p:regressionforfaultlocalization= true
+[111313] INFO ConfigurationProperties - p:collectonlyusedmethod= false
+[111313] INFO ConfigurationProperties - p:preservelinenumbers= true
+[111313] INFO ConfigurationProperties - p:tmax2= 2280
+[111314] INFO ConfigurationProperties - p:tmax1= 10000
+[111316] INFO ConfigurationProperties - p:probagenmutation= false
+[111316] INFO ConfigurationProperties - p:nomodificationconvergence= 100
+[111316] INFO ConfigurationProperties - p:diff_type= relative
+[111316] INFO ConfigurationProperties - p:targetelementprocessor= statements
+[111317] INFO ConfigurationProperties - p:srctestfolder= src/test/java
+[111317] INFO ConfigurationProperties - p:forceExecuteRegression= false
+[111317] INFO ConfigurationProperties - p:clusteringfilename= clustering.csv
+[111317] INFO ConfigurationProperties - p:failing= hudson.tasks.junit.JUnitResultArchiverTest#testXxe
+[111317] INFO ConfigurationProperties - p:logtestexecution= false
+[111317] INFO ConfigurationProperties - p:evo_buggy_class= true
+[111317] INFO ConfigurationProperties - p:numberExecutions= 1
+[111317] INFO ConfigurationProperties - p:maxnumbersolutions= 1000000
+[111317] INFO ConfigurationProperties - p:evo_affected_by_op= true
+[111317] INFO ConfigurationProperties - p:population= 1
+[111319] INFO ConfigurationProperties - p:considerzerovaluesusp= false
+[111320] INFO ConfigurationProperties - p:maxCombinationVariableLimit= false
+[111320] INFO ConfigurationProperties - p:savesolution= true
+[111320] INFO ConfigurationProperties - p:javacompliancelevel= 8
+[111320] INFO ConfigurationProperties - p:x= x
+[111320] INFO ConfigurationProperties - p:uniqueoptogen= false
+[111320] INFO ConfigurationProperties - p:gzoltarpackagetonotinstrument= junit.framework
+[111320] INFO ConfigurationProperties - p:projectIdentifier= jenkinsci_junit-plugin-VUL4J-56
+[111320] INFO ConfigurationProperties - p:modificationpointnavigation= weight
+[111320] INFO ConfigurationProperties - p:stopfirst= true
+[111320] INFO ConfigurationProperties - p:multipointmodification= false
+[111320] INFO ConfigurationProperties - p:elementsToMutate= 10
+[111320] INFO ConfigurationProperties - p:jsonoutputname= astor_output
+[111320] INFO ConfigurationProperties - p:evoDSE= false
+[111321] INFO ConfigurationProperties - p:bintestfolder= target/test-classes
+[111321] INFO ConfigurationProperties - p:testbystep= false
+[111321] INFO ConfigurationProperties - p:version-location= ./math-version/
+[111321] INFO ConfigurationProperties - p:reintroduce= PARENTS:ORIGINAL
+[111321] INFO ConfigurationProperties - p:perfectdata= /script/../data/benchmarks/vul4j/perfectfl/VUL4J-56
+[111321] INFO ConfigurationProperties - p:executorjar= ./lib/jtestex7.jar
+[111321] INFO ConfigurationProperties - p:maxGeneration= 1000000
+[111321] INFO ConfigurationProperties - p:max_synthesis_step= 10000
+[111322] INFO ConfigurationProperties - p:projectinfocommand= com.github.tdurieux:project-config-maven-plugin:info
+[111322] INFO ConfigurationProperties - p:maxVarCombination= 1000
+[111322] INFO ConfigurationProperties - p:maxtime= 120
+[111323] INFO ConfigurationProperties - p:evosuitejar= ./lib/evosuite-master-1.0.4-SNAPSHOT.jar
+[111323] INFO ConfigurationProperties - p:jvmversion= 1.8.0_342
+[111323] INFO ConfigurationProperties - p:commandTrunk= 50000
+[111323] INFO ConfigurationProperties - p:faultlocalization= perfect
+[111323] INFO ConfigurationProperties - p:resetmodel= true
+[111323] INFO ConfigurationProperties - p:maxsuspcandidates= 1000
+[111323] INFO ConfigurationProperties - p:mode= jgenprog
+[111323] INFO ConfigurationProperties - p:learningdir= 
+[111323] INFO ConfigurationProperties - p:jvm4evosuitetestexecution= /usr/lib/jvm/java-8-openjdk-amd64/bin
+[111323] INFO ConfigurationProperties - p:filterfaultlocalization= true
+[111323] INFO ConfigurationProperties - p:mutationrate= 1 
+[111323] INFO ConfigurationProperties - p:pathToMVNRepository= 
+[111323] INFO ConfigurationProperties - p:resourcesfolder= /src/main/resources:/src/test/resources:
+[111323] INFO ConfigurationProperties - p:timezone= America/Los_Angeles
+[111323] INFO ConfigurationProperties - p:runjava7code= false
+[111324] INFO ConfigurationProperties - p:testfailingcmd= mvn test -Dtest=hudson.tasks.junit.JUnitResultArchiverTest#testXxe -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B
+[111324] INFO ConfigurationProperties - p:evoRunOnBuggyClass= true
+[111324] INFO ConfigurationProperties - p:compiler= fr.inria.astor.core.manipulation.bytecode.compiler.SpoonClassCompiler
+[111324] INFO ConfigurationProperties - p:limitbysuspicious= true
+[111324] INFO ConfigurationProperties - p:logsattemps= true
+[111324] INFO ConfigurationProperties - p:dependenciespath= /root/.m2/repository/org/jvnet/localizer/localizer/1.23/localizer-1.23.jar:/root/.m2/repository/com/github/stephenc/findbugs/findbugs-annotations/1.3.9-1/findbugs-annotations-1.3.9-1.jar:/root/.m2/repository/org/jenkins-ci/plugins/workflow/workflow-support/2.14/workflow-support-2.14.jar:/root/.m2/repository/org/ow2/asm/asm-analysis/4.0/asm-analysis-4.0.jar:/root/.m2/repository/org/jenkins-ci/plugins/workflow/workflow-durable-task-step/2.13/workflow-durable-task-step-2.13.jar:/root/.m2/repository/org/ow2/asm/asm-tree/4.0/asm-tree-4.0.jar:/root/.m2/repository/org/mockito/mockito-core/1.8.5/mockito-core-1.8.5.jar:/root/.m2/repository/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0.jar:/root/.m2/repository/xerces/xercesImpl/2.11.0/xercesImpl-2.11.0.jar:/root/.m2/repository/commons-httpclient/commons-httpclient/3.1/commons-httpclient-3.1.jar:/root/.m2/repository/antlr/antlr/2.7.6/antlr-2.7.6.jar:/root/.m2/repository/jfree/jfreechart/1.0.9/jfreechart-1.0.9.jar:/root/.m2/repository/org/jenkins-ci/jmdns/3.4.0-jenkins-3/jmdns-3.4.0-jenkins-3.jar:/root/.m2/repository/org/jenkins-ci/ui/handlebars/1.1.1/handlebars-1.1.1-core-assets.jar:/root/.m2/repository/org/jenkins-ci/plugins/junit/1.3/junit-1.3.jar:/root/.m2/repository/org/eclipse/jetty/websocket/websocket-client/9.2.12.v20150709/websocket-client-9.2.12.v20150709.jar:/root/.m2/repository/com/google/inject/guice/4.0-beta/guice-4.0-beta.jar:/root/.m2/repository/com/sun/xml/txw2/txw2/20110809/txw2-20110809.jar:/root/.m2/repository/org/jenkins-ci/plugins/workflow/workflow-cps/2.37/workflow-cps-2.37.jar:/root/.m2/repository/net/java/dev/jna/jna/4.2.1/jna-4.2.1.jar:/root/.m2/repository/org/jenkins-ci/ui/ace-editor/1.0.1/ace-editor-1.0.1.jar:/root/.m2/repository/org/ow2/asm/asm-commons/4.0/asm-commons-4.0.jar:/root/.m2/repository/net/java/sezpoz/sezpoz/1.11/sezpoz-1.11.jar:/root/.m2/repository/org/kohsuke/jinterop/j-interopdeps/2.0.6-kohsuke-1/j-interopdeps-2.0.6-kohsuke-1.jar:/root/.m2/repository/org/jenkins-ci/modules/slave-installer/1.5/slave-installer-1.5.jar:/root/.m2/repository/xml-apis/xml-apis/1.4.01/xml-apis-1.4.01.jar:/root/.m2/repository/org/kohsuke/groovy-sandbox/1.12/groovy-sandbox-1.12.jar:/root/.m2/repository/xalan/serializer/2.7.2/serializer-2.7.2.jar:/root/.m2/repository/org/kohsuke/access-modifier-annotation/1.4/access-modifier-annotation-1.4.jar:/root/.m2/repository/org/jvnet/libzfs/libzfs/0.5/libzfs-0.5.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar:/root/.m2/repository/org/jenkins-ci/plugins/workflow/workflow-step-api/2.12/workflow-step-api-2.12.jar:/root/.m2/repository/org/ow2/asm/asm/4.0/asm-4.0.jar:/root/.m2/repository/org/slf4j/log4j-over-slf4j/1.7.25/log4j-over-slf4j-1.7.25.jar:/root/.m2/repository/org/bouncycastle/bcpkix-jdk15on/1.54/bcpkix-jdk15on-1.54.jar:/root/.m2/repository/org/jenkins-ci/modules/instance-identity/1.5.1/instance-identity-1.5.1.jar:/root/.m2/repository/javax/mail/mail/1.4.4/mail-1.4.4.jar:/root/.m2/repository/org/eclipse/jetty/websocket/websocket-api/9.2.12.v20150709/websocket-api-9.2.12.v20150709.jar:/root/.m2/repository/com/jcraft/jzlib/1.1.3-kohsuke-1/jzlib-1.1.3-kohsuke-1.jar:/root/.m2/repository/org/jenkins-ci/commons-jexl/1.1-jenkins-20111212/commons-jexl-1.1-jenkins-20111212.jar:/root/.m2/repository/org/jenkins-ci/plugins/workflow/workflow-basic-steps/2.6/workflow-basic-steps-2.6.jar:/root/.m2/repository/com/github/jnr/jnr-constants/0.8.5/jnr-constants-0.8.5.jar:/root/.m2/repository/javax/annotation/javax.annotation-api/1.2/javax.annotation-api-1.2.jar:/root/.m2/repository/org/jenkins-ci/plugins/pipeline-stage-step/2.2/pipeline-stage-step-2.2.jar:/root/.m2/repository/org/kohsuke/windows-package-checker/1.2/windows-package-checker-1.2.jar:/root/.m2/repository/org/jenkins-ci/plugins/mailer/1.18/mailer-1.18.jar:/root/.m2/repository/org/jenkins-ci/dom4j/dom4j/1.6.1-jenkins-4/dom4j-1.6.1-jenkins-4.jar:/root/.m2/repository/org/codehaus/woodstox/wstx-asl/3.2.9/wstx-asl-3.2.9.jar:/root/.m2/repository/org/fusesource/jansi/jansi/1.11/jansi-1.11.jar:/root/.m2/repository/org/jenkins-ci/main/jenkins-war/2.7.3/jenkins-war-2.7.3.war:/root/.m2/repository/org/apache/commons/commons-compress/1.10/commons-compress-1.10.jar:/root/.m2/repository/relaxngDatatype/relaxngDatatype/20020414/relaxngDatatype-20020414.jar:/root/.m2/repository/commons-io/commons-io/2.4/commons-io-2.4.jar:/root/.m2/repository/com/cloudbees/diff4j/1.2/diff4j-1.2.jar:/root/.m2/repository/org/jenkins-ci/main/jenkins-test-harness/2.31/jenkins-test-harness-2.31.jar:/root/.m2/repository/org/eclipse/jetty/jetty-server/9.4.5.v20170502/jetty-server-9.4.5.v20170502.jar:/root/.m2/repository/org/jenkins-ci/main/remoting/2.60/remoting-2.60.jar:/root/.m2/repository/org/jenkins-ci/plugins/workflow/workflow-job/2.11.1/workflow-job-2.11.1.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/1.3.9/jsr305-1.3.9.jar:/root/.m2/repository/args4j/args4j/2.0.31/args4j-2.0.31.jar:/root/.m2/repository/org/kohsuke/stapler/stapler-groovy/1.243/stapler-groovy-1.243.jar:/root/.m2/repository/org/eclipse/jetty/websocket/websocket-common/9.2.12.v20150709/websocket-common-9.2.12.v20150709.jar:/root/.m2/repository/org/jenkins-ci/plugins/durable-task/1.14/durable-task-1.14.jar:/root/.m2/repository/org/springframework/spring-web/2.5.6.SEC03/spring-web-2.5.6.SEC03.jar:/root/.m2/repository/org/hamcrest/hamcrest-library/1.3/hamcrest-library-1.3.jar:/root/.m2/repository/org/objenesis/objenesis/1.0/objenesis-1.0.jar:/root/.m2/repository/com/cloudbees/groovy-cps/1.17/groovy-cps-1.17.jar:/root/.m2/repository/org/kohsuke/stapler/stapler-adjunct-timeline/1.4/stapler-adjunct-timeline-1.4.jar:/root/.m2/repository/org/jenkins-ci/modules/upstart-slave-installer/1.1/upstart-slave-installer-1.1.jar:/root/.m2/repository/net/sourceforge/nekohtml/nekohtml/1.9.22/nekohtml-1.9.22.jar:/root/.m2/repository/com/github/jnr/jnr-x86asm/1.0.2/jnr-x86asm-1.0.2.jar:/root/.m2/repository/javax/xml/stream/stax-api/1.0-2/stax-api-1.0-2.jar:/root/.m2/repository/org/jboss/marshalling/jboss-marshalling/1.4.9.Final/jboss-marshalling-1.4.9.Final.jar:/root/.m2/repository/org/jenkins-ci/main/cli/2.7.3/cli-2.7.3.jar:/root/.m2/repository/org/jvnet/tiger-types/2.2/tiger-types-2.2.jar:/root/.m2/repository/org/kohsuke/stapler/stapler/1.243/stapler-1.243.jar:/root/.m2/repository/jline/jline/2.12/jline-2.12.jar:/root/.m2/repository/org/jvnet/hudson/jtidy/4aug2000r7-dev-hudson-1/jtidy-4aug2000r7-dev-hudson-1.jar:/root/.m2/repository/org/kohsuke/stapler/stapler-jrebel/1.243/stapler-jrebel-1.243.jar:/root/.m2/repository/org/jenkins-ci/modules/ssh-cli-auth/1.2/ssh-cli-auth-1.2.jar:/root/.m2/repository/org/jruby/ext/posix/jna-posix/1.0.3-jenkins-1/jna-posix-1.0.3-jenkins-1.jar:/root/.m2/repository/net/sourceforge/cssparser/cssparser/0.9.16/cssparser-0.9.16.jar:/root/.m2/repository/org/kohsuke/stapler/stapler-adjunct-codemirror/1.3/stapler-adjunct-codemirror-1.3.jar:/root/.m2/repository/org/jvnet/hudson/embedded-rhino-debugger/1.2/embedded-rhino-debugger-1.2.jar:/root/.m2/repository/org/jenkins-ci/constant-pool-scanner/1.2/constant-pool-scanner-1.2.jar:/root/.m2/repository/commons-discovery/commons-discovery/0.4/commons-discovery-0.4.jar:/root/.m2/repository/oro/oro/2.0.8/oro-2.0.8.jar:/root/.m2/repository/org/apache/sshd/sshd-core/0.8.0/sshd-core-0.8.0.jar:/root/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/root/.m2/repository/org/apache/ant/ant/1.8.4/ant-1.8.4.jar:/root/.m2/repository/org/jenkins-ci/modules/sshd/1.6/sshd-1.6.jar:/root/.m2/repository/org/jvnet/hudson/xstream/1.4.7-jenkins-1/xstream-1.4.7-jenkins-1.jar:/root/.m2/repository/org/bouncycastle/bcprov-jdk15on/1.54/bcprov-jdk15on-1.54.jar:/root/.m2/repository/org/eclipse/jetty/jetty-servlet/9.4.5.v20170502/jetty-servlet-9.4.5.v20170502.jar:/root/.m2/repository/org/slf4j/slf4j-jdk14/1.7.25/slf4j-jdk14-1.7.25.jar:/root/.m2/repository/org/jenkins-ci/bytecode-compatibility-transformer/1.8/bytecode-compatibility-transformer-1.8.jar:/root/.m2/repository/org/jenkins-ci/main/jenkins-test-harness-htmlunit/2.18-1/jenkins-test-harness-htmlunit-2.18-1.jar:/root/.m2/repository/stax/stax-api/1.0.1/stax-api-1.0.1.jar:/root/.m2/repository/org/samba/jcifs/jcifs/1.2.19/jcifs-1.2.19.jar:/root/.m2/repository/xalan/xalan/2.7.2/xalan-2.7.2.jar:/root/.m2/repository/org/jenkins-ci/modules/systemd-slave-installer/1.1/systemd-slave-installer-1.1.jar:/root/.m2/repository/org/slf4j/jcl-over-slf4j/1.7.25/jcl-over-slf4j-1.7.25.jar:/root/.m2/repository/net/sf/ezmorph/ezmorph/1.0.6/ezmorph-1.0.6.jar:/root/.m2/repository/org/apache/mina/mina-core/2.0.5/mina-core-2.0.5.jar:/root/.m2/repository/org/jboss/marshalling/jboss-marshalling-river/1.4.9.Final/jboss-marshalling-river-1.4.9.Final.jar:/root/.m2/repository/org/jenkins-ci/crypto-util/1.1/crypto-util-1.1.jar:/root/.m2/repository/commons-beanutils/commons-beanutils/1.8.3/commons-beanutils-1.8.3.jar:/root/.m2/repository/org/jvnet/hudson/commons-jelly-tags-define/1.0.1-hudson-20071021/commons-jelly-tags-define-1.0.1-hudson-20071021.jar:/root/.m2/repository/org/kohsuke/jinterop/j-interop/2.0.6-kohsuke-1/j-interop-2.0.6-kohsuke-1.jar:/root/.m2/repository/org/springframework/spring-core/2.5.6.SEC03/spring-core-2.5.6.SEC03.jar:/root/.m2/repository/org/eclipse/jetty/jetty-io/9.4.5.v20170502/jetty-io-9.4.5.v20170502.jar:/root/.m2/repository/org/kohsuke/akuma/1.10/akuma-1.10.jar:/root/.m2/repository/org/kohsuke/stapler/json-lib/2.4-jenkins-2/json-lib-2.4-jenkins-2.jar:/root/.m2/repository/xpp3/xpp3/1.1.4c/xpp3-1.1.4c.jar:/root/.m2/repository/org/jenkins-ci/ui/jquery-detached/1.2.1/jquery-detached-1.2.1.jar:/root/.m2/repository/org/jenkins-ci/plugins/workflow/workflow-scm-step/2.4/workflow-scm-step-2.4.jar:/root/.m2/repository/org/eclipse/jetty/jetty-webapp/9.4.5.v20170502/jetty-webapp-9.4.5.v20170502.jar:/root/.m2/repository/org/apache/commons/commons-lang3/3.4/commons-lang3-3.4.jar:/root/.m2/repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar:/root/.m2/repository/org/springframework/spring-jdbc/1.2.9/spring-jdbc-1.2.9.jar:/root/.m2/repository/org/netbeans/modules/org-netbeans-insane/RELEASE72/org-netbeans-insane-RELEASE72.jar:/root/.m2/repository/org/eclipse/jetty/jetty-util/9.4.5.v20170502/jetty-util-9.4.5.v20170502.jar:/root/.m2/repository/commons-collections/commons-collections/3.2.1/commons-collections-3.2.1.jar:/root/.m2/repository/org/springframework/spring-context-support/2.5.6.SEC03/spring-context-support-2.5.6.SEC03.jar:/root/.m2/repository/commons-fileupload/commons-fileupload/1.3.1-jenkins-1/commons-fileupload-1.3.1-jenkins-1.jar:/root/.m2/repository/com/infradna/tool/bridge-method-annotation/1.13/bridge-method-annotation-1.13.jar:/root/.m2/repository/org/jenkins-ci/plugins/workflow/workflow-api/2.22/workflow-api-2.22.jar:/root/.m2/repository/net/jcip/jcip-annotations/1.0/jcip-annotations-1.0.jar:/root/.m2/repository/com/github/jnr/jffi/1.2.7/jffi-1.2.7.jar:/root/.m2/repository/org/jenkins-ci/plugins/workflow/workflow-cps/2.37/workflow-cps-2.37-tests.jar:/root/.m2/repository/commons-codec/commons-codec/1.8/commons-codec-1.8.jar:/root/.m2/repository/org/jenkins-ci/plugins/structs/1.7/structs-1.7.jar:/root/.m2/repository/org/springframework/spring-beans/2.5.6.SEC03/spring-beans-2.5.6.SEC03.jar:/root/.m2/repository/commons-digester/commons-digester/2.1/commons-digester-2.1.jar:/root/.m2/repository/org/jenkins-ci/plugins/icon-shim/icon-set/1.0.5/icon-set-1.0.5.jar:/root/.m2/repository/org/jenkins-ci/trilead-ssh2/build217-jenkins-8/trilead-ssh2-build217-jenkins-8.jar:/root/.m2/repository/org/eclipse/jetty/jetty-xml/9.4.5.v20170502/jetty-xml-9.4.5.v20170502.jar:/root/.m2/repository/org/springframework/spring-aop/2.5.6.SEC03/spring-aop-2.5.6.SEC03.jar:/root/.m2/repository/org/jenkins-ci/memory-monitor/1.9/memory-monitor-1.9.jar:/root/.m2/repository/org/jenkins-ci/version-number/1.1/version-number-1.1.jar:/root/.m2/repository/com/github/jnr/jnr-ffi/1.0.7/jnr-ffi-1.0.7.jar:/root/.m2/repository/org/jenkins-ci/ui/bootstrap/1.3.2/bootstrap-1.3.2-core-assets.jar:/root/.m2/repository/javax/inject/javax.inject/1/javax.inject-1.jar:/root/.m2/repository/commons-jelly/commons-jelly-tags-fmt/1.0/commons-jelly-tags-fmt-1.0.jar:/root/.m2/repository/org/jenkins-ci/ui/jquery-detached/1.2.1/jquery-detached-1.2.1-core-assets.jar:/root/.m2/repository/org/jenkins-ci/plugins/display-url-api/0.2/display-url-api-0.2.jar:/root/.m2/repository/org/eclipse/jetty/jetty-security/9.4.5.v20170502/jetty-security-9.4.5.v20170502.jar:/root/.m2/repository/com/google/code/findbugs/annotations/3.0.0/annotations-3.0.0.jar:/root/.m2/repository/com/github/jnr/jffi/1.2.7/jffi-1.2.7-native.jar:/root/.m2/repository/javax/servlet/jstl/1.1.0/jstl-1.1.0.jar:/root/.m2/repository/org/jenkins-ci/test-annotations/1.2/test-annotations-1.2.jar:/root/.m2/repository/org/kohsuke/trilead-putty-extension/1.2/trilead-putty-extension-1.2.jar:/root/.m2/repository/jaxen/jaxen/1.1-beta-11/jaxen-1.1-beta-11.jar:/root/.m2/repository/org/w3c/css/sac/1.3/sac-1.3.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/jvnet/winp/winp/1.22/winp-1.22.jar:/root/.m2/repository/org/jenkins-ci/commons-jelly/1.1-jenkins-20120928/commons-jelly-1.1-jenkins-20120928.jar:/root/.m2/repository/org/kohsuke/stapler/stapler-adjunct-zeroclipboard/1.3.5-1/stapler-adjunct-zeroclipboard-1.3.5-1.jar:/root/.m2/repository/org/jenkins-ci/plugins/workflow/workflow-support/2.14/workflow-support-2.14-tests.jar:/root/.m2/repository/jfree/jcommon/1.0.12/jcommon-1.0.12.jar:/root/.m2/repository/org/springframework/spring-webmvc/2.5.6.SEC03/spring-webmvc-2.5.6.SEC03.jar:/root/.m2/repository/org/jenkins-ci/plugins/script-security/1.30/script-security-1.30.jar:/root/.m2/repository/org/jenkins-ci/plugins/matrix-project/1.3/matrix-project-1.3.jar:/root/.m2/repository/org/codehaus/mojo/animal-sniffer-annotations/1.14/animal-sniffer-annotations-1.14.jar:/root/.m2/repository/org/jenkins-ci/modules/launchd-slave-installer/1.2/launchd-slave-installer-1.2.jar:/root/.m2/repository/org/jenkins-ci/modules/windows-slave-installer/1.6/windows-slave-installer-1.6.jar:/root/.m2/repository/org/jvnet/hudson/activation/1.1.1-hudson-1/activation-1.1.1-hudson-1.jar:/root/.m2/repository/org/jenkins-ci/main/jenkins-core/2.7.3/jenkins-core-2.7.3.jar:/root/.m2/repository/com/github/jnr/jnr-posix/3.0.1/jnr-posix-3.0.1.jar:/root/.m2/repository/commons-jelly/commons-jelly-tags-xml/1.1/commons-jelly-tags-xml-1.1.jar:/root/.m2/repository/org/jenkins-ci/annotation-indexer/1.11/annotation-indexer-1.11.jar:/root/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar:/root/.m2/repository/commons-lang/commons-lang/2.6/commons-lang-2.6.jar:/root/.m2/repository/org/apache/ant/ant-launcher/1.8.4/ant-launcher-1.8.4.jar:/root/.m2/repository/org/jenkins-ci/task-reactor/1.4/task-reactor-1.4.jar:/root/.m2/repository/com/sun/solaris/embedded_su4j/1.1/embedded_su4j-1.1.jar:/root/.m2/repository/org/ow2/asm/asm-util/4.0/asm-util-4.0.jar:/root/.m2/repository/org/jenkins-ci/plugins/scm-api/2.0.8/scm-api-2.0.8.jar:/root/.m2/repository/org/jvnet/robust-http-client/robust-http-client/1.2/robust-http-client-1.2.jar:/root/.m2/repository/org/jenkins-ci/symbol-annotation/1.7/symbol-annotation-1.7.jar:/root/.m2/repository/junit/junit/4.12/junit-4.12.jar:/root/.m2/repository/org/acegisecurity/acegi-security/1.0.7/acegi-security-1.0.7.jar:/root/.m2/repository/org/kohsuke/asm5/5.0.1/asm5-5.0.1.jar:/root/.m2/repository/org/springframework/spring-dao/1.2.9/spring-dao-1.2.9.jar:/root/.m2/repository/org/eclipse/jetty/jetty-http/9.4.5.v20170502/jetty-http-9.4.5.v20170502.jar:/root/.m2/repository/org/kohsuke/stapler/stapler-jelly/1.243/stapler-jelly-1.243.jar:/root/.m2/repository/org/mindrot/jbcrypt/0.3m/jbcrypt-0.3m.jar:/root/.m2/repository/com/google/guava/guava/11.0.1/guava-11.0.1.jar:/root/.m2/repository/org/springframework/spring-context/2.5.6.SEC03/spring-context-2.5.6.SEC03.jar:/root/.m2/repository/org/codehaus/groovy/groovy-all/2.4.7/groovy-all-2.4.7.jar:/root/.m2/repository/org/kohsuke/libpam4j/1.8/libpam4j-1.8.jar
+[111325] INFO ConfigurationProperties - p:packageToInstrument= 
+[111325] INFO ConfigurationProperties - p:skipfaultlocalization= false
+[111325] INFO ConfigurationProperties - p:scope= local
+[111325] INFO ConfigurationProperties - p:transformingredient= false
+[111325] INFO ConfigurationProperties - p:fitnessfunction= fr.inria.astor.core.solutionsearch.population.TestCaseFitnessFunction
+[111325] INFO ConfigurationProperties - p:maxnumvariablesperingredient= 10
+[111325] INFO ConfigurationProperties - p:parsesourcefromoriginal= true
+[111325] INFO ConfigurationProperties - p:pvariantfoldername= variant-
+[111325] INFO ConfigurationProperties - p:savespoonmodelondisk= false
+[111325] INFO ConfigurationProperties - p:srcjavafolder= src/main/java
+[111325] INFO ConfigurationProperties - p:populationcontroller= fr.inria.astor.core.solutionsearch.population.TestCaseBasedFitnessPopulationController
+[111325] INFO ConfigurationProperties - p:ignoreflakyinfl= false
+[111325] INFO ConfigurationProperties - p:cleantemplates= true
+[111325] INFO ConfigurationProperties - p:applyCrossover= false
+[111325] INFO ConfigurationProperties - p:maxmodificationpoints= 1000
+[111325] INFO ConfigurationProperties - p:duplicateingredientsinspace= false
+[111326] INFO ConfigurationProperties - p:metid= 0
+[111326] INFO ConfigurationProperties - p:continuewhenmodelfail= true
+[111326] INFO ConfigurationProperties - p:saveall= false
+[111326] INFO ConfigurationProperties - p:seed= 0
+[111326] INFO ConfigurationProperties - p:savecompletepatched= true
+[111326] INFO ConfigurationProperties - p:resetoperations= false
+[111326] INFO ConfigurationProperties - p:keepcomments= false
+[111326] INFO ConfigurationProperties - p:processoutputinfile= false
+[111326] INFO ConfigurationProperties - p:location= .
+[111326] INFO ConfigurationProperties - p:probabilistictransformation= true
+[111326] INFO ConfigurationProperties - p:overridemaxtime= true
+[111326] INFO ConfigurationProperties - p:outputjsonresult= true
+[111326] INFO ConfigurationProperties - p:allpoints= false
+[111326] INFO ConfigurationProperties - p:antipattern= false
+[111326] INFO ConfigurationProperties - p:bugId= 280
+[111326] INFO ConfigurationProperties - p:evosuitetimeout= 120
+[111326] INFO ConfigurationProperties - p:maxtimefactor= 10
+[111326] INFO ConfigurationProperties - p:nrPlaceholders= 1
+[111326] INFO ConfigurationProperties - p:testallcmd= mvn test -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B
+[111326] INFO ConfigurationProperties - p:forcesubprocesskilling= false
+[111326] INFO ConfigurationProperties - ----------------------------
+[111327] INFO AstorCoreEngine - ----Starting Solution Search
+[111328] WARN AstorCoreEngine - ----------Running generation: 1, population size: 1
+[111437] WARN AstorCoreEngine - ----------Running generation: 2, population size: 1
+[114413] WARN AstorCoreEngine - ----------Running generation: 3, population size: 1
+[116275] WARN AstorCoreEngine - ----------Running generation: 4, population size: 1
+[116382] WARN AstorCoreEngine - ----------Running generation: 5, population size: 1
+[116578] WARN AstorCoreEngine - ----------Running generation: 6, population size: 1
+[116609] WARN AstorCoreEngine - ----------Running generation: 7, population size: 1
+[117783] WARN AstorCoreEngine - ----------Running generation: 8, population size: 1
+[117870] WARN AstorCoreEngine - ----------Running generation: 9, population size: 1
+[118670] WARN AstorCoreEngine - ----------Running generation: 10, population size: 1
+[119602] WARN AstorCoreEngine - ----------Running generation: 11, population size: 1
+[119665] WARN AstorCoreEngine - ----------Running generation: 12, population size: 1
+[119767] WARN AstorCoreEngine - ----------Running generation: 13, population size: 1
+[119847] WARN AstorCoreEngine - ----------Running generation: 14, population size: 1
+[119902] WARN AstorCoreEngine - ----------Running generation: 15, population size: 1
+[119960] WARN AstorCoreEngine - ----------Running generation: 16, population size: 1
+[121133] WARN AstorCoreEngine - ----------Running generation: 17, population size: 1
+[122942] WARN AstorCoreEngine - ----------Running generation: 18, population size: 1
+[123004] WARN AstorCoreEngine - ----------Running generation: 19, population size: 1
+[123055] WARN AstorCoreEngine - ----------Running generation: 20, population size: 1
+[123101] WARN AstorCoreEngine - ----------Running generation: 21, population size: 1
+[123165] WARN AstorCoreEngine - ----------Running generation: 22, population size: 1
+[123890] WARN AstorCoreEngine - ----------Running generation: 23, population size: 1
+[123913] WARN AstorCoreEngine - ----------Running generation: 24, population size: 1
+[124540] WARN AstorCoreEngine - ----------Running generation: 25, population size: 1
+[124609] WARN AstorCoreEngine - ----------Running generation: 26, population size: 1
+[124643] WARN AstorCoreEngine - ----------Running generation: 27, population size: 1
+[125459] WARN AstorCoreEngine - ----------Running generation: 28, population size: 1
+[125513] WARN AstorCoreEngine - ----------Running generation: 29, population size: 1
+[125568] WARN AstorCoreEngine - ----------Running generation: 30, population size: 1
+[125654] WARN AstorCoreEngine - ----------Running generation: 31, population size: 1
+[125703] WARN AstorCoreEngine - ----------Running generation: 32, population size: 1
+[125746] WARN AstorCoreEngine - ----------Running generation: 33, population size: 1
+[126925] WARN AstorCoreEngine - ----------Running generation: 34, population size: 1
+[126954] WARN AstorCoreEngine - ----------Running generation: 35, population size: 1
+[126973] WARN AstorCoreEngine - ----------Running generation: 36, population size: 1
+[126995] WARN AstorCoreEngine - ----------Running generation: 37, population size: 1
+[127046] WARN AstorCoreEngine - ----------Running generation: 38, population size: 1
+[127074] WARN AstorCoreEngine - ----------Running generation: 39, population size: 1
+[127801] WARN AstorCoreEngine - ----------Running generation: 40, population size: 1
+[128340] WARN AstorCoreEngine - ----------Running generation: 41, population size: 1
+[128364] WARN AstorCoreEngine - ----------Running generation: 42, population size: 1
+[128392] WARN AstorCoreEngine - ----------Running generation: 43, population size: 1
+[129279] WARN AstorCoreEngine - ----------Running generation: 44, population size: 1
+[129312] WARN AstorCoreEngine - ----------Running generation: 45, population size: 1
+[129609] WARN AstorCoreEngine - ----------Running generation: 46, population size: 1
+[130158] WARN AstorCoreEngine - ----------Running generation: 47, population size: 1
+[130207] WARN AstorCoreEngine - ----------Running generation: 48, population size: 1
+[130241] WARN AstorCoreEngine - ----------Running generation: 49, population size: 1
+[130270] WARN AstorCoreEngine - ----------Running generation: 50, population size: 1
+[130316] WARN AstorCoreEngine - ----------Running generation: 51, population size: 1
+[130369] WARN AstorCoreEngine - ----------Running generation: 52, population size: 1
+[130387] WARN AstorCoreEngine - ----------Running generation: 53, population size: 1
+[130449] WARN AstorCoreEngine - ----------Running generation: 54, population size: 1
+[130465] WARN AstorCoreEngine - ----------Running generation: 55, population size: 1
+[130534] WARN AstorCoreEngine - ----------Running generation: 56, population size: 1
+[130596] WARN AstorCoreEngine - ----------Running generation: 57, population size: 1
+[130677] WARN AstorCoreEngine - ----------Running generation: 58, population size: 1
+[131662] WARN AstorCoreEngine - ----------Running generation: 59, population size: 1
+[132703] WARN AstorCoreEngine - ----------Running generation: 60, population size: 1
+[133127] WARN AstorCoreEngine - ----------Running generation: 61, population size: 1
+[133662] WARN AstorCoreEngine - ----------Running generation: 62, population size: 1
+[133696] WARN AstorCoreEngine - ----------Running generation: 63, population size: 1
+[133724] WARN AstorCoreEngine - ----------Running generation: 64, population size: 1
+[134277] WARN AstorCoreEngine - ----------Running generation: 65, population size: 1
+[135019] WARN AstorCoreEngine - ----------Running generation: 66, population size: 1
+[135066] WARN AstorCoreEngine - ----------Running generation: 67, population size: 1
+[135087] WARN AstorCoreEngine - ----------Running generation: 68, population size: 1
+[135129] WARN AstorCoreEngine - ----------Running generation: 69, population size: 1
+[135202] WARN AstorCoreEngine - ----------Running generation: 70, population size: 1
+[135232] WARN AstorCoreEngine - ----------Running generation: 71, population size: 1
+[136676] WARN AstorCoreEngine - ----------Running generation: 72, population size: 1
+[136727] WARN AstorCoreEngine - ----------Running generation: 73, population size: 1
+[136786] WARN AstorCoreEngine - ----------Running generation: 74, population size: 1
+[136857] WARN AstorCoreEngine - ----------Running generation: 75, population size: 1
+[136874] WARN AstorCoreEngine - ----------Running generation: 76, population size: 1
+[136895] WARN AstorCoreEngine - ----------Running generation: 77, population size: 1
+[136926] WARN AstorCoreEngine - ----------Running generation: 78, population size: 1
+[136955] WARN AstorCoreEngine - ----------Running generation: 79, population size: 1
+[136993] WARN AstorCoreEngine - ----------Running generation: 80, population size: 1
+[137032] WARN AstorCoreEngine - ----------Running generation: 81, population size: 1
+[137051] WARN AstorCoreEngine - ----------Running generation: 82, population size: 1
+[137070] WARN AstorCoreEngine - ----------Running generation: 83, population size: 1
+[137099] WARN AstorCoreEngine - ----------Running generation: 84, population size: 1
+[137117] WARN AstorCoreEngine - ----------Running generation: 85, population size: 1
+[137138] WARN AstorCoreEngine - ----------Running generation: 86, population size: 1
+[137184] WARN AstorCoreEngine - ----------Running generation: 87, population size: 1
+[137220] WARN AstorCoreEngine - ----------Running generation: 88, population size: 1
+[137270] WARN AstorCoreEngine - ----------Running generation: 89, population size: 1
+[137316] WARN AstorCoreEngine - ----------Running generation: 90, population size: 1
+[137862] WARN AstorCoreEngine - ----------Running generation: 91, population size: 1
+[138445] WARN AstorCoreEngine - ----------Running generation: 92, population size: 1
+[138458] WARN AstorCoreEngine - ----------Running generation: 93, population size: 1
+[138475] WARN AstorCoreEngine - ----------Running generation: 94, population size: 1
+[139087] WARN AstorCoreEngine - ----------Running generation: 95, population size: 1
+[139103] WARN AstorCoreEngine - ----------Running generation: 96, population size: 1
+[139120] WARN AstorCoreEngine - ----------Running generation: 97, population size: 1
+[139136] WARN AstorCoreEngine - ----------Running generation: 98, population size: 1
+[139634] WARN AstorCoreEngine - ----------Running generation: 99, population size: 1
+[139647] WARN AstorCoreEngine - ----------Running generation: 100, population size: 1
+[139670] WARN AstorCoreEngine - ----------Running generation: 101, population size: 1
+[139684] WARN AstorCoreEngine - ----------Running generation: 102, population size: 1
+[140197] WARN AstorCoreEngine - ----------Running generation: 103, population size: 1
+[140209] WARN AstorCoreEngine - ----------Running generation: 104, population size: 1
+[141133] WARN AstorCoreEngine - ----------Running generation: 105, population size: 1
+[141195] WARN AstorCoreEngine - ----------Running generation: 106, population size: 1
+[141284] WARN AstorCoreEngine - ----------Running generation: 107, population size: 1
+[141304] WARN AstorCoreEngine - ----------Running generation: 108, population size: 1
+[141327] WARN AstorCoreEngine - ----------Running generation: 109, population size: 1
+[142508] WARN AstorCoreEngine - ----------Running generation: 110, population size: 1
+[143483] WARN AstorCoreEngine - ----------Running generation: 111, population size: 1
+[143525] WARN AstorCoreEngine - ----------Running generation: 112, population size: 1
+[143591] WARN AstorCoreEngine - ----------Running generation: 113, population size: 1
+[144428] WARN AstorCoreEngine - ----------Running generation: 114, population size: 1
+[144470] WARN AstorCoreEngine - ----------Running generation: 115, population size: 1
+[144530] WARN AstorCoreEngine - ----------Running generation: 116, population size: 1
+[144564] WARN AstorCoreEngine - ----------Running generation: 117, population size: 1
+[145582] WARN AstorCoreEngine - ----------Running generation: 118, population size: 1
+[145609] WARN AstorCoreEngine - ----------Running generation: 119, population size: 1
+[145660] WARN AstorCoreEngine - ----------Running generation: 120, population size: 1
+[146797] WARN AstorCoreEngine - ----------Running generation: 121, population size: 1
+[146811] WARN AstorCoreEngine - ----------Running generation: 122, population size: 1
+[146830] WARN AstorCoreEngine - ----------Running generation: 123, population size: 1
+[146889] WARN AstorCoreEngine - ----------Running generation: 124, population size: 1
+[147701] WARN AstorCoreEngine - ----------Running generation: 125, population size: 1
+[147715] WARN AstorCoreEngine - ----------Running generation: 126, population size: 1
+[147727] WARN AstorCoreEngine - ----------Running generation: 127, population size: 1
+[147847] WARN AstorCoreEngine - ----------Running generation: 128, population size: 1
+[147876] WARN AstorCoreEngine - ----------Running generation: 129, population size: 1
+[147897] WARN AstorCoreEngine - ----------Running generation: 130, population size: 1
+[147913] WARN AstorCoreEngine - ----------Running generation: 131, population size: 1
+[148992] WARN AstorCoreEngine - ----------Running generation: 132, population size: 1
+[149058] WARN AstorCoreEngine - ----------Running generation: 133, population size: 1
+[149073] WARN AstorCoreEngine - ----------Running generation: 134, population size: 1
+[149619] WARN AstorCoreEngine - ----------Running generation: 135, population size: 1
+[149660] WARN AstorCoreEngine - ----------Running generation: 136, population size: 1
+[149682] WARN AstorCoreEngine - ----------Running generation: 137, population size: 1
+[150119] WARN AstorCoreEngine - ----------Running generation: 138, population size: 1
+[150148] WARN AstorCoreEngine - ----------Running generation: 139, population size: 1
+[150177] WARN AstorCoreEngine - ----------Running generation: 140, population size: 1
+[150199] WARN AstorCoreEngine - ----------Running generation: 141, population size: 1
+[150260] WARN AstorCoreEngine - ----------Running generation: 142, population size: 1
+[150319] WARN AstorCoreEngine - ----------Running generation: 143, population size: 1
+[150336] WARN AstorCoreEngine - ----------Running generation: 144, population size: 1
+[150370] WARN AstorCoreEngine - ----------Running generation: 145, population size: 1
+[150425] WARN AstorCoreEngine - ----------Running generation: 146, population size: 1
+[150941] WARN AstorCoreEngine - ----------Running generation: 147, population size: 1
+[150957] WARN AstorCoreEngine - ----------Running generation: 148, population size: 1
+[150970] WARN AstorCoreEngine - ----------Running generation: 149, population size: 1
+[150987] WARN AstorCoreEngine - ----------Running generation: 150, population size: 1
+[151006] WARN AstorCoreEngine - ----------Running generation: 151, population size: 1
+[151030] WARN AstorCoreEngine - ----------Running generation: 152, population size: 1
+[151057] WARN AstorCoreEngine - ----------Running generation: 153, population size: 1
+[151495] WARN AstorCoreEngine - ----------Running generation: 154, population size: 1
+[151514] WARN AstorCoreEngine - ----------Running generation: 155, population size: 1
+[151530] WARN AstorCoreEngine - ----------Running generation: 156, population size: 1
+[151567] WARN AstorCoreEngine - ----------Running generation: 157, population size: 1
+[151667] WARN AstorCoreEngine - ----------Running generation: 158, population size: 1
+[151696] WARN AstorCoreEngine - ----------Running generation: 159, population size: 1
+[152468] WARN AstorCoreEngine - ----------Running generation: 160, population size: 1
+[152486] WARN AstorCoreEngine - ----------Running generation: 161, population size: 1
+[152536] WARN AstorCoreEngine - ----------Running generation: 162, population size: 1
+[152569] WARN AstorCoreEngine - ----------Running generation: 163, population size: 1
+[153291] WARN AstorCoreEngine - ----------Running generation: 164, population size: 1
+[153346] WARN AstorCoreEngine - ----------Running generation: 165, population size: 1
+[154433] WARN AstorCoreEngine - ----------Running generation: 166, population size: 1
+[155439] WARN AstorCoreEngine - ----------Running generation: 167, population size: 1
+[155844] WARN AstorCoreEngine - ----------Running generation: 168, population size: 1
+[155864] WARN AstorCoreEngine - ----------Running generation: 169, population size: 1
+[155878] WARN AstorCoreEngine - ----------Running generation: 170, population size: 1
+[155892] WARN AstorCoreEngine - ----------Running generation: 171, population size: 1
+[156336] WARN AstorCoreEngine - ----------Running generation: 172, population size: 1
+[156351] WARN AstorCoreEngine - ----------Running generation: 173, population size: 1
+[156386] WARN AstorCoreEngine - ----------Running generation: 174, population size: 1
+[156421] WARN AstorCoreEngine - ----------Running generation: 175, population size: 1
+[156452] WARN AstorCoreEngine - ----------Running generation: 176, population size: 1
+[156489] WARN AstorCoreEngine - ----------Running generation: 177, population size: 1
+[156502] WARN AstorCoreEngine - ----------Running generation: 178, population size: 1
+[156536] WARN AstorCoreEngine - ----------Running generation: 179, population size: 1
+[156556] WARN AstorCoreEngine - ----------Running generation: 180, population size: 1
+[157047] WARN AstorCoreEngine - ----------Running generation: 181, population size: 1
+[157076] WARN AstorCoreEngine - ----------Running generation: 182, population size: 1
+[157103] WARN AstorCoreEngine - ----------Running generation: 183, population size: 1
+[157132] WARN AstorCoreEngine - ----------Running generation: 184, population size: 1
+[157144] WARN AstorCoreEngine - ----------Running generation: 185, population size: 1
+[157220] WARN AstorCoreEngine - ----------Running generation: 186, population size: 1
+[157248] WARN AstorCoreEngine - ----------Running generation: 187, population size: 1
+[157264] WARN AstorCoreEngine - ----------Running generation: 188, population size: 1
+[157279] WARN AstorCoreEngine - ----------Running generation: 189, population size: 1
+[157298] WARN AstorCoreEngine - ----------Running generation: 190, population size: 1
+[157312] WARN AstorCoreEngine - ----------Running generation: 191, population size: 1
+[157333] WARN AstorCoreEngine - ----------Running generation: 192, population size: 1
+[158229] WARN AstorCoreEngine - ----------Running generation: 193, population size: 1
+[158261] WARN AstorCoreEngine - ----------Running generation: 194, population size: 1
+[158869] WARN AstorCoreEngine - ----------Running generation: 195, population size: 1
+[159433] WARN AstorCoreEngine - ----------Running generation: 196, population size: 1
+[159937] WARN AstorCoreEngine - ----------Running generation: 197, population size: 1
+[160504] WARN AstorCoreEngine - ----------Running generation: 198, population size: 1
+[160538] WARN AstorCoreEngine - ----------Running generation: 199, population size: 1
+[161049] WARN AstorCoreEngine - ----------Running generation: 200, population size: 1
+[161064] WARN AstorCoreEngine - ----------Running generation: 201, population size: 1
+[161080] WARN AstorCoreEngine - ----------Running generation: 202, population size: 1
+[161678] WARN AstorCoreEngine - ----------Running generation: 203, population size: 1
+[161730] WARN AstorCoreEngine - ----------Running generation: 204, population size: 1
+[162702] WARN AstorCoreEngine - ----------Running generation: 205, population size: 1
+[162744] WARN AstorCoreEngine - ----------Running generation: 206, population size: 1
+[162795] WARN AstorCoreEngine - ----------Running generation: 207, population size: 1
+[162825] WARN AstorCoreEngine - ----------Running generation: 208, population size: 1
+[164199] WARN AstorCoreEngine - ----------Running generation: 209, population size: 1
+[164215] WARN AstorCoreEngine - ----------Running generation: 210, population size: 1
+[164236] WARN AstorCoreEngine - ----------Running generation: 211, population size: 1
+[164255] WARN AstorCoreEngine - ----------Running generation: 212, population size: 1
+[164271] WARN AstorCoreEngine - ----------Running generation: 213, population size: 1
+[164290] WARN AstorCoreEngine - ----------Running generation: 214, population size: 1
+[164305] WARN AstorCoreEngine - ----------Running generation: 215, population size: 1
+[164333] WARN AstorCoreEngine - ----------Running generation: 216, population size: 1
+[164348] WARN AstorCoreEngine - ----------Running generation: 217, population size: 1
+[164365] WARN AstorCoreEngine - ----------Running generation: 218, population size: 1
+[164394] WARN AstorCoreEngine - ----------Running generation: 219, population size: 1
+[164412] WARN AstorCoreEngine - ----------Running generation: 220, population size: 1
+[164426] WARN AstorCoreEngine - ----------Running generation: 221, population size: 1
+[164868] WARN AstorCoreEngine - ----------Running generation: 222, population size: 1
+[165281] WARN AstorCoreEngine - ----------Running generation: 223, population size: 1
+[165296] WARN AstorCoreEngine - ----------Running generation: 224, population size: 1
+[165310] WARN AstorCoreEngine - ----------Running generation: 225, population size: 1
+[165322] WARN AstorCoreEngine - ----------Running generation: 226, population size: 1
+[165781] WARN AstorCoreEngine - ----------Running generation: 227, population size: 1
+[165793] WARN AstorCoreEngine - ----------Running generation: 228, population size: 1
+[165812] WARN AstorCoreEngine - ----------Running generation: 229, population size: 1
+[166214] WARN AstorCoreEngine - ----------Running generation: 230, population size: 1
+[166585] WARN AstorCoreEngine - ----------Running generation: 231, population size: 1
+[166597] WARN AstorCoreEngine - ----------Running generation: 232, population size: 1
+[166611] WARN AstorCoreEngine - ----------Running generation: 233, population size: 1
+[166626] WARN AstorCoreEngine - ----------Running generation: 234, population size: 1
+[167513] WARN AstorCoreEngine - ----------Running generation: 235, population size: 1
+[167540] WARN AstorCoreEngine - ----------Running generation: 236, population size: 1
+[168019] WARN AstorCoreEngine - ----------Running generation: 237, population size: 1
+[168080] WARN AstorCoreEngine - ----------Running generation: 238, population size: 1
+[168143] WARN AstorCoreEngine - ----------Running generation: 239, population size: 1
+[168202] WARN AstorCoreEngine - ----------Running generation: 240, population size: 1
+[168821] WARN AstorCoreEngine - ----------Running generation: 241, population size: 1
+[168844] WARN AstorCoreEngine - ----------Running generation: 242, population size: 1
+[168856] WARN AstorCoreEngine - ----------Running generation: 243, population size: 1
+[168867] WARN AstorCoreEngine - ----------Running generation: 244, population size: 1
+[169362] WARN AstorCoreEngine - ----------Running generation: 245, population size: 1
+[169384] WARN AstorCoreEngine - ----------Running generation: 246, population size: 1
+[169397] WARN AstorCoreEngine - ----------Running generation: 247, population size: 1
+[169813] WARN AstorCoreEngine - ----------Running generation: 248, population size: 1
+[169863] WARN AstorCoreEngine - ----------Running generation: 249, population size: 1
+[169889] WARN AstorCoreEngine - ----------Running generation: 250, population size: 1
+[169905] WARN AstorCoreEngine - ----------Running generation: 251, population size: 1
+[169918] WARN AstorCoreEngine - ----------Running generation: 252, population size: 1
+[169933] WARN AstorCoreEngine - ----------Running generation: 253, population size: 1
+[170576] WARN AstorCoreEngine - ----------Running generation: 254, population size: 1
+[170590] WARN AstorCoreEngine - ----------Running generation: 255, population size: 1
+[170603] WARN AstorCoreEngine - ----------Running generation: 256, population size: 1
+[170617] WARN AstorCoreEngine - ----------Running generation: 257, population size: 1
+[171306] WARN AstorCoreEngine - ----------Running generation: 258, population size: 1
+[171338] WARN AstorCoreEngine - ----------Running generation: 259, population size: 1
+[171366] WARN AstorCoreEngine - ----------Running generation: 260, population size: 1
+[171396] WARN AstorCoreEngine - ----------Running generation: 261, population size: 1
+[171427] WARN AstorCoreEngine - ----------Running generation: 262, population size: 1
+[171456] WARN AstorCoreEngine - ----------Running generation: 263, population size: 1
+[171488] WARN AstorCoreEngine - ----------Running generation: 264, population size: 1
+[172018] WARN AstorCoreEngine - ----------Running generation: 265, population size: 1
+[172031] WARN AstorCoreEngine - ----------Running generation: 266, population size: 1
+[172047] WARN AstorCoreEngine - ----------Running generation: 267, population size: 1
+[172066] WARN AstorCoreEngine - ----------Running generation: 268, population size: 1
+[172078] WARN AstorCoreEngine - ----------Running generation: 269, population size: 1
+[172623] WARN AstorCoreEngine - ----------Running generation: 270, population size: 1
+[172638] WARN AstorCoreEngine - ----------Running generation: 271, population size: 1
+[173109] WARN AstorCoreEngine - ----------Running generation: 272, population size: 1
+[173725] WARN AstorCoreEngine - ----------Running generation: 273, population size: 1
+[173738] WARN AstorCoreEngine - ----------Running generation: 274, population size: 1
+[173754] WARN AstorCoreEngine - ----------Running generation: 275, population size: 1
+[173766] WARN AstorCoreEngine - ----------Running generation: 276, population size: 1
+[173777] WARN AstorCoreEngine - ----------Running generation: 277, population size: 1
+[174261] WARN AstorCoreEngine - ----------Running generation: 278, population size: 1
+[174274] WARN AstorCoreEngine - ----------Running generation: 279, population size: 1
+[174677] WARN AstorCoreEngine - ----------Running generation: 280, population size: 1
+[174691] WARN AstorCoreEngine - ----------Running generation: 281, population size: 1
+[174708] WARN AstorCoreEngine - ----------Running generation: 282, population size: 1
+[174761] WARN AstorCoreEngine - ----------Running generation: 283, population size: 1
+[174776] WARN AstorCoreEngine - ----------Running generation: 284, population size: 1
+[175917] WARN AstorCoreEngine - ----------Running generation: 285, population size: 1
+[176380] WARN AstorCoreEngine - ----------Running generation: 286, population size: 1
+[176395] WARN AstorCoreEngine - ----------Running generation: 287, population size: 1
+[176410] WARN AstorCoreEngine - ----------Running generation: 288, population size: 1
+[176430] WARN AstorCoreEngine - ----------Running generation: 289, population size: 1
+[176446] WARN AstorCoreEngine - ----------Running generation: 290, population size: 1
+[176463] WARN AstorCoreEngine - ----------Running generation: 291, population size: 1
+[177140] WARN AstorCoreEngine - ----------Running generation: 292, population size: 1
+[177158] WARN AstorCoreEngine - ----------Running generation: 293, population size: 1
+[177178] WARN AstorCoreEngine - ----------Running generation: 294, population size: 1
+[177202] WARN AstorCoreEngine - ----------Running generation: 295, population size: 1
+[177238] WARN AstorCoreEngine - ----------Running generation: 296, population size: 1
+[177256] WARN AstorCoreEngine - ----------Running generation: 297, population size: 1
+[177270] WARN AstorCoreEngine - ----------Running generation: 298, population size: 1
+[177281] WARN AstorCoreEngine - ----------Running generation: 299, population size: 1
+[177296] WARN AstorCoreEngine - ----------Running generation: 300, population size: 1
+[177309] WARN AstorCoreEngine - ----------Running generation: 301, population size: 1
+[177320] WARN AstorCoreEngine - ----------Running generation: 302, population size: 1
+[177334] WARN AstorCoreEngine - ----------Running generation: 303, population size: 1
+[177988] WARN AstorCoreEngine - ----------Running generation: 304, population size: 1
+[178000] WARN AstorCoreEngine - ----------Running generation: 305, population size: 1
+[178024] WARN AstorCoreEngine - ----------Running generation: 306, population size: 1
+[178038] WARN AstorCoreEngine - ----------Running generation: 307, population size: 1
+[178052] WARN AstorCoreEngine - ----------Running generation: 308, population size: 1
+[178096] WARN AstorCoreEngine - ----------Running generation: 309, population size: 1
+[178110] WARN AstorCoreEngine - ----------Running generation: 310, population size: 1
+[178123] WARN AstorCoreEngine - ----------Running generation: 311, population size: 1
+[178134] WARN AstorCoreEngine - ----------Running generation: 312, population size: 1
+[178147] WARN AstorCoreEngine - ----------Running generation: 313, population size: 1
+[178184] WARN AstorCoreEngine - ----------Running generation: 314, population size: 1
+[178198] WARN AstorCoreEngine - ----------Running generation: 315, population size: 1
+[178211] WARN AstorCoreEngine - ----------Running generation: 316, population size: 1
+[178739] WARN AstorCoreEngine - ----------Running generation: 317, population size: 1
+[178749] WARN AstorCoreEngine - ----------Running generation: 318, population size: 1
+[178761] WARN AstorCoreEngine - ----------Running generation: 319, population size: 1
+[179160] WARN AstorCoreEngine - ----------Running generation: 320, population size: 1
+[179794] WARN AstorCoreEngine - ----------Running generation: 321, population size: 1
+[179820] WARN AstorCoreEngine - ----------Running generation: 322, population size: 1
+[179846] WARN AstorCoreEngine - ----------Running generation: 323, population size: 1
+[180624] WARN AstorCoreEngine - ----------Running generation: 324, population size: 1
+[180641] WARN AstorCoreEngine - ----------Running generation: 325, population size: 1
+[180660] WARN AstorCoreEngine - ----------Running generation: 326, population size: 1
+[180673] WARN AstorCoreEngine - ----------Running generation: 327, population size: 1
+[181533] WARN AstorCoreEngine - ----------Running generation: 328, population size: 1
+[181946] WARN AstorCoreEngine - ----------Running generation: 329, population size: 1
+[181959] WARN AstorCoreEngine - ----------Running generation: 330, population size: 1
+[181973] WARN AstorCoreEngine - ----------Running generation: 331, population size: 1
+[181984] WARN AstorCoreEngine - ----------Running generation: 332, population size: 1
+[182014] WARN AstorCoreEngine - ----------Running generation: 333, population size: 1
+[182040] WARN AstorCoreEngine - ----------Running generation: 334, population size: 1
+[182050] WARN AstorCoreEngine - ----------Running generation: 335, population size: 1
+[182076] WARN AstorCoreEngine - ----------Running generation: 336, population size: 1
+[182105] WARN AstorCoreEngine - ----------Running generation: 337, population size: 1
+[182136] WARN AstorCoreEngine - ----------Running generation: 338, population size: 1
+[182156] WARN AstorCoreEngine - ----------Running generation: 339, population size: 1
+[182181] WARN AstorCoreEngine - ----------Running generation: 340, population size: 1
+[182604] WARN AstorCoreEngine - ----------Running generation: 341, population size: 1
+[182615] WARN AstorCoreEngine - ----------Running generation: 342, population size: 1
+[182629] WARN AstorCoreEngine - ----------Running generation: 343, population size: 1
+[182639] WARN AstorCoreEngine - ----------Running generation: 344, population size: 1
+[182650] WARN AstorCoreEngine - ----------Running generation: 345, population size: 1
+[182659] WARN AstorCoreEngine - ----------Running generation: 346, population size: 1
+[182676] WARN AstorCoreEngine - ----------Running generation: 347, population size: 1
+[182687] WARN AstorCoreEngine - ----------Running generation: 348, population size: 1
+[182698] WARN AstorCoreEngine - ----------Running generation: 349, population size: 1
+[182709] WARN AstorCoreEngine - ----------Running generation: 350, population size: 1
+[183044] WARN AstorCoreEngine - ----------Running generation: 351, population size: 1
+[183067] WARN AstorCoreEngine - ----------Running generation: 352, population size: 1
+[183080] WARN AstorCoreEngine - ----------Running generation: 353, population size: 1
+[183090] WARN AstorCoreEngine - ----------Running generation: 354, population size: 1
+[183114] WARN AstorCoreEngine - ----------Running generation: 355, population size: 1
+[183125] WARN AstorCoreEngine - ----------Running generation: 356, population size: 1
+[183135] WARN AstorCoreEngine - ----------Running generation: 357, population size: 1
+[183145] WARN AstorCoreEngine - ----------Running generation: 358, population size: 1
+[183157] WARN AstorCoreEngine - ----------Running generation: 359, population size: 1
+[183569] WARN AstorCoreEngine - ----------Running generation: 360, population size: 1
+[183584] WARN AstorCoreEngine - ----------Running generation: 361, population size: 1
+[183593] WARN AstorCoreEngine - ----------Running generation: 362, population size: 1
+[184023] WARN AstorCoreEngine - ----------Running generation: 363, population size: 1
+[184652] WARN AstorCoreEngine - ----------Running generation: 364, population size: 1
+[184663] WARN AstorCoreEngine - ----------Running generation: 365, population size: 1
+[184678] WARN AstorCoreEngine - ----------Running generation: 366, population size: 1
+[184690] WARN AstorCoreEngine - ----------Running generation: 367, population size: 1
+[185537] WARN AstorCoreEngine - ----------Running generation: 368, population size: 1
+[186317] WARN AstorCoreEngine - ----------Running generation: 369, population size: 1
+[186891] WARN AstorCoreEngine - ----------Running generation: 370, population size: 1
+[186902] WARN AstorCoreEngine - ----------Running generation: 371, population size: 1
+[186914] WARN AstorCoreEngine - ----------Running generation: 372, population size: 1
+[186978] WARN AstorCoreEngine - ----------Running generation: 373, population size: 1
+[187007] WARN AstorCoreEngine - ----------Running generation: 374, population size: 1
+[187025] WARN AstorCoreEngine - ----------Running generation: 375, population size: 1
+[187076] WARN AstorCoreEngine - ----------Running generation: 376, population size: 1
+[187154] WARN AstorCoreEngine - ----------Running generation: 377, population size: 1
+[187166] WARN AstorCoreEngine - ----------Running generation: 378, population size: 1
+[187216] WARN AstorCoreEngine - ----------Running generation: 379, population size: 1
+[187236] WARN AstorCoreEngine - ----------Running generation: 380, population size: 1
+[187248] WARN AstorCoreEngine - ----------Running generation: 381, population size: 1
+[187259] WARN AstorCoreEngine - ----------Running generation: 382, population size: 1
+[187279] WARN AstorCoreEngine - ----------Running generation: 383, population size: 1
+[187643] WARN AstorCoreEngine - ----------Running generation: 384, population size: 1
+[187735] WARN AstorCoreEngine - ----------Running generation: 385, population size: 1
+[187751] WARN AstorCoreEngine - ----------Running generation: 386, population size: 1
+[187773] WARN AstorCoreEngine - ----------Running generation: 387, population size: 1
+[187810] WARN AstorCoreEngine - ----------Running generation: 388, population size: 1
+[187837] WARN AstorCoreEngine - ----------Running generation: 389, population size: 1
+[187853] WARN AstorCoreEngine - ----------Running generation: 390, population size: 1
+[187866] WARN AstorCoreEngine - ----------Running generation: 391, population size: 1
+[187886] WARN AstorCoreEngine - ----------Running generation: 392, population size: 1
+[187922] WARN AstorCoreEngine - ----------Running generation: 393, population size: 1
+[187950] WARN AstorCoreEngine - ----------Running generation: 394, population size: 1
+[187969] WARN AstorCoreEngine - ----------Running generation: 395, population size: 1
+[187980] WARN AstorCoreEngine - ----------Running generation: 396, population size: 1
+[187993] WARN AstorCoreEngine - ----------Running generation: 397, population size: 1
+[188004] WARN AstorCoreEngine - ----------Running generation: 398, population size: 1
+[188015] WARN AstorCoreEngine - ----------Running generation: 399, population size: 1
+[188026] WARN AstorCoreEngine - ----------Running generation: 400, population size: 1
+[188036] WARN AstorCoreEngine - ----------Running generation: 401, population size: 1
+[188075] WARN AstorCoreEngine - ----------Running generation: 402, population size: 1
+[188498] WARN AstorCoreEngine - ----------Running generation: 403, population size: 1
+[188522] WARN AstorCoreEngine - ----------Running generation: 404, population size: 1
+[188533] WARN AstorCoreEngine - ----------Running generation: 405, population size: 1
+[188554] WARN AstorCoreEngine - ----------Running generation: 406, population size: 1
+[188567] WARN AstorCoreEngine - ----------Running generation: 407, population size: 1
+[188590] WARN AstorCoreEngine - ----------Running generation: 408, population size: 1
+[188603] WARN AstorCoreEngine - ----------Running generation: 409, population size: 1
+[188626] WARN AstorCoreEngine - ----------Running generation: 410, population size: 1
+[188640] WARN AstorCoreEngine - ----------Running generation: 411, population size: 1
+[188654] WARN AstorCoreEngine - ----------Running generation: 412, population size: 1
+[188671] WARN AstorCoreEngine - ----------Running generation: 413, population size: 1
+[188682] WARN AstorCoreEngine - ----------Running generation: 414, population size: 1
+[188694] WARN AstorCoreEngine - ----------Running generation: 415, population size: 1
+[188709] WARN AstorCoreEngine - ----------Running generation: 416, population size: 1
+[188723] WARN AstorCoreEngine - ----------Running generation: 417, population size: 1
+[188738] WARN AstorCoreEngine - ----------Running generation: 418, population size: 1
+[188752] WARN AstorCoreEngine - ----------Running generation: 419, population size: 1
+[188782] WARN AstorCoreEngine - ----------Running generation: 420, population size: 1
+[188795] WARN AstorCoreEngine - ----------Running generation: 421, population size: 1
+[188809] WARN AstorCoreEngine - ----------Running generation: 422, population size: 1
+[188833] WARN AstorCoreEngine - ----------Running generation: 423, population size: 1
+[189212] WARN AstorCoreEngine - ----------Running generation: 424, population size: 1
+[190221] WARN AstorCoreEngine - ----------Running generation: 425, population size: 1
+[190266] WARN AstorCoreEngine - ----------Running generation: 426, population size: 1
+[190302] WARN AstorCoreEngine - ----------Running generation: 427, population size: 1
+[190375] WARN AstorCoreEngine - ----------Running generation: 428, population size: 1
+[190404] WARN AstorCoreEngine - ----------Running generation: 429, population size: 1
+[190439] WARN AstorCoreEngine - ----------Running generation: 430, population size: 1
+[191027] WARN AstorCoreEngine - ----------Running generation: 431, population size: 1
+[191175] WARN AstorCoreEngine - ----------Running generation: 432, population size: 1
+[191388] WARN AstorCoreEngine - ----------Running generation: 433, population size: 1
+[191770] WARN AstorCoreEngine - ----------Running generation: 434, population size: 1
+[191904] WARN AstorCoreEngine - ----------Running generation: 435, population size: 1
+[192006] WARN AstorCoreEngine - ----------Running generation: 436, population size: 1
+[192029] WARN AstorCoreEngine - ----------Running generation: 437, population size: 1
+[192049] WARN AstorCoreEngine - ----------Running generation: 438, population size: 1
+[192075] WARN AstorCoreEngine - ----------Running generation: 439, population size: 1
+[192103] WARN AstorCoreEngine - ----------Running generation: 440, population size: 1
+[192122] WARN AstorCoreEngine - ----------Running generation: 441, population size: 1
+[192143] WARN AstorCoreEngine - ----------Running generation: 442, population size: 1
+[192180] WARN AstorCoreEngine - ----------Running generation: 443, population size: 1
+[192212] WARN AstorCoreEngine - ----------Running generation: 444, population size: 1
+[192235] WARN AstorCoreEngine - ----------Running generation: 445, population size: 1
+[192264] WARN AstorCoreEngine - ----------Running generation: 446, population size: 1
+[192276] WARN AstorCoreEngine - ----------Running generation: 447, population size: 1
+[192287] WARN AstorCoreEngine - ----------Running generation: 448, population size: 1
+[192301] WARN AstorCoreEngine - ----------Running generation: 449, population size: 1
+[192321] WARN AstorCoreEngine - ----------Running generation: 450, population size: 1
+[192347] WARN AstorCoreEngine - ----------Running generation: 451, population size: 1
+[192371] WARN AstorCoreEngine - ----------Running generation: 452, population size: 1
+[193095] WARN AstorCoreEngine - ----------Running generation: 453, population size: 1
+[193120] WARN AstorCoreEngine - ----------Running generation: 454, population size: 1
+[193145] WARN AstorCoreEngine - ----------Running generation: 455, population size: 1
+[193168] WARN AstorCoreEngine - ----------Running generation: 456, population size: 1
+[193611] WARN AstorCoreEngine - ----------Running generation: 457, population size: 1
+[193625] WARN AstorCoreEngine - ----------Running generation: 458, population size: 1
+[193658] WARN AstorCoreEngine - ----------Running generation: 459, population size: 1
+[193700] WARN AstorCoreEngine - ----------Running generation: 460, population size: 1
+[193720] WARN AstorCoreEngine - ----------Running generation: 461, population size: 1
+[193735] WARN AstorCoreEngine - ----------Running generation: 462, population size: 1
+[194183] WARN AstorCoreEngine - ----------Running generation: 463, population size: 1
+[194193] WARN AstorCoreEngine - ----------Running generation: 464, population size: 1
+[194203] WARN AstorCoreEngine - ----------Running generation: 465, population size: 1
+[194215] WARN AstorCoreEngine - ----------Running generation: 466, population size: 1
+[194227] WARN AstorCoreEngine - ----------Running generation: 467, population size: 1
+[194240] WARN AstorCoreEngine - ----------Running generation: 468, population size: 1
+[194252] WARN AstorCoreEngine - ----------Running generation: 469, population size: 1
+[194267] WARN AstorCoreEngine - ----------Running generation: 470, population size: 1
+[194287] WARN AstorCoreEngine - ----------Running generation: 471, population size: 1
+[194301] WARN AstorCoreEngine - ----------Running generation: 472, population size: 1
+[194312] WARN AstorCoreEngine - ----------Running generation: 473, population size: 1
+[194335] WARN AstorCoreEngine - ----------Running generation: 474, population size: 1
+[194354] WARN AstorCoreEngine - ----------Running generation: 475, population size: 1
+[194364] WARN AstorCoreEngine - ----------Running generation: 476, population size: 1
+[194374] WARN AstorCoreEngine - ----------Running generation: 477, population size: 1
+[194393] WARN AstorCoreEngine - ----------Running generation: 478, population size: 1
+[194406] WARN AstorCoreEngine - ----------Running generation: 479, population size: 1
+[194417] WARN AstorCoreEngine - ----------Running generation: 480, population size: 1
+[194429] WARN AstorCoreEngine - ----------Running generation: 481, population size: 1
+[194442] WARN AstorCoreEngine - ----------Running generation: 482, population size: 1
+[194454] WARN AstorCoreEngine - ----------Running generation: 483, population size: 1
+[194471] WARN AstorCoreEngine - ----------Running generation: 484, population size: 1
+[194487] WARN AstorCoreEngine - ----------Running generation: 485, population size: 1
+[194943] WARN AstorCoreEngine - ----------Running generation: 486, population size: 1
+[194968] WARN AstorCoreEngine - ----------Running generation: 487, population size: 1
+[195464] WARN AstorCoreEngine - ----------Running generation: 488, population size: 1
+[195494] WARN AstorCoreEngine - ----------Running generation: 489, population size: 1
+[195551] WARN AstorCoreEngine - ----------Running generation: 490, population size: 1
+[195703] WARN AstorCoreEngine - ----------Running generation: 491, population size: 1
+[196686] WARN AstorCoreEngine - ----------Running generation: 492, population size: 1
+[196712] WARN AstorCoreEngine - ----------Running generation: 493, population size: 1
+[196743] WARN AstorCoreEngine - ----------Running generation: 494, population size: 1
+[196779] WARN AstorCoreEngine - ----------Running generation: 495, population size: 1
+[196844] WARN AstorCoreEngine - ----------Running generation: 496, population size: 1
+[196904] WARN AstorCoreEngine - ----------Running generation: 497, population size: 1
+[196963] WARN AstorCoreEngine - ----------Running generation: 498, population size: 1
+[196999] WARN AstorCoreEngine - ----------Running generation: 499, population size: 1
+[197031] WARN AstorCoreEngine - ----------Running generation: 500, population size: 1
+[197700] WARN AstorCoreEngine - ----------Running generation: 501, population size: 1
+[197724] WARN AstorCoreEngine - ----------Running generation: 502, population size: 1
+[197740] WARN AstorCoreEngine - ----------Running generation: 503, population size: 1
+[197756] WARN AstorCoreEngine - ----------Running generation: 504, population size: 1
+[197777] WARN AstorCoreEngine - ----------Running generation: 505, population size: 1
+[197810] WARN AstorCoreEngine - ----------Running generation: 506, population size: 1
+[198401] WARN AstorCoreEngine - ----------Running generation: 507, population size: 1
+[198425] WARN AstorCoreEngine - ----------Running generation: 508, population size: 1
+[198437] WARN AstorCoreEngine - ----------Running generation: 509, population size: 1
+[198448] WARN AstorCoreEngine - ----------Running generation: 510, population size: 1
+[198468] WARN AstorCoreEngine - ----------Running generation: 511, population size: 1
+[198497] WARN AstorCoreEngine - ----------Running generation: 512, population size: 1
+[198518] WARN AstorCoreEngine - ----------Running generation: 513, population size: 1
+[198541] WARN AstorCoreEngine - ----------Running generation: 514, population size: 1
+[198563] WARN AstorCoreEngine - ----------Running generation: 515, population size: 1
+[198584] WARN AstorCoreEngine - ----------Running generation: 516, population size: 1
+[198615] WARN AstorCoreEngine - ----------Running generation: 517, population size: 1
+[198640] WARN AstorCoreEngine - ----------Running generation: 518, population size: 1
+[198664] WARN AstorCoreEngine - ----------Running generation: 519, population size: 1
+[198674] WARN AstorCoreEngine - ----------Running generation: 520, population size: 1
+[198686] WARN AstorCoreEngine - ----------Running generation: 521, population size: 1
+[198702] WARN AstorCoreEngine - ----------Running generation: 522, population size: 1
+[198724] WARN AstorCoreEngine - ----------Running generation: 523, population size: 1
+[198743] WARN AstorCoreEngine - ----------Running generation: 524, population size: 1
+[198766] WARN AstorCoreEngine - ----------Running generation: 525, population size: 1
+[198807] WARN AstorCoreEngine - ----------Running generation: 526, population size: 1
+[198819] WARN AstorCoreEngine - ----------Running generation: 527, population size: 1
+[198869] WARN AstorCoreEngine - ----------Running generation: 528, population size: 1
+[198891] WARN AstorCoreEngine - ----------Running generation: 529, population size: 1
+[198931] WARN AstorCoreEngine - ----------Running generation: 530, population size: 1
+[198953] WARN AstorCoreEngine - ----------Running generation: 531, population size: 1
+[199003] WARN AstorCoreEngine - ----------Running generation: 532, population size: 1
+[199028] WARN AstorCoreEngine - ----------Running generation: 533, population size: 1
+[199057] WARN AstorCoreEngine - ----------Running generation: 534, population size: 1
+[199087] WARN AstorCoreEngine - ----------Running generation: 535, population size: 1
+[199119] WARN AstorCoreEngine - ----------Running generation: 536, population size: 1
+[199147] WARN AstorCoreEngine - ----------Running generation: 537, population size: 1
+[199158] WARN AstorCoreEngine - ----------Running generation: 538, population size: 1
+[199207] WARN AstorCoreEngine - ----------Running generation: 539, population size: 1
+[199252] WARN AstorCoreEngine - ----------Running generation: 540, population size: 1
+[199290] WARN AstorCoreEngine - ----------Running generation: 541, population size: 1
+[199304] WARN AstorCoreEngine - ----------Running generation: 542, population size: 1
+[199324] WARN AstorCoreEngine - ----------Running generation: 543, population size: 1
+[199352] WARN AstorCoreEngine - ----------Running generation: 544, population size: 1
+[199368] WARN AstorCoreEngine - ----------Running generation: 545, population size: 1
+[199379] WARN AstorCoreEngine - ----------Running generation: 546, population size: 1
+[199389] WARN AstorCoreEngine - ----------Running generation: 547, population size: 1
+[199401] WARN AstorCoreEngine - ----------Running generation: 548, population size: 1
+[199421] WARN AstorCoreEngine - ----------Running generation: 549, population size: 1
+[199431] WARN AstorCoreEngine - ----------Running generation: 550, population size: 1
+[199449] WARN AstorCoreEngine - ----------Running generation: 551, population size: 1
+[199459] WARN AstorCoreEngine - ----------Running generation: 552, population size: 1
+[199470] WARN AstorCoreEngine - ----------Running generation: 553, population size: 1
+[199479] WARN AstorCoreEngine - ----------Running generation: 554, population size: 1
+[199490] WARN AstorCoreEngine - ----------Running generation: 555, population size: 1
+[199501] WARN AstorCoreEngine - ----------Running generation: 556, population size: 1
+[199512] WARN AstorCoreEngine - ----------Running generation: 557, population size: 1
+[199531] WARN AstorCoreEngine - ----------Running generation: 558, population size: 1
+[199541] WARN AstorCoreEngine - ----------Running generation: 559, population size: 1
+[199778] WARN AstorCoreEngine - ----------Running generation: 560, population size: 1
+[199812] WARN AstorCoreEngine - ----------Running generation: 561, population size: 1
+[199853] WARN AstorCoreEngine - ----------Running generation: 562, population size: 1
+[199874] WARN AstorCoreEngine - ----------Running generation: 563, population size: 1
+[199895] WARN AstorCoreEngine - ----------Running generation: 564, population size: 1
+[199916] WARN AstorCoreEngine - ----------Running generation: 565, population size: 1
+[199939] WARN AstorCoreEngine - ----------Running generation: 566, population size: 1
+[199953] WARN AstorCoreEngine - ----------Running generation: 567, population size: 1
+[199965] WARN AstorCoreEngine - ----------Running generation: 568, population size: 1
+[199984] WARN AstorCoreEngine - ----------Running generation: 569, population size: 1
+[199997] WARN AstorCoreEngine - ----------Running generation: 570, population size: 1
+[200058] WARN AstorCoreEngine - ----------Running generation: 571, population size: 1
+[200094] WARN AstorCoreEngine - ----------Running generation: 572, population size: 1
+[200132] WARN AstorCoreEngine - ----------Running generation: 573, population size: 1
+[200170] WARN AstorCoreEngine - ----------Running generation: 574, population size: 1
+[200200] WARN AstorCoreEngine - ----------Running generation: 575, population size: 1
+[200257] WARN AstorCoreEngine - ----------Running generation: 576, population size: 1
+[200294] WARN AstorCoreEngine - ----------Running generation: 577, population size: 1
+[200343] WARN AstorCoreEngine - ----------Running generation: 578, population size: 1
+[200407] WARN AstorCoreEngine - ----------Running generation: 579, population size: 1
+[200458] WARN AstorCoreEngine - ----------Running generation: 580, population size: 1
+[200484] WARN AstorCoreEngine - ----------Running generation: 581, population size: 1
+[200494] WARN AstorCoreEngine - ----------Running generation: 582, population size: 1
+[200515] WARN AstorCoreEngine - ----------Running generation: 583, population size: 1
+[200527] WARN AstorCoreEngine - ----------Running generation: 584, population size: 1
+[200540] WARN AstorCoreEngine - ----------Running generation: 585, population size: 1
+[200582] WARN AstorCoreEngine - ----------Running generation: 586, population size: 1
+[200607] WARN AstorCoreEngine - ----------Running generation: 587, population size: 1
+[200640] WARN AstorCoreEngine - ----------Running generation: 588, population size: 1
+[200674] WARN AstorCoreEngine - ----------Running generation: 589, population size: 1
+[200719] WARN AstorCoreEngine - ----------Running generation: 590, population size: 1
+[200754] WARN AstorCoreEngine - ----------Running generation: 591, population size: 1
+[200799] WARN AstorCoreEngine - ----------Running generation: 592, population size: 1
+[200853] WARN AstorCoreEngine - ----------Running generation: 593, population size: 1
+[200886] WARN AstorCoreEngine - ----------Running generation: 594, population size: 1
+[200940] WARN AstorCoreEngine - ----------Running generation: 595, population size: 1
+[200954] WARN AstorCoreEngine - ----------Running generation: 596, population size: 1
+[200980] WARN AstorCoreEngine - ----------Running generation: 597, population size: 1
+[201030] WARN AstorCoreEngine - ----------Running generation: 598, population size: 1
+[201090] WARN AstorCoreEngine - ----------Running generation: 599, population size: 1
+[201111] WARN AstorCoreEngine - ----------Running generation: 600, population size: 1
+[201134] WARN AstorCoreEngine - ----------Running generation: 601, population size: 1
+[201154] WARN AstorCoreEngine - ----------Running generation: 602, population size: 1
+[201189] WARN AstorCoreEngine - ----------Running generation: 603, population size: 1
+[201200] WARN AstorCoreEngine - ----------Running generation: 604, population size: 1
+[201210] WARN AstorCoreEngine - ----------Running generation: 605, population size: 1
+[201234] WARN AstorCoreEngine - ----------Running generation: 606, population size: 1
+[201259] ERROR AstorCoreEngine - Stopping main loop at 606 generation
+[201260] INFO AstorCoreEngine - Time Repair Loop (s): 89.933
+[201260] INFO AstorCoreEngine - generationsexecuted: 606
+[201260] WARN AstorCoreEngine - ----SUMMARY_EXECUTION---
+[201260] WARN AstorCoreEngine - End Repair Search: NOT Found solution
+[201260] WARN AstorCoreEngine - Number suspicious:1
+[201269] INFO AstorCoreEngine - 
+ --SOLUTIONS DESCRIPTION--
+
+
+Astor Output:
+
+General stats:
+EXECUTION_IDENTIFIER=jenkinsci_junit-plugin-VUL4J-56
+TOTAL_TIME=89.933
+NR_GENERATIONS=606
+NR_RIGHT_COMPILATIONS=null
+NR_FAILLING_COMPILATIONS=104
+NR_ERRONEOUS_VARIANCES=null
+NR_FAILING_VALIDATION_PROCESS=null
+OUTPUT_STATUS=CONVERGED
+
+Patch stats:
+
+[201283] INFO Stats - Storing ing JSON at /workdir/jGenProg_vul4j_jenkinsci_junit-plugin_VUL4J-56/./output_astor/AstorMain-jenkinsci_junit-plugin-VUL4J-56//astor_output.json
+[201284] INFO Stats - astor_output:
+{"general":{"NR_RIGHT_COMPILATIONS":null,"NR_ERRONEOUS_VARIANCES":null,"EXECUTION_IDENTIFIER":"jenkinsci_junit-plugin-VUL4J-56","OUTPUT_STATUS":"CONVERGED","NR_FAILLING_COMPILATIONS":104,"NR_GENERATIONS":606,"TOTAL_TIME":89.933,"NR_FAILING_VALIDATION_PROCESS":null},"patches":[]}
+[201284] INFO AstorMain - Time Total(s): 201.265
+187.99user 34.75system 3:22.82elapsed 109%CPU (0avgtext+0avgdata 1843140maxresident)k
+18056inputs+289976outputs (8major+844928minor)pagefaults 0swaps
+
+
+Node: 9670332cfea8
+
+
+
+Date: Thu Sep  8 17:36:54 EDT 2022
+

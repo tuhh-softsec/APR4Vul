@@ -1,0 +1,10 @@
+{
+  "repair_end": "2022-09-14 10:40:54.644763", 
+  "repair_begin": "2022-09-14 10:39:34.324097", 
+  "patches": [
+    {
+      "edits": [], 
+      "patch": "diff --git a/src/main/java/org/apache/commons/imaging/formats/jpeg/decoder/JpegDecoder.java b/src/main/java/org/apache/commons/imaging/formats/jpeg/decoder/JpegDecoder.java\nindex 3561fcbcf626..74651123575e 100644\n--- a/src/main/java/org/apache/commons/imaging/formats/jpeg/decoder/JpegDecoder.java\n+++ b/src/main/java/org/apache/commons/imaging/formats/jpeg/decoder/JpegDecoder.java\n@@ -400,7 +400,7 @@ public class JpegDecoder extends BinaryFileParser implements JpegUtils.Visitor {\n     private int extend(int v, final int t) {\n         // \"EXTEND\", section F.2.2.1, figure F.12, page 105 of T.81\n         int vt = (1 << (t - 1));\n-        while (v < vt) {\n+        while (v==vt) {\n             vt = (-1 << t) + 1;\n             v += vt;\n         }"
+    }
+  ]
+}

@@ -1,0 +1,106 @@
+cd /workdir/RSRepair_vul4j_apache_httpcomponents-client_VUL4J-17;
+export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en";
+TZ="America/New_York"; export TZ;
+export PATH="/usr/lib/jvm/java-8-openjdk-amd64/bin:$PATH";
+export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64";
+timeout 240m java -Xmx4g -Xms1g -XX:MaxPermSize=512m -cp /script/../libs/jmetal.jar:/script/../repair_tools/arja.jar us.msu.cse.repair.Main \
+	RSRepair \
+	-DexternalProjRoot /script/../libs/arja_external \
+	-DprojectDir /workdir/RSRepair_vul4j_apache_httpcomponents-client_VUL4J-17 \
+    -DtestFiltered false \
+    -DrunTestCommand "mvn test -pl httpclient -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B" \
+	-DsrcJavaDir /workdir/RSRepair_vul4j_apache_httpcomponents-client_VUL4J-17/httpclient/src/main/java \
+	-DbinJavaDir /workdir/RSRepair_vul4j_apache_httpcomponents-client_VUL4J-17/httpclient/target/classes \
+	-DbinTestDir /workdir/RSRepair_vul4j_apache_httpcomponents-client_VUL4J-17/httpclient/target/test-classes \
+	-DdiffFormat true \
+	-Dseed 0 \
+	-DgzoltarDataDir /script/../data/benchmarks/vul4j/perfectfl/VUL4J-17 \
+	-Ddependences /root/.m2/repository/org/apache/httpcomponents/httpcore/4.4.6/httpcore-4.4.6.jar:/root/.m2/repository/commons-codec/commons-codec/1.9/commons-codec-1.9.jar:/root/.m2/repository/junit/junit/4.11/junit-4.11.jar:/root/.m2/repository/org/mockito/mockito-core/1.8.5/mockito-core-1.8.5.jar:/root/.m2/repository/org/objenesis/objenesis/1.0/objenesis-1.0.jar:/root/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar;
+	echo "\n\nNode: `hostname`\n";
+	echo "\n\nDate: `date`\n";
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en
+OpenJDK 64-Bit Server VM warning: ignoring option MaxPermSize=512m; support was removed in 8.0
+Fault localization starts...
+Number of positive tests: 893
+Number of negative tests: 1
+Negative tests: [org.apache.http.client.utils.TestURIBuilder#testMalformedPath]
+Faulty Lines: 
+org.apache.http.client.utils.URIBuilder#507:1.0
+org.apache.http.client.utils.URIBuilder#496:1.0
+Fault localization is finished!
+AST parsing starts...
+AST parsing is finished!
+Detection of local variables starts...
+Detection of local variables is finished!
+Detection of fields starts...
+Detection of fields is finished!
+Detection of methods starts...
+Detection of methods is finished!
+Ingredient screener starts...
+Ingredient screener is finished!
+Initialization of manipulations starts...
+Initialization of manipulations is finished!
+Filtering of the tests starts...
+Number of positive tests considered: 893
+Filtering of the tests is finished!
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -493,7 +493,6 @@ public class URIBuilder {
+private static String normalizePath(final String path) {
+String s = path;
+if (s == null) {
+-            return null;
+}
+int n = 0;
+for (; n < s.length(); n++) {
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -504,7 +504,10 @@ public class URIBuilder {
+if (n > 1) {
+s = s.substring(n - 1);
+}
+-        return s;
++        if (n > 1) {
++			s = s.substring(n - 1);
++		}
++		return s;
+}
+
+}
+
+
+Node: 158fac6bc2aa
+
+
+
+Date: Wed Oct 12 18:42:59 EDT 2022
+

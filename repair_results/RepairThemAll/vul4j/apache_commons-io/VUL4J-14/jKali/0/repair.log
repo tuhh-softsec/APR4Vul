@@ -1,0 +1,214 @@
+cd /workdir/jKali_vul4j_apache_commons-io_VUL4J-14;
+export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en";
+TZ="America/New_York"; export TZ;
+export PATH="/usr/lib/jvm/java-8-openjdk-amd64/bin:$PATH";
+export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64/bin";
+time java -Xmx4g -Xms1g -XX:MaxPermSize=512m -cp /script/../libs/jtestex7.jar:/script/../repair_tools/astor.jar fr.inria.main.evolution.AstorMain \
+	-mode jkali \
+	-location . \
+	-id apache_commons-io-VUL4J-14 \
+	-failing org.apache.commons.io.FilenameUtilsTestCase#testGetPrefixLength:org.apache.commons.io.FilenameUtilsTestCase#testNormalize \
+	-jvm4testexecution /usr/lib/jvm/jdk1.7.0_80/bin \
+	-jvm4evosuitetestexecution /usr/lib/jvm/jdk1.7.0_80/bin \
+	-maxgen 1000000 \
+	-maxtime 120 \
+	-stopfirst true \
+	-seed 0 \
+	-scope local \
+	-population 1 \
+	-javacompliancelevel 7 \
+	-faultlocalization perfect \
+    -perfectdata /script/../data/benchmarks/vul4j/perfectfl/VUL4J-14 \
+    -validation externalcmd \
+    -testfailingcmd "mvn test -Dtest=org.apache.commons.io.FilenameUtilsTestCase#testGetPrefixLength,org.apache.commons.io.FilenameUtilsTestCase#testNormalize -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B" \
+    -testallcmd "mvn test -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B"  \ \
+	-srcjavafolder src/main/java \
+	-srctestfolder src/test/java \
+	-binjavafolder target/classes \
+	-bintestfolder target/test-classes \
+	-parameters x:x \
+	-dependencies /root/.m2/repository/junit/junit/4.12/junit-4.12.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar;
+	echo "\n\nNode: `hostname`\n";
+	echo "\n\nDate: `date`\n";
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en
+OpenJDK 64-Bit Server VM warning: ignoring option MaxPermSize=512m; support was removed in 8.0
+[0] INFO ProjectConfiguration - Version of the JVM used: 1.7.0_80
+[11] INFO main - Java version of the JDK used to run tests: 1.7.0_80
+[11] INFO main - The compliance of the JVM is:  7
+[18] INFO main - command line arguments: [-mode  jkali  -location  .  -id  apache_commons-io-VUL4J-14  -failing  org.apache.commons.io.FilenameUtilsTestCase#testGetPrefixLength:org.apache.commons.io.FilenameUtilsTestCase#testNormalize  -jvm4testexecution  /usr/lib/jvm/jdk1.7.0_80/bin  -jvm4evosuitetestexecution  /usr/lib/jvm/jdk1.7.0_80/bin  -maxgen  1000000  -maxtime  120  -stopfirst  true  -seed  0  -scope  local  -population  1  -javacompliancelevel  7  -faultlocalization  perfect  -perfectdata  /script/../data/benchmarks/vul4j/perfectfl/VUL4J-14  -validation  externalcmd  -testfailingcmd  mvn test -Dtest=org.apache.commons.io.FilenameUtilsTestCase#testGetPrefixLength org.apache.commons.io.FilenameUtilsTestCase#testNormalize -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B  -testallcmd  mvn test -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B     -srcjavafolder  src/main/java  -srctestfolder  src/test/java  -binjavafolder  target/classes  -bintestfolder  target/test-classes  -parameters  x:x  -dependencies  /root/.m2/repository/junit/junit/4.12/junit-4.12.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar]
+[20] INFO AstorMain - Running Astor on a JDK at /usr/lib/jvm/java-8-openjdk-amd64/jre
+[35] INFO main - Source folders: [/workdir/jKali_vul4j_apache_commons-io_VUL4J-14/./src/main/java]
+[36] INFO main - Source Test folders: [/workdir/jKali_vul4j_apache_commons-io_VUL4J-14/./src/test/java]
+[2398] INFO AstorCoreEngine - ---- Creating spoon model
+[2443] INFO MutationSupporter - Creating model,  Code location from working folder: /workdir/jKali_vul4j_apache_commons-io_VUL4J-14/./src/main/java
+[2443] INFO MutationSupporter - building model: /workdir/jKali_vul4j_apache_commons-io_VUL4J-14/./src/main/java, compliance level: 7
+[2531] INFO MutationSupporter - Classpath (Dependencies) for building SpoonModel: [/root/.m2/repository/junit/junit/4.12/junit-4.12.jar, /root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar]
+[18126] INFO AstorCoreEngine - Number of CtTypes created: 122
+[18616] INFO AstorCoreEngine - Test retrieved from classes: 0
+[18933] INFO AstorCoreEngine - Setting up the max to 3160 milliseconds (3 sec)
+[18933] INFO AstorCoreEngine - ---- Initial suspicious size: 1
+[20399] INFO main - Total suspicious from FL: 1,  1
+[20399] INFO main - Total ModPoint created: 1
+[20399] INFO main - Creating program variant #1, [Variant id: 1, #gens: 1, #ops: 0, parent:-]
+[20400] INFO main - Run previously failing tests...
+[53131] INFO main - Failed tests: 2
+[53134] INFO AstorCoreEngine - The original fitness is : 2.0
+[53135] WARN ConfigurationProperties - ----------------------------
+[53135] INFO ConfigurationProperties - ---Configuration properties
+[53135] INFO ConfigurationProperties - p:lastJUnitVersion= ./examples/libs/junit-4.11.jar
+[53136] INFO ConfigurationProperties - p:alternativecompliancelevel= 8
+[53136] INFO ConfigurationProperties - p:ignoredTestCases= 
+[53136] INFO ConfigurationProperties - p:workingDirectory= /workdir/jKali_vul4j_apache_commons-io_VUL4J-14/./output_astor
+[53136] INFO ConfigurationProperties - p:manipulatesuper= false
+[53136] INFO ConfigurationProperties - p:validation= externalcmd
+[53136] INFO ConfigurationProperties - p:jvm4testexecution= /usr/lib/jvm/jdk1.7.0_80/bin
+[53136] INFO ConfigurationProperties - p:operatorspace= suppression
+[53136] INFO ConfigurationProperties - p:diffcontext= 0
+[53136] INFO ConfigurationProperties - p:binjavafolder= target/classes
+[53136] INFO ConfigurationProperties - p:synthesis_depth= 3
+[53136] INFO ConfigurationProperties - p:gzoltartestpackagetoexclude= junit.framework
+[53136] INFO ConfigurationProperties - p:skipfitnessinitialpopulation= false
+[53136] INFO ConfigurationProperties - p:evosuiteresultfolder= evosuite
+[53136] INFO ConfigurationProperties - p:flthreshold= 0.1
+[53136] INFO ConfigurationProperties - p:regressionforfaultlocalization= true
+[53136] INFO ConfigurationProperties - p:collectonlyusedmethod= false
+[53136] INFO ConfigurationProperties - p:preservelinenumbers= true
+[53136] INFO ConfigurationProperties - p:tmax2= 3160
+[53136] INFO ConfigurationProperties - p:tmax1= 10000
+[53137] INFO ConfigurationProperties - p:probagenmutation= false
+[53137] INFO ConfigurationProperties - p:nomodificationconvergence= 100
+[53140] INFO ConfigurationProperties - p:diff_type= relative
+[53140] INFO ConfigurationProperties - p:targetelementprocessor= statements
+[53141] INFO ConfigurationProperties - p:srctestfolder= src/test/java
+[53141] INFO ConfigurationProperties - p:forceExecuteRegression= false
+[53141] INFO ConfigurationProperties - p:clusteringfilename= clustering.csv
+[53141] INFO ConfigurationProperties - p:failing= org.apache.commons.io.FilenameUtilsTestCase#testGetPrefixLength:org.apache.commons.io.FilenameUtilsTestCase#testNormalize
+[53141] INFO ConfigurationProperties - p:logtestexecution= false
+[53142] INFO ConfigurationProperties - p:evo_buggy_class= true
+[53142] INFO ConfigurationProperties - p:numberExecutions= 1
+[53142] INFO ConfigurationProperties - p:maxnumbersolutions= 1000000
+[53142] INFO ConfigurationProperties - p:evo_affected_by_op= true
+[53142] INFO ConfigurationProperties - p:population= 1
+[53142] INFO ConfigurationProperties - p:considerzerovaluesusp= false
+[53143] INFO ConfigurationProperties - p:maxCombinationVariableLimit= false
+[53143] INFO ConfigurationProperties - p:savesolution= true
+[53143] INFO ConfigurationProperties - p:javacompliancelevel= 7
+[53143] INFO ConfigurationProperties - p:x= x
+[53143] INFO ConfigurationProperties - p:uniqueoptogen= false
+[53145] INFO ConfigurationProperties - p:gzoltarpackagetonotinstrument= junit.framework
+[53148] INFO ConfigurationProperties - p:projectIdentifier= apache_commons-io-VUL4J-14
+[53148] INFO ConfigurationProperties - p:modificationpointnavigation= weight
+[53148] INFO ConfigurationProperties - p:stopfirst= true
+[53148] INFO ConfigurationProperties - p:multipointmodification= false
+[53148] INFO ConfigurationProperties - p:elementsToMutate= 10
+[53148] INFO ConfigurationProperties - p:jsonoutputname= astor_output
+[53148] INFO ConfigurationProperties - p:evoDSE= false
+[53148] INFO ConfigurationProperties - p:bintestfolder= target/test-classes
+[53148] INFO ConfigurationProperties - p:testbystep= false
+[53148] INFO ConfigurationProperties - p:version-location= ./math-version/
+[53148] INFO ConfigurationProperties - p:reintroduce= PARENTS:ORIGINAL
+[53148] INFO ConfigurationProperties - p:perfectdata= /script/../data/benchmarks/vul4j/perfectfl/VUL4J-14
+[53148] INFO ConfigurationProperties - p:executorjar= ./lib/jtestex7.jar
+[53148] INFO ConfigurationProperties - p:maxGeneration= 1000000
+[53148] INFO ConfigurationProperties - p:max_synthesis_step= 10000
+[53149] INFO ConfigurationProperties - p:projectinfocommand= com.github.tdurieux:project-config-maven-plugin:info
+[53149] INFO ConfigurationProperties - p:maxVarCombination= 1000
+[53149] INFO ConfigurationProperties - p:maxtime= 120
+[53149] INFO ConfigurationProperties - p:evosuitejar= ./lib/evosuite-master-1.0.4-SNAPSHOT.jar
+[53149] INFO ConfigurationProperties - p:jvmversion= 1.7.0_80
+[53149] INFO ConfigurationProperties - p:commandTrunk= 50000
+[53149] INFO ConfigurationProperties - p:faultlocalization= perfect
+[53149] INFO ConfigurationProperties - p:resetmodel= true
+[53149] INFO ConfigurationProperties - p:maxsuspcandidates= 1000
+[53149] INFO ConfigurationProperties - p:mode= jkali
+[53149] INFO ConfigurationProperties - p:learningdir= 
+[53149] INFO ConfigurationProperties - p:jvm4evosuitetestexecution= /usr/lib/jvm/jdk1.7.0_80/bin
+[53149] INFO ConfigurationProperties - p:filterfaultlocalization= true
+[53149] INFO ConfigurationProperties - p:mutationrate= 1 
+[53149] INFO ConfigurationProperties - p:pathToMVNRepository= 
+[53149] INFO ConfigurationProperties - p:resourcesfolder= /src/main/resources:/src/test/resources:
+[53149] INFO ConfigurationProperties - p:timezone= America/Los_Angeles
+[53149] INFO ConfigurationProperties - p:runjava7code= false
+[53149] INFO ConfigurationProperties - p:testfailingcmd= mvn test -Dtest=org.apache.commons.io.FilenameUtilsTestCase#testGetPrefixLength,org.apache.commons.io.FilenameUtilsTestCase#testNormalize -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B
+[53149] INFO ConfigurationProperties - p:evoRunOnBuggyClass= true
+[53150] INFO ConfigurationProperties - p:compiler= fr.inria.astor.core.manipulation.bytecode.compiler.SpoonClassCompiler
+[53150] INFO ConfigurationProperties - p:limitbysuspicious= true
+[53150] INFO ConfigurationProperties - p:logsattemps= true
+[53150] INFO ConfigurationProperties - p:dependenciespath= /root/.m2/repository/junit/junit/4.12/junit-4.12.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar
+[53150] INFO ConfigurationProperties - p:packageToInstrument= 
+[53150] INFO ConfigurationProperties - p:skipfaultlocalization= false
+[53150] INFO ConfigurationProperties - p:scope= local
+[53150] INFO ConfigurationProperties - p:transformingredient= false
+[53150] INFO ConfigurationProperties - p:fitnessfunction= fr.inria.astor.core.solutionsearch.population.TestCaseFitnessFunction
+[53150] INFO ConfigurationProperties - p:maxnumvariablesperingredient= 10
+[53150] INFO ConfigurationProperties - p:parsesourcefromoriginal= true
+[53150] INFO ConfigurationProperties - p:pvariantfoldername= variant-
+[53150] INFO ConfigurationProperties - p:savespoonmodelondisk= false
+[53150] INFO ConfigurationProperties - p:srcjavafolder= src/main/java
+[53150] INFO ConfigurationProperties - p:populationcontroller= fr.inria.astor.core.solutionsearch.population.TestCaseBasedFitnessPopulationController
+[53150] INFO ConfigurationProperties - p:ignoreflakyinfl= false
+[53150] INFO ConfigurationProperties - p:cleantemplates= true
+[53150] INFO ConfigurationProperties - p:applyCrossover= false
+[53150] INFO ConfigurationProperties - p:maxmodificationpoints= 1000
+[53150] INFO ConfigurationProperties - p:duplicateingredientsinspace= false
+[53151] INFO ConfigurationProperties - p:metid= 0
+[53151] INFO ConfigurationProperties - p:continuewhenmodelfail= true
+[53151] INFO ConfigurationProperties - p:saveall= false
+[53151] INFO ConfigurationProperties - p:seed= 0
+[53151] INFO ConfigurationProperties - p:savecompletepatched= true
+[53151] INFO ConfigurationProperties - p:resetoperations= false
+[53151] INFO ConfigurationProperties - p:keepcomments= false
+[53151] INFO ConfigurationProperties - p:processoutputinfile= false
+[53151] INFO ConfigurationProperties - p:location= .
+[53151] INFO ConfigurationProperties - p:probabilistictransformation= true
+[53151] INFO ConfigurationProperties - p:overridemaxtime= true
+[53151] INFO ConfigurationProperties - p:outputjsonresult= true
+[53151] INFO ConfigurationProperties - p:allpoints= false
+[53151] INFO ConfigurationProperties - p:antipattern= false
+[53151] INFO ConfigurationProperties - p:bugId= 280
+[53151] INFO ConfigurationProperties - p:evosuitetimeout= 120
+[53151] INFO ConfigurationProperties - p:maxtimefactor= 10
+[53151] INFO ConfigurationProperties - p:nrPlaceholders= 1
+[53152] INFO ConfigurationProperties - p:testallcmd= mvn test -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B
+[53152] INFO ConfigurationProperties - p:forcesubprocesskilling= false
+[53152] INFO ConfigurationProperties - ----------------------------
+[53205] INFO AstorCoreEngine - mod_point MP=org.apache.commons.io.FilenameUtils line: 679, pointed element: CtReturnImpl
+[53222] INFO AstorCoreEngine - -->op: OP_INSTANCE:
+RemoveOp:(spoon.support.reflect.code.CtReturnImpl) `return java.lang.Math.min(posUnix, posWin) + 1 ` -topatch--> `-` (null) 
+[57093] INFO AstorCoreEngine - Time Repair Loop (s): 3.941
+[57093] INFO AstorCoreEngine - generationsexecuted: 1
+[57093] WARN AstorCoreEngine - ----SUMMARY_EXECUTION---
+[57093] WARN AstorCoreEngine - End Repair Search: NOT Found solution
+[57093] WARN AstorCoreEngine - Number suspicious:1
+[57095] INFO AstorCoreEngine - 
+ --SOLUTIONS DESCRIPTION--
+
+
+Astor Output:
+
+General stats:
+EXECUTION_IDENTIFIER=apache_commons-io-VUL4J-14
+TOTAL_TIME=3.941
+NR_GENERATIONS=null
+NR_RIGHT_COMPILATIONS=null
+NR_FAILLING_COMPILATIONS=1
+NR_ERRONEOUS_VARIANCES=null
+NR_FAILING_VALIDATION_PROCESS=null
+OUTPUT_STATUS=EXHAUSTIVE_NAVIGATED
+
+Patch stats:
+
+[57130] INFO Stats - Storing ing JSON at /workdir/jKali_vul4j_apache_commons-io_VUL4J-14/./output_astor/AstorMain-apache_commons-io-VUL4J-14//astor_output.json
+[57130] INFO Stats - astor_output:
+{"general":{"NR_RIGHT_COMPILATIONS":null,"NR_ERRONEOUS_VARIANCES":null,"EXECUTION_IDENTIFIER":"apache_commons-io-VUL4J-14","OUTPUT_STATUS":"EXHAUSTIVE_NAVIGATED","NR_FAILLING_COMPILATIONS":1,"NR_GENERATIONS":null,"TOTAL_TIME":3.941,"NR_FAILING_VALIDATION_PROCESS":null},"patches":[]}
+[57131] INFO AstorMain - Time Total(s): 57.102
+43.11user 7.73system 0:59.10elapsed 86%CPU (0avgtext+0avgdata 444636maxresident)k
+1136inputs+7816outputs (1major+236426minor)pagefaults 0swaps
+
+
+Node: 9670332cfea8
+
+
+
+Date: Thu Sep  8 21:52:30 EDT 2022
+

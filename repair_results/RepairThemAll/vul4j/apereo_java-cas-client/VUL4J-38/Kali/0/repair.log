@@ -1,0 +1,172 @@
+cd /workdir/Kali_vul4j_apereo_java-cas-client_VUL4J-38;
+export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en";
+TZ="America/New_York"; export TZ;
+export PATH="/usr/lib/jvm/java-8-openjdk-amd64/bin:$PATH";
+export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64";
+timeout 240m java -Xmx4g -Xms1g -XX:MaxPermSize=512m -cp /script/../libs/jmetal.jar:/script/../repair_tools/arja.jar us.msu.cse.repair.Main \
+	Kali \
+	-DexternalProjRoot /script/../libs/arja_external \
+	-DprojectDir /workdir/Kali_vul4j_apereo_java-cas-client_VUL4J-38 \
+    -DtestFiltered false \
+    -DrunTestCommand "mvn test -pl cas-client-core -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B" \
+	-DsrcJavaDir /workdir/Kali_vul4j_apereo_java-cas-client_VUL4J-38/cas-client-core/src/main/java \
+	-DbinJavaDir /workdir/Kali_vul4j_apereo_java-cas-client_VUL4J-38/cas-client-core/target/classes \
+	-DbinTestDir /workdir/Kali_vul4j_apereo_java-cas-client_VUL4J-38/cas-client-core/target/test-classes \
+	-DdiffFormat true \
+	-Dseed 0 \
+	-DgzoltarDataDir /script/../data/benchmarks/vul4j/perfectfl/VUL4J-38 \
+	-Ddependences /root/.m2/repository/xerces/xercesImpl/2.10.0/xercesImpl-2.10.0.jar:/root/.m2/repository/org/opensaml/xmltooling/1.3.2-1/xmltooling-1.3.2-1.jar:/root/.m2/repository/org/opensaml/openws/1.4.2-1/openws-1.4.2-1.jar:/root/.m2/repository/javax/servlet/javax.servlet-api/3.0.1/javax.servlet-api-3.0.1.jar:/root/.m2/repository/joda-time/joda-time/1.6.2/joda-time-1.6.2.jar:/root/.m2/repository/org/springframework/spring-beans/3.1.3.RELEASE/spring-beans-3.1.3.RELEASE.jar:/root/.m2/repository/xalan/xalan/2.7.1/xalan-2.7.1.jar:/root/.m2/repository/org/slf4j/jul-to-slf4j/1.6.1/jul-to-slf4j-1.6.1.jar:/root/.m2/repository/org/bouncycastle/bcprov-jdk15/1.45/bcprov-jdk15-1.45.jar:/root/.m2/repository/org/slf4j/log4j-over-slf4j/1.6.1/log4j-over-slf4j-1.6.1.jar:/root/.m2/repository/commons-collections/commons-collections/3.1/commons-collections-3.1.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.1/slf4j-api-1.7.1.jar:/root/.m2/repository/ca/juliusdavies/not-yet-commons-ssl/0.3.9/not-yet-commons-ssl-0.3.9.jar:/root/.m2/repository/commons-httpclient/commons-httpclient/3.1/commons-httpclient-3.1.jar:/root/.m2/repository/org/springframework/spring-expression/3.1.3.RELEASE/spring-expression-3.1.3.RELEASE.jar:/root/.m2/repository/xalan/serializer/2.7.1/serializer-2.7.1.jar:/root/.m2/repository/velocity/velocity/1.5/velocity-1.5.jar:/root/.m2/repository/commons-codec/commons-codec/1.4/commons-codec-1.4.jar:/root/.m2/repository/junit/junit/4.8.2/junit-4.8.2.jar:/root/.m2/repository/org/springframework/spring-core/3.1.3.RELEASE/spring-core-3.1.3.RELEASE.jar:/root/.m2/repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar:/root/.m2/repository/log4j/log4j/1.2.15/log4j-1.2.15.jar:/root/.m2/repository/xml-apis/xml-apis/1.4.01/xml-apis-1.4.01.jar:/root/.m2/repository/commons-lang/commons-lang/2.1/commons-lang-2.1.jar:/root/.m2/repository/org/slf4j/jcl-over-slf4j/1.7.1/jcl-over-slf4j-1.7.1.jar:/root/.m2/repository/org/springframework/spring-asm/3.1.3.RELEASE/spring-asm-3.1.3.RELEASE.jar:/root/.m2/repository/org/apache/santuario/xmlsec/1.4.4/xmlsec-1.4.4.jar:/root/.m2/repository/org/owasp/esapi/esapi/2.0GA/esapi-2.0GA.jar:/root/.m2/repository/xml-resolver/xml-resolver/1.2/xml-resolver-1.2.jar:/root/.m2/repository/xml-security/xmlsec/1.3.0/xmlsec-1.3.0.jar:/root/.m2/repository/org/slf4j/slf4j-simple/1.7.1/slf4j-simple-1.7.1.jar:/root/.m2/repository/org/springframework/spring-aop/3.1.3.RELEASE/spring-aop-3.1.3.RELEASE.jar:/root/.m2/repository/net/jcip/jcip-annotations/1.0/jcip-annotations-1.0.jar:/root/.m2/repository/org/springframework/spring-test/3.1.3.RELEASE/spring-test-3.1.3.RELEASE.jar:/root/.m2/repository/javax/activation/activation/1.1/activation-1.1.jar:/root/.m2/repository/javax/mail/mail/1.4/mail-1.4.jar:/root/.m2/repository/org/opensaml/opensaml/2.5.1-1/opensaml-2.5.1-1.jar:/root/.m2/repository/org/springframework/spring-context/3.1.3.RELEASE/spring-context-3.1.3.RELEASE.jar;
+	echo "\n\nNode: `hostname`\n";
+	echo "\n\nDate: `date`\n";
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en
+OpenJDK 64-Bit Server VM warning: ignoring option MaxPermSize=512m; support was removed in 8.0
+Fault localization starts...
+Number of positive tests: 84
+Number of negative tests: 1
+Negative tests: [org.jasig.cas.client.validation.Cas10TicketValidatorTests#urlEncodedValues]
+Faulty Lines: 
+org.jasig.cas.client.validation.AbstractUrlBasedTicketValidator#147:1.0
+org.jasig.cas.client.validation.Cas20ServiceTicketValidator#73:1.0
+org.jasig.cas.client.validation.AbstractUrlBasedTicketValidator#113:1.0
+Fault localization is finished!
+AST parsing starts...
+AST parsing is finished!
+Detection of local variables starts...
+Detection of local variables is finished!
+Detection of fields starts...
+Detection of fields is finished!
+Detection of methods starts...
+Detection of methods is finished!
+Ingredient screener starts...
+Ingredient screener is finished!
+Initialization of manipulations starts...
+Initialization of manipulations is finished!
+Filtering of the tests starts...
+Number of positive tests considered: 84
+Filtering of the tests is finished!
+----------------------------------
+Patch Candidate:
+@@ -70,7 +70,9 @@ public class Cas20ServiceTicketValidator extends AbstractCasProtocolUrlBasedTick
+* @param urlParameters the Map containing the existing parameters to send to the server.
+*/
+protected final void populateUrlAttributeMap(final Map<String, String> urlParameters) {
+-        urlParameters.put("pgtUrl", encodeUrl(this.proxyCallbackUrl));
++        if (true)
++			return;
++		urlParameters.put("pgtUrl", encodeUrl(this.proxyCallbackUrl));
+}
+
+protected String getUrlSuffix() {
+Number of failed tests: 1, 5
+----------------------------------
+Patch Candidate:
+@@ -70,7 +70,9 @@ public class Cas20ServiceTicketValidator extends AbstractCasProtocolUrlBasedTick
+* @param urlParameters the Map containing the existing parameters to send to the server.
+*/
+protected final void populateUrlAttributeMap(final Map<String, String> urlParameters) {
+-        urlParameters.put("pgtUrl", encodeUrl(this.proxyCallbackUrl));
++        if (true)
++			return;
++		urlParameters.put("pgtUrl", encodeUrl(this.proxyCallbackUrl));
+}
+
+protected String getUrlSuffix() {
+Number of failed tests: 1, 6
+----------------------------------
+Patch Candidate:
+@@ -110,7 +110,9 @@ public abstract class AbstractUrlBasedTicketValidator implements TicketValidator
+
+logger.debug("Placing URL parameters in map.");
+urlParameters.put("ticket", ticket);
+-        urlParameters.put("service", encodeUrl(serviceUrl));
++        if (true)
++			return null;
++		urlParameters.put("service", encodeUrl(serviceUrl));
+
+if (this.renew) {
+urlParameters.put("renew", "true");
+Number of failed tests: 1, 11
+----------------------------------
+Patch Candidate:
+@@ -110,7 +110,9 @@ public abstract class AbstractUrlBasedTicketValidator implements TicketValidator
+
+logger.debug("Placing URL parameters in map.");
+urlParameters.put("ticket", ticket);
+-        urlParameters.put("service", encodeUrl(serviceUrl));
++        if (true)
++			return null;
++		urlParameters.put("service", encodeUrl(serviceUrl));
+
+if (this.renew) {
+urlParameters.put("renew", "true");
+Number of failed tests: 1, 11
+----------------------------------
+Patch Candidate:
+@@ -144,7 +144,9 @@ public abstract class AbstractUrlBasedTicketValidator implements TicketValidator
+buffer.append(i++ == 0 ? "?" : "&");
+buffer.append(key);
+buffer.append("=");
+-                buffer.append(value);
++                if (true)
++					return null;
++				buffer.append(value);
+}
+}
+
+Number of failed tests: 1, 11
+----------------------------------
+Patch Candidate:
+@@ -144,7 +144,9 @@ public abstract class AbstractUrlBasedTicketValidator implements TicketValidator
+buffer.append(i++ == 0 ? "?" : "&");
+buffer.append(key);
+buffer.append("=");
+-                buffer.append(value);
++                if (true)
++					return null;
++				buffer.append(value);
+}
+}
+
+Number of failed tests: 1, 11
+----------------------------------
+Patch Candidate:
+@@ -70,7 +70,6 @@ public class Cas20ServiceTicketValidator extends AbstractCasProtocolUrlBasedTick
+* @param urlParameters the Map containing the existing parameters to send to the server.
+*/
+protected final void populateUrlAttributeMap(final Map<String, String> urlParameters) {
+-        urlParameters.put("pgtUrl", encodeUrl(this.proxyCallbackUrl));
+}
+
+protected String getUrlSuffix() {
+Number of failed tests: 1, 3
+----------------------------------
+Patch Candidate:
+@@ -110,8 +110,6 @@ public abstract class AbstractUrlBasedTicketValidator implements TicketValidator
+
+logger.debug("Placing URL parameters in map.");
+urlParameters.put("ticket", ticket);
+-        urlParameters.put("service", encodeUrl(serviceUrl));
+-
+if (this.renew) {
+urlParameters.put("renew", "true");
+}
+Number of failed tests: 1, 3
+----------------------------------
+Patch Candidate:
+@@ -144,7 +144,6 @@ public abstract class AbstractUrlBasedTicketValidator implements TicketValidator
+buffer.append(i++ == 0 ? "?" : "&");
+buffer.append(key);
+buffer.append("=");
+-                buffer.append(value);
+}
+}
+
+Number of failed tests: 1, 7
+
+
+Node: 2c8178711f7b
+
+
+
+Date: Fri Oct  7 07:40:10 EDT 2022
+

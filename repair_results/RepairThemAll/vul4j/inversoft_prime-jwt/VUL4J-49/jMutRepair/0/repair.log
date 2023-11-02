@@ -1,0 +1,473 @@
+cd /workdir/jMutRepair_vul4j_inversoft_prime-jwt_VUL4J-49;
+export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en";
+TZ="America/New_York"; export TZ;
+export PATH="/usr/lib/jvm/java-8-openjdk-amd64/bin:$PATH";
+export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64/bin";
+time java -Xmx4g -Xms1g -XX:MaxPermSize=512m -cp /script/../libs/jtestex7.jar:/script/../repair_tools/astor.jar fr.inria.main.evolution.AstorMain \
+	-mode jMutRepair \
+	-location . \
+	-id inversoft_prime-jwt-VUL4J-49 \
+	-failing org.primeframework.jwt.JWTTest#test_SingedWithoutSignature \
+	-jvm4testexecution /usr/lib/jvm/java-8-openjdk-amd64/bin \
+	-jvm4evosuitetestexecution /usr/lib/jvm/java-8-openjdk-amd64/bin \
+	-maxgen 1000000 \
+	-maxtime 120 \
+	-stopfirst true \
+	-seed 0 \
+	-scope local \
+	-population 1 \
+	-javacompliancelevel 8 \
+	-faultlocalization perfect \
+    -perfectdata /script/../data/benchmarks/vul4j/perfectfl/VUL4J-49 \
+    -validation externalcmd \
+    -testfailingcmd "mvn test -Dtest=org.primeframework.jwt.JWTTest#test_SingedWithoutSignature -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B" \
+    -testallcmd "mvn test -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B"  \ \
+	-srcjavafolder src/main/java \
+	-srctestfolder src/test/java \
+	-binjavafolder target/classes \
+	-bintestfolder target/test-classes \
+	-parameters x:x \
+	-dependencies /root/.m2/repository/com/beust/jcommander/1.27/jcommander-1.27.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.1/hamcrest-core-1.1.jar:/root/.m2/repository/org/testng/testng/6.8.7/testng-6.8.7.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.8.1/jackson-core-2.8.1.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.8.1/jackson-annotations-2.8.1.jar:/root/.m2/repository/org/yaml/snakeyaml/1.12/snakeyaml-1.12.jar:/root/.m2/repository/junit/junit/4.10/junit-4.10.jar:/root/.m2/repository/org/beanshell/bsh/2.0b4/bsh-2.0b4.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.8.1/jackson-databind-2.8.1.jar;
+	echo "\n\nNode: `hostname`\n";
+	echo "\n\nDate: `date`\n";
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en
+OpenJDK 64-Bit Server VM warning: ignoring option MaxPermSize=512m; support was removed in 8.0
+[0] INFO ProjectConfiguration - Version of the JVM used: 1.8.0_342
+[0] INFO main - Java version of the JDK used to run tests: 1.8.0_342
+[0] INFO main - The compliance of the JVM is:  8
+[3] INFO main - command line arguments: [-mode  jMutRepair  -location  .  -id  inversoft_prime-jwt-VUL4J-49  -failing  org.primeframework.jwt.JWTTest#test_SingedWithoutSignature  -jvm4testexecution  /usr/lib/jvm/java-8-openjdk-amd64/bin  -jvm4evosuitetestexecution  /usr/lib/jvm/java-8-openjdk-amd64/bin  -maxgen  1000000  -maxtime  120  -stopfirst  true  -seed  0  -scope  local  -population  1  -javacompliancelevel  8  -faultlocalization  perfect  -perfectdata  /script/../data/benchmarks/vul4j/perfectfl/VUL4J-49  -validation  externalcmd  -testfailingcmd  mvn test -Dtest=org.primeframework.jwt.JWTTest#test_SingedWithoutSignature -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B  -testallcmd  mvn test -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B     -srcjavafolder  src/main/java  -srctestfolder  src/test/java  -binjavafolder  target/classes  -bintestfolder  target/test-classes  -parameters  x:x  -dependencies  /root/.m2/repository/com/beust/jcommander/1.27/jcommander-1.27.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.1/hamcrest-core-1.1.jar:/root/.m2/repository/org/testng/testng/6.8.7/testng-6.8.7.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.8.1/jackson-core-2.8.1.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.8.1/jackson-annotations-2.8.1.jar:/root/.m2/repository/org/yaml/snakeyaml/1.12/snakeyaml-1.12.jar:/root/.m2/repository/junit/junit/4.10/junit-4.10.jar:/root/.m2/repository/org/beanshell/bsh/2.0b4/bsh-2.0b4.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.8.1/jackson-databind-2.8.1.jar]
+[4] INFO AstorMain - Running Astor on a JDK at /usr/lib/jvm/java-8-openjdk-amd64/jre
+[8] INFO main - Source folders: [/workdir/jMutRepair_vul4j_inversoft_prime-jwt_VUL4J-49/./src/main/java]
+[8] INFO main - Source Test folders: [/workdir/jMutRepair_vul4j_inversoft_prime-jwt_VUL4J-49/./src/test/java]
+[235] INFO AstorCoreEngine - ---- Creating spoon model
+[252] INFO MutationSupporter - Creating model,  Code location from working folder: /workdir/jMutRepair_vul4j_inversoft_prime-jwt_VUL4J-49/./src/main/java
+[252] INFO MutationSupporter - building model: /workdir/jMutRepair_vul4j_inversoft_prime-jwt_VUL4J-49/./src/main/java, compliance level: 8
+[263] INFO MutationSupporter - Classpath (Dependencies) for building SpoonModel: [/root/.m2/repository/com/beust/jcommander/1.27/jcommander-1.27.jar, /root/.m2/repository/org/hamcrest/hamcrest-core/1.1/hamcrest-core-1.1.jar, /root/.m2/repository/org/testng/testng/6.8.7/testng-6.8.7.jar, /root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.8.1/jackson-core-2.8.1.jar, /root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.8.1/jackson-annotations-2.8.1.jar, /root/.m2/repository/org/yaml/snakeyaml/1.12/snakeyaml-1.12.jar, /root/.m2/repository/junit/junit/4.10/junit-4.10.jar, /root/.m2/repository/org/beanshell/bsh/2.0b4/bsh-2.0b4.jar, /root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.8.1/jackson-databind-2.8.1.jar]
+[2027] INFO AstorCoreEngine - Number of CtTypes created: 32
+[2041] INFO AstorCoreEngine - Test retrieved from classes: 0
+[2071] INFO AstorCoreEngine - Setting up the max to 290 milliseconds (0 sec)
+[2071] INFO AstorCoreEngine - ---- Initial suspicious size: 3
+[2246] INFO main - Total suspicious from FL: 3,  3
+[2246] INFO main - Total ModPoint created: 3
+[2246] INFO main - Creating program variant #1, [Variant id: 1, #gens: 3, #ops: 0, parent:-]
+[2246] INFO main - Run previously failing tests...
+[6219] INFO main - Failed tests: 1
+[6220] INFO AstorCoreEngine - The original fitness is : 1.0
+[6220] WARN ConfigurationProperties - ----------------------------
+[6220] INFO ConfigurationProperties - ---Configuration properties
+[6220] INFO ConfigurationProperties - p:lastJUnitVersion= ./examples/libs/junit-4.11.jar
+[6220] INFO ConfigurationProperties - p:alternativecompliancelevel= 8
+[6220] INFO ConfigurationProperties - p:ignoredTestCases= 
+[6220] INFO ConfigurationProperties - p:workingDirectory= /workdir/jMutRepair_vul4j_inversoft_prime-jwt_VUL4J-49/./output_astor
+[6220] INFO ConfigurationProperties - p:manipulatesuper= false
+[6220] INFO ConfigurationProperties - p:validation= externalcmd
+[6220] INFO ConfigurationProperties - p:jvm4testexecution= /usr/lib/jvm/java-8-openjdk-amd64/bin
+[6220] INFO ConfigurationProperties - p:operatorspace= mutationspace
+[6220] INFO ConfigurationProperties - p:diffcontext= 0
+[6220] INFO ConfigurationProperties - p:binjavafolder= target/classes
+[6220] INFO ConfigurationProperties - p:synthesis_depth= 3
+[6220] INFO ConfigurationProperties - p:gzoltartestpackagetoexclude= junit.framework
+[6220] INFO ConfigurationProperties - p:skipfitnessinitialpopulation= false
+[6220] INFO ConfigurationProperties - p:evosuiteresultfolder= evosuite
+[6220] INFO ConfigurationProperties - p:flthreshold= 0.1
+[6220] INFO ConfigurationProperties - p:regressionforfaultlocalization= true
+[6220] INFO ConfigurationProperties - p:collectonlyusedmethod= false
+[6220] INFO ConfigurationProperties - p:preservelinenumbers= true
+[6220] INFO ConfigurationProperties - p:tmax2= 290
+[6220] INFO ConfigurationProperties - p:tmax1= 10000
+[6220] INFO ConfigurationProperties - p:probagenmutation= false
+[6220] INFO ConfigurationProperties - p:nomodificationconvergence= 100
+[6220] INFO ConfigurationProperties - p:diff_type= relative
+[6220] INFO ConfigurationProperties - p:targetelementprocessor= if-conditions:return-op-mutation
+[6221] INFO ConfigurationProperties - p:srctestfolder= src/test/java
+[6221] INFO ConfigurationProperties - p:forceExecuteRegression= false
+[6221] INFO ConfigurationProperties - p:clusteringfilename= clustering.csv
+[6221] INFO ConfigurationProperties - p:failing= org.primeframework.jwt.JWTTest#test_SingedWithoutSignature
+[6221] INFO ConfigurationProperties - p:logtestexecution= false
+[6221] INFO ConfigurationProperties - p:evo_buggy_class= true
+[6221] INFO ConfigurationProperties - p:numberExecutions= 1
+[6221] INFO ConfigurationProperties - p:maxnumbersolutions= 1000000
+[6221] INFO ConfigurationProperties - p:evo_affected_by_op= true
+[6221] INFO ConfigurationProperties - p:population= 1
+[6221] INFO ConfigurationProperties - p:considerzerovaluesusp= false
+[6221] INFO ConfigurationProperties - p:maxCombinationVariableLimit= false
+[6221] INFO ConfigurationProperties - p:savesolution= true
+[6221] INFO ConfigurationProperties - p:javacompliancelevel= 8
+[6221] INFO ConfigurationProperties - p:x= x
+[6221] INFO ConfigurationProperties - p:uniqueoptogen= false
+[6221] INFO ConfigurationProperties - p:gzoltarpackagetonotinstrument= junit.framework
+[6221] INFO ConfigurationProperties - p:projectIdentifier= inversoft_prime-jwt-VUL4J-49
+[6221] INFO ConfigurationProperties - p:modificationpointnavigation= weight
+[6221] INFO ConfigurationProperties - p:stopfirst= true
+[6221] INFO ConfigurationProperties - p:multipointmodification= false
+[6221] INFO ConfigurationProperties - p:elementsToMutate= 10
+[6221] INFO ConfigurationProperties - p:jsonoutputname= astor_output
+[6221] INFO ConfigurationProperties - p:evoDSE= false
+[6221] INFO ConfigurationProperties - p:bintestfolder= target/test-classes
+[6221] INFO ConfigurationProperties - p:testbystep= false
+[6221] INFO ConfigurationProperties - p:version-location= ./math-version/
+[6221] INFO ConfigurationProperties - p:reintroduce= PARENTS:ORIGINAL
+[6221] INFO ConfigurationProperties - p:perfectdata= /script/../data/benchmarks/vul4j/perfectfl/VUL4J-49
+[6221] INFO ConfigurationProperties - p:executorjar= ./lib/jtestex7.jar
+[6221] INFO ConfigurationProperties - p:maxGeneration= 1000000
+[6221] INFO ConfigurationProperties - p:max_synthesis_step= 10000
+[6221] INFO ConfigurationProperties - p:projectinfocommand= com.github.tdurieux:project-config-maven-plugin:info
+[6221] INFO ConfigurationProperties - p:maxVarCombination= 1000
+[6221] INFO ConfigurationProperties - p:maxtime= 120
+[6221] INFO ConfigurationProperties - p:evosuitejar= ./lib/evosuite-master-1.0.4-SNAPSHOT.jar
+[6221] INFO ConfigurationProperties - p:jvmversion= 1.8.0_342
+[6221] INFO ConfigurationProperties - p:commandTrunk= 50000
+[6221] INFO ConfigurationProperties - p:faultlocalization= perfect
+[6221] INFO ConfigurationProperties - p:resetmodel= true
+[6221] INFO ConfigurationProperties - p:maxsuspcandidates= 1000
+[6221] INFO ConfigurationProperties - p:mode= jMutRepair
+[6221] INFO ConfigurationProperties - p:learningdir= 
+[6221] INFO ConfigurationProperties - p:jvm4evosuitetestexecution= /usr/lib/jvm/java-8-openjdk-amd64/bin
+[6221] INFO ConfigurationProperties - p:filterfaultlocalization= true
+[6221] INFO ConfigurationProperties - p:mutationrate= 1 
+[6221] INFO ConfigurationProperties - p:pathToMVNRepository= 
+[6222] INFO ConfigurationProperties - p:resourcesfolder= /src/main/resources:/src/test/resources:
+[6222] INFO ConfigurationProperties - p:timezone= America/Los_Angeles
+[6222] INFO ConfigurationProperties - p:runjava7code= false
+[6222] INFO ConfigurationProperties - p:testfailingcmd= mvn test -Dtest=org.primeframework.jwt.JWTTest#test_SingedWithoutSignature -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B
+[6222] INFO ConfigurationProperties - p:evoRunOnBuggyClass= true
+[6222] INFO ConfigurationProperties - p:compiler= fr.inria.astor.core.manipulation.bytecode.compiler.SpoonClassCompiler
+[6222] INFO ConfigurationProperties - p:limitbysuspicious= true
+[6222] INFO ConfigurationProperties - p:logsattemps= true
+[6222] INFO ConfigurationProperties - p:dependenciespath= /root/.m2/repository/com/beust/jcommander/1.27/jcommander-1.27.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.1/hamcrest-core-1.1.jar:/root/.m2/repository/org/testng/testng/6.8.7/testng-6.8.7.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.8.1/jackson-core-2.8.1.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.8.1/jackson-annotations-2.8.1.jar:/root/.m2/repository/org/yaml/snakeyaml/1.12/snakeyaml-1.12.jar:/root/.m2/repository/junit/junit/4.10/junit-4.10.jar:/root/.m2/repository/org/beanshell/bsh/2.0b4/bsh-2.0b4.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.8.1/jackson-databind-2.8.1.jar
+[6222] INFO ConfigurationProperties - p:packageToInstrument= 
+[6222] INFO ConfigurationProperties - p:skipfaultlocalization= false
+[6222] INFO ConfigurationProperties - p:scope= local
+[6222] INFO ConfigurationProperties - p:transformingredient= false
+[6222] INFO ConfigurationProperties - p:fitnessfunction= fr.inria.astor.core.solutionsearch.population.TestCaseFitnessFunction
+[6222] INFO ConfigurationProperties - p:maxnumvariablesperingredient= 10
+[6222] INFO ConfigurationProperties - p:parsesourcefromoriginal= true
+[6222] INFO ConfigurationProperties - p:pvariantfoldername= variant-
+[6222] INFO ConfigurationProperties - p:savespoonmodelondisk= false
+[6222] INFO ConfigurationProperties - p:srcjavafolder= src/main/java
+[6222] INFO ConfigurationProperties - p:populationcontroller= fr.inria.astor.core.solutionsearch.population.TestCaseBasedFitnessPopulationController
+[6222] INFO ConfigurationProperties - p:ignoreflakyinfl= false
+[6222] INFO ConfigurationProperties - p:cleantemplates= true
+[6222] INFO ConfigurationProperties - p:applyCrossover= false
+[6222] INFO ConfigurationProperties - p:maxmodificationpoints= 1000
+[6222] INFO ConfigurationProperties - p:duplicateingredientsinspace= false
+[6222] INFO ConfigurationProperties - p:metid= 0
+[6222] INFO ConfigurationProperties - p:continuewhenmodelfail= true
+[6222] INFO ConfigurationProperties - p:saveall= false
+[6222] INFO ConfigurationProperties - p:seed= 0
+[6222] INFO ConfigurationProperties - p:savecompletepatched= true
+[6222] INFO ConfigurationProperties - p:resetoperations= false
+[6222] INFO ConfigurationProperties - p:keepcomments= false
+[6222] INFO ConfigurationProperties - p:processoutputinfile= false
+[6222] INFO ConfigurationProperties - p:location= .
+[6222] INFO ConfigurationProperties - p:probabilistictransformation= true
+[6222] INFO ConfigurationProperties - p:overridemaxtime= true
+[6222] INFO ConfigurationProperties - p:outputjsonresult= true
+[6222] INFO ConfigurationProperties - p:allpoints= false
+[6222] INFO ConfigurationProperties - p:antipattern= false
+[6222] INFO ConfigurationProperties - p:bugId= 280
+[6222] INFO ConfigurationProperties - p:evosuitetimeout= 120
+[6222] INFO ConfigurationProperties - p:maxtimefactor= 10
+[6222] INFO ConfigurationProperties - p:nrPlaceholders= 1
+[6222] INFO ConfigurationProperties - p:testallcmd= mvn test -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B
+[6222] INFO ConfigurationProperties - p:forcesubprocesskilling= false
+[6223] INFO ConfigurationProperties - ----------------------------
+[6233] INFO AstorCoreEngine - mod_point MP=org.primeframework.jwt.JWTDecoder line: 69, pointed element: CtIfImpl
+[6241] INFO AstorCoreEngine - -->op: OP_INSTANCE:
+IfExpresionMutOp:(spoon.support.reflect.code.CtBinaryOperatorImpl) `((header.algorithm == org.primeframework.jwt.domain.Algorithm.none) && (parts.length == 2)) && (veri[...] ` -topatch--> `((                                                                    header.algorithm != org.primef[...]` (spoon.support.reflect.code.CtBinaryOperatorImpl) 
+[6680] INFO main - Run previously failing tests...
+[11575] INFO main - Failed tests: 1
+[11576] INFO AstorCoreEngine - mod_point MP=org.primeframework.jwt.JWTDecoder line: 69, pointed element: CtIfImpl
+[11578] INFO AstorCoreEngine - -->op: OP_INSTANCE:
+IfExpresionMutOp:(spoon.support.reflect.code.CtBinaryOperatorImpl) `((header.algorithm == org.primeframework.jwt.domain.Algorithm.none) && (parts.length == 2)) && (veri[...] ` -topatch--> `((                                                                    header.algorithm >= org.primef[...]` (spoon.support.reflect.code.CtBinaryOperatorImpl) 
+[11711] INFO AstorCoreEngine - mod_point MP=org.primeframework.jwt.JWTDecoder line: 69, pointed element: CtIfImpl
+[11712] INFO AstorCoreEngine - -->op: OP_INSTANCE:
+IfExpresionMutOp:(spoon.support.reflect.code.CtBinaryOperatorImpl) `((header.algorithm == org.primeframework.jwt.domain.Algorithm.none) && (parts.length == 2)) && (veri[...] ` -topatch--> `((                                                                    header.algorithm > org.primefr[...]` (spoon.support.reflect.code.CtBinaryOperatorImpl) 
+[11775] INFO AstorCoreEngine - mod_point MP=org.primeframework.jwt.JWTDecoder line: 69, pointed element: CtIfImpl
+[11776] INFO AstorCoreEngine - -->op: OP_INSTANCE:
+IfExpresionMutOp:(spoon.support.reflect.code.CtBinaryOperatorImpl) `((header.algorithm == org.primeframework.jwt.domain.Algorithm.none) && (parts.length == 2)) && (veri[...] ` -topatch--> `((                                                                    header.algorithm <= org.primef[...]` (spoon.support.reflect.code.CtBinaryOperatorImpl) 
+[11907] INFO AstorCoreEngine - mod_point MP=org.primeframework.jwt.JWTDecoder line: 69, pointed element: CtIfImpl
+[11908] INFO AstorCoreEngine - -->op: OP_INSTANCE:
+IfExpresionMutOp:(spoon.support.reflect.code.CtBinaryOperatorImpl) `((header.algorithm == org.primeframework.jwt.domain.Algorithm.none) && (parts.length == 2)) && (veri[...] ` -topatch--> `((                                                                    header.algorithm < org.primefr[...]` (spoon.support.reflect.code.CtBinaryOperatorImpl) 
+[11972] INFO AstorCoreEngine - mod_point MP=org.primeframework.jwt.JWTDecoder line: 69, pointed element: CtIfImpl
+[11973] INFO AstorCoreEngine - -->op: OP_INSTANCE:
+IfExpresionMutOp:(spoon.support.reflect.code.CtBinaryOperatorImpl) `((header.algorithm == org.primeframework.jwt.domain.Algorithm.none) && (parts.length == 2)) && (veri[...] ` -topatch--> `((!                                                                    (header.algorithm == org.prim[...]` (spoon.support.reflect.code.CtBinaryOperatorImpl) 
+[12066] INFO main - Run previously failing tests...
+[17352] INFO main - Failed tests: 1
+[17352] INFO AstorCoreEngine - mod_point MP=org.primeframework.jwt.JWTDecoder line: 69, pointed element: CtIfImpl
+[17354] INFO AstorCoreEngine - -->op: OP_INSTANCE:
+IfExpresionMutOp:(spoon.support.reflect.code.CtBinaryOperatorImpl) `((header.algorithm == org.primeframework.jwt.domain.Algorithm.none) && (parts.length == 2)) && (veri[...] ` -topatch--> `(                                                                    (header.algorithm == org.primef[...]` (spoon.support.reflect.code.CtBinaryOperatorImpl) 
+[17467] INFO main - Run previously failing tests...
+[22646] INFO main - Failed tests: 1
+[22646] INFO AstorCoreEngine - mod_point MP=org.primeframework.jwt.JWTDecoder line: 69, pointed element: CtIfImpl
+[22647] INFO AstorCoreEngine - -->op: OP_INSTANCE:
+IfExpresionMutOp:(spoon.support.reflect.code.CtBinaryOperatorImpl) `((header.algorithm == org.primeframework.jwt.domain.Algorithm.none) && (parts.length == 2)) && (veri[...] ` -topatch--> `(                                                                    (header.algorithm == org.primef[...]` (spoon.support.reflect.code.CtBinaryOperatorImpl) 
+[22736] INFO main - Run previously failing tests...
+[27895] INFO main - Failed tests: 1
+[27895] INFO AstorCoreEngine - mod_point MP=org.primeframework.jwt.JWTDecoder line: 69, pointed element: CtIfImpl
+[27896] INFO AstorCoreEngine - -->op: OP_INSTANCE:
+IfExpresionMutOp:(spoon.support.reflect.code.CtBinaryOperatorImpl) `((header.algorithm == org.primeframework.jwt.domain.Algorithm.none) && (parts.length == 2)) && (veri[...] ` -topatch--> `(                                                                    (header.algorithm == org.primef[...]` (spoon.support.reflect.code.CtBinaryOperatorImpl) 
+[27971] INFO main - Run previously failing tests...
+[33105] INFO main - Failed tests: 1
+[33106] INFO AstorCoreEngine - mod_point MP=org.primeframework.jwt.JWTDecoder line: 69, pointed element: CtIfImpl
+[33107] INFO AstorCoreEngine - -->op: OP_INSTANCE:
+IfExpresionMutOp:(spoon.support.reflect.code.CtBinaryOperatorImpl) `((header.algorithm == org.primeframework.jwt.domain.Algorithm.none) && (parts.length == 2)) && (veri[...] ` -topatch--> `(                                                                    (header.algorithm == org.primef[...]` (spoon.support.reflect.code.CtBinaryOperatorImpl) 
+[33207] INFO main - Run previously failing tests...
+[38273] INFO main - Failed tests: 1
+[38274] INFO AstorCoreEngine - mod_point MP=org.primeframework.jwt.JWTDecoder line: 69, pointed element: CtIfImpl
+[38275] INFO AstorCoreEngine - -->op: OP_INSTANCE:
+IfExpresionMutOp:(spoon.support.reflect.code.CtBinaryOperatorImpl) `((header.algorithm == org.primeframework.jwt.domain.Algorithm.none) && (parts.length == 2)) && (veri[...] ` -topatch--> `(                                                                    (header.algorithm == org.primef[...]` (spoon.support.reflect.code.CtBinaryOperatorImpl) 
+[38354] INFO main - Run previously failing tests...
+[43899] INFO main - Failed tests: 1
+[43899] INFO AstorCoreEngine - mod_point MP=org.primeframework.jwt.JWTDecoder line: 69, pointed element: CtIfImpl
+[43900] INFO AstorCoreEngine - -->op: OP_INSTANCE:
+IfExpresionMutOp:(spoon.support.reflect.code.CtBinaryOperatorImpl) `((header.algorithm == org.primeframework.jwt.domain.Algorithm.none) && (parts.length == 2)) && (veri[...] ` -topatch--> `(                                                                    (header.algorithm == org.primef[...]` (spoon.support.reflect.code.CtBinaryOperatorImpl) 
+[44005] INFO main - Run previously failing tests...
+[49187] INFO main - Failed tests: 1
+[49187] INFO AstorCoreEngine - mod_point MP=org.primeframework.jwt.JWTDecoder line: 69, pointed element: CtIfImpl
+[49188] INFO AstorCoreEngine - -->op: OP_INSTANCE:
+IfExpresionMutOp:(spoon.support.reflect.code.CtBinaryOperatorImpl) `((header.algorithm == org.primeframework.jwt.domain.Algorithm.none) && (parts.length == 2)) && (veri[...] ` -topatch--> `(                                                                    (header.algorithm == org.primef[...]` (spoon.support.reflect.code.CtBinaryOperatorImpl) 
+[49269] INFO main - Run previously failing tests...
+[54406] INFO main - Failed tests: 1
+[54406] INFO AstorCoreEngine - mod_point MP=org.primeframework.jwt.JWTDecoder line: 69, pointed element: CtIfImpl
+[54407] INFO AstorCoreEngine - -->op: OP_INSTANCE:
+IfExpresionMutOp:(spoon.support.reflect.code.CtBinaryOperatorImpl) `((header.algorithm == org.primeframework.jwt.domain.Algorithm.none) && (parts.length == 2)) && (veri[...] ` -topatch--> `(!                                                                    ((header.algorithm == org.prim[...]` (spoon.support.reflect.code.CtBinaryOperatorImpl) 
+[54466] INFO main - Run previously failing tests...
+[59978] INFO main - Failed tests: 1
+[59978] INFO AstorCoreEngine - mod_point MP=org.primeframework.jwt.JWTDecoder line: 69, pointed element: CtIfImpl
+[59979] INFO AstorCoreEngine - -->op: OP_INSTANCE:
+IfExpresionMutOp:(spoon.support.reflect.code.CtBinaryOperatorImpl) `((header.algorithm == org.primeframework.jwt.domain.Algorithm.none) && (parts.length == 2)) && (veri[...] ` -topatch--> `((header.algorithm == org.primeframework.jwt.domain.Algorithm.none) && (parts.length == 2)) && (veri[...]` (spoon.support.reflect.code.CtBinaryOperatorImpl) 
+[60020] INFO main - Run previously failing tests...
+[64931] INFO main - Failed tests: 1
+[64931] INFO AstorCoreEngine - mod_point MP=org.primeframework.jwt.JWTDecoder line: 69, pointed element: CtIfImpl
+[64932] INFO AstorCoreEngine - -->op: OP_INSTANCE:
+IfExpresionMutOp:(spoon.support.reflect.code.CtBinaryOperatorImpl) `((header.algorithm == org.primeframework.jwt.domain.Algorithm.none) && (parts.length == 2)) && (veri[...] ` -topatch--> `((header.algorithm == org.primeframework.jwt.domain.Algorithm.none) && (parts.length == 2)) && (veri[...]` (spoon.support.reflect.code.CtBinaryOperatorImpl) 
+[64971] INFO main - Run previously failing tests...
+[69966] INFO main - Failed tests: 1
+[69966] INFO AstorCoreEngine - mod_point MP=org.primeframework.jwt.JWTDecoder line: 69, pointed element: CtIfImpl
+[69967] INFO AstorCoreEngine - -->op: OP_INSTANCE:
+IfExpresionMutOp:(spoon.support.reflect.code.CtBinaryOperatorImpl) `((header.algorithm == org.primeframework.jwt.domain.Algorithm.none) && (parts.length == 2)) && (veri[...] ` -topatch--> `((header.algorithm == org.primeframework.jwt.domain.Algorithm.none) && (parts.length == 2)) && (veri[...]` (spoon.support.reflect.code.CtBinaryOperatorImpl) 
+[70010] INFO main - Run previously failing tests...
+[74868] INFO main - Failed tests: 1
+[74869] INFO AstorCoreEngine - mod_point MP=org.primeframework.jwt.JWTDecoder line: 69, pointed element: CtIfImpl
+[74869] INFO AstorCoreEngine - -->op: OP_INSTANCE:
+IfExpresionMutOp:(spoon.support.reflect.code.CtBinaryOperatorImpl) `((header.algorithm == org.primeframework.jwt.domain.Algorithm.none) && (parts.length == 2)) && (veri[...] ` -topatch--> `((header.algorithm == org.primeframework.jwt.domain.Algorithm.none) && (parts.length == 2)) && (veri[...]` (spoon.support.reflect.code.CtBinaryOperatorImpl) 
+[74939] INFO main - Run previously failing tests...
+[80235] INFO main - Failed tests: 1
+[80236] INFO AstorCoreEngine - mod_point MP=org.primeframework.jwt.JWTDecoder line: 69, pointed element: CtIfImpl
+[80236] INFO AstorCoreEngine - -->op: OP_INSTANCE:
+IfExpresionMutOp:(spoon.support.reflect.code.CtBinaryOperatorImpl) `((header.algorithm == org.primeframework.jwt.domain.Algorithm.none) && (parts.length == 2)) && (veri[...] ` -topatch--> `((header.algorithm == org.primeframework.jwt.domain.Algorithm.none) && (parts.length == 2)) && (veri[...]` (spoon.support.reflect.code.CtBinaryOperatorImpl) 
+[80277] INFO main - Run previously failing tests...
+[85701] INFO main - Failed tests: 1
+[85701] INFO AstorCoreEngine - mod_point MP=org.primeframework.jwt.JWTDecoder line: 69, pointed element: CtIfImpl
+[85702] INFO AstorCoreEngine - -->op: OP_INSTANCE:
+IfExpresionMutOp:(spoon.support.reflect.code.CtBinaryOperatorImpl) `((header.algorithm == org.primeframework.jwt.domain.Algorithm.none) && (parts.length == 2)) && (veri[...] ` -topatch--> `((header.algorithm == org.primeframework.jwt.domain.Algorithm.none) && (parts.length == 2)) && (!(ve[...]` (spoon.support.reflect.code.CtBinaryOperatorImpl) 
+[85746] INFO main - Run previously failing tests...
+[90940] INFO main - Failed tests: 1
+[90941] INFO AstorCoreEngine - mod_point MP=org.primeframework.jwt.JWTDecoder line: 69, pointed element: CtIfImpl
+[90942] INFO AstorCoreEngine - -->op: OP_INSTANCE:
+IfExpresionMutOp:(spoon.support.reflect.code.CtBinaryOperatorImpl) `((header.algorithm == org.primeframework.jwt.domain.Algorithm.none) && (parts.length == 2)) && (veri[...] ` -topatch--> `((header.algorithm == org.primeframework.jwt.domain.Algorithm.none) && (parts.length == 2)) || (veri[...]` (spoon.support.reflect.code.CtBinaryOperatorImpl) 
+[91030] INFO main - Run previously failing tests...
+[95874] INFO main - Failed tests: 1
+[95875] INFO AstorCoreEngine - mod_point MP=org.primeframework.jwt.JWTDecoder line: 69, pointed element: CtIfImpl
+[95876] INFO AstorCoreEngine - -->op: OP_INSTANCE:
+IfExpresionMutOp:(spoon.support.reflect.code.CtBinaryOperatorImpl) `((header.algorithm == org.primeframework.jwt.domain.Algorithm.none) && (parts.length == 2)) && (veri[...] ` -topatch--> `!                                                                    (((header.algorithm == org.prim[...]` (spoon.support.reflect.code.CtUnaryOperatorImpl) 
+[95927] INFO main - Run previously failing tests...
+[101118] INFO main - Failed tests: 1
+[101120] INFO AstorCoreEngine - mod_point MP=org.primeframework.jwt.JWTDecoder line: 119, pointed element: CtIfImpl
+[101121] INFO AstorCoreEngine - -->op: OP_INSTANCE:
+IfExpresionMutOp:(spoon.support.reflect.code.CtBinaryOperatorImpl) `((header.algorithm == org.primeframework.jwt.domain.Algorithm.none) && (parts.length == 2)) && verif[...] ` -topatch--> `((                                                                                                  [...]` (spoon.support.reflect.code.CtBinaryOperatorImpl) 
+[101157] INFO main - Run previously failing tests...
+[106423] INFO main - Failed tests: 1
+[106423] INFO AstorCoreEngine - mod_point MP=org.primeframework.jwt.JWTDecoder line: 119, pointed element: CtIfImpl
+[106424] INFO AstorCoreEngine - -->op: OP_INSTANCE:
+IfExpresionMutOp:(spoon.support.reflect.code.CtBinaryOperatorImpl) `((header.algorithm == org.primeframework.jwt.domain.Algorithm.none) && (parts.length == 2)) && verif[...] ` -topatch--> `((                                                                                                  [...]` (spoon.support.reflect.code.CtBinaryOperatorImpl) 
+[106460] INFO AstorCoreEngine - mod_point MP=org.primeframework.jwt.JWTDecoder line: 119, pointed element: CtIfImpl
+[106461] INFO AstorCoreEngine - -->op: OP_INSTANCE:
+IfExpresionMutOp:(spoon.support.reflect.code.CtBinaryOperatorImpl) `((header.algorithm == org.primeframework.jwt.domain.Algorithm.none) && (parts.length == 2)) && verif[...] ` -topatch--> `((                                                                                                  [...]` (spoon.support.reflect.code.CtBinaryOperatorImpl) 
+[106490] INFO AstorCoreEngine - mod_point MP=org.primeframework.jwt.JWTDecoder line: 119, pointed element: CtIfImpl
+[106490] INFO AstorCoreEngine - -->op: OP_INSTANCE:
+IfExpresionMutOp:(spoon.support.reflect.code.CtBinaryOperatorImpl) `((header.algorithm == org.primeframework.jwt.domain.Algorithm.none) && (parts.length == 2)) && verif[...] ` -topatch--> `((                                                                                                  [...]` (spoon.support.reflect.code.CtBinaryOperatorImpl) 
+[106518] INFO AstorCoreEngine - mod_point MP=org.primeframework.jwt.JWTDecoder line: 119, pointed element: CtIfImpl
+[106519] INFO AstorCoreEngine - -->op: OP_INSTANCE:
+IfExpresionMutOp:(spoon.support.reflect.code.CtBinaryOperatorImpl) `((header.algorithm == org.primeframework.jwt.domain.Algorithm.none) && (parts.length == 2)) && verif[...] ` -topatch--> `((                                                                                                  [...]` (spoon.support.reflect.code.CtBinaryOperatorImpl) 
+[106548] INFO AstorCoreEngine - mod_point MP=org.primeframework.jwt.JWTDecoder line: 119, pointed element: CtIfImpl
+[106548] INFO AstorCoreEngine - -->op: OP_INSTANCE:
+IfExpresionMutOp:(spoon.support.reflect.code.CtBinaryOperatorImpl) `((header.algorithm == org.primeframework.jwt.domain.Algorithm.none) && (parts.length == 2)) && verif[...] ` -topatch--> `((!                                                                                                 [...]` (spoon.support.reflect.code.CtBinaryOperatorImpl) 
+[106604] INFO main - Run previously failing tests...
+[112262] INFO main - Failed tests: 1
+[112263] INFO AstorCoreEngine - mod_point MP=org.primeframework.jwt.JWTDecoder line: 119, pointed element: CtIfImpl
+[112264] INFO AstorCoreEngine - -->op: OP_INSTANCE:
+IfExpresionMutOp:(spoon.support.reflect.code.CtBinaryOperatorImpl) `((header.algorithm == org.primeframework.jwt.domain.Algorithm.none) && (parts.length == 2)) && verif[...] ` -topatch--> `(                                                                                                   [...]` (spoon.support.reflect.code.CtBinaryOperatorImpl) 
+[112298] INFO main - Run previously failing tests...
+[117889] INFO main - Failed tests: 1
+[117889] INFO AstorCoreEngine - mod_point MP=org.primeframework.jwt.JWTDecoder line: 119, pointed element: CtIfImpl
+[117890] INFO AstorCoreEngine - -->op: OP_INSTANCE:
+IfExpresionMutOp:(spoon.support.reflect.code.CtBinaryOperatorImpl) `((header.algorithm == org.primeframework.jwt.domain.Algorithm.none) && (parts.length == 2)) && verif[...] ` -topatch--> `(                                                                                                   [...]` (spoon.support.reflect.code.CtBinaryOperatorImpl) 
+[117941] INFO main - Run previously failing tests...
+[123677] INFO main - Failed tests: 1
+[123678] INFO AstorCoreEngine - mod_point MP=org.primeframework.jwt.JWTDecoder line: 119, pointed element: CtIfImpl
+[123679] INFO AstorCoreEngine - -->op: OP_INSTANCE:
+IfExpresionMutOp:(spoon.support.reflect.code.CtBinaryOperatorImpl) `((header.algorithm == org.primeframework.jwt.domain.Algorithm.none) && (parts.length == 2)) && verif[...] ` -topatch--> `(                                                                                                   [...]` (spoon.support.reflect.code.CtBinaryOperatorImpl) 
+[123731] INFO main - Run previously failing tests...
+[129471] INFO main - Failed tests: 1
+[129471] INFO AstorCoreEngine - mod_point MP=org.primeframework.jwt.JWTDecoder line: 119, pointed element: CtIfImpl
+[129472] INFO AstorCoreEngine - -->op: OP_INSTANCE:
+IfExpresionMutOp:(spoon.support.reflect.code.CtBinaryOperatorImpl) `((header.algorithm == org.primeframework.jwt.domain.Algorithm.none) && (parts.length == 2)) && verif[...] ` -topatch--> `(                                                                                                   [...]` (spoon.support.reflect.code.CtBinaryOperatorImpl) 
+[129544] INFO main - Run previously failing tests...
+[135158] INFO main - Failed tests: 1
+[135159] INFO AstorCoreEngine - mod_point MP=org.primeframework.jwt.JWTDecoder line: 119, pointed element: CtIfImpl
+[135160] INFO AstorCoreEngine - -->op: OP_INSTANCE:
+IfExpresionMutOp:(spoon.support.reflect.code.CtBinaryOperatorImpl) `((header.algorithm == org.primeframework.jwt.domain.Algorithm.none) && (parts.length == 2)) && verif[...] ` -topatch--> `(                                                                                                   [...]` (spoon.support.reflect.code.CtBinaryOperatorImpl) 
+[135202] INFO main - Run previously failing tests...
+[140128] INFO main - Failed tests: 1
+[140128] INFO AstorCoreEngine - mod_point MP=org.primeframework.jwt.JWTDecoder line: 119, pointed element: CtIfImpl
+[140129] INFO AstorCoreEngine - -->op: OP_INSTANCE:
+IfExpresionMutOp:(spoon.support.reflect.code.CtBinaryOperatorImpl) `((header.algorithm == org.primeframework.jwt.domain.Algorithm.none) && (parts.length == 2)) && verif[...] ` -topatch--> `(                                                                                                   [...]` (spoon.support.reflect.code.CtBinaryOperatorImpl) 
+[140172] INFO main - Run previously failing tests...
+[145291] INFO main - Failed tests: 1
+[145291] INFO AstorCoreEngine - mod_point MP=org.primeframework.jwt.JWTDecoder line: 119, pointed element: CtIfImpl
+[145292] INFO AstorCoreEngine - -->op: OP_INSTANCE:
+IfExpresionMutOp:(spoon.support.reflect.code.CtBinaryOperatorImpl) `((header.algorithm == org.primeframework.jwt.domain.Algorithm.none) && (parts.length == 2)) && verif[...] ` -topatch--> `(                                                                                                   [...]` (spoon.support.reflect.code.CtBinaryOperatorImpl) 
+[145324] INFO main - Run previously failing tests...
+[150461] INFO main - Failed tests: 1
+[150461] INFO AstorCoreEngine - mod_point MP=org.primeframework.jwt.JWTDecoder line: 119, pointed element: CtIfImpl
+[150462] INFO AstorCoreEngine - -->op: OP_INSTANCE:
+IfExpresionMutOp:(spoon.support.reflect.code.CtBinaryOperatorImpl) `((header.algorithm == org.primeframework.jwt.domain.Algorithm.none) && (parts.length == 2)) && verif[...] ` -topatch--> `(!                                                                                                  [...]` (spoon.support.reflect.code.CtBinaryOperatorImpl) 
+[150502] INFO main - Run previously failing tests...
+[155310] INFO main - Failed tests: 1
+[155310] INFO AstorCoreEngine - mod_point MP=org.primeframework.jwt.JWTDecoder line: 119, pointed element: CtIfImpl
+[155311] INFO AstorCoreEngine - -->op: OP_INSTANCE:
+IfExpresionMutOp:(spoon.support.reflect.code.CtBinaryOperatorImpl) `((header.algorithm == org.primeframework.jwt.domain.Algorithm.none) && (parts.length == 2)) && verif[...] ` -topatch--> `((header.algorithm == org.primeframework.jwt.domain.Algorithm.none) && (parts.length == 2)) && (!ver[...]` (spoon.support.reflect.code.CtBinaryOperatorImpl) 
+[155364] INFO main - Run previously failing tests...
+[160345] INFO main - Failed tests: 1
+[160346] INFO AstorCoreEngine - mod_point MP=org.primeframework.jwt.JWTDecoder line: 119, pointed element: CtIfImpl
+[160347] INFO AstorCoreEngine - -->op: OP_INSTANCE:
+IfExpresionMutOp:(spoon.support.reflect.code.CtBinaryOperatorImpl) `((header.algorithm == org.primeframework.jwt.domain.Algorithm.none) && (parts.length == 2)) && verif[...] ` -topatch--> `((header.algorithm == org.primeframework.jwt.domain.Algorithm.none) && (parts.length == 2)) || verif[...]` (spoon.support.reflect.code.CtBinaryOperatorImpl) 
+[160388] INFO main - Run previously failing tests...
+[165263] INFO main - Failed tests: 1
+[165264] INFO AstorCoreEngine - mod_point MP=org.primeframework.jwt.JWTDecoder line: 119, pointed element: CtIfImpl
+[165265] INFO AstorCoreEngine - -->op: OP_INSTANCE:
+IfExpresionMutOp:(spoon.support.reflect.code.CtBinaryOperatorImpl) `((header.algorithm == org.primeframework.jwt.domain.Algorithm.none) && (parts.length == 2)) && verif[...] ` -topatch--> `!                                                                                                   [...]` (spoon.support.reflect.code.CtUnaryOperatorImpl) 
+[165299] INFO main - Run previously failing tests...
+[170636] INFO main - Failed tests: 1
+[170637] INFO AstorCoreEngine - mod_point MP=org.primeframework.jwt.JWTDecoder line: 149, pointed element: CtIfImpl
+[170638] INFO AstorCoreEngine - -->op: OP_INSTANCE:
+IfExpresionMutOp:(spoon.support.reflect.code.CtBinaryOperatorImpl) `(parts.length == 3) && (verifier == null) ` -topatch--> `(                                                                                                   [...]` (spoon.support.reflect.code.CtBinaryOperatorImpl) 
+[170679] INFO main - Run previously failing tests...
+[176194] INFO main - Failed tests: 1
+[176194] INFO AstorCoreEngine - mod_point MP=org.primeframework.jwt.JWTDecoder line: 149, pointed element: CtIfImpl
+[176195] INFO AstorCoreEngine - -->op: OP_INSTANCE:
+IfExpresionMutOp:(spoon.support.reflect.code.CtBinaryOperatorImpl) `(parts.length == 3) && (verifier == null) ` -topatch--> `(                                                                                                   [...]` (spoon.support.reflect.code.CtBinaryOperatorImpl) 
+[176233] INFO main - Run previously failing tests...
+[181796] INFO main - Failed tests: 1
+[181796] INFO AstorCoreEngine - mod_point MP=org.primeframework.jwt.JWTDecoder line: 149, pointed element: CtIfImpl
+[181797] INFO AstorCoreEngine - -->op: OP_INSTANCE:
+IfExpresionMutOp:(spoon.support.reflect.code.CtBinaryOperatorImpl) `(parts.length == 3) && (verifier == null) ` -topatch--> `(                                                                                                   [...]` (spoon.support.reflect.code.CtBinaryOperatorImpl) 
+[181850] INFO main - Run previously failing tests...
+[187228] INFO main - Failed tests: 1
+[187228] INFO AstorCoreEngine - mod_point MP=org.primeframework.jwt.JWTDecoder line: 149, pointed element: CtIfImpl
+[187229] INFO AstorCoreEngine - -->op: OP_INSTANCE:
+IfExpresionMutOp:(spoon.support.reflect.code.CtBinaryOperatorImpl) `(parts.length == 3) && (verifier == null) ` -topatch--> `(                                                                                                   [...]` (spoon.support.reflect.code.CtBinaryOperatorImpl) 
+[187283] INFO main - Run previously failing tests...
+[192111] INFO main - Failed tests: 1
+[192111] INFO AstorCoreEngine - mod_point MP=org.primeframework.jwt.JWTDecoder line: 149, pointed element: CtIfImpl
+[192111] INFO AstorCoreEngine - -->op: OP_INSTANCE:
+IfExpresionMutOp:(spoon.support.reflect.code.CtBinaryOperatorImpl) `(parts.length == 3) && (verifier == null) ` -topatch--> `(                                                                                                   [...]` (spoon.support.reflect.code.CtBinaryOperatorImpl) 
+[192148] INFO main - Run previously failing tests...
+[197454] INFO main - Failed tests: 1
+[197454] INFO AstorCoreEngine - mod_point MP=org.primeframework.jwt.JWTDecoder line: 149, pointed element: CtIfImpl
+[197455] INFO AstorCoreEngine - -->op: OP_INSTANCE:
+IfExpresionMutOp:(spoon.support.reflect.code.CtBinaryOperatorImpl) `(parts.length == 3) && (verifier == null) ` -topatch--> `(!                                                                                                  [...]` (spoon.support.reflect.code.CtBinaryOperatorImpl) 
+[197483] INFO main - Run previously failing tests...
+[202520] INFO main - Failed tests: 1
+[202520] INFO AstorCoreEngine - mod_point MP=org.primeframework.jwt.JWTDecoder line: 149, pointed element: CtIfImpl
+[202520] INFO AstorCoreEngine - -->op: OP_INSTANCE:
+IfExpresionMutOp:(spoon.support.reflect.code.CtBinaryOperatorImpl) `(parts.length == 3) && (verifier == null) ` -topatch--> `(parts.length == 3) && (verifier != null)` (spoon.support.reflect.code.CtBinaryOperatorImpl) 
+[202548] INFO main - Run previously failing tests...
+[207508] INFO main - Failed tests: 1
+[207508] INFO AstorCoreEngine - mod_point MP=org.primeframework.jwt.JWTDecoder line: 149, pointed element: CtIfImpl
+[207508] INFO AstorCoreEngine - -->op: OP_INSTANCE:
+IfExpresionMutOp:(spoon.support.reflect.code.CtBinaryOperatorImpl) `(parts.length == 3) && (verifier == null) ` -topatch--> `(parts.length == 3) && (verifier >= null)` (spoon.support.reflect.code.CtBinaryOperatorImpl) 
+[207543] INFO AstorCoreEngine - mod_point MP=org.primeframework.jwt.JWTDecoder line: 149, pointed element: CtIfImpl
+[207544] INFO AstorCoreEngine - -->op: OP_INSTANCE:
+IfExpresionMutOp:(spoon.support.reflect.code.CtBinaryOperatorImpl) `(parts.length == 3) && (verifier == null) ` -topatch--> `(parts.length == 3) && (verifier > null)` (spoon.support.reflect.code.CtBinaryOperatorImpl) 
+[207576] INFO AstorCoreEngine - mod_point MP=org.primeframework.jwt.JWTDecoder line: 149, pointed element: CtIfImpl
+[207576] INFO AstorCoreEngine - -->op: OP_INSTANCE:
+IfExpresionMutOp:(spoon.support.reflect.code.CtBinaryOperatorImpl) `(parts.length == 3) && (verifier == null) ` -topatch--> `(parts.length == 3) && (verifier <= null)` (spoon.support.reflect.code.CtBinaryOperatorImpl) 
+[207600] INFO AstorCoreEngine - mod_point MP=org.primeframework.jwt.JWTDecoder line: 149, pointed element: CtIfImpl
+[207600] INFO AstorCoreEngine - -->op: OP_INSTANCE:
+IfExpresionMutOp:(spoon.support.reflect.code.CtBinaryOperatorImpl) `(parts.length == 3) && (verifier == null) ` -topatch--> `(parts.length == 3) && (verifier < null)` (spoon.support.reflect.code.CtBinaryOperatorImpl) 
+[207627] INFO AstorCoreEngine - mod_point MP=org.primeframework.jwt.JWTDecoder line: 149, pointed element: CtIfImpl
+[207628] INFO AstorCoreEngine - -->op: OP_INSTANCE:
+IfExpresionMutOp:(spoon.support.reflect.code.CtBinaryOperatorImpl) `(parts.length == 3) && (verifier == null) ` -topatch--> `(parts.length == 3) && (!(verifier == null))` (spoon.support.reflect.code.CtBinaryOperatorImpl) 
+[207663] INFO main - Run previously failing tests...
+[212601] INFO main - Failed tests: 1
+[212601] INFO AstorCoreEngine - mod_point MP=org.primeframework.jwt.JWTDecoder line: 149, pointed element: CtIfImpl
+[212602] INFO AstorCoreEngine - -->op: OP_INSTANCE:
+IfExpresionMutOp:(spoon.support.reflect.code.CtBinaryOperatorImpl) `(parts.length == 3) && (verifier == null) ` -topatch--> `(parts.length == 3) || (verifier == null)` (spoon.support.reflect.code.CtBinaryOperatorImpl) 
+[212629] INFO main - Run previously failing tests...
+[217680] INFO main - Failed tests: 1
+[217680] INFO AstorCoreEngine - mod_point MP=org.primeframework.jwt.JWTDecoder line: 149, pointed element: CtIfImpl
+[217681] INFO AstorCoreEngine - -->op: OP_INSTANCE:
+IfExpresionMutOp:(spoon.support.reflect.code.CtBinaryOperatorImpl) `(parts.length == 3) && (verifier == null) ` -topatch--> `!                                                                                                   [...]` (spoon.support.reflect.code.CtUnaryOperatorImpl) 
+[217713] INFO main - Run previously failing tests...
+java.io.IOException: Stream closed
+	at java.io.BufferedInputStream.getBufIfOpen(BufferedInputStream.java:170)
+	at java.io.BufferedInputStream.read1(BufferedInputStream.java:283)
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:345)
+	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
+	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
+	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
+	at java.io.InputStreamReader.read(InputStreamReader.java:184)
+	at java.io.BufferedReader.fill(BufferedReader.java:161)
+	at java.io.BufferedReader.readLine(BufferedReader.java:324)
+	at java.io.BufferedReader.readLine(BufferedReader.java:389)
+	at fr.inria.astor.core.validation.StreamReaderThread.run(ExternalCmdValidator.java:180)
+java.lang.IllegalStateException: Exception Occurred
+	at fr.inria.astor.core.validation.ExternalCmdValidator.runShell(ExternalCmdValidator.java:142)
+	at fr.inria.astor.core.validation.ExternalCmdValidator.runTests(ExternalCmdValidator.java:98)
+	at fr.inria.astor.core.validation.ExternalCmdValidator.validate(ExternalCmdValidator.java:44)
+	at fr.inria.astor.core.solutionsearch.AstorCoreEngine.validateInstance(AstorCoreEngine.java:522)
+	at fr.inria.astor.core.solutionsearch.AstorCoreEngine.processCreatedVariant(AstorCoreEngine.java:443)
+	at fr.inria.astor.core.solutionsearch.ExhaustiveSearchEngine.startEvolution(ExhaustiveSearchEngine.java:72)
+	at fr.inria.main.evolution.AstorMain.run(AstorMain.java:189)
+	at fr.inria.main.evolution.AstorMain.execute(AstorMain.java:233)
+	at fr.inria.main.evolution.AstorMain.main(AstorMain.java:204)
+[222877] INFO AstorCoreEngine - Time Repair Loop (s): 216.654
+[222877] INFO AstorCoreEngine - generationsexecuted: 1
+[222877] WARN AstorCoreEngine - ----SUMMARY_EXECUTION---
+[222877] WARN AstorCoreEngine - End Repair Search: NOT Found solution
+[222877] WARN AstorCoreEngine - Number suspicious:1
+[222878] INFO AstorCoreEngine - 
+ --SOLUTIONS DESCRIPTION--
+
+
+Astor Output:
+
+General stats:
+EXECUTION_IDENTIFIER=inversoft_prime-jwt-VUL4J-49
+TOTAL_TIME=216.654
+NR_GENERATIONS=null
+NR_RIGHT_COMPILATIONS=41
+NR_FAILLING_COMPILATIONS=12
+NR_ERRONEOUS_VARIANCES=null
+NR_FAILING_VALIDATION_PROCESS=null
+OUTPUT_STATUS=EXHAUSTIVE_NAVIGATED
+
+Patch stats:
+
+[222882] INFO Stats - Storing ing JSON at /workdir/jMutRepair_vul4j_inversoft_prime-jwt_VUL4J-49/./output_astor/AstorMain-inversoft_prime-jwt-VUL4J-49//astor_output.json
+[222882] INFO Stats - astor_output:
+{"general":{"NR_RIGHT_COMPILATIONS":41,"NR_ERRONEOUS_VARIANCES":null,"EXECUTION_IDENTIFIER":"inversoft_prime-jwt-VUL4J-49","OUTPUT_STATUS":"EXHAUSTIVE_NAVIGATED","NR_FAILLING_COMPILATIONS":12,"NR_GENERATIONS":null,"TOTAL_TIME":216.654,"NR_FAILING_VALIDATION_PROCESS":null},"patches":[]}
+[222883] INFO AstorMain - Time Total(s): 222.877
+384.31user 24.59system 3:43.15elapsed 183%CPU (0avgtext+0avgdata 533716maxresident)k
+128inputs+43048outputs (1major+3930248minor)pagefaults 0swaps
+
+
+Node: 2c8178711f7b
+
+
+
+Date: Tue Nov 29 07:41:56 EST 2022
+

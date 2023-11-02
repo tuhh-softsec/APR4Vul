@@ -1,0 +1,70 @@
+cd /workdir/TBar_vul4j_apache_commons-imaging_VUL4J-12;
+export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en";
+TZ="America/New_York"; export TZ;
+export PATH="/usr/lib/jvm/jdk1.7.0_80/bin:$PATH";
+export JAVA_HOME="/usr/lib/jvm/jdk1.7.0_80";
+timeout 240m java -Xmx4g -Xms1g -XX:MaxPermSize=512m \
+    -cp /script/../libs/tbar_external/com.gzoltar-0.1.1-jdk7.jar:/script/../repair_tools/tbar.jar edu.lu.uni.serval.tbar.main.Main \
+    "/workdir/TBar_vul4j_apache_commons-imaging_VUL4J-12" "org.apache.commons.imaging.formats.jpeg.decoder.JpegDecoderTest#testDecodeBadFile" "/src/main/java/" "/src/test/java/" "/target/classes/" "/target/test-classes/" "/script/../data/benchmarks/vul4j/perfectfl/VUL4J-12/spectra.txt" "mvn test -Dtest=org.apache.commons.imaging.formats.jpeg.decoder.JpegDecoderTest#testDecodeBadFile -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B" "mvn test -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B" "/root/.m2/repository/commons-io/commons-io/2.6/commons-io-2.6.jar:/root/.m2/repository/junit/junit/4.12/junit-4.12.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar";
+echo "\n\nNode: `hostname`\n";
+echo "\n\nDate: `date`\n";
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en
+06:39:36,473 |-INFO in ch.qos.logback.classic.LoggerContext[TBar] - Could NOT find resource [logback-test.xml]
+06:39:36,473 |-INFO in ch.qos.logback.classic.LoggerContext[TBar] - Could NOT find resource [logback.groovy]
+06:39:36,473 |-INFO in ch.qos.logback.classic.LoggerContext[TBar] - Found resource [logback.xml] at [jar:file:/repair_tools/tbar.jar!/logback.xml]
+06:39:36,492 |-INFO in ch.qos.logback.core.joran.spi.ConfigurationWatchList@31e956bd - URL [jar:file:/repair_tools/tbar.jar!/logback.xml] is not of type file
+06:39:36,529 |-INFO in ch.qos.logback.classic.joran.action.ConfigurationAction - debug attribute not set
+06:39:36,531 |-INFO in ch.qos.logback.classic.joran.action.ContextNameAction - Setting logger context name as [TBar]
+06:39:36,531 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - About to instantiate appender of type [ch.qos.logback.core.ConsoleAppender]
+06:39:36,534 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - Naming appender as [STDOUT]
+06:39:36,577 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting level of logger [org.hibernate.engine.query.HQLQueryPlan] to DEBUG
+06:39:36,577 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting additivity of logger [org.hibernate.engine.query.HQLQueryPlan] to false
+06:39:36,577 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting level of logger [com.piedra.logback] to DEBUG
+06:39:36,577 |-ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - Could not find an appender named [FILE]. Did you define it below instead of above in the configuration file?
+06:39:36,577 |-ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - See http://logback.qos.ch/codes.html#appender_order for more details.
+06:39:36,577 |-INFO in ch.qos.logback.classic.joran.action.RootLoggerAction - Setting level of ROOT logger to DEBUG
+06:39:36,578 |-INFO in ch.qos.logback.core.joran.action.AppenderRefAction - Attaching appender named [STDOUT] to Logger[ROOT]
+06:39:36,578 |-ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - Could not find an appender named [ROLLINGFILE]. Did you define it below instead of above in the configuration file?
+06:39:36,578 |-ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - See http://logback.qos.ch/codes.html#appender_order for more details.
+06:39:36,578 |-INFO in ch.qos.logback.classic.joran.action.ConfigurationAction - End of configuration.
+06:39:36,579 |-INFO in ch.qos.logback.classic.joran.JoranConfigurator@4e3dabe4 - Registering current configuration as safe fallback point
+
+2022-09-14 06:39:36.921 [main] INFO  edu.lu.uni.serval.tbar.AbstractFixer - TBar_vul4j_apache_commons-imaging_VUL4J-12 Failed Tests: 1
+2022-09-14 06:39:36.927 [main] INFO  edu.lu.uni.serval.tbar.TBarFixer - =======StaticBugFixer: Start to fix suspicious code======
+2022-09-14 06:39:36.927 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.apache.commons.imaging.formats.jpeg.decoder.JpegDecoder ===403
+2022-09-14 06:39:37.665 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+while (v < vt) {
+            vt = (-1 << t) + 1;
+            v += vt;
+        }
+2022-09-14 06:39:39.085 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -400,7 +400,7 @@ public class JpegDecoder extends BinaryFileParser implements JpegUtils.Visitor {
+-        while (v < vt) {
++        while (v==vt) {
+2022-09-14 06:39:39.085 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:39:39.832 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 06:39:55.908 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test the whole test suite.
+2022-09-14 06:40:54.629 [main] INFO  edu.lu.uni.serval.tbar.AbstractFixer - Succeeded to fix the bug BuggyProject====================
+diff --git a/src/main/java/org/apache/commons/imaging/formats/jpeg/decoder/JpegDecoder.java b/src/main/java/org/apache/commons/imaging/formats/jpeg/decoder/JpegDecoder.java
+index 3561fcbcf626..74651123575e 100644
+--- a/src/main/java/org/apache/commons/imaging/formats/jpeg/decoder/JpegDecoder.java
++++ b/src/main/java/org/apache/commons/imaging/formats/jpeg/decoder/JpegDecoder.java
+@@ -400,7 +400,7 @@ public class JpegDecoder extends BinaryFileParser implements JpegUtils.Visitor {
+     private int extend(int v, final int t) {
+         // "EXTEND", section F.2.2.1, figure F.12, page 105 of T.81
+         int vt = (1 << (t - 1));
+-        while (v < vt) {
++        while (v==vt) {
+             vt = (-1 << t) + 1;
+             v += vt;
+         }
+2022-09-14 06:40:54.636 [main] INFO  edu.lu.uni.serval.tbar.TBarFixer - =======StaticBugFixer: Finish off fixing======
+Succeeded to fix bug
+
+
+Node: ee2bf67284b9
+
+
+
+Date: Wed Sep 14 06:40:54 EDT 2022
+

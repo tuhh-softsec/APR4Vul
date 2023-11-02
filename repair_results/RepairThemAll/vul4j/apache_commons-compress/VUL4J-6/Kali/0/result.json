@@ -1,0 +1,17 @@
+{
+  "repair_end": "2022-10-06 22:15:11.338074", 
+  "repair_begin": "2022-10-06 22:13:43.007378", 
+  "patches": [
+    {
+      "edits": [
+        {
+          "path": "src/main/java/org/apache/commons/compress/archivers/zip/X0017_StrongEncryptionHeader.java", 
+          "line": 313, 
+          "faulty": "for (int i=0; i < this.rcount; i++) {\n  for (int j=0; j < this.hashSize; j++) {\n  }\n}", 
+          "type": "InsertReturn true"
+        }
+      ], 
+      "patch": "--- /workdir/Kali_vul4j_apache_commons-compress_VUL4J-6/src/main/java/org/apache/commons/compress/archivers/zip/X0017_StrongEncryptionHeader.java\t2022-10-06 18:15:11.291869082 -0400\n+++ /workdir/Kali_vul4j_apache_commons-compress_VUL4J-6/patches_7m6u/Patch_0/patched/org/apache/commons/compress/archivers/zip/X0017_StrongEncryptionHeader.java\t2022-10-06 18:15:11.295869193 -0400\n@@ -309,7 +309,9 @@\n         if (rcount > 0) {\n             this.hashAlg = HashAlgorithm.getAlgorithmByCode(ZipShort.getValue(data, offset + 12));\n             this.hashSize = ZipShort.getValue(data, offset + 14);\n-            // srlist... hashed public keys\n+            if (true)\n+\t\t\t\treturn;\n+\t\t\t// srlist... hashed public keys\n             for (int i = 0; i < this.rcount; i++) {\n                 for (int j = 0; j < this.hashSize; j++) {\n                     //  ZipUtil.signedByteToUnsignedInt(data[offset + 16 + (i * this.hashSize) + j]));\n\n\n"
+    }
+  ]
+}

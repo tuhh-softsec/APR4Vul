@@ -1,0 +1,47 @@
+cd /workdir/GenProg_vul4j_spring-projects_spring-framework_VUL4J-71;
+export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en";
+TZ="America/New_York"; export TZ;
+export PATH="/usr/lib/jvm/java-8-openjdk-amd64/bin:$PATH";
+export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64";
+timeout 240m java -Xmx4g -Xms1g -XX:MaxPermSize=512m -cp /script/../libs/jmetal.jar:/script/../repair_tools/arja.jar us.msu.cse.repair.Main \
+	GenProg \
+	-DexternalProjRoot /script/../libs/arja_external \
+	-DprojectDir /workdir/GenProg_vul4j_spring-projects_spring-framework_VUL4J-71 \
+    -DtestFiltered false \
+    -DrunTestCommand "./gradlew :spring-core:test" \
+	-DsrcJavaDir /workdir/GenProg_vul4j_spring-projects_spring-framework_VUL4J-71/spring-core/src/main/java \
+	-DbinJavaDir /workdir/GenProg_vul4j_spring-projects_spring-framework_VUL4J-71/spring-core/build/classes/main \
+	-DbinTestDir /workdir/GenProg_vul4j_spring-projects_spring-framework_VUL4J-71/spring-core/build/classes/test \
+	-DdiffFormat true \
+	-Dseed 0 \
+	-DgzoltarDataDir /script/../data/benchmarks/vul4j/perfectfl/VUL4J-71 \
+	-Ddependences /workdir/GenProg_vul4j_spring-projects_spring-framework_VUL4J-71/spring-core/build/classes/test:/workdir/GenProg_vul4j_spring-projects_spring-framework_VUL4J-71/spring-core/build/resources/test:/workdir/GenProg_vul4j_spring-projects_spring-framework_VUL4J-71/spring-core/build/classes/main:/workdir/GenProg_vul4j_spring-projects_spring-framework_VUL4J-71/spring-core/build/resources/main:/workdir/GenProg_vul4j_spring-projects_spring-framework_VUL4J-71/spring-core/build/libs/spring-cglib-repack-3.2.6.jar:/workdir/GenProg_vul4j_spring-projects_spring-framework_VUL4J-71/spring-core/build/libs/spring-objenesis-repack-2.6.jar:/root/.gradle/caches/modules-2/files-2.1/commons-logging/commons-logging/1.2/4bfc12adfe4842bf07b657f0369c4cb522955686/commons-logging-1.2.jar:/root/.gradle/caches/modules-2/files-2.1/commons-codec/commons-codec/1.10/4b95f4897fa13f2cd904aee711aeafc0c5295cd8/commons-codec-1.10.jar:/root/.gradle/caches/modules-2/files-2.1/org.aspectj/aspectjweaver/1.8.9/db28774f477f07220eac18d5ec9c4e01f48589d7/aspectjweaver-1.8.9.jar:/root/.gradle/caches/modules-2/files-2.1/net.sf.jopt-simple/jopt-simple/5.0.3/cdd846cfc4e0f7eefafc02c0f5dce32b9303aa2a/jopt-simple-5.0.3.jar:/root/.gradle/caches/modules-2/files-2.1/log4j/log4j/1.2.17/5af35056b4d257e4b64b9e8069c0746e8b08629f/log4j-1.2.17.jar:/root/.gradle/caches/modules-2/files-2.1/junit/junit/4.12/2973d150c0dc1fefe998f834810d68f278ea58ec/junit-4.12.jar:/root/.gradle/caches/modules-2/files-2.1/org.mockito/mockito-core/1.10.19/e8546f5bef4e061d8dd73895b4e8f40e3fe6effe/mockito-core-1.10.19.jar:/root/.gradle/caches/modules-2/files-2.1/org.hamcrest/hamcrest-all/1.3/63a21ebc981131004ad02e0434e799fd7f3a8d5a/hamcrest-all-1.3.jar:/root/.gradle/caches/modules-2/files-2.1/org.apache.tomcat.embed/tomcat-embed-core/8.5.28/b684c98cf77c6528079c4e59fc1feeb218bf82f1/tomcat-embed-core-8.5.28.jar:/root/.gradle/caches/modules-2/files-2.1/xmlunit/xmlunit/1.6/adcae0aff916681dacd2b490e193f1119cd964a9/xmlunit-1.6.jar:/root/.gradle/caches/modules-2/files-2.1/com.fasterxml.woodstox/woodstox-core/5.0.3/10aa199207fda142eff01cd61c69244877d71770/woodstox-core-5.0.3.jar:/root/.gradle/caches/modules-2/files-2.1/org.objenesis/objenesis/2.1/87c0ea803b69252868d09308b4618f766f135a96/objenesis-2.1.jar:/root/.gradle/caches/modules-2/files-2.1/org.apache.tomcat/tomcat-annotations-api/8.5.28/25dd92ba2548e684687f9024e2848ea98ab63f3a/tomcat-annotations-api-8.5.28.jar:/root/.gradle/caches/modules-2/files-2.1/org.codehaus.woodstox/stax2-api/3.1.4/ac19014b1e6a7c08aad07fe114af792676b685b7/stax2-api-3.1.4.jar;
+	echo "\n\nNode: `hostname`\n";
+	echo "\n\nDate: `date`\n";
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en
+OpenJDK 64-Bit Server VM warning: ignoring option MaxPermSize=512m; support was removed in 8.0
+Fault localization starts...
+Number of positive tests: 1781
+Number of negative tests: 1
+Negative tests: [org.springframework.util.MimeTypeTests#testCVE_2018_1272]
+Faulty Lines: 
+org.springframework.util.MimeTypeUtils#49:1.0
+Fault localization is finished!
+AST parsing starts...
+Exception in thread "main" java.lang.IllegalStateException: invalid environment settings
+	at org.eclipse.jdt.core.dom.ASTParser.getClasspath(ASTParser.java:258)
+	at org.eclipse.jdt.core.dom.ASTParser.createASTs(ASTParser.java:990)
+	at us.msu.cse.repair.core.AbstractRepairProblem.invokeASTRequestor(AbstractRepairProblem.java:442)
+	at us.msu.cse.repair.core.AbstractRepairProblem.invokeModules(AbstractRepairProblem.java:279)
+	at us.msu.cse.repair.core.AbstractRepairProblem.<init>(AbstractRepairProblem.java:252)
+	at us.msu.cse.repair.ec.problems.GenProgProblem.<init>(GenProgProblem.java:33)
+	at us.msu.cse.repair.GenProgMain.main(GenProgMain.java:38)
+	at us.msu.cse.repair.Main.main(Main.java:10)
+
+
+Node: ee2bf67284b9
+
+
+
+Date: Fri Sep 16 15:26:05 EDT 2022
+

@@ -1,0 +1,210 @@
+cd /workdir/jMutRepair_vul4j_apereo_java-cas-client_VUL4J-38;
+export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en";
+TZ="America/New_York"; export TZ;
+export PATH="/usr/lib/jvm/java-8-openjdk-amd64/bin:$PATH";
+export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64/bin";
+time java -Xmx4g -Xms1g -XX:MaxPermSize=512m -cp /script/../libs/jtestex7.jar:/script/../repair_tools/astor.jar fr.inria.main.evolution.AstorMain \
+	-mode jMutRepair \
+	-location . \
+	-id apereo_java-cas-client-VUL4J-38 \
+	-failing org.jasig.cas.client.validation.Cas10TicketValidatorTests#urlEncodedValues \
+	-jvm4testexecution /usr/lib/jvm/java-8-openjdk-amd64/bin \
+	-jvm4evosuitetestexecution /usr/lib/jvm/java-8-openjdk-amd64/bin \
+	-maxgen 1000000 \
+	-maxtime 120 \
+	-stopfirst true \
+	-seed 0 \
+	-scope local \
+	-population 1 \
+	-javacompliancelevel 8 \
+	-faultlocalization perfect \
+    -perfectdata /script/../data/benchmarks/vul4j/perfectfl/VUL4J-38 \
+    -validation externalcmd \
+    -testfailingcmd "mvn test -pl cas-client-core -Dtest=org.jasig.cas.client.validation.Cas10TicketValidatorTests -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B" \
+    -testallcmd "mvn test -pl cas-client-core -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B"  \ \
+	-srcjavafolder cas-client-core/src/main/java \
+	-srctestfolder cas-client-core/src/test/java \
+	-binjavafolder cas-client-core/target/classes \
+	-bintestfolder cas-client-core/target/test-classes \
+	-parameters x:x \
+	-dependencies /root/.m2/repository/xerces/xercesImpl/2.10.0/xercesImpl-2.10.0.jar:/root/.m2/repository/org/opensaml/xmltooling/1.3.2-1/xmltooling-1.3.2-1.jar:/root/.m2/repository/org/opensaml/openws/1.4.2-1/openws-1.4.2-1.jar:/root/.m2/repository/javax/servlet/javax.servlet-api/3.0.1/javax.servlet-api-3.0.1.jar:/root/.m2/repository/joda-time/joda-time/1.6.2/joda-time-1.6.2.jar:/root/.m2/repository/org/springframework/spring-beans/3.1.3.RELEASE/spring-beans-3.1.3.RELEASE.jar:/root/.m2/repository/xalan/xalan/2.7.1/xalan-2.7.1.jar:/root/.m2/repository/org/slf4j/jul-to-slf4j/1.6.1/jul-to-slf4j-1.6.1.jar:/root/.m2/repository/org/bouncycastle/bcprov-jdk15/1.45/bcprov-jdk15-1.45.jar:/root/.m2/repository/org/slf4j/log4j-over-slf4j/1.6.1/log4j-over-slf4j-1.6.1.jar:/root/.m2/repository/commons-collections/commons-collections/3.1/commons-collections-3.1.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.1/slf4j-api-1.7.1.jar:/root/.m2/repository/ca/juliusdavies/not-yet-commons-ssl/0.3.9/not-yet-commons-ssl-0.3.9.jar:/root/.m2/repository/commons-httpclient/commons-httpclient/3.1/commons-httpclient-3.1.jar:/root/.m2/repository/org/springframework/spring-expression/3.1.3.RELEASE/spring-expression-3.1.3.RELEASE.jar:/root/.m2/repository/xalan/serializer/2.7.1/serializer-2.7.1.jar:/root/.m2/repository/velocity/velocity/1.5/velocity-1.5.jar:/root/.m2/repository/commons-codec/commons-codec/1.4/commons-codec-1.4.jar:/root/.m2/repository/junit/junit/4.8.2/junit-4.8.2.jar:/root/.m2/repository/org/springframework/spring-core/3.1.3.RELEASE/spring-core-3.1.3.RELEASE.jar:/root/.m2/repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar:/root/.m2/repository/log4j/log4j/1.2.15/log4j-1.2.15.jar:/root/.m2/repository/xml-apis/xml-apis/1.4.01/xml-apis-1.4.01.jar:/root/.m2/repository/commons-lang/commons-lang/2.1/commons-lang-2.1.jar:/root/.m2/repository/org/slf4j/jcl-over-slf4j/1.7.1/jcl-over-slf4j-1.7.1.jar:/root/.m2/repository/org/springframework/spring-asm/3.1.3.RELEASE/spring-asm-3.1.3.RELEASE.jar:/root/.m2/repository/org/apache/santuario/xmlsec/1.4.4/xmlsec-1.4.4.jar:/root/.m2/repository/org/owasp/esapi/esapi/2.0GA/esapi-2.0GA.jar:/root/.m2/repository/xml-resolver/xml-resolver/1.2/xml-resolver-1.2.jar:/root/.m2/repository/xml-security/xmlsec/1.3.0/xmlsec-1.3.0.jar:/root/.m2/repository/org/slf4j/slf4j-simple/1.7.1/slf4j-simple-1.7.1.jar:/root/.m2/repository/org/springframework/spring-aop/3.1.3.RELEASE/spring-aop-3.1.3.RELEASE.jar:/root/.m2/repository/net/jcip/jcip-annotations/1.0/jcip-annotations-1.0.jar:/root/.m2/repository/org/springframework/spring-test/3.1.3.RELEASE/spring-test-3.1.3.RELEASE.jar:/root/.m2/repository/javax/activation/activation/1.1/activation-1.1.jar:/root/.m2/repository/javax/mail/mail/1.4/mail-1.4.jar:/root/.m2/repository/org/opensaml/opensaml/2.5.1-1/opensaml-2.5.1-1.jar:/root/.m2/repository/org/springframework/spring-context/3.1.3.RELEASE/spring-context-3.1.3.RELEASE.jar;
+	echo "\n\nNode: `hostname`\n";
+	echo "\n\nDate: `date`\n";
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en
+OpenJDK 64-Bit Server VM warning: ignoring option MaxPermSize=512m; support was removed in 8.0
+[0] INFO ProjectConfiguration - Version of the JVM used: 1.8.0_342
+[0] INFO main - Java version of the JDK used to run tests: 1.8.0_342
+[0] INFO main - The compliance of the JVM is:  8
+[3] INFO main - command line arguments: [-mode  jMutRepair  -location  .  -id  apereo_java-cas-client-VUL4J-38  -failing  org.jasig.cas.client.validation.Cas10TicketValidatorTests#urlEncodedValues  -jvm4testexecution  /usr/lib/jvm/java-8-openjdk-amd64/bin  -jvm4evosuitetestexecution  /usr/lib/jvm/java-8-openjdk-amd64/bin  -maxgen  1000000  -maxtime  120  -stopfirst  true  -seed  0  -scope  local  -population  1  -javacompliancelevel  8  -faultlocalization  perfect  -perfectdata  /script/../data/benchmarks/vul4j/perfectfl/VUL4J-38  -validation  externalcmd  -testfailingcmd  mvn test -pl cas-client-core -Dtest=org.jasig.cas.client.validation.Cas10TicketValidatorTests -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B  -testallcmd  mvn test -pl cas-client-core -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B     -srcjavafolder  cas-client-core/src/main/java  -srctestfolder  cas-client-core/src/test/java  -binjavafolder  cas-client-core/target/classes  -bintestfolder  cas-client-core/target/test-classes  -parameters  x:x  -dependencies  /root/.m2/repository/xerces/xercesImpl/2.10.0/xercesImpl-2.10.0.jar:/root/.m2/repository/org/opensaml/xmltooling/1.3.2-1/xmltooling-1.3.2-1.jar:/root/.m2/repository/org/opensaml/openws/1.4.2-1/openws-1.4.2-1.jar:/root/.m2/repository/javax/servlet/javax.servlet-api/3.0.1/javax.servlet-api-3.0.1.jar:/root/.m2/repository/joda-time/joda-time/1.6.2/joda-time-1.6.2.jar:/root/.m2/repository/org/springframework/spring-beans/3.1.3.RELEASE/spring-beans-3.1.3.RELEASE.jar:/root/.m2/repository/xalan/xalan/2.7.1/xalan-2.7.1.jar:/root/.m2/repository/org/slf4j/jul-to-slf4j/1.6.1/jul-to-slf4j-1.6.1.jar:/root/.m2/repository/org/bouncycastle/bcprov-jdk15/1.45/bcprov-jdk15-1.45.jar:/root/.m2/repository/org/slf4j/log4j-over-slf4j/1.6.1/log4j-over-slf4j-1.6.1.jar:/root/.m2/repository/commons-collections/commons-collections/3.1/commons-collections-3.1.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.1/slf4j-api-1.7.1.jar:/root/.m2/repository/ca/juliusdavies/not-yet-commons-ssl/0.3.9/not-yet-commons-ssl-0.3.9.jar:/root/.m2/repository/commons-httpclient/commons-httpclient/3.1/commons-httpclient-3.1.jar:/root/.m2/repository/org/springframework/spring-expression/3.1.3.RELEASE/spring-expression-3.1.3.RELEASE.jar:/root/.m2/repository/xalan/serializer/2.7.1/serializer-2.7.1.jar:/root/.m2/repository/velocity/velocity/1.5/velocity-1.5.jar:/root/.m2/repository/commons-codec/commons-codec/1.4/commons-codec-1.4.jar:/root/.m2/repository/junit/junit/4.8.2/junit-4.8.2.jar:/root/.m2/repository/org/springframework/spring-core/3.1.3.RELEASE/spring-core-3.1.3.RELEASE.jar:/root/.m2/repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar:/root/.m2/repository/log4j/log4j/1.2.15/log4j-1.2.15.jar:/root/.m2/repository/xml-apis/xml-apis/1.4.01/xml-apis-1.4.01.jar:/root/.m2/repository/commons-lang/commons-lang/2.1/commons-lang-2.1.jar:/root/.m2/repository/org/slf4j/jcl-over-slf4j/1.7.1/jcl-over-slf4j-1.7.1.jar:/root/.m2/repository/org/springframework/spring-asm/3.1.3.RELEASE/spring-asm-3.1.3.RELEASE.jar:/root/.m2/repository/org/apache/santuario/xmlsec/1.4.4/xmlsec-1.4.4.jar:/root/.m2/repository/org/owasp/esapi/esapi/2.0GA/esapi-2.0GA.jar:/root/.m2/repository/xml-resolver/xml-resolver/1.2/xml-resolver-1.2.jar:/root/.m2/repository/xml-security/xmlsec/1.3.0/xmlsec-1.3.0.jar:/root/.m2/repository/org/slf4j/slf4j-simple/1.7.1/slf4j-simple-1.7.1.jar:/root/.m2/repository/org/springframework/spring-aop/3.1.3.RELEASE/spring-aop-3.1.3.RELEASE.jar:/root/.m2/repository/net/jcip/jcip-annotations/1.0/jcip-annotations-1.0.jar:/root/.m2/repository/org/springframework/spring-test/3.1.3.RELEASE/spring-test-3.1.3.RELEASE.jar:/root/.m2/repository/javax/activation/activation/1.1/activation-1.1.jar:/root/.m2/repository/javax/mail/mail/1.4/mail-1.4.jar:/root/.m2/repository/org/opensaml/opensaml/2.5.1-1/opensaml-2.5.1-1.jar:/root/.m2/repository/org/springframework/spring-context/3.1.3.RELEASE/spring-context-3.1.3.RELEASE.jar]
+[10] INFO AstorMain - Running Astor on a JDK at /usr/lib/jvm/java-8-openjdk-amd64/jre
+[19] INFO main - Source folders: [/workdir/jMutRepair_vul4j_apereo_java-cas-client_VUL4J-38/./cas-client-core/src/main/java]
+[34] INFO main - Source Test folders: [/workdir/jMutRepair_vul4j_apereo_java-cas-client_VUL4J-38/./cas-client-core/src/test/java]
+[1216] INFO AstorCoreEngine - ---- Creating spoon model
+[1307] INFO MutationSupporter - Creating model,  Code location from working folder: /workdir/jMutRepair_vul4j_apereo_java-cas-client_VUL4J-38/./cas-client-core/src/main/java
+[1308] INFO MutationSupporter - building model: /workdir/jMutRepair_vul4j_apereo_java-cas-client_VUL4J-38/./cas-client-core/src/main/java, compliance level: 8
+[1418] INFO MutationSupporter - Classpath (Dependencies) for building SpoonModel: [/root/.m2/repository/xerces/xercesImpl/2.10.0/xercesImpl-2.10.0.jar, /root/.m2/repository/org/opensaml/xmltooling/1.3.2-1/xmltooling-1.3.2-1.jar, /root/.m2/repository/org/opensaml/openws/1.4.2-1/openws-1.4.2-1.jar, /root/.m2/repository/javax/servlet/javax.servlet-api/3.0.1/javax.servlet-api-3.0.1.jar, /root/.m2/repository/joda-time/joda-time/1.6.2/joda-time-1.6.2.jar, /root/.m2/repository/org/springframework/spring-beans/3.1.3.RELEASE/spring-beans-3.1.3.RELEASE.jar, /root/.m2/repository/xalan/xalan/2.7.1/xalan-2.7.1.jar, /root/.m2/repository/org/slf4j/jul-to-slf4j/1.6.1/jul-to-slf4j-1.6.1.jar, /root/.m2/repository/org/bouncycastle/bcprov-jdk15/1.45/bcprov-jdk15-1.45.jar, /root/.m2/repository/org/slf4j/log4j-over-slf4j/1.6.1/log4j-over-slf4j-1.6.1.jar, /root/.m2/repository/commons-collections/commons-collections/3.1/commons-collections-3.1.jar, /root/.m2/repository/org/slf4j/slf4j-api/1.7.1/slf4j-api-1.7.1.jar, /root/.m2/repository/ca/juliusdavies/not-yet-commons-ssl/0.3.9/not-yet-commons-ssl-0.3.9.jar, /root/.m2/repository/commons-httpclient/commons-httpclient/3.1/commons-httpclient-3.1.jar, /root/.m2/repository/org/springframework/spring-expression/3.1.3.RELEASE/spring-expression-3.1.3.RELEASE.jar, /root/.m2/repository/xalan/serializer/2.7.1/serializer-2.7.1.jar, /root/.m2/repository/velocity/velocity/1.5/velocity-1.5.jar, /root/.m2/repository/commons-codec/commons-codec/1.4/commons-codec-1.4.jar, /root/.m2/repository/junit/junit/4.8.2/junit-4.8.2.jar, /root/.m2/repository/org/springframework/spring-core/3.1.3.RELEASE/spring-core-3.1.3.RELEASE.jar, /root/.m2/repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar, /root/.m2/repository/log4j/log4j/1.2.15/log4j-1.2.15.jar, /root/.m2/repository/xml-apis/xml-apis/1.4.01/xml-apis-1.4.01.jar, /root/.m2/repository/commons-lang/commons-lang/2.1/commons-lang-2.1.jar, /root/.m2/repository/org/slf4j/jcl-over-slf4j/1.7.1/jcl-over-slf4j-1.7.1.jar, /root/.m2/repository/org/springframework/spring-asm/3.1.3.RELEASE/spring-asm-3.1.3.RELEASE.jar, /root/.m2/repository/org/apache/santuario/xmlsec/1.4.4/xmlsec-1.4.4.jar, /root/.m2/repository/org/owasp/esapi/esapi/2.0GA/esapi-2.0GA.jar, /root/.m2/repository/xml-resolver/xml-resolver/1.2/xml-resolver-1.2.jar, /root/.m2/repository/xml-security/xmlsec/1.3.0/xmlsec-1.3.0.jar, /root/.m2/repository/org/slf4j/slf4j-simple/1.7.1/slf4j-simple-1.7.1.jar, /root/.m2/repository/org/springframework/spring-aop/3.1.3.RELEASE/spring-aop-3.1.3.RELEASE.jar, /root/.m2/repository/net/jcip/jcip-annotations/1.0/jcip-annotations-1.0.jar, /root/.m2/repository/org/springframework/spring-test/3.1.3.RELEASE/spring-test-3.1.3.RELEASE.jar, /root/.m2/repository/javax/activation/activation/1.1/activation-1.1.jar, /root/.m2/repository/javax/mail/mail/1.4/mail-1.4.jar, /root/.m2/repository/org/opensaml/opensaml/2.5.1-1/opensaml-2.5.1-1.jar, /root/.m2/repository/org/springframework/spring-context/3.1.3.RELEASE/spring-context-3.1.3.RELEASE.jar]
+[11006] INFO AstorCoreEngine - Number of CtTypes created: 63
+[11107] INFO AstorCoreEngine - Test retrieved from classes: 0
+[11251] INFO AstorCoreEngine - Setting up the max to 1440 milliseconds (1 sec)
+[11251] INFO AstorCoreEngine - ---- Initial suspicious size: 3
+[12029] INFO main - Total suspicious from FL: 3,  0
+[12029] INFO main - Total ModPoint created: 0
+[12030] INFO main - Creating program variant #1, [Variant id: 1, #gens: 0, #ops: 0, parent:-]
+[12030] ERROR AstorCoreEngine - [warning] Any modification point in variant
+[12030] ERROR AstorCoreEngine - Variant with any gen
+[12030] WARN ConfigurationProperties - ----------------------------
+[12030] INFO ConfigurationProperties - ---Configuration properties
+[12031] INFO ConfigurationProperties - p:lastJUnitVersion= ./examples/libs/junit-4.11.jar
+[12031] INFO ConfigurationProperties - p:alternativecompliancelevel= 8
+[12031] INFO ConfigurationProperties - p:ignoredTestCases= 
+[12031] INFO ConfigurationProperties - p:workingDirectory= /workdir/jMutRepair_vul4j_apereo_java-cas-client_VUL4J-38/./output_astor
+[12031] INFO ConfigurationProperties - p:manipulatesuper= false
+[12031] INFO ConfigurationProperties - p:validation= externalcmd
+[12031] INFO ConfigurationProperties - p:jvm4testexecution= /usr/lib/jvm/java-8-openjdk-amd64/bin
+[12031] INFO ConfigurationProperties - p:operatorspace= mutationspace
+[12031] INFO ConfigurationProperties - p:diffcontext= 0
+[12031] INFO ConfigurationProperties - p:binjavafolder= cas-client-core/target/classes
+[12031] INFO ConfigurationProperties - p:synthesis_depth= 3
+[12031] INFO ConfigurationProperties - p:gzoltartestpackagetoexclude= junit.framework
+[12031] INFO ConfigurationProperties - p:skipfitnessinitialpopulation= false
+[12031] INFO ConfigurationProperties - p:evosuiteresultfolder= evosuite
+[12031] INFO ConfigurationProperties - p:flthreshold= 0.1
+[12031] INFO ConfigurationProperties - p:regressionforfaultlocalization= true
+[12031] INFO ConfigurationProperties - p:collectonlyusedmethod= false
+[12031] INFO ConfigurationProperties - p:preservelinenumbers= true
+[12031] INFO ConfigurationProperties - p:tmax2= 1440
+[12031] INFO ConfigurationProperties - p:tmax1= 10000
+[12032] INFO ConfigurationProperties - p:probagenmutation= false
+[12032] INFO ConfigurationProperties - p:nomodificationconvergence= 100
+[12032] INFO ConfigurationProperties - p:diff_type= relative
+[12032] INFO ConfigurationProperties - p:targetelementprocessor= if-conditions:return-op-mutation
+[12032] INFO ConfigurationProperties - p:srctestfolder= cas-client-core/src/test/java
+[12032] INFO ConfigurationProperties - p:forceExecuteRegression= false
+[12032] INFO ConfigurationProperties - p:clusteringfilename= clustering.csv
+[12032] INFO ConfigurationProperties - p:failing= org.jasig.cas.client.validation.Cas10TicketValidatorTests#urlEncodedValues
+[12032] INFO ConfigurationProperties - p:logtestexecution= false
+[12032] INFO ConfigurationProperties - p:evo_buggy_class= true
+[12032] INFO ConfigurationProperties - p:numberExecutions= 1
+[12032] INFO ConfigurationProperties - p:maxnumbersolutions= 1000000
+[12032] INFO ConfigurationProperties - p:evo_affected_by_op= true
+[12032] INFO ConfigurationProperties - p:population= 1
+[12032] INFO ConfigurationProperties - p:considerzerovaluesusp= false
+[12032] INFO ConfigurationProperties - p:maxCombinationVariableLimit= false
+[12032] INFO ConfigurationProperties - p:savesolution= true
+[12032] INFO ConfigurationProperties - p:javacompliancelevel= 8
+[12032] INFO ConfigurationProperties - p:x= x
+[12032] INFO ConfigurationProperties - p:uniqueoptogen= false
+[12033] INFO ConfigurationProperties - p:gzoltarpackagetonotinstrument= junit.framework
+[12033] INFO ConfigurationProperties - p:projectIdentifier= apereo_java-cas-client-VUL4J-38
+[12033] INFO ConfigurationProperties - p:modificationpointnavigation= weight
+[12033] INFO ConfigurationProperties - p:stopfirst= true
+[12033] INFO ConfigurationProperties - p:multipointmodification= false
+[12033] INFO ConfigurationProperties - p:elementsToMutate= 10
+[12033] INFO ConfigurationProperties - p:jsonoutputname= astor_output
+[12033] INFO ConfigurationProperties - p:evoDSE= false
+[12033] INFO ConfigurationProperties - p:bintestfolder= cas-client-core/target/test-classes
+[12033] INFO ConfigurationProperties - p:testbystep= false
+[12033] INFO ConfigurationProperties - p:version-location= ./math-version/
+[12033] INFO ConfigurationProperties - p:reintroduce= PARENTS:ORIGINAL
+[12033] INFO ConfigurationProperties - p:perfectdata= /script/../data/benchmarks/vul4j/perfectfl/VUL4J-38
+[12033] INFO ConfigurationProperties - p:executorjar= ./lib/jtestex7.jar
+[12033] INFO ConfigurationProperties - p:maxGeneration= 1000000
+[12033] INFO ConfigurationProperties - p:max_synthesis_step= 10000
+[12033] INFO ConfigurationProperties - p:projectinfocommand= com.github.tdurieux:project-config-maven-plugin:info
+[12033] INFO ConfigurationProperties - p:maxVarCombination= 1000
+[12033] INFO ConfigurationProperties - p:maxtime= 120
+[12033] INFO ConfigurationProperties - p:evosuitejar= ./lib/evosuite-master-1.0.4-SNAPSHOT.jar
+[12033] INFO ConfigurationProperties - p:jvmversion= 1.8.0_342
+[12034] INFO ConfigurationProperties - p:commandTrunk= 50000
+[12034] INFO ConfigurationProperties - p:faultlocalization= perfect
+[12034] INFO ConfigurationProperties - p:resetmodel= true
+[12034] INFO ConfigurationProperties - p:maxsuspcandidates= 1000
+[12034] INFO ConfigurationProperties - p:mode= jMutRepair
+[12034] INFO ConfigurationProperties - p:learningdir= 
+[12034] INFO ConfigurationProperties - p:jvm4evosuitetestexecution= /usr/lib/jvm/java-8-openjdk-amd64/bin
+[12034] INFO ConfigurationProperties - p:filterfaultlocalization= true
+[12034] INFO ConfigurationProperties - p:mutationrate= 1 
+[12034] INFO ConfigurationProperties - p:pathToMVNRepository= 
+[12034] INFO ConfigurationProperties - p:resourcesfolder= /src/main/resources:/src/test/resources:
+[12034] INFO ConfigurationProperties - p:timezone= America/Los_Angeles
+[12034] INFO ConfigurationProperties - p:runjava7code= false
+[12034] INFO ConfigurationProperties - p:testfailingcmd= mvn test -pl cas-client-core -Dtest=org.jasig.cas.client.validation.Cas10TicketValidatorTests -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B
+[12034] INFO ConfigurationProperties - p:evoRunOnBuggyClass= true
+[12034] INFO ConfigurationProperties - p:compiler= fr.inria.astor.core.manipulation.bytecode.compiler.SpoonClassCompiler
+[12034] INFO ConfigurationProperties - p:limitbysuspicious= true
+[12034] INFO ConfigurationProperties - p:logsattemps= true
+[12034] INFO ConfigurationProperties - p:dependenciespath= /root/.m2/repository/xerces/xercesImpl/2.10.0/xercesImpl-2.10.0.jar:/root/.m2/repository/org/opensaml/xmltooling/1.3.2-1/xmltooling-1.3.2-1.jar:/root/.m2/repository/org/opensaml/openws/1.4.2-1/openws-1.4.2-1.jar:/root/.m2/repository/javax/servlet/javax.servlet-api/3.0.1/javax.servlet-api-3.0.1.jar:/root/.m2/repository/joda-time/joda-time/1.6.2/joda-time-1.6.2.jar:/root/.m2/repository/org/springframework/spring-beans/3.1.3.RELEASE/spring-beans-3.1.3.RELEASE.jar:/root/.m2/repository/xalan/xalan/2.7.1/xalan-2.7.1.jar:/root/.m2/repository/org/slf4j/jul-to-slf4j/1.6.1/jul-to-slf4j-1.6.1.jar:/root/.m2/repository/org/bouncycastle/bcprov-jdk15/1.45/bcprov-jdk15-1.45.jar:/root/.m2/repository/org/slf4j/log4j-over-slf4j/1.6.1/log4j-over-slf4j-1.6.1.jar:/root/.m2/repository/commons-collections/commons-collections/3.1/commons-collections-3.1.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.1/slf4j-api-1.7.1.jar:/root/.m2/repository/ca/juliusdavies/not-yet-commons-ssl/0.3.9/not-yet-commons-ssl-0.3.9.jar:/root/.m2/repository/commons-httpclient/commons-httpclient/3.1/commons-httpclient-3.1.jar:/root/.m2/repository/org/springframework/spring-expression/3.1.3.RELEASE/spring-expression-3.1.3.RELEASE.jar:/root/.m2/repository/xalan/serializer/2.7.1/serializer-2.7.1.jar:/root/.m2/repository/velocity/velocity/1.5/velocity-1.5.jar:/root/.m2/repository/commons-codec/commons-codec/1.4/commons-codec-1.4.jar:/root/.m2/repository/junit/junit/4.8.2/junit-4.8.2.jar:/root/.m2/repository/org/springframework/spring-core/3.1.3.RELEASE/spring-core-3.1.3.RELEASE.jar:/root/.m2/repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar:/root/.m2/repository/log4j/log4j/1.2.15/log4j-1.2.15.jar:/root/.m2/repository/xml-apis/xml-apis/1.4.01/xml-apis-1.4.01.jar:/root/.m2/repository/commons-lang/commons-lang/2.1/commons-lang-2.1.jar:/root/.m2/repository/org/slf4j/jcl-over-slf4j/1.7.1/jcl-over-slf4j-1.7.1.jar:/root/.m2/repository/org/springframework/spring-asm/3.1.3.RELEASE/spring-asm-3.1.3.RELEASE.jar:/root/.m2/repository/org/apache/santuario/xmlsec/1.4.4/xmlsec-1.4.4.jar:/root/.m2/repository/org/owasp/esapi/esapi/2.0GA/esapi-2.0GA.jar:/root/.m2/repository/xml-resolver/xml-resolver/1.2/xml-resolver-1.2.jar:/root/.m2/repository/xml-security/xmlsec/1.3.0/xmlsec-1.3.0.jar:/root/.m2/repository/org/slf4j/slf4j-simple/1.7.1/slf4j-simple-1.7.1.jar:/root/.m2/repository/org/springframework/spring-aop/3.1.3.RELEASE/spring-aop-3.1.3.RELEASE.jar:/root/.m2/repository/net/jcip/jcip-annotations/1.0/jcip-annotations-1.0.jar:/root/.m2/repository/org/springframework/spring-test/3.1.3.RELEASE/spring-test-3.1.3.RELEASE.jar:/root/.m2/repository/javax/activation/activation/1.1/activation-1.1.jar:/root/.m2/repository/javax/mail/mail/1.4/mail-1.4.jar:/root/.m2/repository/org/opensaml/opensaml/2.5.1-1/opensaml-2.5.1-1.jar:/root/.m2/repository/org/springframework/spring-context/3.1.3.RELEASE/spring-context-3.1.3.RELEASE.jar
+[12035] INFO ConfigurationProperties - p:packageToInstrument= 
+[12035] INFO ConfigurationProperties - p:skipfaultlocalization= false
+[12035] INFO ConfigurationProperties - p:scope= local
+[12035] INFO ConfigurationProperties - p:transformingredient= false
+[12035] INFO ConfigurationProperties - p:fitnessfunction= fr.inria.astor.core.solutionsearch.population.TestCaseFitnessFunction
+[12035] INFO ConfigurationProperties - p:maxnumvariablesperingredient= 10
+[12035] INFO ConfigurationProperties - p:parsesourcefromoriginal= true
+[12035] INFO ConfigurationProperties - p:pvariantfoldername= variant-
+[12035] INFO ConfigurationProperties - p:savespoonmodelondisk= false
+[12036] INFO ConfigurationProperties - p:srcjavafolder= cas-client-core/src/main/java
+[12036] INFO ConfigurationProperties - p:populationcontroller= fr.inria.astor.core.solutionsearch.population.TestCaseBasedFitnessPopulationController
+[12036] INFO ConfigurationProperties - p:ignoreflakyinfl= false
+[12036] INFO ConfigurationProperties - p:cleantemplates= true
+[12036] INFO ConfigurationProperties - p:applyCrossover= false
+[12036] INFO ConfigurationProperties - p:maxmodificationpoints= 1000
+[12036] INFO ConfigurationProperties - p:duplicateingredientsinspace= false
+[12036] INFO ConfigurationProperties - p:metid= 0
+[12036] INFO ConfigurationProperties - p:continuewhenmodelfail= true
+[12036] INFO ConfigurationProperties - p:saveall= false
+[12036] INFO ConfigurationProperties - p:seed= 0
+[12036] INFO ConfigurationProperties - p:savecompletepatched= true
+[12036] INFO ConfigurationProperties - p:resetoperations= false
+[12036] INFO ConfigurationProperties - p:keepcomments= false
+[12036] INFO ConfigurationProperties - p:processoutputinfile= false
+[12036] INFO ConfigurationProperties - p:location= .
+[12037] INFO ConfigurationProperties - p:probabilistictransformation= true
+[12037] INFO ConfigurationProperties - p:overridemaxtime= true
+[12037] INFO ConfigurationProperties - p:outputjsonresult= true
+[12037] INFO ConfigurationProperties - p:allpoints= false
+[12037] INFO ConfigurationProperties - p:antipattern= false
+[12037] INFO ConfigurationProperties - p:bugId= 280
+[12037] INFO ConfigurationProperties - p:evosuitetimeout= 120
+[12037] INFO ConfigurationProperties - p:maxtimefactor= 10
+[12037] INFO ConfigurationProperties - p:nrPlaceholders= 1
+[12037] INFO ConfigurationProperties - p:testallcmd= mvn test -pl cas-client-core -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B
+[12037] INFO ConfigurationProperties - p:forcesubprocesskilling= false
+[12037] INFO ConfigurationProperties - ----------------------------
+[12050] INFO AstorCoreEngine - Time Repair Loop (s): 0.001
+[12051] INFO AstorCoreEngine - generationsexecuted: 1
+[12054] WARN AstorCoreEngine - ----SUMMARY_EXECUTION---
+[12055] WARN AstorCoreEngine - End Repair Search: NOT Found solution
+[12055] WARN AstorCoreEngine - Number suspicious:1
+[12057] INFO AstorCoreEngine - 
+ --SOLUTIONS DESCRIPTION--
+
+
+Astor Output:
+
+General stats:
+EXECUTION_IDENTIFIER=apereo_java-cas-client-VUL4J-38
+TOTAL_TIME=0.001
+NR_GENERATIONS=null
+NR_RIGHT_COMPILATIONS=null
+NR_FAILLING_COMPILATIONS=null
+NR_ERRONEOUS_VARIANCES=null
+NR_FAILING_VALIDATION_PROCESS=null
+OUTPUT_STATUS=EXHAUSTIVE_NAVIGATED
+
+Patch stats:
+
+[12071] INFO Stats - Storing ing JSON at /workdir/jMutRepair_vul4j_apereo_java-cas-client_VUL4J-38/./output_astor/AstorMain-apereo_java-cas-client-VUL4J-38//astor_output.json
+[12072] INFO Stats - astor_output:
+{"general":{"NR_RIGHT_COMPILATIONS":null,"NR_ERRONEOUS_VARIANCES":null,"EXECUTION_IDENTIFIER":"apereo_java-cas-client-VUL4J-38","OUTPUT_STATUS":"EXHAUSTIVE_NAVIGATED","NR_FAILLING_COMPILATIONS":null,"NR_GENERATIONS":null,"TOTAL_TIME":0.001,"NR_FAILING_VALIDATION_PROCESS":null},"patches":[]}
+[12072] INFO AstorMain - Time Total(s): 12.058
+12.49user 1.76system 0:14.06elapsed 101%CPU (0avgtext+0avgdata 318800maxresident)k
+504inputs+2232outputs (0major+86907minor)pagefaults 0swaps
+
+
+Node: 9670332cfea8
+
+
+
+Date: Fri Sep  9 06:21:38 EDT 2022
+

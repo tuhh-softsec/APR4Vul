@@ -1,0 +1,1303 @@
+cd /workdir/RSRepair_vul4j_cloudfoundry_uaa_VUL4J-39;
+export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en";
+TZ="America/New_York"; export TZ;
+export PATH="/usr/lib/jvm/java-8-openjdk-amd64/bin:$PATH";
+export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64";
+timeout 240m java -Xmx4g -Xms1g -XX:MaxPermSize=512m -cp /script/../libs/jmetal.jar:/script/../repair_tools/arja.jar us.msu.cse.repair.Main \
+	RSRepair \
+	-DexternalProjRoot /script/../libs/arja_external \
+	-DprojectDir /workdir/RSRepair_vul4j_cloudfoundry_uaa_VUL4J-39 \
+    -DtestFiltered false \
+    -DrunTestCommand "./gradlew :cloudfoundry-identity-server:test" \
+	-DsrcJavaDir /workdir/RSRepair_vul4j_cloudfoundry_uaa_VUL4J-39/server/src/main/java \
+	-DbinJavaDir /workdir/RSRepair_vul4j_cloudfoundry_uaa_VUL4J-39/server/build/classes/main \
+	-DbinTestDir /workdir/RSRepair_vul4j_cloudfoundry_uaa_VUL4J-39/server/build/classes/test \
+	-DdiffFormat true \
+	-Dseed 0 \
+	-DgzoltarDataDir /script/../data/benchmarks/vul4j/perfectfl/VUL4J-39 \
+	-Ddependences /workdir/RSRepair_vul4j_cloudfoundry_uaa_VUL4J-39/server/build/classes/test:/workdir/RSRepair_vul4j_cloudfoundry_uaa_VUL4J-39/server/build/resources/test:/workdir/RSRepair_vul4j_cloudfoundry_uaa_VUL4J-39/server/build/classes/main:/workdir/RSRepair_vul4j_cloudfoundry_uaa_VUL4J-39/server/build/resources/main:/workdir/RSRepair_vul4j_cloudfoundry_uaa_VUL4J-39/server/lib/not-yet-commons-ssl-0.3.17.jar:/workdir/RSRepair_vul4j_cloudfoundry_uaa_VUL4J-39/model/build/libs/cloudfoundry-identity-model-4.5.5-SNAPSHOT.jar:/root/.gradle/caches/modules-2/files-2.1/javax.mail/mail/1.4.7/9add058589d5d85adeb625859bf2c5eeaaedf12d/mail-1.4.7.jar:/root/.gradle/caches/modules-2/files-2.1/commons-logging/commons-logging/1.2/4bfc12adfe4842bf07b657f0369c4cb522955686/commons-logging-1.2.jar:/root/.gradle/caches/modules-2/files-2.1/com.jayway.jsonpath/json-path/2.2.0/22290d17944bd239fabf5ac69005a60a7ecbbbcb/json-path-2.2.0.jar:/root/.gradle/caches/modules-2/files-2.1/org.springframework/spring-jdbc/4.3.6.RELEASE/6b7855cfbc636dff3d902f4f335fc69e7309d55c/spring-jdbc-4.3.6.RELEASE.jar:/root/.gradle/caches/modules-2/files-2.1/org.springframework/spring-context-support/4.3.6.RELEASE/b0ddc88215dd16e3922c1d937a05627e3710b04c/spring-context-support-4.3.6.RELEASE.jar:/root/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-core/4.2.3.RELEASE/5c0e47a47036c94d6fdd02696bf52be6d1adbd4d/spring-security-core-4.2.3.RELEASE.jar:/root/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-jwt/1.0.8.RELEASE/c7d3199e032027f1073e8039293be46e9be281e5/spring-security-jwt-1.0.8.RELEASE.jar:/root/.gradle/caches/modules-2/files-2.1/org.apache.httpcomponents/httpclient/4.3.6/4c47155e3e6c9a41a28db36680b828ced53b8af4/httpclient-4.3.6.jar:/root/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-openid/4.2.3.RELEASE/58972f2d47e14d25055c287333784edaeeb6f5a5/spring-security-openid-4.2.3.RELEASE.jar:/root/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-web/4.2.3.RELEASE/7a03e737484ca232d7146852f06d067ac21427ac/spring-security-web-4.2.3.RELEASE.jar:/root/.gradle/caches/modules-2/files-2.1/org.springframework.security.extensions/spring-security-saml2-core/1.0.2.RELEASE/8a4b82314568aa19bd142ec0c82c9c62f4748140/spring-security-saml2-core-1.0.2.RELEASE.jar:/root/.gradle/caches/modules-2/files-2.1/org.opensaml/opensaml/2.6.6/2d2ea39a37920fa1c21330b5730619703421e839/opensaml-2.6.6.jar:/root/.gradle/caches/modules-2/files-2.1/org.springframework.security.oauth/spring-security-oauth2/2.0.11.RELEASE/9a30faa43e32eb75fea1864b9c90c4a23123c45/spring-security-oauth2-2.0.11.RELEASE.jar:/root/.gradle/caches/modules-2/files-2.1/org.owasp.esapi/esapi/2.1.0.1/8d35e0bad77067b534664cb408493136e086aae1/esapi-2.1.0.1.jar:/root/.gradle/caches/modules-2/files-2.1/org.bouncycastle/bcprov-jdk15on/1.57/f66a135611d42c992e5745788c3f94eb06464537/bcprov-jdk15on-1.57.jar:/root/.gradle/caches/modules-2/files-2.1/org.bouncycastle/bcpkix-jdk15on/1.57/5c96e34bc9bd4cd6870e6d193a99438f1e274ca7/bcpkix-jdk15on-1.57.jar:/root/.gradle/caches/modules-2/files-2.1/com.google.guava/guava/19.0/6ce200f6b23222af3d8abb6b6459e6c44f4bb0e9/guava-19.0.jar:/root/.gradle/caches/modules-2/files-2.1/org.aspectj/aspectjrt/1.6.9/60683e772bcf173e7eb75e33e2ba066feacb6b4c/aspectjrt-1.6.9.jar:/root/.gradle/caches/modules-2/files-2.1/org.thymeleaf/thymeleaf-spring4/3.0.6.RELEASE/32c1d8e3d96cd7160dfd7b9f5c9a58da2a9058cc/thymeleaf-spring4-3.0.6.RELEASE.jar:/root/.gradle/caches/modules-2/files-2.1/nz.net.ultraq.thymeleaf/thymeleaf-layout-dialect/2.2.2/711c1bd7ef7dd74fb325e3abcf29132e655c20ed/thymeleaf-layout-dialect-2.2.2.jar:/root/.gradle/caches/modules-2/files-2.1/org.thymeleaf.extras/thymeleaf-extras-springsecurity4/3.0.2.RELEASE/ef051e8a72074063ca587bef9ee397a1ebe0cdcd/thymeleaf-extras-springsecurity4-3.0.2.RELEASE.jar:/root/.gradle/caches/modules-2/files-2.1/com.unboundid.product.scim/scim-sdk/1.8.0/f3da2fc5b706ec0b561d21b218bdede08fde8f71/scim-sdk-1.8.0.jar:/root/.gradle/caches/modules-2/files-2.1/org.hibernate/hibernate-validator/4.3.2.Final/b6d31d9b199bf99e7ca8908ad726c169ea98ab3f/hibernate-validator-4.3.2.Final.jar:/root/.gradle/caches/modules-2/files-2.1/org.flywaydb/flyway-core/4.0/4b2da05722cd7402913f6d57d830083d0629d446/flyway-core-4.0.jar:/root/.gradle/caches/modules-2/files-2.1/org.mariadb.jdbc/mariadb-java-client/1.6.5/27c2b50694c93ff63df27a246c647e41f9a57fbc/mariadb-java-client-1.6.5.jar:/root/.gradle/caches/modules-2/files-2.1/com.microsoft.sqlserver/mssql-jdbc/6.2.2.jre8/a9ee2b0234f623f49fad888550011035b99d0861/mssql-jdbc-6.2.2.jre8.jar:/root/.gradle/caches/modules-2/files-2.1/org.hsqldb/hsqldb/2.3.1/bd7153caa30958e1c64a3dd38b93e5a7442d9a0e/hsqldb-2.3.1.jar:/root/.gradle/caches/modules-2/files-2.1/org.yaml/snakeyaml/1.18/e4a441249ade301985cb8d009d4e4a72b85bf68e/snakeyaml-1.18.jar:/root/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-ldap/4.2.3.RELEASE/90256301d6147e1bc51bb89583f637c8cc39ae6c/spring-security-ldap-4.2.3.RELEASE.jar:/root/.gradle/caches/modules-2/files-2.1/org.springframework.ldap/spring-ldap-core-tiger/2.1.0.RELEASE/670644facc12d9cf8d3f0c66d64dcc91838d6e27/spring-ldap-core-tiger-2.1.0.RELEASE.jar:/root/.gradle/caches/modules-2/files-2.1/org.apache.directory.api/api-ldap-model/1.0.0-M22/a309ddb7aa3e7e9a4e9c74e2a7969afee2c16187/api-ldap-model-1.0.0-M22.jar:/root/.gradle/caches/modules-2/files-2.1/org.passay/passay/1.2.0/286fb3c747ec1434a745c643b96496ffe398ef60/passay-1.2.0.jar:/root/.gradle/caches/modules-2/files-2.1/javax.servlet/javax.servlet-api/3.1.0/3cd63d075497751784b2fa84be59432f4905bf7c/javax.servlet-api-3.1.0.jar:/root/.gradle/caches/modules-2/files-2.1/org.springframework/spring-test/4.3.6.RELEASE/233edfdbe5f895cd6585001ef30122e5604442b4/spring-test-4.3.6.RELEASE.jar:/root/.gradle/caches/modules-2/files-2.1/junit/junit/4.12/2973d150c0dc1fefe998f834810d68f278ea58ec/junit-4.12.jar:/root/.gradle/caches/modules-2/files-2.1/org.hamcrest/hamcrest-all/1.3/63a21ebc981131004ad02e0434e799fd7f3a8d5a/hamcrest-all-1.3.jar:/root/.gradle/caches/modules-2/files-2.1/org.mockito/mockito-core/2.7.19/9e0dbe97eca58ef4c26e3b9e1a12ee42e76a63a5/mockito-core-2.7.19.jar:/root/.gradle/caches/modules-2/files-2.1/org.postgresql/postgresql/42.1.4/1c7788d16b67d51f2f38ae99e474ece968bf715a/postgresql-42.1.4.jar:/root/.gradle/caches/modules-2/files-2.1/org.apache.tomcat/tomcat-jdbc/8.5.16/c4b7a82f4f4276f0c76e9db11fb2653e6582bfb3/tomcat-jdbc-8.5.16.jar:/root/.gradle/caches/modules-2/files-2.1/com.jayway.jsonpath/json-path-assert/2.2.0/120f64646a7f59b15743ee027330664028b3f4d5/json-path-assert-2.2.0.jar:/root/.gradle/caches/modules-2/files-2.1/javax.validation/validation-api/1.0.0.GA/b6bd7f9d78f6fdaa3c37dae18a4bd298915f328e/validation-api-1.0.0.GA.jar:/root/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.8.7/6c3257ef458ac58a8da69a6dca3d2a15286d88c8/jackson-databind-2.8.7.jar:/root/.gradle/caches/modules-2/files-2.1/org.springframework/spring-webmvc/4.3.6.RELEASE/ea55690d6d61ad70e2569db1e1add1603e427862/spring-webmvc-4.3.6.RELEASE.jar:/root/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-config/4.2.3.RELEASE/9f3771903616e33521836fd999d63efbfebf90d/spring-security-config-4.2.3.RELEASE.jar:/root/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-log4j12/1.7.24/309d7b29b14573c05d4c69cc7e44da0cb17212d3/slf4j-log4j12-1.7.24.jar:/root/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.7.24/3f6b4bd4f8dbe8d4bea06d107a3826469b85c3e9/slf4j-api-1.7.24.jar:/root/.gradle/caches/modules-2/files-2.1/javax.activation/activation/1.1/e6cb541461c2834bdea3eb920f1884d1eb508b50/activation-1.1.jar:/root/.gradle/caches/modules-2/files-2.1/net.minidev/json-smart/2.2.1/5b9e5df7a62d1279b70dc882b041d249c4f0b002/json-smart-2.2.1.jar:/root/.gradle/caches/modules-2/files-2.1/aopalliance/aopalliance/1.0/235ba8b489512805ac13a8f9ea77a1ca5ebe3e8/aopalliance-1.0.jar:/root/.gradle/caches/modules-2/files-2.1/org.apache.httpcomponents/httpcore/4.3.3/f91b7a4aadc5cf486df6e4634748d7dd7a73f06d/httpcore-4.3.3.jar:/root/.gradle/caches/modules-2/files-2.1/com.google.inject/guice/2.0/a4c67006178262122e93121e94fff306fcf0cda1/guice-2.0.jar:/root/.gradle/caches/modules-2/files-2.1/org.openid4java/openid4java-nodeps/0.9.6/52ca394f5f6d38b78e35a5a6a0a341dc5b3aaf34/openid4java-nodeps-0.9.6.jar:/root/.gradle/caches/modules-2/files-2.1/net.sourceforge.nekohtml/nekohtml/1.9.20/f7c918a3548dd81a15aab0619809b59f9bf4e931/nekohtml-1.9.20.jar:/root/.gradle/caches/modules-2/files-2.1/org.opensaml/openws/1.5.6/53c9e39201fb588b42ea4059fa062ced76acba01/openws-1.5.6.jar:/root/.gradle/caches/modules-2/files-2.1/commons-lang/commons-lang/2.6/ce1edb914c94ebc388f086c6827e8bdeec71ac2/commons-lang-2.6.jar:/root/.gradle/caches/modules-2/files-2.1/org.apache.velocity/velocity/1.7/2ceb567b8f3f21118ecdec129fe1271dbc09aa7a/velocity-1.7.jar:/root/.gradle/caches/modules-2/files-2.1/joda-time/joda-time/2.2/a5f29a7acaddea3f4af307e8cf2d0cc82645fd7d/joda-time-2.2.jar:/root/.gradle/caches/modules-2/files-2.1/org.apache.santuario/xmlsec/1.5.7/89f0e0cd84243a9e48253dcbf8a360e5bdba2de/xmlsec-1.5.7.jar:/root/.gradle/caches/modules-2/files-2.1/org.slf4j/jcl-over-slf4j/1.7.5/cd5970bd13fa85f7bed41ca606d6daf7cbf1365/jcl-over-slf4j-1.7.5.jar:/root/.gradle/caches/modules-2/files-2.1/org.slf4j/jul-to-slf4j/1.7.5/d2b0f76abde33a62f1dbc19a9da726ffe9a0180e/jul-to-slf4j-1.7.5.jar:/root/.gradle/caches/modules-2/files-2.1/commons-configuration/commons-configuration/1.10/2b36e4adfb66d966c5aef2d73deb6be716389dc9/commons-configuration-1.10.jar:/root/.gradle/caches/modules-2/files-2.1/commons-beanutils/commons-beanutils-core/1.8.3/75812698e5e859f2cb587c622c4cdfcd61676426/commons-beanutils-core-1.8.3.jar:/root/.gradle/caches/modules-2/files-2.1/commons-fileupload/commons-fileupload/1.3.1/c621b54583719ac0310404463d6d99db27e1052c/commons-fileupload-1.3.1.jar:/root/.gradle/caches/modules-2/files-2.1/log4j/log4j/1.2.17/5af35056b4d257e4b64b9e8069c0746e8b08629f/log4j-1.2.17.jar:/root/.gradle/caches/modules-2/files-2.1/xom/xom/1.2.5/4166493b9f04e91b858ba4150b28b4d197f8f8ea/xom-1.2.5.jar:/root/.gradle/caches/modules-2/files-2.1/org.beanshell/bsh-core/2.0b4/495e25a99e29970ffe8ba0b1d551e1d1a9991fc1/bsh-core-2.0b4.jar:/root/.gradle/caches/modules-2/files-2.1/org.owasp.antisamy/antisamy/1.5.3/7538ad2b1afb74e74cc419e8c7b87abfd5526251/antisamy-1.5.3.jar:/root/.gradle/caches/modules-2/files-2.1/org.apache.xmlgraphics/batik-css/1.8/2b3f22cc65702a0821b7f0178d055282a1cdde59/batik-css-1.8.jar:/root/.gradle/caches/modules-2/files-2.1/org.thymeleaf/thymeleaf/3.0.6.RELEASE/5101df9798ac08865717dd0bf6860504cd3bd758/thymeleaf-3.0.6.RELEASE.jar:/root/.gradle/caches/modules-2/files-2.1/nz.net.ultraq.thymeleaf/thymeleaf-expression-processor/1.1.3/e74d87b7d068fb9b9f52dc764c53409d7e732670/thymeleaf-expression-processor-1.1.3.jar:/root/.gradle/caches/modules-2/files-2.1/org.codehaus.groovy/groovy/2.4.6/844cb06c553a5e6a736f44aa2b67d25bf6a34fde/groovy-2.4.6.jar:/root/.gradle/caches/modules-2/files-2.1/com.unboundid.components/json/1.0.0/303cbecf0318a237170ec51aed40a85796e03872/json-1.0.0.jar:/root/.gradle/caches/modules-2/files-2.1/org.jboss.logging/jboss-logging/3.1.0.CR2/28725380c07f917ace4e511db21cc45e9ae5a72b/jboss-logging-3.1.0.CR2.jar:/root/.gradle/caches/modules-2/files-2.1/org.apache.directory.api/api-util/1.0.0-M22/7ba7f21d55cf00f7a9c40fdcfa16e09ecfcb6bb1/api-util-1.0.0-M22.jar:/root/.gradle/caches/modules-2/files-2.1/org.apache.directory.api/api-asn1-api/1.0.0-M22/5a96ace27beeff1289fe17f070f9eaf7ddb4896e/api-asn1-api-1.0.0-M22.jar:/root/.gradle/caches/modules-2/files-2.1/org.apache.directory.api/api-asn1-ber/1.0.0-M22/8d4d1f4b16f084aa63466c6aaa671b83c8b5857b/api-asn1-ber-1.0.0-M22.jar:/root/.gradle/caches/modules-2/files-2.1/org.apache.directory.api/api-i18n/1.0.0-M22/cae8473bddbd5f09811ae78410089733e8c3679e/api-i18n-1.0.0-M22.jar:/root/.gradle/caches/modules-2/files-2.1/org.apache.mina/mina-core/2.0.7/c878e2aa82de748474a624ec3933e4604e446dec/mina-core-2.0.7.jar:/root/.gradle/caches/modules-2/files-2.1/antlr/antlr/2.7.7/83cd2cd674a217ade95a4bb83a8a14f351f48bd0/antlr-2.7.7.jar:/root/.gradle/caches/modules-2/files-2.1/org.cryptacular/cryptacular/1.2.0/94f6cb97d7f7487a183f283ae80c6e61c86156e3/cryptacular-1.2.0.jar:/root/.gradle/caches/modules-2/files-2.1/net.bytebuddy/byte-buddy/1.6.11/8a8f9409e27f1d62c909c7eef2aa7b3a580b4901/byte-buddy-1.6.11.jar:/root/.gradle/caches/modules-2/files-2.1/net.bytebuddy/byte-buddy-agent/1.6.11/200d9c012befccd211ff91082a151257b1dc084/byte-buddy-agent-1.6.11.jar:/root/.gradle/caches/modules-2/files-2.1/org.objenesis/objenesis/2.5/612ecb799912ccf77cba9b3ed8c813da086076e9/objenesis-2.5.jar:/root/.gradle/caches/modules-2/files-2.1/org.apache.tomcat/tomcat-juli/8.5.16/e9e65481ee92eaf7dace280320f28139d485c958/tomcat-juli-8.5.16.jar:/root/.gradle/caches/modules-2/files-2.1/org.hamcrest/hamcrest-core/1.3/42a25dc3219429f0e5d060061f71acb49bf010a0/hamcrest-core-1.3.jar:/root/.gradle/caches/modules-2/files-2.1/org.hamcrest/hamcrest-library/1.3/4785a3c21320980282f9f33d0d1264a69040538f/hamcrest-library-1.3.jar:/root/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-annotations/2.8.0/45b426f7796b741035581a176744d91090e2e6fb/jackson-annotations-2.8.0.jar:/root/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.8.7/8b46f39c78476fb848c81a49fa807a9e9506dddd/jackson-core-2.8.7.jar:/root/.gradle/caches/modules-2/files-2.1/net.minidev/accessors-smart/1.1/a527213f2fea112a04c9bdf0ec0264e34104cd08/accessors-smart-1.1.jar:/root/.gradle/caches/modules-2/files-2.1/net.jcip/jcip-annotations/1.0/afba4942caaeaf46aab0b976afd57cc7c181467e/jcip-annotations-1.0.jar:/root/.gradle/caches/modules-2/files-2.1/xerces/xercesImpl/2.10.0/9161654d2afe7f9063455f02ccca8e4ec2787222/xercesImpl-2.10.0.jar:/root/.gradle/caches/modules-2/files-2.1/org.opensaml/xmltooling/1.4.6/6fd85523ede1bd431de1099b822ee55d4d08b7ea/xmltooling-1.4.6.jar:/root/.gradle/caches/modules-2/files-2.1/commons-httpclient/commons-httpclient/3.1/964cd74171f427720480efdec40a7c7f6e58426a/commons-httpclient-3.1.jar:/root/.gradle/caches/modules-2/files-2.1/commons-io/commons-io/2.2/83b5b8a7ba1c08f9e8c8ff2373724e33d3c1e22a/commons-io-2.2.jar:/root/.gradle/caches/modules-2/files-2.1/xalan/xalan/2.7.0/a33c0097f1c70b20fa7ded220ea317eb3500515e/xalan-2.7.0.jar:/root/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm/5.0.3/dcc2193db20e19e1feca8b1240dbbc4e190824fa/asm-5.0.3.jar:/root/.gradle/caches/modules-2/files-2.1/org.springframework/spring-aop/4.3.9.RELEASE/95f5f5cf3cae64266a89dc1bc9e0484425cd8358/spring-aop-4.3.9.RELEASE.jar:/root/.gradle/caches/modules-2/files-2.1/org.springframework/spring-beans/4.3.9.RELEASE/daa5abf3779c8cad1a2910e1ea08e4272489d8ae/spring-beans-4.3.9.RELEASE.jar:/root/.gradle/caches/modules-2/files-2.1/org.springframework/spring-context/4.3.9.RELEASE/a186823724f03b98becd5f93b1fa107fe6f7a7ff/spring-context-4.3.9.RELEASE.jar:/root/.gradle/caches/modules-2/files-2.1/org.springframework/spring-core/4.3.9.RELEASE/430b7298bfb85d66fb61e19ca8f06231b911e9f5/spring-core-4.3.9.RELEASE.jar:/root/.gradle/caches/modules-2/files-2.1/org.springframework/spring-expression/4.3.9.RELEASE/4edca6913da9e62a6586714e053e01a61952a153/spring-expression-4.3.9.RELEASE.jar:/root/.gradle/caches/modules-2/files-2.1/org.springframework/spring-web/4.3.9.RELEASE/91dae64c4280093ad5fb4736a10913c9233479c1/spring-web-4.3.9.RELEASE.jar:/root/.gradle/caches/modules-2/files-2.1/commons-codec/commons-codec/1.9/9ce04e34240f674bc72680f8b843b1457383161a/commons-codec-1.9.jar:/root/.gradle/caches/modules-2/files-2.1/commons-collections/commons-collections/3.2.2/8ad72fe39fa8c91eaaf12aadb21e0c3661fe26d5/commons-collections-3.2.2.jar:/root/.gradle/caches/modules-2/files-2.1/ognl/ognl/3.1.12/a7fa0db32f882cd3bb41ec6c489853b3bfb6aebc/ognl-3.1.12.jar:/root/.gradle/caches/modules-2/files-2.1/org.attoparser/attoparser/2.0.4.RELEASE/5cf02c4d8303a81f0c80971bb1dcd40d3ba96009/attoparser-2.0.4.RELEASE.jar:/root/.gradle/caches/modules-2/files-2.1/org.unbescape/unbescape/1.1.4.RELEASE/1ef1371149efc31d72d35dc290cf16c1a4736a12/unbescape-1.1.4.RELEASE.jar:/root/.gradle/caches/modules-2/files-2.1/org.javassist/javassist/3.20.0-GA/a9cbcdfb7e9f86fbc74d3afae65f2248bfbf82a0/javassist-3.20.0-GA.jar:/root/.gradle/caches/modules-2/files-2.1/org.springframework.ldap/spring-ldap-core/2.2.0.RELEASE/45f2838f37854bbdb868323918ba6783dd3c30cf/spring-ldap-core-2.2.0.RELEASE.jar:/root/.gradle/caches/modules-2/files-2.1/org.springframework/spring-tx/4.3.9.RELEASE/7a7b1775e1e604841f8b619e110e43d9929c37ab/spring-tx-4.3.9.RELEASE.jar:/root/.gradle/caches/modules-2/files-2.1/xml-apis/xml-apis/2.0.2/3136ca936f64c9d68529f048c2618bd356bf85c9/xml-apis-2.0.2.jar:/root/.gradle/caches/modules-2/files-2.1/org.apache.xmlgraphics/batik-ext/1.8/8713f3238cfac337624a90c3ad7d45d7bc6fb1b5/batik-ext-1.8.jar:/root/.gradle/caches/modules-2/files-2.1/org.apache.xmlgraphics/batik-util/1.8/35dcd204f397d6976290ca48ffa0011ba9b7ef43/batik-util-1.8.jar:/root/.gradle/caches/modules-2/files-2.1/xml-apis/xml-apis-ext/1.3.04/41a8b86b358e87f3f13cf46069721719105aff66/xml-apis-ext-1.3.04.jar;
+	echo "\n\nNode: `hostname`\n";
+	echo "\n\nDate: `date`\n";
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en
+OpenJDK 64-Bit Server VM warning: ignoring option MaxPermSize=512m; support was removed in 8.0
+Fault localization starts...
+Number of positive tests: 2371
+Number of negative tests: 1
+Negative tests: [org.cloudfoundry.identity.uaa.authentication.event.UserAuthenticationSuccessEventTests#get_origin_from_request]
+Faulty Lines: 
+org.cloudfoundry.identity.uaa.authentication.UaaAuthenticationDetails#116:1.0
+Fault localization is finished!
+AST parsing starts...
+AST parsing is finished!
+Detection of local variables starts...
+Detection of local variables is finished!
+Detection of fields starts...
+Detection of fields is finished!
+Detection of methods starts...
+Detection of methods is finished!
+Ingredient screener starts...
+Ingredient screener is finished!
+Initialization of manipulations starts...
+Initialization of manipulations is finished!
+Filtering of the tests starts...
+Number of positive tests considered: 2371
+Filtering of the tests is finished!
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -113,12 +113,7 @@ public class UaaAuthenticationDetails implements Serializable {
+}
+sb.append("clientId=").append(clientId);
+}
+-        if (sessionId != null) {
+-            if (sb.length() > 0) {
+-                sb.append(", ");
+-            }
+-            sb.append("sessionId=").append(sessionId);
+-        }
++        sb.append("clientId=").append(clientId);
+return sb.toString();
+}
+
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -114,6 +114,12 @@ public class UaaAuthenticationDetails implements Serializable {
+sb.append("clientId=").append(clientId);
+}
+if (sessionId != null) {
++			if (sb.length() > 0) {
++				sb.append(", ");
++			}
++			sb.append("sessionId=").append(sessionId);
++		}
++		if (sessionId != null) {
+if (sb.length() > 0) {
+sb.append(", ");
+}
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -113,7 +113,10 @@ public class UaaAuthenticationDetails implements Serializable {
+}
+sb.append("clientId=").append(clientId);
+}
+-        if (sessionId != null) {
++        if (origin != null) {
++			sb.append("remoteAddress=").append(origin);
++		}
++		if (sessionId != null) {
+if (sb.length() > 0) {
+sb.append(", ");
+}
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -113,12 +113,7 @@ public class UaaAuthenticationDetails implements Serializable {
+}
+sb.append("clientId=").append(clientId);
+}
+-        if (sessionId != null) {
+-            if (sb.length() > 0) {
+-                sb.append(", ");
+-            }
+-            sb.append("sessionId=").append(sessionId);
+-        }
++        this.addNew = addNew;
+return sb.toString();
+}
+
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -113,12 +113,6 @@ public class UaaAuthenticationDetails implements Serializable {
+}
+sb.append("clientId=").append(clientId);
+}
+-        if (sessionId != null) {
+-            if (sb.length() > 0) {
+-                sb.append(", ");
+-            }
+-            sb.append("sessionId=").append(sessionId);
+-        }
+return sb.toString();
+}
+
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -113,12 +113,6 @@ public class UaaAuthenticationDetails implements Serializable {
+}
+sb.append("clientId=").append(clientId);
+}
+-        if (sessionId != null) {
+-            if (sb.length() > 0) {
+-                sb.append(", ");
+-            }
+-            sb.append("sessionId=").append(sessionId);
+-        }
+return sb.toString();
+}
+
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -113,7 +113,8 @@ public class UaaAuthenticationDetails implements Serializable {
+}
+sb.append("clientId=").append(clientId);
+}
+-        if (sessionId != null) {
++        UaaAuthenticationDetails details = null;
++		if (sessionId != null) {
+if (sb.length() > 0) {
+sb.append(", ");
+}
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -113,12 +113,6 @@ public class UaaAuthenticationDetails implements Serializable {
+}
+sb.append("clientId=").append(clientId);
+}
+-        if (sessionId != null) {
+-            if (sb.length() > 0) {
+-                sb.append(", ");
+-            }
+-            sb.append("sessionId=").append(sessionId);
+-        }
+return sb.toString();
+}
+
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -113,12 +113,6 @@ public class UaaAuthenticationDetails implements Serializable {
+}
+sb.append("clientId=").append(clientId);
+}
+-        if (sessionId != null) {
+-            if (sb.length() > 0) {
+-                sb.append(", ");
+-            }
+-            sb.append("sessionId=").append(sessionId);
+-        }
+return sb.toString();
+}
+
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -113,12 +113,6 @@ public class UaaAuthenticationDetails implements Serializable {
+}
+sb.append("clientId=").append(clientId);
+}
+-        if (sessionId != null) {
+-            if (sb.length() > 0) {
+-                sb.append(", ");
+-            }
+-            sb.append("sessionId=").append(sessionId);
+-        }
+return sb.toString();
+}
+
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -113,12 +113,6 @@ public class UaaAuthenticationDetails implements Serializable {
+}
+sb.append("clientId=").append(clientId);
+}
+-        if (sessionId != null) {
+-            if (sb.length() > 0) {
+-                sb.append(", ");
+-            }
+-            sb.append("sessionId=").append(sessionId);
+-        }
+return sb.toString();
+}
+
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -113,7 +113,8 @@ public class UaaAuthenticationDetails implements Serializable {
+}
+sb.append("clientId=").append(clientId);
+}
+-        if (sessionId != null) {
++        this.clientId = "unknown";
++		if (sessionId != null) {
+if (sb.length() > 0) {
+sb.append(", ");
+}
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -113,7 +113,10 @@ public class UaaAuthenticationDetails implements Serializable {
+}
+sb.append("clientId=").append(clientId);
+}
+-        if (sessionId != null) {
++        if (origin != null) {
++			sb.append("remoteAddress=").append(origin);
++		}
++		if (sessionId != null) {
+if (sb.length() > 0) {
+sb.append(", ");
+}
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -113,7 +113,8 @@ public class UaaAuthenticationDetails implements Serializable {
+}
+sb.append("clientId=").append(clientId);
+}
+-        if (sessionId != null) {
++        long expiresAt = -1;
++		if (sessionId != null) {
+if (sb.length() > 0) {
+sb.append(", ");
+}
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -113,12 +113,7 @@ public class UaaAuthenticationDetails implements Serializable {
+}
+sb.append("clientId=").append(clientId);
+}
+-        if (sessionId != null) {
+-            if (sb.length() > 0) {
+-                sb.append(", ");
+-            }
+-            sb.append("sessionId=").append(sessionId);
+-        }
++        UaaAuthenticationDetails details = null;
+return sb.toString();
+}
+
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -113,7 +113,8 @@ public class UaaAuthenticationDetails implements Serializable {
+}
+sb.append("clientId=").append(clientId);
+}
+-        if (sessionId != null) {
++        this.sessionId = sessionId;
++		if (sessionId != null) {
+if (sb.length() > 0) {
+sb.append(", ");
+}
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -113,12 +113,9 @@ public class UaaAuthenticationDetails implements Serializable {
+}
+sb.append("clientId=").append(clientId);
+}
+-        if (sessionId != null) {
+-            if (sb.length() > 0) {
+-                sb.append(", ");
+-            }
+-            sb.append("sessionId=").append(sessionId);
+-        }
++        if (sb.length() > 0) {
++			sb.append(", ");
++		}
+return sb.toString();
+}
+
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -113,12 +113,6 @@ public class UaaAuthenticationDetails implements Serializable {
+}
+sb.append("clientId=").append(clientId);
+}
+-        if (sessionId != null) {
+-            if (sb.length() > 0) {
+-                sb.append(", ");
+-            }
+-            sb.append("sessionId=").append(sessionId);
+-        }
+return sb.toString();
+}
+
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -113,12 +113,6 @@ public class UaaAuthenticationDetails implements Serializable {
+}
+sb.append("clientId=").append(clientId);
+}
+-        if (sessionId != null) {
+-            if (sb.length() > 0) {
+-                sb.append(", ");
+-            }
+-            sb.append("sessionId=").append(sessionId);
+-        }
+return sb.toString();
+}
+
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -113,12 +113,7 @@ public class UaaAuthenticationDetails implements Serializable {
+}
+sb.append("clientId=").append(clientId);
+}
+-        if (sessionId != null) {
+-            if (sb.length() > 0) {
+-                sb.append(", ");
+-            }
+-            sb.append("sessionId=").append(sessionId);
+-        }
++        boolean buggyVmcAcceptHeader = false;
+return sb.toString();
+}
+
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -113,12 +113,6 @@ public class UaaAuthenticationDetails implements Serializable {
+}
+sb.append("clientId=").append(clientId);
+}
+-        if (sessionId != null) {
+-            if (sb.length() > 0) {
+-                sb.append(", ");
+-            }
+-            sb.append("sessionId=").append(sessionId);
+-        }
+return sb.toString();
+}
+
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -113,12 +113,6 @@ public class UaaAuthenticationDetails implements Serializable {
+}
+sb.append("clientId=").append(clientId);
+}
+-        if (sessionId != null) {
+-            if (sb.length() > 0) {
+-                sb.append(", ");
+-            }
+-            sb.append("sessionId=").append(sessionId);
+-        }
+return sb.toString();
+}
+
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -113,12 +113,6 @@ public class UaaAuthenticationDetails implements Serializable {
+}
+sb.append("clientId=").append(clientId);
+}
+-        if (sessionId != null) {
+-            if (sb.length() > 0) {
+-                sb.append(", ");
+-            }
+-            sb.append("sessionId=").append(sessionId);
+-        }
+return sb.toString();
+}
+
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -113,12 +113,9 @@ public class UaaAuthenticationDetails implements Serializable {
+}
+sb.append("clientId=").append(clientId);
+}
+-        if (sessionId != null) {
+-            if (sb.length() > 0) {
+-                sb.append(", ");
+-            }
+-            sb.append("sessionId=").append(sessionId);
+-        }
++        if (sb.length() > 0) {
++			sb.append(", ");
++		}
+return sb.toString();
+}
+
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -113,12 +113,9 @@ public class UaaAuthenticationDetails implements Serializable {
+}
+sb.append("clientId=").append(clientId);
+}
+-        if (sessionId != null) {
+-            if (sb.length() > 0) {
+-                sb.append(", ");
+-            }
+-            sb.append("sessionId=").append(sessionId);
+-        }
++        if (origin != null) {
++			sb.append("remoteAddress=").append(origin);
++		}
+return sb.toString();
+}
+
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -114,11 +114,11 @@ public class UaaAuthenticationDetails implements Serializable {
+sb.append("clientId=").append(clientId);
+}
+if (sessionId != null) {
+-            if (sb.length() > 0) {
+-                sb.append(", ");
+-            }
+-            sb.append("sessionId=").append(sessionId);
+-        }
++			if (sb.length() > 0) {
++				sb.append(", ");
++			}
++			sb.append("sessionId=").append(sessionId);
++		}
+return sb.toString();
+}
+
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -113,7 +113,13 @@ public class UaaAuthenticationDetails implements Serializable {
+}
+sb.append("clientId=").append(clientId);
+}
+-        if (sessionId != null) {
++        if (clientId != null) {
++			if (sb.length() > 0) {
++				sb.append(", ");
++			}
++			sb.append("clientId=").append(clientId);
++		}
++		if (sessionId != null) {
+if (sb.length() > 0) {
+sb.append(", ");
+}
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -113,12 +113,6 @@ public class UaaAuthenticationDetails implements Serializable {
+}
+sb.append("clientId=").append(clientId);
+}
+-        if (sessionId != null) {
+-            if (sb.length() > 0) {
+-                sb.append(", ");
+-            }
+-            sb.append("sessionId=").append(sessionId);
+-        }
+return sb.toString();
+}
+
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -113,12 +113,7 @@ public class UaaAuthenticationDetails implements Serializable {
+}
+sb.append("clientId=").append(clientId);
+}
+-        if (sessionId != null) {
+-            if (sb.length() > 0) {
+-                sb.append(", ");
+-            }
+-            sb.append("sessionId=").append(sessionId);
+-        }
++        this.sessionId = "unknown";
+return sb.toString();
+}
+
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -113,7 +113,8 @@ public class UaaAuthenticationDetails implements Serializable {
+}
+sb.append("clientId=").append(clientId);
+}
+-        if (sessionId != null) {
++        long expiresAt = -1;
++		if (sessionId != null) {
+if (sb.length() > 0) {
+sb.append(", ");
+}
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -113,7 +113,8 @@ public class UaaAuthenticationDetails implements Serializable {
+}
+sb.append("clientId=").append(clientId);
+}
+-        if (sessionId != null) {
++        sb.append(", ");
++		if (sessionId != null) {
+if (sb.length() > 0) {
+sb.append(", ");
+}
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -113,12 +113,7 @@ public class UaaAuthenticationDetails implements Serializable {
+}
+sb.append("clientId=").append(clientId);
+}
+-        if (sessionId != null) {
+-            if (sb.length() > 0) {
+-                sb.append(", ");
+-            }
+-            sb.append("sessionId=").append(sessionId);
+-        }
++        UaaPrincipal princpal = null;
+return sb.toString();
+}
+
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -113,12 +113,6 @@ public class UaaAuthenticationDetails implements Serializable {
+}
+sb.append("clientId=").append(clientId);
+}
+-        if (sessionId != null) {
+-            if (sb.length() > 0) {
+-                sb.append(", ");
+-            }
+-            sb.append("sessionId=").append(sessionId);
+-        }
+return sb.toString();
+}
+
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -113,12 +113,6 @@ public class UaaAuthenticationDetails implements Serializable {
+}
+sb.append("clientId=").append(clientId);
+}
+-        if (sessionId != null) {
+-            if (sb.length() > 0) {
+-                sb.append(", ");
+-            }
+-            sb.append("sessionId=").append(sessionId);
+-        }
+return sb.toString();
+}
+
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -113,12 +113,6 @@ public class UaaAuthenticationDetails implements Serializable {
+}
+sb.append("clientId=").append(clientId);
+}
+-        if (sessionId != null) {
+-            if (sb.length() > 0) {
+-                sb.append(", ");
+-            }
+-            sb.append("sessionId=").append(sessionId);
+-        }
+return sb.toString();
+}
+
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -113,12 +113,7 @@ public class UaaAuthenticationDetails implements Serializable {
+}
+sb.append("clientId=").append(clientId);
+}
+-        if (sessionId != null) {
+-            if (sb.length() > 0) {
+-                sb.append(", ");
+-            }
+-            sb.append("sessionId=").append(sessionId);
+-        }
++        this.sessionId = sessionId;
+return sb.toString();
+}
+
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -113,7 +113,8 @@ public class UaaAuthenticationDetails implements Serializable {
+}
+sb.append("clientId=").append(clientId);
+}
+-        if (sessionId != null) {
++        boolean redirect = false;
++		if (sessionId != null) {
+if (sb.length() > 0) {
+sb.append(", ");
+}
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -113,12 +113,6 @@ public class UaaAuthenticationDetails implements Serializable {
+}
+sb.append("clientId=").append(clientId);
+}
+-        if (sessionId != null) {
+-            if (sb.length() > 0) {
+-                sb.append(", ");
+-            }
+-            sb.append("sessionId=").append(sessionId);
+-        }
+return sb.toString();
+}
+
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -113,12 +113,7 @@ public class UaaAuthenticationDetails implements Serializable {
+}
+sb.append("clientId=").append(clientId);
+}
+-        if (sessionId != null) {
+-            if (sb.length() > 0) {
+-                sb.append(", ");
+-            }
+-            sb.append("sessionId=").append(sessionId);
+-        }
++        this.clientId = "unknown";
+return sb.toString();
+}
+
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -113,12 +113,6 @@ public class UaaAuthenticationDetails implements Serializable {
+}
+sb.append("clientId=").append(clientId);
+}
+-        if (sessionId != null) {
+-            if (sb.length() > 0) {
+-                sb.append(", ");
+-            }
+-            sb.append("sessionId=").append(sessionId);
+-        }
+return sb.toString();
+}
+
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -113,12 +113,7 @@ public class UaaAuthenticationDetails implements Serializable {
+}
+sb.append("clientId=").append(clientId);
+}
+-        if (sessionId != null) {
+-            if (sb.length() > 0) {
+-                sb.append(", ");
+-            }
+-            sb.append("sessionId=").append(sessionId);
+-        }
++        this.clientId = "unknown";
+return sb.toString();
+}
+
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -113,12 +113,6 @@ public class UaaAuthenticationDetails implements Serializable {
+}
+sb.append("clientId=").append(clientId);
+}
+-        if (sessionId != null) {
+-            if (sb.length() > 0) {
+-                sb.append(", ");
+-            }
+-            sb.append("sessionId=").append(sessionId);
+-        }
+return sb.toString();
+}
+
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -113,12 +113,6 @@ public class UaaAuthenticationDetails implements Serializable {
+}
+sb.append("clientId=").append(clientId);
+}
+-        if (sessionId != null) {
+-            if (sb.length() > 0) {
+-                sb.append(", ");
+-            }
+-            sb.append("sessionId=").append(sessionId);
+-        }
+return sb.toString();
+}
+
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -113,12 +113,7 @@ public class UaaAuthenticationDetails implements Serializable {
+}
+sb.append("clientId=").append(clientId);
+}
+-        if (sessionId != null) {
+-            if (sb.length() > 0) {
+-                sb.append(", ");
+-            }
+-            sb.append("sessionId=").append(sessionId);
+-        }
++        boolean buggyVmcAcceptHeader = false;
+return sb.toString();
+}
+
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -113,12 +113,7 @@ public class UaaAuthenticationDetails implements Serializable {
+}
+sb.append("clientId=").append(clientId);
+}
+-        if (sessionId != null) {
+-            if (sb.length() > 0) {
+-                sb.append(", ");
+-            }
+-            sb.append("sessionId=").append(sessionId);
+-        }
++        this.addNew = addNew;
+return sb.toString();
+}
+
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -113,12 +113,7 @@ public class UaaAuthenticationDetails implements Serializable {
+}
+sb.append("clientId=").append(clientId);
+}
+-        if (sessionId != null) {
+-            if (sb.length() > 0) {
+-                sb.append(", ");
+-            }
+-            sb.append("sessionId=").append(sessionId);
+-        }
++        this.sessionId = "unknown";
+return sb.toString();
+}
+
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -113,12 +113,6 @@ public class UaaAuthenticationDetails implements Serializable {
+}
+sb.append("clientId=").append(clientId);
+}
+-        if (sessionId != null) {
+-            if (sb.length() > 0) {
+-                sb.append(", ");
+-            }
+-            sb.append("sessionId=").append(sessionId);
+-        }
+return sb.toString();
+}
+
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -113,12 +113,6 @@ public class UaaAuthenticationDetails implements Serializable {
+}
+sb.append("clientId=").append(clientId);
+}
+-        if (sessionId != null) {
+-            if (sb.length() > 0) {
+-                sb.append(", ");
+-            }
+-            sb.append("sessionId=").append(sessionId);
+-        }
+return sb.toString();
+}
+
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -113,12 +113,6 @@ public class UaaAuthenticationDetails implements Serializable {
+}
+sb.append("clientId=").append(clientId);
+}
+-        if (sessionId != null) {
+-            if (sb.length() > 0) {
+-                sb.append(", ");
+-            }
+-            sb.append("sessionId=").append(sessionId);
+-        }
+return sb.toString();
+}
+
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -113,12 +113,6 @@ public class UaaAuthenticationDetails implements Serializable {
+}
+sb.append("clientId=").append(clientId);
+}
+-        if (sessionId != null) {
+-            if (sb.length() > 0) {
+-                sb.append(", ");
+-            }
+-            sb.append("sessionId=").append(sessionId);
+-        }
+return sb.toString();
+}
+
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -113,12 +113,7 @@ public class UaaAuthenticationDetails implements Serializable {
+}
+sb.append("clientId=").append(clientId);
+}
+-        if (sessionId != null) {
+-            if (sb.length() > 0) {
+-                sb.append(", ");
+-            }
+-            sb.append("sessionId=").append(sessionId);
+-        }
++        UaaPrincipal princpal = null;
+return sb.toString();
+}
+
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -113,12 +113,6 @@ public class UaaAuthenticationDetails implements Serializable {
+}
+sb.append("clientId=").append(clientId);
+}
+-        if (sessionId != null) {
+-            if (sb.length() > 0) {
+-                sb.append(", ");
+-            }
+-            sb.append("sessionId=").append(sessionId);
+-        }
+return sb.toString();
+}
+
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -113,7 +113,10 @@ public class UaaAuthenticationDetails implements Serializable {
+}
+sb.append("clientId=").append(clientId);
+}
+-        if (sessionId != null) {
++        if (sb.length() > 0) {
++			sb.append(", ");
++		}
++		if (sessionId != null) {
+if (sb.length() > 0) {
+sb.append(", ");
+}
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -113,7 +113,8 @@ public class UaaAuthenticationDetails implements Serializable {
+}
+sb.append("clientId=").append(clientId);
+}
+-        if (sessionId != null) {
++        long previousLoginSuccessTime = -1;
++		if (sessionId != null) {
+if (sb.length() > 0) {
+sb.append(", ");
+}
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -113,12 +113,6 @@ public class UaaAuthenticationDetails implements Serializable {
+}
+sb.append("clientId=").append(clientId);
+}
+-        if (sessionId != null) {
+-            if (sb.length() > 0) {
+-                sb.append(", ");
+-            }
+-            sb.append("sessionId=").append(sessionId);
+-        }
+return sb.toString();
+}
+
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -113,12 +113,6 @@ public class UaaAuthenticationDetails implements Serializable {
+}
+sb.append("clientId=").append(clientId);
+}
+-        if (sessionId != null) {
+-            if (sb.length() > 0) {
+-                sb.append(", ");
+-            }
+-            sb.append("sessionId=").append(sessionId);
+-        }
+return sb.toString();
+}
+
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -113,12 +113,7 @@ public class UaaAuthenticationDetails implements Serializable {
+}
+sb.append("clientId=").append(clientId);
+}
+-        if (sessionId != null) {
+-            if (sb.length() > 0) {
+-                sb.append(", ");
+-            }
+-            sb.append("sessionId=").append(sessionId);
+-        }
++        long expiresAt = -1;
+return sb.toString();
+}
+
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -113,12 +113,6 @@ public class UaaAuthenticationDetails implements Serializable {
+}
+sb.append("clientId=").append(clientId);
+}
+-        if (sessionId != null) {
+-            if (sb.length() > 0) {
+-                sb.append(", ");
+-            }
+-            sb.append("sessionId=").append(sessionId);
+-        }
+return sb.toString();
+}
+
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -113,12 +113,7 @@ public class UaaAuthenticationDetails implements Serializable {
+}
+sb.append("clientId=").append(clientId);
+}
+-        if (sessionId != null) {
+-            if (sb.length() > 0) {
+-                sb.append(", ");
+-            }
+-            sb.append("sessionId=").append(sessionId);
+-        }
++        boolean redirect = false;
+return sb.toString();
+}
+
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -113,12 +113,6 @@ public class UaaAuthenticationDetails implements Serializable {
+}
+sb.append("clientId=").append(clientId);
+}
+-        if (sessionId != null) {
+-            if (sb.length() > 0) {
+-                sb.append(", ");
+-            }
+-            sb.append("sessionId=").append(sessionId);
+-        }
+return sb.toString();
+}
+
+
+
+Node: 158fac6bc2aa
+
+
+
+Date: Sat Oct 15 06:15:31 EDT 2022
+

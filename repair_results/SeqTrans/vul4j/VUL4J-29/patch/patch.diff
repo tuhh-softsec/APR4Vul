@@ -1,0 +1,150 @@
+diff --git a/core/src/main/java/org/apache/struts2/interceptor/CookieInterceptor.java b/core/src/main/java/org/apache/struts2/interceptor/CookieInterceptor.java
+index 3e2e81d321eb..340b57f8134e 100644
+--- a/core/src/main/java/org/apache/struts2/interceptor/CookieInterceptor.java
++++ b/core/src/main/java/org/apache/struts2/interceptor/CookieInterceptor.java
+@@ -33,6 +33,7 @@
+ 
+ import javax.servlet.http.Cookie;
+ import java.util.Collections;
++import java.util.HashSet;
+ import java.util.LinkedHashMap;
+ import java.util.Map;
+ import java.util.Set;
+@@ -175,7 +176,13 @@ public class CookieInterceptor extends AbstractInterceptor {
+ 
+     // Allowed names of cookies
+     private Pattern acceptedPattern = Pattern.compile(ACCEPTED_PATTERN, Pattern.CASE_INSENSITIVE);
+-    private Pattern excludedPattern = Pattern.compile(ExcludedPatterns.CLASS_ACCESS_PATTERN, Pattern.CASE_INSENSITIVE);
++    private Set<Pattern> excludedPatterns = new HashSet<Pattern>();
++
++    public CookieInterceptor() {
++        for (String pattern : ExcludedPatterns.EXCLUDED_PATTERNS) {
++            excludedPatterns.add(Pattern.compile(pattern, Pattern.CASE_INSENSITIVE));
++        }
++    }
+ 
+     /**
+      * Set the <code>cookiesName</code> which if matched will allow the cookie
+@@ -253,13 +260,16 @@ public String intercept(ActionInvocation invocation) throws Exception {
+      * @return true|false
+      */
+     protected boolean isAcceptableValue(String value) {
+-        boolean matches = !excludedPattern.matcher(value).matches();
+-        if (!matches) {
+-            if (LOG.isTraceEnabled()) {
+-                LOG.trace("Cookie value [#0] matches excludedPattern [#1]", value, ExcludedPatterns.CLASS_ACCESS_PATTERN);
++        for (Pattern excludedPattern : excludedPatterns) {
++            boolean matches = !excludedPattern.matcher(value).matches();
++            if (!matches) {
++                if (LOG.isTraceEnabled()) {
++                    LOG.trace("Cookie value [#0] matches excludedPattern [#1]", value, excludedPattern.toString());
++                }
++                return false;
+             }
+         }
+-        return matches;
++        return true;
+     }
+ 
+     /**
+@@ -293,23 +303,26 @@ protected boolean isAccepted(String name) {
+     }
+ 
+     /**
+-     * Checks if name of Cookie match {@link #excludedPattern}
++     * Checks if name of Cookie match {@link #excludedPatterns}
+      *
+      * @param name of Cookie
+      * @return true|false
+      */
+     protected boolean isExcluded(String name) {
+-        boolean matches = excludedPattern.matcher(name).matches();
+-        if (matches) {
+-            if (LOG.isTraceEnabled()) {
+-                LOG.trace("Cookie [#0] matches excludedPattern [#1]", name, ExcludedPatterns.CLASS_ACCESS_PATTERN);
+-            }
+-        } else {
+-            if (LOG.isTraceEnabled()) {
+-                LOG.trace("Cookie [#0] doesn't match excludedPattern [#1]", name, ExcludedPatterns.CLASS_ACCESS_PATTERN);
++        for (Pattern excludedPattern : excludedPatterns) {
++            boolean matches = excludedPattern.matcher(name).matches();
++            if (matches) {
++                if (LOG.isTraceEnabled()) {
++                    LOG.trace("Cookie [#0] matches excludedPattern [#1]", name, excludedPattern.toString());
++                }
++                return true;
++            } else {
++                if (LOG.isTraceEnabled()) {
++                    LOG.trace("Cookie [#0] doesn't match excludedPattern [#1]", name, excludedPattern.toString());
++                }
+             }
+         }
+-        return matches;
++        return false;
+     }
+ 
+     /**
+diff --git a/core/src/test/java/org/apache/struts2/interceptor/CookieInterceptorTest.java b/core/src/test/java/org/apache/struts2/interceptor/CookieInterceptorTest.java
+index d1014a8de842..99ba15164d66 100644
+--- a/core/src/test/java/org/apache/struts2/interceptor/CookieInterceptorTest.java
++++ b/core/src/test/java/org/apache/struts2/interceptor/CookieInterceptorTest.java
+@@ -383,6 +383,59 @@ protected boolean isAcceptableValue(String value) {
+         assertFalse(excludedValue.get(pollution6));
+     }
+ 
++    public void testCookiesWithStrutsInternalsAccess() throws Exception {
++        MockHttpServletRequest request = new MockHttpServletRequest();
++        String sessionCookieName = "session.userId";
++        String sessionCookieValue = "session.userId=1";
++        String appCookieName = "application.userId";
++        String appCookieValue = "application.userId=1";
++        String reqCookieName = "request.userId";
++        String reqCookieValue = "request.userId=1";
++
++        request.setCookies(
++                new Cookie(sessionCookieName, "1"),
++                new Cookie("1", sessionCookieValue),
++                new Cookie(appCookieName, "1"),
++                new Cookie("1", appCookieValue),
++                new Cookie(reqCookieName, "1"),
++                new Cookie("1", reqCookieValue)
++            );
++        ServletActionContext.setRequest(request);
++
++        final Map<String, Boolean> excludedName = new HashMap<String, Boolean>();
++        final Map<String, Boolean> excludedValue = new HashMap<String, Boolean>();
++
++        CookieInterceptor interceptor = new CookieInterceptor() {
++            @Override
++            protected boolean isAcceptableName(String name) {
++                boolean accepted = super.isAcceptableName(name);
++                excludedName.put(name, accepted);
++                return accepted;
++            }
++
++            @Override
++            protected boolean isAcceptableValue(String value) {
++                boolean accepted = super.isAcceptableValue(value);
++                excludedValue.put(value, accepted);
++                return accepted;
++            }
++        };
++        interceptor.setCookiesName("*");
++
++        MockActionInvocation invocation = new MockActionInvocation();
++        invocation.setAction(new MockActionWithCookieAware());
++
++        interceptor.intercept(invocation);
++
++        assertFalse(excludedName.get(sessionCookieName));
++        assertFalse(excludedName.get(appCookieName));
++        assertFalse(excludedName.get(reqCookieName));
++
++        assertFalse(excludedValue.get(sessionCookieValue));
++        assertFalse(excludedValue.get(appCookieValue));
++        assertFalse(excludedValue.get(reqCookieValue));
++    }
++
+     public static class MockActionWithCookieAware extends ActionSupport implements CookiesAware {
+ 
+         private static final long serialVersionUID = -6202290616812813386L;

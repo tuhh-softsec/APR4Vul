@@ -1,0 +1,602 @@
+cd /workdir/TBar_vul4j_apache_commons-configuration_VUL4J-9;
+export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en";
+TZ="America/New_York"; export TZ;
+export PATH="/usr/lib/jvm/java-8-openjdk-amd64/bin:$PATH";
+export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64";
+timeout 240m java -Xmx4g -Xms1g -XX:MaxPermSize=512m \
+    -cp /script/../libs/tbar_external/com.gzoltar-0.1.1-jdk7.jar:/script/../repair_tools/tbar.jar edu.lu.uni.serval.tbar.main.Main \
+    "/workdir/TBar_vul4j_apache_commons-configuration_VUL4J-9" "org.apache.commons.configuration2.TestYAMLConfiguration#testObjectCreationFromStream,org.apache.commons.configuration2.TestYAMLConfiguration#testObjectCreationFromReader" "/src/main/java/" "/src/test/java/" "/target/classes/" "/target/test-classes/" "/script/../data/benchmarks/vul4j/perfectfl/VUL4J-9/spectra.txt" "mvn test -Dtest=org.apache.commons.configuration2.TestYAMLConfiguration#testObjectCreationFromStream,org.apache.commons.configuration2.TestYAMLConfiguration#testObjectCreationFromReader -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B" "mvn test -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B" "/root/.m2/repository/javax/servlet/servlet-api/2.4/servlet-api-2.4.jar:/root/.m2/repository/org/apache/hadoop/hadoop-hdfs-client/3.2.1/hadoop-hdfs-client-3.2.1.jar:/root/.m2/repository/stax/stax-api/1.0.1/stax-api-1.0.1.jar:/root/.m2/repository/org/apache/poi/poi-ooxml-schemas/3.17/poi-ooxml-schemas-3.17.jar:/root/.m2/repository/org/springframework/spring-beans/4.3.25.RELEASE/spring-beans-4.3.25.RELEASE.jar:/root/.m2/repository/org/springframework/spring-test/4.3.25.RELEASE/spring-test-4.3.25.RELEASE.jar:/root/.m2/repository/org/springframework/spring-aop/4.3.25.RELEASE/spring-aop-4.3.25.RELEASE.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.10.2/jackson-annotations-2.10.2.jar:/root/.m2/repository/org/apache/commons/commons-collections4/4.1/commons-collections4-4.1.jar:/root/.m2/repository/org/apache/commons/commons-dbcp2/2.7.0/commons-dbcp2-2.7.0.jar:/root/.m2/repository/commons-beanutils/commons-beanutils/1.9.4/commons-beanutils-1.9.4.jar:/root/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:/root/.m2/repository/mockobjects/mockobjects-core/0.09/mockobjects-core-0.09.jar:/root/.m2/repository/postgresql/postgresql/8.4-701.jdbc3/postgresql-8.4-701.jdbc3.jar:/root/.m2/repository/org/slf4j/slf4j-nop/1.7.26/slf4j-nop-1.7.26.jar:/root/.m2/repository/org/yaml/snakeyaml/1.25/snakeyaml-1.25.jar:/root/.m2/repository/com/github/virtuald/curvesapi/1.04/curvesapi-1.04.jar:/root/.m2/repository/org/apache/commons/commons-lang3/3.9/commons-lang3-3.9.jar:/root/.m2/repository/org/slf4j/slf4j-ext/1.7.26/slf4j-ext-1.7.26.jar:/root/.m2/repository/xml-resolver/xml-resolver/1.2/xml-resolver-1.2.jar:/root/.m2/repository/org/apache/commons/commons-pool2/2.8.0/commons-pool2-2.8.0.jar:/root/.m2/repository/org/apache/commons/commons-vfs2/2.6.0/commons-vfs2-2.6.0.jar:/root/.m2/repository/org/hsqldb/hsqldb/2.5.0/hsqldb-2.5.0.jar:/root/.m2/repository/com/squareup/okhttp/okhttp/2.7.5/okhttp-2.7.5.jar:/root/.m2/repository/org/apache/xmlbeans/xmlbeans/2.6.0/xmlbeans-2.6.0.jar:/root/.m2/repository/com/sun/activation/jakarta.activation/1.2.1/jakarta.activation-1.2.1.jar:/root/.m2/repository/mockobjects/mockobjects-jdk1.4-j2ee1.3/0.09/mockobjects-jdk1.4-j2ee1.3-0.09.jar:/root/.m2/repository/org/objenesis/objenesis/3.1/objenesis-3.1.jar:/root/.m2/repository/org/apache/commons/commons-text/1.8/commons-text-1.8.jar:/root/.m2/repository/org/apache/commons/commons-jexl/2.1.1/commons-jexl-2.1.1.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.10.2/jackson-core-2.10.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/junit-addons/junit-addons/1.4/junit-addons-1.4.jar:/root/.m2/repository/org/springframework/spring-context/4.3.25.RELEASE/spring-context-4.3.25.RELEASE.jar:/root/.m2/repository/org/apache/poi/poi-ooxml/3.17/poi-ooxml-3.17.jar:/root/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar:/root/.m2/repository/commons-jxpath/commons-jxpath/1.3/commons-jxpath-1.3.jar:/root/.m2/repository/commons-codec/commons-codec/1.14/commons-codec-1.14.jar:/root/.m2/repository/org/springframework/spring-core/4.3.25.RELEASE/spring-core-4.3.25.RELEASE.jar:/root/.m2/repository/org/dbunit/dbunit/2.6.0/dbunit-2.6.0.jar:/root/.m2/repository/com/squareup/okio/okio/1.6.0/okio-1.6.0.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.26/slf4j-api-1.7.26.jar:/root/.m2/repository/org/easymock/easymock/4.1/easymock-4.1.jar:/root/.m2/repository/com/sun/mail/mailapi/1.6.4/mailapi-1.6.4.jar:/root/.m2/repository/org/springframework/spring-expression/4.3.25.RELEASE/spring-expression-4.3.25.RELEASE.jar:/root/.m2/repository/junit/junit/4.13/junit-4.13.jar:/root/.m2/repository/org/slf4j/slf4j-log4j12/1.7.26/slf4j-log4j12-1.7.26.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.10.2/jackson-databind-2.10.2.jar:/root/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/root/.m2/repository/org/apache/poi/poi/3.17/poi-3.17.jar";
+echo "\n\nNode: `hostname`\n";
+echo "\n\nDate: `date`\n";
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en
+OpenJDK 64-Bit Server VM warning: ignoring option MaxPermSize=512m; support was removed in 8.0
+06:24:48,573 |-INFO in ch.qos.logback.classic.LoggerContext[TBar] - Could NOT find resource [logback-test.xml]
+06:24:48,573 |-INFO in ch.qos.logback.classic.LoggerContext[TBar] - Could NOT find resource [logback.groovy]
+06:24:48,573 |-INFO in ch.qos.logback.classic.LoggerContext[TBar] - Found resource [logback.xml] at [jar:file:/repair_tools/tbar.jar!/logback.xml]
+06:24:48,583 |-INFO in ch.qos.logback.core.joran.spi.ConfigurationWatchList@5a42bbf4 - URL [jar:file:/repair_tools/tbar.jar!/logback.xml] is not of type file
+06:24:48,619 |-INFO in ch.qos.logback.classic.joran.action.ConfigurationAction - debug attribute not set
+06:24:48,620 |-INFO in ch.qos.logback.classic.joran.action.ContextNameAction - Setting logger context name as [TBar]
+06:24:48,621 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - About to instantiate appender of type [ch.qos.logback.core.ConsoleAppender]
+06:24:48,623 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - Naming appender as [STDOUT]
+06:24:48,676 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting level of logger [org.hibernate.engine.query.HQLQueryPlan] to DEBUG
+06:24:48,676 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting additivity of logger [org.hibernate.engine.query.HQLQueryPlan] to false
+06:24:48,676 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting level of logger [com.piedra.logback] to DEBUG
+06:24:48,676 |-ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - Could not find an appender named [FILE]. Did you define it below instead of above in the configuration file?
+06:24:48,676 |-ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - See http://logback.qos.ch/codes.html#appender_order for more details.
+06:24:48,676 |-INFO in ch.qos.logback.classic.joran.action.RootLoggerAction - Setting level of ROOT logger to DEBUG
+06:24:48,676 |-INFO in ch.qos.logback.core.joran.action.AppenderRefAction - Attaching appender named [STDOUT] to Logger[ROOT]
+06:24:48,677 |-ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - Could not find an appender named [ROLLINGFILE]. Did you define it below instead of above in the configuration file?
+06:24:48,677 |-ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - See http://logback.qos.ch/codes.html#appender_order for more details.
+06:24:48,677 |-INFO in ch.qos.logback.classic.joran.action.ConfigurationAction - End of configuration.
+06:24:48,678 |-INFO in ch.qos.logback.classic.joran.JoranConfigurator@270421f5 - Registering current configuration as safe fallback point
+
+2022-09-14 06:24:48.971 [main] INFO  edu.lu.uni.serval.tbar.AbstractFixer - TBar_vul4j_apache_commons-configuration_VUL4J-9 Failed Tests: 2
+2022-09-14 06:24:48.974 [main] INFO  edu.lu.uni.serval.tbar.TBarFixer - =======StaticBugFixer: Start to fix suspicious code======
+2022-09-14 06:24:48.974 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.apache.commons.configuration2.YAMLConfiguration ===68
+2022-09-14 06:24:49.310 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+final Yaml yaml = new Yaml();
+2022-09-14 06:24:50.589 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -65,7 +65,7 @@ public class YAMLConfiguration extends AbstractYAMLBasedConfiguration
+-            final Yaml yaml = new Yaml();
++
+2022-09-14 06:24:50.590 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:24:51.292 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:24:51.299 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -60,20 +60,7 @@ public class YAMLConfiguration extends AbstractYAMLBasedConfiguration
+-    @Override
+-    public void read(final Reader in) throws ConfigurationException
+-    {
+-        try
+-        {
+-            final Yaml yaml = new Yaml();
+-            final Map<String, Object> map = (Map) yaml.load(in);
+-            load(map);
+-        }
+-        catch (final Exception e)
+-        {
+-            rethrowException(e);
+-        }
+-    }
++
+2022-09-14 06:24:51.299 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:24:51.962 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:24:51.974 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.apache.commons.configuration2.YAMLConfiguration ===83
+2022-09-14 06:24:51.988 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+final Yaml yaml = new Yaml(options);
+2022-09-14 06:24:52.015 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -80,9 +80,12 @@ public class YAMLConfiguration extends AbstractYAMLBasedConfiguration
+-            final Yaml yaml = new Yaml(options);
++            if (options != null) {
++	final Yaml yaml = new Yaml(options);
++	}
++
+2022-09-14 06:24:52.015 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:24:52.845 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 06:25:03.363 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -80,7 +80,10 @@ public class YAMLConfiguration extends AbstractYAMLBasedConfiguration
+-            final Yaml yaml = new Yaml(options);
++            if (options == null) {
++	    throw new IllegalArgumentException("Null 'options' argument.");
++	}
++final Yaml yaml = new Yaml(options);
+2022-09-14 06:25:03.363 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:25:04.091 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 06:25:13.926 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -80,7 +80,10 @@ public class YAMLConfiguration extends AbstractYAMLBasedConfiguration
+-            final Yaml yaml = new Yaml(options);
++            if (options == null) {
++	    return;
++	}
++final Yaml yaml = new Yaml(options);
+2022-09-14 06:25:13.926 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:25:14.687 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 06:25:24.668 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -80,7 +80,8 @@ public class YAMLConfiguration extends AbstractYAMLBasedConfiguration
+-            final Yaml yaml = new Yaml(options);
++            if (options == null) options = new LoaderOptions();
++ final Yaml yaml = new Yaml(options);
+2022-09-14 06:25:24.668 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:25:25.447 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:25:25.607 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -80,7 +80,7 @@ public class YAMLConfiguration extends AbstractYAMLBasedConfiguration
+-            final Yaml yaml = new Yaml(options);
++            final Yaml yaml = new Yaml(yaml, options);
+2022-09-14 06:25:25.607 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:25:26.342 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:25:26.357 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -80,7 +80,7 @@ public class YAMLConfiguration extends AbstractYAMLBasedConfiguration
+-            final Yaml yaml = new Yaml(options);
++            final Yaml yaml = new Yaml(in, options);
+2022-09-14 06:25:26.357 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:25:27.085 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:25:27.103 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -80,7 +80,7 @@ public class YAMLConfiguration extends AbstractYAMLBasedConfiguration
+-            final Yaml yaml = new Yaml(options);
++            final Yaml yaml = new Yaml(this.changeListener, options);
+2022-09-14 06:25:27.103 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:25:27.792 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:25:27.799 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -80,7 +80,7 @@ public class YAMLConfiguration extends AbstractYAMLBasedConfiguration
+-            final Yaml yaml = new Yaml(options);
++            final Yaml yaml = new Yaml(this.model, options);
+2022-09-14 06:25:27.799 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:25:28.492 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:25:28.499 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -80,7 +80,7 @@ public class YAMLConfiguration extends AbstractYAMLBasedConfiguration
+-            final Yaml yaml = new Yaml(options);
++            final Yaml yaml = new Yaml(this.expressionEngine, options);
+2022-09-14 06:25:28.499 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:25:29.223 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:25:29.231 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -80,7 +80,7 @@ public class YAMLConfiguration extends AbstractYAMLBasedConfiguration
+-            final Yaml yaml = new Yaml(options);
++            final Yaml yaml = new Yaml(this.listDelimiterHandler, options);
+2022-09-14 06:25:29.231 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:25:29.944 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:25:29.951 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -80,7 +80,7 @@ public class YAMLConfiguration extends AbstractYAMLBasedConfiguration
+-            final Yaml yaml = new Yaml(options);
++            final Yaml yaml = new Yaml(this.conversionHandler, options);
+2022-09-14 06:25:29.951 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:25:30.683 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:25:30.707 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -80,7 +80,7 @@ public class YAMLConfiguration extends AbstractYAMLBasedConfiguration
+-            final Yaml yaml = new Yaml(options);
++            final Yaml yaml = new Yaml(this.throwExceptionOnMissing, options);
+2022-09-14 06:25:30.708 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:25:31.424 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:25:31.431 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -80,7 +80,7 @@ public class YAMLConfiguration extends AbstractYAMLBasedConfiguration
+-            final Yaml yaml = new Yaml(options);
++            final Yaml yaml = new Yaml(this.interpolator, options);
+2022-09-14 06:25:31.432 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:25:32.119 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:25:32.126 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -80,7 +80,7 @@ public class YAMLConfiguration extends AbstractYAMLBasedConfiguration
+-            final Yaml yaml = new Yaml(options);
++            final Yaml yaml = new Yaml(this.synchronizer, options);
+2022-09-14 06:25:32.126 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:25:32.823 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:25:32.831 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -80,7 +80,7 @@ public class YAMLConfiguration extends AbstractYAMLBasedConfiguration
+-            final Yaml yaml = new Yaml(options);
++            final Yaml yaml = new Yaml(this.configurationDecoder, options);
+2022-09-14 06:25:32.831 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:25:33.506 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:25:33.514 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -80,7 +80,7 @@ public class YAMLConfiguration extends AbstractYAMLBasedConfiguration
+-            final Yaml yaml = new Yaml(options);
++            final Yaml yaml = new Yaml(this.log, options);
+2022-09-14 06:25:33.514 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:25:34.289 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:25:34.296 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -80,7 +80,7 @@ public class YAMLConfiguration extends AbstractYAMLBasedConfiguration
+-            final Yaml yaml = new Yaml(options);
++            final Yaml yaml = new Yaml(this.eventListeners, options);
+2022-09-14 06:25:34.296 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:25:34.974 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:25:34.982 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -80,7 +80,7 @@ public class YAMLConfiguration extends AbstractYAMLBasedConfiguration
+-            final Yaml yaml = new Yaml(options);
++            final Yaml yaml = new Yaml(this.lockDetailEventsCount, options);
+2022-09-14 06:25:34.982 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:25:35.714 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:25:35.723 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -80,7 +80,7 @@ public class YAMLConfiguration extends AbstractYAMLBasedConfiguration
+-            final Yaml yaml = new Yaml(options);
++            final Yaml yaml = new Yaml(this.detailEvents, options);
+2022-09-14 06:25:35.723 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:25:36.384 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:25:36.391 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -80,7 +80,7 @@ public class YAMLConfiguration extends AbstractYAMLBasedConfiguration
+-            final Yaml yaml = new Yaml(options);
++            final Yaml yaml = new Yaml(options, yaml);
+2022-09-14 06:25:36.392 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:25:37.148 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:25:37.157 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -80,7 +80,7 @@ public class YAMLConfiguration extends AbstractYAMLBasedConfiguration
+-            final Yaml yaml = new Yaml(options);
++            final Yaml yaml = new Yaml(options, in);
+2022-09-14 06:25:37.157 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:25:37.880 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:25:37.888 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -80,7 +80,7 @@ public class YAMLConfiguration extends AbstractYAMLBasedConfiguration
+-            final Yaml yaml = new Yaml(options);
++            final Yaml yaml = new Yaml(options, this.changeListener);
+2022-09-14 06:25:37.888 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:25:38.573 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:25:38.580 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -80,7 +80,7 @@ public class YAMLConfiguration extends AbstractYAMLBasedConfiguration
+-            final Yaml yaml = new Yaml(options);
++            final Yaml yaml = new Yaml(options, this.model);
+2022-09-14 06:25:38.580 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:25:39.294 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:25:39.300 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -80,7 +80,7 @@ public class YAMLConfiguration extends AbstractYAMLBasedConfiguration
+-            final Yaml yaml = new Yaml(options);
++            final Yaml yaml = new Yaml(options, this.expressionEngine);
+2022-09-14 06:25:39.301 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:25:39.978 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:25:39.985 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -80,7 +80,7 @@ public class YAMLConfiguration extends AbstractYAMLBasedConfiguration
+-            final Yaml yaml = new Yaml(options);
++            final Yaml yaml = new Yaml(options, this.listDelimiterHandler);
+2022-09-14 06:25:39.985 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:25:40.662 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:25:40.669 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -80,7 +80,7 @@ public class YAMLConfiguration extends AbstractYAMLBasedConfiguration
+-            final Yaml yaml = new Yaml(options);
++            final Yaml yaml = new Yaml(options, this.conversionHandler);
+2022-09-14 06:25:40.669 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:25:41.354 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:25:41.361 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -80,7 +80,7 @@ public class YAMLConfiguration extends AbstractYAMLBasedConfiguration
+-            final Yaml yaml = new Yaml(options);
++            final Yaml yaml = new Yaml(options, this.throwExceptionOnMissing);
+2022-09-14 06:25:41.361 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:25:42.041 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:25:42.048 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -80,7 +80,7 @@ public class YAMLConfiguration extends AbstractYAMLBasedConfiguration
+-            final Yaml yaml = new Yaml(options);
++            final Yaml yaml = new Yaml(options, this.interpolator);
+2022-09-14 06:25:42.048 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:25:42.776 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:25:42.783 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -80,7 +80,7 @@ public class YAMLConfiguration extends AbstractYAMLBasedConfiguration
+-            final Yaml yaml = new Yaml(options);
++            final Yaml yaml = new Yaml(options, this.synchronizer);
+2022-09-14 06:25:42.783 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:25:43.487 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:25:43.494 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -80,7 +80,7 @@ public class YAMLConfiguration extends AbstractYAMLBasedConfiguration
+-            final Yaml yaml = new Yaml(options);
++            final Yaml yaml = new Yaml(options, this.configurationDecoder);
+2022-09-14 06:25:43.494 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:25:44.127 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:25:44.134 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -80,7 +80,7 @@ public class YAMLConfiguration extends AbstractYAMLBasedConfiguration
+-            final Yaml yaml = new Yaml(options);
++            final Yaml yaml = new Yaml(options, this.log);
+2022-09-14 06:25:44.134 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:25:44.796 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:25:44.803 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -80,7 +80,7 @@ public class YAMLConfiguration extends AbstractYAMLBasedConfiguration
+-            final Yaml yaml = new Yaml(options);
++            final Yaml yaml = new Yaml(options, this.eventListeners);
+2022-09-14 06:25:44.803 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:25:45.572 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:25:45.579 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -80,7 +80,7 @@ public class YAMLConfiguration extends AbstractYAMLBasedConfiguration
+-            final Yaml yaml = new Yaml(options);
++            final Yaml yaml = new Yaml(options, this.lockDetailEventsCount);
+2022-09-14 06:25:45.579 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:25:46.317 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:25:46.324 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -80,7 +80,7 @@ public class YAMLConfiguration extends AbstractYAMLBasedConfiguration
+-            final Yaml yaml = new Yaml(options);
++            final Yaml yaml = new Yaml(options, this.detailEvents);
+2022-09-14 06:25:46.324 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:25:47.014 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:25:47.021 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -80,7 +80,7 @@ public class YAMLConfiguration extends AbstractYAMLBasedConfiguration
+-            final Yaml yaml = new Yaml(options);
++            final Yaml yaml = new Yaml();
+2022-09-14 06:25:47.022 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:25:47.724 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 06:25:57.709 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -80,7 +80,7 @@ public class YAMLConfiguration extends AbstractYAMLBasedConfiguration
+-            final Yaml yaml = new Yaml(options);
++
+2022-09-14 06:25:57.710 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:25:58.479 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:25:58.486 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -75,20 +75,7 @@ public class YAMLConfiguration extends AbstractYAMLBasedConfiguration
+-    public void read(final Reader in, final LoaderOptions options)
+-            throws ConfigurationException
+-    {
+-        try
+-        {
+-            final Yaml yaml = new Yaml(options);
+-            final Map<String, Object> map = (Map) yaml.load(in);
+-            load(map);
+-        }
+-        catch (final Exception e)
+-        {
+-            rethrowException(e);
+-        }
+-    }
++
+2022-09-14 06:25:58.486 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:25:59.248 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 06:26:09.141 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.apache.commons.configuration2.YAMLConfiguration ===120
+2022-09-14 06:26:09.146 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+final Yaml yaml = new Yaml();
+2022-09-14 06:26:09.238 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -117,7 +117,7 @@ public class YAMLConfiguration extends AbstractYAMLBasedConfiguration
+-            final Yaml yaml = new Yaml();
++
+2022-09-14 06:26:09.238 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:26:10.002 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:26:10.009 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -106,26 +106,7 @@ public class YAMLConfiguration extends AbstractYAMLBasedConfiguration
+-    /**
+-     * Loads the configuration from the given input stream.
+-     *
+-     * @param in the input stream
+-     * @throws ConfigurationException if an error occurs
+-     */
+-    @Override
+-    public void read(final InputStream in) throws ConfigurationException
+-    {
+-        try
+-        {
+-            final Yaml yaml = new Yaml();
+-            final Map<String, Object> map = (Map) yaml.load(in);
+-            load(map);
+-        }
+-        catch (final Exception e)
+-        {
+-            rethrowException(e);
+-        }
+-    }
++
+2022-09-14 06:26:10.009 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:26:10.715 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:26:10.720 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.apache.commons.configuration2.YAMLConfiguration ===135
+2022-09-14 06:26:10.725 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+final Yaml yaml = new Yaml(options);
+2022-09-14 06:26:10.756 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -132,9 +132,12 @@ public class YAMLConfiguration extends AbstractYAMLBasedConfiguration
+-            final Yaml yaml = new Yaml(options);
++            if (options != null) {
++	final Yaml yaml = new Yaml(options);
++	}
++
+2022-09-14 06:26:10.756 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:26:11.492 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 06:26:21.427 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -132,7 +132,10 @@ public class YAMLConfiguration extends AbstractYAMLBasedConfiguration
+-            final Yaml yaml = new Yaml(options);
++            if (options == null) {
++	    throw new IllegalArgumentException("Null 'options' argument.");
++	}
++final Yaml yaml = new Yaml(options);
+2022-09-14 06:26:21.427 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:26:22.131 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 06:26:32.115 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -132,7 +132,10 @@ public class YAMLConfiguration extends AbstractYAMLBasedConfiguration
+-            final Yaml yaml = new Yaml(options);
++            if (options == null) {
++	    return;
++	}
++final Yaml yaml = new Yaml(options);
+2022-09-14 06:26:32.115 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:26:32.895 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 06:26:42.656 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -132,7 +132,8 @@ public class YAMLConfiguration extends AbstractYAMLBasedConfiguration
+-            final Yaml yaml = new Yaml(options);
++            if (options == null) options = new LoaderOptions();
++ final Yaml yaml = new Yaml(options);
+2022-09-14 06:26:42.656 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:26:43.305 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:26:43.374 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -132,7 +132,7 @@ public class YAMLConfiguration extends AbstractYAMLBasedConfiguration
+-            final Yaml yaml = new Yaml(options);
++            final Yaml yaml = new Yaml(yaml, options);
+2022-09-14 06:26:43.374 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:26:44.189 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:26:44.203 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -132,7 +132,7 @@ public class YAMLConfiguration extends AbstractYAMLBasedConfiguration
+-            final Yaml yaml = new Yaml(options);
++            final Yaml yaml = new Yaml(in, options);
+2022-09-14 06:26:44.203 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:26:44.919 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:26:44.925 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -132,7 +132,7 @@ public class YAMLConfiguration extends AbstractYAMLBasedConfiguration
+-            final Yaml yaml = new Yaml(options);
++            final Yaml yaml = new Yaml(this.changeListener, options);
+2022-09-14 06:26:44.925 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:26:45.611 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:26:45.619 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -132,7 +132,7 @@ public class YAMLConfiguration extends AbstractYAMLBasedConfiguration
+-            final Yaml yaml = new Yaml(options);
++            final Yaml yaml = new Yaml(this.model, options);
+2022-09-14 06:26:45.619 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:26:46.306 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:26:46.312 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -132,7 +132,7 @@ public class YAMLConfiguration extends AbstractYAMLBasedConfiguration
+-            final Yaml yaml = new Yaml(options);
++            final Yaml yaml = new Yaml(this.expressionEngine, options);
+2022-09-14 06:26:46.313 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:26:46.922 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:26:46.929 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -132,7 +132,7 @@ public class YAMLConfiguration extends AbstractYAMLBasedConfiguration
+-            final Yaml yaml = new Yaml(options);
++            final Yaml yaml = new Yaml(this.listDelimiterHandler, options);
+2022-09-14 06:26:46.929 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:26:47.661 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:26:47.668 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -132,7 +132,7 @@ public class YAMLConfiguration extends AbstractYAMLBasedConfiguration
+-            final Yaml yaml = new Yaml(options);
++            final Yaml yaml = new Yaml(this.conversionHandler, options);
+2022-09-14 06:26:47.668 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:26:48.383 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:26:48.390 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -132,7 +132,7 @@ public class YAMLConfiguration extends AbstractYAMLBasedConfiguration
+-            final Yaml yaml = new Yaml(options);
++            final Yaml yaml = new Yaml(this.throwExceptionOnMissing, options);
+2022-09-14 06:26:48.390 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:26:49.025 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:26:49.032 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -132,7 +132,7 @@ public class YAMLConfiguration extends AbstractYAMLBasedConfiguration
+-            final Yaml yaml = new Yaml(options);
++            final Yaml yaml = new Yaml(this.interpolator, options);
+2022-09-14 06:26:49.032 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:26:49.738 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:26:49.745 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -132,7 +132,7 @@ public class YAMLConfiguration extends AbstractYAMLBasedConfiguration
+-            final Yaml yaml = new Yaml(options);
++            final Yaml yaml = new Yaml(this.synchronizer, options);
+2022-09-14 06:26:49.746 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:26:50.471 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:26:50.484 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -132,7 +132,7 @@ public class YAMLConfiguration extends AbstractYAMLBasedConfiguration
+-            final Yaml yaml = new Yaml(options);
++            final Yaml yaml = new Yaml(this.configurationDecoder, options);
+2022-09-14 06:26:50.484 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:26:51.219 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:26:51.226 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -132,7 +132,7 @@ public class YAMLConfiguration extends AbstractYAMLBasedConfiguration
+-            final Yaml yaml = new Yaml(options);
++            final Yaml yaml = new Yaml(this.log, options);
+2022-09-14 06:26:51.226 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:26:51.944 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:26:51.956 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -132,7 +132,7 @@ public class YAMLConfiguration extends AbstractYAMLBasedConfiguration
+-            final Yaml yaml = new Yaml(options);
++            final Yaml yaml = new Yaml(this.eventListeners, options);
+2022-09-14 06:26:51.957 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:26:52.626 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:26:52.633 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -132,7 +132,7 @@ public class YAMLConfiguration extends AbstractYAMLBasedConfiguration
+-            final Yaml yaml = new Yaml(options);
++            final Yaml yaml = new Yaml(this.lockDetailEventsCount, options);
+2022-09-14 06:26:52.634 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:26:53.339 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:26:53.346 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -132,7 +132,7 @@ public class YAMLConfiguration extends AbstractYAMLBasedConfiguration
+-            final Yaml yaml = new Yaml(options);
++            final Yaml yaml = new Yaml(this.detailEvents, options);
+2022-09-14 06:26:53.346 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:26:54.092 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:26:54.098 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -132,7 +132,7 @@ public class YAMLConfiguration extends AbstractYAMLBasedConfiguration
+-            final Yaml yaml = new Yaml(options);
++            final Yaml yaml = new Yaml(options, yaml);
+2022-09-14 06:26:54.099 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:26:54.802 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:26:54.809 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -132,7 +132,7 @@ public class YAMLConfiguration extends AbstractYAMLBasedConfiguration
+-            final Yaml yaml = new Yaml(options);
++            final Yaml yaml = new Yaml(options, in);
+2022-09-14 06:26:54.809 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:26:55.419 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:26:55.426 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -132,7 +132,7 @@ public class YAMLConfiguration extends AbstractYAMLBasedConfiguration
+-            final Yaml yaml = new Yaml(options);
++            final Yaml yaml = new Yaml(options, this.changeListener);
+2022-09-14 06:26:55.426 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:26:56.170 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:26:56.177 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -132,7 +132,7 @@ public class YAMLConfiguration extends AbstractYAMLBasedConfiguration
+-            final Yaml yaml = new Yaml(options);
++            final Yaml yaml = new Yaml(options, this.model);
+2022-09-14 06:26:56.177 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:26:56.832 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:26:56.838 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -132,7 +132,7 @@ public class YAMLConfiguration extends AbstractYAMLBasedConfiguration
+-            final Yaml yaml = new Yaml(options);
++            final Yaml yaml = new Yaml(options, this.expressionEngine);
+2022-09-14 06:26:56.838 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:26:57.537 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:26:57.545 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -132,7 +132,7 @@ public class YAMLConfiguration extends AbstractYAMLBasedConfiguration
+-            final Yaml yaml = new Yaml(options);
++            final Yaml yaml = new Yaml(options, this.listDelimiterHandler);
+2022-09-14 06:26:57.545 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:26:58.218 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:26:58.224 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -132,7 +132,7 @@ public class YAMLConfiguration extends AbstractYAMLBasedConfiguration
+-            final Yaml yaml = new Yaml(options);
++            final Yaml yaml = new Yaml(options, this.conversionHandler);
+2022-09-14 06:26:58.225 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:26:58.927 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:26:58.934 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -132,7 +132,7 @@ public class YAMLConfiguration extends AbstractYAMLBasedConfiguration
+-            final Yaml yaml = new Yaml(options);
++            final Yaml yaml = new Yaml(options, this.throwExceptionOnMissing);
+2022-09-14 06:26:58.934 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:26:59.635 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:26:59.641 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -132,7 +132,7 @@ public class YAMLConfiguration extends AbstractYAMLBasedConfiguration
+-            final Yaml yaml = new Yaml(options);
++            final Yaml yaml = new Yaml(options, this.interpolator);
+2022-09-14 06:26:59.642 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:27:00.357 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:27:00.364 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -132,7 +132,7 @@ public class YAMLConfiguration extends AbstractYAMLBasedConfiguration
+-            final Yaml yaml = new Yaml(options);
++            final Yaml yaml = new Yaml(options, this.synchronizer);
+2022-09-14 06:27:00.364 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:27:00.977 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:27:00.984 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -132,7 +132,7 @@ public class YAMLConfiguration extends AbstractYAMLBasedConfiguration
+-            final Yaml yaml = new Yaml(options);
++            final Yaml yaml = new Yaml(options, this.configurationDecoder);
+2022-09-14 06:27:00.984 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:27:01.689 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:27:01.696 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -132,7 +132,7 @@ public class YAMLConfiguration extends AbstractYAMLBasedConfiguration
+-            final Yaml yaml = new Yaml(options);
++            final Yaml yaml = new Yaml(options, this.log);
+2022-09-14 06:27:01.696 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:27:02.396 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:27:02.403 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -132,7 +132,7 @@ public class YAMLConfiguration extends AbstractYAMLBasedConfiguration
+-            final Yaml yaml = new Yaml(options);
++            final Yaml yaml = new Yaml(options, this.eventListeners);
+2022-09-14 06:27:02.403 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:27:03.007 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:27:03.013 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -132,7 +132,7 @@ public class YAMLConfiguration extends AbstractYAMLBasedConfiguration
+-            final Yaml yaml = new Yaml(options);
++            final Yaml yaml = new Yaml(options, this.lockDetailEventsCount);
+2022-09-14 06:27:03.014 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:27:03.697 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:27:03.703 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -132,7 +132,7 @@ public class YAMLConfiguration extends AbstractYAMLBasedConfiguration
+-            final Yaml yaml = new Yaml(options);
++            final Yaml yaml = new Yaml(options, this.detailEvents);
+2022-09-14 06:27:03.704 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:27:04.401 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:27:04.408 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -132,7 +132,7 @@ public class YAMLConfiguration extends AbstractYAMLBasedConfiguration
+-            final Yaml yaml = new Yaml(options);
++            final Yaml yaml = new Yaml();
+2022-09-14 06:27:04.408 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:27:05.198 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 06:27:15.732 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -132,7 +132,7 @@ public class YAMLConfiguration extends AbstractYAMLBasedConfiguration
+-            final Yaml yaml = new Yaml(options);
++
+2022-09-14 06:27:15.732 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:27:16.367 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:27:16.374 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -127,19 +127,6 @@ public class YAMLConfiguration extends AbstractYAMLBasedConfiguration
+-    public void read(final InputStream in, final LoaderOptions options)
+-            throws ConfigurationException
+-    {
+-        try
+-        {
+-            final Yaml yaml = new Yaml(options);
+-            final Map<String, Object> map = (Map) yaml.load(in);
+-            load(map);
+-        }
+-        catch (final Exception e)
+-        {
+-            rethrowException(e);
+-        }
+-    }
++
+2022-09-14 06:27:16.374 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:27:17.115 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 06:27:27.423 [main] INFO  edu.lu.uni.serval.tbar.TBarFixer - =======StaticBugFixer: Finish off fixing======
+Failed to fix bug
+
+
+Node: ee2bf67284b9
+
+
+
+Date: Wed Sep 14 06:27:27 EDT 2022
+

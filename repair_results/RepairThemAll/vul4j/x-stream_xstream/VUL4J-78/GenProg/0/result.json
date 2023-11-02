@@ -1,0 +1,924 @@
+{
+  "repair_end": "2022-10-05 18:27:17.500702", 
+  "repair_begin": "2022-10-05 14:27:15.118576", 
+  "patches": [
+    {
+      "edits": [
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 1483, 
+          "faulty": "insecureWarning=false;", 
+          "type": "Replace", 
+          "seed": "registerConverterDynamically(\"com.thoughtworks.xstream.converters.extended.ThrowableConverter\",PRIORITY_NORMAL,new Class[]{ConverterLookup.class},new Object[]{converterLookup});"
+        }, 
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 1483, 
+          "faulty": "insecureWarning=false;", 
+          "type": "InsertBefore", 
+          "seed": "alias(\"trace\",JVM.loadClassForName(\"java.lang.StackTraceElement\"));"
+        }
+      ], 
+      "patch": "--- /workdir/GenProg_vul4j_x-stream_xstream_VUL4J-78/xstream/src/java/com/thoughtworks/xstream/XStream.java\t2022-10-05 12:22:53.233826579 -0400\n+++ /workdir/GenProg_vul4j_x-stream_xstream_VUL4J-78/patches_7boi/Patch_40/patched/com/thoughtworks/xstream/XStream.java\t2022-10-05 12:22:53.233826579 -0400\n@@ -1480,7 +1480,12 @@\n     public Object unmarshal(HierarchicalStreamReader reader, Object root, DataHolder dataHolder) {\n         try {\n             if (insecureWarning) {\n-                insecureWarning = false;\n+                alias(\"trace\",\n+\t\t\t\t\t\tJVM.loadClassForName(\"java.lang.StackTraceElement\"));\n+\t\t\t\tregisterConverterDynamically(\n+\t\t\t\t\t\t\"com.thoughtworks.xstream.converters.extended.ThrowableConverter\",\n+\t\t\t\t\t\tPRIORITY_NORMAL, new Class[] { ConverterLookup.class },\n+\t\t\t\t\t\tnew Object[] { converterLookup });\n                 System.err.println(\"Security framework of XStream not initialized, XStream is probably vulnerable.\");\n             }\n             return marshallingStrategy.unmarshal(\n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 1483, 
+          "faulty": "insecureWarning=false;", 
+          "type": "Replace", 
+          "seed": "if (attributeMapper == null) {\n  throw new com.thoughtworks.xstream.InitializationException(\"No \" + AttributeMapper.class.getName() + \" available\");\n}"
+        }
+      ], 
+      "patch": "--- /workdir/GenProg_vul4j_x-stream_xstream_VUL4J-78/xstream/src/java/com/thoughtworks/xstream/XStream.java\t2022-10-05 10:38:03.037171226 -0400\n+++ /workdir/GenProg_vul4j_x-stream_xstream_VUL4J-78/patches_7boi/Patch_4/patched/com/thoughtworks/xstream/XStream.java\t2022-10-05 10:38:03.041171338 -0400\n@@ -1480,7 +1480,11 @@\n     public Object unmarshal(HierarchicalStreamReader reader, Object root, DataHolder dataHolder) {\n         try {\n             if (insecureWarning) {\n-                insecureWarning = false;\n+                if (attributeMapper == null) {\n+\t\t\t\t\tthrow new com.thoughtworks.xstream.InitializationException(\n+\t\t\t\t\t\t\t\"No \" + AttributeMapper.class.getName()\n+\t\t\t\t\t\t\t\t\t+ \" available\");\n+\t\t\t\t}\n                 System.err.println(\"Security framework of XStream not initialized, XStream is probably vulnerable.\");\n             }\n             return marshallingStrategy.unmarshal(\n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 1482, 
+          "faulty": "if (insecureWarning) {\n  insecureWarning=false;\n  System.err.println(\"Security framework of XStream not initialized, XStream is probably vulnerable.\");\n}", 
+          "type": "Delete", 
+          "seed": "alias(\"long\",Long.class);"
+        }, 
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 1482, 
+          "faulty": "if (insecureWarning) {\n  insecureWarning=false;\n  System.err.println(\"Security framework of XStream not initialized, XStream is probably vulnerable.\");\n}", 
+          "type": "Replace", 
+          "seed": "if (JVM.isVersion(7)) {\n  Class type=JVM.loadClassForName(\"java.nio.file.Paths\");\n  if (type != null) {\n    Method methodGet;\n    try {\n      methodGet=type.getDeclaredMethod(\"get\",new Class[]{String.class,String[].class});\n      if (methodGet != null) {\n        Object path=methodGet.invoke(null,new Object[]{\".\",new String[0]});\n        if (path != null) {\n          addImmutableType(path.getClass(),false);\n        }\n      }\n    }\n catch (    NoSuchMethodException e) {\n    }\ncatch (    SecurityException e) {\n    }\ncatch (    IllegalAccessException e) {\n    }\ncatch (    InvocationTargetException e) {\n    }\n  }\n}"
+        }
+      ], 
+      "patch": "--- /workdir/GenProg_vul4j_x-stream_xstream_VUL4J-78/xstream/src/java/com/thoughtworks/xstream/XStream.java\t2022-10-05 11:17:35.819837379 -0400\n+++ /workdir/GenProg_vul4j_x-stream_xstream_VUL4J-78/patches_7boi/Patch_17/patched/com/thoughtworks/xstream/XStream.java\t2022-10-05 11:17:35.819837379 -0400\n@@ -1479,10 +1479,27 @@\n      */\n     public Object unmarshal(HierarchicalStreamReader reader, Object root, DataHolder dataHolder) {\n         try {\n-            if (insecureWarning) {\n-                insecureWarning = false;\n-                System.err.println(\"Security framework of XStream not initialized, XStream is probably vulnerable.\");\n-            }\n+            if (JVM.isVersion(7)) {\n+\t\t\t\tClass type = JVM.loadClassForName(\"java.nio.file.Paths\");\n+\t\t\t\tif (type != null) {\n+\t\t\t\t\tMethod methodGet;\n+\t\t\t\t\ttry {\n+\t\t\t\t\t\tmethodGet = type.getDeclaredMethod(\"get\", new Class[] {\n+\t\t\t\t\t\t\t\tString.class, String[].class });\n+\t\t\t\t\t\tif (methodGet != null) {\n+\t\t\t\t\t\t\tObject path = methodGet.invoke(null, new Object[] {\n+\t\t\t\t\t\t\t\t\t\".\", new String[0] });\n+\t\t\t\t\t\t\tif (path != null) {\n+\t\t\t\t\t\t\t\taddImmutableType(path.getClass(), false);\n+\t\t\t\t\t\t\t}\n+\t\t\t\t\t\t}\n+\t\t\t\t\t} catch (NoSuchMethodException e) {\n+\t\t\t\t\t} catch (SecurityException e) {\n+\t\t\t\t\t} catch (IllegalAccessException e) {\n+\t\t\t\t\t} catch (InvocationTargetException e) {\n+\t\t\t\t\t}\n+\t\t\t\t}\n+\t\t\t}\n             return marshallingStrategy.unmarshal(\n                 root, reader, dataHolder, converterLookup, mapper);\n \n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 1482, 
+          "faulty": "if (insecureWarning) {\n  insecureWarning=false;\n  System.err.println(\"Security framework of XStream not initialized, XStream is probably vulnerable.\");\n}", 
+          "type": "Replace", 
+          "seed": "alias(\"tree-map\",TreeMap.class);"
+        }, 
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 1483, 
+          "faulty": "insecureWarning=false;", 
+          "type": "Replace", 
+          "seed": "registerConverterDynamically(\"com.thoughtworks.xstream.converters.extended.ThrowableConverter\",PRIORITY_NORMAL,new Class[]{ConverterLookup.class},new Object[]{converterLookup});"
+        }
+      ], 
+      "patch": "--- /workdir/GenProg_vul4j_x-stream_xstream_VUL4J-78/xstream/src/java/com/thoughtworks/xstream/XStream.java\t2022-10-05 11:59:06.217760332 -0400\n+++ /workdir/GenProg_vul4j_x-stream_xstream_VUL4J-78/patches_7boi/Patch_32/patched/com/thoughtworks/xstream/XStream.java\t2022-10-05 11:59:06.217760332 -0400\n@@ -1479,10 +1479,7 @@\n      */\n     public Object unmarshal(HierarchicalStreamReader reader, Object root, DataHolder dataHolder) {\n         try {\n-            if (insecureWarning) {\n-                insecureWarning = false;\n-                System.err.println(\"Security framework of XStream not initialized, XStream is probably vulnerable.\");\n-            }\n+            alias(\"tree-map\", TreeMap.class);\n             return marshallingStrategy.unmarshal(\n                 root, reader, dataHolder, converterLookup, mapper);\n \n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 1483, 
+          "faulty": "insecureWarning=false;", 
+          "type": "Replace", 
+          "seed": "setupAliases();"
+        }
+      ], 
+      "patch": "--- /workdir/GenProg_vul4j_x-stream_xstream_VUL4J-78/xstream/src/java/com/thoughtworks/xstream/XStream.java\t2022-10-05 10:52:31.121520805 -0400\n+++ /workdir/GenProg_vul4j_x-stream_xstream_VUL4J-78/patches_7boi/Patch_7/patched/com/thoughtworks/xstream/XStream.java\t2022-10-05 10:52:31.125520917 -0400\n@@ -1480,7 +1480,7 @@\n     public Object unmarshal(HierarchicalStreamReader reader, Object root, DataHolder dataHolder) {\n         try {\n             if (insecureWarning) {\n-                insecureWarning = false;\n+                setupAliases();\n                 System.err.println(\"Security framework of XStream not initialized, XStream is probably vulnerable.\");\n             }\n             return marshallingStrategy.unmarshal(\n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 1482, 
+          "faulty": "if (insecureWarning) {\n  insecureWarning=false;\n  System.err.println(\"Security framework of XStream not initialized, XStream is probably vulnerable.\");\n}", 
+          "type": "Delete", 
+          "seed": "alias(\"long\",Long.class);"
+        }, 
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 1483, 
+          "faulty": "insecureWarning=false;", 
+          "type": "Replace", 
+          "seed": "registerConverter(new MapConverter(mapper),PRIORITY_NORMAL);"
+        }
+      ], 
+      "patch": "--- /workdir/GenProg_vul4j_x-stream_xstream_VUL4J-78/xstream/src/java/com/thoughtworks/xstream/XStream.java\t2022-10-05 10:56:51.088809410 -0400\n+++ /workdir/GenProg_vul4j_x-stream_xstream_VUL4J-78/patches_7boi/Patch_9/patched/com/thoughtworks/xstream/XStream.java\t2022-10-05 10:56:51.088809410 -0400\n@@ -1479,10 +1479,6 @@\n      */\n     public Object unmarshal(HierarchicalStreamReader reader, Object root, DataHolder dataHolder) {\n         try {\n-            if (insecureWarning) {\n-                insecureWarning = false;\n-                System.err.println(\"Security framework of XStream not initialized, XStream is probably vulnerable.\");\n-            }\n             return marshallingStrategy.unmarshal(\n                 root, reader, dataHolder, converterLookup, mapper);\n \n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 1482, 
+          "faulty": "if (insecureWarning) {\n  insecureWarning=false;\n  System.err.println(\"Security framework of XStream not initialized, XStream is probably vulnerable.\");\n}", 
+          "type": "Delete", 
+          "seed": "alias(\"long\",Long.class);"
+        }, 
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 1482, 
+          "faulty": "if (insecureWarning) {\n  insecureWarning=false;\n  System.err.println(\"Security framework of XStream not initialized, XStream is probably vulnerable.\");\n}", 
+          "type": "Delete", 
+          "seed": "aliasType(\"charset\",JVM.loadClassForName(\"java.nio.charset.Charset\"));"
+        }, 
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 1482, 
+          "faulty": "if (insecureWarning) {\n  insecureWarning=false;\n  System.err.println(\"Security framework of XStream not initialized, XStream is probably vulnerable.\");\n}", 
+          "type": "Replace", 
+          "seed": "alias(\"tree-map\",TreeMap.class);"
+        }
+      ], 
+      "patch": "--- /workdir/GenProg_vul4j_x-stream_xstream_VUL4J-78/xstream/src/java/com/thoughtworks/xstream/XStream.java\t2022-10-05 11:39:30.740762402 -0400\n+++ /workdir/GenProg_vul4j_x-stream_xstream_VUL4J-78/patches_7boi/Patch_26/patched/com/thoughtworks/xstream/XStream.java\t2022-10-05 11:39:30.740762402 -0400\n@@ -1479,10 +1479,7 @@\n      */\n     public Object unmarshal(HierarchicalStreamReader reader, Object root, DataHolder dataHolder) {\n         try {\n-            if (insecureWarning) {\n-                insecureWarning = false;\n-                System.err.println(\"Security framework of XStream not initialized, XStream is probably vulnerable.\");\n-            }\n+            alias(\"tree-map\", TreeMap.class);\n             return marshallingStrategy.unmarshal(\n                 root, reader, dataHolder, converterLookup, mapper);\n \n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 1483, 
+          "faulty": "insecureWarning=false;", 
+          "type": "Replace", 
+          "seed": "registerConverterDynamically(\"com.thoughtworks.xstream.converters.extended.ThrowableConverter\",PRIORITY_NORMAL,new Class[]{ConverterLookup.class},new Object[]{converterLookup});"
+        }, 
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 1483, 
+          "faulty": "insecureWarning=false;", 
+          "type": "InsertBefore", 
+          "seed": "alias(\"trace\",JVM.loadClassForName(\"java.lang.StackTraceElement\"));"
+        }, 
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 1482, 
+          "faulty": "if (insecureWarning) {\n  insecureWarning=false;\n  System.err.println(\"Security framework of XStream not initialized, XStream is probably vulnerable.\");\n}", 
+          "type": "Delete", 
+          "seed": "alias(\"empty-list\",Collections.EMPTY_LIST.getClass());"
+        }
+      ], 
+      "patch": "--- /workdir/GenProg_vul4j_x-stream_xstream_VUL4J-78/xstream/src/java/com/thoughtworks/xstream/XStream.java\t2022-10-05 12:23:15.410449213 -0400\n+++ /workdir/GenProg_vul4j_x-stream_xstream_VUL4J-78/patches_7boi/Patch_41/patched/com/thoughtworks/xstream/XStream.java\t2022-10-05 12:23:15.410449213 -0400\n@@ -1479,10 +1479,6 @@\n      */\n     public Object unmarshal(HierarchicalStreamReader reader, Object root, DataHolder dataHolder) {\n         try {\n-            if (insecureWarning) {\n-                insecureWarning = false;\n-                System.err.println(\"Security framework of XStream not initialized, XStream is probably vulnerable.\");\n-            }\n             return marshallingStrategy.unmarshal(\n                 root, reader, dataHolder, converterLookup, mapper);\n \n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 1483, 
+          "faulty": "insecureWarning=false;", 
+          "type": "Replace", 
+          "seed": "registerConverterDynamically(\"com.thoughtworks.xstream.converters.extended.ThrowableConverter\",PRIORITY_NORMAL,new Class[]{ConverterLookup.class},new Object[]{converterLookup});"
+        }, 
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 714, 
+          "faulty": "if (xstream.insecureWarning) {\n  xstream.addPermission(NoTypePermission.NONE);\n  xstream.addPermission(NullPermission.NULL);\n  xstream.addPermission(PrimitiveTypePermission.PRIMITIVES);\n  xstream.addPermission(ArrayTypePermission.ARRAYS);\n  xstream.addPermission(InterfaceTypePermission.INTERFACES);\n  xstream.allowTypeHierarchy(Calendar.class);\n  xstream.allowTypeHierarchy(Collection.class);\n  xstream.allowTypeHierarchy(Map.class);\n  xstream.allowTypeHierarchy(Map.Entry.class);\n  xstream.allowTypeHierarchy(Member.class);\n  xstream.allowTypeHierarchy(Number.class);\n  xstream.allowTypeHierarchy(Throwable.class);\n  xstream.allowTypeHierarchy(TimeZone.class);\n  Class type=JVM.loadClassForName(\"java.lang.Enum\");\n  if (type != null) {\n    xstream.allowTypeHierarchy(type);\n  }\n  type=JVM.loadClassForName(\"java.nio.file.Path\");\n  if (type != null) {\n    xstream.allowTypeHierarchy(type);\n  }\n  final Set types=new HashSet();\n  types.add(BitSet.class);\n  types.add(Charset.class);\n  types.add(Class.class);\n  types.add(Currency.class);\n  types.add(Date.class);\n  types.add(DecimalFormatSymbols.class);\n  types.add(File.class);\n  types.add(Locale.class);\n  types.add(Object.class);\n  types.add(Pattern.class);\n  types.add(StackTraceElement.class);\n  types.add(String.class);\n  types.add(StringBuffer.class);\n  types.add(JVM.loadClassForName(\"java.lang.StringBuilder\"));\n  types.add(URL.class);\n  types.add(URI.class);\n  types.add(JVM.loadClassForName(\"java.util.UUID\"));\n  if (JVM.isSQLAvailable()) {\n    types.add(JVM.loadClassForName(\"java.sql.Timestamp\"));\n    types.add(JVM.loadClassForName(\"java.sql.Time\"));\n    types.add(JVM.loadClassForName(\"java.sql.Date\"));\n  }\n  if (JVM.isVersion(8)) {\n    xstream.allowTypeHierarchy(JVM.loadClassForName(\"java.time.Clock\"));\n    types.add(JVM.loadClassForName(\"java.time.Duration\"));\n    types.add(JVM.loadClassForName(\"java.time.Instant\"));\n    types.add(JVM.loadClassForName(\"java.time.LocalDate\"));\n    types.add(JVM.loadClassForName(\"java.time.LocalDateTime\"));\n    types.add(JVM.loadClassForName(\"java.time.LocalTime\"));\n    types.add(JVM.loadClassForName(\"java.time.MonthDay\"));\n    types.add(JVM.loadClassForName(\"java.time.OffsetDateTime\"));\n    types.add(JVM.loadClassForName(\"java.time.OffsetTime\"));\n    types.add(JVM.loadClassForName(\"java.time.Period\"));\n    types.add(JVM.loadClassForName(\"java.time.Ser\"));\n    types.add(JVM.loadClassForName(\"java.time.Year\"));\n    types.add(JVM.loadClassForName(\"java.time.YearMonth\"));\n    types.add(JVM.loadClassForName(\"java.time.ZonedDateTime\"));\n    xstream.allowTypeHierarchy(JVM.loadClassForName(\"java.time.ZoneId\"));\n    types.add(JVM.loadClassForName(\"java.time.chrono.HijrahDate\"));\n    types.add(JVM.loadClassForName(\"java.time.chrono.JapaneseDate\"));\n    types.add(JVM.loadClassForName(\"java.time.chrono.JapaneseEra\"));\n    types.add(JVM.loadClassForName(\"java.time.chrono.MinguoDate\"));\n    types.add(JVM.loadClassForName(\"java.time.chrono.ThaiBuddhistDate\"));\n    types.add(JVM.loadClassForName(\"java.time.chrono.Ser\"));\n    xstream.allowTypeHierarchy(JVM.loadClassForName(\"java.time.chrono.Chronology\"));\n    types.add(JVM.loadClassForName(\"java.time.temporal.ValueRange\"));\n    types.add(JVM.loadClassForName(\"java.time.temporal.WeekFields\"));\n  }\n  types.remove(null);\n  final Iterator iter=types.iterator();\n  final Class[] classes=new Class[types.size()];\n  for (int i=0; i < classes.length; ++i) {\n    classes[i]=(Class)iter.next();\n  }\n  xstream.allowTypes(classes);\n}\n else {\n  throw new IllegalArgumentException(\"Security framework of XStream instance already initialized\");\n}", 
+          "type": "InsertBefore", 
+          "seed": "xstream.allowTypeHierarchy(Calendar.class);"
+        }
+      ], 
+      "patch": "--- /workdir/GenProg_vul4j_x-stream_xstream_VUL4J-78/xstream/src/java/com/thoughtworks/xstream/XStream.java\t2022-10-05 12:09:03.142517088 -0400\n+++ /workdir/GenProg_vul4j_x-stream_xstream_VUL4J-78/patches_7boi/Patch_36/patched/com/thoughtworks/xstream/XStream.java\t2022-10-05 12:09:03.142517088 -0400\n@@ -711,7 +711,8 @@\n      * @since 1.4.10\n      */\n     public static void setupDefaultSecurity(final XStream xstream) {\n-        if (xstream.insecureWarning) {\n+        xstream.allowTypeHierarchy(Calendar.class);\n+\t\tif (xstream.insecureWarning) {\n             xstream.addPermission(NoTypePermission.NONE);\n             xstream.addPermission(NullPermission.NULL);\n             xstream.addPermission(PrimitiveTypePermission.PRIMITIVES);\n@@ -1480,7 +1481,10 @@\n     public Object unmarshal(HierarchicalStreamReader reader, Object root, DataHolder dataHolder) {\n         try {\n             if (insecureWarning) {\n-                insecureWarning = false;\n+                registerConverterDynamically(\n+\t\t\t\t\t\t\"com.thoughtworks.xstream.converters.extended.ThrowableConverter\",\n+\t\t\t\t\t\tPRIORITY_NORMAL, new Class[] { ConverterLookup.class },\n+\t\t\t\t\t\tnew Object[] { converterLookup });\n                 System.err.println(\"Security framework of XStream not initialized, XStream is probably vulnerable.\");\n             }\n             return marshallingStrategy.unmarshal(\n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 1482, 
+          "faulty": "if (insecureWarning) {\n  insecureWarning=false;\n  System.err.println(\"Security framework of XStream not initialized, XStream is probably vulnerable.\");\n}", 
+          "type": "Replace", 
+          "seed": "alias(\"tree-map\",TreeMap.class);"
+        }, 
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 2362, 
+          "faulty": "insecureWarning&=permission != NoTypePermission.NONE;", 
+          "type": "Replace", 
+          "seed": "Class type=JVM.loadClassForName(\"java.nio.file.Paths\");"
+        }
+      ], 
+      "patch": "--- /workdir/GenProg_vul4j_x-stream_xstream_VUL4J-78/xstream/src/java/com/thoughtworks/xstream/XStream.java\t2022-10-05 10:57:34.242019211 -0400\n+++ /workdir/GenProg_vul4j_x-stream_xstream_VUL4J-78/patches_7boi/Patch_10/patched/com/thoughtworks/xstream/XStream.java\t2022-10-05 10:57:34.242019211 -0400\n@@ -1479,10 +1479,7 @@\n      */\n     public Object unmarshal(HierarchicalStreamReader reader, Object root, DataHolder dataHolder) {\n         try {\n-            if (insecureWarning) {\n-                insecureWarning = false;\n-                System.err.println(\"Security framework of XStream not initialized, XStream is probably vulnerable.\");\n-            }\n+            alias(\"tree-map\", TreeMap.class);\n             return marshallingStrategy.unmarshal(\n                 root, reader, dataHolder, converterLookup, mapper);\n \n@@ -2359,7 +2356,7 @@\n      */\n     public void addPermission(TypePermission permission) {\n         if (securityMapper != null) {\n-            insecureWarning &= permission != NoTypePermission.NONE;\n+            Class type = JVM.loadClassForName(\"java.nio.file.Paths\");\n             securityMapper.addPermission(permission);\n         }\n     }\n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 1482, 
+          "faulty": "if (insecureWarning) {\n  insecureWarning=false;\n  System.err.println(\"Security framework of XStream not initialized, XStream is probably vulnerable.\");\n}", 
+          "type": "Delete", 
+          "seed": "aliasType(\"charset\",JVM.loadClassForName(\"java.nio.charset.Charset\"));"
+        }, 
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 1482, 
+          "faulty": "if (insecureWarning) {\n  insecureWarning=false;\n  System.err.println(\"Security framework of XStream not initialized, XStream is probably vulnerable.\");\n}", 
+          "type": "Replace", 
+          "seed": "alias(\"tree-map\",TreeMap.class);"
+        }, 
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 2362, 
+          "faulty": "insecureWarning&=permission != NoTypePermission.NONE;", 
+          "type": "Delete", 
+          "seed": "this.marshallingStrategy=marshallingStrategy;"
+        }, 
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 1483, 
+          "faulty": "insecureWarning=false;", 
+          "type": "Replace", 
+          "seed": "registerConverterDynamically(\"com.thoughtworks.xstream.converters.extended.ThrowableConverter\",PRIORITY_NORMAL,new Class[]{ConverterLookup.class},new Object[]{converterLookup});"
+        }
+      ], 
+      "patch": "--- /workdir/GenProg_vul4j_x-stream_xstream_VUL4J-78/xstream/src/java/com/thoughtworks/xstream/XStream.java\t2022-10-05 12:06:20.833960687 -0400\n+++ /workdir/GenProg_vul4j_x-stream_xstream_VUL4J-78/patches_7boi/Patch_34/patched/com/thoughtworks/xstream/XStream.java\t2022-10-05 12:06:20.833960687 -0400\n@@ -1479,10 +1479,7 @@\n      */\n     public Object unmarshal(HierarchicalStreamReader reader, Object root, DataHolder dataHolder) {\n         try {\n-            if (insecureWarning) {\n-                insecureWarning = false;\n-                System.err.println(\"Security framework of XStream not initialized, XStream is probably vulnerable.\");\n-            }\n+            alias(\"tree-map\", TreeMap.class);\n             return marshallingStrategy.unmarshal(\n                 root, reader, dataHolder, converterLookup, mapper);\n \n@@ -2359,7 +2356,6 @@\n      */\n     public void addPermission(TypePermission permission) {\n         if (securityMapper != null) {\n-            insecureWarning &= permission != NoTypePermission.NONE;\n             securityMapper.addPermission(permission);\n         }\n     }\n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 1482, 
+          "faulty": "if (insecureWarning) {\n  insecureWarning=false;\n  System.err.println(\"Security framework of XStream not initialized, XStream is probably vulnerable.\");\n}", 
+          "type": "Replace", 
+          "seed": "alias(\"tree-map\",TreeMap.class);"
+        }, 
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 1482, 
+          "faulty": "if (insecureWarning) {\n  insecureWarning=false;\n  System.err.println(\"Security framework of XStream not initialized, XStream is probably vulnerable.\");\n}", 
+          "type": "Replace", 
+          "seed": "this.mapper=mapper == null ? buildMapper() : mapper;"
+        }
+      ], 
+      "patch": "--- /workdir/GenProg_vul4j_x-stream_xstream_VUL4J-78/xstream/src/java/com/thoughtworks/xstream/XStream.java\t2022-10-05 11:27:46.336985861 -0400\n+++ /workdir/GenProg_vul4j_x-stream_xstream_VUL4J-78/patches_7boi/Patch_19/patched/com/thoughtworks/xstream/XStream.java\t2022-10-05 11:27:46.336985861 -0400\n@@ -1479,10 +1479,7 @@\n      */\n     public Object unmarshal(HierarchicalStreamReader reader, Object root, DataHolder dataHolder) {\n         try {\n-            if (insecureWarning) {\n-                insecureWarning = false;\n-                System.err.println(\"Security framework of XStream not initialized, XStream is probably vulnerable.\");\n-            }\n+            this.mapper = mapper == null ? buildMapper() : mapper;\n             return marshallingStrategy.unmarshal(\n                 root, reader, dataHolder, converterLookup, mapper);\n \n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 1482, 
+          "faulty": "if (insecureWarning) {\n  insecureWarning=false;\n  System.err.println(\"Security framework of XStream not initialized, XStream is probably vulnerable.\");\n}", 
+          "type": "Delete", 
+          "seed": "alias(\"long\",Long.class);"
+        }, 
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 1483, 
+          "faulty": "insecureWarning=false;", 
+          "type": "Replace", 
+          "seed": "registerConverterDynamically(\"com.thoughtworks.xstream.converters.extended.ThrowableConverter\",PRIORITY_NORMAL,new Class[]{ConverterLookup.class},new Object[]{converterLookup});"
+        }, 
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 714, 
+          "faulty": "if (xstream.insecureWarning) {\n  xstream.addPermission(NoTypePermission.NONE);\n  xstream.addPermission(NullPermission.NULL);\n  xstream.addPermission(PrimitiveTypePermission.PRIMITIVES);\n  xstream.addPermission(ArrayTypePermission.ARRAYS);\n  xstream.addPermission(InterfaceTypePermission.INTERFACES);\n  xstream.allowTypeHierarchy(Calendar.class);\n  xstream.allowTypeHierarchy(Collection.class);\n  xstream.allowTypeHierarchy(Map.class);\n  xstream.allowTypeHierarchy(Map.Entry.class);\n  xstream.allowTypeHierarchy(Member.class);\n  xstream.allowTypeHierarchy(Number.class);\n  xstream.allowTypeHierarchy(Throwable.class);\n  xstream.allowTypeHierarchy(TimeZone.class);\n  Class type=JVM.loadClassForName(\"java.lang.Enum\");\n  if (type != null) {\n    xstream.allowTypeHierarchy(type);\n  }\n  type=JVM.loadClassForName(\"java.nio.file.Path\");\n  if (type != null) {\n    xstream.allowTypeHierarchy(type);\n  }\n  final Set types=new HashSet();\n  types.add(BitSet.class);\n  types.add(Charset.class);\n  types.add(Class.class);\n  types.add(Currency.class);\n  types.add(Date.class);\n  types.add(DecimalFormatSymbols.class);\n  types.add(File.class);\n  types.add(Locale.class);\n  types.add(Object.class);\n  types.add(Pattern.class);\n  types.add(StackTraceElement.class);\n  types.add(String.class);\n  types.add(StringBuffer.class);\n  types.add(JVM.loadClassForName(\"java.lang.StringBuilder\"));\n  types.add(URL.class);\n  types.add(URI.class);\n  types.add(JVM.loadClassForName(\"java.util.UUID\"));\n  if (JVM.isSQLAvailable()) {\n    types.add(JVM.loadClassForName(\"java.sql.Timestamp\"));\n    types.add(JVM.loadClassForName(\"java.sql.Time\"));\n    types.add(JVM.loadClassForName(\"java.sql.Date\"));\n  }\n  if (JVM.isVersion(8)) {\n    xstream.allowTypeHierarchy(JVM.loadClassForName(\"java.time.Clock\"));\n    types.add(JVM.loadClassForName(\"java.time.Duration\"));\n    types.add(JVM.loadClassForName(\"java.time.Instant\"));\n    types.add(JVM.loadClassForName(\"java.time.LocalDate\"));\n    types.add(JVM.loadClassForName(\"java.time.LocalDateTime\"));\n    types.add(JVM.loadClassForName(\"java.time.LocalTime\"));\n    types.add(JVM.loadClassForName(\"java.time.MonthDay\"));\n    types.add(JVM.loadClassForName(\"java.time.OffsetDateTime\"));\n    types.add(JVM.loadClassForName(\"java.time.OffsetTime\"));\n    types.add(JVM.loadClassForName(\"java.time.Period\"));\n    types.add(JVM.loadClassForName(\"java.time.Ser\"));\n    types.add(JVM.loadClassForName(\"java.time.Year\"));\n    types.add(JVM.loadClassForName(\"java.time.YearMonth\"));\n    types.add(JVM.loadClassForName(\"java.time.ZonedDateTime\"));\n    xstream.allowTypeHierarchy(JVM.loadClassForName(\"java.time.ZoneId\"));\n    types.add(JVM.loadClassForName(\"java.time.chrono.HijrahDate\"));\n    types.add(JVM.loadClassForName(\"java.time.chrono.JapaneseDate\"));\n    types.add(JVM.loadClassForName(\"java.time.chrono.JapaneseEra\"));\n    types.add(JVM.loadClassForName(\"java.time.chrono.MinguoDate\"));\n    types.add(JVM.loadClassForName(\"java.time.chrono.ThaiBuddhistDate\"));\n    types.add(JVM.loadClassForName(\"java.time.chrono.Ser\"));\n    xstream.allowTypeHierarchy(JVM.loadClassForName(\"java.time.chrono.Chronology\"));\n    types.add(JVM.loadClassForName(\"java.time.temporal.ValueRange\"));\n    types.add(JVM.loadClassForName(\"java.time.temporal.WeekFields\"));\n  }\n  types.remove(null);\n  final Iterator iter=types.iterator();\n  final Class[] classes=new Class[types.size()];\n  for (int i=0; i < classes.length; ++i) {\n    classes[i]=(Class)iter.next();\n  }\n  xstream.allowTypes(classes);\n}\n else {\n  throw new IllegalArgumentException(\"Security framework of XStream instance already initialized\");\n}", 
+          "type": "InsertBefore", 
+          "seed": "xstream.allowTypeHierarchy(Calendar.class);"
+        }
+      ], 
+      "patch": "--- /workdir/GenProg_vul4j_x-stream_xstream_VUL4J-78/xstream/src/java/com/thoughtworks/xstream/XStream.java\t2022-10-05 12:28:20.811023475 -0400\n+++ /workdir/GenProg_vul4j_x-stream_xstream_VUL4J-78/patches_7boi/Patch_43/patched/com/thoughtworks/xstream/XStream.java\t2022-10-05 12:28:20.815023587 -0400\n@@ -711,7 +711,8 @@\n      * @since 1.4.10\n      */\n     public static void setupDefaultSecurity(final XStream xstream) {\n-        if (xstream.insecureWarning) {\n+        xstream.allowTypeHierarchy(Calendar.class);\n+\t\tif (xstream.insecureWarning) {\n             xstream.addPermission(NoTypePermission.NONE);\n             xstream.addPermission(NullPermission.NULL);\n             xstream.addPermission(PrimitiveTypePermission.PRIMITIVES);\n@@ -1479,10 +1480,6 @@\n      */\n     public Object unmarshal(HierarchicalStreamReader reader, Object root, DataHolder dataHolder) {\n         try {\n-            if (insecureWarning) {\n-                insecureWarning = false;\n-                System.err.println(\"Security framework of XStream not initialized, XStream is probably vulnerable.\");\n-            }\n             return marshallingStrategy.unmarshal(\n                 root, reader, dataHolder, converterLookup, mapper);\n \n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 1483, 
+          "faulty": "insecureWarning=false;", 
+          "type": "Replace", 
+          "seed": "registerConverterDynamically(\"com.thoughtworks.xstream.converters.extended.ThrowableConverter\",PRIORITY_NORMAL,new Class[]{ConverterLookup.class},new Object[]{converterLookup});"
+        }, 
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 1483, 
+          "faulty": "insecureWarning=false;", 
+          "type": "InsertBefore", 
+          "seed": "alias(\"number\",Number.class);"
+        }
+      ], 
+      "patch": "--- /workdir/GenProg_vul4j_x-stream_xstream_VUL4J-78/xstream/src/java/com/thoughtworks/xstream/XStream.java\t2022-10-05 11:07:01.421992020 -0400\n+++ /workdir/GenProg_vul4j_x-stream_xstream_VUL4J-78/patches_7boi/Patch_13/patched/com/thoughtworks/xstream/XStream.java\t2022-10-05 11:07:01.421992020 -0400\n@@ -1480,7 +1480,11 @@\n     public Object unmarshal(HierarchicalStreamReader reader, Object root, DataHolder dataHolder) {\n         try {\n             if (insecureWarning) {\n-                insecureWarning = false;\n+                alias(\"number\", Number.class);\n+\t\t\t\tregisterConverterDynamically(\n+\t\t\t\t\t\t\"com.thoughtworks.xstream.converters.extended.ThrowableConverter\",\n+\t\t\t\t\t\tPRIORITY_NORMAL, new Class[] { ConverterLookup.class },\n+\t\t\t\t\t\tnew Object[] { converterLookup });\n                 System.err.println(\"Security framework of XStream not initialized, XStream is probably vulnerable.\");\n             }\n             return marshallingStrategy.unmarshal(\n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 1482, 
+          "faulty": "if (insecureWarning) {\n  insecureWarning=false;\n  System.err.println(\"Security framework of XStream not initialized, XStream is probably vulnerable.\");\n}", 
+          "type": "Delete", 
+          "seed": "alias(\"long\",Long.class);"
+        }, 
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 699, 
+          "faulty": "insecureWarning=true;", 
+          "type": "InsertBefore", 
+          "seed": "registerConverter(new JavaMethodConverter(classLoaderReference),PRIORITY_NORMAL);"
+        }
+      ], 
+      "patch": "--- /workdir/GenProg_vul4j_x-stream_xstream_VUL4J-78/xstream/src/java/com/thoughtworks/xstream/XStream.java\t2022-10-05 10:47:07.632449848 -0400\n+++ /workdir/GenProg_vul4j_x-stream_xstream_VUL4J-78/patches_7boi/Patch_6/patched/com/thoughtworks/xstream/XStream.java\t2022-10-05 10:47:07.632449848 -0400\n@@ -696,7 +696,9 @@\n         }\n         \n         addPermission(AnyTypePermission.ANY);\n-        insecureWarning = true;\n+        registerConverter(new JavaMethodConverter(classLoaderReference),\n+\t\t\t\tPRIORITY_NORMAL);\n+\t\tinsecureWarning = true;\n     }\n \n     /**\n@@ -1479,10 +1481,6 @@\n      */\n     public Object unmarshal(HierarchicalStreamReader reader, Object root, DataHolder dataHolder) {\n         try {\n-            if (insecureWarning) {\n-                insecureWarning = false;\n-                System.err.println(\"Security framework of XStream not initialized, XStream is probably vulnerable.\");\n-            }\n             return marshallingStrategy.unmarshal(\n                 root, reader, dataHolder, converterLookup, mapper);\n \n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 1482, 
+          "faulty": "if (insecureWarning) {\n  insecureWarning=false;\n  System.err.println(\"Security framework of XStream not initialized, XStream is probably vulnerable.\");\n}", 
+          "type": "Delete", 
+          "seed": "aliasType(\"charset\",JVM.loadClassForName(\"java.nio.charset.Charset\"));"
+        }, 
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 1482, 
+          "faulty": "if (insecureWarning) {\n  insecureWarning=false;\n  System.err.println(\"Security framework of XStream not initialized, XStream is probably vulnerable.\");\n}", 
+          "type": "Replace", 
+          "seed": "alias(\"tree-map\",TreeMap.class);"
+        }, 
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 2362, 
+          "faulty": "insecureWarning&=permission != NoTypePermission.NONE;", 
+          "type": "Delete", 
+          "seed": "this.marshallingStrategy=marshallingStrategy;"
+        }
+      ], 
+      "patch": "--- /workdir/GenProg_vul4j_x-stream_xstream_VUL4J-78/xstream/src/java/com/thoughtworks/xstream/XStream.java\t2022-10-05 11:38:25.430928989 -0400\n+++ /workdir/GenProg_vul4j_x-stream_xstream_VUL4J-78/patches_7boi/Patch_25/patched/com/thoughtworks/xstream/XStream.java\t2022-10-05 11:38:25.430928989 -0400\n@@ -1479,10 +1479,7 @@\n      */\n     public Object unmarshal(HierarchicalStreamReader reader, Object root, DataHolder dataHolder) {\n         try {\n-            if (insecureWarning) {\n-                insecureWarning = false;\n-                System.err.println(\"Security framework of XStream not initialized, XStream is probably vulnerable.\");\n-            }\n+            alias(\"tree-map\", TreeMap.class);\n             return marshallingStrategy.unmarshal(\n                 root, reader, dataHolder, converterLookup, mapper);\n \n@@ -2359,7 +2356,6 @@\n      */\n     public void addPermission(TypePermission permission) {\n         if (securityMapper != null) {\n-            insecureWarning &= permission != NoTypePermission.NONE;\n             securityMapper.addPermission(permission);\n         }\n     }\n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 1482, 
+          "faulty": "if (insecureWarning) {\n  insecureWarning=false;\n  System.err.println(\"Security framework of XStream not initialized, XStream is probably vulnerable.\");\n}", 
+          "type": "Delete", 
+          "seed": "aliasType(\"charset\",JVM.loadClassForName(\"java.nio.charset.Charset\"));"
+        }, 
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 2362, 
+          "faulty": "insecureWarning&=permission != NoTypePermission.NONE;", 
+          "type": "Replace", 
+          "seed": "registerConverterDynamically(\"com.thoughtworks.xstream.converters.enums.EnumSetConverter\",PRIORITY_NORMAL,new Class[]{Mapper.class},new Object[]{mapper});"
+        }
+      ], 
+      "patch": "--- /workdir/GenProg_vul4j_x-stream_xstream_VUL4J-78/xstream/src/java/com/thoughtworks/xstream/XStream.java\t2022-10-05 11:01:55.065349510 -0400\n+++ /workdir/GenProg_vul4j_x-stream_xstream_VUL4J-78/patches_7boi/Patch_11/patched/com/thoughtworks/xstream/XStream.java\t2022-10-05 11:01:55.065349510 -0400\n@@ -1479,10 +1479,6 @@\n      */\n     public Object unmarshal(HierarchicalStreamReader reader, Object root, DataHolder dataHolder) {\n         try {\n-            if (insecureWarning) {\n-                insecureWarning = false;\n-                System.err.println(\"Security framework of XStream not initialized, XStream is probably vulnerable.\");\n-            }\n             return marshallingStrategy.unmarshal(\n                 root, reader, dataHolder, converterLookup, mapper);\n \n@@ -2359,7 +2355,10 @@\n      */\n     public void addPermission(TypePermission permission) {\n         if (securityMapper != null) {\n-            insecureWarning &= permission != NoTypePermission.NONE;\n+            registerConverterDynamically(\n+\t\t\t\t\t\"com.thoughtworks.xstream.converters.enums.EnumSetConverter\",\n+\t\t\t\t\tPRIORITY_NORMAL, new Class[] { Mapper.class },\n+\t\t\t\t\tnew Object[] { mapper });\n             securityMapper.addPermission(permission);\n         }\n     }\n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 1483, 
+          "faulty": "insecureWarning=false;", 
+          "type": "Replace", 
+          "seed": "registerConverter(new LocaleConverter(),PRIORITY_NORMAL);"
+        }
+      ], 
+      "patch": "--- /workdir/GenProg_vul4j_x-stream_xstream_VUL4J-78/xstream/src/java/com/thoughtworks/xstream/XStream.java\t2022-10-05 10:37:40.744545452 -0400\n+++ /workdir/GenProg_vul4j_x-stream_xstream_VUL4J-78/patches_7boi/Patch_3/patched/com/thoughtworks/xstream/XStream.java\t2022-10-05 10:37:40.744545452 -0400\n@@ -1480,7 +1480,7 @@\n     public Object unmarshal(HierarchicalStreamReader reader, Object root, DataHolder dataHolder) {\n         try {\n             if (insecureWarning) {\n-                insecureWarning = false;\n+                registerConverter(new LocaleConverter(), PRIORITY_NORMAL);\n                 System.err.println(\"Security framework of XStream not initialized, XStream is probably vulnerable.\");\n             }\n             return marshallingStrategy.unmarshal(\n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 1483, 
+          "faulty": "insecureWarning=false;", 
+          "type": "Replace", 
+          "seed": "registerConverterDynamically(\"com.thoughtworks.xstream.converters.extended.ThrowableConverter\",PRIORITY_NORMAL,new Class[]{ConverterLookup.class},new Object[]{converterLookup});"
+        }, 
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 1483, 
+          "faulty": "insecureWarning=false;", 
+          "type": "Replace", 
+          "seed": "Writer writer=new StringWriter();"
+        }, 
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 2362, 
+          "faulty": "insecureWarning&=permission != NoTypePermission.NONE;", 
+          "type": "Delete", 
+          "seed": "alias(\"tree-map\",TreeMap.class);"
+        }
+      ], 
+      "patch": "--- /workdir/GenProg_vul4j_x-stream_xstream_VUL4J-78/xstream/src/java/com/thoughtworks/xstream/XStream.java\t2022-10-05 12:23:37.195060834 -0400\n+++ /workdir/GenProg_vul4j_x-stream_xstream_VUL4J-78/patches_7boi/Patch_42/patched/com/thoughtworks/xstream/XStream.java\t2022-10-05 12:23:37.195060834 -0400\n@@ -1480,7 +1480,7 @@\n     public Object unmarshal(HierarchicalStreamReader reader, Object root, DataHolder dataHolder) {\n         try {\n             if (insecureWarning) {\n-                insecureWarning = false;\n+                Writer writer = new StringWriter();\n                 System.err.println(\"Security framework of XStream not initialized, XStream is probably vulnerable.\");\n             }\n             return marshallingStrategy.unmarshal(\n@@ -2359,7 +2359,6 @@\n      */\n     public void addPermission(TypePermission permission) {\n         if (securityMapper != null) {\n-            insecureWarning &= permission != NoTypePermission.NONE;\n             securityMapper.addPermission(permission);\n         }\n     }\n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 1482, 
+          "faulty": "if (insecureWarning) {\n  insecureWarning=false;\n  System.err.println(\"Security framework of XStream not initialized, XStream is probably vulnerable.\");\n}", 
+          "type": "Replace", 
+          "seed": "alias(\"tree-map\",TreeMap.class);"
+        }, 
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 1483, 
+          "faulty": "insecureWarning=false;", 
+          "type": "Delete", 
+          "seed": "registerConverter(new SerializableConverter(mapper,reflectionProvider,classLoaderReference),PRIORITY_LOW);"
+        }
+      ], 
+      "patch": "--- /workdir/GenProg_vul4j_x-stream_xstream_VUL4J-78/xstream/src/java/com/thoughtworks/xstream/XStream.java\t2022-10-05 11:48:13.827446600 -0400\n+++ /workdir/GenProg_vul4j_x-stream_xstream_VUL4J-78/patches_7boi/Patch_30/patched/com/thoughtworks/xstream/XStream.java\t2022-10-05 11:48:13.831446713 -0400\n@@ -1479,10 +1479,7 @@\n      */\n     public Object unmarshal(HierarchicalStreamReader reader, Object root, DataHolder dataHolder) {\n         try {\n-            if (insecureWarning) {\n-                insecureWarning = false;\n-                System.err.println(\"Security framework of XStream not initialized, XStream is probably vulnerable.\");\n-            }\n+            alias(\"tree-map\", TreeMap.class);\n             return marshallingStrategy.unmarshal(\n                 root, reader, dataHolder, converterLookup, mapper);\n \n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 1482, 
+          "faulty": "if (insecureWarning) {\n  insecureWarning=false;\n  System.err.println(\"Security framework of XStream not initialized, XStream is probably vulnerable.\");\n}", 
+          "type": "Delete", 
+          "seed": "mapper=new XStream11XmlFriendlyMapper(mapper);"
+        }, 
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 1483, 
+          "faulty": "insecureWarning=false;", 
+          "type": "InsertBefore", 
+          "seed": "registerConverter(new URIConverter(),PRIORITY_NORMAL);"
+        }
+      ], 
+      "patch": "--- /workdir/GenProg_vul4j_x-stream_xstream_VUL4J-78/xstream/src/java/com/thoughtworks/xstream/XStream.java\t2022-10-05 12:16:43.123434750 -0400\n+++ /workdir/GenProg_vul4j_x-stream_xstream_VUL4J-78/patches_7boi/Patch_39/patched/com/thoughtworks/xstream/XStream.java\t2022-10-05 12:16:43.123434750 -0400\n@@ -1479,10 +1479,6 @@\n      */\n     public Object unmarshal(HierarchicalStreamReader reader, Object root, DataHolder dataHolder) {\n         try {\n-            if (insecureWarning) {\n-                insecureWarning = false;\n-                System.err.println(\"Security framework of XStream not initialized, XStream is probably vulnerable.\");\n-            }\n             return marshallingStrategy.unmarshal(\n                 root, reader, dataHolder, converterLookup, mapper);\n \n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 1482, 
+          "faulty": "if (insecureWarning) {\n  insecureWarning=false;\n  System.err.println(\"Security framework of XStream not initialized, XStream is probably vulnerable.\");\n}", 
+          "type": "Delete", 
+          "seed": "aliasType(\"charset\",JVM.loadClassForName(\"java.nio.charset.Charset\"));"
+        }, 
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 1483, 
+          "faulty": "insecureWarning=false;", 
+          "type": "Replace", 
+          "seed": "registerConverterDynamically(\"com.thoughtworks.xstream.converters.extended.ThrowableConverter\",PRIORITY_NORMAL,new Class[]{ConverterLookup.class},new Object[]{converterLookup});"
+        }, 
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 2362, 
+          "faulty": "insecureWarning&=permission != NoTypePermission.NONE;", 
+          "type": "Delete", 
+          "seed": "addDefaultImplementation(GregorianCalendar.class,Calendar.class);"
+        }
+      ], 
+      "patch": "--- /workdir/GenProg_vul4j_x-stream_xstream_VUL4J-78/xstream/src/java/com/thoughtworks/xstream/XStream.java\t2022-10-05 11:35:53.742670656 -0400\n+++ /workdir/GenProg_vul4j_x-stream_xstream_VUL4J-78/patches_7boi/Patch_22/patched/com/thoughtworks/xstream/XStream.java\t2022-10-05 11:35:53.746670768 -0400\n@@ -1479,10 +1479,6 @@\n      */\n     public Object unmarshal(HierarchicalStreamReader reader, Object root, DataHolder dataHolder) {\n         try {\n-            if (insecureWarning) {\n-                insecureWarning = false;\n-                System.err.println(\"Security framework of XStream not initialized, XStream is probably vulnerable.\");\n-            }\n             return marshallingStrategy.unmarshal(\n                 root, reader, dataHolder, converterLookup, mapper);\n \n@@ -2359,7 +2355,6 @@\n      */\n     public void addPermission(TypePermission permission) {\n         if (securityMapper != null) {\n-            insecureWarning &= permission != NoTypePermission.NONE;\n             securityMapper.addPermission(permission);\n         }\n     }\n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 1482, 
+          "faulty": "if (insecureWarning) {\n  insecureWarning=false;\n  System.err.println(\"Security framework of XStream not initialized, XStream is probably vulnerable.\");\n}", 
+          "type": "Delete", 
+          "seed": "alias(\"long\",Long.class);"
+        }, 
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 699, 
+          "faulty": "insecureWarning=true;", 
+          "type": "InsertBefore", 
+          "seed": "registerConverter(new JavaMethodConverter(classLoaderReference),PRIORITY_NORMAL);"
+        }, 
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 714, 
+          "faulty": "if (xstream.insecureWarning) {\n  xstream.addPermission(NoTypePermission.NONE);\n  xstream.addPermission(NullPermission.NULL);\n  xstream.addPermission(PrimitiveTypePermission.PRIMITIVES);\n  xstream.addPermission(ArrayTypePermission.ARRAYS);\n  xstream.addPermission(InterfaceTypePermission.INTERFACES);\n  xstream.allowTypeHierarchy(Calendar.class);\n  xstream.allowTypeHierarchy(Collection.class);\n  xstream.allowTypeHierarchy(Map.class);\n  xstream.allowTypeHierarchy(Map.Entry.class);\n  xstream.allowTypeHierarchy(Member.class);\n  xstream.allowTypeHierarchy(Number.class);\n  xstream.allowTypeHierarchy(Throwable.class);\n  xstream.allowTypeHierarchy(TimeZone.class);\n  Class type=JVM.loadClassForName(\"java.lang.Enum\");\n  if (type != null) {\n    xstream.allowTypeHierarchy(type);\n  }\n  type=JVM.loadClassForName(\"java.nio.file.Path\");\n  if (type != null) {\n    xstream.allowTypeHierarchy(type);\n  }\n  final Set types=new HashSet();\n  types.add(BitSet.class);\n  types.add(Charset.class);\n  types.add(Class.class);\n  types.add(Currency.class);\n  types.add(Date.class);\n  types.add(DecimalFormatSymbols.class);\n  types.add(File.class);\n  types.add(Locale.class);\n  types.add(Object.class);\n  types.add(Pattern.class);\n  types.add(StackTraceElement.class);\n  types.add(String.class);\n  types.add(StringBuffer.class);\n  types.add(JVM.loadClassForName(\"java.lang.StringBuilder\"));\n  types.add(URL.class);\n  types.add(URI.class);\n  types.add(JVM.loadClassForName(\"java.util.UUID\"));\n  if (JVM.isSQLAvailable()) {\n    types.add(JVM.loadClassForName(\"java.sql.Timestamp\"));\n    types.add(JVM.loadClassForName(\"java.sql.Time\"));\n    types.add(JVM.loadClassForName(\"java.sql.Date\"));\n  }\n  if (JVM.isVersion(8)) {\n    xstream.allowTypeHierarchy(JVM.loadClassForName(\"java.time.Clock\"));\n    types.add(JVM.loadClassForName(\"java.time.Duration\"));\n    types.add(JVM.loadClassForName(\"java.time.Instant\"));\n    types.add(JVM.loadClassForName(\"java.time.LocalDate\"));\n    types.add(JVM.loadClassForName(\"java.time.LocalDateTime\"));\n    types.add(JVM.loadClassForName(\"java.time.LocalTime\"));\n    types.add(JVM.loadClassForName(\"java.time.MonthDay\"));\n    types.add(JVM.loadClassForName(\"java.time.OffsetDateTime\"));\n    types.add(JVM.loadClassForName(\"java.time.OffsetTime\"));\n    types.add(JVM.loadClassForName(\"java.time.Period\"));\n    types.add(JVM.loadClassForName(\"java.time.Ser\"));\n    types.add(JVM.loadClassForName(\"java.time.Year\"));\n    types.add(JVM.loadClassForName(\"java.time.YearMonth\"));\n    types.add(JVM.loadClassForName(\"java.time.ZonedDateTime\"));\n    xstream.allowTypeHierarchy(JVM.loadClassForName(\"java.time.ZoneId\"));\n    types.add(JVM.loadClassForName(\"java.time.chrono.HijrahDate\"));\n    types.add(JVM.loadClassForName(\"java.time.chrono.JapaneseDate\"));\n    types.add(JVM.loadClassForName(\"java.time.chrono.JapaneseEra\"));\n    types.add(JVM.loadClassForName(\"java.time.chrono.MinguoDate\"));\n    types.add(JVM.loadClassForName(\"java.time.chrono.ThaiBuddhistDate\"));\n    types.add(JVM.loadClassForName(\"java.time.chrono.Ser\"));\n    xstream.allowTypeHierarchy(JVM.loadClassForName(\"java.time.chrono.Chronology\"));\n    types.add(JVM.loadClassForName(\"java.time.temporal.ValueRange\"));\n    types.add(JVM.loadClassForName(\"java.time.temporal.WeekFields\"));\n  }\n  types.remove(null);\n  final Iterator iter=types.iterator();\n  final Class[] classes=new Class[types.size()];\n  for (int i=0; i < classes.length; ++i) {\n    classes[i]=(Class)iter.next();\n  }\n  xstream.allowTypes(classes);\n}\n else {\n  throw new IllegalArgumentException(\"Security framework of XStream instance already initialized\");\n}", 
+          "type": "Delete", 
+          "seed": "aliasDynamically(\"xml-duration\",\"javax.xml.datatype.Duration\");"
+        }
+      ], 
+      "patch": "--- /workdir/GenProg_vul4j_x-stream_xstream_VUL4J-78/xstream/src/java/com/thoughtworks/xstream/XStream.java\t2022-10-05 11:05:56.244155320 -0400\n+++ /workdir/GenProg_vul4j_x-stream_xstream_VUL4J-78/patches_7boi/Patch_12/patched/com/thoughtworks/xstream/XStream.java\t2022-10-05 11:05:56.244155320 -0400\n@@ -696,7 +696,9 @@\n         }\n         \n         addPermission(AnyTypePermission.ANY);\n-        insecureWarning = true;\n+        registerConverter(new JavaMethodConverter(classLoaderReference),\n+\t\t\t\tPRIORITY_NORMAL);\n+\t\tinsecureWarning = true;\n     }\n \n     /**\n@@ -711,90 +713,6 @@\n      * @since 1.4.10\n      */\n     public static void setupDefaultSecurity(final XStream xstream) {\n-        if (xstream.insecureWarning) {\n-            xstream.addPermission(NoTypePermission.NONE);\n-            xstream.addPermission(NullPermission.NULL);\n-            xstream.addPermission(PrimitiveTypePermission.PRIMITIVES);\n-            xstream.addPermission(ArrayTypePermission.ARRAYS);\n-            xstream.addPermission(InterfaceTypePermission.INTERFACES);\n-            xstream.allowTypeHierarchy(Calendar.class);\n-            xstream.allowTypeHierarchy(Collection.class);\n-            xstream.allowTypeHierarchy(Map.class);\n-            xstream.allowTypeHierarchy(Map.Entry.class);\n-            xstream.allowTypeHierarchy(Member.class);\n-            xstream.allowTypeHierarchy(Number.class);\n-            xstream.allowTypeHierarchy(Throwable.class);\n-            xstream.allowTypeHierarchy(TimeZone.class);\n-\n-            Class type = JVM.loadClassForName(\"java.lang.Enum\");\n-            if (type != null) {\n-                xstream.allowTypeHierarchy(type);\n-            }\n-            type = JVM.loadClassForName(\"java.nio.file.Path\");\n-            if (type != null) {\n-                xstream.allowTypeHierarchy(type);\n-            }\n-\n-            final Set types = new HashSet();\n-            types.add(BitSet.class);\n-            types.add(Charset.class);\n-            types.add(Class.class);\n-            types.add(Currency.class);\n-            types.add(Date.class);\n-            types.add(DecimalFormatSymbols.class);\n-            types.add(File.class);\n-            types.add(Locale.class);\n-            types.add(Object.class);\n-            types.add(Pattern.class);\n-            types.add(StackTraceElement.class);\n-            types.add(String.class);\n-            types.add(StringBuffer.class);\n-            types.add(JVM.loadClassForName(\"java.lang.StringBuilder\"));\n-            types.add(URL.class);\n-            types.add(URI.class);\n-            types.add(JVM.loadClassForName(\"java.util.UUID\"));\n-            if (JVM.isSQLAvailable()) {\n-                types.add(JVM.loadClassForName(\"java.sql.Timestamp\"));\n-                types.add(JVM.loadClassForName(\"java.sql.Time\"));\n-                types.add(JVM.loadClassForName(\"java.sql.Date\"));\n-            }\n-            if (JVM.isVersion(8)) {\n-                xstream.allowTypeHierarchy(JVM.loadClassForName(\"java.time.Clock\"));\n-                types.add(JVM.loadClassForName(\"java.time.Duration\"));\n-                types.add(JVM.loadClassForName(\"java.time.Instant\"));\n-                types.add(JVM.loadClassForName(\"java.time.LocalDate\"));\n-                types.add(JVM.loadClassForName(\"java.time.LocalDateTime\"));\n-                types.add(JVM.loadClassForName(\"java.time.LocalTime\"));\n-                types.add(JVM.loadClassForName(\"java.time.MonthDay\"));\n-                types.add(JVM.loadClassForName(\"java.time.OffsetDateTime\"));\n-                types.add(JVM.loadClassForName(\"java.time.OffsetTime\"));\n-                types.add(JVM.loadClassForName(\"java.time.Period\"));\n-                types.add(JVM.loadClassForName(\"java.time.Ser\"));\n-                types.add(JVM.loadClassForName(\"java.time.Year\"));\n-                types.add(JVM.loadClassForName(\"java.time.YearMonth\"));\n-                types.add(JVM.loadClassForName(\"java.time.ZonedDateTime\"));\n-                xstream.allowTypeHierarchy(JVM.loadClassForName(\"java.time.ZoneId\"));\n-                types.add(JVM.loadClassForName(\"java.time.chrono.HijrahDate\"));\n-                types.add(JVM.loadClassForName(\"java.time.chrono.JapaneseDate\"));\n-                types.add(JVM.loadClassForName(\"java.time.chrono.JapaneseEra\"));\n-                types.add(JVM.loadClassForName(\"java.time.chrono.MinguoDate\"));\n-                types.add(JVM.loadClassForName(\"java.time.chrono.ThaiBuddhistDate\"));\n-                types.add(JVM.loadClassForName(\"java.time.chrono.Ser\"));\n-                xstream.allowTypeHierarchy(JVM.loadClassForName(\"java.time.chrono.Chronology\"));\n-                types.add(JVM.loadClassForName(\"java.time.temporal.ValueRange\"));\n-                types.add(JVM.loadClassForName(\"java.time.temporal.WeekFields\"));\n-            }\n-            types.remove(null);\n-\n-            final Iterator iter = types.iterator();\n-            final Class[] classes = new Class[types.size()];\n-            for (int i = 0; i < classes.length; ++i) {\n-                classes[i] = (Class)iter.next();\n-            }\n-            xstream.allowTypes(classes);\n-        } else {\n-            throw new IllegalArgumentException(\"Security framework of XStream instance already initialized\");\n-        }\n     }\n \n     protected void setupAliases() {\n@@ -1479,10 +1397,6 @@\n      */\n     public Object unmarshal(HierarchicalStreamReader reader, Object root, DataHolder dataHolder) {\n         try {\n-            if (insecureWarning) {\n-                insecureWarning = false;\n-                System.err.println(\"Security framework of XStream not initialized, XStream is probably vulnerable.\");\n-            }\n             return marshallingStrategy.unmarshal(\n                 root, reader, dataHolder, converterLookup, mapper);\n \n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 1483, 
+          "faulty": "insecureWarning=false;", 
+          "type": "Replace", 
+          "seed": "registerConverterDynamically(\"com.thoughtworks.xstream.converters.extended.ThrowableConverter\",PRIORITY_NORMAL,new Class[]{ConverterLookup.class},new Object[]{converterLookup});"
+        }, 
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 714, 
+          "faulty": "if (xstream.insecureWarning) {\n  xstream.addPermission(NoTypePermission.NONE);\n  xstream.addPermission(NullPermission.NULL);\n  xstream.addPermission(PrimitiveTypePermission.PRIMITIVES);\n  xstream.addPermission(ArrayTypePermission.ARRAYS);\n  xstream.addPermission(InterfaceTypePermission.INTERFACES);\n  xstream.allowTypeHierarchy(Calendar.class);\n  xstream.allowTypeHierarchy(Collection.class);\n  xstream.allowTypeHierarchy(Map.class);\n  xstream.allowTypeHierarchy(Map.Entry.class);\n  xstream.allowTypeHierarchy(Member.class);\n  xstream.allowTypeHierarchy(Number.class);\n  xstream.allowTypeHierarchy(Throwable.class);\n  xstream.allowTypeHierarchy(TimeZone.class);\n  Class type=JVM.loadClassForName(\"java.lang.Enum\");\n  if (type != null) {\n    xstream.allowTypeHierarchy(type);\n  }\n  type=JVM.loadClassForName(\"java.nio.file.Path\");\n  if (type != null) {\n    xstream.allowTypeHierarchy(type);\n  }\n  final Set types=new HashSet();\n  types.add(BitSet.class);\n  types.add(Charset.class);\n  types.add(Class.class);\n  types.add(Currency.class);\n  types.add(Date.class);\n  types.add(DecimalFormatSymbols.class);\n  types.add(File.class);\n  types.add(Locale.class);\n  types.add(Object.class);\n  types.add(Pattern.class);\n  types.add(StackTraceElement.class);\n  types.add(String.class);\n  types.add(StringBuffer.class);\n  types.add(JVM.loadClassForName(\"java.lang.StringBuilder\"));\n  types.add(URL.class);\n  types.add(URI.class);\n  types.add(JVM.loadClassForName(\"java.util.UUID\"));\n  if (JVM.isSQLAvailable()) {\n    types.add(JVM.loadClassForName(\"java.sql.Timestamp\"));\n    types.add(JVM.loadClassForName(\"java.sql.Time\"));\n    types.add(JVM.loadClassForName(\"java.sql.Date\"));\n  }\n  if (JVM.isVersion(8)) {\n    xstream.allowTypeHierarchy(JVM.loadClassForName(\"java.time.Clock\"));\n    types.add(JVM.loadClassForName(\"java.time.Duration\"));\n    types.add(JVM.loadClassForName(\"java.time.Instant\"));\n    types.add(JVM.loadClassForName(\"java.time.LocalDate\"));\n    types.add(JVM.loadClassForName(\"java.time.LocalDateTime\"));\n    types.add(JVM.loadClassForName(\"java.time.LocalTime\"));\n    types.add(JVM.loadClassForName(\"java.time.MonthDay\"));\n    types.add(JVM.loadClassForName(\"java.time.OffsetDateTime\"));\n    types.add(JVM.loadClassForName(\"java.time.OffsetTime\"));\n    types.add(JVM.loadClassForName(\"java.time.Period\"));\n    types.add(JVM.loadClassForName(\"java.time.Ser\"));\n    types.add(JVM.loadClassForName(\"java.time.Year\"));\n    types.add(JVM.loadClassForName(\"java.time.YearMonth\"));\n    types.add(JVM.loadClassForName(\"java.time.ZonedDateTime\"));\n    xstream.allowTypeHierarchy(JVM.loadClassForName(\"java.time.ZoneId\"));\n    types.add(JVM.loadClassForName(\"java.time.chrono.HijrahDate\"));\n    types.add(JVM.loadClassForName(\"java.time.chrono.JapaneseDate\"));\n    types.add(JVM.loadClassForName(\"java.time.chrono.JapaneseEra\"));\n    types.add(JVM.loadClassForName(\"java.time.chrono.MinguoDate\"));\n    types.add(JVM.loadClassForName(\"java.time.chrono.ThaiBuddhistDate\"));\n    types.add(JVM.loadClassForName(\"java.time.chrono.Ser\"));\n    xstream.allowTypeHierarchy(JVM.loadClassForName(\"java.time.chrono.Chronology\"));\n    types.add(JVM.loadClassForName(\"java.time.temporal.ValueRange\"));\n    types.add(JVM.loadClassForName(\"java.time.temporal.WeekFields\"));\n  }\n  types.remove(null);\n  final Iterator iter=types.iterator();\n  final Class[] classes=new Class[types.size()];\n  for (int i=0; i < classes.length; ++i) {\n    classes[i]=(Class)iter.next();\n  }\n  xstream.allowTypes(classes);\n}\n else {\n  throw new IllegalArgumentException(\"Security framework of XStream instance already initialized\");\n}", 
+          "type": "Replace", 
+          "seed": "final XStream outer=new XStream();"
+        }
+      ], 
+      "patch": "--- /workdir/GenProg_vul4j_x-stream_xstream_VUL4J-78/xstream/src/java/com/thoughtworks/xstream/XStream.java\t2022-10-05 11:41:40.860415178 -0400\n+++ /workdir/GenProg_vul4j_x-stream_xstream_VUL4J-78/patches_7boi/Patch_27/patched/com/thoughtworks/xstream/XStream.java\t2022-10-05 11:41:40.860415178 -0400\n@@ -711,90 +711,7 @@\n      * @since 1.4.10\n      */\n     public static void setupDefaultSecurity(final XStream xstream) {\n-        if (xstream.insecureWarning) {\n-            xstream.addPermission(NoTypePermission.NONE);\n-            xstream.addPermission(NullPermission.NULL);\n-            xstream.addPermission(PrimitiveTypePermission.PRIMITIVES);\n-            xstream.addPermission(ArrayTypePermission.ARRAYS);\n-            xstream.addPermission(InterfaceTypePermission.INTERFACES);\n-            xstream.allowTypeHierarchy(Calendar.class);\n-            xstream.allowTypeHierarchy(Collection.class);\n-            xstream.allowTypeHierarchy(Map.class);\n-            xstream.allowTypeHierarchy(Map.Entry.class);\n-            xstream.allowTypeHierarchy(Member.class);\n-            xstream.allowTypeHierarchy(Number.class);\n-            xstream.allowTypeHierarchy(Throwable.class);\n-            xstream.allowTypeHierarchy(TimeZone.class);\n-\n-            Class type = JVM.loadClassForName(\"java.lang.Enum\");\n-            if (type != null) {\n-                xstream.allowTypeHierarchy(type);\n-            }\n-            type = JVM.loadClassForName(\"java.nio.file.Path\");\n-            if (type != null) {\n-                xstream.allowTypeHierarchy(type);\n-            }\n-\n-            final Set types = new HashSet();\n-            types.add(BitSet.class);\n-            types.add(Charset.class);\n-            types.add(Class.class);\n-            types.add(Currency.class);\n-            types.add(Date.class);\n-            types.add(DecimalFormatSymbols.class);\n-            types.add(File.class);\n-            types.add(Locale.class);\n-            types.add(Object.class);\n-            types.add(Pattern.class);\n-            types.add(StackTraceElement.class);\n-            types.add(String.class);\n-            types.add(StringBuffer.class);\n-            types.add(JVM.loadClassForName(\"java.lang.StringBuilder\"));\n-            types.add(URL.class);\n-            types.add(URI.class);\n-            types.add(JVM.loadClassForName(\"java.util.UUID\"));\n-            if (JVM.isSQLAvailable()) {\n-                types.add(JVM.loadClassForName(\"java.sql.Timestamp\"));\n-                types.add(JVM.loadClassForName(\"java.sql.Time\"));\n-                types.add(JVM.loadClassForName(\"java.sql.Date\"));\n-            }\n-            if (JVM.isVersion(8)) {\n-                xstream.allowTypeHierarchy(JVM.loadClassForName(\"java.time.Clock\"));\n-                types.add(JVM.loadClassForName(\"java.time.Duration\"));\n-                types.add(JVM.loadClassForName(\"java.time.Instant\"));\n-                types.add(JVM.loadClassForName(\"java.time.LocalDate\"));\n-                types.add(JVM.loadClassForName(\"java.time.LocalDateTime\"));\n-                types.add(JVM.loadClassForName(\"java.time.LocalTime\"));\n-                types.add(JVM.loadClassForName(\"java.time.MonthDay\"));\n-                types.add(JVM.loadClassForName(\"java.time.OffsetDateTime\"));\n-                types.add(JVM.loadClassForName(\"java.time.OffsetTime\"));\n-                types.add(JVM.loadClassForName(\"java.time.Period\"));\n-                types.add(JVM.loadClassForName(\"java.time.Ser\"));\n-                types.add(JVM.loadClassForName(\"java.time.Year\"));\n-                types.add(JVM.loadClassForName(\"java.time.YearMonth\"));\n-                types.add(JVM.loadClassForName(\"java.time.ZonedDateTime\"));\n-                xstream.allowTypeHierarchy(JVM.loadClassForName(\"java.time.ZoneId\"));\n-                types.add(JVM.loadClassForName(\"java.time.chrono.HijrahDate\"));\n-                types.add(JVM.loadClassForName(\"java.time.chrono.JapaneseDate\"));\n-                types.add(JVM.loadClassForName(\"java.time.chrono.JapaneseEra\"));\n-                types.add(JVM.loadClassForName(\"java.time.chrono.MinguoDate\"));\n-                types.add(JVM.loadClassForName(\"java.time.chrono.ThaiBuddhistDate\"));\n-                types.add(JVM.loadClassForName(\"java.time.chrono.Ser\"));\n-                xstream.allowTypeHierarchy(JVM.loadClassForName(\"java.time.chrono.Chronology\"));\n-                types.add(JVM.loadClassForName(\"java.time.temporal.ValueRange\"));\n-                types.add(JVM.loadClassForName(\"java.time.temporal.WeekFields\"));\n-            }\n-            types.remove(null);\n-\n-            final Iterator iter = types.iterator();\n-            final Class[] classes = new Class[types.size()];\n-            for (int i = 0; i < classes.length; ++i) {\n-                classes[i] = (Class)iter.next();\n-            }\n-            xstream.allowTypes(classes);\n-        } else {\n-            throw new IllegalArgumentException(\"Security framework of XStream instance already initialized\");\n-        }\n+        final XStream outer = new XStream();\n     }\n \n     protected void setupAliases() {\n@@ -1480,7 +1397,10 @@\n     public Object unmarshal(HierarchicalStreamReader reader, Object root, DataHolder dataHolder) {\n         try {\n             if (insecureWarning) {\n-                insecureWarning = false;\n+                registerConverterDynamically(\n+\t\t\t\t\t\t\"com.thoughtworks.xstream.converters.extended.ThrowableConverter\",\n+\t\t\t\t\t\tPRIORITY_NORMAL, new Class[] { ConverterLookup.class },\n+\t\t\t\t\t\tnew Object[] { converterLookup });\n                 System.err.println(\"Security framework of XStream not initialized, XStream is probably vulnerable.\");\n             }\n             return marshallingStrategy.unmarshal(\n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 1483, 
+          "faulty": "insecureWarning=false;", 
+          "type": "Replace", 
+          "seed": "registerConverterDynamically(\"com.thoughtworks.xstream.converters.extended.ThrowableConverter\",PRIORITY_NORMAL,new Class[]{ConverterLookup.class},new Object[]{converterLookup});"
+        }
+      ], 
+      "patch": "--- /workdir/GenProg_vul4j_x-stream_xstream_VUL4J-78/xstream/src/java/com/thoughtworks/xstream/XStream.java\t2022-10-05 10:35:07.484242122 -0400\n+++ /workdir/GenProg_vul4j_x-stream_xstream_VUL4J-78/patches_7boi/Patch_2/patched/com/thoughtworks/xstream/XStream.java\t2022-10-05 10:35:07.488242234 -0400\n@@ -1480,7 +1480,10 @@\n     public Object unmarshal(HierarchicalStreamReader reader, Object root, DataHolder dataHolder) {\n         try {\n             if (insecureWarning) {\n-                insecureWarning = false;\n+                registerConverterDynamically(\n+\t\t\t\t\t\t\"com.thoughtworks.xstream.converters.extended.ThrowableConverter\",\n+\t\t\t\t\t\tPRIORITY_NORMAL, new Class[] { ConverterLookup.class },\n+\t\t\t\t\t\tnew Object[] { converterLookup });\n                 System.err.println(\"Security framework of XStream not initialized, XStream is probably vulnerable.\");\n             }\n             return marshallingStrategy.unmarshal(\n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 1482, 
+          "faulty": "if (insecureWarning) {\n  insecureWarning=false;\n  System.err.println(\"Security framework of XStream not initialized, XStream is probably vulnerable.\");\n}", 
+          "type": "Delete", 
+          "seed": "alias(\"long\",Long.class);"
+        }, 
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 1483, 
+          "faulty": "insecureWarning=false;", 
+          "type": "Replace", 
+          "seed": "registerConverterDynamically(\"com.thoughtworks.xstream.converters.extended.ThrowableConverter\",PRIORITY_NORMAL,new Class[]{ConverterLookup.class},new Object[]{converterLookup});"
+        }
+      ], 
+      "patch": "--- /workdir/GenProg_vul4j_x-stream_xstream_VUL4J-78/xstream/src/java/com/thoughtworks/xstream/XStream.java\t2022-10-05 11:31:54.479953300 -0400\n+++ /workdir/GenProg_vul4j_x-stream_xstream_VUL4J-78/patches_7boi/Patch_21/patched/com/thoughtworks/xstream/XStream.java\t2022-10-05 11:31:54.483953413 -0400\n@@ -1479,10 +1479,6 @@\n      */\n     public Object unmarshal(HierarchicalStreamReader reader, Object root, DataHolder dataHolder) {\n         try {\n-            if (insecureWarning) {\n-                insecureWarning = false;\n-                System.err.println(\"Security framework of XStream not initialized, XStream is probably vulnerable.\");\n-            }\n             return marshallingStrategy.unmarshal(\n                 root, reader, dataHolder, converterLookup, mapper);\n \n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 1482, 
+          "faulty": "if (insecureWarning) {\n  insecureWarning=false;\n  System.err.println(\"Security framework of XStream not initialized, XStream is probably vulnerable.\");\n}", 
+          "type": "Replace", 
+          "seed": "alias(\"tree-map\",TreeMap.class);"
+        }
+      ], 
+      "patch": "--- /workdir/GenProg_vul4j_x-stream_xstream_VUL4J-78/xstream/src/java/com/thoughtworks/xstream/XStream.java\t2022-10-05 10:33:42.269848387 -0400\n+++ /workdir/GenProg_vul4j_x-stream_xstream_VUL4J-78/patches_7boi/Patch_1/patched/com/thoughtworks/xstream/XStream.java\t2022-10-05 10:33:42.269848387 -0400\n@@ -1479,10 +1479,7 @@\n      */\n     public Object unmarshal(HierarchicalStreamReader reader, Object root, DataHolder dataHolder) {\n         try {\n-            if (insecureWarning) {\n-                insecureWarning = false;\n-                System.err.println(\"Security framework of XStream not initialized, XStream is probably vulnerable.\");\n-            }\n+            alias(\"tree-map\", TreeMap.class);\n             return marshallingStrategy.unmarshal(\n                 root, reader, dataHolder, converterLookup, mapper);\n \n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 1482, 
+          "faulty": "if (insecureWarning) {\n  insecureWarning=false;\n  System.err.println(\"Security framework of XStream not initialized, XStream is probably vulnerable.\");\n}", 
+          "type": "Delete", 
+          "seed": "mapper=new XStream11XmlFriendlyMapper(mapper);"
+        }, 
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 1483, 
+          "faulty": "insecureWarning=false;", 
+          "type": "InsertBefore", 
+          "seed": "registerConverter(new URIConverter(),PRIORITY_NORMAL);"
+        }, 
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 1483, 
+          "faulty": "insecureWarning=false;", 
+          "type": "Delete", 
+          "seed": "alias(\"sql-time\",JVM.loadClassForName(\"java.sql.Time\"));"
+        }
+      ], 
+      "patch": "--- /workdir/GenProg_vul4j_x-stream_xstream_VUL4J-78/xstream/src/java/com/thoughtworks/xstream/XStream.java\t2022-10-05 12:33:25.927589496 -0400\n+++ /workdir/GenProg_vul4j_x-stream_xstream_VUL4J-78/patches_7boi/Patch_44/patched/com/thoughtworks/xstream/XStream.java\t2022-10-05 12:33:25.931589608 -0400\n@@ -1479,10 +1479,6 @@\n      */\n     public Object unmarshal(HierarchicalStreamReader reader, Object root, DataHolder dataHolder) {\n         try {\n-            if (insecureWarning) {\n-                insecureWarning = false;\n-                System.err.println(\"Security framework of XStream not initialized, XStream is probably vulnerable.\");\n-            }\n             return marshallingStrategy.unmarshal(\n                 root, reader, dataHolder, converterLookup, mapper);\n \n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 1483, 
+          "faulty": "insecureWarning=false;", 
+          "type": "Replace", 
+          "seed": "registerConverterDynamically(\"com.thoughtworks.xstream.converters.extended.ThrowableConverter\",PRIORITY_NORMAL,new Class[]{ConverterLookup.class},new Object[]{converterLookup});"
+        }, 
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 714, 
+          "faulty": "if (xstream.insecureWarning) {\n  xstream.addPermission(NoTypePermission.NONE);\n  xstream.addPermission(NullPermission.NULL);\n  xstream.addPermission(PrimitiveTypePermission.PRIMITIVES);\n  xstream.addPermission(ArrayTypePermission.ARRAYS);\n  xstream.addPermission(InterfaceTypePermission.INTERFACES);\n  xstream.allowTypeHierarchy(Calendar.class);\n  xstream.allowTypeHierarchy(Collection.class);\n  xstream.allowTypeHierarchy(Map.class);\n  xstream.allowTypeHierarchy(Map.Entry.class);\n  xstream.allowTypeHierarchy(Member.class);\n  xstream.allowTypeHierarchy(Number.class);\n  xstream.allowTypeHierarchy(Throwable.class);\n  xstream.allowTypeHierarchy(TimeZone.class);\n  Class type=JVM.loadClassForName(\"java.lang.Enum\");\n  if (type != null) {\n    xstream.allowTypeHierarchy(type);\n  }\n  type=JVM.loadClassForName(\"java.nio.file.Path\");\n  if (type != null) {\n    xstream.allowTypeHierarchy(type);\n  }\n  final Set types=new HashSet();\n  types.add(BitSet.class);\n  types.add(Charset.class);\n  types.add(Class.class);\n  types.add(Currency.class);\n  types.add(Date.class);\n  types.add(DecimalFormatSymbols.class);\n  types.add(File.class);\n  types.add(Locale.class);\n  types.add(Object.class);\n  types.add(Pattern.class);\n  types.add(StackTraceElement.class);\n  types.add(String.class);\n  types.add(StringBuffer.class);\n  types.add(JVM.loadClassForName(\"java.lang.StringBuilder\"));\n  types.add(URL.class);\n  types.add(URI.class);\n  types.add(JVM.loadClassForName(\"java.util.UUID\"));\n  if (JVM.isSQLAvailable()) {\n    types.add(JVM.loadClassForName(\"java.sql.Timestamp\"));\n    types.add(JVM.loadClassForName(\"java.sql.Time\"));\n    types.add(JVM.loadClassForName(\"java.sql.Date\"));\n  }\n  if (JVM.isVersion(8)) {\n    xstream.allowTypeHierarchy(JVM.loadClassForName(\"java.time.Clock\"));\n    types.add(JVM.loadClassForName(\"java.time.Duration\"));\n    types.add(JVM.loadClassForName(\"java.time.Instant\"));\n    types.add(JVM.loadClassForName(\"java.time.LocalDate\"));\n    types.add(JVM.loadClassForName(\"java.time.LocalDateTime\"));\n    types.add(JVM.loadClassForName(\"java.time.LocalTime\"));\n    types.add(JVM.loadClassForName(\"java.time.MonthDay\"));\n    types.add(JVM.loadClassForName(\"java.time.OffsetDateTime\"));\n    types.add(JVM.loadClassForName(\"java.time.OffsetTime\"));\n    types.add(JVM.loadClassForName(\"java.time.Period\"));\n    types.add(JVM.loadClassForName(\"java.time.Ser\"));\n    types.add(JVM.loadClassForName(\"java.time.Year\"));\n    types.add(JVM.loadClassForName(\"java.time.YearMonth\"));\n    types.add(JVM.loadClassForName(\"java.time.ZonedDateTime\"));\n    xstream.allowTypeHierarchy(JVM.loadClassForName(\"java.time.ZoneId\"));\n    types.add(JVM.loadClassForName(\"java.time.chrono.HijrahDate\"));\n    types.add(JVM.loadClassForName(\"java.time.chrono.JapaneseDate\"));\n    types.add(JVM.loadClassForName(\"java.time.chrono.JapaneseEra\"));\n    types.add(JVM.loadClassForName(\"java.time.chrono.MinguoDate\"));\n    types.add(JVM.loadClassForName(\"java.time.chrono.ThaiBuddhistDate\"));\n    types.add(JVM.loadClassForName(\"java.time.chrono.Ser\"));\n    xstream.allowTypeHierarchy(JVM.loadClassForName(\"java.time.chrono.Chronology\"));\n    types.add(JVM.loadClassForName(\"java.time.temporal.ValueRange\"));\n    types.add(JVM.loadClassForName(\"java.time.temporal.WeekFields\"));\n  }\n  types.remove(null);\n  final Iterator iter=types.iterator();\n  final Class[] classes=new Class[types.size()];\n  for (int i=0; i < classes.length; ++i) {\n    classes[i]=(Class)iter.next();\n  }\n  xstream.allowTypes(classes);\n}\n else {\n  throw new IllegalArgumentException(\"Security framework of XStream instance already initialized\");\n}", 
+          "type": "Delete", 
+          "seed": "alias(\"hashtable\",Hashtable.class);"
+        }
+      ], 
+      "patch": "--- /workdir/GenProg_vul4j_x-stream_xstream_VUL4J-78/xstream/src/java/com/thoughtworks/xstream/XStream.java\t2022-10-05 11:36:58.356484555 -0400\n+++ /workdir/GenProg_vul4j_x-stream_xstream_VUL4J-78/patches_7boi/Patch_24/patched/com/thoughtworks/xstream/XStream.java\t2022-10-05 11:36:58.360484668 -0400\n@@ -711,90 +711,6 @@\n      * @since 1.4.10\n      */\n     public static void setupDefaultSecurity(final XStream xstream) {\n-        if (xstream.insecureWarning) {\n-            xstream.addPermission(NoTypePermission.NONE);\n-            xstream.addPermission(NullPermission.NULL);\n-            xstream.addPermission(PrimitiveTypePermission.PRIMITIVES);\n-            xstream.addPermission(ArrayTypePermission.ARRAYS);\n-            xstream.addPermission(InterfaceTypePermission.INTERFACES);\n-            xstream.allowTypeHierarchy(Calendar.class);\n-            xstream.allowTypeHierarchy(Collection.class);\n-            xstream.allowTypeHierarchy(Map.class);\n-            xstream.allowTypeHierarchy(Map.Entry.class);\n-            xstream.allowTypeHierarchy(Member.class);\n-            xstream.allowTypeHierarchy(Number.class);\n-            xstream.allowTypeHierarchy(Throwable.class);\n-            xstream.allowTypeHierarchy(TimeZone.class);\n-\n-            Class type = JVM.loadClassForName(\"java.lang.Enum\");\n-            if (type != null) {\n-                xstream.allowTypeHierarchy(type);\n-            }\n-            type = JVM.loadClassForName(\"java.nio.file.Path\");\n-            if (type != null) {\n-                xstream.allowTypeHierarchy(type);\n-            }\n-\n-            final Set types = new HashSet();\n-            types.add(BitSet.class);\n-            types.add(Charset.class);\n-            types.add(Class.class);\n-            types.add(Currency.class);\n-            types.add(Date.class);\n-            types.add(DecimalFormatSymbols.class);\n-            types.add(File.class);\n-            types.add(Locale.class);\n-            types.add(Object.class);\n-            types.add(Pattern.class);\n-            types.add(StackTraceElement.class);\n-            types.add(String.class);\n-            types.add(StringBuffer.class);\n-            types.add(JVM.loadClassForName(\"java.lang.StringBuilder\"));\n-            types.add(URL.class);\n-            types.add(URI.class);\n-            types.add(JVM.loadClassForName(\"java.util.UUID\"));\n-            if (JVM.isSQLAvailable()) {\n-                types.add(JVM.loadClassForName(\"java.sql.Timestamp\"));\n-                types.add(JVM.loadClassForName(\"java.sql.Time\"));\n-                types.add(JVM.loadClassForName(\"java.sql.Date\"));\n-            }\n-            if (JVM.isVersion(8)) {\n-                xstream.allowTypeHierarchy(JVM.loadClassForName(\"java.time.Clock\"));\n-                types.add(JVM.loadClassForName(\"java.time.Duration\"));\n-                types.add(JVM.loadClassForName(\"java.time.Instant\"));\n-                types.add(JVM.loadClassForName(\"java.time.LocalDate\"));\n-                types.add(JVM.loadClassForName(\"java.time.LocalDateTime\"));\n-                types.add(JVM.loadClassForName(\"java.time.LocalTime\"));\n-                types.add(JVM.loadClassForName(\"java.time.MonthDay\"));\n-                types.add(JVM.loadClassForName(\"java.time.OffsetDateTime\"));\n-                types.add(JVM.loadClassForName(\"java.time.OffsetTime\"));\n-                types.add(JVM.loadClassForName(\"java.time.Period\"));\n-                types.add(JVM.loadClassForName(\"java.time.Ser\"));\n-                types.add(JVM.loadClassForName(\"java.time.Year\"));\n-                types.add(JVM.loadClassForName(\"java.time.YearMonth\"));\n-                types.add(JVM.loadClassForName(\"java.time.ZonedDateTime\"));\n-                xstream.allowTypeHierarchy(JVM.loadClassForName(\"java.time.ZoneId\"));\n-                types.add(JVM.loadClassForName(\"java.time.chrono.HijrahDate\"));\n-                types.add(JVM.loadClassForName(\"java.time.chrono.JapaneseDate\"));\n-                types.add(JVM.loadClassForName(\"java.time.chrono.JapaneseEra\"));\n-                types.add(JVM.loadClassForName(\"java.time.chrono.MinguoDate\"));\n-                types.add(JVM.loadClassForName(\"java.time.chrono.ThaiBuddhistDate\"));\n-                types.add(JVM.loadClassForName(\"java.time.chrono.Ser\"));\n-                xstream.allowTypeHierarchy(JVM.loadClassForName(\"java.time.chrono.Chronology\"));\n-                types.add(JVM.loadClassForName(\"java.time.temporal.ValueRange\"));\n-                types.add(JVM.loadClassForName(\"java.time.temporal.WeekFields\"));\n-            }\n-            types.remove(null);\n-\n-            final Iterator iter = types.iterator();\n-            final Class[] classes = new Class[types.size()];\n-            for (int i = 0; i < classes.length; ++i) {\n-                classes[i] = (Class)iter.next();\n-            }\n-            xstream.allowTypes(classes);\n-        } else {\n-            throw new IllegalArgumentException(\"Security framework of XStream instance already initialized\");\n-        }\n     }\n \n     protected void setupAliases() {\n@@ -1480,7 +1396,10 @@\n     public Object unmarshal(HierarchicalStreamReader reader, Object root, DataHolder dataHolder) {\n         try {\n             if (insecureWarning) {\n-                insecureWarning = false;\n+                registerConverterDynamically(\n+\t\t\t\t\t\t\"com.thoughtworks.xstream.converters.extended.ThrowableConverter\",\n+\t\t\t\t\t\tPRIORITY_NORMAL, new Class[] { ConverterLookup.class },\n+\t\t\t\t\t\tnew Object[] { converterLookup });\n                 System.err.println(\"Security framework of XStream not initialized, XStream is probably vulnerable.\");\n             }\n             return marshallingStrategy.unmarshal(\n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 1483, 
+          "faulty": "insecureWarning=false;", 
+          "type": "Replace", 
+          "seed": "registerConverterDynamically(\"com.thoughtworks.xstream.converters.extended.ThrowableConverter\",PRIORITY_NORMAL,new Class[]{ConverterLookup.class},new Object[]{converterLookup});"
+        }, 
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 699, 
+          "faulty": "insecureWarning=true;", 
+          "type": "InsertBefore", 
+          "seed": "registerConverter((Converter)new CharConverter(),PRIORITY_NORMAL);"
+        }
+      ], 
+      "patch": "--- /workdir/GenProg_vul4j_x-stream_xstream_VUL4J-78/xstream/src/java/com/thoughtworks/xstream/XStream.java\t2022-10-05 12:15:37.365588296 -0400\n+++ /workdir/GenProg_vul4j_x-stream_xstream_VUL4J-78/patches_7boi/Patch_37/patched/com/thoughtworks/xstream/XStream.java\t2022-10-05 12:15:37.369588408 -0400\n@@ -696,7 +696,8 @@\n         }\n         \n         addPermission(AnyTypePermission.ANY);\n-        insecureWarning = true;\n+        registerConverter((Converter) new CharConverter(), PRIORITY_NORMAL);\n+\t\tinsecureWarning = true;\n     }\n \n     /**\n@@ -1480,7 +1481,10 @@\n     public Object unmarshal(HierarchicalStreamReader reader, Object root, DataHolder dataHolder) {\n         try {\n             if (insecureWarning) {\n-                insecureWarning = false;\n+                registerConverterDynamically(\n+\t\t\t\t\t\t\"com.thoughtworks.xstream.converters.extended.ThrowableConverter\",\n+\t\t\t\t\t\tPRIORITY_NORMAL, new Class[] { ConverterLookup.class },\n+\t\t\t\t\t\tnew Object[] { converterLookup });\n                 System.err.println(\"Security framework of XStream not initialized, XStream is probably vulnerable.\");\n             }\n             return marshallingStrategy.unmarshal(\n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 1482, 
+          "faulty": "if (insecureWarning) {\n  insecureWarning=false;\n  System.err.println(\"Security framework of XStream not initialized, XStream is probably vulnerable.\");\n}", 
+          "type": "Delete", 
+          "seed": "aliasType(\"charset\",JVM.loadClassForName(\"java.nio.charset.Charset\"));"
+        }, 
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 1482, 
+          "faulty": "if (insecureWarning) {\n  insecureWarning=false;\n  System.err.println(\"Security framework of XStream not initialized, XStream is probably vulnerable.\");\n}", 
+          "type": "Delete", 
+          "seed": "addImmutableType(Double.class,false);"
+        }, 
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 1483, 
+          "faulty": "insecureWarning=false;", 
+          "type": "Replace", 
+          "seed": "alias(\"string-buffer\",StringBuffer.class);"
+        }, 
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 2362, 
+          "faulty": "insecureWarning&=permission != NoTypePermission.NONE;", 
+          "type": "InsertBefore", 
+          "seed": "setupDefaultImplementations();"
+        }
+      ], 
+      "patch": "--- /workdir/GenProg_vul4j_x-stream_xstream_VUL4J-78/xstream/src/java/com/thoughtworks/xstream/XStream.java\t2022-10-05 11:44:35.337313139 -0400\n+++ /workdir/GenProg_vul4j_x-stream_xstream_VUL4J-78/patches_7boi/Patch_28/patched/com/thoughtworks/xstream/XStream.java\t2022-10-05 11:44:35.341313250 -0400\n@@ -1479,10 +1479,6 @@\n      */\n     public Object unmarshal(HierarchicalStreamReader reader, Object root, DataHolder dataHolder) {\n         try {\n-            if (insecureWarning) {\n-                insecureWarning = false;\n-                System.err.println(\"Security framework of XStream not initialized, XStream is probably vulnerable.\");\n-            }\n             return marshallingStrategy.unmarshal(\n                 root, reader, dataHolder, converterLookup, mapper);\n \n@@ -2359,7 +2355,8 @@\n      */\n     public void addPermission(TypePermission permission) {\n         if (securityMapper != null) {\n-            insecureWarning &= permission != NoTypePermission.NONE;\n+            setupDefaultImplementations();\n+\t\t\tinsecureWarning &= permission != NoTypePermission.NONE;\n             securityMapper.addPermission(permission);\n         }\n     }\n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 1482, 
+          "faulty": "if (insecureWarning) {\n  insecureWarning=false;\n  System.err.println(\"Security framework of XStream not initialized, XStream is probably vulnerable.\");\n}", 
+          "type": "Replace", 
+          "seed": "alias(\"tree-map\",TreeMap.class);"
+        }, 
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 1483, 
+          "faulty": "insecureWarning=false;", 
+          "type": "InsertBefore", 
+          "seed": "registerConverter(new FontConverter(mapper),PRIORITY_NORMAL);"
+        }
+      ], 
+      "patch": "--- /workdir/GenProg_vul4j_x-stream_xstream_VUL4J-78/xstream/src/java/com/thoughtworks/xstream/XStream.java\t2022-10-05 11:46:03.659792542 -0400\n+++ /workdir/GenProg_vul4j_x-stream_xstream_VUL4J-78/patches_7boi/Patch_29/patched/com/thoughtworks/xstream/XStream.java\t2022-10-05 11:46:03.659792542 -0400\n@@ -1479,10 +1479,7 @@\n      */\n     public Object unmarshal(HierarchicalStreamReader reader, Object root, DataHolder dataHolder) {\n         try {\n-            if (insecureWarning) {\n-                insecureWarning = false;\n-                System.err.println(\"Security framework of XStream not initialized, XStream is probably vulnerable.\");\n-            }\n+            alias(\"tree-map\", TreeMap.class);\n             return marshallingStrategy.unmarshal(\n                 root, reader, dataHolder, converterLookup, mapper);\n \n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 1482, 
+          "faulty": "if (insecureWarning) {\n  insecureWarning=false;\n  System.err.println(\"Security framework of XStream not initialized, XStream is probably vulnerable.\");\n}", 
+          "type": "Replace", 
+          "seed": "alias(\"tree-map\",TreeMap.class);"
+        }, 
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 2362, 
+          "faulty": "insecureWarning&=permission != NoTypePermission.NONE;", 
+          "type": "Replace", 
+          "seed": "alias(\"hashtable\",Hashtable.class);"
+        }
+      ], 
+      "patch": "--- /workdir/GenProg_vul4j_x-stream_xstream_VUL4J-78/xstream/src/java/com/thoughtworks/xstream/XStream.java\t2022-10-05 11:21:14.369977603 -0400\n+++ /workdir/GenProg_vul4j_x-stream_xstream_VUL4J-78/patches_7boi/Patch_18/patched/com/thoughtworks/xstream/XStream.java\t2022-10-05 11:21:14.369977603 -0400\n@@ -1479,10 +1479,7 @@\n      */\n     public Object unmarshal(HierarchicalStreamReader reader, Object root, DataHolder dataHolder) {\n         try {\n-            if (insecureWarning) {\n-                insecureWarning = false;\n-                System.err.println(\"Security framework of XStream not initialized, XStream is probably vulnerable.\");\n-            }\n+            alias(\"tree-map\", TreeMap.class);\n             return marshallingStrategy.unmarshal(\n                 root, reader, dataHolder, converterLookup, mapper);\n \n@@ -2359,7 +2356,7 @@\n      */\n     public void addPermission(TypePermission permission) {\n         if (securityMapper != null) {\n-            insecureWarning &= permission != NoTypePermission.NONE;\n+            alias(\"hashtable\", Hashtable.class);\n             securityMapper.addPermission(permission);\n         }\n     }\n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 1483, 
+          "faulty": "insecureWarning=false;", 
+          "type": "Replace", 
+          "seed": "registerConverterDynamically(\"com.thoughtworks.xstream.converters.extended.ThrowableConverter\",PRIORITY_NORMAL,new Class[]{ConverterLookup.class},new Object[]{converterLookup});"
+        }, 
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 2362, 
+          "faulty": "insecureWarning&=permission != NoTypePermission.NONE;", 
+          "type": "InsertBefore", 
+          "seed": "defaultImplementationsMapper=(DefaultImplementationsMapper)this.mapper.lookupMapperOfType(DefaultImplementationsMapper.class);"
+        }
+      ], 
+      "patch": "--- /workdir/GenProg_vul4j_x-stream_xstream_VUL4J-78/xstream/src/java/com/thoughtworks/xstream/XStream.java\t2022-10-05 11:30:49.302123291 -0400\n+++ /workdir/GenProg_vul4j_x-stream_xstream_VUL4J-78/patches_7boi/Patch_20/patched/com/thoughtworks/xstream/XStream.java\t2022-10-05 11:30:49.302123291 -0400\n@@ -1480,7 +1480,10 @@\n     public Object unmarshal(HierarchicalStreamReader reader, Object root, DataHolder dataHolder) {\n         try {\n             if (insecureWarning) {\n-                insecureWarning = false;\n+                registerConverterDynamically(\n+\t\t\t\t\t\t\"com.thoughtworks.xstream.converters.extended.ThrowableConverter\",\n+\t\t\t\t\t\tPRIORITY_NORMAL, new Class[] { ConverterLookup.class },\n+\t\t\t\t\t\tnew Object[] { converterLookup });\n                 System.err.println(\"Security framework of XStream not initialized, XStream is probably vulnerable.\");\n             }\n             return marshallingStrategy.unmarshal(\n@@ -2359,7 +2362,9 @@\n      */\n     public void addPermission(TypePermission permission) {\n         if (securityMapper != null) {\n-            insecureWarning &= permission != NoTypePermission.NONE;\n+            defaultImplementationsMapper = (DefaultImplementationsMapper) this.mapper\n+\t\t\t\t\t.lookupMapperOfType(DefaultImplementationsMapper.class);\n+\t\t\tinsecureWarning &= permission != NoTypePermission.NONE;\n             securityMapper.addPermission(permission);\n         }\n     }\n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 1483, 
+          "faulty": "insecureWarning=false;", 
+          "type": "Replace", 
+          "seed": "registerConverterDynamically(\"com.thoughtworks.xstream.converters.extended.ThrowableConverter\",PRIORITY_NORMAL,new Class[]{ConverterLookup.class},new Object[]{converterLookup});"
+        }, 
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 1483, 
+          "faulty": "insecureWarning=false;", 
+          "type": "InsertBefore", 
+          "seed": "addImmutableType(Byte.class,false);"
+        }
+      ], 
+      "patch": "--- /workdir/GenProg_vul4j_x-stream_xstream_VUL4J-78/xstream/src/java/com/thoughtworks/xstream/XStream.java\t2022-10-05 12:07:57.840683830 -0400\n+++ /workdir/GenProg_vul4j_x-stream_xstream_VUL4J-78/patches_7boi/Patch_35/patched/com/thoughtworks/xstream/XStream.java\t2022-10-05 12:07:57.844683942 -0400\n@@ -1480,7 +1480,11 @@\n     public Object unmarshal(HierarchicalStreamReader reader, Object root, DataHolder dataHolder) {\n         try {\n             if (insecureWarning) {\n-                insecureWarning = false;\n+                addImmutableType(Byte.class, false);\n+\t\t\t\tregisterConverterDynamically(\n+\t\t\t\t\t\t\"com.thoughtworks.xstream.converters.extended.ThrowableConverter\",\n+\t\t\t\t\t\tPRIORITY_NORMAL, new Class[] { ConverterLookup.class },\n+\t\t\t\t\t\tnew Object[] { converterLookup });\n                 System.err.println(\"Security framework of XStream not initialized, XStream is probably vulnerable.\");\n             }\n             return marshallingStrategy.unmarshal(\n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 1483, 
+          "faulty": "insecureWarning=false;", 
+          "type": "Replace", 
+          "seed": "registerConverterDynamically(\"com.thoughtworks.xstream.converters.extended.ThrowableConverter\",PRIORITY_NORMAL,new Class[]{ConverterLookup.class},new Object[]{converterLookup});"
+        }, 
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 1483, 
+          "faulty": "insecureWarning=false;", 
+          "type": "Delete", 
+          "seed": "mapper=new ArrayMapper(mapper);"
+        }
+      ], 
+      "patch": "--- /workdir/GenProg_vul4j_x-stream_xstream_VUL4J-78/xstream/src/java/com/thoughtworks/xstream/XStream.java\t2022-10-05 10:40:37.157496565 -0400\n+++ /workdir/GenProg_vul4j_x-stream_xstream_VUL4J-78/patches_7boi/Patch_5/patched/com/thoughtworks/xstream/XStream.java\t2022-10-05 10:40:37.157496565 -0400\n@@ -1480,7 +1480,6 @@\n     public Object unmarshal(HierarchicalStreamReader reader, Object root, DataHolder dataHolder) {\n         try {\n             if (insecureWarning) {\n-                insecureWarning = false;\n                 System.err.println(\"Security framework of XStream not initialized, XStream is probably vulnerable.\");\n             }\n             return marshallingStrategy.unmarshal(\n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 1483, 
+          "faulty": "insecureWarning=false;", 
+          "type": "Replace", 
+          "seed": "registerConverterDynamically(\"com.thoughtworks.xstream.converters.extended.ThrowableConverter\",PRIORITY_NORMAL,new Class[]{ConverterLookup.class},new Object[]{converterLookup});"
+        }, 
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 1483, 
+          "faulty": "insecureWarning=false;", 
+          "type": "InsertBefore", 
+          "seed": "registerConverterDynamically(\"com.thoughtworks.xstream.converters.extended.RegexPatternConverter\",PRIORITY_NORMAL,null,null);"
+        }
+      ], 
+      "patch": "--- /workdir/GenProg_vul4j_x-stream_xstream_VUL4J-78/xstream/src/java/com/thoughtworks/xstream/XStream.java\t2022-10-05 11:13:14.616495045 -0400\n+++ /workdir/GenProg_vul4j_x-stream_xstream_VUL4J-78/patches_7boi/Patch_16/patched/com/thoughtworks/xstream/XStream.java\t2022-10-05 11:13:14.616495045 -0400\n@@ -1480,7 +1480,13 @@\n     public Object unmarshal(HierarchicalStreamReader reader, Object root, DataHolder dataHolder) {\n         try {\n             if (insecureWarning) {\n-                insecureWarning = false;\n+                registerConverterDynamically(\n+\t\t\t\t\t\t\"com.thoughtworks.xstream.converters.extended.RegexPatternConverter\",\n+\t\t\t\t\t\tPRIORITY_NORMAL, null, null);\n+\t\t\t\tregisterConverterDynamically(\n+\t\t\t\t\t\t\"com.thoughtworks.xstream.converters.extended.ThrowableConverter\",\n+\t\t\t\t\t\tPRIORITY_NORMAL, new Class[] { ConverterLookup.class },\n+\t\t\t\t\t\tnew Object[] { converterLookup });\n                 System.err.println(\"Security framework of XStream not initialized, XStream is probably vulnerable.\");\n             }\n             return marshallingStrategy.unmarshal(\n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 1483, 
+          "faulty": "insecureWarning=false;", 
+          "type": "Replace", 
+          "seed": "registerConverter(new LocaleConverter(),PRIORITY_NORMAL);"
+        }, 
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 714, 
+          "faulty": "if (xstream.insecureWarning) {\n  xstream.addPermission(NoTypePermission.NONE);\n  xstream.addPermission(NullPermission.NULL);\n  xstream.addPermission(PrimitiveTypePermission.PRIMITIVES);\n  xstream.addPermission(ArrayTypePermission.ARRAYS);\n  xstream.addPermission(InterfaceTypePermission.INTERFACES);\n  xstream.allowTypeHierarchy(Calendar.class);\n  xstream.allowTypeHierarchy(Collection.class);\n  xstream.allowTypeHierarchy(Map.class);\n  xstream.allowTypeHierarchy(Map.Entry.class);\n  xstream.allowTypeHierarchy(Member.class);\n  xstream.allowTypeHierarchy(Number.class);\n  xstream.allowTypeHierarchy(Throwable.class);\n  xstream.allowTypeHierarchy(TimeZone.class);\n  Class type=JVM.loadClassForName(\"java.lang.Enum\");\n  if (type != null) {\n    xstream.allowTypeHierarchy(type);\n  }\n  type=JVM.loadClassForName(\"java.nio.file.Path\");\n  if (type != null) {\n    xstream.allowTypeHierarchy(type);\n  }\n  final Set types=new HashSet();\n  types.add(BitSet.class);\n  types.add(Charset.class);\n  types.add(Class.class);\n  types.add(Currency.class);\n  types.add(Date.class);\n  types.add(DecimalFormatSymbols.class);\n  types.add(File.class);\n  types.add(Locale.class);\n  types.add(Object.class);\n  types.add(Pattern.class);\n  types.add(StackTraceElement.class);\n  types.add(String.class);\n  types.add(StringBuffer.class);\n  types.add(JVM.loadClassForName(\"java.lang.StringBuilder\"));\n  types.add(URL.class);\n  types.add(URI.class);\n  types.add(JVM.loadClassForName(\"java.util.UUID\"));\n  if (JVM.isSQLAvailable()) {\n    types.add(JVM.loadClassForName(\"java.sql.Timestamp\"));\n    types.add(JVM.loadClassForName(\"java.sql.Time\"));\n    types.add(JVM.loadClassForName(\"java.sql.Date\"));\n  }\n  if (JVM.isVersion(8)) {\n    xstream.allowTypeHierarchy(JVM.loadClassForName(\"java.time.Clock\"));\n    types.add(JVM.loadClassForName(\"java.time.Duration\"));\n    types.add(JVM.loadClassForName(\"java.time.Instant\"));\n    types.add(JVM.loadClassForName(\"java.time.LocalDate\"));\n    types.add(JVM.loadClassForName(\"java.time.LocalDateTime\"));\n    types.add(JVM.loadClassForName(\"java.time.LocalTime\"));\n    types.add(JVM.loadClassForName(\"java.time.MonthDay\"));\n    types.add(JVM.loadClassForName(\"java.time.OffsetDateTime\"));\n    types.add(JVM.loadClassForName(\"java.time.OffsetTime\"));\n    types.add(JVM.loadClassForName(\"java.time.Period\"));\n    types.add(JVM.loadClassForName(\"java.time.Ser\"));\n    types.add(JVM.loadClassForName(\"java.time.Year\"));\n    types.add(JVM.loadClassForName(\"java.time.YearMonth\"));\n    types.add(JVM.loadClassForName(\"java.time.ZonedDateTime\"));\n    xstream.allowTypeHierarchy(JVM.loadClassForName(\"java.time.ZoneId\"));\n    types.add(JVM.loadClassForName(\"java.time.chrono.HijrahDate\"));\n    types.add(JVM.loadClassForName(\"java.time.chrono.JapaneseDate\"));\n    types.add(JVM.loadClassForName(\"java.time.chrono.JapaneseEra\"));\n    types.add(JVM.loadClassForName(\"java.time.chrono.MinguoDate\"));\n    types.add(JVM.loadClassForName(\"java.time.chrono.ThaiBuddhistDate\"));\n    types.add(JVM.loadClassForName(\"java.time.chrono.Ser\"));\n    xstream.allowTypeHierarchy(JVM.loadClassForName(\"java.time.chrono.Chronology\"));\n    types.add(JVM.loadClassForName(\"java.time.temporal.ValueRange\"));\n    types.add(JVM.loadClassForName(\"java.time.temporal.WeekFields\"));\n  }\n  types.remove(null);\n  final Iterator iter=types.iterator();\n  final Class[] classes=new Class[types.size()];\n  for (int i=0; i < classes.length; ++i) {\n    classes[i]=(Class)iter.next();\n  }\n  xstream.allowTypes(classes);\n}\n else {\n  throw new IllegalArgumentException(\"Security framework of XStream instance already initialized\");\n}", 
+          "type": "Delete", 
+          "seed": "alias(\"number\",Number.class);"
+        }
+      ], 
+      "patch": "--- /workdir/GenProg_vul4j_x-stream_xstream_VUL4J-78/xstream/src/java/com/thoughtworks/xstream/XStream.java\t2022-10-05 11:11:47.374041369 -0400\n+++ /workdir/GenProg_vul4j_x-stream_xstream_VUL4J-78/patches_7boi/Patch_15/patched/com/thoughtworks/xstream/XStream.java\t2022-10-05 11:11:47.374041369 -0400\n@@ -711,90 +711,6 @@\n      * @since 1.4.10\n      */\n     public static void setupDefaultSecurity(final XStream xstream) {\n-        if (xstream.insecureWarning) {\n-            xstream.addPermission(NoTypePermission.NONE);\n-            xstream.addPermission(NullPermission.NULL);\n-            xstream.addPermission(PrimitiveTypePermission.PRIMITIVES);\n-            xstream.addPermission(ArrayTypePermission.ARRAYS);\n-            xstream.addPermission(InterfaceTypePermission.INTERFACES);\n-            xstream.allowTypeHierarchy(Calendar.class);\n-            xstream.allowTypeHierarchy(Collection.class);\n-            xstream.allowTypeHierarchy(Map.class);\n-            xstream.allowTypeHierarchy(Map.Entry.class);\n-            xstream.allowTypeHierarchy(Member.class);\n-            xstream.allowTypeHierarchy(Number.class);\n-            xstream.allowTypeHierarchy(Throwable.class);\n-            xstream.allowTypeHierarchy(TimeZone.class);\n-\n-            Class type = JVM.loadClassForName(\"java.lang.Enum\");\n-            if (type != null) {\n-                xstream.allowTypeHierarchy(type);\n-            }\n-            type = JVM.loadClassForName(\"java.nio.file.Path\");\n-            if (type != null) {\n-                xstream.allowTypeHierarchy(type);\n-            }\n-\n-            final Set types = new HashSet();\n-            types.add(BitSet.class);\n-            types.add(Charset.class);\n-            types.add(Class.class);\n-            types.add(Currency.class);\n-            types.add(Date.class);\n-            types.add(DecimalFormatSymbols.class);\n-            types.add(File.class);\n-            types.add(Locale.class);\n-            types.add(Object.class);\n-            types.add(Pattern.class);\n-            types.add(StackTraceElement.class);\n-            types.add(String.class);\n-            types.add(StringBuffer.class);\n-            types.add(JVM.loadClassForName(\"java.lang.StringBuilder\"));\n-            types.add(URL.class);\n-            types.add(URI.class);\n-            types.add(JVM.loadClassForName(\"java.util.UUID\"));\n-            if (JVM.isSQLAvailable()) {\n-                types.add(JVM.loadClassForName(\"java.sql.Timestamp\"));\n-                types.add(JVM.loadClassForName(\"java.sql.Time\"));\n-                types.add(JVM.loadClassForName(\"java.sql.Date\"));\n-            }\n-            if (JVM.isVersion(8)) {\n-                xstream.allowTypeHierarchy(JVM.loadClassForName(\"java.time.Clock\"));\n-                types.add(JVM.loadClassForName(\"java.time.Duration\"));\n-                types.add(JVM.loadClassForName(\"java.time.Instant\"));\n-                types.add(JVM.loadClassForName(\"java.time.LocalDate\"));\n-                types.add(JVM.loadClassForName(\"java.time.LocalDateTime\"));\n-                types.add(JVM.loadClassForName(\"java.time.LocalTime\"));\n-                types.add(JVM.loadClassForName(\"java.time.MonthDay\"));\n-                types.add(JVM.loadClassForName(\"java.time.OffsetDateTime\"));\n-                types.add(JVM.loadClassForName(\"java.time.OffsetTime\"));\n-                types.add(JVM.loadClassForName(\"java.time.Period\"));\n-                types.add(JVM.loadClassForName(\"java.time.Ser\"));\n-                types.add(JVM.loadClassForName(\"java.time.Year\"));\n-                types.add(JVM.loadClassForName(\"java.time.YearMonth\"));\n-                types.add(JVM.loadClassForName(\"java.time.ZonedDateTime\"));\n-                xstream.allowTypeHierarchy(JVM.loadClassForName(\"java.time.ZoneId\"));\n-                types.add(JVM.loadClassForName(\"java.time.chrono.HijrahDate\"));\n-                types.add(JVM.loadClassForName(\"java.time.chrono.JapaneseDate\"));\n-                types.add(JVM.loadClassForName(\"java.time.chrono.JapaneseEra\"));\n-                types.add(JVM.loadClassForName(\"java.time.chrono.MinguoDate\"));\n-                types.add(JVM.loadClassForName(\"java.time.chrono.ThaiBuddhistDate\"));\n-                types.add(JVM.loadClassForName(\"java.time.chrono.Ser\"));\n-                xstream.allowTypeHierarchy(JVM.loadClassForName(\"java.time.chrono.Chronology\"));\n-                types.add(JVM.loadClassForName(\"java.time.temporal.ValueRange\"));\n-                types.add(JVM.loadClassForName(\"java.time.temporal.WeekFields\"));\n-            }\n-            types.remove(null);\n-\n-            final Iterator iter = types.iterator();\n-            final Class[] classes = new Class[types.size()];\n-            for (int i = 0; i < classes.length; ++i) {\n-                classes[i] = (Class)iter.next();\n-            }\n-            xstream.allowTypes(classes);\n-        } else {\n-            throw new IllegalArgumentException(\"Security framework of XStream instance already initialized\");\n-        }\n     }\n \n     protected void setupAliases() {\n@@ -1480,7 +1396,7 @@\n     public Object unmarshal(HierarchicalStreamReader reader, Object root, DataHolder dataHolder) {\n         try {\n             if (insecureWarning) {\n-                insecureWarning = false;\n+                registerConverter(new LocaleConverter(), PRIORITY_NORMAL);\n                 System.err.println(\"Security framework of XStream not initialized, XStream is probably vulnerable.\");\n             }\n             return marshallingStrategy.unmarshal(\n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 2362, 
+          "faulty": "insecureWarning&=permission != NoTypePermission.NONE;", 
+          "type": "Delete", 
+          "seed": "alias(\"linked-hash-set\",JVM.loadClassForName(\"java.util.LinkedHashSet\"));"
+        }, 
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 1482, 
+          "faulty": "if (insecureWarning) {\n  insecureWarning=false;\n  System.err.println(\"Security framework of XStream not initialized, XStream is probably vulnerable.\");\n}", 
+          "type": "Delete", 
+          "seed": "registerConverterDynamically(\"com.thoughtworks.xstream.converters.extended.DurationConverter\",PRIORITY_NORMAL,null,null);"
+        }
+      ], 
+      "patch": "--- /workdir/GenProg_vul4j_x-stream_xstream_VUL4J-78/xstream/src/java/com/thoughtworks/xstream/XStream.java\t2022-10-05 10:55:02.285759025 -0400\n+++ /workdir/GenProg_vul4j_x-stream_xstream_VUL4J-78/patches_7boi/Patch_8/patched/com/thoughtworks/xstream/XStream.java\t2022-10-05 10:55:02.289759137 -0400\n@@ -1479,10 +1479,6 @@\n      */\n     public Object unmarshal(HierarchicalStreamReader reader, Object root, DataHolder dataHolder) {\n         try {\n-            if (insecureWarning) {\n-                insecureWarning = false;\n-                System.err.println(\"Security framework of XStream not initialized, XStream is probably vulnerable.\");\n-            }\n             return marshallingStrategy.unmarshal(\n                 root, reader, dataHolder, converterLookup, mapper);\n \n@@ -2359,7 +2355,6 @@\n      */\n     public void addPermission(TypePermission permission) {\n         if (securityMapper != null) {\n-            insecureWarning &= permission != NoTypePermission.NONE;\n             securityMapper.addPermission(permission);\n         }\n     }\n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 1483, 
+          "faulty": "insecureWarning=false;", 
+          "type": "Delete", 
+          "seed": "registerConverter(new SerializableConverter(mapper,reflectionProvider,classLoaderReference),PRIORITY_LOW);"
+        }, 
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 1483, 
+          "faulty": "insecureWarning=false;", 
+          "type": "InsertBefore", 
+          "seed": "addDefaultImplementation(HashMap.class,Map.class);"
+        }
+      ], 
+      "patch": "--- /workdir/GenProg_vul4j_x-stream_xstream_VUL4J-78/xstream/src/java/com/thoughtworks/xstream/XStream.java\t2022-10-05 12:04:54.631540852 -0400\n+++ /workdir/GenProg_vul4j_x-stream_xstream_VUL4J-78/patches_7boi/Patch_33/patched/com/thoughtworks/xstream/XStream.java\t2022-10-05 12:04:54.631540852 -0400\n@@ -1480,8 +1480,8 @@\n     public Object unmarshal(HierarchicalStreamReader reader, Object root, DataHolder dataHolder) {\n         try {\n             if (insecureWarning) {\n-                insecureWarning = false;\n-                System.err.println(\"Security framework of XStream not initialized, XStream is probably vulnerable.\");\n+                addDefaultImplementation(HashMap.class, Map.class);\n+\t\t\t\tSystem.err.println(\"Security framework of XStream not initialized, XStream is probably vulnerable.\");\n             }\n             return marshallingStrategy.unmarshal(\n                 root, reader, dataHolder, converterLookup, mapper);\n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 1482, 
+          "faulty": "if (insecureWarning) {\n  insecureWarning=false;\n  System.err.println(\"Security framework of XStream not initialized, XStream is probably vulnerable.\");\n}", 
+          "type": "Delete", 
+          "seed": "alias(\"long\",Long.class);"
+        }
+      ], 
+      "patch": "--- /workdir/GenProg_vul4j_x-stream_xstream_VUL4J-78/xstream/src/java/com/thoughtworks/xstream/XStream.java\t2022-10-05 10:29:39.339018564 -0400\n+++ /workdir/GenProg_vul4j_x-stream_xstream_VUL4J-78/patches_7boi/Patch_0/patched/com/thoughtworks/xstream/XStream.java\t2022-10-05 10:29:39.359019127 -0400\n@@ -1479,10 +1479,6 @@\n      */\n     public Object unmarshal(HierarchicalStreamReader reader, Object root, DataHolder dataHolder) {\n         try {\n-            if (insecureWarning) {\n-                insecureWarning = false;\n-                System.err.println(\"Security framework of XStream not initialized, XStream is probably vulnerable.\");\n-            }\n             return marshallingStrategy.unmarshal(\n                 root, reader, dataHolder, converterLookup, mapper);\n \n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 1482, 
+          "faulty": "if (insecureWarning) {\n  insecureWarning=false;\n  System.err.println(\"Security framework of XStream not initialized, XStream is probably vulnerable.\");\n}", 
+          "type": "Replace", 
+          "seed": "alias(\"tree-map\",TreeMap.class);"
+        }, 
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 1483, 
+          "faulty": "insecureWarning=false;", 
+          "type": "InsertBefore", 
+          "seed": "registerConverter(new FontConverter(mapper),PRIORITY_NORMAL);"
+        }, 
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 1482, 
+          "faulty": "if (insecureWarning) {\n  insecureWarning=false;\n  System.err.println(\"Security framework of XStream not initialized, XStream is probably vulnerable.\");\n}", 
+          "type": "Delete", 
+          "seed": "setMarshallingStrategy(new ReferenceByXPathMarshallingStrategy(ReferenceByXPathMarshallingStrategy.RELATIVE | ReferenceByXPathMarshallingStrategy.SINGLE_NODE));"
+        }
+      ], 
+      "patch": "--- /workdir/GenProg_vul4j_x-stream_xstream_VUL4J-78/xstream/src/java/com/thoughtworks/xstream/XStream.java\t2022-10-05 11:57:15.698657866 -0400\n+++ /workdir/GenProg_vul4j_x-stream_xstream_VUL4J-78/patches_7boi/Patch_31/patched/com/thoughtworks/xstream/XStream.java\t2022-10-05 11:57:15.702657978 -0400\n@@ -1479,10 +1479,6 @@\n      */\n     public Object unmarshal(HierarchicalStreamReader reader, Object root, DataHolder dataHolder) {\n         try {\n-            if (insecureWarning) {\n-                insecureWarning = false;\n-                System.err.println(\"Security framework of XStream not initialized, XStream is probably vulnerable.\");\n-            }\n             return marshallingStrategy.unmarshal(\n                 root, reader, dataHolder, converterLookup, mapper);\n \n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 1482, 
+          "faulty": "if (insecureWarning) {\n  insecureWarning=false;\n  System.err.println(\"Security framework of XStream not initialized, XStream is probably vulnerable.\");\n}", 
+          "type": "Delete", 
+          "seed": "aliasType(\"charset\",JVM.loadClassForName(\"java.nio.charset.Charset\"));"
+        }, 
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 1482, 
+          "faulty": "if (insecureWarning) {\n  insecureWarning=false;\n  System.err.println(\"Security framework of XStream not initialized, XStream is probably vulnerable.\");\n}", 
+          "type": "Delete", 
+          "seed": "alias(\"long\",Long.class);"
+        }, 
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 2362, 
+          "faulty": "insecureWarning&=permission != NoTypePermission.NONE;", 
+          "type": "InsertBefore", 
+          "seed": "defaultImplementationsMapper=(DefaultImplementationsMapper)this.mapper.lookupMapperOfType(DefaultImplementationsMapper.class);"
+        }
+      ], 
+      "patch": "--- /workdir/GenProg_vul4j_x-stream_xstream_VUL4J-78/xstream/src/java/com/thoughtworks/xstream/XStream.java\t2022-10-05 11:36:36.811879737 -0400\n+++ /workdir/GenProg_vul4j_x-stream_xstream_VUL4J-78/patches_7boi/Patch_23/patched/com/thoughtworks/xstream/XStream.java\t2022-10-05 11:36:36.811879737 -0400\n@@ -1479,10 +1479,6 @@\n      */\n     public Object unmarshal(HierarchicalStreamReader reader, Object root, DataHolder dataHolder) {\n         try {\n-            if (insecureWarning) {\n-                insecureWarning = false;\n-                System.err.println(\"Security framework of XStream not initialized, XStream is probably vulnerable.\");\n-            }\n             return marshallingStrategy.unmarshal(\n                 root, reader, dataHolder, converterLookup, mapper);\n \n@@ -2359,7 +2355,9 @@\n      */\n     public void addPermission(TypePermission permission) {\n         if (securityMapper != null) {\n-            insecureWarning &= permission != NoTypePermission.NONE;\n+            defaultImplementationsMapper = (DefaultImplementationsMapper) this.mapper\n+\t\t\t\t\t.lookupMapperOfType(DefaultImplementationsMapper.class);\n+\t\t\tinsecureWarning &= permission != NoTypePermission.NONE;\n             securityMapper.addPermission(permission);\n         }\n     }\n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 1482, 
+          "faulty": "if (insecureWarning) {\n  insecureWarning=false;\n  System.err.println(\"Security framework of XStream not initialized, XStream is probably vulnerable.\");\n}", 
+          "type": "Delete", 
+          "seed": "mapper=new XStream11XmlFriendlyMapper(mapper);"
+        }, 
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 1483, 
+          "faulty": "insecureWarning=false;", 
+          "type": "Delete", 
+          "seed": "fieldAliasingMapper=(FieldAliasingMapper)this.mapper.lookupMapperOfType(FieldAliasingMapper.class);"
+        }, 
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 2362, 
+          "faulty": "insecureWarning&=permission != NoTypePermission.NONE;", 
+          "type": "Replace", 
+          "seed": "if (classAliasingMapper == null) {\n  return;\n}"
+        }
+      ], 
+      "patch": "--- /workdir/GenProg_vul4j_x-stream_xstream_VUL4J-78/xstream/src/java/com/thoughtworks/xstream/XStream.java\t2022-10-05 12:15:59.878220449 -0400\n+++ /workdir/GenProg_vul4j_x-stream_xstream_VUL4J-78/patches_7boi/Patch_38/patched/com/thoughtworks/xstream/XStream.java\t2022-10-05 12:15:59.878220449 -0400\n@@ -1479,10 +1479,6 @@\n      */\n     public Object unmarshal(HierarchicalStreamReader reader, Object root, DataHolder dataHolder) {\n         try {\n-            if (insecureWarning) {\n-                insecureWarning = false;\n-                System.err.println(\"Security framework of XStream not initialized, XStream is probably vulnerable.\");\n-            }\n             return marshallingStrategy.unmarshal(\n                 root, reader, dataHolder, converterLookup, mapper);\n \n@@ -2359,7 +2355,9 @@\n      */\n     public void addPermission(TypePermission permission) {\n         if (securityMapper != null) {\n-            insecureWarning &= permission != NoTypePermission.NONE;\n+            if (classAliasingMapper == null) {\n+\t\t\t\treturn;\n+\t\t\t}\n             securityMapper.addPermission(permission);\n         }\n     }\n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 1482, 
+          "faulty": "if (insecureWarning) {\n  insecureWarning=false;\n  System.err.println(\"Security framework of XStream not initialized, XStream is probably vulnerable.\");\n}", 
+          "type": "Delete", 
+          "seed": "aliasType(\"charset\",JVM.loadClassForName(\"java.nio.charset.Charset\"));"
+        }, 
+        {
+          "path": "xstream/src/java/com/thoughtworks/xstream/XStream.java", 
+          "line": 714, 
+          "faulty": "if (xstream.insecureWarning) {\n  xstream.addPermission(NoTypePermission.NONE);\n  xstream.addPermission(NullPermission.NULL);\n  xstream.addPermission(PrimitiveTypePermission.PRIMITIVES);\n  xstream.addPermission(ArrayTypePermission.ARRAYS);\n  xstream.addPermission(InterfaceTypePermission.INTERFACES);\n  xstream.allowTypeHierarchy(Calendar.class);\n  xstream.allowTypeHierarchy(Collection.class);\n  xstream.allowTypeHierarchy(Map.class);\n  xstream.allowTypeHierarchy(Map.Entry.class);\n  xstream.allowTypeHierarchy(Member.class);\n  xstream.allowTypeHierarchy(Number.class);\n  xstream.allowTypeHierarchy(Throwable.class);\n  xstream.allowTypeHierarchy(TimeZone.class);\n  Class type=JVM.loadClassForName(\"java.lang.Enum\");\n  if (type != null) {\n    xstream.allowTypeHierarchy(type);\n  }\n  type=JVM.loadClassForName(\"java.nio.file.Path\");\n  if (type != null) {\n    xstream.allowTypeHierarchy(type);\n  }\n  final Set types=new HashSet();\n  types.add(BitSet.class);\n  types.add(Charset.class);\n  types.add(Class.class);\n  types.add(Currency.class);\n  types.add(Date.class);\n  types.add(DecimalFormatSymbols.class);\n  types.add(File.class);\n  types.add(Locale.class);\n  types.add(Object.class);\n  types.add(Pattern.class);\n  types.add(StackTraceElement.class);\n  types.add(String.class);\n  types.add(StringBuffer.class);\n  types.add(JVM.loadClassForName(\"java.lang.StringBuilder\"));\n  types.add(URL.class);\n  types.add(URI.class);\n  types.add(JVM.loadClassForName(\"java.util.UUID\"));\n  if (JVM.isSQLAvailable()) {\n    types.add(JVM.loadClassForName(\"java.sql.Timestamp\"));\n    types.add(JVM.loadClassForName(\"java.sql.Time\"));\n    types.add(JVM.loadClassForName(\"java.sql.Date\"));\n  }\n  if (JVM.isVersion(8)) {\n    xstream.allowTypeHierarchy(JVM.loadClassForName(\"java.time.Clock\"));\n    types.add(JVM.loadClassForName(\"java.time.Duration\"));\n    types.add(JVM.loadClassForName(\"java.time.Instant\"));\n    types.add(JVM.loadClassForName(\"java.time.LocalDate\"));\n    types.add(JVM.loadClassForName(\"java.time.LocalDateTime\"));\n    types.add(JVM.loadClassForName(\"java.time.LocalTime\"));\n    types.add(JVM.loadClassForName(\"java.time.MonthDay\"));\n    types.add(JVM.loadClassForName(\"java.time.OffsetDateTime\"));\n    types.add(JVM.loadClassForName(\"java.time.OffsetTime\"));\n    types.add(JVM.loadClassForName(\"java.time.Period\"));\n    types.add(JVM.loadClassForName(\"java.time.Ser\"));\n    types.add(JVM.loadClassForName(\"java.time.Year\"));\n    types.add(JVM.loadClassForName(\"java.time.YearMonth\"));\n    types.add(JVM.loadClassForName(\"java.time.ZonedDateTime\"));\n    xstream.allowTypeHierarchy(JVM.loadClassForName(\"java.time.ZoneId\"));\n    types.add(JVM.loadClassForName(\"java.time.chrono.HijrahDate\"));\n    types.add(JVM.loadClassForName(\"java.time.chrono.JapaneseDate\"));\n    types.add(JVM.loadClassForName(\"java.time.chrono.JapaneseEra\"));\n    types.add(JVM.loadClassForName(\"java.time.chrono.MinguoDate\"));\n    types.add(JVM.loadClassForName(\"java.time.chrono.ThaiBuddhistDate\"));\n    types.add(JVM.loadClassForName(\"java.time.chrono.Ser\"));\n    xstream.allowTypeHierarchy(JVM.loadClassForName(\"java.time.chrono.Chronology\"));\n    types.add(JVM.loadClassForName(\"java.time.temporal.ValueRange\"));\n    types.add(JVM.loadClassForName(\"java.time.temporal.WeekFields\"));\n  }\n  types.remove(null);\n  final Iterator iter=types.iterator();\n  final Class[] classes=new Class[types.size()];\n  for (int i=0; i < classes.length; ++i) {\n    classes[i]=(Class)iter.next();\n  }\n  xstream.allowTypes(classes);\n}\n else {\n  throw new IllegalArgumentException(\"Security framework of XStream instance already initialized\");\n}", 
+          "type": "Delete", 
+          "seed": "registerConverter(new LocaleConverter(),PRIORITY_NORMAL);"
+        }
+      ], 
+      "patch": "--- /workdir/GenProg_vul4j_x-stream_xstream_VUL4J-78/xstream/src/java/com/thoughtworks/xstream/XStream.java\t2022-10-05 11:07:46.027248512 -0400\n+++ /workdir/GenProg_vul4j_x-stream_xstream_VUL4J-78/patches_7boi/Patch_14/patched/com/thoughtworks/xstream/XStream.java\t2022-10-05 11:07:46.031248625 -0400\n@@ -711,90 +711,6 @@\n      * @since 1.4.10\n      */\n     public static void setupDefaultSecurity(final XStream xstream) {\n-        if (xstream.insecureWarning) {\n-            xstream.addPermission(NoTypePermission.NONE);\n-            xstream.addPermission(NullPermission.NULL);\n-            xstream.addPermission(PrimitiveTypePermission.PRIMITIVES);\n-            xstream.addPermission(ArrayTypePermission.ARRAYS);\n-            xstream.addPermission(InterfaceTypePermission.INTERFACES);\n-            xstream.allowTypeHierarchy(Calendar.class);\n-            xstream.allowTypeHierarchy(Collection.class);\n-            xstream.allowTypeHierarchy(Map.class);\n-            xstream.allowTypeHierarchy(Map.Entry.class);\n-            xstream.allowTypeHierarchy(Member.class);\n-            xstream.allowTypeHierarchy(Number.class);\n-            xstream.allowTypeHierarchy(Throwable.class);\n-            xstream.allowTypeHierarchy(TimeZone.class);\n-\n-            Class type = JVM.loadClassForName(\"java.lang.Enum\");\n-            if (type != null) {\n-                xstream.allowTypeHierarchy(type);\n-            }\n-            type = JVM.loadClassForName(\"java.nio.file.Path\");\n-            if (type != null) {\n-                xstream.allowTypeHierarchy(type);\n-            }\n-\n-            final Set types = new HashSet();\n-            types.add(BitSet.class);\n-            types.add(Charset.class);\n-            types.add(Class.class);\n-            types.add(Currency.class);\n-            types.add(Date.class);\n-            types.add(DecimalFormatSymbols.class);\n-            types.add(File.class);\n-            types.add(Locale.class);\n-            types.add(Object.class);\n-            types.add(Pattern.class);\n-            types.add(StackTraceElement.class);\n-            types.add(String.class);\n-            types.add(StringBuffer.class);\n-            types.add(JVM.loadClassForName(\"java.lang.StringBuilder\"));\n-            types.add(URL.class);\n-            types.add(URI.class);\n-            types.add(JVM.loadClassForName(\"java.util.UUID\"));\n-            if (JVM.isSQLAvailable()) {\n-                types.add(JVM.loadClassForName(\"java.sql.Timestamp\"));\n-                types.add(JVM.loadClassForName(\"java.sql.Time\"));\n-                types.add(JVM.loadClassForName(\"java.sql.Date\"));\n-            }\n-            if (JVM.isVersion(8)) {\n-                xstream.allowTypeHierarchy(JVM.loadClassForName(\"java.time.Clock\"));\n-                types.add(JVM.loadClassForName(\"java.time.Duration\"));\n-                types.add(JVM.loadClassForName(\"java.time.Instant\"));\n-                types.add(JVM.loadClassForName(\"java.time.LocalDate\"));\n-                types.add(JVM.loadClassForName(\"java.time.LocalDateTime\"));\n-                types.add(JVM.loadClassForName(\"java.time.LocalTime\"));\n-                types.add(JVM.loadClassForName(\"java.time.MonthDay\"));\n-                types.add(JVM.loadClassForName(\"java.time.OffsetDateTime\"));\n-                types.add(JVM.loadClassForName(\"java.time.OffsetTime\"));\n-                types.add(JVM.loadClassForName(\"java.time.Period\"));\n-                types.add(JVM.loadClassForName(\"java.time.Ser\"));\n-                types.add(JVM.loadClassForName(\"java.time.Year\"));\n-                types.add(JVM.loadClassForName(\"java.time.YearMonth\"));\n-                types.add(JVM.loadClassForName(\"java.time.ZonedDateTime\"));\n-                xstream.allowTypeHierarchy(JVM.loadClassForName(\"java.time.ZoneId\"));\n-                types.add(JVM.loadClassForName(\"java.time.chrono.HijrahDate\"));\n-                types.add(JVM.loadClassForName(\"java.time.chrono.JapaneseDate\"));\n-                types.add(JVM.loadClassForName(\"java.time.chrono.JapaneseEra\"));\n-                types.add(JVM.loadClassForName(\"java.time.chrono.MinguoDate\"));\n-                types.add(JVM.loadClassForName(\"java.time.chrono.ThaiBuddhistDate\"));\n-                types.add(JVM.loadClassForName(\"java.time.chrono.Ser\"));\n-                xstream.allowTypeHierarchy(JVM.loadClassForName(\"java.time.chrono.Chronology\"));\n-                types.add(JVM.loadClassForName(\"java.time.temporal.ValueRange\"));\n-                types.add(JVM.loadClassForName(\"java.time.temporal.WeekFields\"));\n-            }\n-            types.remove(null);\n-\n-            final Iterator iter = types.iterator();\n-            final Class[] classes = new Class[types.size()];\n-            for (int i = 0; i < classes.length; ++i) {\n-                classes[i] = (Class)iter.next();\n-            }\n-            xstream.allowTypes(classes);\n-        } else {\n-            throw new IllegalArgumentException(\"Security framework of XStream instance already initialized\");\n-        }\n     }\n \n     protected void setupAliases() {\n@@ -1479,10 +1395,6 @@\n      */\n     public Object unmarshal(HierarchicalStreamReader reader, Object root, DataHolder dataHolder) {\n         try {\n-            if (insecureWarning) {\n-                insecureWarning = false;\n-                System.err.println(\"Security framework of XStream not initialized, XStream is probably vulnerable.\");\n-            }\n             return marshallingStrategy.unmarshal(\n                 root, reader, dataHolder, converterLookup, mapper);\n \n\n\n"
+    }
+  ]
+}

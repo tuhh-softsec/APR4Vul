@@ -1,0 +1,955 @@
+{
+  "repair_end": "2022-10-04 16:12:50.027924", 
+  "repair_begin": "2022-10-04 12:12:47.803094", 
+  "patches": [
+    {
+      "edits": [
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "Delete", 
+          "seed": "newAttribute();"
+        }, 
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "Delete", 
+          "seed": "newAttribute();"
+        }, 
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "InsertBefore", 
+          "seed": "XmlTreeBuilder treeBuilder=new XmlTreeBuilder();"
+        }, 
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "Replace", 
+          "seed": "t.emitTagPending();"
+        }
+      ], 
+      "patch": "--- /workdir/GenProg_vul4j_jhy_jsoup_VUL4J-59/src/main/java/org/jsoup/parser/TokeniserState.java\t2022-10-04 11:51:09.948314111 -0400\n+++ /workdir/GenProg_vul4j_jhy_jsoup_VUL4J-59/patches_td1y/Patch_4/patched/org/jsoup/parser/TokeniserState.java\t2022-10-04 11:51:09.948314111 -0400\n@@ -756,7 +756,7 @@\n                     t.transition(AttributeValue_unquoted);\n                     break;\n                 case eof:\n-                    t.eofError(this);\n+\t\t\t\tt.emitTagPending();\n                     t.transition(Data);\n                     break;\n                 case '>':\n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "Delete", 
+          "seed": "newAttribute();"
+        }, 
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "Delete", 
+          "seed": "return this.getClass().getSimpleName();"
+        }, 
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "InsertBefore", 
+          "seed": "t.transition(BeforeAttributeName);"
+        }, 
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "Delete", 
+          "seed": "return this.getClass().getSimpleName();"
+        }, 
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "InsertBefore", 
+          "seed": "t.transition(BeforeAttributeName);"
+        }, 
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 760, 
+          "faulty": "t.transition(Data);", 
+          "type": "InsertBefore", 
+          "seed": "t.emitTagPending();"
+        }
+      ], 
+      "patch": "--- /workdir/GenProg_vul4j_jhy_jsoup_VUL4J-59/src/main/java/org/jsoup/parser/TokeniserState.java\t2022-10-04 11:57:21.178673469 -0400\n+++ /workdir/GenProg_vul4j_jhy_jsoup_VUL4J-59/patches_td1y/Patch_17/patched/org/jsoup/parser/TokeniserState.java\t2022-10-04 11:57:21.182673580 -0400\n@@ -756,8 +756,14 @@\n                     t.transition(AttributeValue_unquoted);\n                     break;\n                 case eof:\n-                    t.eofError(this);\n-                    t.transition(Data);\n+\t\t\t\t{\n+\t\t\t\t\tt.transition(BeforeAttributeName);\n+\t\t\t\t\tt.eofError(this);\n+\t\t\t\t}\n+\t\t\t\t{\n+\t\t\t\t\tt.emitTagPending();\n+\t\t\t\t\tt.transition(Data);\n+\t\t\t\t}\n                     break;\n                 case '>':\n                     t.error(this);\n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "InsertBefore", 
+          "seed": "t.transition(BeforeAttributeName);"
+        }, 
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "Replace", 
+          "seed": "TreeBuilder treeBuilder=new HtmlTreeBuilder();"
+        }, 
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "Replace", 
+          "seed": "t.emitTagPending();"
+        }, 
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 760, 
+          "faulty": "t.transition(Data);", 
+          "type": "InsertBefore", 
+          "seed": "int end=-1;"
+        }
+      ], 
+      "patch": "--- /workdir/GenProg_vul4j_jhy_jsoup_VUL4J-59/src/main/java/org/jsoup/parser/TokeniserState.java\t2022-10-04 11:52:53.719209740 -0400\n+++ /workdir/GenProg_vul4j_jhy_jsoup_VUL4J-59/patches_td1y/Patch_7/patched/org/jsoup/parser/TokeniserState.java\t2022-10-04 11:52:53.719209740 -0400\n@@ -756,8 +756,11 @@\n                     t.transition(AttributeValue_unquoted);\n                     break;\n                 case eof:\n-                    t.eofError(this);\n-                    t.transition(Data);\n+\t\t\t\tt.emitTagPending();\n+\t\t\t\t{\n+\t\t\t\t\tint end = -1;\n+\t\t\t\t\tt.transition(Data);\n+\t\t\t\t}\n                     break;\n                 case '>':\n                     t.error(this);\n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "Delete", 
+          "seed": "newAttribute();"
+        }, 
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "Replace", 
+          "seed": "TreeBuilder treeBuilder=new HtmlTreeBuilder();"
+        }, 
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "Replace", 
+          "seed": "t.emitTagPending();"
+        }
+      ], 
+      "patch": "--- /workdir/GenProg_vul4j_jhy_jsoup_VUL4J-59/src/main/java/org/jsoup/parser/TokeniserState.java\t2022-10-04 11:53:29.432206320 -0400\n+++ /workdir/GenProg_vul4j_jhy_jsoup_VUL4J-59/patches_td1y/Patch_9/patched/org/jsoup/parser/TokeniserState.java\t2022-10-04 11:53:29.432206320 -0400\n@@ -756,7 +756,7 @@\n                     t.transition(AttributeValue_unquoted);\n                     break;\n                 case eof:\n-                    t.eofError(this);\n+\t\t\t\tt.emitTagPending();\n                     t.transition(Data);\n                     break;\n                 case '>':\n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "InsertBefore", 
+          "seed": "t.transition(BeforeAttributeName);"
+        }, 
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "Delete", 
+          "seed": "Arrays.sort(attributeSingleValueCharsSorted);"
+        }, 
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "Replace", 
+          "seed": "TreeBuilder treeBuilder=new HtmlTreeBuilder();"
+        }, 
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 760, 
+          "faulty": "t.transition(Data);", 
+          "type": "InsertBefore", 
+          "seed": "t.emitTagPending();"
+        }
+      ], 
+      "patch": "--- /workdir/GenProg_vul4j_jhy_jsoup_VUL4J-59/src/main/java/org/jsoup/parser/TokeniserState.java\t2022-10-04 11:54:14.777471690 -0400\n+++ /workdir/GenProg_vul4j_jhy_jsoup_VUL4J-59/patches_td1y/Patch_10/patched/org/jsoup/parser/TokeniserState.java\t2022-10-04 11:54:14.777471690 -0400\n@@ -756,8 +756,11 @@\n                     t.transition(AttributeValue_unquoted);\n                     break;\n                 case eof:\n-                    t.eofError(this);\n-                    t.transition(Data);\n+\t\t\t\tTreeBuilder treeBuilder = new HtmlTreeBuilder();\n+\t\t\t\t{\n+\t\t\t\t\tt.emitTagPending();\n+\t\t\t\t\tt.transition(Data);\n+\t\t\t\t}\n                     break;\n                 case '>':\n                     t.error(this);\n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "Delete", 
+          "seed": "newAttribute();"
+        }, 
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "Delete", 
+          "seed": "return this.getClass().getSimpleName();"
+        }, 
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "InsertBefore", 
+          "seed": "t.transition(BeforeAttributeName);"
+        }, 
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "Delete", 
+          "seed": "return this.getClass().getSimpleName();"
+        }, 
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "InsertBefore", 
+          "seed": "t.transition(BeforeAttributeName);"
+        }, 
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "InsertBefore", 
+          "seed": "XmlTreeBuilder treeBuilder=new XmlTreeBuilder();"
+        }, 
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "Replace", 
+          "seed": "t.emitTagPending();"
+        }
+      ], 
+      "patch": "--- /workdir/GenProg_vul4j_jhy_jsoup_VUL4J-59/src/main/java/org/jsoup/parser/TokeniserState.java\t2022-10-04 11:58:22.856394746 -0400\n+++ /workdir/GenProg_vul4j_jhy_jsoup_VUL4J-59/patches_td1y/Patch_19/patched/org/jsoup/parser/TokeniserState.java\t2022-10-04 11:58:22.856394746 -0400\n@@ -756,7 +756,7 @@\n                     t.transition(AttributeValue_unquoted);\n                     break;\n                 case eof:\n-                    t.eofError(this);\n+\t\t\t\tt.emitTagPending();\n                     t.transition(Data);\n                     break;\n                 case '>':\n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "Delete", 
+          "seed": "newAttribute();"
+        }, 
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "Delete", 
+          "seed": "return this.getClass().getSimpleName();"
+        }, 
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "InsertBefore", 
+          "seed": "t.transition(BeforeAttributeName);"
+        }, 
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "Delete", 
+          "seed": "return this.getClass().getSimpleName();"
+        }, 
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "InsertBefore", 
+          "seed": "t.transition(BeforeAttributeName);"
+        }, 
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "InsertBefore", 
+          "seed": "t.transition(BeforeAttributeName);"
+        }, 
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "Delete", 
+          "seed": "return this.getClass().getSimpleName();"
+        }, 
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "Delete", 
+          "seed": "newAttribute();"
+        }, 
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "InsertBefore", 
+          "seed": "XmlTreeBuilder treeBuilder=new XmlTreeBuilder();"
+        }, 
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "Replace", 
+          "seed": "TreeBuilder treeBuilder=new HtmlTreeBuilder();"
+        }, 
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "Replace", 
+          "seed": "t.emitTagPending();"
+        }, 
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 760, 
+          "faulty": "t.transition(Data);", 
+          "type": "InsertBefore", 
+          "seed": "int end=-1;"
+        }
+      ], 
+      "patch": "--- /workdir/GenProg_vul4j_jhy_jsoup_VUL4J-59/src/main/java/org/jsoup/parser/TokeniserState.java\t2022-10-04 11:56:39.505510505 -0400\n+++ /workdir/GenProg_vul4j_jhy_jsoup_VUL4J-59/patches_td1y/Patch_13/patched/org/jsoup/parser/TokeniserState.java\t2022-10-04 11:56:39.505510505 -0400\n@@ -756,8 +756,11 @@\n                     t.transition(AttributeValue_unquoted);\n                     break;\n                 case eof:\n-                    t.eofError(this);\n-                    t.transition(Data);\n+\t\t\t\tt.emitTagPending();\n+\t\t\t\t{\n+\t\t\t\t\tint end = -1;\n+\t\t\t\t\tt.transition(Data);\n+\t\t\t\t}\n                     break;\n                 case '>':\n                     t.error(this);\n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "Delete", 
+          "seed": "newAttribute();"
+        }, 
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "Replace", 
+          "seed": "t.emitTagPending();"
+        }
+      ], 
+      "patch": "--- /workdir/GenProg_vul4j_jhy_jsoup_VUL4J-59/src/main/java/org/jsoup/parser/TokeniserState.java\t2022-10-04 11:52:11.994045412 -0400\n+++ /workdir/GenProg_vul4j_jhy_jsoup_VUL4J-59/patches_td1y/Patch_6/patched/org/jsoup/parser/TokeniserState.java\t2022-10-04 11:52:11.994045412 -0400\n@@ -756,7 +756,7 @@\n                     t.transition(AttributeValue_unquoted);\n                     break;\n                 case eof:\n-                    t.eofError(this);\n+\t\t\t\tt.emitTagPending();\n                     t.transition(Data);\n                     break;\n                 case '>':\n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "InsertBefore", 
+          "seed": "XmlTreeBuilder treeBuilder=new XmlTreeBuilder();"
+        }, 
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 760, 
+          "faulty": "t.transition(Data);", 
+          "type": "InsertBefore", 
+          "seed": "t.emitTagPending();"
+        }
+      ], 
+      "patch": "--- /workdir/GenProg_vul4j_jhy_jsoup_VUL4J-59/src/main/java/org/jsoup/parser/TokeniserState.java\t2022-10-04 12:11:54.303041561 -0400\n+++ /workdir/GenProg_vul4j_jhy_jsoup_VUL4J-59/patches_td1y/Patch_25/patched/org/jsoup/parser/TokeniserState.java\t2022-10-04 12:11:54.303041561 -0400\n@@ -756,8 +756,14 @@\n                     t.transition(AttributeValue_unquoted);\n                     break;\n                 case eof:\n-                    t.eofError(this);\n-                    t.transition(Data);\n+\t\t\t\t{\n+\t\t\t\t\tXmlTreeBuilder treeBuilder = new XmlTreeBuilder();\n+\t\t\t\t\tt.eofError(this);\n+\t\t\t\t}\n+\t\t\t\t{\n+\t\t\t\t\tt.emitTagPending();\n+\t\t\t\t\tt.transition(Data);\n+\t\t\t\t}\n                     break;\n                 case '>':\n                     t.error(this);\n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "InsertBefore", 
+          "seed": "t.transition(BeforeAttributeName);"
+        }, 
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "InsertBefore", 
+          "seed": "XmlTreeBuilder treeBuilder=new XmlTreeBuilder();"
+        }, 
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "Replace", 
+          "seed": "t.emitTagPending();"
+        }
+      ], 
+      "patch": "--- /workdir/GenProg_vul4j_jhy_jsoup_VUL4J-59/src/main/java/org/jsoup/parser/TokeniserState.java\t2022-10-04 11:55:26.967486219 -0400\n+++ /workdir/GenProg_vul4j_jhy_jsoup_VUL4J-59/patches_td1y/Patch_11/patched/org/jsoup/parser/TokeniserState.java\t2022-10-04 11:55:26.967486219 -0400\n@@ -756,7 +756,7 @@\n                     t.transition(AttributeValue_unquoted);\n                     break;\n                 case eof:\n-                    t.eofError(this);\n+\t\t\t\tt.emitTagPending();\n                     t.transition(Data);\n                     break;\n                 case '>':\n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "Delete", 
+          "seed": "newAttribute();"
+        }, 
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "Delete", 
+          "seed": "newAttribute();"
+        }, 
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "InsertBefore", 
+          "seed": "t.transition(BeforeAttributeName);"
+        }, 
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "Delete", 
+          "seed": "Arrays.sort(attributeSingleValueCharsSorted);"
+        }, 
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "InsertBefore", 
+          "seed": "t.transition(BeforeAttributeName);"
+        }, 
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "Delete", 
+          "seed": "return -1;"
+        }, 
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "Replace", 
+          "seed": "t.emitTagPending();"
+        }
+      ], 
+      "patch": "--- /workdir/GenProg_vul4j_jhy_jsoup_VUL4J-59/src/main/java/org/jsoup/parser/TokeniserState.java\t2022-10-04 11:50:49.067731472 -0400\n+++ /workdir/GenProg_vul4j_jhy_jsoup_VUL4J-59/patches_td1y/Patch_3/patched/org/jsoup/parser/TokeniserState.java\t2022-10-04 11:50:49.067731472 -0400\n@@ -756,7 +756,7 @@\n                     t.transition(AttributeValue_unquoted);\n                     break;\n                 case eof:\n-                    t.eofError(this);\n+\t\t\t\tt.emitTagPending();\n                     t.transition(Data);\n                     break;\n                 case '>':\n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "Delete", 
+          "seed": "newAttribute();"
+        }, 
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "Replace", 
+          "seed": "TreeBuilder treeBuilder=new HtmlTreeBuilder();"
+        }, 
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "Replace", 
+          "seed": "t.emitTagPending();"
+        }, 
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 760, 
+          "faulty": "t.transition(Data);", 
+          "type": "InsertBefore", 
+          "seed": "int end=-1;"
+        }
+      ], 
+      "patch": "--- /workdir/GenProg_vul4j_jhy_jsoup_VUL4J-59/src/main/java/org/jsoup/parser/TokeniserState.java\t2022-10-04 12:04:43.931029983 -0400\n+++ /workdir/GenProg_vul4j_jhy_jsoup_VUL4J-59/patches_td1y/Patch_22/patched/org/jsoup/parser/TokeniserState.java\t2022-10-04 12:04:43.931029983 -0400\n@@ -756,8 +756,11 @@\n                     t.transition(AttributeValue_unquoted);\n                     break;\n                 case eof:\n-                    t.eofError(this);\n-                    t.transition(Data);\n+\t\t\t\tt.emitTagPending();\n+\t\t\t\t{\n+\t\t\t\t\tint end = -1;\n+\t\t\t\t\tt.transition(Data);\n+\t\t\t\t}\n                     break;\n                 case '>':\n                     t.error(this);\n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "Replace", 
+          "seed": "TreeBuilder treeBuilder=new HtmlTreeBuilder();"
+        }, 
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "Replace", 
+          "seed": "t.emitTagPending();"
+        }, 
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 760, 
+          "faulty": "t.transition(Data);", 
+          "type": "InsertBefore", 
+          "seed": "int end=-1;"
+        }
+      ], 
+      "patch": "--- /workdir/GenProg_vul4j_jhy_jsoup_VUL4J-59/src/main/java/org/jsoup/parser/TokeniserState.java\t2022-10-04 11:56:03.288499816 -0400\n+++ /workdir/GenProg_vul4j_jhy_jsoup_VUL4J-59/patches_td1y/Patch_12/patched/org/jsoup/parser/TokeniserState.java\t2022-10-04 11:56:03.288499816 -0400\n@@ -756,8 +756,11 @@\n                     t.transition(AttributeValue_unquoted);\n                     break;\n                 case eof:\n-                    t.eofError(this);\n-                    t.transition(Data);\n+\t\t\t\tt.emitTagPending();\n+\t\t\t\t{\n+\t\t\t\t\tint end = -1;\n+\t\t\t\t\tt.transition(Data);\n+\t\t\t\t}\n                     break;\n                 case '>':\n                     t.error(this);\n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "Delete", 
+          "seed": "newAttribute();"
+        }, 
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "Delete", 
+          "seed": "newAttribute();"
+        }, 
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "InsertBefore", 
+          "seed": "XmlTreeBuilder treeBuilder=new XmlTreeBuilder();"
+        }, 
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 760, 
+          "faulty": "t.transition(Data);", 
+          "type": "InsertBefore", 
+          "seed": "t.emitTagPending();"
+        }
+      ], 
+      "patch": "--- /workdir/GenProg_vul4j_jhy_jsoup_VUL4J-59/src/main/java/org/jsoup/parser/TokeniserState.java\t2022-10-04 11:46:01.579710419 -0400\n+++ /workdir/GenProg_vul4j_jhy_jsoup_VUL4J-59/patches_td1y/Patch_2/patched/org/jsoup/parser/TokeniserState.java\t2022-10-04 11:46:01.579710419 -0400\n@@ -756,8 +756,14 @@\n                     t.transition(AttributeValue_unquoted);\n                     break;\n                 case eof:\n-                    t.eofError(this);\n-                    t.transition(Data);\n+\t\t\t\t{\n+\t\t\t\t\tXmlTreeBuilder treeBuilder = new XmlTreeBuilder();\n+\t\t\t\t\tt.eofError(this);\n+\t\t\t\t}\n+\t\t\t\t{\n+\t\t\t\t\tt.emitTagPending();\n+\t\t\t\t\tt.transition(Data);\n+\t\t\t\t}\n                     break;\n                 case '>':\n                     t.error(this);\n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "Replace", 
+          "seed": "TreeBuilder treeBuilder=new HtmlTreeBuilder();"
+        }, 
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "Delete", 
+          "seed": "newAttribute();"
+        }, 
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "InsertBefore", 
+          "seed": "XmlTreeBuilder treeBuilder=new XmlTreeBuilder();"
+        }, 
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 760, 
+          "faulty": "t.transition(Data);", 
+          "type": "InsertBefore", 
+          "seed": "t.emitTagPending();"
+        }
+      ], 
+      "patch": "--- /workdir/GenProg_vul4j_jhy_jsoup_VUL4J-59/src/main/java/org/jsoup/parser/TokeniserState.java\t2022-10-04 12:04:28.110588441 -0400\n+++ /workdir/GenProg_vul4j_jhy_jsoup_VUL4J-59/patches_td1y/Patch_21/patched/org/jsoup/parser/TokeniserState.java\t2022-10-04 12:04:28.114588552 -0400\n@@ -756,8 +756,14 @@\n                     t.transition(AttributeValue_unquoted);\n                     break;\n                 case eof:\n-                    t.eofError(this);\n-                    t.transition(Data);\n+\t\t\t\t{\n+\t\t\t\t\tXmlTreeBuilder treeBuilder = new XmlTreeBuilder();\n+\t\t\t\t\tt.eofError(this);\n+\t\t\t\t}\n+\t\t\t\t{\n+\t\t\t\t\tt.emitTagPending();\n+\t\t\t\t\tt.transition(Data);\n+\t\t\t\t}\n                     break;\n                 case '>':\n                     t.error(this);\n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "InsertBefore", 
+          "seed": "t.transition(BeforeAttributeName);"
+        }, 
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "Replace", 
+          "seed": "TreeBuilder treeBuilder=new HtmlTreeBuilder();"
+        }, 
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "Replace", 
+          "seed": "t.emitTagPending();"
+        }
+      ], 
+      "patch": "--- /workdir/GenProg_vul4j_jhy_jsoup_VUL4J-59/src/main/java/org/jsoup/parser/TokeniserState.java\t2022-10-04 11:45:36.359006838 -0400\n+++ /workdir/GenProg_vul4j_jhy_jsoup_VUL4J-59/patches_td1y/Patch_1/patched/org/jsoup/parser/TokeniserState.java\t2022-10-04 11:45:36.359006838 -0400\n@@ -756,7 +756,7 @@\n                     t.transition(AttributeValue_unquoted);\n                     break;\n                 case eof:\n-                    t.eofError(this);\n+\t\t\t\tt.emitTagPending();\n                     t.transition(Data);\n                     break;\n                 case '>':\n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "Delete", 
+          "seed": "newAttribute();"
+        }, 
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "Delete", 
+          "seed": "return this.getClass().getSimpleName();"
+        }, 
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "InsertBefore", 
+          "seed": "t.transition(BeforeAttributeName);"
+        }, 
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "Replace", 
+          "seed": "TreeBuilder treeBuilder=new HtmlTreeBuilder();"
+        }, 
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "Replace", 
+          "seed": "t.emitTagPending();"
+        }, 
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 760, 
+          "faulty": "t.transition(Data);", 
+          "type": "InsertBefore", 
+          "seed": "int end=-1;"
+        }
+      ], 
+      "patch": "--- /workdir/GenProg_vul4j_jhy_jsoup_VUL4J-59/src/main/java/org/jsoup/parser/TokeniserState.java\t2022-10-04 12:08:14.612910043 -0400\n+++ /workdir/GenProg_vul4j_jhy_jsoup_VUL4J-59/patches_td1y/Patch_24/patched/org/jsoup/parser/TokeniserState.java\t2022-10-04 12:08:14.612910043 -0400\n@@ -756,8 +756,11 @@\n                     t.transition(AttributeValue_unquoted);\n                     break;\n                 case eof:\n-                    t.eofError(this);\n-                    t.transition(Data);\n+\t\t\t\tt.emitTagPending();\n+\t\t\t\t{\n+\t\t\t\t\tint end = -1;\n+\t\t\t\t\tt.transition(Data);\n+\t\t\t\t}\n                     break;\n                 case '>':\n                     t.error(this);\n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "InsertBefore", 
+          "seed": "t.transition(BeforeAttributeName);"
+        }, 
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "Replace", 
+          "seed": "TreeBuilder treeBuilder=new HtmlTreeBuilder();"
+        }, 
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "Replace", 
+          "seed": "t.emitTagPending();"
+        }, 
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "Delete", 
+          "seed": "return -1;"
+        }, 
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "Replace", 
+          "seed": "t.emitTagPending();"
+        }
+      ], 
+      "patch": "--- /workdir/GenProg_vul4j_jhy_jsoup_VUL4J-59/src/main/java/org/jsoup/parser/TokeniserState.java\t2022-10-04 11:57:41.643244583 -0400\n+++ /workdir/GenProg_vul4j_jhy_jsoup_VUL4J-59/patches_td1y/Patch_18/patched/org/jsoup/parser/TokeniserState.java\t2022-10-04 11:57:41.643244583 -0400\n@@ -756,7 +756,7 @@\n                     t.transition(AttributeValue_unquoted);\n                     break;\n                 case eof:\n-                    t.eofError(this);\n+\t\t\t\tt.emitTagPending();\n                     t.transition(Data);\n                     break;\n                 case '>':\n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "InsertBefore", 
+          "seed": "t.transition(BeforeAttributeName);"
+        }, 
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "Replace", 
+          "seed": "t.emitTagPending();"
+        }, 
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 760, 
+          "faulty": "t.transition(Data);", 
+          "type": "InsertBefore", 
+          "seed": "int end=-1;"
+        }
+      ], 
+      "patch": "--- /workdir/GenProg_vul4j_jhy_jsoup_VUL4J-59/src/main/java/org/jsoup/parser/TokeniserState.java\t2022-10-04 12:03:19.800681994 -0400\n+++ /workdir/GenProg_vul4j_jhy_jsoup_VUL4J-59/patches_td1y/Patch_20/patched/org/jsoup/parser/TokeniserState.java\t2022-10-04 12:03:19.800681994 -0400\n@@ -756,8 +756,11 @@\n                     t.transition(AttributeValue_unquoted);\n                     break;\n                 case eof:\n-                    t.eofError(this);\n-                    t.transition(Data);\n+\t\t\t\tt.emitTagPending();\n+\t\t\t\t{\n+\t\t\t\t\tint end = -1;\n+\t\t\t\t\tt.transition(Data);\n+\t\t\t\t}\n                     break;\n                 case '>':\n                     t.error(this);\n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "InsertBefore", 
+          "seed": "t.transition(BeforeAttributeName);"
+        }, 
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "Replace", 
+          "seed": "TreeBuilder treeBuilder=new HtmlTreeBuilder();"
+        }, 
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 760, 
+          "faulty": "t.transition(Data);", 
+          "type": "InsertBefore", 
+          "seed": "t.emitTagPending();"
+        }
+      ], 
+      "patch": "--- /workdir/GenProg_vul4j_jhy_jsoup_VUL4J-59/src/main/java/org/jsoup/parser/TokeniserState.java\t2022-10-04 11:51:15.420466804 -0400\n+++ /workdir/GenProg_vul4j_jhy_jsoup_VUL4J-59/patches_td1y/Patch_5/patched/org/jsoup/parser/TokeniserState.java\t2022-10-04 11:51:15.420466804 -0400\n@@ -756,8 +756,11 @@\n                     t.transition(AttributeValue_unquoted);\n                     break;\n                 case eof:\n-                    t.eofError(this);\n-                    t.transition(Data);\n+\t\t\t\tTreeBuilder treeBuilder = new HtmlTreeBuilder();\n+\t\t\t\t{\n+\t\t\t\t\tt.emitTagPending();\n+\t\t\t\t\tt.transition(Data);\n+\t\t\t\t}\n                     break;\n                 case '>':\n                     t.error(this);\n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "InsertBefore", 
+          "seed": "t.transition(BeforeAttributeName);"
+        }, 
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "Delete", 
+          "seed": "Arrays.sort(attributeSingleValueCharsSorted);"
+        }, 
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "Replace", 
+          "seed": "TreeBuilder treeBuilder=new HtmlTreeBuilder();"
+        }, 
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "InsertBefore", 
+          "seed": "XmlTreeBuilder treeBuilder=new XmlTreeBuilder();"
+        }, 
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 760, 
+          "faulty": "t.transition(Data);", 
+          "type": "InsertBefore", 
+          "seed": "t.emitTagPending();"
+        }
+      ], 
+      "patch": "--- /workdir/GenProg_vul4j_jhy_jsoup_VUL4J-59/src/main/java/org/jsoup/parser/TokeniserState.java\t2022-10-04 11:57:00.002082486 -0400\n+++ /workdir/GenProg_vul4j_jhy_jsoup_VUL4J-59/patches_td1y/Patch_16/patched/org/jsoup/parser/TokeniserState.java\t2022-10-04 11:57:00.002082486 -0400\n@@ -756,8 +756,14 @@\n                     t.transition(AttributeValue_unquoted);\n                     break;\n                 case eof:\n-                    t.eofError(this);\n-                    t.transition(Data);\n+\t\t\t\t{\n+\t\t\t\t\tXmlTreeBuilder treeBuilder = new XmlTreeBuilder();\n+\t\t\t\t\tt.eofError(this);\n+\t\t\t\t}\n+\t\t\t\t{\n+\t\t\t\t\tt.emitTagPending();\n+\t\t\t\t\tt.transition(Data);\n+\t\t\t\t}\n                     break;\n                 case '>':\n                     t.error(this);\n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "Delete", 
+          "seed": "newAttribute();"
+        }, 
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "Delete", 
+          "seed": "newAttribute();"
+        }, 
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 760, 
+          "faulty": "t.transition(Data);", 
+          "type": "InsertBefore", 
+          "seed": "t.emitTagPending();"
+        }
+      ], 
+      "patch": "--- /workdir/GenProg_vul4j_jhy_jsoup_VUL4J-59/src/main/java/org/jsoup/parser/TokeniserState.java\t2022-10-04 11:56:54.853938822 -0400\n+++ /workdir/GenProg_vul4j_jhy_jsoup_VUL4J-59/patches_td1y/Patch_15/patched/org/jsoup/parser/TokeniserState.java\t2022-10-04 11:56:54.853938822 -0400\n@@ -756,8 +756,11 @@\n                     t.transition(AttributeValue_unquoted);\n                     break;\n                 case eof:\n-                    t.eofError(this);\n-                    t.transition(Data);\n+\t\t\t\t;\n+\t\t\t\t{\n+\t\t\t\t\tt.emitTagPending();\n+\t\t\t\t\tt.transition(Data);\n+\t\t\t\t}\n                     break;\n                 case '>':\n                     t.error(this);\n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "Replace", 
+          "seed": "t.emitTagPending();"
+        }
+      ], 
+      "patch": "--- /workdir/GenProg_vul4j_jhy_jsoup_VUL4J-59/src/main/java/org/jsoup/parser/TokeniserState.java\t2022-10-04 11:53:14.307784267 -0400\n+++ /workdir/GenProg_vul4j_jhy_jsoup_VUL4J-59/patches_td1y/Patch_8/patched/org/jsoup/parser/TokeniserState.java\t2022-10-04 11:53:14.307784267 -0400\n@@ -756,7 +756,7 @@\n                     t.transition(AttributeValue_unquoted);\n                     break;\n                 case eof:\n-                    t.eofError(this);\n+\t\t\t\tt.emitTagPending();\n                     t.transition(Data);\n                     break;\n                 case '>':\n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "Delete", 
+          "seed": "newAttribute();"
+        }, 
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "Delete", 
+          "seed": "return this.getClass().getSimpleName();"
+        }, 
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "InsertBefore", 
+          "seed": "t.transition(BeforeAttributeName);"
+        }, 
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "InsertBefore", 
+          "seed": "t.transition(BeforeAttributeName);"
+        }, 
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "Delete", 
+          "seed": "return this.getClass().getSimpleName();"
+        }, 
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "Delete", 
+          "seed": "newAttribute();"
+        }, 
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "InsertBefore", 
+          "seed": "XmlTreeBuilder treeBuilder=new XmlTreeBuilder();"
+        }, 
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 760, 
+          "faulty": "t.transition(Data);", 
+          "type": "InsertBefore", 
+          "seed": "t.emitTagPending();"
+        }
+      ], 
+      "patch": "--- /workdir/GenProg_vul4j_jhy_jsoup_VUL4J-59/src/main/java/org/jsoup/parser/TokeniserState.java\t2022-10-04 11:44:09.476583224 -0400\n+++ /workdir/GenProg_vul4j_jhy_jsoup_VUL4J-59/patches_td1y/Patch_0/patched/org/jsoup/parser/TokeniserState.java\t2022-10-04 11:44:09.480583335 -0400\n@@ -756,8 +756,14 @@\n                     t.transition(AttributeValue_unquoted);\n                     break;\n                 case eof:\n-                    t.eofError(this);\n-                    t.transition(Data);\n+\t\t\t\t{\n+\t\t\t\t\tXmlTreeBuilder treeBuilder = new XmlTreeBuilder();\n+\t\t\t\t\tt.eofError(this);\n+\t\t\t\t}\n+\t\t\t\t{\n+\t\t\t\t\tt.emitTagPending();\n+\t\t\t\t\tt.transition(Data);\n+\t\t\t\t}\n                     break;\n                 case '>':\n                     t.error(this);\n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "Replace", 
+          "seed": "TreeBuilder treeBuilder=new HtmlTreeBuilder();"
+        }, 
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "Replace", 
+          "seed": "t.emitTagPending();"
+        }, 
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "Delete", 
+          "seed": "return this.getClass().getSimpleName();"
+        }, 
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "InsertBefore", 
+          "seed": "t.transition(BeforeAttributeName);"
+        }, 
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 760, 
+          "faulty": "t.transition(Data);", 
+          "type": "InsertBefore", 
+          "seed": "t.emitTagPending();"
+        }, 
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "Delete", 
+          "seed": "return (Character)this;"
+        }
+      ], 
+      "patch": "--- /workdir/GenProg_vul4j_jhy_jsoup_VUL4J-59/src/main/java/org/jsoup/parser/TokeniserState.java\t2022-10-04 12:05:10.251764586 -0400\n+++ /workdir/GenProg_vul4j_jhy_jsoup_VUL4J-59/patches_td1y/Patch_23/patched/org/jsoup/parser/TokeniserState.java\t2022-10-04 12:05:10.251764586 -0400\n@@ -756,8 +756,11 @@\n                     t.transition(AttributeValue_unquoted);\n                     break;\n                 case eof:\n-                    t.eofError(this);\n-                    t.transition(Data);\n+\t\t\t\t;\n+\t\t\t\t{\n+\t\t\t\t\tt.emitTagPending();\n+\t\t\t\t\tt.transition(Data);\n+\t\t\t\t}\n                     break;\n                 case '>':\n                     t.error(this);\n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "Delete", 
+          "seed": "newAttribute();"
+        }, 
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "Delete", 
+          "seed": "newAttribute();"
+        }, 
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "InsertBefore", 
+          "seed": "XmlTreeBuilder treeBuilder=new XmlTreeBuilder();"
+        }, 
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 760, 
+          "faulty": "t.transition(Data);", 
+          "type": "InsertBefore", 
+          "seed": "t.emitTagPending();"
+        }, 
+        {
+          "path": "src/main/java/org/jsoup/parser/TokeniserState.java", 
+          "line": 759, 
+          "faulty": "t.eofError(this);", 
+          "type": "Replace", 
+          "seed": "int j=0;"
+        }
+      ], 
+      "patch": "--- /workdir/GenProg_vul4j_jhy_jsoup_VUL4J-59/src/main/java/org/jsoup/parser/TokeniserState.java\t2022-10-04 11:56:44.645653946 -0400\n+++ /workdir/GenProg_vul4j_jhy_jsoup_VUL4J-59/patches_td1y/Patch_14/patched/org/jsoup/parser/TokeniserState.java\t2022-10-04 11:56:44.645653946 -0400\n@@ -756,8 +756,11 @@\n                     t.transition(AttributeValue_unquoted);\n                     break;\n                 case eof:\n-                    t.eofError(this);\n-                    t.transition(Data);\n+\t\t\t\tint j = 0;\n+\t\t\t\t{\n+\t\t\t\t\tt.emitTagPending();\n+\t\t\t\t\tt.transition(Data);\n+\t\t\t\t}\n                     break;\n                 case '>':\n                     t.error(this);\n\n\n"
+    }
+  ]
+}

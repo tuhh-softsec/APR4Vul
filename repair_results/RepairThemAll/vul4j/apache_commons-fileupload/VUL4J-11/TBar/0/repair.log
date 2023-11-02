@@ -1,0 +1,885 @@
+cd /workdir/TBar_vul4j_apache_commons-fileupload_VUL4J-11;
+export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en";
+TZ="America/New_York"; export TZ;
+export PATH="/usr/lib/jvm/java-8-openjdk-amd64/bin:$PATH";
+export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64";
+timeout 240m java -Xmx4g -Xms1g -XX:MaxPermSize=512m \
+    -cp /script/../libs/tbar_external/com.gzoltar-0.1.1-jdk7.jar:/script/../repair_tools/tbar.jar edu.lu.uni.serval.tbar.main.Main \
+    "/workdir/TBar_vul4j_apache_commons-fileupload_VUL4J-11" "org.apache.commons.fileupload.MultipartStreamTest#testSmallBuffer" "/src/main/java/" "/src/test/java/" "/target/classes/" "/target/test-classes/" "/script/../data/benchmarks/vul4j/perfectfl/VUL4J-11/spectra.txt" "mvn test -Dtest=org.apache.commons.fileupload.MultipartStreamTest#testSmallBuffer -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B" "mvn test -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B" "/root/.m2/repository/javax/servlet/servlet-api/2.4/servlet-api-2.4.jar:/root/.m2/repository/commons-io/commons-io/2.2/commons-io-2.2.jar:/root/.m2/repository/portlet-api/portlet-api/1.0/portlet-api-1.0.jar:/root/.m2/repository/junit/junit/4.11/junit-4.11.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar";
+echo "\n\nNode: `hostname`\n";
+echo "\n\nDate: `date`\n";
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en
+OpenJDK 64-Bit Server VM warning: ignoring option MaxPermSize=512m; support was removed in 8.0
+06:35:44,607 |-INFO in ch.qos.logback.classic.LoggerContext[TBar] - Could NOT find resource [logback-test.xml]
+06:35:44,607 |-INFO in ch.qos.logback.classic.LoggerContext[TBar] - Could NOT find resource [logback.groovy]
+06:35:44,607 |-INFO in ch.qos.logback.classic.LoggerContext[TBar] - Found resource [logback.xml] at [jar:file:/repair_tools/tbar.jar!/logback.xml]
+06:35:44,617 |-INFO in ch.qos.logback.core.joran.spi.ConfigurationWatchList@5a42bbf4 - URL [jar:file:/repair_tools/tbar.jar!/logback.xml] is not of type file
+06:35:44,664 |-INFO in ch.qos.logback.classic.joran.action.ConfigurationAction - debug attribute not set
+06:35:44,666 |-INFO in ch.qos.logback.classic.joran.action.ContextNameAction - Setting logger context name as [TBar]
+06:35:44,666 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - About to instantiate appender of type [ch.qos.logback.core.ConsoleAppender]
+06:35:44,668 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - Naming appender as [STDOUT]
+06:35:44,704 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting level of logger [org.hibernate.engine.query.HQLQueryPlan] to DEBUG
+06:35:44,704 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting additivity of logger [org.hibernate.engine.query.HQLQueryPlan] to false
+06:35:44,704 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting level of logger [com.piedra.logback] to DEBUG
+06:35:44,705 |-ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - Could not find an appender named [FILE]. Did you define it below instead of above in the configuration file?
+06:35:44,705 |-ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - See http://logback.qos.ch/codes.html#appender_order for more details.
+06:35:44,705 |-INFO in ch.qos.logback.classic.joran.action.RootLoggerAction - Setting level of ROOT logger to DEBUG
+06:35:44,705 |-INFO in ch.qos.logback.core.joran.action.AppenderRefAction - Attaching appender named [STDOUT] to Logger[ROOT]
+06:35:44,705 |-ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - Could not find an appender named [ROLLINGFILE]. Did you define it below instead of above in the configuration file?
+06:35:44,705 |-ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - See http://logback.qos.ch/codes.html#appender_order for more details.
+06:35:44,705 |-INFO in ch.qos.logback.classic.joran.action.ConfigurationAction - End of configuration.
+06:35:44,706 |-INFO in ch.qos.logback.classic.joran.JoranConfigurator@270421f5 - Registering current configuration as safe fallback point
+
+2022-09-14 06:35:44.769 [main] INFO  edu.lu.uni.serval.tbar.AbstractFixer - TBar_vul4j_apache_commons-fileupload_VUL4J-11 Failed Tests: 1
+2022-09-14 06:35:44.772 [main] INFO  edu.lu.uni.serval.tbar.TBarFixer - =======StaticBugFixer: Start to fix suspicious code======
+2022-09-14 06:35:44.772 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.apache.commons.fileupload.MultipartStream ===334
+2022-09-14 06:35:45.261 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+this.boundary = new byte[boundary.length + BOUNDARY_PREFIX.length];
+2022-09-14 06:35:46.329 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -331,7 +331,7 @@ public class MultipartStream {
+-        this.boundary = new byte[boundary.length + BOUNDARY_PREFIX.length];
++        this.boundary = new byte[boundary.length - BOUNDARY_PREFIX.length];
+2022-09-14 06:35:46.329 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:35:46.982 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 06:35:52.212 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -324,14 +324,15 @@ public class MultipartStream {
+-        this.input = input;
++        this.boundary = new byte[boundary.length + BOUNDARY_PREFIX.length];
++	this.input = input;
+-        this.boundary = new byte[boundary.length + BOUNDARY_PREFIX.length];
++
+2022-09-14 06:35:52.212 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:35:52.858 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 06:35:58.021 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -325,13 +325,14 @@ public class MultipartStream {
+-        this.bufSize = bufSize;
++        this.boundary = new byte[boundary.length + BOUNDARY_PREFIX.length];
++	this.bufSize = bufSize;
+-        this.boundary = new byte[boundary.length + BOUNDARY_PREFIX.length];
++
+2022-09-14 06:35:58.021 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:35:58.695 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 06:36:04.083 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -326,12 +326,13 @@ public class MultipartStream {
+-        this.buffer = new byte[bufSize];
++        this.boundary = new byte[boundary.length + BOUNDARY_PREFIX.length];
++	this.buffer = new byte[bufSize];
+-        this.boundary = new byte[boundary.length + BOUNDARY_PREFIX.length];
++
+2022-09-14 06:36:04.083 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:36:04.692 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 06:36:10.268 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -327,11 +327,12 @@ public class MultipartStream {
+-        this.notifier = pNotifier;
++        this.boundary = new byte[boundary.length + BOUNDARY_PREFIX.length];
++	this.notifier = pNotifier;
+-        this.boundary = new byte[boundary.length + BOUNDARY_PREFIX.length];
++
+2022-09-14 06:36:10.268 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:36:10.966 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 06:36:16.255 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -331,8 +331,10 @@ public class MultipartStream {
+-        this.boundary = new byte[boundary.length + BOUNDARY_PREFIX.length];
++
++	this.boundary = new byte[boundary.length + BOUNDARY_PREFIX.length];
++
+2022-09-14 06:36:16.255 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:36:16.920 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 06:36:22.157 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -331,9 +331,11 @@ public class MultipartStream {
+-        this.boundary = new byte[boundary.length + BOUNDARY_PREFIX.length];
++
++	this.boundary = new byte[boundary.length + BOUNDARY_PREFIX.length];
++
+2022-09-14 06:36:22.157 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:36:22.802 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 06:36:28.216 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -331,11 +331,13 @@ public class MultipartStream {
+-        this.boundary = new byte[boundary.length + BOUNDARY_PREFIX.length];
++
++	this.boundary = new byte[boundary.length + BOUNDARY_PREFIX.length];
++
+2022-09-14 06:36:28.216 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:36:28.784 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 06:36:34.017 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -331,13 +331,15 @@ public class MultipartStream {
+-        this.boundary = new byte[boundary.length + BOUNDARY_PREFIX.length];
++
++	this.boundary = new byte[boundary.length + BOUNDARY_PREFIX.length];
++
+2022-09-14 06:36:34.017 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:36:34.679 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 06:36:39.764 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -331,7 +331,7 @@ public class MultipartStream {
+-        this.boundary = new byte[boundary.length + BOUNDARY_PREFIX.length];
++
+@@ -340,6 +340,8 @@ public class MultipartStream {
++	this.boundary = new byte[boundary.length + BOUNDARY_PREFIX.length];
++
+2022-09-14 06:36:39.764 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:36:40.438 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 06:36:45.465 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -331,7 +331,7 @@ public class MultipartStream {
+-        this.boundary = new byte[boundary.length + BOUNDARY_PREFIX.length];
++
+@@ -341,6 +341,8 @@ public class MultipartStream {
++	this.boundary = new byte[boundary.length + BOUNDARY_PREFIX.length];
++
+2022-09-14 06:36:45.465 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:36:46.117 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 06:36:51.606 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -331,7 +331,7 @@ public class MultipartStream {
+-        this.boundary = new byte[boundary.length + BOUNDARY_PREFIX.length];
++
+2022-09-14 06:36:51.607 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:36:52.421 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 06:36:57.818 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -302,46 +302,7 @@ public class MultipartStream {
+-    /**
+-     * <p> Constructs a <code>MultipartStream</code> with a custom size buffer.
+-     *
+-     * <p> Note that the buffer must be at least big enough to contain the
+-     * boundary string, plus 4 characters for CR/LF and double dash, plus at
+-     * least one byte of data.  Too small a buffer size setting will degrade
+-     * performance.
+-     *
+-     * @param input    The <code>InputStream</code> to serve as a data source.
+-     * @param boundary The token used for dividing the stream into
+-     *                 <code>encapsulations</code>.
+-     * @param bufSize  The size of the buffer to be used, in bytes.
+-     * @param pNotifier The notifier, which is used for calling the
+-     *                  progress listener, if any.
+-     *
+-     * @see #MultipartStream(InputStream, byte[],
+-     *     MultipartStream.ProgressNotifier)
+-     */
+-    public MultipartStream(InputStream input,
+-            byte[] boundary,
+-            int bufSize,
+-            ProgressNotifier pNotifier) {
+-        this.input = input;
+-        this.bufSize = bufSize;
+-        this.buffer = new byte[bufSize];
+-        this.notifier = pNotifier;
+-
+-        // We prepend CR/LF to the boundary to chop trailing CR/LF from
+-        // body-data tokens.
+-        this.boundary = new byte[boundary.length + BOUNDARY_PREFIX.length];
+-        this.boundaryLength = boundary.length + BOUNDARY_PREFIX.length;
+-        this.keepRegion = this.boundary.length;
+-        System.arraycopy(BOUNDARY_PREFIX, 0, this.boundary, 0,
+-                BOUNDARY_PREFIX.length);
+-        System.arraycopy(boundary, 0, this.boundary, BOUNDARY_PREFIX.length,
+-                boundary.length);
+-
+-        head = 0;
+-        tail = 0;
+-    }
++
+2022-09-14 06:36:57.818 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:36:58.336 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:36:58.378 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.apache.commons.fileupload.MultipartStream ===335
+2022-09-14 06:36:58.421 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+this.boundaryLength = boundary.length + BOUNDARY_PREFIX.length;
+2022-09-14 06:36:58.582 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -332,7 +332,7 @@ public class MultipartStream {
+-        this.boundaryLength = boundary.length + BOUNDARY_PREFIX.length;
++        this.boundaryLength = boundary.length - BOUNDARY_PREFIX.length;
+2022-09-14 06:36:58.583 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:36:59.339 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 06:37:04.887 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -324,7 +324,8 @@ public class MultipartStream {
+-        this.input = input;
++        this.boundaryLength = boundary.length + BOUNDARY_PREFIX.length;
++	this.input = input;
+@@ -332,7 +333,7 @@ public class MultipartStream {
+-        this.boundaryLength = boundary.length + BOUNDARY_PREFIX.length;
++
+2022-09-14 06:37:04.887 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:37:05.676 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 06:37:11.045 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -325,14 +325,15 @@ public class MultipartStream {
+-        this.bufSize = bufSize;
++        this.boundaryLength = boundary.length + BOUNDARY_PREFIX.length;
++	this.bufSize = bufSize;
+-        this.boundaryLength = boundary.length + BOUNDARY_PREFIX.length;
++
+2022-09-14 06:37:11.045 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:37:11.724 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 06:37:17.110 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -326,13 +326,14 @@ public class MultipartStream {
+-        this.buffer = new byte[bufSize];
++        this.boundaryLength = boundary.length + BOUNDARY_PREFIX.length;
++	this.buffer = new byte[bufSize];
+-        this.boundaryLength = boundary.length + BOUNDARY_PREFIX.length;
++
+2022-09-14 06:37:17.110 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:37:17.782 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 06:37:23.202 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -327,12 +327,13 @@ public class MultipartStream {
+-        this.notifier = pNotifier;
++        this.boundaryLength = boundary.length + BOUNDARY_PREFIX.length;
++	this.notifier = pNotifier;
+-        this.boundaryLength = boundary.length + BOUNDARY_PREFIX.length;
++
+2022-09-14 06:37:23.202 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:37:23.902 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 06:37:29.129 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -331,8 +331,9 @@ public class MultipartStream {
+-        this.boundary = new byte[boundary.length + BOUNDARY_PREFIX.length];
++	this.boundary = new byte[boundary.length + BOUNDARY_PREFIX.length];
++
+2022-09-14 06:37:29.129 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:37:29.816 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 06:37:35.035 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -332,8 +332,10 @@ public class MultipartStream {
+-        this.boundaryLength = boundary.length + BOUNDARY_PREFIX.length;
++
++	this.boundaryLength = boundary.length + BOUNDARY_PREFIX.length;
++
+2022-09-14 06:37:35.035 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:37:35.616 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 06:37:41.003 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -332,10 +332,12 @@ public class MultipartStream {
+-        this.boundaryLength = boundary.length + BOUNDARY_PREFIX.length;
++
++	this.boundaryLength = boundary.length + BOUNDARY_PREFIX.length;
++
+2022-09-14 06:37:41.004 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:37:41.661 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 06:37:46.870 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -332,12 +332,14 @@ public class MultipartStream {
+-        this.boundaryLength = boundary.length + BOUNDARY_PREFIX.length;
++
++	this.boundaryLength = boundary.length + BOUNDARY_PREFIX.length;
++
+2022-09-14 06:37:46.870 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:37:47.512 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 06:37:52.866 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -332,7 +332,7 @@ public class MultipartStream {
+-        this.boundaryLength = boundary.length + BOUNDARY_PREFIX.length;
++
+@@ -340,6 +340,8 @@ public class MultipartStream {
++	this.boundaryLength = boundary.length + BOUNDARY_PREFIX.length;
++
+2022-09-14 06:37:52.866 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:37:53.602 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 06:37:58.807 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -332,7 +332,7 @@ public class MultipartStream {
+-        this.boundaryLength = boundary.length + BOUNDARY_PREFIX.length;
++
+@@ -341,6 +341,8 @@ public class MultipartStream {
++	this.boundaryLength = boundary.length + BOUNDARY_PREFIX.length;
++
+2022-09-14 06:37:58.807 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:37:59.478 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 06:38:04.944 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -332,7 +332,7 @@ public class MultipartStream {
+-        this.boundaryLength = boundary.length + BOUNDARY_PREFIX.length;
++
+2022-09-14 06:38:04.944 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:38:05.638 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 06:38:10.936 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.apache.commons.fileupload.FileUploadBase ===994
+2022-09-14 06:38:11.004 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+multi = new MultipartStream(input, boundary, notifier);
+2022-09-14 06:38:11.080 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -991,8 +991,11 @@ public abstract class FileUploadBase {
+-            multi = new MultipartStream(input, boundary, notifier);
++            if (input != null) {
++	multi = new MultipartStream(input, boundary, notifier);
++	}
++
+2022-09-14 06:38:11.080 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:38:11.827 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:38:11.833 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -991,7 +991,8 @@ public abstract class FileUploadBase {
+-            multi = new MultipartStream(input, boundary, notifier);
++            if (input == null) input = new InputStream();
++ multi = new MultipartStream(input, boundary, notifier);
+2022-09-14 06:38:11.833 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:38:12.514 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:38:12.521 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -991,8 +991,11 @@ public abstract class FileUploadBase {
+-            multi = new MultipartStream(input, boundary, notifier);
++            if (notifier != null) {
++	multi = new MultipartStream(input, boundary, notifier);
++	}
++
+2022-09-14 06:38:12.521 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:38:13.206 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:38:13.212 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -991,7 +991,8 @@ public abstract class FileUploadBase {
+-            multi = new MultipartStream(input, boundary, notifier);
++            if (notifier == null) notifier = new ProgressNotifier();
++ multi = new MultipartStream(input, boundary, notifier);
+2022-09-14 06:38:13.212 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:38:13.836 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:38:13.846 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -991,8 +991,11 @@ public abstract class FileUploadBase {
+-            multi = new MultipartStream(input, boundary, notifier);
++            if (input != null && notifier != null) {
++	multi = new MultipartStream(input, boundary, notifier);
++	}
++
+2022-09-14 06:38:13.846 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:38:14.517 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:38:14.562 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -991,7 +991,7 @@ public abstract class FileUploadBase {
+-            multi = new MultipartStream(input, boundary, notifier);
++            multi = new MultipartStream(charEncoding, input, boundary, notifier);
+2022-09-14 06:38:14.562 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:38:15.392 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:38:15.398 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -991,7 +991,7 @@ public abstract class FileUploadBase {
+-            multi = new MultipartStream(input, boundary, notifier);
++            multi = new MultipartStream(requestSize, input, boundary, notifier);
+2022-09-14 06:38:15.398 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:38:16.061 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:38:16.066 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -991,7 +991,7 @@ public abstract class FileUploadBase {
+-            multi = new MultipartStream(input, boundary, notifier);
++            multi = new MultipartStream(contentLengthInt, input, boundary, notifier);
+2022-09-14 06:38:16.066 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:38:16.735 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:38:16.743 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -991,7 +991,7 @@ public abstract class FileUploadBase {
+-            multi = new MultipartStream(input, boundary, notifier);
++            multi = new MultipartStream(contentType, input, boundary, notifier);
+2022-09-14 06:38:16.744 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:38:17.417 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:38:17.423 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -991,7 +991,7 @@ public abstract class FileUploadBase {
+-            multi = new MultipartStream(input, boundary, notifier);
++            multi = new MultipartStream(ctx, input, boundary, notifier);
+2022-09-14 06:38:17.423 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:38:18.087 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:38:18.092 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -991,7 +991,7 @@ public abstract class FileUploadBase {
+-            multi = new MultipartStream(input, boundary, notifier);
++            multi = new MultipartStream(this.multi, input, boundary, notifier);
+2022-09-14 06:38:18.092 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:38:18.742 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:38:18.760 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -991,7 +991,7 @@ public abstract class FileUploadBase {
+-            multi = new MultipartStream(input, boundary, notifier);
++            multi = new MultipartStream(this.notifier, input, boundary, notifier);
+2022-09-14 06:38:18.760 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:38:19.459 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:38:19.464 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -991,7 +991,7 @@ public abstract class FileUploadBase {
+-            multi = new MultipartStream(input, boundary, notifier);
++            multi = new MultipartStream(this.boundary, input, boundary, notifier);
+2022-09-14 06:38:19.465 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:38:20.073 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:38:20.079 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -991,7 +991,7 @@ public abstract class FileUploadBase {
+-            multi = new MultipartStream(input, boundary, notifier);
++            multi = new MultipartStream(this.currentItem, input, boundary, notifier);
+2022-09-14 06:38:20.079 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:38:20.729 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:38:20.735 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -991,7 +991,7 @@ public abstract class FileUploadBase {
+-            multi = new MultipartStream(input, boundary, notifier);
++            multi = new MultipartStream(this.currentFieldName, input, boundary, notifier);
+2022-09-14 06:38:20.735 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:38:21.385 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:38:21.392 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -991,7 +991,7 @@ public abstract class FileUploadBase {
+-            multi = new MultipartStream(input, boundary, notifier);
++            multi = new MultipartStream(this.skipPreamble, input, boundary, notifier);
+2022-09-14 06:38:21.392 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:38:22.062 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:38:22.068 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -991,7 +991,7 @@ public abstract class FileUploadBase {
+-            multi = new MultipartStream(input, boundary, notifier);
++            multi = new MultipartStream(this.itemValid, input, boundary, notifier);
+2022-09-14 06:38:22.068 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:38:22.638 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:38:22.644 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -991,7 +991,7 @@ public abstract class FileUploadBase {
+-            multi = new MultipartStream(input, boundary, notifier);
++            multi = new MultipartStream(this.eof, input, boundary, notifier);
+2022-09-14 06:38:22.644 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:38:23.341 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:38:23.347 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -991,7 +991,7 @@ public abstract class FileUploadBase {
+-            multi = new MultipartStream(input, boundary, notifier);
++            multi = new MultipartStream(input, charEncoding, boundary, notifier);
+2022-09-14 06:38:23.347 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:38:24.017 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:38:24.023 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -991,7 +991,7 @@ public abstract class FileUploadBase {
+-            multi = new MultipartStream(input, boundary, notifier);
++            multi = new MultipartStream(input, requestSize, boundary, notifier);
+2022-09-14 06:38:24.023 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:38:24.616 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:38:24.621 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -991,7 +991,7 @@ public abstract class FileUploadBase {
+-            multi = new MultipartStream(input, boundary, notifier);
++            multi = new MultipartStream(input, contentLengthInt, boundary, notifier);
+2022-09-14 06:38:24.621 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:38:25.337 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:38:25.343 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -991,7 +991,7 @@ public abstract class FileUploadBase {
+-            multi = new MultipartStream(input, boundary, notifier);
++            multi = new MultipartStream(input, contentType, boundary, notifier);
+2022-09-14 06:38:25.343 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:38:25.983 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:38:25.989 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -991,7 +991,7 @@ public abstract class FileUploadBase {
+-            multi = new MultipartStream(input, boundary, notifier);
++            multi = new MultipartStream(input, ctx, boundary, notifier);
+2022-09-14 06:38:25.989 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:38:26.636 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:38:26.642 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -991,7 +991,7 @@ public abstract class FileUploadBase {
+-            multi = new MultipartStream(input, boundary, notifier);
++            multi = new MultipartStream(input, this.multi, boundary, notifier);
+2022-09-14 06:38:26.642 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:38:27.232 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:38:27.239 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -991,7 +991,7 @@ public abstract class FileUploadBase {
+-            multi = new MultipartStream(input, boundary, notifier);
++            multi = new MultipartStream(input, this.notifier, boundary, notifier);
+2022-09-14 06:38:27.239 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:38:27.939 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:38:27.945 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -991,7 +991,7 @@ public abstract class FileUploadBase {
+-            multi = new MultipartStream(input, boundary, notifier);
++            multi = new MultipartStream(input, this.boundary, boundary, notifier);
+2022-09-14 06:38:27.945 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:38:28.602 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:38:28.609 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -991,7 +991,7 @@ public abstract class FileUploadBase {
+-            multi = new MultipartStream(input, boundary, notifier);
++            multi = new MultipartStream(input, this.currentItem, boundary, notifier);
+2022-09-14 06:38:28.609 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:38:29.231 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:38:29.236 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -991,7 +991,7 @@ public abstract class FileUploadBase {
+-            multi = new MultipartStream(input, boundary, notifier);
++            multi = new MultipartStream(input, this.currentFieldName, boundary, notifier);
+2022-09-14 06:38:29.237 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:38:29.895 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:38:29.901 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -991,7 +991,7 @@ public abstract class FileUploadBase {
+-            multi = new MultipartStream(input, boundary, notifier);
++            multi = new MultipartStream(input, this.skipPreamble, boundary, notifier);
+2022-09-14 06:38:29.902 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:38:30.599 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:38:30.605 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -991,7 +991,7 @@ public abstract class FileUploadBase {
+-            multi = new MultipartStream(input, boundary, notifier);
++            multi = new MultipartStream(input, this.itemValid, boundary, notifier);
+2022-09-14 06:38:30.606 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:38:31.262 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:38:31.268 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -991,7 +991,7 @@ public abstract class FileUploadBase {
+-            multi = new MultipartStream(input, boundary, notifier);
++            multi = new MultipartStream(input, this.eof, boundary, notifier);
+2022-09-14 06:38:31.268 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:38:31.991 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:38:31.997 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -991,7 +991,7 @@ public abstract class FileUploadBase {
+-            multi = new MultipartStream(input, boundary, notifier);
++            multi = new MultipartStream(input, boundary, charEncoding, notifier);
+2022-09-14 06:38:31.997 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:38:32.721 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:38:32.727 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -991,7 +991,7 @@ public abstract class FileUploadBase {
+-            multi = new MultipartStream(input, boundary, notifier);
++            multi = new MultipartStream(input, boundary, requestSize, notifier);
+2022-09-14 06:38:32.727 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:38:33.407 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:38:33.413 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -991,7 +991,7 @@ public abstract class FileUploadBase {
+-            multi = new MultipartStream(input, boundary, notifier);
++            multi = new MultipartStream(input, boundary, contentLengthInt, notifier);
+2022-09-14 06:38:33.413 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:38:34.197 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 06:38:39.228 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -991,7 +991,7 @@ public abstract class FileUploadBase {
+-            multi = new MultipartStream(input, boundary, notifier);
++            multi = new MultipartStream(input, boundary, contentType, notifier);
+2022-09-14 06:38:39.229 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:38:39.918 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:38:39.925 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -991,7 +991,7 @@ public abstract class FileUploadBase {
+-            multi = new MultipartStream(input, boundary, notifier);
++            multi = new MultipartStream(input, boundary, ctx, notifier);
+2022-09-14 06:38:39.925 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:38:40.638 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:38:40.645 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -991,7 +991,7 @@ public abstract class FileUploadBase {
+-            multi = new MultipartStream(input, boundary, notifier);
++            multi = new MultipartStream(input, boundary, this.multi, notifier);
+2022-09-14 06:38:40.645 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:38:41.316 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:38:41.323 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -991,7 +991,7 @@ public abstract class FileUploadBase {
+-            multi = new MultipartStream(input, boundary, notifier);
++            multi = new MultipartStream(input, boundary, this.notifier, notifier);
+2022-09-14 06:38:41.323 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:38:42.041 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:38:42.047 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -991,7 +991,7 @@ public abstract class FileUploadBase {
+-            multi = new MultipartStream(input, boundary, notifier);
++            multi = new MultipartStream(input, boundary, this.boundary, notifier);
+2022-09-14 06:38:42.047 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:38:42.701 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:38:42.707 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -991,7 +991,7 @@ public abstract class FileUploadBase {
+-            multi = new MultipartStream(input, boundary, notifier);
++            multi = new MultipartStream(input, boundary, this.currentItem, notifier);
+2022-09-14 06:38:42.707 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:38:43.295 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:38:43.301 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -991,7 +991,7 @@ public abstract class FileUploadBase {
+-            multi = new MultipartStream(input, boundary, notifier);
++            multi = new MultipartStream(input, boundary, this.currentFieldName, notifier);
+2022-09-14 06:38:43.301 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:38:43.929 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:38:43.935 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -991,7 +991,7 @@ public abstract class FileUploadBase {
+-            multi = new MultipartStream(input, boundary, notifier);
++            multi = new MultipartStream(input, boundary, this.skipPreamble, notifier);
+2022-09-14 06:38:43.935 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:38:44.603 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:38:44.609 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -991,7 +991,7 @@ public abstract class FileUploadBase {
+-            multi = new MultipartStream(input, boundary, notifier);
++            multi = new MultipartStream(input, boundary, this.itemValid, notifier);
+2022-09-14 06:38:44.610 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:38:45.303 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:38:45.309 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -991,7 +991,7 @@ public abstract class FileUploadBase {
+-            multi = new MultipartStream(input, boundary, notifier);
++            multi = new MultipartStream(input, boundary, this.eof, notifier);
+2022-09-14 06:38:45.309 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:38:46.061 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:38:46.076 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -991,7 +991,7 @@ public abstract class FileUploadBase {
+-            multi = new MultipartStream(input, boundary, notifier);
++            multi = new MultipartStream(input, boundary, notifier, charEncoding);
+2022-09-14 06:38:46.076 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:38:46.761 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:38:46.768 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -991,7 +991,7 @@ public abstract class FileUploadBase {
+-            multi = new MultipartStream(input, boundary, notifier);
++            multi = new MultipartStream(input, boundary, notifier, requestSize);
+2022-09-14 06:38:46.768 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:38:47.482 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:38:47.488 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -991,7 +991,7 @@ public abstract class FileUploadBase {
+-            multi = new MultipartStream(input, boundary, notifier);
++            multi = new MultipartStream(input, boundary, notifier, contentLengthInt);
+2022-09-14 06:38:47.488 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:38:48.165 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:38:48.171 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -991,7 +991,7 @@ public abstract class FileUploadBase {
+-            multi = new MultipartStream(input, boundary, notifier);
++            multi = new MultipartStream(input, boundary, notifier, contentType);
+2022-09-14 06:38:48.171 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:38:48.871 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:38:48.877 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -991,7 +991,7 @@ public abstract class FileUploadBase {
+-            multi = new MultipartStream(input, boundary, notifier);
++            multi = new MultipartStream(input, boundary, notifier, ctx);
+2022-09-14 06:38:48.878 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:38:49.591 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:38:49.597 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -991,7 +991,7 @@ public abstract class FileUploadBase {
+-            multi = new MultipartStream(input, boundary, notifier);
++            multi = new MultipartStream(input, boundary, notifier, this.multi);
+2022-09-14 06:38:49.597 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:38:50.238 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:38:50.244 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -991,7 +991,7 @@ public abstract class FileUploadBase {
+-            multi = new MultipartStream(input, boundary, notifier);
++            multi = new MultipartStream(input, boundary, notifier, this.notifier);
+2022-09-14 06:38:50.244 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:38:50.958 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:38:50.965 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -991,7 +991,7 @@ public abstract class FileUploadBase {
+-            multi = new MultipartStream(input, boundary, notifier);
++            multi = new MultipartStream(input, boundary, notifier, this.boundary);
+2022-09-14 06:38:50.965 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:38:51.662 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:38:51.667 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -991,7 +991,7 @@ public abstract class FileUploadBase {
+-            multi = new MultipartStream(input, boundary, notifier);
++            multi = new MultipartStream(input, boundary, notifier, this.currentItem);
+2022-09-14 06:38:51.668 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:38:52.386 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:38:52.394 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -991,7 +991,7 @@ public abstract class FileUploadBase {
+-            multi = new MultipartStream(input, boundary, notifier);
++            multi = new MultipartStream(input, boundary, notifier, this.currentFieldName);
+2022-09-14 06:38:52.394 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:38:53.092 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:38:53.099 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -991,7 +991,7 @@ public abstract class FileUploadBase {
+-            multi = new MultipartStream(input, boundary, notifier);
++            multi = new MultipartStream(input, boundary, notifier, this.skipPreamble);
+2022-09-14 06:38:53.099 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:38:53.802 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:38:53.808 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -991,7 +991,7 @@ public abstract class FileUploadBase {
+-            multi = new MultipartStream(input, boundary, notifier);
++            multi = new MultipartStream(input, boundary, notifier, this.itemValid);
+2022-09-14 06:38:53.808 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:38:54.442 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:38:54.449 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -991,7 +991,7 @@ public abstract class FileUploadBase {
+-            multi = new MultipartStream(input, boundary, notifier);
++            multi = new MultipartStream(input, boundary, notifier, this.eof);
+2022-09-14 06:38:54.449 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:38:55.175 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:38:55.181 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -991,7 +991,7 @@ public abstract class FileUploadBase {
+-            multi = new MultipartStream(input, boundary, notifier);
++            multi = new MultipartStream(boundary, notifier);
+2022-09-14 06:38:55.181 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:38:55.896 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:38:55.902 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -991,7 +991,7 @@ public abstract class FileUploadBase {
+-            multi = new MultipartStream(input, boundary, notifier);
++            multi = new MultipartStream(input, notifier);
+2022-09-14 06:38:55.903 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:38:56.647 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:38:56.653 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -991,7 +991,7 @@ public abstract class FileUploadBase {
+-            multi = new MultipartStream(input, boundary, notifier);
++            multi = new MultipartStream(input, boundary);
+2022-09-14 06:38:56.653 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:38:57.405 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 06:39:03.058 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -937,7 +937,8 @@ public abstract class FileUploadBase {
+-            if (ctx == null) {
++            multi = new MultipartStream(input, boundary, notifier);
++	if (ctx == null) {
+@@ -991,7 +992,7 @@ public abstract class FileUploadBase {
+-            multi = new MultipartStream(input, boundary, notifier);
++
+2022-09-14 06:39:03.059 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:39:03.833 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:39:03.839 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -941,7 +941,8 @@ public abstract class FileUploadBase {
+-            String contentType = ctx.getContentType();
++            multi = new MultipartStream(input, boundary, notifier);
++	String contentType = ctx.getContentType();
+@@ -991,7 +992,7 @@ public abstract class FileUploadBase {
+-            multi = new MultipartStream(input, boundary, notifier);
++
+2022-09-14 06:39:03.839 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:39:04.513 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:39:04.518 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -942,7 +942,8 @@ public abstract class FileUploadBase {
+-            if ((null == contentType)
++            multi = new MultipartStream(input, boundary, notifier);
++	if ((null == contentType)
+@@ -991,7 +992,7 @@ public abstract class FileUploadBase {
+-            multi = new MultipartStream(input, boundary, notifier);
++
+2022-09-14 06:39:04.519 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:39:05.126 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:39:05.132 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -949,7 +949,8 @@ public abstract class FileUploadBase {
+-            InputStream input = ctx.getInputStream();
++            multi = new MultipartStream(input, boundary, notifier);
++	InputStream input = ctx.getInputStream();
+@@ -991,7 +992,7 @@ public abstract class FileUploadBase {
+-            multi = new MultipartStream(input, boundary, notifier);
++
+2022-09-14 06:39:05.132 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:39:05.849 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:39:05.857 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -951,7 +951,8 @@ public abstract class FileUploadBase {
+-            @SuppressWarnings("deprecation") // still has to be backward compatible
++            multi = new MultipartStream(input, boundary, notifier);
++	@SuppressWarnings("deprecation") // still has to be backward compatible
+@@ -991,7 +992,7 @@ public abstract class FileUploadBase {
+-            multi = new MultipartStream(input, boundary, notifier);
++
+2022-09-14 06:39:05.857 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:39:06.534 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:39:06.540 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -954,7 +954,8 @@ public abstract class FileUploadBase {
+-            final long requestSize = UploadContext.class.isAssignableFrom(ctx.getClass())
++            multi = new MultipartStream(input, boundary, notifier);
++	final long requestSize = UploadContext.class.isAssignableFrom(ctx.getClass())
+@@ -991,7 +992,7 @@ public abstract class FileUploadBase {
+-            multi = new MultipartStream(input, boundary, notifier);
++
+2022-09-14 06:39:06.540 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:39:07.229 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:39:07.235 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -960,7 +960,8 @@ public abstract class FileUploadBase {
+-            if (sizeMax >= 0) {
++            multi = new MultipartStream(input, boundary, notifier);
++	if (sizeMax >= 0) {
+@@ -991,7 +992,7 @@ public abstract class FileUploadBase {
+-            multi = new MultipartStream(input, boundary, notifier);
++
+2022-09-14 06:39:07.235 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:39:07.924 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:39:07.931 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -980,7 +980,8 @@ public abstract class FileUploadBase {
+-            String charEncoding = headerEncoding;
++            multi = new MultipartStream(input, boundary, notifier);
++	String charEncoding = headerEncoding;
+@@ -991,7 +992,7 @@ public abstract class FileUploadBase {
+-            multi = new MultipartStream(input, boundary, notifier);
++
+2022-09-14 06:39:07.931 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:39:08.703 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:39:08.708 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -981,7 +981,8 @@ public abstract class FileUploadBase {
+-            if (charEncoding == null) {
++            multi = new MultipartStream(input, boundary, notifier);
++	if (charEncoding == null) {
+@@ -991,7 +992,7 @@ public abstract class FileUploadBase {
+-            multi = new MultipartStream(input, boundary, notifier);
++
+2022-09-14 06:39:08.709 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:39:09.359 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:39:09.365 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -985,13 +985,14 @@ public abstract class FileUploadBase {
+-            boundary = getBoundary(contentType);
++            multi = new MultipartStream(input, boundary, notifier);
++	boundary = getBoundary(contentType);
+-            multi = new MultipartStream(input, boundary, notifier);
++
+2022-09-14 06:39:09.365 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:39:10.089 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:39:10.097 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -986,12 +986,13 @@ public abstract class FileUploadBase {
+-            if (boundary == null) {
++            multi = new MultipartStream(input, boundary, notifier);
++	if (boundary == null) {
+-            multi = new MultipartStream(input, boundary, notifier);
++
+2022-09-14 06:39:10.097 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:39:10.738 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:39:10.745 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -990,8 +990,9 @@ public abstract class FileUploadBase {
+-            notifier = new MultipartStream.ProgressNotifier(listener, requestSize);
++	notifier = new MultipartStream.ProgressNotifier(listener, requestSize);
++
+2022-09-14 06:39:10.745 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:39:11.481 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:39:11.486 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -991,8 +991,10 @@ public abstract class FileUploadBase {
+-            multi = new MultipartStream(input, boundary, notifier);
++
++	multi = new MultipartStream(input, boundary, notifier);
++
+2022-09-14 06:39:11.486 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:39:12.213 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:39:12.218 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -991,10 +991,12 @@ public abstract class FileUploadBase {
+-            multi = new MultipartStream(input, boundary, notifier);
++
++	multi = new MultipartStream(input, boundary, notifier);
++
+2022-09-14 06:39:12.219 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:39:12.970 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:39:12.976 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -991,11 +991,13 @@ public abstract class FileUploadBase {
+-            multi = new MultipartStream(input, boundary, notifier);
++
++	multi = new MultipartStream(input, boundary, notifier);
++
+2022-09-14 06:39:12.976 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:39:13.702 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:39:13.745 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -991,7 +991,7 @@ public abstract class FileUploadBase {
+-            multi = new MultipartStream(input, boundary, notifier);
++
+2022-09-14 06:39:13.745 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:39:14.491 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:39:14.499 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -927,76 +927,7 @@ public abstract class FileUploadBase {
+-        /**
+-         * Creates a new instance.
+-         *
+-         * @param ctx The request context.
+-         * @throws FileUploadException An error occurred while
+-         *   parsing the request.
+-         * @throws IOException An I/O error occurred.
+-         */
+-        FileItemIteratorImpl(RequestContext ctx)
+-                throws FileUploadException, IOException {
+-            if (ctx == null) {
+-                throw new NullPointerException("ctx parameter");
+-            }
+-
+-            String contentType = ctx.getContentType();
+-            if ((null == contentType)
+-                    || (!contentType.toLowerCase(Locale.ENGLISH).startsWith(MULTIPART))) {
+-                throw new InvalidContentTypeException(
+-                        format("the request doesn't contain a %s or %s stream, content type header is %s",
+-                               MULTIPART_FORM_DATA, MULTIPART_FORM_DATA, contentType));
+-            }
+-
+-            InputStream input = ctx.getInputStream();
+-
+-            @SuppressWarnings("deprecation") // still has to be backward compatible
+-            final int contentLengthInt = ctx.getContentLength();
+-
+-            final long requestSize = UploadContext.class.isAssignableFrom(ctx.getClass())
+-                                     // Inline conditional is OK here CHECKSTYLE:OFF
+-                                     ? ((UploadContext) ctx).contentLength()
+-                                     : contentLengthInt;
+-                                     // CHECKSTYLE:ON
+-
+-            if (sizeMax >= 0) {
+-                if (requestSize != -1 && requestSize > sizeMax) {
+-                    throw new SizeLimitExceededException(
+-                        format("the request was rejected because its size (%s) exceeds the configured maximum (%s)",
+-                                Long.valueOf(requestSize), Long.valueOf(sizeMax)),
+-                               requestSize, sizeMax);
+-                }
+-                input = new LimitedInputStream(input, sizeMax) {
+-                    @Override
+-                    protected void raiseError(long pSizeMax, long pCount)
+-                            throws IOException {
+-                        FileUploadException ex = new SizeLimitExceededException(
+-                        format("the request was rejected because its size (%s) exceeds the configured maximum (%s)",
+-                                Long.valueOf(pCount), Long.valueOf(pSizeMax)),
+-                               pCount, pSizeMax);
+-                        throw new FileUploadIOException(ex);
+-                    }
+-                };
+-            }
+-
+-            String charEncoding = headerEncoding;
+-            if (charEncoding == null) {
+-                charEncoding = ctx.getCharacterEncoding();
+-            }
+-
+-            boundary = getBoundary(contentType);
+-            if (boundary == null) {
+-                throw new FileUploadException("the request was rejected because no multipart boundary was found");
+-            }
+-
+-            notifier = new MultipartStream.ProgressNotifier(listener, requestSize);
+-            multi = new MultipartStream(input, boundary, notifier);
+-            multi.setHeaderEncoding(charEncoding);
+-
+-            skipPreamble = true;
+-            findNextItem();
+-        }
++
+2022-09-14 06:39:14.499 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:39:15.153 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:39:15.179 [main] INFO  edu.lu.uni.serval.tbar.TBarFixer - =======StaticBugFixer: Finish off fixing======
+Failed to fix bug
+
+
+Node: ee2bf67284b9
+
+
+
+Date: Wed Sep 14 06:39:15 EDT 2022
+

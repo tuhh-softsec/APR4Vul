@@ -1,0 +1,111 @@
+cd /workdir/TBar_vul4j_apache_jspwiki_VUL4J-18;
+export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en";
+TZ="America/New_York"; export TZ;
+export PATH="/usr/lib/jvm/java-8-openjdk-amd64/bin:$PATH";
+export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64";
+timeout 240m java -Xmx4g -Xms1g -XX:MaxPermSize=512m \
+    -cp /script/../libs/tbar_external/com.gzoltar-0.1.1-jdk7.jar:/script/../repair_tools/tbar.jar edu.lu.uni.serval.tbar.main.Main \
+    "/workdir/TBar_vul4j_apache_jspwiki_VUL4J-18" "org.apache.wiki.WikiServletTest#testNastyDoPost,org.apache.wiki.WikiServletTest#testDoGet" "/jspwiki-main/src/main/java/" "/jspwiki-main/src/test/java/" "/jspwiki-main/target/classes/" "/jspwiki-main/target/test-classes/" "/script/../data/benchmarks/vul4j/perfectfl/VUL4J-18/spectra.txt" "mvn test -pl jspwiki-main -Dtest=org.apache.wiki.WikiServletTest#testNastyDoPost,org.apache.wiki.WikiServletTest#testDoGet -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B" "mvn test -pl jspwiki-main -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B" "/root/.m2/repository/org/apache/jspwiki/jspwiki-util/2.11.0.M3-SNAPSHOT/jspwiki-util-2.11.0.M3-SNAPSHOT.jar:/root/.m2/repository/org/hsqldb/hsqldb/2.4.1/hsqldb-2.4.1.jar:/root/.m2/repository/org/apache/lucene/lucene-memory/7.7.0/lucene-memory-7.7.0.jar:/root/.m2/repository/org/apache/lucene/lucene-queries/7.7.0/lucene-queries-7.7.0.jar:/root/.m2/repository/org/eclipse/jetty/aggregate/jetty-all/8.1.15.v20140411/jetty-all-8.1.15.v20140411.jar:/root/.m2/repository/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0.jar:/root/.m2/repository/xerces/xercesImpl/2.11.0/xercesImpl-2.11.0.jar:/root/.m2/repository/commons-httpclient/commons-httpclient/3.1/commons-httpclient-3.1.jar:/root/.m2/repository/org/eclipse/jetty/orbit/javax.servlet/3.0.0.v201112011016/javax.servlet-3.0.0.v201112011016.jar:/root/.m2/repository/org/jvnet/hudson/org.suigeneris.jrcs.diff/0.4.2/org.suigeneris.jrcs.diff-0.4.2.jar:/root/.m2/repository/org/junit/platform/junit-platform-commons/1.4.0/junit-platform-commons-1.4.0.jar:/root/.m2/repository/net/sourceforge/sandler/0.5/sandler-0.5.jar:/root/.m2/repository/org/apache/lucene/lucene-core/7.7.0/lucene-core-7.7.0.jar:/root/.m2/repository/xml-apis/xml-apis/1.4.01/xml-apis-1.4.01.jar:/root/.m2/repository/net/sf/ehcache/ehcache/2.10.6/ehcache-2.10.6.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar:/root/.m2/repository/jaxen/jaxen/1.1.4/jaxen-1.1.4.jar:/root/.m2/repository/commons-codec/commons-codec/1.3/commons-codec-1.3.jar:/root/.m2/repository/commons-fileupload/commons-fileupload/1.4/commons-fileupload-1.4.jar:/root/.m2/repository/javax/activation/activation/1.1/activation-1.1.jar:/root/.m2/repository/javax/mail/mail/1.4.7/mail-1.4.7.jar:/root/.m2/repository/org/opentest4j/opentest4j/1.1.1/opentest4j-1.1.1.jar:/root/.m2/repository/org/apache/lucene/lucene-queryparser/7.7.0/lucene-queryparser-7.7.0.jar:/root/.m2/repository/org/slf4j/slf4j-log4j12/1.7.25/slf4j-log4j12-1.7.25.jar:/root/.m2/repository/org/freshcookies/freshcookies-security/0.60/freshcookies-security-0.60.jar:/root/.m2/repository/xmlrpc/xmlrpc/2.0.1/xmlrpc-2.0.1.jar:/root/.m2/repository/commons-io/commons-io/2.4/commons-io-2.4.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.4.0/junit-jupiter-engine-5.4.0.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.4.0/junit-jupiter-params-5.4.0.jar:/root/.m2/repository/commons-logging/commons-logging/1.0.4/commons-logging-1.0.4.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.4.0/junit-jupiter-api-5.4.0.jar:/root/.m2/repository/net/sourceforge/akismet-java/1.02/akismet-java-1.02.jar:/root/.m2/repository/org/apiguardian/apiguardian-api/1.0.0/apiguardian-api-1.0.0.jar:/root/.m2/repository/javax/servlet/jstl/1.2/jstl-1.2.jar:/root/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar:/root/.m2/repository/org/jdom/jdom2/2.0.5/jdom2-2.0.5.jar:/root/.m2/repository/commons-lang/commons-lang/2.6/commons-lang-2.6.jar:/root/.m2/repository/net/sourceforge/nekohtml/nekohtml/1.9.22/nekohtml-1.9.22.jar:/root/.m2/repository/org/apache/lucene/lucene-analyzers-common/7.7.0/lucene-analyzers-common-7.7.0.jar:/root/.m2/repository/org/hsqldb/sqltool/2.4.1/sqltool-2.4.1.jar:/root/.m2/repository/org/apache/lucene/lucene-highlighter/7.7.0/lucene-highlighter-7.7.0.jar:/root/.m2/repository/org/apache/lucene/lucene-sandbox/7.7.0/lucene-sandbox-7.7.0.jar:/root/.m2/repository/xpp3/xpp3/1.1.3.4-RC3/xpp3-1.1.3.4-RC3.jar:/root/.m2/repository/org/apache/lucene/lucene-join/7.7.0/lucene-join-7.7.0.jar:/root/.m2/repository/net/sourceforge/stripes/stripes/1.7.0-async-beta/stripes-1.7.0-async-beta.jar:/root/.m2/repository/javax/servlet/jsp/javax.servlet.jsp-api/2.3.0/javax.servlet.jsp-api-2.3.0.jar:/root/.m2/repository/oro/oro/2.0.8/oro-2.0.8.jar:/root/.m2/repository/org/junit/platform/junit-platform-engine/1.4.0/junit-platform-engine-1.4.0.jar:/root/.m2/repository/com/google/code/gson/gson/2.8.5/gson-2.8.5.jar";
+echo "\n\nNode: `hostname`\n";
+echo "\n\nDate: `date`\n";
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en
+OpenJDK 64-Bit Server VM warning: ignoring option MaxPermSize=512m; support was removed in 8.0
+06:55:58,015 |-INFO in ch.qos.logback.classic.LoggerContext[TBar] - Could NOT find resource [logback-test.xml]
+06:55:58,015 |-INFO in ch.qos.logback.classic.LoggerContext[TBar] - Could NOT find resource [logback.groovy]
+06:55:58,015 |-INFO in ch.qos.logback.classic.LoggerContext[TBar] - Found resource [logback.xml] at [jar:file:/repair_tools/tbar.jar!/logback.xml]
+06:55:58,025 |-INFO in ch.qos.logback.core.joran.spi.ConfigurationWatchList@5a42bbf4 - URL [jar:file:/repair_tools/tbar.jar!/logback.xml] is not of type file
+06:55:58,079 |-INFO in ch.qos.logback.classic.joran.action.ConfigurationAction - debug attribute not set
+06:55:58,080 |-INFO in ch.qos.logback.classic.joran.action.ContextNameAction - Setting logger context name as [TBar]
+06:55:58,080 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - About to instantiate appender of type [ch.qos.logback.core.ConsoleAppender]
+06:55:58,083 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - Naming appender as [STDOUT]
+06:55:58,121 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting level of logger [org.hibernate.engine.query.HQLQueryPlan] to DEBUG
+06:55:58,121 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting additivity of logger [org.hibernate.engine.query.HQLQueryPlan] to false
+06:55:58,121 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting level of logger [com.piedra.logback] to DEBUG
+06:55:58,121 |-ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - Could not find an appender named [FILE]. Did you define it below instead of above in the configuration file?
+06:55:58,121 |-ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - See http://logback.qos.ch/codes.html#appender_order for more details.
+06:55:58,121 |-INFO in ch.qos.logback.classic.joran.action.RootLoggerAction - Setting level of ROOT logger to DEBUG
+06:55:58,122 |-INFO in ch.qos.logback.core.joran.action.AppenderRefAction - Attaching appender named [STDOUT] to Logger[ROOT]
+06:55:58,122 |-ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - Could not find an appender named [ROLLINGFILE]. Did you define it below instead of above in the configuration file?
+06:55:58,122 |-ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - See http://logback.qos.ch/codes.html#appender_order for more details.
+06:55:58,122 |-INFO in ch.qos.logback.classic.joran.action.ConfigurationAction - End of configuration.
+06:55:58,123 |-INFO in ch.qos.logback.classic.joran.JoranConfigurator@270421f5 - Registering current configuration as safe fallback point
+
+2022-09-14 06:55:58.423 [main] INFO  edu.lu.uni.serval.tbar.AbstractFixer - TBar_vul4j_apache_jspwiki_VUL4J-18 Failed Tests: 2
+2022-09-14 06:55:58.425 [main] INFO  edu.lu.uni.serval.tbar.TBarFixer - =======StaticBugFixer: Start to fix suspicious code======
+2022-09-14 06:55:58.426 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.apache.wiki.url.DefaultURLConstructor ===280
+2022-09-14 06:55:58.811 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+return request.getPathInfo();
+2022-09-14 06:56:00.449 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -277,6 +277,9 @@ public class DefaultURLConstructor
+-        return request.getPathInfo();
++        if (request != null) {
++	return request.getPathInfo();
++	}
++
+2022-09-14 06:56:00.450 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:56:01.084 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:56:01.095 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -277,6 +277,9 @@ public class DefaultURLConstructor
+-        return request.getPathInfo();
++        if (request == null) {
++	    throw new IllegalArgumentException("Null 'request' argument.");
++	}
++return request.getPathInfo();
+2022-09-14 06:56:01.095 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:56:01.775 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 06:56:08.840 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -277,6 +277,9 @@ public class DefaultURLConstructor
+-        return request.getPathInfo();
++        if (request == null) {
++	    return null;
++	}
++return request.getPathInfo();
+2022-09-14 06:56:08.840 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:56:09.479 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 06:56:15.687 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -277,6 +277,7 @@ public class DefaultURLConstructor
+-        return request.getPathInfo();
++        if (request == null) request = new HttpServletRequest();
++ return request.getPathInfo();
+2022-09-14 06:56:15.687 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:56:16.296 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:56:16.306 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -277,6 +277,7 @@ public class DefaultURLConstructor
+-        return request.getPathInfo();
++        if (request == null) return new String();
++	 return request.getPathInfo();
+2022-09-14 06:56:16.306 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:56:16.938 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 06:56:23.174 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -277,6 +277,7 @@ public class DefaultURLConstructor
+-        return request.getPathInfo();
++        if (request == null) return this.m_pathPrefix;
++	 return request.getPathInfo();
+2022-09-14 06:56:23.174 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:56:23.820 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 06:56:30.173 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -268,15 +268,5 @@ public class DefaultURLConstructor
+-    /**
+-     *  This method is not needed for the DefaultURLConstructor.
+-     *
+-     * @param request The HTTP Request that was used to end up in this page.
+-     * @return "Wiki.jsp", "PageInfo.jsp", etc.  Just return the name,
+-     *         JSPWiki will figure out the page.
+-     */
+-    public String getForwardPage( HttpServletRequest request )
+-    {
+-        return request.getPathInfo();
+-    }
++
+2022-09-14 06:56:30.173 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:56:30.831 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:56:30.849 [main] INFO  edu.lu.uni.serval.tbar.TBarFixer - =======StaticBugFixer: Finish off fixing======
+Failed to fix bug
+
+
+Node: ee2bf67284b9
+
+
+
+Date: Wed Sep 14 06:56:30 EDT 2022
+

@@ -1,0 +1,210 @@
+cd /workdir/jMutRepair_vul4j_apache_commons-compress_VUL4J-6;
+export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en";
+TZ="America/New_York"; export TZ;
+export PATH="/usr/lib/jvm/java-8-openjdk-amd64/bin:$PATH";
+export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64/bin";
+time java -Xmx4g -Xms1g -XX:MaxPermSize=512m -cp /script/../libs/jtestex7.jar:/script/../repair_tools/astor.jar fr.inria.main.evolution.AstorMain \
+	-mode jMutRepair \
+	-location . \
+	-id apache_commons-compress-VUL4J-6 \
+	-failing org.apache.commons.compress.Test_CVE_2018_1324#testCVE_2018_1324 \
+	-jvm4testexecution /usr/lib/jvm/jdk1.7.0_80/bin \
+	-jvm4evosuitetestexecution /usr/lib/jvm/jdk1.7.0_80/bin \
+	-maxgen 1000000 \
+	-maxtime 120 \
+	-stopfirst true \
+	-seed 0 \
+	-scope local \
+	-population 1 \
+	-javacompliancelevel 7 \
+	-faultlocalization perfect \
+    -perfectdata /script/../data/benchmarks/vul4j/perfectfl/VUL4J-6 \
+    -validation externalcmd \
+    -testfailingcmd "mvn test -Dtest=org.apache.commons.compress.Test_CVE_2018_1324 -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B" \
+    -testallcmd "mvn test -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B"  \ \
+	-srcjavafolder src/main/java \
+	-srctestfolder src/test/java \
+	-binjavafolder target/classes \
+	-bintestfolder target/test-classes \
+	-parameters x:x \
+	-dependencies /root/.m2/repository/org/powermock/powermock-api-support/1.7.0/powermock-api-support-1.7.0.jar:/root/.m2/repository/org/powermock/powermock-core/1.7.0/powermock-core-1.7.0.jar:/root/.m2/repository/org/javassist/javassist/3.21.0-GA/javassist-3.21.0-GA.jar:/root/.m2/repository/org/powermock/powermock-api-mockito-common/1.7.0/powermock-api-mockito-common-1.7.0.jar:/root/.m2/repository/org/objenesis/objenesis/2.6/objenesis-2.6.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/powermock/powermock-api-mockito/1.7.0/powermock-api-mockito-1.7.0.jar:/root/.m2/repository/org/mockito/mockito-core/1.10.19/mockito-core-1.10.19.jar:/root/.m2/repository/org/tukaani/xz/1.6/xz-1.6.jar:/root/.m2/repository/junit/junit/4.12/junit-4.12.jar:/root/.m2/repository/org/powermock/powermock-module-junit4-common/1.7.0/powermock-module-junit4-common-1.7.0.jar:/root/.m2/repository/com/github/luben/zstd-jni/1.3.1-1/zstd-jni-1.3.1-1.jar:/root/.m2/repository/org/powermock/powermock-reflect/1.7.0/powermock-reflect-1.7.0.jar:/root/.m2/repository/org/powermock/powermock-module-junit4/1.7.0/powermock-module-junit4-1.7.0.jar:/root/.m2/repository/org/brotli/dec/0.1.2/dec-0.1.2.jar;
+	echo "\n\nNode: `hostname`\n";
+	echo "\n\nDate: `date`\n";
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en
+OpenJDK 64-Bit Server VM warning: ignoring option MaxPermSize=512m; support was removed in 8.0
+[0] INFO ProjectConfiguration - Version of the JVM used: 1.7.0_80
+[1] INFO main - Java version of the JDK used to run tests: 1.7.0_80
+[1] INFO main - The compliance of the JVM is:  7
+[4] INFO main - command line arguments: [-mode  jMutRepair  -location  .  -id  apache_commons-compress-VUL4J-6  -failing  org.apache.commons.compress.Test_CVE_2018_1324#testCVE_2018_1324  -jvm4testexecution  /usr/lib/jvm/jdk1.7.0_80/bin  -jvm4evosuitetestexecution  /usr/lib/jvm/jdk1.7.0_80/bin  -maxgen  1000000  -maxtime  120  -stopfirst  true  -seed  0  -scope  local  -population  1  -javacompliancelevel  7  -faultlocalization  perfect  -perfectdata  /script/../data/benchmarks/vul4j/perfectfl/VUL4J-6  -validation  externalcmd  -testfailingcmd  mvn test -Dtest=org.apache.commons.compress.Test_CVE_2018_1324 -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B  -testallcmd  mvn test -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B     -srcjavafolder  src/main/java  -srctestfolder  src/test/java  -binjavafolder  target/classes  -bintestfolder  target/test-classes  -parameters  x:x  -dependencies  /root/.m2/repository/org/powermock/powermock-api-support/1.7.0/powermock-api-support-1.7.0.jar:/root/.m2/repository/org/powermock/powermock-core/1.7.0/powermock-core-1.7.0.jar:/root/.m2/repository/org/javassist/javassist/3.21.0-GA/javassist-3.21.0-GA.jar:/root/.m2/repository/org/powermock/powermock-api-mockito-common/1.7.0/powermock-api-mockito-common-1.7.0.jar:/root/.m2/repository/org/objenesis/objenesis/2.6/objenesis-2.6.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/powermock/powermock-api-mockito/1.7.0/powermock-api-mockito-1.7.0.jar:/root/.m2/repository/org/mockito/mockito-core/1.10.19/mockito-core-1.10.19.jar:/root/.m2/repository/org/tukaani/xz/1.6/xz-1.6.jar:/root/.m2/repository/junit/junit/4.12/junit-4.12.jar:/root/.m2/repository/org/powermock/powermock-module-junit4-common/1.7.0/powermock-module-junit4-common-1.7.0.jar:/root/.m2/repository/com/github/luben/zstd-jni/1.3.1-1/zstd-jni-1.3.1-1.jar:/root/.m2/repository/org/powermock/powermock-reflect/1.7.0/powermock-reflect-1.7.0.jar:/root/.m2/repository/org/powermock/powermock-module-junit4/1.7.0/powermock-module-junit4-1.7.0.jar:/root/.m2/repository/org/brotli/dec/0.1.2/dec-0.1.2.jar]
+[18] INFO AstorMain - Running Astor on a JDK at /usr/lib/jvm/java-8-openjdk-amd64/jre
+[38] INFO main - Source folders: [/workdir/jMutRepair_vul4j_apache_commons-compress_VUL4J-6/./src/main/java]
+[38] INFO main - Source Test folders: [/workdir/jMutRepair_vul4j_apache_commons-compress_VUL4J-6/./src/test/java]
+[3464] INFO AstorCoreEngine - ---- Creating spoon model
+[3546] INFO MutationSupporter - Creating model,  Code location from working folder: /workdir/jMutRepair_vul4j_apache_commons-compress_VUL4J-6/./src/main/java
+[3546] INFO MutationSupporter - building model: /workdir/jMutRepair_vul4j_apache_commons-compress_VUL4J-6/./src/main/java, compliance level: 7
+[3681] INFO MutationSupporter - Classpath (Dependencies) for building SpoonModel: [/root/.m2/repository/org/powermock/powermock-api-support/1.7.0/powermock-api-support-1.7.0.jar, /root/.m2/repository/org/powermock/powermock-core/1.7.0/powermock-core-1.7.0.jar, /root/.m2/repository/org/javassist/javassist/3.21.0-GA/javassist-3.21.0-GA.jar, /root/.m2/repository/org/powermock/powermock-api-mockito-common/1.7.0/powermock-api-mockito-common-1.7.0.jar, /root/.m2/repository/org/objenesis/objenesis/2.6/objenesis-2.6.jar, /root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar, /root/.m2/repository/org/powermock/powermock-api-mockito/1.7.0/powermock-api-mockito-1.7.0.jar, /root/.m2/repository/org/mockito/mockito-core/1.10.19/mockito-core-1.10.19.jar, /root/.m2/repository/org/tukaani/xz/1.6/xz-1.6.jar, /root/.m2/repository/junit/junit/4.12/junit-4.12.jar, /root/.m2/repository/org/powermock/powermock-module-junit4-common/1.7.0/powermock-module-junit4-common-1.7.0.jar, /root/.m2/repository/com/github/luben/zstd-jni/1.3.1-1/zstd-jni-1.3.1-1.jar, /root/.m2/repository/org/powermock/powermock-reflect/1.7.0/powermock-reflect-1.7.0.jar, /root/.m2/repository/org/powermock/powermock-module-junit4/1.7.0/powermock-module-junit4-1.7.0.jar, /root/.m2/repository/org/brotli/dec/0.1.2/dec-0.1.2.jar]
+[29426] INFO AstorCoreEngine - Number of CtTypes created: 197
+[30912] INFO AstorCoreEngine - Test retrieved from classes: 0
+[31322] INFO AstorCoreEngine - Setting up the max to 4110 milliseconds (4 sec)
+[31322] INFO AstorCoreEngine - ---- Initial suspicious size: 1
+[32468] INFO main - Total suspicious from FL: 1,  0
+[32468] INFO main - Total ModPoint created: 0
+[32469] INFO main - Creating program variant #1, [Variant id: 1, #gens: 0, #ops: 0, parent:-]
+[32469] ERROR AstorCoreEngine - [warning] Any modification point in variant
+[32469] ERROR AstorCoreEngine - Variant with any gen
+[32469] WARN ConfigurationProperties - ----------------------------
+[32469] INFO ConfigurationProperties - ---Configuration properties
+[32470] INFO ConfigurationProperties - p:lastJUnitVersion= ./examples/libs/junit-4.11.jar
+[32476] INFO ConfigurationProperties - p:alternativecompliancelevel= 8
+[32476] INFO ConfigurationProperties - p:ignoredTestCases= 
+[32476] INFO ConfigurationProperties - p:workingDirectory= /workdir/jMutRepair_vul4j_apache_commons-compress_VUL4J-6/./output_astor
+[32477] INFO ConfigurationProperties - p:manipulatesuper= false
+[32477] INFO ConfigurationProperties - p:validation= externalcmd
+[32477] INFO ConfigurationProperties - p:jvm4testexecution= /usr/lib/jvm/jdk1.7.0_80/bin
+[32477] INFO ConfigurationProperties - p:operatorspace= mutationspace
+[32477] INFO ConfigurationProperties - p:diffcontext= 0
+[32477] INFO ConfigurationProperties - p:binjavafolder= target/classes
+[32477] INFO ConfigurationProperties - p:synthesis_depth= 3
+[32477] INFO ConfigurationProperties - p:gzoltartestpackagetoexclude= junit.framework
+[32477] INFO ConfigurationProperties - p:skipfitnessinitialpopulation= false
+[32477] INFO ConfigurationProperties - p:evosuiteresultfolder= evosuite
+[32477] INFO ConfigurationProperties - p:flthreshold= 0.1
+[32477] INFO ConfigurationProperties - p:regressionforfaultlocalization= true
+[32477] INFO ConfigurationProperties - p:collectonlyusedmethod= false
+[32477] INFO ConfigurationProperties - p:preservelinenumbers= true
+[32477] INFO ConfigurationProperties - p:tmax2= 4110
+[32477] INFO ConfigurationProperties - p:tmax1= 10000
+[32477] INFO ConfigurationProperties - p:probagenmutation= false
+[32477] INFO ConfigurationProperties - p:nomodificationconvergence= 100
+[32478] INFO ConfigurationProperties - p:diff_type= relative
+[32478] INFO ConfigurationProperties - p:targetelementprocessor= if-conditions:return-op-mutation
+[32478] INFO ConfigurationProperties - p:srctestfolder= src/test/java
+[32478] INFO ConfigurationProperties - p:forceExecuteRegression= false
+[32478] INFO ConfigurationProperties - p:clusteringfilename= clustering.csv
+[32478] INFO ConfigurationProperties - p:failing= org.apache.commons.compress.Test_CVE_2018_1324#testCVE_2018_1324
+[32478] INFO ConfigurationProperties - p:logtestexecution= false
+[32478] INFO ConfigurationProperties - p:evo_buggy_class= true
+[32478] INFO ConfigurationProperties - p:numberExecutions= 1
+[32478] INFO ConfigurationProperties - p:maxnumbersolutions= 1000000
+[32479] INFO ConfigurationProperties - p:evo_affected_by_op= true
+[32479] INFO ConfigurationProperties - p:population= 1
+[32479] INFO ConfigurationProperties - p:considerzerovaluesusp= false
+[32479] INFO ConfigurationProperties - p:maxCombinationVariableLimit= false
+[32479] INFO ConfigurationProperties - p:savesolution= true
+[32479] INFO ConfigurationProperties - p:javacompliancelevel= 7
+[32483] INFO ConfigurationProperties - p:x= x
+[32483] INFO ConfigurationProperties - p:uniqueoptogen= false
+[32483] INFO ConfigurationProperties - p:gzoltarpackagetonotinstrument= junit.framework
+[32483] INFO ConfigurationProperties - p:projectIdentifier= apache_commons-compress-VUL4J-6
+[32484] INFO ConfigurationProperties - p:modificationpointnavigation= weight
+[32484] INFO ConfigurationProperties - p:stopfirst= true
+[32485] INFO ConfigurationProperties - p:multipointmodification= false
+[32485] INFO ConfigurationProperties - p:elementsToMutate= 10
+[32485] INFO ConfigurationProperties - p:jsonoutputname= astor_output
+[32485] INFO ConfigurationProperties - p:evoDSE= false
+[32485] INFO ConfigurationProperties - p:bintestfolder= target/test-classes
+[32485] INFO ConfigurationProperties - p:testbystep= false
+[32485] INFO ConfigurationProperties - p:version-location= ./math-version/
+[32485] INFO ConfigurationProperties - p:reintroduce= PARENTS:ORIGINAL
+[32485] INFO ConfigurationProperties - p:perfectdata= /script/../data/benchmarks/vul4j/perfectfl/VUL4J-6
+[32485] INFO ConfigurationProperties - p:executorjar= ./lib/jtestex7.jar
+[32485] INFO ConfigurationProperties - p:maxGeneration= 1000000
+[32485] INFO ConfigurationProperties - p:max_synthesis_step= 10000
+[32486] INFO ConfigurationProperties - p:projectinfocommand= com.github.tdurieux:project-config-maven-plugin:info
+[32486] INFO ConfigurationProperties - p:maxVarCombination= 1000
+[32486] INFO ConfigurationProperties - p:maxtime= 120
+[32486] INFO ConfigurationProperties - p:evosuitejar= ./lib/evosuite-master-1.0.4-SNAPSHOT.jar
+[32486] INFO ConfigurationProperties - p:jvmversion= 1.7.0_80
+[32486] INFO ConfigurationProperties - p:commandTrunk= 50000
+[32486] INFO ConfigurationProperties - p:faultlocalization= perfect
+[32486] INFO ConfigurationProperties - p:resetmodel= true
+[32487] INFO ConfigurationProperties - p:maxsuspcandidates= 1000
+[32491] INFO ConfigurationProperties - p:mode= jMutRepair
+[32491] INFO ConfigurationProperties - p:learningdir= 
+[32491] INFO ConfigurationProperties - p:jvm4evosuitetestexecution= /usr/lib/jvm/jdk1.7.0_80/bin
+[32491] INFO ConfigurationProperties - p:filterfaultlocalization= true
+[32491] INFO ConfigurationProperties - p:mutationrate= 1 
+[32491] INFO ConfigurationProperties - p:pathToMVNRepository= 
+[32492] INFO ConfigurationProperties - p:resourcesfolder= /src/main/resources:/src/test/resources:
+[32492] INFO ConfigurationProperties - p:timezone= America/Los_Angeles
+[32492] INFO ConfigurationProperties - p:runjava7code= false
+[32492] INFO ConfigurationProperties - p:testfailingcmd= mvn test -Dtest=org.apache.commons.compress.Test_CVE_2018_1324 -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B
+[32492] INFO ConfigurationProperties - p:evoRunOnBuggyClass= true
+[32492] INFO ConfigurationProperties - p:compiler= fr.inria.astor.core.manipulation.bytecode.compiler.SpoonClassCompiler
+[32492] INFO ConfigurationProperties - p:limitbysuspicious= true
+[32492] INFO ConfigurationProperties - p:logsattemps= true
+[32492] INFO ConfigurationProperties - p:dependenciespath= /root/.m2/repository/org/powermock/powermock-api-support/1.7.0/powermock-api-support-1.7.0.jar:/root/.m2/repository/org/powermock/powermock-core/1.7.0/powermock-core-1.7.0.jar:/root/.m2/repository/org/javassist/javassist/3.21.0-GA/javassist-3.21.0-GA.jar:/root/.m2/repository/org/powermock/powermock-api-mockito-common/1.7.0/powermock-api-mockito-common-1.7.0.jar:/root/.m2/repository/org/objenesis/objenesis/2.6/objenesis-2.6.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/powermock/powermock-api-mockito/1.7.0/powermock-api-mockito-1.7.0.jar:/root/.m2/repository/org/mockito/mockito-core/1.10.19/mockito-core-1.10.19.jar:/root/.m2/repository/org/tukaani/xz/1.6/xz-1.6.jar:/root/.m2/repository/junit/junit/4.12/junit-4.12.jar:/root/.m2/repository/org/powermock/powermock-module-junit4-common/1.7.0/powermock-module-junit4-common-1.7.0.jar:/root/.m2/repository/com/github/luben/zstd-jni/1.3.1-1/zstd-jni-1.3.1-1.jar:/root/.m2/repository/org/powermock/powermock-reflect/1.7.0/powermock-reflect-1.7.0.jar:/root/.m2/repository/org/powermock/powermock-module-junit4/1.7.0/powermock-module-junit4-1.7.0.jar:/root/.m2/repository/org/brotli/dec/0.1.2/dec-0.1.2.jar
+[32493] INFO ConfigurationProperties - p:packageToInstrument= 
+[32493] INFO ConfigurationProperties - p:skipfaultlocalization= false
+[32493] INFO ConfigurationProperties - p:scope= local
+[32493] INFO ConfigurationProperties - p:transformingredient= false
+[32493] INFO ConfigurationProperties - p:fitnessfunction= fr.inria.astor.core.solutionsearch.population.TestCaseFitnessFunction
+[32493] INFO ConfigurationProperties - p:maxnumvariablesperingredient= 10
+[32493] INFO ConfigurationProperties - p:parsesourcefromoriginal= true
+[32493] INFO ConfigurationProperties - p:pvariantfoldername= variant-
+[32493] INFO ConfigurationProperties - p:savespoonmodelondisk= false
+[32493] INFO ConfigurationProperties - p:srcjavafolder= src/main/java
+[32493] INFO ConfigurationProperties - p:populationcontroller= fr.inria.astor.core.solutionsearch.population.TestCaseBasedFitnessPopulationController
+[32493] INFO ConfigurationProperties - p:ignoreflakyinfl= false
+[32494] INFO ConfigurationProperties - p:cleantemplates= true
+[32494] INFO ConfigurationProperties - p:applyCrossover= false
+[32497] INFO ConfigurationProperties - p:maxmodificationpoints= 1000
+[32497] INFO ConfigurationProperties - p:duplicateingredientsinspace= false
+[32497] INFO ConfigurationProperties - p:metid= 0
+[32497] INFO ConfigurationProperties - p:continuewhenmodelfail= true
+[32497] INFO ConfigurationProperties - p:saveall= false
+[32497] INFO ConfigurationProperties - p:seed= 0
+[32497] INFO ConfigurationProperties - p:savecompletepatched= true
+[32497] INFO ConfigurationProperties - p:resetoperations= false
+[32497] INFO ConfigurationProperties - p:keepcomments= false
+[32497] INFO ConfigurationProperties - p:processoutputinfile= false
+[32497] INFO ConfigurationProperties - p:location= .
+[32497] INFO ConfigurationProperties - p:probabilistictransformation= true
+[32497] INFO ConfigurationProperties - p:overridemaxtime= true
+[32497] INFO ConfigurationProperties - p:outputjsonresult= true
+[32497] INFO ConfigurationProperties - p:allpoints= false
+[32497] INFO ConfigurationProperties - p:antipattern= false
+[32498] INFO ConfigurationProperties - p:bugId= 280
+[32498] INFO ConfigurationProperties - p:evosuitetimeout= 120
+[32498] INFO ConfigurationProperties - p:maxtimefactor= 10
+[32498] INFO ConfigurationProperties - p:nrPlaceholders= 1
+[32498] INFO ConfigurationProperties - p:testallcmd= mvn test -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B
+[32498] INFO ConfigurationProperties - p:forcesubprocesskilling= false
+[32498] INFO ConfigurationProperties - ----------------------------
+[32501] INFO AstorCoreEngine - Time Repair Loop (s): 0.001
+[32502] INFO AstorCoreEngine - generationsexecuted: 1
+[32502] WARN AstorCoreEngine - ----SUMMARY_EXECUTION---
+[32502] WARN AstorCoreEngine - End Repair Search: NOT Found solution
+[32502] WARN AstorCoreEngine - Number suspicious:1
+[32503] INFO AstorCoreEngine - 
+ --SOLUTIONS DESCRIPTION--
+
+
+Astor Output:
+
+General stats:
+EXECUTION_IDENTIFIER=apache_commons-compress-VUL4J-6
+TOTAL_TIME=0.001
+NR_GENERATIONS=null
+NR_RIGHT_COMPILATIONS=null
+NR_FAILLING_COMPILATIONS=null
+NR_ERRONEOUS_VARIANCES=null
+NR_FAILING_VALIDATION_PROCESS=null
+OUTPUT_STATUS=EXHAUSTIVE_NAVIGATED
+
+Patch stats:
+
+[32517] INFO Stats - Storing ing JSON at /workdir/jMutRepair_vul4j_apache_commons-compress_VUL4J-6/./output_astor/AstorMain-apache_commons-compress-VUL4J-6//astor_output.json
+[32517] INFO Stats - astor_output:
+{"general":{"NR_RIGHT_COMPILATIONS":null,"NR_ERRONEOUS_VARIANCES":null,"EXECUTION_IDENTIFIER":"apache_commons-compress-VUL4J-6","OUTPUT_STATUS":"EXHAUSTIVE_NAVIGATED","NR_FAILLING_COMPILATIONS":null,"NR_GENERATIONS":null,"TOTAL_TIME":0.001,"NR_FAILING_VALIDATION_PROCESS":null},"patches":[]}
+[32518] INFO AstorMain - Time Total(s): 32.486
+29.97user 4.68system 0:35.03elapsed 98%CPU (0avgtext+0avgdata 537372maxresident)k
+176inputs+68288outputs (0major+150188minor)pagefaults 0swaps
+
+
+Node: 9670332cfea8
+
+
+
+Date: Fri Sep  9 06:07:50 EDT 2022
+

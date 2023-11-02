@@ -1,0 +1,10 @@
+{
+  "repair_end": "2022-09-14 11:43:49.061841", 
+  "repair_begin": "2022-09-14 11:43:22.817486", 
+  "patches": [
+    {
+      "edits": [], 
+      "patch": "diff --git a/src/main/java/org/apache/sling/xss/impl/XSSAPIImpl.java b/src/main/java/org/apache/sling/xss/impl/XSSAPIImpl.java\nindex 4c62098e7332..9040146e8b42 100644\n--- a/src/main/java/org/apache/sling/xss/impl/XSSAPIImpl.java\n+++ b/src/main/java/org/apache/sling/xss/impl/XSSAPIImpl.java\n@@ -234,7 +234,7 @@ public class XSSAPIImpl implements XSSAPI {\n                     StringEscapeUtils is deprecated starting with version 3.6 of commons-lang3, however the indicated replacement comes from\n                     commons-text, which is not an OSGi bundle\n                 */\n-                unescapedURL = StringEscapeUtils.unescapeXml(unescapedURL);\n+                unescapedURL = StringEscapeUtils.unescapeXml(url);\n                 // Percent-encode characters that are not allowed in unquoted\n                 // HTML attributes: \", ', >, <, ` and space. We don't encode =\n                 // since this would break links with query parameters."
+    }
+  ]
+}

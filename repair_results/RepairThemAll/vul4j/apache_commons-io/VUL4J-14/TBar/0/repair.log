@@ -1,0 +1,237 @@
+cd /workdir/TBar_vul4j_apache_commons-io_VUL4J-14;
+export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en";
+TZ="America/New_York"; export TZ;
+export PATH="/usr/lib/jvm/jdk1.7.0_80/bin:$PATH";
+export JAVA_HOME="/usr/lib/jvm/jdk1.7.0_80";
+timeout 240m java -Xmx4g -Xms1g -XX:MaxPermSize=512m \
+    -cp /script/../libs/tbar_external/com.gzoltar-0.1.1-jdk7.jar:/script/../repair_tools/tbar.jar edu.lu.uni.serval.tbar.main.Main \
+    "/workdir/TBar_vul4j_apache_commons-io_VUL4J-14" "org.apache.commons.io.FilenameUtilsTestCase#testGetPrefixLength,org.apache.commons.io.FilenameUtilsTestCase#testNormalize" "/src/main/java/" "/src/test/java/" "/target/classes/" "/target/test-classes/" "/script/../data/benchmarks/vul4j/perfectfl/VUL4J-14/spectra.txt" "mvn test -Dtest=org.apache.commons.io.FilenameUtilsTestCase#testGetPrefixLength,org.apache.commons.io.FilenameUtilsTestCase#testNormalize -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B" "mvn test -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B" "/root/.m2/repository/junit/junit/4.12/junit-4.12.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar";
+echo "\n\nNode: `hostname`\n";
+echo "\n\nDate: `date`\n";
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en
+06:43:16,987 |-INFO in ch.qos.logback.classic.LoggerContext[TBar] - Could NOT find resource [logback-test.xml]
+06:43:16,987 |-INFO in ch.qos.logback.classic.LoggerContext[TBar] - Could NOT find resource [logback.groovy]
+06:43:16,987 |-INFO in ch.qos.logback.classic.LoggerContext[TBar] - Found resource [logback.xml] at [jar:file:/repair_tools/tbar.jar!/logback.xml]
+06:43:16,999 |-INFO in ch.qos.logback.core.joran.spi.ConfigurationWatchList@31e956bd - URL [jar:file:/repair_tools/tbar.jar!/logback.xml] is not of type file
+06:43:17,035 |-INFO in ch.qos.logback.classic.joran.action.ConfigurationAction - debug attribute not set
+06:43:17,037 |-INFO in ch.qos.logback.classic.joran.action.ContextNameAction - Setting logger context name as [TBar]
+06:43:17,037 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - About to instantiate appender of type [ch.qos.logback.core.ConsoleAppender]
+06:43:17,040 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - Naming appender as [STDOUT]
+06:43:17,092 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting level of logger [org.hibernate.engine.query.HQLQueryPlan] to DEBUG
+06:43:17,092 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting additivity of logger [org.hibernate.engine.query.HQLQueryPlan] to false
+06:43:17,092 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting level of logger [com.piedra.logback] to DEBUG
+06:43:17,092 |-ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - Could not find an appender named [FILE]. Did you define it below instead of above in the configuration file?
+06:43:17,092 |-ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - See http://logback.qos.ch/codes.html#appender_order for more details.
+06:43:17,092 |-INFO in ch.qos.logback.classic.joran.action.RootLoggerAction - Setting level of ROOT logger to DEBUG
+06:43:17,092 |-INFO in ch.qos.logback.core.joran.action.AppenderRefAction - Attaching appender named [STDOUT] to Logger[ROOT]
+06:43:17,093 |-ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - Could not find an appender named [ROLLINGFILE]. Did you define it below instead of above in the configuration file?
+06:43:17,093 |-ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - See http://logback.qos.ch/codes.html#appender_order for more details.
+06:43:17,093 |-INFO in ch.qos.logback.classic.joran.action.ConfigurationAction - End of configuration.
+06:43:17,094 |-INFO in ch.qos.logback.classic.joran.JoranConfigurator@4e3dabe4 - Registering current configuration as safe fallback point
+
+2022-09-14 06:43:17.331 [main] INFO  edu.lu.uni.serval.tbar.AbstractFixer - TBar_vul4j_apache_commons-io_VUL4J-14 Failed Tests: 2
+2022-09-14 06:43:17.335 [main] INFO  edu.lu.uni.serval.tbar.TBarFixer - =======StaticBugFixer: Start to fix suspicious code======
+2022-09-14 06:43:17.335 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.apache.commons.io.FilenameUtils ===679
+2022-09-14 06:43:18.258 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+return Math.min(posUnix, posWin) + 1;
+2022-09-14 06:43:19.605 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -676,7 +676,8 @@ public static int getPrefixLength(final String fileName) {
+-            return Math.min(posUnix, posWin) + 1;
++            return posWin;
++
+2022-09-14 06:43:19.605 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:43:20.523 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 06:43:29.399 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -676,7 +676,8 @@ public static int getPrefixLength(final String fileName) {
+-            return Math.min(posUnix, posWin) + 1;
++            return posUnix;
++
+2022-09-14 06:43:29.400 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:43:30.296 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 06:43:38.785 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -676,7 +676,8 @@ public static int getPrefixLength(final String fileName) {
+-            return Math.min(posUnix, posWin) + 1;
++            return len;
++
+2022-09-14 06:43:38.785 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:43:39.642 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 06:43:47.840 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -676,7 +676,8 @@ public static int getPrefixLength(final String fileName) {
+-            return Math.min(posUnix, posWin) + 1;
++            return NOT_FOUND;
++
+2022-09-14 06:43:47.840 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:43:48.725 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 06:43:57.078 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -676,7 +676,7 @@ public static int getPrefixLength(final String fileName) {
+-            return Math.min(posUnix, posWin) + 1;
++            return Math.min(posUnix, posWin) - 1;
+2022-09-14 06:43:57.078 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:43:58.013 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 06:44:06.535 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -676,7 +676,7 @@ public static int getPrefixLength(final String fileName) {
+-            return Math.min(posUnix, posWin) + 1;
++            return Math.min(posWin, posUnix) + 1;
+2022-09-14 06:44:06.535 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:44:07.344 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 06:44:15.641 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -676,7 +676,7 @@ public static int getPrefixLength(final String fileName) {
+-            return Math.min(posUnix, posWin) + 1;
++            return Math.min(posWin, len) + 1;
+2022-09-14 06:44:15.641 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:44:16.465 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 06:44:24.861 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -676,7 +676,7 @@ public static int getPrefixLength(final String fileName) {
+-            return Math.min(posUnix, posWin) + 1;
++            return Math.min(len, posUnix) + 1;
+2022-09-14 06:44:24.861 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:44:25.738 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 06:44:33.684 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -676,7 +676,7 @@ public static int getPrefixLength(final String fileName) {
+-            return Math.min(posUnix, posWin) + 1;
++            return Math.min(len, len) + 1;
+2022-09-14 06:44:33.684 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:44:34.591 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 06:44:43.007 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -676,7 +676,7 @@ public static int getPrefixLength(final String fileName) {
+-            return Math.min(posUnix, posWin) + 1;
++            return Math.min(len, posWin) + 1;
+2022-09-14 06:44:43.008 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:44:43.937 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 06:44:52.269 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -676,7 +676,7 @@ public static int getPrefixLength(final String fileName) {
+-            return Math.min(posUnix, posWin) + 1;
++            return Math.min(posUnix, len) + 1;
+2022-09-14 06:44:52.269 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:44:53.137 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 06:45:01.299 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -676,7 +676,7 @@ public static int getPrefixLength(final String fileName) {
+-            return Math.min(posUnix, posWin) + 1;
++            return Math.min(isSystemWindows(), posWin) + 1;
+2022-09-14 06:45:01.299 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:45:02.181 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:45:02.190 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -676,7 +676,7 @@ public static int getPrefixLength(final String fileName) {
+-            return Math.min(posUnix, posWin) + 1;
++            return Math.min(posUnix, isSystemWindows()) + 1;
+2022-09-14 06:45:02.190 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:45:03.072 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:45:03.154 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -676,7 +676,7 @@ public static int getPrefixLength(final String fileName) {
+-            return Math.min(posUnix, posWin) + 1;
++            return Math.min(posUnix, posWin) + 1d;
+2022-09-14 06:45:03.154 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:45:04.046 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:45:04.053 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -676,7 +676,7 @@ public static int getPrefixLength(final String fileName) {
+-            return Math.min(posUnix, posWin) + 1;
++            return Math.min(posUnix, posWin) + 1f;
+2022-09-14 06:45:04.053 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:45:04.826 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:45:04.923 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -589,98 +589,7 @@ public static String separatorsToSystem(final String path) {
+-    /**
+-     * Returns the length of the fileName prefix, such as <code>C:/</code> or <code>~/</code>.
+-     * <p>
+-     * This method will handle a file in either Unix or Windows format.
+-     * <p>
+-     * The prefix length includes the first slash in the full fileName
+-     * if applicable. Thus, it is possible that the length returned is greater
+-     * than the length of the input string.
+-     * <pre>
+-     * Windows:
+-     * a\b\c.txt           --&gt; ""          --&gt; relative
+-     * \a\b\c.txt          --&gt; "\"         --&gt; current drive absolute
+-     * C:a\b\c.txt         --&gt; "C:"        --&gt; drive relative
+-     * C:\a\b\c.txt        --&gt; "C:\"       --&gt; absolute
+-     * \\server\a\b\c.txt  --&gt; "\\server\" --&gt; UNC
+-     * \\\a\b\c.txt        --&gt;  error, length = -1
+-     *
+-     * Unix:
+-     * a/b/c.txt           --&gt; ""          --&gt; relative
+-     * /a/b/c.txt          --&gt; "/"         --&gt; absolute
+-     * ~/a/b/c.txt         --&gt; "~/"        --&gt; current user
+-     * ~                   --&gt; "~/"        --&gt; current user (slash added)
+-     * ~user/a/b/c.txt     --&gt; "~user/"    --&gt; named user
+-     * ~user               --&gt; "~user/"    --&gt; named user (slash added)
+-     * //server/a/b/c.txt  --&gt; "//server/"
+-     * ///a/b/c.txt        --&gt; error, length = -1
+-     * </pre>
+-     * <p>
+-     * The output will be the same irrespective of the machine that the code is running on.
+-     * ie. both Unix and Windows prefixes are matched regardless.
+-     *
+-     * Note that a leading // (or \\) is used to indicate a UNC name on Windows.
+-     * These must be followed by a server name, so double-slashes are not collapsed
+-     * to a single slash at the start of the fileName.
+-     *
+-     * @param fileName  the fileName to find the prefix in, null returns -1
+-     * @return the length of the prefix, -1 if invalid or null
+-     */
+-    public static int getPrefixLength(final String fileName) {
+-        if (fileName == null) {
+-            return NOT_FOUND;
+-        }
+-        final int len = fileName.length();
+-        if (len == 0) {
+-            return 0;
+-        }
+-        char ch0 = fileName.charAt(0);
+-        if (ch0 == ':') {
+-            return NOT_FOUND;
+-        }
+-        if (len == 1) {
+-            if (ch0 == '~') {
+-                return 2;  // return a length greater than the input
+-            }
+-            return isSeparator(ch0) ? 1 : 0;
+-        }
+-        if (ch0 == '~') {
+-            int posUnix = fileName.indexOf(UNIX_SEPARATOR, 1);
+-            int posWin = fileName.indexOf(WINDOWS_SEPARATOR, 1);
+-            if (posUnix == NOT_FOUND && posWin == NOT_FOUND) {
+-                return len + 1;  // return a length greater than the input
+-            }
+-            posUnix = posUnix == NOT_FOUND ? posWin : posUnix;
+-            posWin = posWin == NOT_FOUND ? posUnix : posWin;
+-            return Math.min(posUnix, posWin) + 1;
+-        }
+-        final char ch1 = fileName.charAt(1);
+-        if (ch1 == ':') {
+-            ch0 = Character.toUpperCase(ch0);
+-            if (ch0 >= 'A' && ch0 <= 'Z') {
+-                if (len == 2 || isSeparator(fileName.charAt(2)) == false) {
+-                    return 2;
+-                }
+-                return 3;
+-            } else if (ch0 == UNIX_SEPARATOR) {
+-                return 1;
+-            }
+-            return NOT_FOUND;
+-
+-        } else if (isSeparator(ch0) && isSeparator(ch1)) {
+-            int posUnix = fileName.indexOf(UNIX_SEPARATOR, 2);
+-            int posWin = fileName.indexOf(WINDOWS_SEPARATOR, 2);
+-            if (posUnix == NOT_FOUND && posWin == NOT_FOUND || posUnix == 2 || posWin == 2) {
+-                return NOT_FOUND;
+-            }
+-            posUnix = posUnix == NOT_FOUND ? posWin : posUnix;
+-            posWin = posWin == NOT_FOUND ? posUnix : posWin;
+-            return Math.min(posUnix, posWin) + 1;
+-        } else {
+-            return isSeparator(ch0) ? 1 : 0;
+-        }
+-    }
++
+2022-09-14 06:45:04.924 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:45:05.791 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:45:05.824 [main] INFO  edu.lu.uni.serval.tbar.TBarFixer - =======StaticBugFixer: Finish off fixing======
+Failed to fix bug
+
+
+Node: ee2bf67284b9
+
+
+
+Date: Wed Sep 14 06:45:05 EDT 2022
+

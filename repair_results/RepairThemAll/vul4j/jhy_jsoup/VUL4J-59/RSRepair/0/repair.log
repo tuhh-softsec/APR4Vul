@@ -1,0 +1,5302 @@
+cd /workdir/RSRepair_vul4j_jhy_jsoup_VUL4J-59;
+export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en";
+TZ="America/New_York"; export TZ;
+export PATH="/usr/lib/jvm/java-8-openjdk-amd64/bin:$PATH";
+export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64";
+timeout 240m java -Xmx4g -Xms1g -XX:MaxPermSize=512m -cp /script/../libs/jmetal.jar:/script/../repair_tools/arja.jar us.msu.cse.repair.Main \
+	RSRepair \
+	-DexternalProjRoot /script/../libs/arja_external \
+	-DprojectDir /workdir/RSRepair_vul4j_jhy_jsoup_VUL4J-59 \
+    -DtestFiltered false \
+    -DrunTestCommand "mvn test -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B" \
+	-DsrcJavaDir /workdir/RSRepair_vul4j_jhy_jsoup_VUL4J-59/src/main/java \
+	-DbinJavaDir /workdir/RSRepair_vul4j_jhy_jsoup_VUL4J-59/target/classes \
+	-DbinTestDir /workdir/RSRepair_vul4j_jhy_jsoup_VUL4J-59/target/test-classes \
+	-DdiffFormat true \
+	-Dseed 0 \
+	-DgzoltarDataDir /script/../data/benchmarks/vul4j/perfectfl/VUL4J-59 \
+	-Ddependences /root/.m2/repository/junit/junit/4.5/junit-4.5.jar;
+	echo "\n\nNode: `hostname`\n";
+	echo "\n\nDate: `date`\n";
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en
+OpenJDK 64-Bit Server VM warning: ignoring option MaxPermSize=512m; support was removed in 8.0
+Fault localization starts...
+Number of positive tests: 453
+Number of negative tests: 1
+Negative tests: [org.jsoup.parser.XmlTreeBuilderTest#testDoesHandleEOFInTag]
+Faulty Lines: 
+org.jsoup.parser.TokeniserState#759:1.0
+org.jsoup.parser.TokeniserState#760:1.0
+Fault localization is finished!
+AST parsing starts...
+AST parsing is finished!
+Detection of local variables starts...
+Detection of local variables is finished!
+Detection of fields starts...
+Detection of fields is finished!
+Detection of methods starts...
+Detection of methods is finished!
+Ingredient screener starts...
+Ingredient screener is finished!
+Initialization of manipulations starts...
+Initialization of manipulations is finished!
+Filtering of the tests starts...
+Number of positive tests considered: 453
+Filtering of the tests is finished!
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				boolean last = false;
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,10 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				{
++					String name = r.consumeLetterSequence();
++					t.transition(Data);
++				}
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				;
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				t.emit(c);
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				boolean skip = false;
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,10 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				{
++					t.emit(c);
++					t.transition(Data);
++				}
+break;
+case '>':
+t.error(this);
+Number of failed tests: 10
+Fitness: 10.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,10 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				{
++					StringBuilder out = new StringBuilder();
++					t.eofError(this);
++				}
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				int start = -1;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,8 +756,19 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
+-                    t.transition(Data);
++				{
++					boolean last = false;
++					t.eofError(this);
++				}
++				{
++					if (r.matchesLetter()) {
++						String name = r.consumeLetterSequence();
++						t.tagPending.appendTagName(name.toLowerCase());
++						t.dataBuffer.append(name);
++						return;
++					}
++					t.transition(Data);
++				}
+break;
+case '>':
+t.error(this);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,10 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				{
++					t.emitTagPending();
++					t.transition(Data);
++				}
+break;
+case '>':
+t.error(this);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				;
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				int depth = 0;
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				;
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,10 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				{
++					t.emitTagPending();
++					t.eofError(this);
++				}
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,8 +756,8 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
+-                    t.transition(Data);
++				;
++				;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				StringBuilder out = new StringBuilder();
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				;
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				t.transition(Data);
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,8 +756,8 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
+-                    t.transition(Data);
++				;
++				t.transition(Data);
+break;
+case '>':
+t.error(this);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				;
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				;
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				;
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				Arrays.sort(attributeDoubleValueCharsSorted);
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				boolean skip = false;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				;
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,15 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				{
++					if (r.matchesLetter()) {
++						String name = r.consumeLetterSequence();
++						t.tagPending.appendTagName(name.toLowerCase());
++						t.dataBuffer.append(name);
++						return;
++					}
++					t.eofError(this);
++				}
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				;
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				;
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				StringBuilder builder = new StringBuilder();
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				;
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				;
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				int charval = -1;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				char last = 0;
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				TreeBuilder treeBuilder = new HtmlTreeBuilder();
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,10 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				{
++					Arrays.sort(attributeNameCharsSorted);
++					t.eofError(this);
++				}
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				t.emitTagPending();
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				;
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				;
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				;
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				StringBuilder out = new StringBuilder();
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				HtmlTreeBuilder treeBuilder = new HtmlTreeBuilder();
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,10 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				{
++					XmlTreeBuilder treeBuilder = new XmlTreeBuilder();
++					t.eofError(this);
++				}
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,12 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				if (r.matchesLetter()) {
++					String name = r.consumeLetterSequence();
++					t.dataBuffer.append(name.toLowerCase());
++					t.emit(name);
++					return;
++				}
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				;
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				;
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,10 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				{
++					t.transition(BeforeAttributeName);
++					t.eofError(this);
++				}
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				Arrays.sort(attributeDoubleValueCharsSorted);
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				;
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				int j = 0;
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				;
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,10 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				{
++					t.transition(Data);
++					t.eofError(this);
++				}
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,10 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				{
++					int numSeen = 0;
++					t.transition(Data);
++				}
+break;
+case '>':
+t.error(this);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,10 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				{
++					boolean isLastTableParent = false;
++					t.transition(Data);
++				}
+break;
+case '>':
+t.error(this);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				t.emit("</" + t.dataBuffer.toString());
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				boolean seen = false;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,10 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				{
++					t.dataBuffer.append(c);
++					t.transition(Data);
++				}
+break;
+case '>':
+t.error(this);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				Arrays.sort(attributeDoubleValueCharsSorted);
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,8 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				if (c == '&' || c == '<' || c == TokeniserState.nullChar)
++					break;
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				;
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				boolean skip = false;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				int hash = 0;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				t.transition(BeforeAttributeName);
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,10 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				{
++					r.unconsume();
++					t.eofError(this);
++				}
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				t.dataBuffer.append(c);
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				int hash = 0;
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				;
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,10 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				{
++					String name = r.consumeLetterSequence();
++					t.transition(Data);
++				}
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,10 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				{
++					t.transition(BeforeAttributeName);
++					t.eofError(this);
++				}
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				;
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				;
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				boolean seen = false;
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,12 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				if (r.matchesLetter()) {
++					String name = r.consumeLetterSequence();
++					t.tagPending.appendTagName(name.toLowerCase());
++					t.dataBuffer.append(name);
++					return;
++				}
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				;
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				boolean seen = false;
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				;
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				;
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				;
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				;
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				;
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				t.transition(BeforeAttributeName);
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				;
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				;
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,10 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				{
++					boolean skip = false;
++					t.eofError(this);
++				}
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				;
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,10 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				{
++					String name = r.consumeLetterSequence();
++					t.transition(Data);
++				}
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,12 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				if (r.matchesLetter()) {
++					String name = r.consumeLetterSequence();
++					t.dataBuffer.append(name.toLowerCase());
++					t.emit(name);
++					return;
++				}
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				Arrays.sort(attributeDoubleValueCharsSorted);
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				;
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,10 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				{
++					StringBuilder out = new StringBuilder();
++					t.eofError(this);
++				}
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,10 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				{
++					Arrays.sort(attributeNameCharsSorted);
++					t.eofError(this);
++				}
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,8 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				if (c == '&' || c == '<' || c == TokeniserState.nullChar)
++					break;
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,8 +756,9 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
+-                    t.transition(Data);
++				if (c == '&' || c == '<' || c == TokeniserState.nullChar)
++					break;
++				boolean last = false;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,10 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				{
++					int hash = 0;
++					t.transition(Data);
++				}
+break;
+case '>':
+t.error(this);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				t.emit(c);
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 10
+Fitness: 10.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,8 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				if (c == '&' || c == '<' || c == TokeniserState.nullChar)
++					break;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				;
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				;
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				t.transition(BeforeAttributeName);
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,8 +756,13 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
+-                    t.transition(Data);
++				if (r.matchesLetter()) {
++					String name = r.consumeLetterSequence();
++					t.tagPending.appendTagName(name.toLowerCase());
++					t.dataBuffer.append(name);
++					return;
++				}
++				int end = -1;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				;
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				StringBuilder out = new StringBuilder();
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				;
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,10 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				{
++					Arrays.sort(attributeNameCharsSorted);
++					t.transition(Data);
++				}
+break;
+case '>':
+t.error(this);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				;
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				char last = 0;
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				;
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				;
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				;
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,10 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				{
++					boolean last = false;
++					t.transition(Data);
++				}
+break;
+case '>':
+t.error(this);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,10 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				{
++					char last = 0;
++					t.transition(Data);
++				}
+break;
+case '>':
+t.error(this);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				char last = 0;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				;
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,13 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				{
++					if (c == '\t' || c == '\n' || c == '\r' || c == '\f'
++							|| c == ' ' || c == '/' || c == '>'
++							|| c == TokeniserState.nullChar)
++						break;
++					t.eofError(this);
++				}
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,10 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				{
++					t.emitTagPending();
++					t.eofError(this);
++				}
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,10 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				{
++					StringBuilder builder = new StringBuilder();
++					t.transition(Data);
++				}
+break;
+case '>':
+t.error(this);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				String name = r.consumeLetterSequence();
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				boolean last = false;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,10 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				{
++					int depth = 0;
++					t.transition(Data);
++				}
+break;
+case '>':
+t.error(this);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,10 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				{
++					int depth = 0;
++					t.eofError(this);
++				}
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,12 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				if (r.matchesLetter()) {
++					String name = r.consumeLetterSequence();
++					t.dataBuffer.append(name.toLowerCase());
++					t.emit(name);
++					return;
++				}
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,10 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				{
++					int numSeen = 0;
++					t.eofError(this);
++				}
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				;
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,10 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				{
++					t.emitTagPending();
++					t.eofError(this);
++				}
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,10 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				{
++					char last = 0;
++					t.transition(Data);
++				}
+break;
+case '>':
+t.error(this);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				boolean seen = false;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				;
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,10 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				{
++					boolean isLastTableParent = false;
++					t.transition(Data);
++				}
+break;
+case '>':
+t.error(this);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,10 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				{
++					String name = r.consumeLetterSequence();
++					t.eofError(this);
++				}
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,10 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				{
++					int depth = 0;
++					t.eofError(this);
++				}
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				int numSeen = 0;
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,10 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				{
++					boolean needsExitTransition = false;
++					t.transition(Data);
++				}
+break;
+case '>':
+t.error(this);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				boolean last = false;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,10 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				{
++					t.emit("</" + t.dataBuffer.toString());
++					t.eofError(this);
++				}
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,8 +756,8 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
+-                    t.transition(Data);
++				t.emit("</" + t.dataBuffer.toString());
++				int start = -1;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,10 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				{
++					t.emitTagPending();
++					t.eofError(this);
++				}
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				;
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				;
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				int charval = -1;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				;
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,13 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				{
++					if (c == '\t' || c == '\n' || c == '\r' || c == '\f'
++							|| c == ' ' || c == '/' || c == '>'
++							|| c == TokeniserState.nullChar)
++						break;
++					t.eofError(this);
++				}
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,10 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				{
++					int numSeen = 0;
++					t.transition(Data);
++				}
+break;
+case '>':
+t.error(this);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,10 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				{
++					t.transition(BeforeAttributeName);
++					t.transition(Data);
++				}
+break;
+case '>':
+t.error(this);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,15 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				{
++					if (r.matchesLetter()) {
++						String name = r.consumeLetterSequence();
++						t.tagPending.appendTagName(name.toLowerCase());
++						t.dataBuffer.append(name);
++						return;
++					}
++					t.eofError(this);
++				}
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,8 +756,11 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
+-                    t.transition(Data);
++				;
++				{
++					t.emit("</" + t.dataBuffer.toString());
++					t.transition(Data);
++				}
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,10 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				{
++					TreeBuilder treeBuilder = new HtmlTreeBuilder();
++					t.transition(Data);
++				}
+break;
+case '>':
+t.error(this);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				;
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,8 +756,8 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
+-                    t.transition(Data);
++				;
++				;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				boolean isLastTableParent = false;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				;
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				HtmlTreeBuilder treeBuilder = new HtmlTreeBuilder();
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				;
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				;
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				;
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				;
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				boolean needsExitTransition = false;
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				;
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,10 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				{
++					int numSeen = 0;
++					t.eofError(this);
++				}
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				t.transition(BeforeAttributeName);
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				boolean skip = false;
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				;
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				;
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				;
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				;
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,10 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				{
++					Arrays.sort(attributeDoubleValueCharsSorted);
++					t.eofError(this);
++				}
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,15 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				{
++					if (r.matchesLetter()) {
++						String name = r.consumeLetterSequence();
++						t.dataBuffer.append(name.toLowerCase());
++						t.emit(name);
++						return;
++					}
++					t.transition(Data);
++				}
+break;
+case '>':
+t.error(this);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				Arrays.sort(attributeNameCharsSorted);
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				;
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				r.unconsume();
+break;
+case '>':
+t.error(this);
+Number of failed tests: 0
+Fitness: 0.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				t.dataBuffer.append(c);
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				boolean needsExitTransition = false;
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				;
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				StringBuilder out = new StringBuilder();
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				int charval = -1;
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				;
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				;
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,8 +756,11 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
+-                    t.transition(Data);
++				;
++				{
++					t.transition(Data);
++					t.transition(Data);
++				}
+break;
+case '>':
+t.error(this);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				;
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,10 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				{
++					t.dataBuffer.append(c);
++					t.transition(Data);
++				}
+break;
+case '>':
+t.error(this);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				Arrays.sort(attributeSingleValueCharsSorted);
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,10 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				if (c == '\t' || c == '\n' || c == '\r' || c == '\f'
++						|| c == ' ' || c == '/' || c == '>'
++						|| c == TokeniserState.nullChar)
++					break;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,10 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				{
++					Arrays.sort(attributeSingleValueCharsSorted);
++					t.eofError(this);
++				}
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,10 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				{
++					boolean isLastTableParent = false;
++					t.transition(Data);
++				}
+break;
+case '>':
+t.error(this);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				;
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,10 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				{
++					int j = 0;
++					t.eofError(this);
++				}
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				;
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,10 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				{
++					char last = 0;
++					t.eofError(this);
++				}
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,10 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				{
++					int charval = -1;
++					t.eofError(this);
++				}
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				HtmlTreeBuilder treeBuilder = new HtmlTreeBuilder();
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				;
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				int charval = -1;
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				int hash = 0;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				;
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				int depth = 0;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				t.emitTagPending();
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,10 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				{
++					StringBuilder out = new StringBuilder();
++					t.transition(Data);
++				}
+break;
+case '>':
+t.error(this);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				;
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				t.emit("</" + t.dataBuffer.toString());
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,12 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				if (r.matchesLetter()) {
++					String name = r.consumeLetterSequence();
++					t.dataBuffer.append(name.toLowerCase());
++					t.emit(name);
++					return;
++				}
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,10 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				{
++					HtmlTreeBuilder treeBuilder = new HtmlTreeBuilder();
++					t.transition(Data);
++				}
+break;
+case '>':
+t.error(this);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,8 +756,8 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
+-                    t.transition(Data);
++				;
++				Arrays.sort(attributeDoubleValueCharsSorted);
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				int end = -1;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				int numSeen = 0;
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,10 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				{
++					TreeBuilder treeBuilder = new HtmlTreeBuilder();
++					t.eofError(this);
++				}
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				;
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				;
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				int depth = 0;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				int end = -1;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				;
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -756,7 +756,7 @@ enum TokeniserState {
+t.transition(AttributeValue_unquoted);
+break;
+case eof:
+-                    t.eofError(this);
++				XmlTreeBuilder treeBuilder = new XmlTreeBuilder();
+t.transition(Data);
+break;
+case '>':
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				boolean seen = false;
+break;
+case '>':
+t.error(this);
+Number of failed tests: 2
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,10 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				{
++					int j = 0;
++					t.transition(Data);
++				}
+break;
+case '>':
+t.error(this);
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -757,7 +757,7 @@ enum TokeniserState {
+break;
+case eof:
+t.eofError(this);
+-                    t.transition(Data);
++				;
+break;
+case '>':
+t.error(this);
+
+
+Node: 158fac6bc2aa
+
+
+
+Date: Mon Oct 17 15:36:56 EDT 2022
+

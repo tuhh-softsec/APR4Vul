@@ -1,0 +1,445 @@
+cd /workdir/jGenProg_vul4j_resteasy_Resteasy_VUL4J-66;
+export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en";
+TZ="America/New_York"; export TZ;
+export PATH="/usr/lib/jvm/java-8-openjdk-amd64/bin:$PATH";
+export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64/bin";
+time java -Xmx4g -Xms1g -XX:MaxPermSize=512m -cp /script/../libs/jtestex7.jar:/script/../repair_tools/astor.jar fr.inria.main.evolution.AstorMain \
+	-mode jgenprog \
+	-location . \
+	-id resteasy_Resteasy-VUL4J-66 \
+	-failing org.jboss.resteasy.test.mediatype.MediaTypeHeaderTest#testNewLineInHeaderValueIsRejected \
+	-jvm4testexecution /usr/lib/jvm/java-8-openjdk-amd64/bin \
+	-jvm4evosuitetestexecution /usr/lib/jvm/java-8-openjdk-amd64/bin \
+	-maxgen 1000000 \
+	-maxtime 120 \
+	-stopfirst true \
+	-seed 0 \
+	-scope local \
+	-population 1 \
+	-javacompliancelevel 8 \
+	-faultlocalization perfect \
+    -perfectdata /script/../data/benchmarks/vul4j/perfectfl/VUL4J-66 \
+    -validation externalcmd \
+    -testfailingcmd "cd testsuitemvn test -Dtest=org.jboss.resteasy.test.mediatype.MediaTypeHeaderTest#testNewLineInHeaderValueIsRejected -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B" \
+    -testallcmd "cd testsuitemvn test -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B"  \ \
+	-srcjavafolder testsuite/unit-tests/../../resteasy-core/src/main/java \
+	-srctestfolder testsuite/unit-tests/src/test/java \
+	-binjavafolder testsuite/unit-tests/../../resteasy-core/target/classes \
+	-bintestfolder testsuite/unit-tests/target/test-classes \
+	-parameters x:x \
+	-dependencies "";
+	echo "\n\nNode: `hostname`\n";
+	echo "\n\nDate: `date`\n";
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en
+OpenJDK 64-Bit Server VM warning: ignoring option MaxPermSize=512m; support was removed in 8.0
+[0] INFO ProjectConfiguration - Version of the JVM used: 1.8.0_342
+[0] INFO main - Java version of the JDK used to run tests: 1.8.0_342
+[1] INFO main - The compliance of the JVM is:  8
+[3] INFO main - command line arguments: [-mode  jgenprog  -location  .  -id  resteasy_Resteasy-VUL4J-66  -failing  org.jboss.resteasy.test.mediatype.MediaTypeHeaderTest#testNewLineInHeaderValueIsRejected  -jvm4testexecution  /usr/lib/jvm/java-8-openjdk-amd64/bin  -jvm4evosuitetestexecution  /usr/lib/jvm/java-8-openjdk-amd64/bin  -maxgen  1000000  -maxtime  120  -stopfirst  true  -seed  0  -scope  local  -population  1  -javacompliancelevel  8  -faultlocalization  perfect  -perfectdata  /script/../data/benchmarks/vul4j/perfectfl/VUL4J-66  -validation  externalcmd  -testfailingcmd  cd testsuitemvn test -Dtest=org.jboss.resteasy.test.mediatype.MediaTypeHeaderTest#testNewLineInHeaderValueIsRejected -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B  -testallcmd  cd testsuitemvn test -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B     -srcjavafolder  testsuite/unit-tests/../../resteasy-core/src/main/java  -srctestfolder  testsuite/unit-tests/src/test/java  -binjavafolder  testsuite/unit-tests/../../resteasy-core/target/classes  -bintestfolder  testsuite/unit-tests/target/test-classes  -parameters  x:x  -dependencies  ]
+[6] INFO AstorMain - Running Astor on a JDK at /usr/lib/jvm/java-8-openjdk-amd64/jre
+[28] INFO main - Source folders: [/workdir/jGenProg_vul4j_resteasy_Resteasy_VUL4J-66/./testsuite/unit-tests/../../resteasy-core/src/main/java]
+[28] INFO main - Source Test folders: [/workdir/jGenProg_vul4j_resteasy_Resteasy_VUL4J-66/./testsuite/unit-tests/src/test/java]
+[3105] INFO AstorCoreEngine - ---- Creating spoon model
+[3203] INFO MutationSupporter - Creating model,  Code location from working folder: /workdir/jGenProg_vul4j_resteasy_Resteasy_VUL4J-66/./testsuite/unit-tests/../../resteasy-core/src/main/java
+[3203] INFO MutationSupporter - building model: /workdir/jGenProg_vul4j_resteasy_Resteasy_VUL4J-66/./testsuite/unit-tests/../../resteasy-core/src/main/java, compliance level: 8
+[3393] INFO MutationSupporter - Classpath (Dependencies) for building SpoonModel: null
+[23963] ERROR MutationSupporter - Problem compiling the model with compliance level 8
+[23963] ERROR MutationSupporter - The import org.jboss.resteasy.spi cannot be resolved at /workdir/jGenProg_vul4j_resteasy_Resteasy_VUL4J-66/resteasy-core/src/main/java/org/jboss/resteasy/core/InternalDispatcher.java:5
+spoon.compiler.ModelBuildingException: The import org.jboss.resteasy.spi cannot be resolved at /workdir/jGenProg_vul4j_resteasy_Resteasy_VUL4J-66/resteasy-core/src/main/java/org/jboss/resteasy/core/InternalDispatcher.java:5
+	at spoon.support.compiler.jdt.JDTBasedSpoonCompiler.report(JDTBasedSpoonCompiler.java:649)
+	at spoon.support.compiler.jdt.JDTBasedSpoonCompiler.reportProblems(JDTBasedSpoonCompiler.java:631)
+	at spoon.support.compiler.jdt.JDTBasedSpoonCompiler.build(JDTBasedSpoonCompiler.java:118)
+	at spoon.support.compiler.jdt.JDTBasedSpoonCompiler.build(JDTBasedSpoonCompiler.java:99)
+	at fr.inria.astor.core.manipulation.MutationSupporter.buildModel(MutationSupporter.java:85)
+	at fr.inria.astor.core.manipulation.MutationSupporter.buildSpoonModel(MutationSupporter.java:240)
+	at fr.inria.astor.core.solutionsearch.AstorCoreEngine.initModel(AstorCoreEngine.java:775)
+	at fr.inria.main.evolution.AstorMain.createEngine(AstorMain.java:113)
+	at fr.inria.main.evolution.AstorMain.run(AstorMain.java:173)
+	at fr.inria.main.evolution.AstorMain.execute(AstorMain.java:233)
+	at fr.inria.main.evolution.AstorMain.main(AstorMain.java:204)
+[23978] INFO MutationSupporter - Recompiling with compliance level 8
+[23978] INFO MutationSupporter - building model: /workdir/jGenProg_vul4j_resteasy_Resteasy_VUL4J-66/./testsuite/unit-tests/../../resteasy-core/src/main/java, compliance level: 8
+[24214] INFO MutationSupporter - Classpath (Dependencies) for building SpoonModel: null
+spoon.compiler.ModelBuildingException: The import org.jboss.resteasy.spi cannot be resolved at /workdir/jGenProg_vul4j_resteasy_Resteasy_VUL4J-66/resteasy-core/src/main/java/org/jboss/resteasy/core/InternalDispatcher.java:5
+	at spoon.support.compiler.jdt.JDTBasedSpoonCompiler.report(JDTBasedSpoonCompiler.java:649)
+	at spoon.support.compiler.jdt.JDTBasedSpoonCompiler.reportProblems(JDTBasedSpoonCompiler.java:631)
+	at spoon.support.compiler.jdt.JDTBasedSpoonCompiler.build(JDTBasedSpoonCompiler.java:118)
+	at spoon.support.compiler.jdt.JDTBasedSpoonCompiler.build(JDTBasedSpoonCompiler.java:99)
+	at fr.inria.astor.core.manipulation.MutationSupporter.buildModel(MutationSupporter.java:85)
+	at fr.inria.astor.core.manipulation.MutationSupporter.buildSpoonModel(MutationSupporter.java:253)
+	at fr.inria.astor.core.solutionsearch.AstorCoreEngine.initModel(AstorCoreEngine.java:775)
+	at fr.inria.main.evolution.AstorMain.createEngine(AstorMain.java:113)
+	at fr.inria.main.evolution.AstorMain.run(AstorMain.java:173)
+	at fr.inria.main.evolution.AstorMain.execute(AstorMain.java:233)
+	at fr.inria.main.evolution.AstorMain.main(AstorMain.java:204)
+[34344] ERROR MutationSupporter - Error compiling: The import org.jboss.resteasy.spi cannot be resolved at /workdir/jGenProg_vul4j_resteasy_Resteasy_VUL4J-66/resteasy-core/src/main/java/org/jboss/resteasy/core/InternalDispatcher.java:5
+[34979] ERROR MutationSupporter - Astor continues when model build fails. Classes created: 273
+[35735] INFO AstorCoreEngine - Number of CtTypes created: 273
+[36254] INFO AstorCoreEngine - Test retrieved from classes: 0
+[36383] INFO AstorCoreEngine - Setting up the max to 1290 milliseconds (1 sec)
+[36383] INFO AstorCoreEngine - ---- Initial suspicious size: 2
+[36443] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[36495] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[36498] INFO main - Total suspicious from FL: 2,  0
+[36498] INFO main - Total ModPoint created: 0
+[36498] INFO main - Creating program variant #1, [Variant id: 1, #gens: 0, #ops: 0, parent:-]
+[36498] ERROR AstorCoreEngine - [warning] Any modification point in variant
+[36498] ERROR AstorCoreEngine - Variant with any gen
+[40361] WARN ConfigurationProperties - ----------------------------
+[40361] INFO ConfigurationProperties - ---Configuration properties
+[40361] INFO ConfigurationProperties - p:lastJUnitVersion= ./examples/libs/junit-4.11.jar
+[40362] INFO ConfigurationProperties - p:alternativecompliancelevel= 8
+[40365] INFO ConfigurationProperties - p:ignoredTestCases= 
+[40365] INFO ConfigurationProperties - p:workingDirectory= /workdir/jGenProg_vul4j_resteasy_Resteasy_VUL4J-66/./output_astor
+[40365] INFO ConfigurationProperties - p:manipulatesuper= false
+[40365] INFO ConfigurationProperties - p:validation= externalcmd
+[40365] INFO ConfigurationProperties - p:jvm4testexecution= /usr/lib/jvm/java-8-openjdk-amd64/bin
+[40365] INFO ConfigurationProperties - p:operatorspace= irr-statements
+[40365] INFO ConfigurationProperties - p:diffcontext= 0
+[40365] INFO ConfigurationProperties - p:binjavafolder= testsuite/unit-tests/../../resteasy-core/target/classes
+[40365] INFO ConfigurationProperties - p:synthesis_depth= 3
+[40365] INFO ConfigurationProperties - p:gzoltartestpackagetoexclude= junit.framework
+[40365] INFO ConfigurationProperties - p:skipfitnessinitialpopulation= false
+[40365] INFO ConfigurationProperties - p:evosuiteresultfolder= evosuite
+[40365] INFO ConfigurationProperties - p:flthreshold= 0.1
+[40365] INFO ConfigurationProperties - p:regressionforfaultlocalization= true
+[40365] INFO ConfigurationProperties - p:collectonlyusedmethod= false
+[40365] INFO ConfigurationProperties - p:preservelinenumbers= true
+[40365] INFO ConfigurationProperties - p:tmax2= 1290
+[40365] INFO ConfigurationProperties - p:tmax1= 10000
+[40365] INFO ConfigurationProperties - p:probagenmutation= false
+[40366] INFO ConfigurationProperties - p:nomodificationconvergence= 100
+[40366] INFO ConfigurationProperties - p:diff_type= relative
+[40366] INFO ConfigurationProperties - p:targetelementprocessor= statements
+[40366] INFO ConfigurationProperties - p:srctestfolder= testsuite/unit-tests/src/test/java
+[40366] INFO ConfigurationProperties - p:forceExecuteRegression= false
+[40366] INFO ConfigurationProperties - p:clusteringfilename= clustering.csv
+[40366] INFO ConfigurationProperties - p:failing= org.jboss.resteasy.test.mediatype.MediaTypeHeaderTest#testNewLineInHeaderValueIsRejected
+[40366] INFO ConfigurationProperties - p:logtestexecution= false
+[40366] INFO ConfigurationProperties - p:evo_buggy_class= true
+[40366] INFO ConfigurationProperties - p:numberExecutions= 1
+[40366] INFO ConfigurationProperties - p:maxnumbersolutions= 1000000
+[40366] INFO ConfigurationProperties - p:evo_affected_by_op= true
+[40367] INFO ConfigurationProperties - p:population= 1
+[40367] INFO ConfigurationProperties - p:considerzerovaluesusp= false
+[40367] INFO ConfigurationProperties - p:maxCombinationVariableLimit= false
+[40367] INFO ConfigurationProperties - p:savesolution= true
+[40367] INFO ConfigurationProperties - p:javacompliancelevel= 8
+[40367] INFO ConfigurationProperties - p:x= x
+[40368] INFO ConfigurationProperties - p:uniqueoptogen= false
+[40368] INFO ConfigurationProperties - p:gzoltarpackagetonotinstrument= junit.framework
+[40368] INFO ConfigurationProperties - p:projectIdentifier= resteasy_Resteasy-VUL4J-66
+[40368] INFO ConfigurationProperties - p:modificationpointnavigation= weight
+[40368] INFO ConfigurationProperties - p:stopfirst= true
+[40368] INFO ConfigurationProperties - p:multipointmodification= false
+[40368] INFO ConfigurationProperties - p:elementsToMutate= 10
+[40368] INFO ConfigurationProperties - p:jsonoutputname= astor_output
+[40368] INFO ConfigurationProperties - p:evoDSE= false
+[40368] INFO ConfigurationProperties - p:bintestfolder= testsuite/unit-tests/target/test-classes
+[40368] INFO ConfigurationProperties - p:testbystep= false
+[40368] INFO ConfigurationProperties - p:version-location= ./math-version/
+[40368] INFO ConfigurationProperties - p:reintroduce= PARENTS:ORIGINAL
+[40368] INFO ConfigurationProperties - p:perfectdata= /script/../data/benchmarks/vul4j/perfectfl/VUL4J-66
+[40368] INFO ConfigurationProperties - p:executorjar= ./lib/jtestex7.jar
+[40368] INFO ConfigurationProperties - p:maxGeneration= 1000000
+[40370] INFO ConfigurationProperties - p:max_synthesis_step= 10000
+[40370] INFO ConfigurationProperties - p:projectinfocommand= com.github.tdurieux:project-config-maven-plugin:info
+[40370] INFO ConfigurationProperties - p:maxVarCombination= 1000
+[40370] INFO ConfigurationProperties - p:maxtime= 120
+[40370] INFO ConfigurationProperties - p:evosuitejar= ./lib/evosuite-master-1.0.4-SNAPSHOT.jar
+[40370] INFO ConfigurationProperties - p:jvmversion= 1.8.0_342
+[40375] INFO ConfigurationProperties - p:commandTrunk= 50000
+[40375] INFO ConfigurationProperties - p:faultlocalization= perfect
+[40375] INFO ConfigurationProperties - p:resetmodel= true
+[40375] INFO ConfigurationProperties - p:maxsuspcandidates= 1000
+[40375] INFO ConfigurationProperties - p:mode= jgenprog
+[40375] INFO ConfigurationProperties - p:learningdir= 
+[40375] INFO ConfigurationProperties - p:jvm4evosuitetestexecution= /usr/lib/jvm/java-8-openjdk-amd64/bin
+[40375] INFO ConfigurationProperties - p:filterfaultlocalization= true
+[40375] INFO ConfigurationProperties - p:mutationrate= 1 
+[40375] INFO ConfigurationProperties - p:pathToMVNRepository= 
+[40375] INFO ConfigurationProperties - p:resourcesfolder= /src/main/resources:/src/test/resources:
+[40376] INFO ConfigurationProperties - p:timezone= America/Los_Angeles
+[40376] INFO ConfigurationProperties - p:runjava7code= false
+[40376] INFO ConfigurationProperties - p:testfailingcmd= cd testsuitemvn test -Dtest=org.jboss.resteasy.test.mediatype.MediaTypeHeaderTest#testNewLineInHeaderValueIsRejected -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B
+[40376] INFO ConfigurationProperties - p:evoRunOnBuggyClass= true
+[40376] INFO ConfigurationProperties - p:compiler= fr.inria.astor.core.manipulation.bytecode.compiler.SpoonClassCompiler
+[40376] INFO ConfigurationProperties - p:limitbysuspicious= true
+[40376] INFO ConfigurationProperties - p:logsattemps= true
+[40376] INFO ConfigurationProperties - p:dependenciespath= 
+[40376] INFO ConfigurationProperties - p:packageToInstrument= 
+[40376] INFO ConfigurationProperties - p:skipfaultlocalization= false
+[40376] INFO ConfigurationProperties - p:scope= local
+[40376] INFO ConfigurationProperties - p:transformingredient= false
+[40377] INFO ConfigurationProperties - p:fitnessfunction= fr.inria.astor.core.solutionsearch.population.TestCaseFitnessFunction
+[40377] INFO ConfigurationProperties - p:maxnumvariablesperingredient= 10
+[40377] INFO ConfigurationProperties - p:parsesourcefromoriginal= true
+[40377] INFO ConfigurationProperties - p:pvariantfoldername= variant-
+[40377] INFO ConfigurationProperties - p:savespoonmodelondisk= false
+[40377] INFO ConfigurationProperties - p:srcjavafolder= testsuite/unit-tests/../../resteasy-core/src/main/java
+[40377] INFO ConfigurationProperties - p:populationcontroller= fr.inria.astor.core.solutionsearch.population.TestCaseBasedFitnessPopulationController
+[40377] INFO ConfigurationProperties - p:ignoreflakyinfl= false
+[40377] INFO ConfigurationProperties - p:cleantemplates= true
+[40377] INFO ConfigurationProperties - p:applyCrossover= false
+[40377] INFO ConfigurationProperties - p:maxmodificationpoints= 1000
+[40378] INFO ConfigurationProperties - p:duplicateingredientsinspace= false
+[40378] INFO ConfigurationProperties - p:metid= 0
+[40378] INFO ConfigurationProperties - p:continuewhenmodelfail= true
+[40378] INFO ConfigurationProperties - p:saveall= false
+[40378] INFO ConfigurationProperties - p:seed= 0
+[40378] INFO ConfigurationProperties - p:savecompletepatched= true
+[40378] INFO ConfigurationProperties - p:resetoperations= false
+[40378] INFO ConfigurationProperties - p:keepcomments= false
+[40379] INFO ConfigurationProperties - p:processoutputinfile= false
+[40379] INFO ConfigurationProperties - p:location= .
+[40379] INFO ConfigurationProperties - p:probabilistictransformation= true
+[40379] INFO ConfigurationProperties - p:overridemaxtime= true
+[40379] INFO ConfigurationProperties - p:outputjsonresult= true
+[40379] INFO ConfigurationProperties - p:allpoints= false
+[40379] INFO ConfigurationProperties - p:antipattern= false
+[40379] INFO ConfigurationProperties - p:bugId= 280
+[40379] INFO ConfigurationProperties - p:evosuitetimeout= 120
+[40379] INFO ConfigurationProperties - p:maxtimefactor= 10
+[40379] INFO ConfigurationProperties - p:nrPlaceholders= 1
+[40379] INFO ConfigurationProperties - p:testallcmd= cd testsuitemvn test -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B
+[40379] INFO ConfigurationProperties - p:forcesubprocesskilling= false
+[40380] INFO ConfigurationProperties - ----------------------------
+[40380] INFO AstorCoreEngine - ----Starting Solution Search
+[40381] WARN AstorCoreEngine - ----------Running generation: 1, population size: 1
+[40420] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[40464] WARN AstorCoreEngine - ----------Running generation: 2, population size: 1
+[40492] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[40511] WARN AstorCoreEngine - ----------Running generation: 3, population size: 1
+[40528] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[40538] WARN AstorCoreEngine - ----------Running generation: 4, population size: 1
+[40558] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[40584] WARN AstorCoreEngine - ----------Running generation: 5, population size: 1
+[40593] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[40612] WARN AstorCoreEngine - ----------Running generation: 6, population size: 1
+[40632] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[40636] WARN AstorCoreEngine - ----------Running generation: 7, population size: 1
+[40650] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[40656] WARN AstorCoreEngine - ----------Running generation: 8, population size: 1
+[40667] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[40693] WARN AstorCoreEngine - ----------Running generation: 9, population size: 1
+[40705] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[40714] WARN AstorCoreEngine - ----------Running generation: 10, population size: 1
+[40732] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[40738] WARN AstorCoreEngine - ----------Running generation: 11, population size: 1
+[40754] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[40768] WARN AstorCoreEngine - ----------Running generation: 12, population size: 1
+[40783] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[40786] WARN AstorCoreEngine - ----------Running generation: 13, population size: 1
+[40810] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[40814] WARN AstorCoreEngine - ----------Running generation: 14, population size: 1
+[40832] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[40841] WARN AstorCoreEngine - ----------Running generation: 15, population size: 1
+[40861] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[40867] WARN AstorCoreEngine - ----------Running generation: 16, population size: 1
+[40892] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[40896] WARN AstorCoreEngine - ----------Running generation: 17, population size: 1
+[40906] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[40922] WARN AstorCoreEngine - ----------Running generation: 18, population size: 1
+[40937] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[40945] WARN AstorCoreEngine - ----------Running generation: 19, population size: 1
+[40973] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[40991] WARN AstorCoreEngine - ----------Running generation: 20, population size: 1
+[41000] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[41014] WARN AstorCoreEngine - ----------Running generation: 21, population size: 1
+[41026] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[41031] WARN AstorCoreEngine - ----------Running generation: 22, population size: 1
+[41050] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[41061] WARN AstorCoreEngine - ----------Running generation: 23, population size: 1
+[41070] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[41085] WARN AstorCoreEngine - ----------Running generation: 24, population size: 1
+[41117] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[41121] WARN AstorCoreEngine - ----------Running generation: 25, population size: 1
+[41144] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[41149] WARN AstorCoreEngine - ----------Running generation: 26, population size: 1
+[41160] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[41180] WARN AstorCoreEngine - ----------Running generation: 27, population size: 1
+[41199] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[41225] WARN AstorCoreEngine - ----------Running generation: 28, population size: 1
+[41244] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[41250] WARN AstorCoreEngine - ----------Running generation: 29, population size: 1
+[41261] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[41271] WARN AstorCoreEngine - ----------Running generation: 30, population size: 1
+[41281] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[41288] WARN AstorCoreEngine - ----------Running generation: 31, population size: 1
+[41308] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[41312] WARN AstorCoreEngine - ----------Running generation: 32, population size: 1
+[41321] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[41328] WARN AstorCoreEngine - ----------Running generation: 33, population size: 1
+[41335] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[41338] WARN AstorCoreEngine - ----------Running generation: 34, population size: 1
+[41345] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[41368] WARN AstorCoreEngine - ----------Running generation: 35, population size: 1
+[41376] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[41384] WARN AstorCoreEngine - ----------Running generation: 36, population size: 1
+[41394] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[41400] WARN AstorCoreEngine - ----------Running generation: 37, population size: 1
+[41416] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[41427] WARN AstorCoreEngine - ----------Running generation: 38, population size: 1
+[41435] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[41439] WARN AstorCoreEngine - ----------Running generation: 39, population size: 1
+[41450] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[41454] WARN AstorCoreEngine - ----------Running generation: 40, population size: 1
+[41502] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[41506] WARN AstorCoreEngine - ----------Running generation: 41, population size: 1
+[41523] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[41540] WARN AstorCoreEngine - ----------Running generation: 42, population size: 1
+[41608] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[41614] WARN AstorCoreEngine - ----------Running generation: 43, population size: 1
+[41634] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[41650] WARN AstorCoreEngine - ----------Running generation: 44, population size: 1
+[41656] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[41674] WARN AstorCoreEngine - ----------Running generation: 45, population size: 1
+[41689] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[41694] WARN AstorCoreEngine - ----------Running generation: 46, population size: 1
+[41704] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[41715] WARN AstorCoreEngine - ----------Running generation: 47, population size: 1
+[41742] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[41748] WARN AstorCoreEngine - ----------Running generation: 48, population size: 1
+[41769] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[41783] WARN AstorCoreEngine - ----------Running generation: 49, population size: 1
+[41819] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[41824] WARN AstorCoreEngine - ----------Running generation: 50, population size: 1
+[41874] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[41878] WARN AstorCoreEngine - ----------Running generation: 51, population size: 1
+[41895] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[41899] WARN AstorCoreEngine - ----------Running generation: 52, population size: 1
+[41921] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[41924] WARN AstorCoreEngine - ----------Running generation: 53, population size: 1
+[41944] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[41949] WARN AstorCoreEngine - ----------Running generation: 54, population size: 1
+[41972] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[41993] WARN AstorCoreEngine - ----------Running generation: 55, population size: 1
+[42000] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[42006] WARN AstorCoreEngine - ----------Running generation: 56, population size: 1
+[42012] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[42016] WARN AstorCoreEngine - ----------Running generation: 57, population size: 1
+[42062] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[42067] WARN AstorCoreEngine - ----------Running generation: 58, population size: 1
+[42100] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[42104] WARN AstorCoreEngine - ----------Running generation: 59, population size: 1
+[42127] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[42133] WARN AstorCoreEngine - ----------Running generation: 60, population size: 1
+[42139] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[42166] WARN AstorCoreEngine - ----------Running generation: 61, population size: 1
+[42176] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[42222] WARN AstorCoreEngine - ----------Running generation: 62, population size: 1
+[42230] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[42235] WARN AstorCoreEngine - ----------Running generation: 63, population size: 1
+[42284] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[42288] WARN AstorCoreEngine - ----------Running generation: 64, population size: 1
+[42329] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[42378] WARN AstorCoreEngine - ----------Running generation: 65, population size: 1
+[42385] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[42409] WARN AstorCoreEngine - ----------Running generation: 66, population size: 1
+[42417] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[42437] WARN AstorCoreEngine - ----------Running generation: 67, population size: 1
+[42450] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[42460] WARN AstorCoreEngine - ----------Running generation: 68, population size: 1
+[42480] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[42484] WARN AstorCoreEngine - ----------Running generation: 69, population size: 1
+[42504] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[42547] WARN AstorCoreEngine - ----------Running generation: 70, population size: 1
+[42581] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[42602] WARN AstorCoreEngine - ----------Running generation: 71, population size: 1
+[42616] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[42620] WARN AstorCoreEngine - ----------Running generation: 72, population size: 1
+[42666] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[42708] WARN AstorCoreEngine - ----------Running generation: 73, population size: 1
+[42744] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[42748] WARN AstorCoreEngine - ----------Running generation: 74, population size: 1
+[42790] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[42823] WARN AstorCoreEngine - ----------Running generation: 75, population size: 1
+[42867] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[42915] WARN AstorCoreEngine - ----------Running generation: 76, population size: 1
+[42921] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[42940] WARN AstorCoreEngine - ----------Running generation: 77, population size: 1
+[42948] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[42974] WARN AstorCoreEngine - ----------Running generation: 78, population size: 1
+[43002] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[43024] WARN AstorCoreEngine - ----------Running generation: 79, population size: 1
+[43030] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[43035] WARN AstorCoreEngine - ----------Running generation: 80, population size: 1
+[43042] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[43046] WARN AstorCoreEngine - ----------Running generation: 81, population size: 1
+[43069] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[43078] WARN AstorCoreEngine - ----------Running generation: 82, population size: 1
+[43091] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[43095] WARN AstorCoreEngine - ----------Running generation: 83, population size: 1
+[43102] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[43123] WARN AstorCoreEngine - ----------Running generation: 84, population size: 1
+[43138] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[43156] WARN AstorCoreEngine - ----------Running generation: 85, population size: 1
+[43162] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[43165] WARN AstorCoreEngine - ----------Running generation: 86, population size: 1
+[43193] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[43197] WARN AstorCoreEngine - ----------Running generation: 87, population size: 1
+[43216] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[43219] WARN AstorCoreEngine - ----------Running generation: 88, population size: 1
+[43254] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[43271] WARN AstorCoreEngine - ----------Running generation: 89, population size: 1
+[43277] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[43280] WARN AstorCoreEngine - ----------Running generation: 90, population size: 1
+[43290] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[43293] WARN AstorCoreEngine - ----------Running generation: 91, population size: 1
+[43318] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[43322] WARN AstorCoreEngine - ----------Running generation: 92, population size: 1
+[43344] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[43348] WARN AstorCoreEngine - ----------Running generation: 93, population size: 1
+[43362] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[43383] WARN AstorCoreEngine - ----------Running generation: 94, population size: 1
+[43391] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[43408] WARN AstorCoreEngine - ----------Running generation: 95, population size: 1
+[43414] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[43426] WARN AstorCoreEngine - ----------Running generation: 96, population size: 1
+[43432] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[43435] WARN AstorCoreEngine - ----------Running generation: 97, population size: 1
+[43441] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[43444] WARN AstorCoreEngine - ----------Running generation: 98, population size: 1
+[43471] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[43474] WARN AstorCoreEngine - ----------Running generation: 99, population size: 1
+[43482] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[43485] WARN AstorCoreEngine - ----------Running generation: 100, population size: 1
+[43490] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[43513] ERROR AstorCoreEngine - Stopping main loop at 100 generation
+[43513] INFO AstorCoreEngine - Time Repair Loop (s): 3.132
+[43513] INFO AstorCoreEngine - generationsexecuted: 100
+[43513] WARN AstorCoreEngine - ----SUMMARY_EXECUTION---
+[43513] WARN AstorCoreEngine - End Repair Search: NOT Found solution
+[43514] WARN AstorCoreEngine - Number suspicious:1
+[43515] INFO AstorCoreEngine - 
+ --SOLUTIONS DESCRIPTION--
+
+
+Astor Output:
+
+General stats:
+EXECUTION_IDENTIFIER=resteasy_Resteasy-VUL4J-66
+TOTAL_TIME=3.132
+NR_GENERATIONS=100
+NR_RIGHT_COMPILATIONS=null
+NR_FAILLING_COMPILATIONS=null
+NR_ERRONEOUS_VARIANCES=null
+NR_FAILING_VALIDATION_PROCESS=null
+OUTPUT_STATUS=CONVERGED
+
+Patch stats:
+
+[43545] INFO Stats - Storing ing JSON at /workdir/jGenProg_vul4j_resteasy_Resteasy_VUL4J-66/./output_astor/AstorMain-resteasy_Resteasy-VUL4J-66//astor_output.json
+[43545] INFO Stats - astor_output:
+{"general":{"NR_RIGHT_COMPILATIONS":null,"NR_ERRONEOUS_VARIANCES":null,"EXECUTION_IDENTIFIER":"resteasy_Resteasy-VUL4J-66","OUTPUT_STATUS":"CONVERGED","NR_FAILLING_COMPILATIONS":null,"NR_GENERATIONS":100,"TOTAL_TIME":3.132,"NR_FAILING_VALIDATION_PROCESS":null},"patches":[]}
+[43545] INFO AstorMain - Time Total(s): 43.529
+62.15user 4.88system 0:45.55elapsed 147%CPU (0avgtext+0avgdata 955912maxresident)k
+160inputs+12784outputs (0major+256241minor)pagefaults 0swaps
+
+
+Node: 9670332cfea8
+
+
+
+Date: Thu Sep  8 18:54:43 EDT 2022
+

@@ -1,0 +1,10 @@
+{
+  "repair_end": "2022-09-14 22:21:28.275130", 
+  "repair_begin": "2022-09-14 22:19:02.282494", 
+  "patches": [
+    {
+      "edits": [], 
+      "patch": "diff --git a/spring-webmvc/src/main/java/org/springframework/web/servlet/ResourceServlet.java b/spring-webmvc/src/main/java/org/springframework/web/servlet/ResourceServlet.java\nindex c8155e290e9f..2b74dbc46d17 100644\n--- a/spring-webmvc/src/main/java/org/springframework/web/servlet/ResourceServlet.java\n+++ b/spring-webmvc/src/main/java/org/springframework/web/servlet/ResourceServlet.java\n@@ -277,7 +277,7 @@ public class ResourceServlet extends HttpServletBean {\n \t\tString[] resourceUrls = StringUtils.tokenizeToStringArray(resourceUrl, RESOURCE_URL_DELIMITERS);\n \t\tfor (String url : resourceUrls) {\n \t\t\t// Check whether URL matches allowed resources\n-\t\t\tif (this.allowedResources != null && !this.pathMatcher.match(this.allowedResources, url)) {\n+\t\t\tif (this.allowedResources != url || (this.allowedResources != null && !this.pathMatcher.match(this.allowedResources, url))) {\n \t\t\t\tthrow new ServletException(\"Resource [\" + url +\n \t\t\t\t\t\t\"] does not match allowed pattern [\" + this.allowedResources + \"]\");\n \t\t\t}"
+    }
+  ]
+}

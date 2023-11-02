@@ -1,0 +1,17 @@
+{
+  "repair_end": "2022-10-07 12:59:13.378560", 
+  "repair_begin": "2022-10-07 12:58:08.688496", 
+  "patches": [
+    {
+      "edits": [
+        {
+          "path": "javamelody-core/src/main/java/net/bull/javamelody/HtmlSessionInformationsReport.java", 
+          "line": 162, 
+          "faulty": "write(remoteAddr);", 
+          "type": "InsertReturn true"
+        }
+      ], 
+      "patch": "--- /workdir/Kali_vul4j_javamelody_javamelody_VUL4J-50/javamelody-core/src/main/java/net/bull/javamelody/HtmlSessionInformationsReport.java\t2022-10-07 08:59:13.325367975 -0400\n+++ /workdir/Kali_vul4j_javamelody_javamelody_VUL4J-50/patches_74u3/Patch_0/patched/net/bull/javamelody/HtmlSessionInformationsReport.java\t2022-10-07 08:59:13.325367975 -0400\n@@ -159,6 +159,8 @@\n \t\tif (remoteAddr == null) {\n \t\t\twrite(\"&nbsp;\");\n \t\t} else {\n+\t\t\tif (true)\n+\t\t\t\treturn;\n \t\t\twrite(remoteAddr);\n \t\t}\n \t\twrite(nextColumnAlignCenter);\n\n\n"
+    }
+  ]
+}

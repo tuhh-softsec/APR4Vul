@@ -1,0 +1,10 @@
+{
+  "repair_end": "2022-09-14 10:17:19.410201", 
+  "repair_begin": "2022-09-14 10:16:33.296168", 
+  "patches": [
+    {
+      "edits": [], 
+      "patch": "diff --git a/src/main/java/org/apache/commons/compress/archivers/zip/X0017_StrongEncryptionHeader.java b/src/main/java/org/apache/commons/compress/archivers/zip/X0017_StrongEncryptionHeader.java\nindex 0feb9c98cc62..761283bc86db 100644\n--- a/src/main/java/org/apache/commons/compress/archivers/zip/X0017_StrongEncryptionHeader.java\n+++ b/src/main/java/org/apache/commons/compress/archivers/zip/X0017_StrongEncryptionHeader.java\n@@ -310,7 +310,7 @@ public void parseCentralDirectoryFormat(final byte[] data, final int offset, fin\n             this.hashAlg = HashAlgorithm.getAlgorithmByCode(ZipShort.getValue(data, offset + 12));\n             this.hashSize = ZipShort.getValue(data, offset + 14);\n             // srlist... hashed public keys\n-            for (int i = 0; i < this.rcount; i++) {\n+            for (int i = 0; i==this.rcount; i++) {\n                 for (int j = 0; j < this.hashSize; j++) {\n                     //  ZipUtil.signedByteToUnsignedInt(data[offset + 16 + (i * this.hashSize) + j]));\n                 }"
+    }
+  ]
+}

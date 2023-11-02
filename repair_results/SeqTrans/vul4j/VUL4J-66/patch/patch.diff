@@ -1,0 +1,32 @@
+diff --git a/resteasy-core/src/main/java/org/jboss/resteasy/plugins/delegates/MediaTypeHeaderDelegate.java b/resteasy-core/src/main/java/org/jboss/resteasy/plugins/delegates/MediaTypeHeaderDelegate.java
+index ccf08a46224..4e48e622b1f 100644
+--- a/resteasy-core/src/main/java/org/jboss/resteasy/plugins/delegates/MediaTypeHeaderDelegate.java
++++ b/resteasy-core/src/main/java/org/jboss/resteasy/plugins/delegates/MediaTypeHeaderDelegate.java
+@@ -49,6 +49,7 @@ protected static boolean isValid(String str)
+             case '[':
+             case ']':
+             case '=':
++            case '\n':
+                return false;
+             default:
+                break;
+diff --git a/testsuite/unit-tests/src/test/java/org/jboss/resteasy/test/mediatype/MediaTypeHeaderTest.java b/testsuite/unit-tests/src/test/java/org/jboss/resteasy/test/mediatype/MediaTypeHeaderTest.java
+new file mode 100644
+index 00000000000..e46f018f7fc
+--- /dev/null
++++ b/testsuite/unit-tests/src/test/java/org/jboss/resteasy/test/mediatype/MediaTypeHeaderTest.java
+@@ -0,0 +1,14 @@
++package org.jboss.resteasy.test.mediatype;
++
++import org.jboss.resteasy.plugins.delegates.MediaTypeHeaderDelegate;
++import org.junit.Test;
++
++public class MediaTypeHeaderTest {
++
++   @Test(expected = IllegalArgumentException.class)
++   public void testNewLineInHeaderValueIsRejected() {
++      MediaTypeHeaderDelegate delegate = new MediaTypeHeaderDelegate();
++
++      delegate.fromString("foo/bar\n");
++   }
++}

@@ -1,0 +1,625 @@
+cd /workdir/TBar_vul4j_x-stream_xstream_VUL4J-78;
+export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en";
+TZ="America/New_York"; export TZ;
+export PATH="/usr/lib/jvm/jdk1.7.0_80/bin:$PATH";
+export JAVA_HOME="/usr/lib/jvm/jdk1.7.0_80";
+timeout 240m java -Xmx4g -Xms1g -XX:MaxPermSize=512m \
+    -cp /script/../libs/tbar_external/com.gzoltar-0.1.1-jdk7.jar:/script/../repair_tools/tbar.jar edu.lu.uni.serval.tbar.main.Main \
+    "/workdir/TBar_vul4j_x-stream_xstream_VUL4J-78" "com.thoughtworks.acceptance.SecurityVulnerabilityTest#testCannotInjectEventHandlerWithUnconfiguredSecurityFramework" "/xstream/src/java/" "/xstream/src/test/" "/xstream/target/classes/" "/xstream/target/test-classes/" "/script/../data/benchmarks/vul4j/perfectfl/VUL4J-78/spectra.txt" "mvn test -pl xstream -Dtest=com.thoughtworks.acceptance.SecurityVulnerabilityTest -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B" "mvn test -pl xstream -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B" "/root/.m2/repository/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar:/root/.m2/repository/xmlpull/xmlpull/1.1.3.1/xmlpull-1.1.3.1.jar:/root/.m2/repository/stax/stax-api/1.0.1/stax-api-1.0.1.jar:/root/.m2/repository/cglib/cglib-nodep/2.2/cglib-nodep-2.2.jar:/root/.m2/repository/org/jdom/jdom2/2.0.5/jdom2-2.0.5.jar:/root/.m2/repository/org/codehaus/woodstox/wstx-asl/3.2.7/wstx-asl-3.2.7.jar:/root/.m2/repository/org/json/json/20080701/json-20080701.jar:/root/.m2/repository/org/jdom/jdom/1.1.3/jdom-1.1.3.jar:/root/.m2/repository/javax/activation/activation/1.1.1/activation-1.1.1.jar:/root/.m2/repository/stax/stax/1.2.0/stax-1.2.0.jar:/root/.m2/repository/junit/junit/3.8.1/junit-3.8.1.jar:/root/.m2/repository/com/megginson/sax/xml-writer/0.2/xml-writer-0.2.jar:/root/.m2/repository/commons-lang/commons-lang/2.4/commons-lang-2.4.jar:/root/.m2/repository/xpp3/xpp3_min/1.1.4c/xpp3_min-1.1.4c.jar:/root/.m2/repository/org/codehaus/jettison/jettison/1.2/jettison-1.2.jar:/root/.m2/repository/net/sf/kxml/kxml2/2.3.0/kxml2-2.3.0.jar:/root/.m2/repository/jmock/jmock/1.0.1/jmock-1.0.1.jar:/root/.m2/repository/joda-time/joda-time/1.6/joda-time-1.6.jar:/root/.m2/repository/oro/oro/2.0.8/oro-2.0.8.jar:/root/.m2/repository/xom/xom/1.1/xom-1.1.jar:/root/.m2/repository/net/sf/kxml/kxml2-min/2.3.0/kxml2-min-2.3.0.jar";
+echo "\n\nNode: `hostname`\n";
+echo "\n\nDate: `date`\n";
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en
+19:09:09,972 |-INFO in ch.qos.logback.classic.LoggerContext[TBar] - Could NOT find resource [logback-test.xml]
+19:09:09,973 |-INFO in ch.qos.logback.classic.LoggerContext[TBar] - Could NOT find resource [logback.groovy]
+19:09:09,973 |-INFO in ch.qos.logback.classic.LoggerContext[TBar] - Found resource [logback.xml] at [jar:file:/repair_tools/tbar.jar!/logback.xml]
+19:09:09,992 |-INFO in ch.qos.logback.core.joran.spi.ConfigurationWatchList@31e956bd - URL [jar:file:/repair_tools/tbar.jar!/logback.xml] is not of type file
+19:09:10,042 |-INFO in ch.qos.logback.classic.joran.action.ConfigurationAction - debug attribute not set
+19:09:10,044 |-INFO in ch.qos.logback.classic.joran.action.ContextNameAction - Setting logger context name as [TBar]
+19:09:10,044 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - About to instantiate appender of type [ch.qos.logback.core.ConsoleAppender]
+19:09:10,047 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - Naming appender as [STDOUT]
+19:09:10,095 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting level of logger [org.hibernate.engine.query.HQLQueryPlan] to DEBUG
+19:09:10,095 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting additivity of logger [org.hibernate.engine.query.HQLQueryPlan] to false
+19:09:10,096 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting level of logger [com.piedra.logback] to DEBUG
+19:09:10,096 |-ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - Could not find an appender named [FILE]. Did you define it below instead of above in the configuration file?
+19:09:10,096 |-ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - See http://logback.qos.ch/codes.html#appender_order for more details.
+19:09:10,096 |-INFO in ch.qos.logback.classic.joran.action.RootLoggerAction - Setting level of ROOT logger to DEBUG
+19:09:10,096 |-INFO in ch.qos.logback.core.joran.action.AppenderRefAction - Attaching appender named [STDOUT] to Logger[ROOT]
+19:09:10,097 |-ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - Could not find an appender named [ROLLINGFILE]. Did you define it below instead of above in the configuration file?
+19:09:10,097 |-ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - See http://logback.qos.ch/codes.html#appender_order for more details.
+19:09:10,097 |-INFO in ch.qos.logback.classic.joran.action.ConfigurationAction - End of configuration.
+19:09:10,099 |-INFO in ch.qos.logback.classic.joran.JoranConfigurator@4e3dabe4 - Registering current configuration as safe fallback point
+
+2022-09-14 19:09:10.631 [main] INFO  edu.lu.uni.serval.tbar.AbstractFixer - TBar_vul4j_x-stream_xstream_VUL4J-78 Failed Tests: 1
+2022-09-14 19:09:10.638 [main] INFO  edu.lu.uni.serval.tbar.TBarFixer - =======StaticBugFixer: Start to fix suspicious code======
+2022-09-14 19:09:10.638 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - com.thoughtworks.xstream.XStream ===341
+2022-09-14 19:09:12.321 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+private transient boolean insecureWarning;
+2022-09-14 19:09:14.904 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -338,7 +338,7 @@ public class XStream {
+-    private transient boolean insecureWarning;
++
+2022-09-14 19:09:14.904 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 19:09:15.992 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 19:09:16.063 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - com.thoughtworks.xstream.XStream ===699
+2022-09-14 19:09:16.171 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+insecureWarning = true;
+2022-09-14 19:09:16.475 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -696,7 +696,7 @@ public class XStream {
+-        insecureWarning = true;
++        insecureWarning = false;
+2022-09-14 19:09:16.475 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 19:09:17.702 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 19:09:24.985 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -691,12 +691,13 @@ public class XStream {
+-        if (securityMapper == null) {
++        insecureWarning = true;
++	if (securityMapper == null) {
+-        insecureWarning = true;
++
+2022-09-14 19:09:24.985 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 19:09:26.343 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 19:09:32.941 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -695,8 +695,9 @@ public class XStream {
+-        addPermission(AnyTypePermission.ANY);
++	addPermission(AnyTypePermission.ANY);
++
+2022-09-14 19:09:32.941 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 19:09:34.275 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 19:09:41.072 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -696,7 +696,7 @@ public class XStream {
+-        insecureWarning = true;
++
+2022-09-14 19:09:41.072 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 19:09:42.400 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 19:09:48.997 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -690,14 +690,7 @@ public class XStream {
+-    protected void setupSecurity() {
+-        if (securityMapper == null) {
+-            return;
+-        }
+-
+-        addPermission(AnyTypePermission.ANY);
+-        insecureWarning = true;
+-    }
++
+2022-09-14 19:09:48.997 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 19:09:50.231 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 19:09:50.282 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - com.thoughtworks.xstream.XStream ===714
+2022-09-14 19:09:50.387 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+if (xstream.insecureWarning) {
+            xstream.addPermission(NoTypePermission.NONE);
+            xstream.addPermission(NullPermission.NULL);
+            xstream.addPermission(PrimitiveTypePermission.PRIMITIVES);
+            xstream.addPermission(ArrayTypePermission.ARRAYS);
+            xstream.addPermission(InterfaceTypePermission.INTERFACES);
+            xstream.allowTypeHierarchy(Calendar.class);
+            xstream.allowTypeHierarchy(Collection.class);
+            xstream.allowTypeHierarchy(Map.class);
+            xstream.allowTypeHierarchy(Map.Entry.class);
+            xstream.allowTypeHierarchy(Member.class);
+            xstream.allowTypeHierarchy(Number.class);
+            xstream.allowTypeHierarchy(Throwable.class);
+            xstream.allowTypeHierarchy(TimeZone.class);
+
+            Class type = JVM.loadClassForName("java.lang.Enum");
+            if (type != null) {
+                xstream.allowTypeHierarchy(type);
+            }
+            type = JVM.loadClassForName("java.nio.file.Path");
+            if (type != null) {
+                xstream.allowTypeHierarchy(type);
+            }
+
+            final Set types = new HashSet();
+            types.add(BitSet.class);
+            types.add(Charset.class);
+            types.add(Class.class);
+            types.add(Currency.class);
+            types.add(Date.class);
+            types.add(DecimalFormatSymbols.class);
+            types.add(File.class);
+            types.add(Locale.class);
+            types.add(Object.class);
+            types.add(Pattern.class);
+            types.add(StackTraceElement.class);
+            types.add(String.class);
+            types.add(StringBuffer.class);
+            types.add(JVM.loadClassForName("java.lang.StringBuilder"));
+            types.add(URL.class);
+            types.add(URI.class);
+            types.add(JVM.loadClassForName("java.util.UUID"));
+            if (JVM.isSQLAvailable()) {
+                types.add(JVM.loadClassForName("java.sql.Timestamp"));
+                types.add(JVM.loadClassForName("java.sql.Time"));
+                types.add(JVM.loadClassForName("java.sql.Date"));
+            }
+            if (JVM.isVersion(8)) {
+                xstream.allowTypeHierarchy(JVM.loadClassForName("java.time.Clock"));
+                types.add(JVM.loadClassForName("java.time.Duration"));
+                types.add(JVM.loadClassForName("java.time.Instant"));
+                types.add(JVM.loadClassForName("java.time.LocalDate"));
+                types.add(JVM.loadClassForName("java.time.LocalDateTime"));
+                types.add(JVM.loadClassForName("java.time.LocalTime"));
+                types.add(JVM.loadClassForName("java.time.MonthDay"));
+                types.add(JVM.loadClassForName("java.time.OffsetDateTime"));
+                types.add(JVM.loadClassForName("java.time.OffsetTime"));
+                types.add(JVM.loadClassForName("java.time.Period"));
+                types.add(JVM.loadClassForName("java.time.Ser"));
+                types.add(JVM.loadClassForName("java.time.Year"));
+                types.add(JVM.loadClassForName("java.time.YearMonth"));
+                types.add(JVM.loadClassForName("java.time.ZonedDateTime"));
+                xstream.allowTypeHierarchy(JVM.loadClassForName("java.time.ZoneId"));
+                types.add(JVM.loadClassForName("java.time.chrono.HijrahDate"));
+                types.add(JVM.loadClassForName("java.time.chrono.JapaneseDate"));
+                types.add(JVM.loadClassForName("java.time.chrono.JapaneseEra"));
+                types.add(JVM.loadClassForName("java.time.chrono.MinguoDate"));
+                types.add(JVM.loadClassForName("java.time.chrono.ThaiBuddhistDate"));
+                types.add(JVM.loadClassForName("java.time.chrono.Ser"));
+                xstream.allowTypeHierarchy(JVM.loadClassForName("java.time.chrono.Chronology"));
+                types.add(JVM.loadClassForName("java.time.temporal.ValueRange"));
+                types.add(JVM.loadClassForName("java.time.temporal.WeekFields"));
+            }
+            types.remove(null);
+
+            final Iterator iter = types.iterator();
+            final Class[] classes = new Class[types.size()];
+            for (int i = 0; i < classes.length; ++i) {
+                classes[i] = (Class)iter.next();
+            }
+            xstream.allowTypes(classes);
+        } else {
+            throw new IllegalArgumentException("Security framework of XStream instance already initialized");
+        }
+2022-09-14 19:09:50.576 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -711,7 +711,8 @@ public class XStream {
+-        if (xstream.insecureWarning) {
++        if (xstream.insecureWarning != null) {
++	if (xstream.insecureWarning) {
+@@ -795,6 +796,8 @@ public class XStream {
++	}
++
+2022-09-14 19:09:50.576 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 19:09:51.774 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 19:09:51.786 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -711,7 +711,10 @@ public class XStream {
+-        if (xstream.insecureWarning) {
++        if (xstream.insecureWarning == null) {
++	    throw new IllegalArgumentException("Null 'xstream.insecureWarning' argument.");
++	}
++if (xstream.insecureWarning) {
+2022-09-14 19:09:51.786 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 19:09:52.857 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 19:09:52.869 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -711,7 +711,10 @@ public class XStream {
+-        if (xstream.insecureWarning) {
++        if (xstream.insecureWarning == null) {
++	    return;
++	}
++if (xstream.insecureWarning) {
+2022-09-14 19:09:52.869 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 19:09:54.080 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 19:09:54.092 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -711,7 +711,8 @@ public class XStream {
+-        if (xstream.insecureWarning) {
++        if (xstream.insecureWarning == null) xstream.insecureWarning = new null();
++ if (xstream.insecureWarning) {
+2022-09-14 19:09:54.092 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 19:09:54.441 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 19:09:54.666 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -711,90 +711,7 @@ public class XStream {
+-        if (xstream.insecureWarning) {
+-            xstream.addPermission(NoTypePermission.NONE);
+-            xstream.addPermission(NullPermission.NULL);
+-            xstream.addPermission(PrimitiveTypePermission.PRIMITIVES);
+-            xstream.addPermission(ArrayTypePermission.ARRAYS);
+-            xstream.addPermission(InterfaceTypePermission.INTERFACES);
+-            xstream.allowTypeHierarchy(Calendar.class);
+-            xstream.allowTypeHierarchy(Collection.class);
+-            xstream.allowTypeHierarchy(Map.class);
+-            xstream.allowTypeHierarchy(Map.Entry.class);
+-            xstream.allowTypeHierarchy(Member.class);
+-            xstream.allowTypeHierarchy(Number.class);
+-            xstream.allowTypeHierarchy(Throwable.class);
+-            xstream.allowTypeHierarchy(TimeZone.class);
+-
+-            Class type = JVM.loadClassForName("java.lang.Enum");
+-            if (type != null) {
+-                xstream.allowTypeHierarchy(type);
+-            }
+-            type = JVM.loadClassForName("java.nio.file.Path");
+-            if (type != null) {
+-                xstream.allowTypeHierarchy(type);
+-            }
+-
+-            final Set types = new HashSet();
+-            types.add(BitSet.class);
+-            types.add(Charset.class);
+-            types.add(Class.class);
+-            types.add(Currency.class);
+-            types.add(Date.class);
+-            types.add(DecimalFormatSymbols.class);
+-            types.add(File.class);
+-            types.add(Locale.class);
+-            types.add(Object.class);
+-            types.add(Pattern.class);
+-            types.add(StackTraceElement.class);
+-            types.add(String.class);
+-            types.add(StringBuffer.class);
+-            types.add(JVM.loadClassForName("java.lang.StringBuilder"));
+-            types.add(URL.class);
+-            types.add(URI.class);
+-            types.add(JVM.loadClassForName("java.util.UUID"));
+-            if (JVM.isSQLAvailable()) {
+-                types.add(JVM.loadClassForName("java.sql.Timestamp"));
+-                types.add(JVM.loadClassForName("java.sql.Time"));
+-                types.add(JVM.loadClassForName("java.sql.Date"));
+-            }
+-            if (JVM.isVersion(8)) {
+-                xstream.allowTypeHierarchy(JVM.loadClassForName("java.time.Clock"));
+-                types.add(JVM.loadClassForName("java.time.Duration"));
+-                types.add(JVM.loadClassForName("java.time.Instant"));
+-                types.add(JVM.loadClassForName("java.time.LocalDate"));
+-                types.add(JVM.loadClassForName("java.time.LocalDateTime"));
+-                types.add(JVM.loadClassForName("java.time.LocalTime"));
+-                types.add(JVM.loadClassForName("java.time.MonthDay"));
+-                types.add(JVM.loadClassForName("java.time.OffsetDateTime"));
+-                types.add(JVM.loadClassForName("java.time.OffsetTime"));
+-                types.add(JVM.loadClassForName("java.time.Period"));
+-                types.add(JVM.loadClassForName("java.time.Ser"));
+-                types.add(JVM.loadClassForName("java.time.Year"));
+-                types.add(JVM.loadClassForName("java.time.YearMonth"));
+-                types.add(JVM.loadClassForName("java.time.ZonedDateTime"));
+-                xstream.allowTypeHierarchy(JVM.loadClassForName("java.time.ZoneId"));
+-                types.add(JVM.loadClassForName("java.time.chrono.HijrahDate"));
+-                types.add(JVM.loadClassForName("java.time.chrono.JapaneseDate"));
+-                types.add(JVM.loadClassForName("java.time.chrono.JapaneseEra"));
+-                types.add(JVM.loadClassForName("java.time.chrono.MinguoDate"));
+-                types.add(JVM.loadClassForName("java.time.chrono.ThaiBuddhistDate"));
+-                types.add(JVM.loadClassForName("java.time.chrono.Ser"));
+-                xstream.allowTypeHierarchy(JVM.loadClassForName("java.time.chrono.Chronology"));
+-                types.add(JVM.loadClassForName("java.time.temporal.ValueRange"));
+-                types.add(JVM.loadClassForName("java.time.temporal.WeekFields"));
+-            }
+-            types.remove(null);
+-
+-            final Iterator iter = types.iterator();
+-            final Class[] classes = new Class[types.size()];
+-            for (int i = 0; i < classes.length; ++i) {
+-                classes[i] = (Class)iter.next();
+-            }
+-            xstream.allowTypes(classes);
+-        } else {
+-            throw new IllegalArgumentException("Security framework of XStream instance already initialized");
+-        }
++        throw new IllegalArgumentException("Security framework of XStream instance already initialized");
+2022-09-14 19:09:54.666 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 19:09:55.994 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 19:10:02.625 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -711,8 +711,7 @@ public class XStream {
+-        if (xstream.insecureWarning) {
+-            xstream.addPermission(NoTypePermission.NONE);
++        xstream.addPermission(NoTypePermission.NONE);
+@@ -792,9 +791,6 @@ public class XStream {
+-        } else {
+-            throw new IllegalArgumentException("Security framework of XStream instance already initialized");
+-        }
+2022-09-14 19:10:02.625 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 19:10:03.860 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 19:10:10.904 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -711,90 +711,7 @@ public class XStream {
+-        if (xstream.insecureWarning) {
+-            xstream.addPermission(NoTypePermission.NONE);
+-            xstream.addPermission(NullPermission.NULL);
+-            xstream.addPermission(PrimitiveTypePermission.PRIMITIVES);
+-            xstream.addPermission(ArrayTypePermission.ARRAYS);
+-            xstream.addPermission(InterfaceTypePermission.INTERFACES);
+-            xstream.allowTypeHierarchy(Calendar.class);
+-            xstream.allowTypeHierarchy(Collection.class);
+-            xstream.allowTypeHierarchy(Map.class);
+-            xstream.allowTypeHierarchy(Map.Entry.class);
+-            xstream.allowTypeHierarchy(Member.class);
+-            xstream.allowTypeHierarchy(Number.class);
+-            xstream.allowTypeHierarchy(Throwable.class);
+-            xstream.allowTypeHierarchy(TimeZone.class);
+-
+-            Class type = JVM.loadClassForName("java.lang.Enum");
+-            if (type != null) {
+-                xstream.allowTypeHierarchy(type);
+-            }
+-            type = JVM.loadClassForName("java.nio.file.Path");
+-            if (type != null) {
+-                xstream.allowTypeHierarchy(type);
+-            }
+-
+-            final Set types = new HashSet();
+-            types.add(BitSet.class);
+-            types.add(Charset.class);
+-            types.add(Class.class);
+-            types.add(Currency.class);
+-            types.add(Date.class);
+-            types.add(DecimalFormatSymbols.class);
+-            types.add(File.class);
+-            types.add(Locale.class);
+-            types.add(Object.class);
+-            types.add(Pattern.class);
+-            types.add(StackTraceElement.class);
+-            types.add(String.class);
+-            types.add(StringBuffer.class);
+-            types.add(JVM.loadClassForName("java.lang.StringBuilder"));
+-            types.add(URL.class);
+-            types.add(URI.class);
+-            types.add(JVM.loadClassForName("java.util.UUID"));
+-            if (JVM.isSQLAvailable()) {
+-                types.add(JVM.loadClassForName("java.sql.Timestamp"));
+-                types.add(JVM.loadClassForName("java.sql.Time"));
+-                types.add(JVM.loadClassForName("java.sql.Date"));
+-            }
+-            if (JVM.isVersion(8)) {
+-                xstream.allowTypeHierarchy(JVM.loadClassForName("java.time.Clock"));
+-                types.add(JVM.loadClassForName("java.time.Duration"));
+-                types.add(JVM.loadClassForName("java.time.Instant"));
+-                types.add(JVM.loadClassForName("java.time.LocalDate"));
+-                types.add(JVM.loadClassForName("java.time.LocalDateTime"));
+-                types.add(JVM.loadClassForName("java.time.LocalTime"));
+-                types.add(JVM.loadClassForName("java.time.MonthDay"));
+-                types.add(JVM.loadClassForName("java.time.OffsetDateTime"));
+-                types.add(JVM.loadClassForName("java.time.OffsetTime"));
+-                types.add(JVM.loadClassForName("java.time.Period"));
+-                types.add(JVM.loadClassForName("java.time.Ser"));
+-                types.add(JVM.loadClassForName("java.time.Year"));
+-                types.add(JVM.loadClassForName("java.time.YearMonth"));
+-                types.add(JVM.loadClassForName("java.time.ZonedDateTime"));
+-                xstream.allowTypeHierarchy(JVM.loadClassForName("java.time.ZoneId"));
+-                types.add(JVM.loadClassForName("java.time.chrono.HijrahDate"));
+-                types.add(JVM.loadClassForName("java.time.chrono.JapaneseDate"));
+-                types.add(JVM.loadClassForName("java.time.chrono.JapaneseEra"));
+-                types.add(JVM.loadClassForName("java.time.chrono.MinguoDate"));
+-                types.add(JVM.loadClassForName("java.time.chrono.ThaiBuddhistDate"));
+-                types.add(JVM.loadClassForName("java.time.chrono.Ser"));
+-                xstream.allowTypeHierarchy(JVM.loadClassForName("java.time.chrono.Chronology"));
+-                types.add(JVM.loadClassForName("java.time.temporal.ValueRange"));
+-                types.add(JVM.loadClassForName("java.time.temporal.WeekFields"));
+-            }
+-            types.remove(null);
+-
+-            final Iterator iter = types.iterator();
+-            final Class[] classes = new Class[types.size()];
+-            for (int i = 0; i < classes.length; ++i) {
+-                classes[i] = (Class)iter.next();
+-            }
+-            xstream.allowTypes(classes);
+-        } else {
+-            throw new IllegalArgumentException("Security framework of XStream instance already initialized");
+-        }
++
+2022-09-14 19:10:10.904 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 19:10:12.235 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 19:10:19.099 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -699,103 +699,7 @@ public class XStream {
+-    /**
+-     * Setup the security framework of a XStream instance.
+-     * <p>
+-     * This method is a pure helper method for XStream 1.4.x. It initializes an XStream instance with a white list of
+-     * well-known and simply types of the Java runtime as it is done in XStream 1.5.x by default. This method will do
+-     * therefore nothing in XStream 1.5.
+-     * </p>
+-     *
+-     * @param xstream
+-     * @since 1.4.10
+-     */
+-    public static void setupDefaultSecurity(final XStream xstream) {
+-        if (xstream.insecureWarning) {
+-            xstream.addPermission(NoTypePermission.NONE);
+-            xstream.addPermission(NullPermission.NULL);
+-            xstream.addPermission(PrimitiveTypePermission.PRIMITIVES);
+-            xstream.addPermission(ArrayTypePermission.ARRAYS);
+-            xstream.addPermission(InterfaceTypePermission.INTERFACES);
+-            xstream.allowTypeHierarchy(Calendar.class);
+-            xstream.allowTypeHierarchy(Collection.class);
+-            xstream.allowTypeHierarchy(Map.class);
+-            xstream.allowTypeHierarchy(Map.Entry.class);
+-            xstream.allowTypeHierarchy(Member.class);
+-            xstream.allowTypeHierarchy(Number.class);
+-            xstream.allowTypeHierarchy(Throwable.class);
+-            xstream.allowTypeHierarchy(TimeZone.class);
+-
+-            Class type = JVM.loadClassForName("java.lang.Enum");
+-            if (type != null) {
+-                xstream.allowTypeHierarchy(type);
+-            }
+-            type = JVM.loadClassForName("java.nio.file.Path");
+-            if (type != null) {
+-                xstream.allowTypeHierarchy(type);
+-            }
+-
+-            final Set types = new HashSet();
+-            types.add(BitSet.class);
+-            types.add(Charset.class);
+-            types.add(Class.class);
+-            types.add(Currency.class);
+-            types.add(Date.class);
+-            types.add(DecimalFormatSymbols.class);
+-            types.add(File.class);
+-            types.add(Locale.class);
+-            types.add(Object.class);
+-            types.add(Pattern.class);
+-            types.add(StackTraceElement.class);
+-            types.add(String.class);
+-            types.add(StringBuffer.class);
+-            types.add(JVM.loadClassForName("java.lang.StringBuilder"));
+-            types.add(URL.class);
+-            types.add(URI.class);
+-            types.add(JVM.loadClassForName("java.util.UUID"));
+-            if (JVM.isSQLAvailable()) {
+-                types.add(JVM.loadClassForName("java.sql.Timestamp"));
+-                types.add(JVM.loadClassForName("java.sql.Time"));
+-                types.add(JVM.loadClassForName("java.sql.Date"));
+-            }
+-            if (JVM.isVersion(8)) {
+-                xstream.allowTypeHierarchy(JVM.loadClassForName("java.time.Clock"));
+-                types.add(JVM.loadClassForName("java.time.Duration"));
+-                types.add(JVM.loadClassForName("java.time.Instant"));
+-                types.add(JVM.loadClassForName("java.time.LocalDate"));
+-                types.add(JVM.loadClassForName("java.time.LocalDateTime"));
+-                types.add(JVM.loadClassForName("java.time.LocalTime"));
+-                types.add(JVM.loadClassForName("java.time.MonthDay"));
+-                types.add(JVM.loadClassForName("java.time.OffsetDateTime"));
+-                types.add(JVM.loadClassForName("java.time.OffsetTime"));
+-                types.add(JVM.loadClassForName("java.time.Period"));
+-                types.add(JVM.loadClassForName("java.time.Ser"));
+-                types.add(JVM.loadClassForName("java.time.Year"));
+-                types.add(JVM.loadClassForName("java.time.YearMonth"));
+-                types.add(JVM.loadClassForName("java.time.ZonedDateTime"));
+-                xstream.allowTypeHierarchy(JVM.loadClassForName("java.time.ZoneId"));
+-                types.add(JVM.loadClassForName("java.time.chrono.HijrahDate"));
+-                types.add(JVM.loadClassForName("java.time.chrono.JapaneseDate"));
+-                types.add(JVM.loadClassForName("java.time.chrono.JapaneseEra"));
+-                types.add(JVM.loadClassForName("java.time.chrono.MinguoDate"));
+-                types.add(JVM.loadClassForName("java.time.chrono.ThaiBuddhistDate"));
+-                types.add(JVM.loadClassForName("java.time.chrono.Ser"));
+-                xstream.allowTypeHierarchy(JVM.loadClassForName("java.time.chrono.Chronology"));
+-                types.add(JVM.loadClassForName("java.time.temporal.ValueRange"));
+-                types.add(JVM.loadClassForName("java.time.temporal.WeekFields"));
+-            }
+-            types.remove(null);
+-
+-            final Iterator iter = types.iterator();
+-            final Class[] classes = new Class[types.size()];
+-            for (int i = 0; i < classes.length; ++i) {
+-                classes[i] = (Class)iter.next();
+-            }
+-            xstream.allowTypes(classes);
+-        } else {
+-            throw new IllegalArgumentException("Security framework of XStream instance already initialized");
+-        }
+-    }
++
+2022-09-14 19:10:19.100 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 19:10:20.227 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 19:10:26.678 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -711,7 +711,8 @@ public class XStream {
+-        if (xstream.insecureWarning) {
++        setupMappers();
++	if (xstream.insecureWarning) {
+2022-09-14 19:10:26.678 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 19:10:27.881 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 19:10:27.891 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -795,6 +795,7 @@ public class XStream {
++	setupMappers();
+2022-09-14 19:10:27.892 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 19:10:29.046 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 19:10:29.058 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -711,7 +711,8 @@ public class XStream {
+-        if (xstream.insecureWarning) {
++        setupSecurity();
++	if (xstream.insecureWarning) {
+2022-09-14 19:10:29.058 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 19:10:30.344 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 19:10:30.360 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -795,6 +795,7 @@ public class XStream {
++	setupSecurity();
+2022-09-14 19:10:30.360 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 19:10:31.537 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 19:10:31.550 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -711,7 +711,8 @@ public class XStream {
+-        if (xstream.insecureWarning) {
++        setupAliases();
++	if (xstream.insecureWarning) {
+2022-09-14 19:10:31.551 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 19:10:32.820 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 19:10:32.830 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -795,6 +795,7 @@ public class XStream {
++	setupAliases();
+2022-09-14 19:10:32.830 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 19:10:33.997 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 19:10:34.009 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -711,7 +711,8 @@ public class XStream {
+-        if (xstream.insecureWarning) {
++        setupDefaultImplementations();
++	if (xstream.insecureWarning) {
+2022-09-14 19:10:34.010 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 19:10:35.162 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 19:10:35.175 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -795,6 +795,7 @@ public class XStream {
++	setupDefaultImplementations();
+2022-09-14 19:10:35.176 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 19:10:36.484 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 19:10:36.495 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -711,7 +711,8 @@ public class XStream {
+-        if (xstream.insecureWarning) {
++        setupConverters();
++	if (xstream.insecureWarning) {
+2022-09-14 19:10:36.495 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 19:10:37.803 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 19:10:37.814 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -795,6 +795,7 @@ public class XStream {
++	setupConverters();
+2022-09-14 19:10:37.814 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 19:10:39.126 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 19:10:39.139 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -711,7 +711,8 @@ public class XStream {
+-        if (xstream.insecureWarning) {
++        setupImmutableTypes();
++	if (xstream.insecureWarning) {
+2022-09-14 19:10:39.139 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 19:10:40.313 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 19:10:40.324 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -795,6 +795,7 @@ public class XStream {
++	setupImmutableTypes();
+2022-09-14 19:10:40.325 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 19:10:41.586 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 19:10:41.599 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -711,7 +711,8 @@ public class XStream {
+-        if (xstream.insecureWarning) {
++        ignoreUnknownElements();
++	if (xstream.insecureWarning) {
+2022-09-14 19:10:41.599 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 19:10:42.817 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 19:10:42.827 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -795,6 +795,7 @@ public class XStream {
++	ignoreUnknownElements();
+2022-09-14 19:10:42.828 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 19:10:44.275 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 19:10:44.275 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - com.thoughtworks.xstream.XStream ===1482
+2022-09-14 19:10:44.328 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+if (insecureWarning) {
+                insecureWarning = false;
+                System.err.println("Security framework of XStream not initialized, XStream is probably vulnerable.");
+            }
+2022-09-14 19:10:44.434 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -1479,7 +1479,7 @@ public class XStream {
+-            if (insecureWarning) {
++            if (buildMapper()) {
+2022-09-14 19:10:44.434 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 19:10:45.531 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 19:10:45.544 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -1479,7 +1479,7 @@ public class XStream {
+-            if (insecureWarning) {
++            if (useXStream11XmlFriendlyMapper()) {
+2022-09-14 19:10:45.544 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 19:10:46.921 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 19:10:53.823 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test the whole test suite.
+2022-09-14 19:11:15.859 [main] INFO  edu.lu.uni.serval.tbar.AbstractFixer - Succeeded to fix the bug BuggyProject====================
+diff --git a/xstream/src/java/com/thoughtworks/xstream/XStream.java b/xstream/src/java/com/thoughtworks/xstream/XStream.java
+index 75353fa865e5..f2889d0dfc71 100644
+--- a/xstream/src/java/com/thoughtworks/xstream/XStream.java
++++ b/xstream/src/java/com/thoughtworks/xstream/XStream.java
+@@ -1479,7 +1479,7 @@ public class XStream {
+      */
+     public Object unmarshal(HierarchicalStreamReader reader, Object root, DataHolder dataHolder) {
+         try {
+-            if (insecureWarning) {
++            if (useXStream11XmlFriendlyMapper()) {
+                 insecureWarning = false;
+                 System.err.println("Security framework of XStream not initialized, XStream is probably vulnerable.");
+             }
+2022-09-14 19:11:15.870 [main] INFO  edu.lu.uni.serval.tbar.TBarFixer - =======StaticBugFixer: Finish off fixing======
+Succeeded to fix bug
+
+
+Node: ee2bf67284b9
+
+
+
+Date: Wed Sep 14 19:11:15 EDT 2022
+

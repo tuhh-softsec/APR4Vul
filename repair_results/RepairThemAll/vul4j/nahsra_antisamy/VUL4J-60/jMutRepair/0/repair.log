@@ -1,0 +1,223 @@
+cd /workdir/jMutRepair_vul4j_nahsra_antisamy_VUL4J-60;
+export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en";
+TZ="America/New_York"; export TZ;
+export PATH="/usr/lib/jvm/java-8-openjdk-amd64/bin:$PATH";
+export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64/bin";
+time java -Xmx4g -Xms1g -XX:MaxPermSize=512m -cp /script/../libs/jtestex7.jar:/script/../repair_tools/astor.jar fr.inria.main.evolution.AstorMain \
+	-mode jMutRepair \
+	-location . \
+	-id nahsra_antisamy-VUL4J-60 \
+	-failing org.owasp.validator.html.test.AntiSamyTest#testIssue2 \
+	-jvm4testexecution /usr/lib/jvm/java-8-openjdk-amd64/bin \
+	-jvm4evosuitetestexecution /usr/lib/jvm/java-8-openjdk-amd64/bin \
+	-maxgen 1000000 \
+	-maxtime 120 \
+	-stopfirst true \
+	-seed 0 \
+	-scope local \
+	-population 1 \
+	-javacompliancelevel 8 \
+	-faultlocalization perfect \
+    -perfectdata /script/../data/benchmarks/vul4j/perfectfl/VUL4J-60 \
+    -validation externalcmd \
+    -testfailingcmd "mvn test -Dtest=org.owasp.validator.html.test.AntiSamyTest#testIssue2 -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B" \
+    -testallcmd "mvn test -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B"  \ \
+	-srcjavafolder src/main/java \
+	-srctestfolder src/test/java \
+	-binjavafolder target/classes \
+	-bintestfolder target/test-classes \
+	-parameters x:x \
+	-dependencies /root/.m2/repository/org/apache/xmlgraphics/batik-ext/1.8/batik-ext-1.8.jar:/root/.m2/repository/org/apache/xmlgraphics/batik-util/1.8/batik-util-1.8.jar:/root/.m2/repository/org/apache/xmlgraphics/batik-css/1.8/batik-css-1.8.jar:/root/.m2/repository/xml-apis/xml-apis-ext/1.3.04/xml-apis-ext-1.3.04.jar:/root/.m2/repository/commons-logging/commons-logging/1.0.4/commons-logging-1.0.4.jar:/root/.m2/repository/junit/junit/4.12/junit-4.12.jar:/root/.m2/repository/xml-apis/xml-apis/1.4.01/xml-apis-1.4.01.jar:/root/.m2/repository/xerces/xercesImpl/2.11.0/xercesImpl-2.11.0.jar:/root/.m2/repository/commons-httpclient/commons-httpclient/3.1/commons-httpclient-3.1.jar:/root/.m2/repository/net/sourceforge/nekohtml/nekohtml/1.9.22/nekohtml-1.9.22.jar:/root/.m2/repository/commons-codec/commons-codec/1.2/commons-codec-1.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar;
+	echo "\n\nNode: `hostname`\n";
+	echo "\n\nDate: `date`\n";
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en
+OpenJDK 64-Bit Server VM warning: ignoring option MaxPermSize=512m; support was removed in 8.0
+[0] INFO ProjectConfiguration - Version of the JVM used: 1.8.0_342
+[2] INFO main - Java version of the JDK used to run tests: 1.8.0_342
+[2] INFO main - The compliance of the JVM is:  8
+[15] INFO main - command line arguments: [-mode  jMutRepair  -location  .  -id  nahsra_antisamy-VUL4J-60  -failing  org.owasp.validator.html.test.AntiSamyTest#testIssue2  -jvm4testexecution  /usr/lib/jvm/java-8-openjdk-amd64/bin  -jvm4evosuitetestexecution  /usr/lib/jvm/java-8-openjdk-amd64/bin  -maxgen  1000000  -maxtime  120  -stopfirst  true  -seed  0  -scope  local  -population  1  -javacompliancelevel  8  -faultlocalization  perfect  -perfectdata  /script/../data/benchmarks/vul4j/perfectfl/VUL4J-60  -validation  externalcmd  -testfailingcmd  mvn test -Dtest=org.owasp.validator.html.test.AntiSamyTest#testIssue2 -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B  -testallcmd  mvn test -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B     -srcjavafolder  src/main/java  -srctestfolder  src/test/java  -binjavafolder  target/classes  -bintestfolder  target/test-classes  -parameters  x:x  -dependencies  /root/.m2/repository/org/apache/xmlgraphics/batik-ext/1.8/batik-ext-1.8.jar:/root/.m2/repository/org/apache/xmlgraphics/batik-util/1.8/batik-util-1.8.jar:/root/.m2/repository/org/apache/xmlgraphics/batik-css/1.8/batik-css-1.8.jar:/root/.m2/repository/xml-apis/xml-apis-ext/1.3.04/xml-apis-ext-1.3.04.jar:/root/.m2/repository/commons-logging/commons-logging/1.0.4/commons-logging-1.0.4.jar:/root/.m2/repository/junit/junit/4.12/junit-4.12.jar:/root/.m2/repository/xml-apis/xml-apis/1.4.01/xml-apis-1.4.01.jar:/root/.m2/repository/xerces/xercesImpl/2.11.0/xercesImpl-2.11.0.jar:/root/.m2/repository/commons-httpclient/commons-httpclient/3.1/commons-httpclient-3.1.jar:/root/.m2/repository/net/sourceforge/nekohtml/nekohtml/1.9.22/nekohtml-1.9.22.jar:/root/.m2/repository/commons-codec/commons-codec/1.2/commons-codec-1.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar]
+[20] INFO AstorMain - Running Astor on a JDK at /usr/lib/jvm/java-8-openjdk-amd64/jre
+[54] INFO main - Source folders: [/workdir/jMutRepair_vul4j_nahsra_antisamy_VUL4J-60/./src/main/java]
+[54] INFO main - Source Test folders: [/workdir/jMutRepair_vul4j_nahsra_antisamy_VUL4J-60/./src/test/java]
+[2638] INFO AstorCoreEngine - ---- Creating spoon model
+[2721] INFO MutationSupporter - Creating model,  Code location from working folder: /workdir/jMutRepair_vul4j_nahsra_antisamy_VUL4J-60/./src/main/java
+[2721] INFO MutationSupporter - building model: /workdir/jMutRepair_vul4j_nahsra_antisamy_VUL4J-60/./src/main/java, compliance level: 8
+[2758] INFO MutationSupporter - Classpath (Dependencies) for building SpoonModel: [/root/.m2/repository/org/apache/xmlgraphics/batik-ext/1.8/batik-ext-1.8.jar, /root/.m2/repository/org/apache/xmlgraphics/batik-util/1.8/batik-util-1.8.jar, /root/.m2/repository/org/apache/xmlgraphics/batik-css/1.8/batik-css-1.8.jar, /root/.m2/repository/xml-apis/xml-apis-ext/1.3.04/xml-apis-ext-1.3.04.jar, /root/.m2/repository/commons-logging/commons-logging/1.0.4/commons-logging-1.0.4.jar, /root/.m2/repository/junit/junit/4.12/junit-4.12.jar, /root/.m2/repository/xml-apis/xml-apis/1.4.01/xml-apis-1.4.01.jar, /root/.m2/repository/xerces/xercesImpl/2.11.0/xercesImpl-2.11.0.jar, /root/.m2/repository/commons-httpclient/commons-httpclient/3.1/commons-httpclient-3.1.jar, /root/.m2/repository/net/sourceforge/nekohtml/nekohtml/1.9.22/nekohtml-1.9.22.jar, /root/.m2/repository/commons-codec/commons-codec/1.2/commons-codec-1.2.jar, /root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar]
+[13816] INFO AstorCoreEngine - Number of CtTypes created: 27
+[14005] INFO AstorCoreEngine - Test retrieved from classes: 0
+[14311] INFO AstorCoreEngine - Setting up the max to 3060 milliseconds (3 sec)
+[14311] INFO AstorCoreEngine - ---- Initial suspicious size: 2
+[19456] INFO main - Total suspicious from FL: 2,  2
+[19456] INFO main - Total ModPoint created: 2
+[19456] INFO main - Creating program variant #1, [Variant id: 1, #gens: 2, #ops: 0, parent:-]
+[19457] INFO main - Run previously failing tests...
+[42658] INFO main - Failed tests: 1
+[42660] INFO AstorCoreEngine - The original fitness is : 1.0
+[42660] WARN ConfigurationProperties - ----------------------------
+[42660] INFO ConfigurationProperties - ---Configuration properties
+[42660] INFO ConfigurationProperties - p:lastJUnitVersion= ./examples/libs/junit-4.11.jar
+[42667] INFO ConfigurationProperties - p:alternativecompliancelevel= 8
+[42667] INFO ConfigurationProperties - p:ignoredTestCases= 
+[42667] INFO ConfigurationProperties - p:workingDirectory= /workdir/jMutRepair_vul4j_nahsra_antisamy_VUL4J-60/./output_astor
+[42667] INFO ConfigurationProperties - p:manipulatesuper= false
+[42667] INFO ConfigurationProperties - p:validation= externalcmd
+[42667] INFO ConfigurationProperties - p:jvm4testexecution= /usr/lib/jvm/java-8-openjdk-amd64/bin
+[42667] INFO ConfigurationProperties - p:operatorspace= mutationspace
+[42667] INFO ConfigurationProperties - p:diffcontext= 0
+[42667] INFO ConfigurationProperties - p:binjavafolder= target/classes
+[42667] INFO ConfigurationProperties - p:synthesis_depth= 3
+[42667] INFO ConfigurationProperties - p:gzoltartestpackagetoexclude= junit.framework
+[42668] INFO ConfigurationProperties - p:skipfitnessinitialpopulation= false
+[42668] INFO ConfigurationProperties - p:evosuiteresultfolder= evosuite
+[42668] INFO ConfigurationProperties - p:flthreshold= 0.1
+[42668] INFO ConfigurationProperties - p:regressionforfaultlocalization= true
+[42668] INFO ConfigurationProperties - p:collectonlyusedmethod= false
+[42668] INFO ConfigurationProperties - p:preservelinenumbers= true
+[42668] INFO ConfigurationProperties - p:tmax2= 3060
+[42668] INFO ConfigurationProperties - p:tmax1= 10000
+[42668] INFO ConfigurationProperties - p:probagenmutation= false
+[42668] INFO ConfigurationProperties - p:nomodificationconvergence= 100
+[42668] INFO ConfigurationProperties - p:diff_type= relative
+[42668] INFO ConfigurationProperties - p:targetelementprocessor= if-conditions:return-op-mutation
+[42668] INFO ConfigurationProperties - p:srctestfolder= src/test/java
+[42668] INFO ConfigurationProperties - p:forceExecuteRegression= false
+[42668] INFO ConfigurationProperties - p:clusteringfilename= clustering.csv
+[42668] INFO ConfigurationProperties - p:failing= org.owasp.validator.html.test.AntiSamyTest#testIssue2
+[42668] INFO ConfigurationProperties - p:logtestexecution= false
+[42671] INFO ConfigurationProperties - p:evo_buggy_class= true
+[42671] INFO ConfigurationProperties - p:numberExecutions= 1
+[42671] INFO ConfigurationProperties - p:maxnumbersolutions= 1000000
+[42671] INFO ConfigurationProperties - p:evo_affected_by_op= true
+[42671] INFO ConfigurationProperties - p:population= 1
+[42671] INFO ConfigurationProperties - p:considerzerovaluesusp= false
+[42671] INFO ConfigurationProperties - p:maxCombinationVariableLimit= false
+[42671] INFO ConfigurationProperties - p:savesolution= true
+[42671] INFO ConfigurationProperties - p:javacompliancelevel= 8
+[42671] INFO ConfigurationProperties - p:x= x
+[42671] INFO ConfigurationProperties - p:uniqueoptogen= false
+[42671] INFO ConfigurationProperties - p:gzoltarpackagetonotinstrument= junit.framework
+[42671] INFO ConfigurationProperties - p:projectIdentifier= nahsra_antisamy-VUL4J-60
+[42671] INFO ConfigurationProperties - p:modificationpointnavigation= weight
+[42671] INFO ConfigurationProperties - p:stopfirst= true
+[42671] INFO ConfigurationProperties - p:multipointmodification= false
+[42672] INFO ConfigurationProperties - p:elementsToMutate= 10
+[42672] INFO ConfigurationProperties - p:jsonoutputname= astor_output
+[42672] INFO ConfigurationProperties - p:evoDSE= false
+[42672] INFO ConfigurationProperties - p:bintestfolder= target/test-classes
+[42672] INFO ConfigurationProperties - p:testbystep= false
+[42672] INFO ConfigurationProperties - p:version-location= ./math-version/
+[42672] INFO ConfigurationProperties - p:reintroduce= PARENTS:ORIGINAL
+[42672] INFO ConfigurationProperties - p:perfectdata= /script/../data/benchmarks/vul4j/perfectfl/VUL4J-60
+[42672] INFO ConfigurationProperties - p:executorjar= ./lib/jtestex7.jar
+[42672] INFO ConfigurationProperties - p:maxGeneration= 1000000
+[42672] INFO ConfigurationProperties - p:max_synthesis_step= 10000
+[42672] INFO ConfigurationProperties - p:projectinfocommand= com.github.tdurieux:project-config-maven-plugin:info
+[42672] INFO ConfigurationProperties - p:maxVarCombination= 1000
+[42672] INFO ConfigurationProperties - p:maxtime= 120
+[42672] INFO ConfigurationProperties - p:evosuitejar= ./lib/evosuite-master-1.0.4-SNAPSHOT.jar
+[42672] INFO ConfigurationProperties - p:jvmversion= 1.8.0_342
+[42672] INFO ConfigurationProperties - p:commandTrunk= 50000
+[42672] INFO ConfigurationProperties - p:faultlocalization= perfect
+[42672] INFO ConfigurationProperties - p:resetmodel= true
+[42672] INFO ConfigurationProperties - p:maxsuspcandidates= 1000
+[42673] INFO ConfigurationProperties - p:mode= jMutRepair
+[42673] INFO ConfigurationProperties - p:learningdir= 
+[42673] INFO ConfigurationProperties - p:jvm4evosuitetestexecution= /usr/lib/jvm/java-8-openjdk-amd64/bin
+[42673] INFO ConfigurationProperties - p:filterfaultlocalization= true
+[42673] INFO ConfigurationProperties - p:mutationrate= 1 
+[42673] INFO ConfigurationProperties - p:pathToMVNRepository= 
+[42673] INFO ConfigurationProperties - p:resourcesfolder= /src/main/resources:/src/test/resources:
+[42673] INFO ConfigurationProperties - p:timezone= America/Los_Angeles
+[42673] INFO ConfigurationProperties - p:runjava7code= false
+[42673] INFO ConfigurationProperties - p:testfailingcmd= mvn test -Dtest=org.owasp.validator.html.test.AntiSamyTest#testIssue2 -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B
+[42673] INFO ConfigurationProperties - p:evoRunOnBuggyClass= true
+[42673] INFO ConfigurationProperties - p:compiler= fr.inria.astor.core.manipulation.bytecode.compiler.SpoonClassCompiler
+[42673] INFO ConfigurationProperties - p:limitbysuspicious= true
+[42673] INFO ConfigurationProperties - p:logsattemps= true
+[42673] INFO ConfigurationProperties - p:dependenciespath= /root/.m2/repository/org/apache/xmlgraphics/batik-ext/1.8/batik-ext-1.8.jar:/root/.m2/repository/org/apache/xmlgraphics/batik-util/1.8/batik-util-1.8.jar:/root/.m2/repository/org/apache/xmlgraphics/batik-css/1.8/batik-css-1.8.jar:/root/.m2/repository/xml-apis/xml-apis-ext/1.3.04/xml-apis-ext-1.3.04.jar:/root/.m2/repository/commons-logging/commons-logging/1.0.4/commons-logging-1.0.4.jar:/root/.m2/repository/junit/junit/4.12/junit-4.12.jar:/root/.m2/repository/xml-apis/xml-apis/1.4.01/xml-apis-1.4.01.jar:/root/.m2/repository/xerces/xercesImpl/2.11.0/xercesImpl-2.11.0.jar:/root/.m2/repository/commons-httpclient/commons-httpclient/3.1/commons-httpclient-3.1.jar:/root/.m2/repository/net/sourceforge/nekohtml/nekohtml/1.9.22/nekohtml-1.9.22.jar:/root/.m2/repository/commons-codec/commons-codec/1.2/commons-codec-1.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar
+[42673] INFO ConfigurationProperties - p:packageToInstrument= 
+[42673] INFO ConfigurationProperties - p:skipfaultlocalization= false
+[42673] INFO ConfigurationProperties - p:scope= local
+[42673] INFO ConfigurationProperties - p:transformingredient= false
+[42674] INFO ConfigurationProperties - p:fitnessfunction= fr.inria.astor.core.solutionsearch.population.TestCaseFitnessFunction
+[42674] INFO ConfigurationProperties - p:maxnumvariablesperingredient= 10
+[42674] INFO ConfigurationProperties - p:parsesourcefromoriginal= true
+[42674] INFO ConfigurationProperties - p:pvariantfoldername= variant-
+[42674] INFO ConfigurationProperties - p:savespoonmodelondisk= false
+[42674] INFO ConfigurationProperties - p:srcjavafolder= src/main/java
+[42674] INFO ConfigurationProperties - p:populationcontroller= fr.inria.astor.core.solutionsearch.population.TestCaseBasedFitnessPopulationController
+[42674] INFO ConfigurationProperties - p:ignoreflakyinfl= false
+[42674] INFO ConfigurationProperties - p:cleantemplates= true
+[42674] INFO ConfigurationProperties - p:applyCrossover= false
+[42674] INFO ConfigurationProperties - p:maxmodificationpoints= 1000
+[42674] INFO ConfigurationProperties - p:duplicateingredientsinspace= false
+[42674] INFO ConfigurationProperties - p:metid= 0
+[42674] INFO ConfigurationProperties - p:continuewhenmodelfail= true
+[42674] INFO ConfigurationProperties - p:saveall= false
+[42674] INFO ConfigurationProperties - p:seed= 0
+[42674] INFO ConfigurationProperties - p:savecompletepatched= true
+[42674] INFO ConfigurationProperties - p:resetoperations= false
+[42674] INFO ConfigurationProperties - p:keepcomments= false
+[42674] INFO ConfigurationProperties - p:processoutputinfile= false
+[42675] INFO ConfigurationProperties - p:location= .
+[42675] INFO ConfigurationProperties - p:probabilistictransformation= true
+[42675] INFO ConfigurationProperties - p:overridemaxtime= true
+[42675] INFO ConfigurationProperties - p:outputjsonresult= true
+[42675] INFO ConfigurationProperties - p:allpoints= false
+[42675] INFO ConfigurationProperties - p:antipattern= false
+[42675] INFO ConfigurationProperties - p:bugId= 280
+[42675] INFO ConfigurationProperties - p:evosuitetimeout= 120
+[42675] INFO ConfigurationProperties - p:maxtimefactor= 10
+[42675] INFO ConfigurationProperties - p:nrPlaceholders= 1
+[42675] INFO ConfigurationProperties - p:testallcmd= mvn test -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B
+[42675] INFO ConfigurationProperties - p:forcesubprocesskilling= false
+[42675] INFO ConfigurationProperties - ----------------------------
+[42678] INFO AstorCoreEngine - mod_point MP=org.owasp.validator.html.scan.MagicSAXFilter line: 274, pointed element: CtIfImpl
+[42681] INFO AstorCoreEngine - -->op: OP_INSTANCE:
+IfExpresionMutOp:(spoon.support.reflect.code.CtVariableReadImpl) `isStyle ` -topatch--> `!                                                                                                   [...]` (spoon.support.reflect.code.CtUnaryOperatorImpl) 
+[46135] INFO main - Run previously failing tests...
+[75820] INFO main - Failed tests: 0
+[75821] INFO main - Run whole testsuite...
+[137399] INFO main - Failed tests: 23
+[137409] INFO AstorCoreEngine - mod_point MP=org.owasp.validator.html.scan.MagicSAXFilter line: 353, pointed element: CtIfImpl
+[137412] INFO AstorCoreEngine - -->op: OP_INSTANCE:
+IfExpresionMutOp:(spoon.support.reflect.code.CtVariableReadImpl) `removeTag ` -topatch--> `!                                                                                                   [...]` (spoon.support.reflect.code.CtUnaryOperatorImpl) 
+[138876] INFO main - Run previously failing tests...
+[165141] INFO main - Failed tests: 1
+[165165] INFO AstorCoreEngine - Time Repair Loop (s): 122.49
+[165171] INFO AstorCoreEngine - generationsexecuted: 1
+[165171] WARN AstorCoreEngine - ----SUMMARY_EXECUTION---
+[165179] WARN AstorCoreEngine - End Repair Search: NOT Found solution
+[165179] WARN AstorCoreEngine - Number suspicious:1
+[165182] INFO AstorCoreEngine - 
+ --SOLUTIONS DESCRIPTION--
+
+
+Astor Output:
+
+General stats:
+EXECUTION_IDENTIFIER=nahsra_antisamy-VUL4J-60
+TOTAL_TIME=122.49
+NR_GENERATIONS=null
+NR_RIGHT_COMPILATIONS=2
+NR_FAILLING_COMPILATIONS=null
+NR_ERRONEOUS_VARIANCES=null
+NR_FAILING_VALIDATION_PROCESS=null
+OUTPUT_STATUS=EXHAUSTIVE_NAVIGATED
+
+Patch stats:
+
+[165229] INFO Stats - Storing ing JSON at /workdir/jMutRepair_vul4j_nahsra_antisamy_VUL4J-60/./output_astor/AstorMain-nahsra_antisamy-VUL4J-60//astor_output.json
+[165229] INFO Stats - astor_output:
+{"general":{"NR_RIGHT_COMPILATIONS":2,"NR_ERRONEOUS_VARIANCES":null,"EXECUTION_IDENTIFIER":"nahsra_antisamy-VUL4J-60","OUTPUT_STATUS":"EXHAUSTIVE_NAVIGATED","NR_FAILLING_COMPILATIONS":null,"NR_GENERATIONS":null,"TOTAL_TIME":122.49,"NR_FAILING_VALIDATION_PROCESS":null},"patches":[]}
+[165230] INFO AstorMain - Time Total(s): 165.192
+120.81user 21.80system 2:47.23elapsed 85%CPU (0avgtext+0avgdata 1106836maxresident)k
+120inputs+45032outputs (0major+870391minor)pagefaults 0swaps
+
+
+Node: 9670332cfea8
+
+
+
+Date: Fri Sep  9 06:53:41 EDT 2022
+

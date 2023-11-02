@@ -1,0 +1,372 @@
+cd /workdir/Cardumen_vul4j_apache_jspwiki_VUL4J-18;
+export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en";
+TZ="America/New_York"; export TZ;
+export PATH="/usr/lib/jvm/java-8-openjdk-amd64/bin:$PATH";
+export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64/bin";
+time java -Xmx4g -Xms1g -XX:MaxPermSize=512m -cp /script/../libs/jtestex7.jar:/script/../repair_tools/astor.jar fr.inria.main.evolution.AstorMain \
+	-mode cardumen \
+	-location . \
+	-id apache_jspwiki-VUL4J-18 \
+	-failing org.apache.wiki.WikiServletTest#testNastyDoPost:org.apache.wiki.WikiServletTest#testDoGet \
+	-jvm4testexecution /usr/lib/jvm/java-8-openjdk-amd64/bin \
+	-jvm4evosuitetestexecution /usr/lib/jvm/java-8-openjdk-amd64/bin \
+	-maxgen 1000000 \
+	-maxtime 120 \
+	-stopfirst true \
+	-seed 0 \
+	-scope local \
+	-population 1 \
+	-javacompliancelevel 8 \
+	-faultlocalization perfect \
+    -perfectdata /script/../data/benchmarks/vul4j/perfectfl/VUL4J-18 \
+    -validation externalcmd \
+    -testfailingcmd "mvn test -pl jspwiki-main -Dtest=org.apache.wiki.WikiServletTest#testNastyDoPost,org.apache.wiki.WikiServletTest#testDoGet -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B" \
+    -testallcmd "mvn test -pl jspwiki-main -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B"  \ \
+	-srcjavafolder jspwiki-main/src/main/java \
+	-srctestfolder jspwiki-main/src/test/java \
+	-binjavafolder jspwiki-main/target/classes \
+	-bintestfolder jspwiki-main/target/test-classes \
+	-parameters x:x:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000 \
+	-dependencies /root/.m2/repository/org/apache/jspwiki/jspwiki-util/2.11.0.M3-SNAPSHOT/jspwiki-util-2.11.0.M3-SNAPSHOT.jar:/root/.m2/repository/org/hsqldb/hsqldb/2.4.1/hsqldb-2.4.1.jar:/root/.m2/repository/org/apache/lucene/lucene-memory/7.7.0/lucene-memory-7.7.0.jar:/root/.m2/repository/org/apache/lucene/lucene-queries/7.7.0/lucene-queries-7.7.0.jar:/root/.m2/repository/org/eclipse/jetty/aggregate/jetty-all/8.1.15.v20140411/jetty-all-8.1.15.v20140411.jar:/root/.m2/repository/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0.jar:/root/.m2/repository/xerces/xercesImpl/2.11.0/xercesImpl-2.11.0.jar:/root/.m2/repository/commons-httpclient/commons-httpclient/3.1/commons-httpclient-3.1.jar:/root/.m2/repository/org/eclipse/jetty/orbit/javax.servlet/3.0.0.v201112011016/javax.servlet-3.0.0.v201112011016.jar:/root/.m2/repository/org/jvnet/hudson/org.suigeneris.jrcs.diff/0.4.2/org.suigeneris.jrcs.diff-0.4.2.jar:/root/.m2/repository/org/junit/platform/junit-platform-commons/1.4.0/junit-platform-commons-1.4.0.jar:/root/.m2/repository/net/sourceforge/sandler/0.5/sandler-0.5.jar:/root/.m2/repository/org/apache/lucene/lucene-core/7.7.0/lucene-core-7.7.0.jar:/root/.m2/repository/xml-apis/xml-apis/1.4.01/xml-apis-1.4.01.jar:/root/.m2/repository/net/sf/ehcache/ehcache/2.10.6/ehcache-2.10.6.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar:/root/.m2/repository/jaxen/jaxen/1.1.4/jaxen-1.1.4.jar:/root/.m2/repository/commons-codec/commons-codec/1.3/commons-codec-1.3.jar:/root/.m2/repository/commons-fileupload/commons-fileupload/1.4/commons-fileupload-1.4.jar:/root/.m2/repository/javax/activation/activation/1.1/activation-1.1.jar:/root/.m2/repository/javax/mail/mail/1.4.7/mail-1.4.7.jar:/root/.m2/repository/org/opentest4j/opentest4j/1.1.1/opentest4j-1.1.1.jar:/root/.m2/repository/org/apache/lucene/lucene-queryparser/7.7.0/lucene-queryparser-7.7.0.jar:/root/.m2/repository/org/slf4j/slf4j-log4j12/1.7.25/slf4j-log4j12-1.7.25.jar:/root/.m2/repository/org/freshcookies/freshcookies-security/0.60/freshcookies-security-0.60.jar:/root/.m2/repository/xmlrpc/xmlrpc/2.0.1/xmlrpc-2.0.1.jar:/root/.m2/repository/commons-io/commons-io/2.4/commons-io-2.4.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.4.0/junit-jupiter-engine-5.4.0.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.4.0/junit-jupiter-params-5.4.0.jar:/root/.m2/repository/commons-logging/commons-logging/1.0.4/commons-logging-1.0.4.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.4.0/junit-jupiter-api-5.4.0.jar:/root/.m2/repository/net/sourceforge/akismet-java/1.02/akismet-java-1.02.jar:/root/.m2/repository/org/apiguardian/apiguardian-api/1.0.0/apiguardian-api-1.0.0.jar:/root/.m2/repository/javax/servlet/jstl/1.2/jstl-1.2.jar:/root/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar:/root/.m2/repository/org/jdom/jdom2/2.0.5/jdom2-2.0.5.jar:/root/.m2/repository/commons-lang/commons-lang/2.6/commons-lang-2.6.jar:/root/.m2/repository/net/sourceforge/nekohtml/nekohtml/1.9.22/nekohtml-1.9.22.jar:/root/.m2/repository/org/apache/lucene/lucene-analyzers-common/7.7.0/lucene-analyzers-common-7.7.0.jar:/root/.m2/repository/org/hsqldb/sqltool/2.4.1/sqltool-2.4.1.jar:/root/.m2/repository/org/apache/lucene/lucene-highlighter/7.7.0/lucene-highlighter-7.7.0.jar:/root/.m2/repository/org/apache/lucene/lucene-sandbox/7.7.0/lucene-sandbox-7.7.0.jar:/root/.m2/repository/xpp3/xpp3/1.1.3.4-RC3/xpp3-1.1.3.4-RC3.jar:/root/.m2/repository/org/apache/lucene/lucene-join/7.7.0/lucene-join-7.7.0.jar:/root/.m2/repository/net/sourceforge/stripes/stripes/1.7.0-async-beta/stripes-1.7.0-async-beta.jar:/root/.m2/repository/javax/servlet/jsp/javax.servlet.jsp-api/2.3.0/javax.servlet.jsp-api-2.3.0.jar:/root/.m2/repository/oro/oro/2.0.8/oro-2.0.8.jar:/root/.m2/repository/org/junit/platform/junit-platform-engine/1.4.0/junit-platform-engine-1.4.0.jar:/root/.m2/repository/com/google/code/gson/gson/2.8.5/gson-2.8.5.jar;
+	echo "\n\nNode: `hostname`\n";
+	echo "\n\nDate: `date`\n";
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en
+OpenJDK 64-Bit Server VM warning: ignoring option MaxPermSize=512m; support was removed in 8.0
+[0] INFO ProjectConfiguration - Version of the JVM used: 1.8.0_342
+[0] INFO main - Java version of the JDK used to run tests: 1.8.0_342
+[0] INFO main - The compliance of the JVM is:  8
+[4] INFO main - command line arguments: [-mode  cardumen  -location  .  -id  apache_jspwiki-VUL4J-18  -failing  org.apache.wiki.WikiServletTest#testNastyDoPost:org.apache.wiki.WikiServletTest#testDoGet  -jvm4testexecution  /usr/lib/jvm/java-8-openjdk-amd64/bin  -jvm4evosuitetestexecution  /usr/lib/jvm/java-8-openjdk-amd64/bin  -maxgen  1000000  -maxtime  120  -stopfirst  true  -seed  0  -scope  local  -population  1  -javacompliancelevel  8  -faultlocalization  perfect  -perfectdata  /script/../data/benchmarks/vul4j/perfectfl/VUL4J-18  -validation  externalcmd  -testfailingcmd  mvn test -pl jspwiki-main -Dtest=org.apache.wiki.WikiServletTest#testNastyDoPost org.apache.wiki.WikiServletTest#testDoGet -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B  -testallcmd  mvn test -pl jspwiki-main -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B     -srcjavafolder  jspwiki-main/src/main/java  -srctestfolder  jspwiki-main/src/test/java  -binjavafolder  jspwiki-main/target/classes  -bintestfolder  jspwiki-main/target/test-classes  -parameters  x:x:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000  -dependencies  /root/.m2/repository/org/apache/jspwiki/jspwiki-util/2.11.0.M3-SNAPSHOT/jspwiki-util-2.11.0.M3-SNAPSHOT.jar:/root/.m2/repository/org/hsqldb/hsqldb/2.4.1/hsqldb-2.4.1.jar:/root/.m2/repository/org/apache/lucene/lucene-memory/7.7.0/lucene-memory-7.7.0.jar:/root/.m2/repository/org/apache/lucene/lucene-queries/7.7.0/lucene-queries-7.7.0.jar:/root/.m2/repository/org/eclipse/jetty/aggregate/jetty-all/8.1.15.v20140411/jetty-all-8.1.15.v20140411.jar:/root/.m2/repository/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0.jar:/root/.m2/repository/xerces/xercesImpl/2.11.0/xercesImpl-2.11.0.jar:/root/.m2/repository/commons-httpclient/commons-httpclient/3.1/commons-httpclient-3.1.jar:/root/.m2/repository/org/eclipse/jetty/orbit/javax.servlet/3.0.0.v201112011016/javax.servlet-3.0.0.v201112011016.jar:/root/.m2/repository/org/jvnet/hudson/org.suigeneris.jrcs.diff/0.4.2/org.suigeneris.jrcs.diff-0.4.2.jar:/root/.m2/repository/org/junit/platform/junit-platform-commons/1.4.0/junit-platform-commons-1.4.0.jar:/root/.m2/repository/net/sourceforge/sandler/0.5/sandler-0.5.jar:/root/.m2/repository/org/apache/lucene/lucene-core/7.7.0/lucene-core-7.7.0.jar:/root/.m2/repository/xml-apis/xml-apis/1.4.01/xml-apis-1.4.01.jar:/root/.m2/repository/net/sf/ehcache/ehcache/2.10.6/ehcache-2.10.6.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar:/root/.m2/repository/jaxen/jaxen/1.1.4/jaxen-1.1.4.jar:/root/.m2/repository/commons-codec/commons-codec/1.3/commons-codec-1.3.jar:/root/.m2/repository/commons-fileupload/commons-fileupload/1.4/commons-fileupload-1.4.jar:/root/.m2/repository/javax/activation/activation/1.1/activation-1.1.jar:/root/.m2/repository/javax/mail/mail/1.4.7/mail-1.4.7.jar:/root/.m2/repository/org/opentest4j/opentest4j/1.1.1/opentest4j-1.1.1.jar:/root/.m2/repository/org/apache/lucene/lucene-queryparser/7.7.0/lucene-queryparser-7.7.0.jar:/root/.m2/repository/org/slf4j/slf4j-log4j12/1.7.25/slf4j-log4j12-1.7.25.jar:/root/.m2/repository/org/freshcookies/freshcookies-security/0.60/freshcookies-security-0.60.jar:/root/.m2/repository/xmlrpc/xmlrpc/2.0.1/xmlrpc-2.0.1.jar:/root/.m2/repository/commons-io/commons-io/2.4/commons-io-2.4.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.4.0/junit-jupiter-engine-5.4.0.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.4.0/junit-jupiter-params-5.4.0.jar:/root/.m2/repository/commons-logging/commons-logging/1.0.4/commons-logging-1.0.4.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.4.0/junit-jupiter-api-5.4.0.jar:/root/.m2/repository/net/sourceforge/akismet-java/1.02/akismet-java-1.02.jar:/root/.m2/repository/org/apiguardian/apiguardian-api/1.0.0/apiguardian-api-1.0.0.jar:/root/.m2/repository/javax/servlet/jstl/1.2/jstl-1.2.jar:/root/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar:/root/.m2/repository/org/jdom/jdom2/2.0.5/jdom2-2.0.5.jar:/root/.m2/repository/commons-lang/commons-lang/2.6/commons-lang-2.6.jar:/root/.m2/repository/net/sourceforge/nekohtml/nekohtml/1.9.22/nekohtml-1.9.22.jar:/root/.m2/repository/org/apache/lucene/lucene-analyzers-common/7.7.0/lucene-analyzers-common-7.7.0.jar:/root/.m2/repository/org/hsqldb/sqltool/2.4.1/sqltool-2.4.1.jar:/root/.m2/repository/org/apache/lucene/lucene-highlighter/7.7.0/lucene-highlighter-7.7.0.jar:/root/.m2/repository/org/apache/lucene/lucene-sandbox/7.7.0/lucene-sandbox-7.7.0.jar:/root/.m2/repository/xpp3/xpp3/1.1.3.4-RC3/xpp3-1.1.3.4-RC3.jar:/root/.m2/repository/org/apache/lucene/lucene-join/7.7.0/lucene-join-7.7.0.jar:/root/.m2/repository/net/sourceforge/stripes/stripes/1.7.0-async-beta/stripes-1.7.0-async-beta.jar:/root/.m2/repository/javax/servlet/jsp/javax.servlet.jsp-api/2.3.0/javax.servlet.jsp-api-2.3.0.jar:/root/.m2/repository/oro/oro/2.0.8/oro-2.0.8.jar:/root/.m2/repository/org/junit/platform/junit-platform-engine/1.4.0/junit-platform-engine-1.4.0.jar:/root/.m2/repository/com/google/code/gson/gson/2.8.5/gson-2.8.5.jar]
+[5] INFO AstorMain - Running Astor on a JDK at /usr/lib/jvm/java-8-openjdk-amd64/jre
+[24] INFO main - Source folders: [/workdir/Cardumen_vul4j_apache_jspwiki_VUL4J-18/./jspwiki-main/src/main/java]
+[25] INFO main - Source Test folders: [/workdir/Cardumen_vul4j_apache_jspwiki_VUL4J-18/./jspwiki-main/src/test/java]
+[3221] INFO AstorCoreEngine - ---- Creating spoon model
+[3289] INFO MutationSupporter - Creating model,  Code location from working folder: /workdir/Cardumen_vul4j_apache_jspwiki_VUL4J-18/./jspwiki-main/src/main/java
+[3289] INFO MutationSupporter - building model: /workdir/Cardumen_vul4j_apache_jspwiki_VUL4J-18/./jspwiki-main/src/main/java, compliance level: 8
+[3637] INFO MutationSupporter - Classpath (Dependencies) for building SpoonModel: [/root/.m2/repository/org/apache/jspwiki/jspwiki-util/2.11.0.M3-SNAPSHOT/jspwiki-util-2.11.0.M3-SNAPSHOT.jar, /root/.m2/repository/org/hsqldb/hsqldb/2.4.1/hsqldb-2.4.1.jar, /root/.m2/repository/org/apache/lucene/lucene-memory/7.7.0/lucene-memory-7.7.0.jar, /root/.m2/repository/org/apache/lucene/lucene-queries/7.7.0/lucene-queries-7.7.0.jar, /root/.m2/repository/org/eclipse/jetty/aggregate/jetty-all/8.1.15.v20140411/jetty-all-8.1.15.v20140411.jar, /root/.m2/repository/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0.jar, /root/.m2/repository/xerces/xercesImpl/2.11.0/xercesImpl-2.11.0.jar, /root/.m2/repository/commons-httpclient/commons-httpclient/3.1/commons-httpclient-3.1.jar, /root/.m2/repository/org/eclipse/jetty/orbit/javax.servlet/3.0.0.v201112011016/javax.servlet-3.0.0.v201112011016.jar, /root/.m2/repository/org/jvnet/hudson/org.suigeneris.jrcs.diff/0.4.2/org.suigeneris.jrcs.diff-0.4.2.jar, /root/.m2/repository/org/junit/platform/junit-platform-commons/1.4.0/junit-platform-commons-1.4.0.jar, /root/.m2/repository/net/sourceforge/sandler/0.5/sandler-0.5.jar, /root/.m2/repository/org/apache/lucene/lucene-core/7.7.0/lucene-core-7.7.0.jar, /root/.m2/repository/xml-apis/xml-apis/1.4.01/xml-apis-1.4.01.jar, /root/.m2/repository/net/sf/ehcache/ehcache/2.10.6/ehcache-2.10.6.jar, /root/.m2/repository/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar, /root/.m2/repository/jaxen/jaxen/1.1.4/jaxen-1.1.4.jar, /root/.m2/repository/commons-codec/commons-codec/1.3/commons-codec-1.3.jar, /root/.m2/repository/commons-fileupload/commons-fileupload/1.4/commons-fileupload-1.4.jar, /root/.m2/repository/javax/activation/activation/1.1/activation-1.1.jar, /root/.m2/repository/javax/mail/mail/1.4.7/mail-1.4.7.jar, /root/.m2/repository/org/opentest4j/opentest4j/1.1.1/opentest4j-1.1.1.jar, /root/.m2/repository/org/apache/lucene/lucene-queryparser/7.7.0/lucene-queryparser-7.7.0.jar, /root/.m2/repository/org/slf4j/slf4j-log4j12/1.7.25/slf4j-log4j12-1.7.25.jar, /root/.m2/repository/org/freshcookies/freshcookies-security/0.60/freshcookies-security-0.60.jar, /root/.m2/repository/xmlrpc/xmlrpc/2.0.1/xmlrpc-2.0.1.jar, /root/.m2/repository/commons-io/commons-io/2.4/commons-io-2.4.jar, /root/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.4.0/junit-jupiter-engine-5.4.0.jar, /root/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.4.0/junit-jupiter-params-5.4.0.jar, /root/.m2/repository/commons-logging/commons-logging/1.0.4/commons-logging-1.0.4.jar, /root/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.4.0/junit-jupiter-api-5.4.0.jar, /root/.m2/repository/net/sourceforge/akismet-java/1.02/akismet-java-1.02.jar, /root/.m2/repository/org/apiguardian/apiguardian-api/1.0.0/apiguardian-api-1.0.0.jar, /root/.m2/repository/javax/servlet/jstl/1.2/jstl-1.2.jar, /root/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar, /root/.m2/repository/org/jdom/jdom2/2.0.5/jdom2-2.0.5.jar, /root/.m2/repository/commons-lang/commons-lang/2.6/commons-lang-2.6.jar, /root/.m2/repository/net/sourceforge/nekohtml/nekohtml/1.9.22/nekohtml-1.9.22.jar, /root/.m2/repository/org/apache/lucene/lucene-analyzers-common/7.7.0/lucene-analyzers-common-7.7.0.jar, /root/.m2/repository/org/hsqldb/sqltool/2.4.1/sqltool-2.4.1.jar, /root/.m2/repository/org/apache/lucene/lucene-highlighter/7.7.0/lucene-highlighter-7.7.0.jar, /root/.m2/repository/org/apache/lucene/lucene-sandbox/7.7.0/lucene-sandbox-7.7.0.jar, /root/.m2/repository/xpp3/xpp3/1.1.3.4-RC3/xpp3-1.1.3.4-RC3.jar, /root/.m2/repository/org/apache/lucene/lucene-join/7.7.0/lucene-join-7.7.0.jar, /root/.m2/repository/net/sourceforge/stripes/stripes/1.7.0-async-beta/stripes-1.7.0-async-beta.jar, /root/.m2/repository/javax/servlet/jsp/javax.servlet.jsp-api/2.3.0/javax.servlet.jsp-api-2.3.0.jar, /root/.m2/repository/oro/oro/2.0.8/oro-2.0.8.jar, /root/.m2/repository/org/junit/platform/junit-platform-engine/1.4.0/junit-platform-engine-1.4.0.jar, /root/.m2/repository/com/google/code/gson/gson/2.8.5/gson-2.8.5.jar]
+[28521] INFO ClassUtil - Didn't find class mapping document in ini/classmappings.xml
+[33176] INFO AstorCoreEngine - Number of CtTypes created: 341
+[34241] INFO AstorCoreEngine - Test retrieved from classes: 0
+[34553] INFO AstorCoreEngine - Setting up the max to 3120 milliseconds (3 sec)
+[34553] INFO AstorCoreEngine - ---- Initial suspicious size: 1
+[34723] INFO main - Total suspicious from FL: 1,  1
+[34723] INFO main - Total ModPoint created: 1
+[34724] INFO main - Creating program variant #1, [Variant id: 1, #gens: 1, #ops: 0, parent:-]
+[34724] INFO main - Run previously failing tests...
+[68010] INFO main - Failed tests: 2
+[68012] INFO AstorCoreEngine - The original fitness is : 2.0
+[69950] INFO ExpressionTypeIngredientSpace - Ingredient search space info : number keys 7 , number values 41 
+[69950] WARN ConfigurationProperties - ----------------------------
+[69950] INFO ConfigurationProperties - ---Configuration properties
+[69963] INFO ConfigurationProperties - p:lastJUnitVersion= ./examples/libs/junit-4.11.jar
+[69963] INFO ConfigurationProperties - p:alternativecompliancelevel= 8
+[69963] INFO ConfigurationProperties - p:ignoredTestCases= 
+[69963] INFO ConfigurationProperties - p:workingDirectory= /workdir/Cardumen_vul4j_apache_jspwiki_VUL4J-18/./output_astor
+[69963] INFO ConfigurationProperties - p:manipulatesuper= false
+[69963] INFO ConfigurationProperties - p:validation= externalcmd
+[69963] INFO ConfigurationProperties - p:jvm4testexecution= /usr/lib/jvm/java-8-openjdk-amd64/bin
+[69963] INFO ConfigurationProperties - p:operatorspace= r-expression
+[69963] INFO ConfigurationProperties - p:diffcontext= 0
+[69963] INFO ConfigurationProperties - p:binjavafolder= jspwiki-main/target/classes
+[69964] INFO ConfigurationProperties - p:synthesis_depth= 3
+[69964] INFO ConfigurationProperties - p:gzoltartestpackagetoexclude= junit.framework
+[69964] INFO ConfigurationProperties - p:skipfitnessinitialpopulation= false
+[69964] INFO ConfigurationProperties - p:evosuiteresultfolder= evosuite
+[69971] INFO ConfigurationProperties - p:flthreshold= 0.1
+[69972] INFO ConfigurationProperties - p:regressionforfaultlocalization= true
+[69972] INFO ConfigurationProperties - p:collectonlyusedmethod= false
+[69972] INFO ConfigurationProperties - p:preservelinenumbers= true
+[69972] INFO ConfigurationProperties - p:tmax2= 3120
+[69973] INFO ConfigurationProperties - p:ingredienttransformstrategy= name-probability-based
+[69973] INFO ConfigurationProperties - p:tmax1= 10000
+[69973] INFO ConfigurationProperties - p:probagenmutation= false
+[69973] INFO ConfigurationProperties - p:nomodificationconvergence= 100
+[69973] INFO ConfigurationProperties - p:diff_type= relative
+[69973] INFO ConfigurationProperties - p:targetelementprocessor= expression
+[69973] INFO ConfigurationProperties - p:srctestfolder= jspwiki-main/src/test/java
+[69973] INFO ConfigurationProperties - p:forceExecuteRegression= false
+[69973] INFO ConfigurationProperties - p:clusteringfilename= clustering.csv
+[69973] INFO ConfigurationProperties - p:failing= org.apache.wiki.WikiServletTest#testNastyDoPost:org.apache.wiki.WikiServletTest#testDoGet
+[69973] INFO ConfigurationProperties - p:logtestexecution= false
+[69973] INFO ConfigurationProperties - p:evo_buggy_class= true
+[69973] INFO ConfigurationProperties - p:numberExecutions= 1
+[69973] INFO ConfigurationProperties - p:maxnumbersolutions= 1000000
+[69973] INFO ConfigurationProperties - p:evo_affected_by_op= true
+[69973] INFO ConfigurationProperties - p:population= 1
+[69973] INFO ConfigurationProperties - p:considerzerovaluesusp= false
+[69973] INFO ConfigurationProperties - p:maxCombinationVariableLimit= true
+[69973] INFO ConfigurationProperties - p:savesolution= true
+[69974] INFO ConfigurationProperties - p:javacompliancelevel= 8
+[69974] INFO ConfigurationProperties - p:x= x
+[69974] INFO ConfigurationProperties - p:uniqueoptogen= false
+[69974] INFO ConfigurationProperties - p:gzoltarpackagetonotinstrument= junit.framework
+[69986] INFO ConfigurationProperties - p:projectIdentifier= apache_jspwiki-VUL4J-18
+[69986] INFO ConfigurationProperties - p:modificationpointnavigation= weight
+[69986] INFO ConfigurationProperties - p:stopfirst= true
+[69986] INFO ConfigurationProperties - p:multipointmodification= false
+[69987] INFO ConfigurationProperties - p:elementsToMutate= 10
+[69987] INFO ConfigurationProperties - p:jsonoutputname= astor_output
+[69987] INFO ConfigurationProperties - p:evoDSE= false
+[69987] INFO ConfigurationProperties - p:bintestfolder= jspwiki-main/target/test-classes
+[69987] INFO ConfigurationProperties - p:testbystep= false
+[69987] INFO ConfigurationProperties - p:version-location= ./math-version/
+[69987] INFO ConfigurationProperties - p:reintroduce= PARENTS:ORIGINAL
+[69987] INFO ConfigurationProperties - p:perfectdata= /script/../data/benchmarks/vul4j/perfectfl/VUL4J-18
+[69987] INFO ConfigurationProperties - p:executorjar= ./lib/jtestex7.jar
+[69987] INFO ConfigurationProperties - p:maxGeneration= 1000000
+[69987] INFO ConfigurationProperties - p:max_synthesis_step= 10000
+[69987] INFO ConfigurationProperties - p:projectinfocommand= com.github.tdurieux:project-config-maven-plugin:info
+[69987] INFO ConfigurationProperties - p:maxVarCombination= 1000
+[69987] INFO ConfigurationProperties - p:maxtime= 120
+[69987] INFO ConfigurationProperties - p:evosuitejar= ./lib/evosuite-master-1.0.4-SNAPSHOT.jar
+[69987] INFO ConfigurationProperties - p:jvmversion= 1.8.0_342
+[69987] INFO ConfigurationProperties - p:commandTrunk= 50000
+[69987] INFO ConfigurationProperties - p:faultlocalization= perfect
+[69988] INFO ConfigurationProperties - p:resetmodel= true
+[69988] INFO ConfigurationProperties - p:maxsuspcandidates= 1000
+[69988] INFO ConfigurationProperties - p:mode= cardumen
+[69988] INFO ConfigurationProperties - p:learningdir= 
+[69988] INFO ConfigurationProperties - p:jvm4evosuitetestexecution= /usr/lib/jvm/java-8-openjdk-amd64/bin
+[69988] INFO ConfigurationProperties - p:filterfaultlocalization= true
+[69988] INFO ConfigurationProperties - p:mutationrate= 1 
+[69988] INFO ConfigurationProperties - p:pathToMVNRepository= 
+[69988] INFO ConfigurationProperties - p:resourcesfolder= /src/main/resources:/src/test/resources:
+[69988] INFO ConfigurationProperties - p:timezone= America/Los_Angeles
+[69988] INFO ConfigurationProperties - p:runjava7code= false
+[69988] INFO ConfigurationProperties - p:testfailingcmd= mvn test -pl jspwiki-main -Dtest=org.apache.wiki.WikiServletTest#testNastyDoPost,org.apache.wiki.WikiServletTest#testDoGet -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B
+[69988] INFO ConfigurationProperties - p:evoRunOnBuggyClass= true
+[69988] INFO ConfigurationProperties - p:compiler= fr.inria.astor.core.manipulation.bytecode.compiler.SpoonClassCompiler
+[69988] INFO ConfigurationProperties - p:limitbysuspicious= true
+[69988] INFO ConfigurationProperties - p:logsattemps= true
+[69988] INFO ConfigurationProperties - p:dependenciespath= /root/.m2/repository/org/apache/jspwiki/jspwiki-util/2.11.0.M3-SNAPSHOT/jspwiki-util-2.11.0.M3-SNAPSHOT.jar:/root/.m2/repository/org/hsqldb/hsqldb/2.4.1/hsqldb-2.4.1.jar:/root/.m2/repository/org/apache/lucene/lucene-memory/7.7.0/lucene-memory-7.7.0.jar:/root/.m2/repository/org/apache/lucene/lucene-queries/7.7.0/lucene-queries-7.7.0.jar:/root/.m2/repository/org/eclipse/jetty/aggregate/jetty-all/8.1.15.v20140411/jetty-all-8.1.15.v20140411.jar:/root/.m2/repository/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0.jar:/root/.m2/repository/xerces/xercesImpl/2.11.0/xercesImpl-2.11.0.jar:/root/.m2/repository/commons-httpclient/commons-httpclient/3.1/commons-httpclient-3.1.jar:/root/.m2/repository/org/eclipse/jetty/orbit/javax.servlet/3.0.0.v201112011016/javax.servlet-3.0.0.v201112011016.jar:/root/.m2/repository/org/jvnet/hudson/org.suigeneris.jrcs.diff/0.4.2/org.suigeneris.jrcs.diff-0.4.2.jar:/root/.m2/repository/org/junit/platform/junit-platform-commons/1.4.0/junit-platform-commons-1.4.0.jar:/root/.m2/repository/net/sourceforge/sandler/0.5/sandler-0.5.jar:/root/.m2/repository/org/apache/lucene/lucene-core/7.7.0/lucene-core-7.7.0.jar:/root/.m2/repository/xml-apis/xml-apis/1.4.01/xml-apis-1.4.01.jar:/root/.m2/repository/net/sf/ehcache/ehcache/2.10.6/ehcache-2.10.6.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar:/root/.m2/repository/jaxen/jaxen/1.1.4/jaxen-1.1.4.jar:/root/.m2/repository/commons-codec/commons-codec/1.3/commons-codec-1.3.jar:/root/.m2/repository/commons-fileupload/commons-fileupload/1.4/commons-fileupload-1.4.jar:/root/.m2/repository/javax/activation/activation/1.1/activation-1.1.jar:/root/.m2/repository/javax/mail/mail/1.4.7/mail-1.4.7.jar:/root/.m2/repository/org/opentest4j/opentest4j/1.1.1/opentest4j-1.1.1.jar:/root/.m2/repository/org/apache/lucene/lucene-queryparser/7.7.0/lucene-queryparser-7.7.0.jar:/root/.m2/repository/org/slf4j/slf4j-log4j12/1.7.25/slf4j-log4j12-1.7.25.jar:/root/.m2/repository/org/freshcookies/freshcookies-security/0.60/freshcookies-security-0.60.jar:/root/.m2/repository/xmlrpc/xmlrpc/2.0.1/xmlrpc-2.0.1.jar:/root/.m2/repository/commons-io/commons-io/2.4/commons-io-2.4.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.4.0/junit-jupiter-engine-5.4.0.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.4.0/junit-jupiter-params-5.4.0.jar:/root/.m2/repository/commons-logging/commons-logging/1.0.4/commons-logging-1.0.4.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.4.0/junit-jupiter-api-5.4.0.jar:/root/.m2/repository/net/sourceforge/akismet-java/1.02/akismet-java-1.02.jar:/root/.m2/repository/org/apiguardian/apiguardian-api/1.0.0/apiguardian-api-1.0.0.jar:/root/.m2/repository/javax/servlet/jstl/1.2/jstl-1.2.jar:/root/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar:/root/.m2/repository/org/jdom/jdom2/2.0.5/jdom2-2.0.5.jar:/root/.m2/repository/commons-lang/commons-lang/2.6/commons-lang-2.6.jar:/root/.m2/repository/net/sourceforge/nekohtml/nekohtml/1.9.22/nekohtml-1.9.22.jar:/root/.m2/repository/org/apache/lucene/lucene-analyzers-common/7.7.0/lucene-analyzers-common-7.7.0.jar:/root/.m2/repository/org/hsqldb/sqltool/2.4.1/sqltool-2.4.1.jar:/root/.m2/repository/org/apache/lucene/lucene-highlighter/7.7.0/lucene-highlighter-7.7.0.jar:/root/.m2/repository/org/apache/lucene/lucene-sandbox/7.7.0/lucene-sandbox-7.7.0.jar:/root/.m2/repository/xpp3/xpp3/1.1.3.4-RC3/xpp3-1.1.3.4-RC3.jar:/root/.m2/repository/org/apache/lucene/lucene-join/7.7.0/lucene-join-7.7.0.jar:/root/.m2/repository/net/sourceforge/stripes/stripes/1.7.0-async-beta/stripes-1.7.0-async-beta.jar:/root/.m2/repository/javax/servlet/jsp/javax.servlet.jsp-api/2.3.0/javax.servlet.jsp-api-2.3.0.jar:/root/.m2/repository/oro/oro/2.0.8/oro-2.0.8.jar:/root/.m2/repository/org/junit/platform/junit-platform-engine/1.4.0/junit-platform-engine-1.4.0.jar:/root/.m2/repository/com/google/code/gson/gson/2.8.5/gson-2.8.5.jar
+[69989] INFO ConfigurationProperties - p:packageToInstrument= 
+[69989] INFO ConfigurationProperties - p:skipfaultlocalization= false
+[69989] INFO ConfigurationProperties - p:scope= local
+[69989] INFO ConfigurationProperties - p:transformingredient= false
+[69989] INFO ConfigurationProperties - p:fitnessfunction= fr.inria.astor.core.solutionsearch.population.TestCaseFitnessFunction
+[69989] INFO ConfigurationProperties - p:maxnumvariablesperingredient= 10
+[69989] INFO ConfigurationProperties - p:parsesourcefromoriginal= true
+[69989] INFO ConfigurationProperties - p:pvariantfoldername= variant-
+[69989] INFO ConfigurationProperties - p:savespoonmodelondisk= false
+[69989] INFO ConfigurationProperties - p:srcjavafolder= jspwiki-main/src/main/java
+[69989] INFO ConfigurationProperties - p:populationcontroller= fr.inria.astor.core.solutionsearch.population.TestCaseBasedFitnessPopulationController
+[69990] INFO ConfigurationProperties - p:ignoreflakyinfl= false
+[69990] INFO ConfigurationProperties - p:cleantemplates= true
+[69990] INFO ConfigurationProperties - p:applyCrossover= false
+[69990] INFO ConfigurationProperties - p:maxmodificationpoints= 1000
+[69990] INFO ConfigurationProperties - p:duplicateingredientsinspace= false
+[69991] INFO ConfigurationProperties - p:metid= 0
+[69991] INFO ConfigurationProperties - p:continuewhenmodelfail= true
+[69991] INFO ConfigurationProperties - p:saveall= false
+[69991] INFO ConfigurationProperties - p:seed= 0
+[69991] INFO ConfigurationProperties - p:savecompletepatched= true
+[69991] INFO ConfigurationProperties - p:resetoperations= false
+[69991] INFO ConfigurationProperties - p:keepcomments= false
+[69991] INFO ConfigurationProperties - p:processoutputinfile= false
+[69991] INFO ConfigurationProperties - p:location= .
+[69991] INFO ConfigurationProperties - p:probabilistictransformation= true
+[69991] INFO ConfigurationProperties - p:overridemaxtime= true
+[69991] INFO ConfigurationProperties - p:ingredientstrategy= name-probability-based
+[69991] INFO ConfigurationProperties - p:outputjsonresult= true
+[69991] INFO ConfigurationProperties - p:allpoints= false
+[69991] INFO ConfigurationProperties - p:antipattern= false
+[69991] INFO ConfigurationProperties - p:bugId= 280
+[69991] INFO ConfigurationProperties - p:evosuitetimeout= 120
+[69991] INFO ConfigurationProperties - p:maxtimefactor= 10
+[69991] INFO ConfigurationProperties - p:nrPlaceholders= 1
+[69991] INFO ConfigurationProperties - p:testallcmd= mvn test -pl jspwiki-main -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B
+[69992] INFO ConfigurationProperties - p:forcesubprocesskilling= false
+[69992] INFO ConfigurationProperties - ----------------------------
+[69992] INFO AstorCoreEngine - ----Starting Solution Search
+[69993] WARN AstorCoreEngine - ----------Running generation: 1, population size: 1
+[81610] INFO main - Run previously failing tests...
+[135456] INFO main - Failed tests: 2
+[135480] WARN AstorCoreEngine - ----------Running generation: 2, population size: 1
+[136381] INFO main - Run previously failing tests...
+[184894] INFO main - Failed tests: 2
+[184899] WARN AstorCoreEngine - ----------Running generation: 3, population size: 1
+[185587] INFO main - Run previously failing tests...
+[234761] INFO main - Failed tests: 2
+[234776] WARN AstorCoreEngine - ----------Running generation: 4, population size: 1
+[235591] INFO main - Run previously failing tests...
+[285854] INFO main - Failed tests: 2
+[285859] WARN AstorCoreEngine - ----------Running generation: 5, population size: 1
+[286631] INFO main - Run previously failing tests...
+[332725] INFO main - Failed tests: 2
+[332732] WARN AstorCoreEngine - ----------Running generation: 6, population size: 1
+[333336] INFO main - Run previously failing tests...
+[382559] INFO main - Failed tests: 2
+[382566] WARN AstorCoreEngine - ----------Running generation: 7, population size: 1
+[383388] INFO main - Run previously failing tests...
+[440268] INFO main - Failed tests: 2
+[440273] WARN AstorCoreEngine - ----------Running generation: 8, population size: 1
+[441156] WARN AstorCoreEngine - ----------Running generation: 9, population size: 1
+[441524] INFO main - Run previously failing tests...
+[493670] INFO main - Failed tests: 2
+[493675] WARN AstorCoreEngine - ----------Running generation: 10, population size: 1
+[494098] INFO main - Run previously failing tests...
+[537726] INFO main - Failed tests: 2
+[537732] WARN AstorCoreEngine - ----------Running generation: 11, population size: 1
+[538135] INFO main - Run previously failing tests...
+[595333] INFO main - Failed tests: 2
+[595362] WARN AstorCoreEngine - ----------Running generation: 12, population size: 1
+[595815] INFO main - Run previously failing tests...
+[646322] INFO main - Failed tests: 2
+[646333] WARN AstorCoreEngine - ----------Running generation: 13, population size: 1
+[647073] INFO main - Run previously failing tests...
+[700676] INFO main - Failed tests: 2
+[700695] WARN AstorCoreEngine - ----------Running generation: 14, population size: 1
+[701213] INFO main - Run previously failing tests...
+[748896] INFO main - Failed tests: 2
+[748903] WARN AstorCoreEngine - ----------Running generation: 15, population size: 1
+[749615] INFO main - Run previously failing tests...
+[805940] INFO main - Failed tests: 2
+[805947] WARN AstorCoreEngine - ----------Running generation: 16, population size: 1
+[806400] INFO main - Run previously failing tests...
+[859365] INFO main - Failed tests: 2
+[859394] WARN AstorCoreEngine - ----------Running generation: 17, population size: 1
+[859876] INFO main - Run previously failing tests...
+[909769] INFO main - Failed tests: 2
+[909776] WARN AstorCoreEngine - ----------Running generation: 18, population size: 1
+[909837] WARN AstorCoreEngine - ----------Running generation: 19, population size: 1
+[909886] WARN AstorCoreEngine - ----------Running generation: 20, population size: 1
+[909917] WARN AstorCoreEngine - ----------Running generation: 21, population size: 1
+[909943] WARN AstorCoreEngine - ----------Running generation: 22, population size: 1
+[909973] WARN AstorCoreEngine - ----------Running generation: 23, population size: 1
+[909993] WARN AstorCoreEngine - ----------Running generation: 24, population size: 1
+[910039] WARN AstorCoreEngine - ----------Running generation: 25, population size: 1
+[910067] WARN AstorCoreEngine - ----------Running generation: 26, population size: 1
+[910102] WARN AstorCoreEngine - ----------Running generation: 27, population size: 1
+[910154] WARN AstorCoreEngine - ----------Running generation: 28, population size: 1
+[910171] WARN AstorCoreEngine - ----------Running generation: 29, population size: 1
+[910223] WARN AstorCoreEngine - ----------Running generation: 30, population size: 1
+[910252] WARN AstorCoreEngine - ----------Running generation: 31, population size: 1
+[910292] WARN AstorCoreEngine - ----------Running generation: 32, population size: 1
+[910340] WARN AstorCoreEngine - ----------Running generation: 33, population size: 1
+[910407] WARN AstorCoreEngine - ----------Running generation: 34, population size: 1
+[910435] WARN AstorCoreEngine - ----------Running generation: 35, population size: 1
+[910468] WARN AstorCoreEngine - ----------Running generation: 36, population size: 1
+[910529] WARN AstorCoreEngine - ----------Running generation: 37, population size: 1
+[910585] WARN AstorCoreEngine - ----------Running generation: 38, population size: 1
+[910640] WARN AstorCoreEngine - ----------Running generation: 39, population size: 1
+[910686] WARN AstorCoreEngine - ----------Running generation: 40, population size: 1
+[910736] WARN AstorCoreEngine - ----------Running generation: 41, population size: 1
+[910752] WARN AstorCoreEngine - ----------Running generation: 42, population size: 1
+[910765] WARN AstorCoreEngine - ----------Running generation: 43, population size: 1
+[910784] WARN AstorCoreEngine - ----------Running generation: 44, population size: 1
+[910811] WARN AstorCoreEngine - ----------Running generation: 45, population size: 1
+[910822] WARN AstorCoreEngine - ----------Running generation: 46, population size: 1
+[910854] WARN AstorCoreEngine - ----------Running generation: 47, population size: 1
+[910866] WARN AstorCoreEngine - ----------Running generation: 48, population size: 1
+[910883] WARN AstorCoreEngine - ----------Running generation: 49, population size: 1
+[910897] WARN AstorCoreEngine - ----------Running generation: 50, population size: 1
+[910911] WARN AstorCoreEngine - ----------Running generation: 51, population size: 1
+[910923] WARN AstorCoreEngine - ----------Running generation: 52, population size: 1
+[910947] WARN AstorCoreEngine - ----------Running generation: 53, population size: 1
+[910964] WARN AstorCoreEngine - ----------Running generation: 54, population size: 1
+[911004] WARN AstorCoreEngine - ----------Running generation: 55, population size: 1
+[911045] WARN AstorCoreEngine - ----------Running generation: 56, population size: 1
+[911094] WARN AstorCoreEngine - ----------Running generation: 57, population size: 1
+[911109] WARN AstorCoreEngine - ----------Running generation: 58, population size: 1
+[911126] WARN AstorCoreEngine - ----------Running generation: 59, population size: 1
+[911166] WARN AstorCoreEngine - ----------Running generation: 60, population size: 1
+[911181] WARN AstorCoreEngine - ----------Running generation: 61, population size: 1
+[911253] WARN AstorCoreEngine - ----------Running generation: 62, population size: 1
+[911274] WARN AstorCoreEngine - ----------Running generation: 63, population size: 1
+[911289] WARN AstorCoreEngine - ----------Running generation: 64, population size: 1
+[911303] WARN AstorCoreEngine - ----------Running generation: 65, population size: 1
+[911320] WARN AstorCoreEngine - ----------Running generation: 66, population size: 1
+[911369] WARN AstorCoreEngine - ----------Running generation: 67, population size: 1
+[911412] WARN AstorCoreEngine - ----------Running generation: 68, population size: 1
+[911441] WARN AstorCoreEngine - ----------Running generation: 69, population size: 1
+[911508] WARN AstorCoreEngine - ----------Running generation: 70, population size: 1
+[911547] WARN AstorCoreEngine - ----------Running generation: 71, population size: 1
+[911585] WARN AstorCoreEngine - ----------Running generation: 72, population size: 1
+[911623] WARN AstorCoreEngine - ----------Running generation: 73, population size: 1
+[911683] WARN AstorCoreEngine - ----------Running generation: 74, population size: 1
+[911757] WARN AstorCoreEngine - ----------Running generation: 75, population size: 1
+[911792] WARN AstorCoreEngine - ----------Running generation: 76, population size: 1
+[911820] WARN AstorCoreEngine - ----------Running generation: 77, population size: 1
+[911832] WARN AstorCoreEngine - ----------Running generation: 78, population size: 1
+[911858] WARN AstorCoreEngine - ----------Running generation: 79, population size: 1
+[911886] WARN AstorCoreEngine - ----------Running generation: 80, population size: 1
+[911933] WARN AstorCoreEngine - ----------Running generation: 81, population size: 1
+[911949] WARN AstorCoreEngine - ----------Running generation: 82, population size: 1
+[911994] WARN AstorCoreEngine - ----------Running generation: 83, population size: 1
+[912030] WARN AstorCoreEngine - ----------Running generation: 84, population size: 1
+[912149] WARN AstorCoreEngine - ----------Running generation: 85, population size: 1
+[912208] WARN AstorCoreEngine - ----------Running generation: 86, population size: 1
+[912233] WARN AstorCoreEngine - ----------Running generation: 87, population size: 1
+[912322] WARN AstorCoreEngine - ----------Running generation: 88, population size: 1
+[912334] WARN AstorCoreEngine - ----------Running generation: 89, population size: 1
+[912350] WARN AstorCoreEngine - ----------Running generation: 90, population size: 1
+[912362] WARN AstorCoreEngine - ----------Running generation: 91, population size: 1
+[912375] WARN AstorCoreEngine - ----------Running generation: 92, population size: 1
+[912398] WARN AstorCoreEngine - ----------Running generation: 93, population size: 1
+[912440] WARN AstorCoreEngine - ----------Running generation: 94, population size: 1
+[912469] WARN AstorCoreEngine - ----------Running generation: 95, population size: 1
+[912491] WARN AstorCoreEngine - ----------Running generation: 96, population size: 1
+[912519] WARN AstorCoreEngine - ----------Running generation: 97, population size: 1
+[912534] WARN AstorCoreEngine - ----------Running generation: 98, population size: 1
+[912601] WARN AstorCoreEngine - ----------Running generation: 99, population size: 1
+[912680] WARN AstorCoreEngine - ----------Running generation: 100, population size: 1
+[912705] WARN AstorCoreEngine - ----------Running generation: 101, population size: 1
+[912763] WARN AstorCoreEngine - ----------Running generation: 102, population size: 1
+[912839] WARN AstorCoreEngine - ----------Running generation: 103, population size: 1
+[912875] WARN AstorCoreEngine - ----------Running generation: 104, population size: 1
+[912954] WARN AstorCoreEngine - ----------Running generation: 105, population size: 1
+[913037] WARN AstorCoreEngine - ----------Running generation: 106, population size: 1
+[913096] WARN AstorCoreEngine - ----------Running generation: 107, population size: 1
+[913115] WARN AstorCoreEngine - ----------Running generation: 108, population size: 1
+[913153] WARN AstorCoreEngine - ----------Running generation: 109, population size: 1
+[913189] WARN AstorCoreEngine - ----------Running generation: 110, population size: 1
+[913247] WARN AstorCoreEngine - ----------Running generation: 111, population size: 1
+[913303] WARN AstorCoreEngine - ----------Running generation: 112, population size: 1
+[913371] WARN AstorCoreEngine - ----------Running generation: 113, population size: 1
+[913451] WARN AstorCoreEngine - ----------Running generation: 114, population size: 1
+[913535] WARN AstorCoreEngine - ----------Running generation: 115, population size: 1
+[913569] WARN AstorCoreEngine - ----------Running generation: 116, population size: 1
+[913617] WARN AstorCoreEngine - ----------Running generation: 117, population size: 1
+[913650] ERROR AstorCoreEngine - Stopping main loop at 117 generation
+[913651] INFO AstorCoreEngine - Time Repair Loop (s): 843.659
+[913652] INFO AstorCoreEngine - generationsexecuted: 117
+[913652] WARN AstorCoreEngine - ----SUMMARY_EXECUTION---
+[913652] WARN AstorCoreEngine - End Repair Search: NOT Found solution
+[913652] WARN AstorCoreEngine - Number suspicious:1
+[913652] INFO AstorCoreEngine - Total mod points: 1
+[913672] INFO ExpressionTypeIngredientSpace - Storing ing JSON at /workdir/Cardumen_vul4j_apache_jspwiki_VUL4J-18/./output_astor/AstorMain-apache_jspwiki-VUL4J-18//src/ingredients.json
+[913675] INFO IngredientStats - Storing ing JSON at /workdir/Cardumen_vul4j_apache_jspwiki_VUL4J-18/./output_astor/AstorMain-apache_jspwiki-VUL4J-18//ingredientSpaceSize.json
+[913678] INFO IngredientStats - ingredientSpaceSize:{"allAttempts":18,"space":[{"a":15,"v":1},{"a":19,"v":1},{"a":11,"v":1},{"a":16,"v":1},{"a":18,"v":1},{"a":3,"v":1},{"a":7,"v":1},{"a":12,"v":1},{"a":22,"v":1},{"a":17,"v":1},{"a":13,"v":1},{"a":9,"v":1},{"a":21,"v":1},{"a":6,"v":1},{"a":1,"v":1},{"a":20,"v":1},{"a":14,"v":1},{"a":10,"v":1}]}
+[913678] INFO IngredientStats - Storing ing JSON at /workdir/Cardumen_vul4j_apache_jspwiki_VUL4J-18/./output_astor/AstorMain-apache_jspwiki-VUL4J-18//combinationsTemplatesingredientSpaceSize.json
+[913678] INFO IngredientStats - combinationsTemplatesingredientSpaceSize:{"allAttempts":61,"space":[{"a":1,"v":53},{"a":0,"v":8}]}
+[913680] INFO AstorCoreEngine - 
+ --SOLUTIONS DESCRIPTION--
+
+
+Astor Output:
+
+General stats:
+EXECUTION_IDENTIFIER=apache_jspwiki-VUL4J-18
+TOTAL_TIME=843.659
+NR_GENERATIONS=117
+NR_RIGHT_COMPILATIONS=16
+NR_FAILLING_COMPILATIONS=1
+NR_ERRONEOUS_VARIANCES=null
+NR_FAILING_VALIDATION_PROCESS=null
+OUTPUT_STATUS=CONVERGED
+
+Patch stats:
+
+[913689] INFO Stats - Storing ing JSON at /workdir/Cardumen_vul4j_apache_jspwiki_VUL4J-18/./output_astor/AstorMain-apache_jspwiki-VUL4J-18//astor_output.json
+[913689] INFO Stats - astor_output:
+{"general":{"NR_RIGHT_COMPILATIONS":16,"NR_ERRONEOUS_VARIANCES":null,"EXECUTION_IDENTIFIER":"apache_jspwiki-VUL4J-18","OUTPUT_STATUS":"CONVERGED","NR_FAILLING_COMPILATIONS":1,"NR_GENERATIONS":117,"TOTAL_TIME":843.659,"NR_FAILING_VALIDATION_PROCESS":null},"patches":[]}
+[913690] INFO AstorMain - Time Total(s): 913.675
+957.68user 114.34system 15:15.78elapsed 117%CPU (0avgtext+0avgdata 877104maxresident)k
+712inputs+107096outputs (4major+4138711minor)pagefaults 0swaps
+
+
+Node: 9670332cfea8
+
+
+
+Date: Fri Sep  9 00:20:39 EDT 2022
+

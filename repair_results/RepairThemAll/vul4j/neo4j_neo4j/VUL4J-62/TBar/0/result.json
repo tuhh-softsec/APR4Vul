@@ -1,0 +1,10 @@
+{
+  "repair_end": "2022-11-23 15:21:13.102612", 
+  "repair_begin": "2022-11-23 15:17:17.622477", 
+  "patches": [
+    {
+      "edits": [], 
+      "patch": "diff --git a/enterprise/security/src/main/java/org/neo4j/server/security/enterprise/auth/LdapRealm.java b/enterprise/security/src/main/java/org/neo4j/server/security/enterprise/auth/LdapRealm.java\nindex 248d43e0af0e..70195ccfb6e4 100644\n--- a/enterprise/security/src/main/java/org/neo4j/server/security/enterprise/auth/LdapRealm.java\n+++ b/enterprise/security/src/main/java/org/neo4j/server/security/enterprise/auth/LdapRealm.java\n@@ -220,7 +220,8 @@ public class LdapRealm extends DefaultLdapRealm implements RealmLifecycle, Shiro\n \n         try\n         {\n-            ctx = new InitialLdapContext( env, null );\n+            ctx.addToEnvironment( Context.SECURITY_CREDENTIALS, credentials );\n+\tctx = new InitialLdapContext( env, null );\n \n             StartTlsRequest startTlsRequest = new StartTlsRequest();\n             StartTlsResponse tls = (StartTlsResponse) ctx.extendedOperation( startTlsRequest );\n@@ -230,7 +231,7 @@ public class LdapRealm extends DefaultLdapRealm implements RealmLifecycle, Shiro\n             ctx.addToEnvironment( Context.SECURITY_AUTHENTICATION,\n                     jndiLdapContextFactory.getAuthenticationMechanism() );\n             ctx.addToEnvironment( Context.SECURITY_PRINCIPAL, principal );\n-            ctx.addToEnvironment( Context.SECURITY_CREDENTIALS, credentials );\n+            \n \n             return ctx;\n         }"
+    }
+  ]
+}

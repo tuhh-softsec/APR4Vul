@@ -1,0 +1,69 @@
+diff --git a/src/main/java/org/apache/commons/imaging/formats/rgbe/RgbeInfo.java b/src/main/java/org/apache/commons/imaging/formats/rgbe/RgbeInfo.java
+index e09e46ab7..4038165fa 100644
+--- a/src/main/java/org/apache/commons/imaging/formats/rgbe/RgbeInfo.java
++++ b/src/main/java/org/apache/commons/imaging/formats/rgbe/RgbeInfo.java
+@@ -169,13 +169,17 @@ public float[][] getPixelData() throws IOException, ImageReadException {
+     }
+ 
+     private static void decompress(final InputStream in, final byte[] out)
+-            throws IOException {
++            throws IOException,ImageReadException {
+         int position = 0;
+         final int total = out.length;
+ 
+         while (position < total) {
+             final int n = in.read();
+ 
++            if (n < 0) {
++                throw new ImageReadException("Error decompressing RGBE file");
++            }
++
+             if (n > 128) {
+                 final int value = in.read();
+ 
+diff --git a/src/test/java/org/apache/commons/imaging/formats/rgbe/RgbeReadTest.java b/src/test/java/org/apache/commons/imaging/formats/rgbe/RgbeReadTest.java
+index aa9ae6fb8..ab854d72c 100644
+--- a/src/test/java/org/apache/commons/imaging/formats/rgbe/RgbeReadTest.java
++++ b/src/test/java/org/apache/commons/imaging/formats/rgbe/RgbeReadTest.java
+@@ -21,12 +21,15 @@
+ import java.awt.image.BufferedImage;
+ import java.io.File;
+ import java.io.IOException;
++import java.util.Collections;
+ import java.util.List;
++import java.util.Map;
+ 
+ import org.apache.commons.imaging.ImageInfo;
+ import org.apache.commons.imaging.ImageReadException;
+ import org.apache.commons.imaging.Imaging;
+ import org.apache.commons.imaging.common.ImageMetadata;
++import org.apache.commons.imaging.common.bytesource.ByteSourceFile;
+ import org.apache.commons.imaging.internal.Debug;
+ import org.junit.Test;
+ 
+@@ -52,4 +55,21 @@ public void test() throws IOException, ImageReadException {
+             assertNotNull(image);
+         }
+     }
++
++    /**
++     * Test that a bad file does not gets the RgbeImageParser stuck reading it.
++     *
++     * @throws ImageReadException
++     * @throws IOException
++     */
++    @Test(expected = ImageReadException.class, timeout = 2000)
++    public void testErrorDecompressingInvalidFile() throws ImageReadException, IOException {
++        // From IMAGING-219
++        File inputFile = new File(
++                RgbeReadTest.class.getResource("/IMAGING-219/timeout-9713502c9c371f1654b493650c16ab17c0444369")
++                        .getFile());
++        ByteSourceFile byteSourceFile = new ByteSourceFile(inputFile);
++        Map<String, Object> params = Collections.<String, Object>emptyMap();
++        new RgbeImageParser().getBufferedImage(byteSourceFile, params);
++    }
+ }
+diff --git a/src/test/resources/IMAGING-219/timeout-9713502c9c371f1654b493650c16ab17c0444369 b/src/test/resources/IMAGING-219/timeout-9713502c9c371f1654b493650c16ab17c0444369
+new file mode 100644
+index 000000000..3fbbed2c3
+Binary files /dev/null and b/src/test/resources/IMAGING-219/timeout-9713502c9c371f1654b493650c16ab17c0444369 differ

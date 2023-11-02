@@ -1,0 +1,2121 @@
+cd /workdir/GenProg_vul4j_apache_pdfbox_VUL4J-20;
+export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en";
+TZ="America/New_York"; export TZ;
+export PATH="/usr/lib/jvm/java-8-openjdk-amd64/bin:$PATH";
+export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64";
+timeout 240m java -Xmx4g -Xms1g -XX:MaxPermSize=512m -cp /script/../libs/jmetal.jar:/script/../repair_tools/arja.jar us.msu.cse.repair.Main \
+	GenProg \
+	-DexternalProjRoot /script/../libs/arja_external \
+	-DprojectDir /workdir/GenProg_vul4j_apache_pdfbox_VUL4J-20 \
+    -DtestFiltered false \
+    -DrunTestCommand "mvn test -pl pdfbox -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B" \
+	-DsrcJavaDir /workdir/GenProg_vul4j_apache_pdfbox_VUL4J-20/pdfbox/src/main/java \
+	-DbinJavaDir /workdir/GenProg_vul4j_apache_pdfbox_VUL4J-20/pdfbox/target/classes \
+	-DbinTestDir /workdir/GenProg_vul4j_apache_pdfbox_VUL4J-20/pdfbox/target/test-classes \
+	-DdiffFormat true \
+	-Dseed 0 \
+	-DgzoltarDataDir /script/../data/benchmarks/vul4j/perfectfl/VUL4J-20 \
+	-Ddependences /root/.m2/repository/com/github/jai-imageio/jai-imageio-jpeg2000/1.3.0/jai-imageio-jpeg2000-1.3.0.jar:/root/.m2/repository/org/bouncycastle/bcmail-jdk15on/1.60/bcmail-jdk15on-1.60.jar:/root/.m2/repository/org/apache/pdfbox/fontbox/3.0.0-SNAPSHOT/fontbox-3.0.0-SNAPSHOT.jar:/root/.m2/repository/com/googlecode/java-diff-utils/diffutils/1.3.0/diffutils-1.3.0.jar:/root/.m2/repository/com/github/jai-imageio/jai-imageio-core/1.4.0/jai-imageio-core-1.4.0.jar:/root/.m2/repository/junit/junit/4.12/junit-4.12.jar:/root/.m2/repository/org/bouncycastle/bcprov-jdk15on/1.60/bcprov-jdk15on-1.60.jar:/root/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/apache/pdfbox/jbig2-imageio/3.0.1/jbig2-imageio-3.0.1.jar:/root/.m2/repository/org/bouncycastle/bcpkix-jdk15on/1.60/bcpkix-jdk15on-1.60.jar;
+	echo "\n\nNode: `hostname`\n";
+	echo "\n\nDate: `date`\n";
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en
+OpenJDK 64-Bit Server VM warning: ignoring option MaxPermSize=512m; support was removed in 8.0
+Fault localization starts...
+Number of positive tests: 415
+Number of negative tests: 1
+Negative tests: [org.apache.pdfbox.pdmodel.TestPDDocument#testCVE_2018_11797]
+Faulty Lines: 
+org.apache.pdfbox.cos.COSArray#539:1.0
+Fault localization is finished!
+AST parsing starts...
+AST parsing is finished!
+Detection of local variables starts...
+Detection of local variables is finished!
+Detection of fields starts...
+Detection of fields is finished!
+Detection of methods starts...
+Detection of methods is finished!
+Ingredient screener starts...
+Ingredient screener is finished!
+Initialization of manipulations starts...
+Initialization of manipulations is finished!
+Filtering of the tests starts...
+Number of positive tests considered: 415
+Filtering of the tests is finished!
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,8 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
++            set(0x9D, '\u0161');
++			retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 91
+Fitness: 92.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+java.io.IOException: Stream closed
+	at java.io.BufferedInputStream.getBufIfOpen(BufferedInputStream.java:170)
+	at java.io.BufferedInputStream.read1(BufferedInputStream.java:283)
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:345)
+	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
+	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
+	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
+	at java.io.InputStreamReader.read(InputStreamReader.java:184)
+	at java.io.BufferedReader.fill(BufferedReader.java:161)
+	at java.io.BufferedReader.readLine(BufferedReader.java:324)
+	at java.io.BufferedReader.readLine(BufferedReader.java:389)
+	at us.msu.cse.repair.core.util.StreamReaderThread.run(StreamReaderThread.java:36)
+java.lang.IllegalStateException: Exception Occurred
+	at us.msu.cse.repair.core.testexecutors.RExternalTestExecutor.runShell(RExternalTestExecutor.java:108)
+	at us.msu.cse.repair.core.testexecutors.RExternalTestExecutor.runTests(RExternalTestExecutor.java:44)
+	at us.msu.cse.repair.ec.problems.GenProgProblem.invokeTestExecutor(GenProgProblem.java:144)
+	at us.msu.cse.repair.ec.problems.GenProgProblem.evaluate(GenProgProblem.java:99)
+	at us.msu.cse.repair.ec.algorithms.GenProgGA.initPopulation(GenProgGA.java:107)
+	at us.msu.cse.repair.ec.algorithms.GenProgGA.execute(GenProgGA.java:49)
+	at us.msu.cse.repair.core.AbstractRepairAlgorithm.execute(AbstractRepairAlgorithm.java:18)
+	at us.msu.cse.repair.GenProgMain.main(GenProgMain.java:65)
+	at us.msu.cse.repair.Main.main(Main.java:10)
+java.lang.NullPointerException
+	at us.msu.cse.repair.core.testexecutors.RExternalTestExecutor.runTests(RExternalTestExecutor.java:85)
+	at us.msu.cse.repair.ec.problems.GenProgProblem.invokeTestExecutor(GenProgProblem.java:144)
+	at us.msu.cse.repair.ec.problems.GenProgProblem.evaluate(GenProgProblem.java:99)
+	at us.msu.cse.repair.ec.algorithms.GenProgGA.initPopulation(GenProgGA.java:107)
+	at us.msu.cse.repair.ec.algorithms.GenProgGA.execute(GenProgGA.java:49)
+	at us.msu.cse.repair.core.AbstractRepairAlgorithm.execute(AbstractRepairAlgorithm.java:18)
+	at us.msu.cse.repair.GenProgMain.main(GenProgMain.java:65)
+	at us.msu.cse.repair.Main.main(Main.java:10)
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,7 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
++            set(0x87, '\u2044');
+}
+return retval;
+}
+Number of failed tests: 91
+Fitness: 92.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,8 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
++            set(0x96, '\u0152');
++			retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 91
+Fitness: 92.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,7 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
++            set(0x9C, '\u0153');
+}
+return retval;
+}
+Number of failed tests: 91
+Fitness: 92.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,8 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
++            set(0x94, '\uFB02');
++			retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 91
+Fitness: 92.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,7 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
++            set(0x9A, '\u0131');
+}
+return retval;
+}
+Number of failed tests: 91
+Fitness: 92.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,7 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
++            set(0x8A, '\u2212');
+}
+return retval;
+}
+Number of failed tests: 91
+Fitness: 92.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,7 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
++            set(0x18, '\u02D8');
+}
+return retval;
+}
+Number of failed tests: 91
+Fitness: 92.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,7 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
++            set(0x19, '\u02C7');
+}
+return retval;
+}
+Number of failed tests: 91
+Fitness: 92.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,8 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
++            set(0x8F, '\u2018');
++			retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 91
+Fitness: 92.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,8 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
++            boolean encrypted = false;
++			retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,8 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
++            set(0x88, '\u2039');
++			retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 91
+Fitness: 92.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,7 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
++            set(i, (char) i);
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,8 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
++            List<COSBase> retList = new ArrayList<>(size());
++			retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,7 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
++            set(0x18, '\u02D8');
+}
+return retval;
+}
+Number of failed tests: 91
+Fitness: 92.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,8 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
++            List<COSBase> retList = new ArrayList<>(size());
++			retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,7 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
++            boolean encrypted = false;
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,8 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
++            List<COSBase> retList = new ArrayList<>(size());
++			retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+java.io.IOException: Stream closed
+	at java.io.BufferedInputStream.getBufIfOpen(BufferedInputStream.java:170)
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:336)
+	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
+	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
+	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
+	at java.io.InputStreamReader.read(InputStreamReader.java:184)
+	at java.io.BufferedReader.fill(BufferedReader.java:161)
+	at java.io.BufferedReader.readLine(BufferedReader.java:324)
+	at java.io.BufferedReader.readLine(BufferedReader.java:389)
+	at us.msu.cse.repair.core.util.StreamReaderThread.run(StreamReaderThread.java:36)
+java.lang.IllegalStateException: Exception Occurred
+	at us.msu.cse.repair.core.testexecutors.RExternalTestExecutor.runShell(RExternalTestExecutor.java:108)
+	at us.msu.cse.repair.core.testexecutors.RExternalTestExecutor.runTests(RExternalTestExecutor.java:44)
+	at us.msu.cse.repair.ec.problems.GenProgProblem.invokeTestExecutor(GenProgProblem.java:144)
+	at us.msu.cse.repair.ec.problems.GenProgProblem.evaluate(GenProgProblem.java:99)
+	at us.msu.cse.repair.ec.algorithms.GenProgGA.execute(GenProgGA.java:76)
+	at us.msu.cse.repair.core.AbstractRepairAlgorithm.execute(AbstractRepairAlgorithm.java:18)
+	at us.msu.cse.repair.GenProgMain.main(GenProgMain.java:65)
+	at us.msu.cse.repair.Main.main(Main.java:10)
+java.lang.NullPointerException
+	at us.msu.cse.repair.core.testexecutors.RExternalTestExecutor.runTests(RExternalTestExecutor.java:85)
+	at us.msu.cse.repair.ec.problems.GenProgProblem.invokeTestExecutor(GenProgProblem.java:144)
+	at us.msu.cse.repair.ec.problems.GenProgProblem.evaluate(GenProgProblem.java:99)
+	at us.msu.cse.repair.ec.algorithms.GenProgGA.execute(GenProgGA.java:76)
+	at us.msu.cse.repair.core.AbstractRepairAlgorithm.execute(AbstractRepairAlgorithm.java:18)
+	at us.msu.cse.repair.GenProgMain.main(GenProgMain.java:65)
+	at us.msu.cse.repair.Main.main(Main.java:10)
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,8 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
++            List<COSBase> retList = new ArrayList<>(size());
++			retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+java.io.IOException: Stream closed
+	at java.io.BufferedInputStream.getBufIfOpen(BufferedInputStream.java:170)
+	at java.io.BufferedInputStream.read1(BufferedInputStream.java:283)
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:345)
+	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
+	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
+	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
+	at java.io.InputStreamReader.read(InputStreamReader.java:184)
+	at java.io.BufferedReader.fill(BufferedReader.java:161)
+	at java.io.BufferedReader.readLine(BufferedReader.java:324)
+	at java.io.BufferedReader.readLine(BufferedReader.java:389)
+	at us.msu.cse.repair.core.util.StreamReaderThread.run(StreamReaderThread.java:36)
+java.lang.IllegalStateException: Exception Occurred
+	at us.msu.cse.repair.core.testexecutors.RExternalTestExecutor.runShell(RExternalTestExecutor.java:108)
+	at us.msu.cse.repair.core.testexecutors.RExternalTestExecutor.runTests(RExternalTestExecutor.java:44)
+	at us.msu.cse.repair.ec.problems.GenProgProblem.invokeTestExecutor(GenProgProblem.java:144)
+	at us.msu.cse.repair.ec.problems.GenProgProblem.evaluate(GenProgProblem.java:99)
+	at us.msu.cse.repair.ec.algorithms.GenProgGA.execute(GenProgGA.java:76)
+	at us.msu.cse.repair.core.AbstractRepairAlgorithm.execute(AbstractRepairAlgorithm.java:18)
+	at us.msu.cse.repair.GenProgMain.main(GenProgMain.java:65)
+	at us.msu.cse.repair.Main.main(Main.java:10)
+java.lang.NullPointerException
+	at us.msu.cse.repair.core.testexecutors.RExternalTestExecutor.runTests(RExternalTestExecutor.java:85)
+	at us.msu.cse.repair.ec.problems.GenProgProblem.invokeTestExecutor(GenProgProblem.java:144)
+	at us.msu.cse.repair.ec.problems.GenProgProblem.evaluate(GenProgProblem.java:99)
+	at us.msu.cse.repair.ec.algorithms.GenProgGA.execute(GenProgGA.java:76)
+	at us.msu.cse.repair.core.AbstractRepairAlgorithm.execute(AbstractRepairAlgorithm.java:18)
+	at us.msu.cse.repair.GenProgMain.main(GenProgMain.java:65)
+	at us.msu.cse.repair.Main.main(Main.java:10)
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+java.io.IOException: Stream closed
+	at java.io.BufferedInputStream.getBufIfOpen(BufferedInputStream.java:170)
+	at java.io.BufferedInputStream.read1(BufferedInputStream.java:283)
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:345)
+	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
+	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
+	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
+	at java.io.InputStreamReader.read(InputStreamReader.java:184)
+	at java.io.BufferedReader.fill(BufferedReader.java:161)
+	at java.io.BufferedReader.readLine(BufferedReader.java:324)
+	at java.io.BufferedReader.readLine(BufferedReader.java:389)
+	at us.msu.cse.repair.core.util.StreamReaderThread.run(StreamReaderThread.java:36)
+java.lang.IllegalStateException: Exception Occurred
+	at us.msu.cse.repair.core.testexecutors.RExternalTestExecutor.runShell(RExternalTestExecutor.java:108)
+	at us.msu.cse.repair.core.testexecutors.RExternalTestExecutor.runTests(RExternalTestExecutor.java:44)
+	at us.msu.cse.repair.ec.problems.GenProgProblem.invokeTestExecutor(GenProgProblem.java:144)
+	at us.msu.cse.repair.ec.problems.GenProgProblem.evaluate(GenProgProblem.java:99)
+	at us.msu.cse.repair.ec.algorithms.GenProgGA.execute(GenProgGA.java:76)
+	at us.msu.cse.repair.core.AbstractRepairAlgorithm.execute(AbstractRepairAlgorithm.java:18)
+	at us.msu.cse.repair.GenProgMain.main(GenProgMain.java:65)
+	at us.msu.cse.repair.Main.main(Main.java:10)
+java.lang.NullPointerException
+	at us.msu.cse.repair.core.testexecutors.RExternalTestExecutor.runTests(RExternalTestExecutor.java:85)
+	at us.msu.cse.repair.ec.problems.GenProgProblem.invokeTestExecutor(GenProgProblem.java:144)
+	at us.msu.cse.repair.ec.problems.GenProgProblem.evaluate(GenProgProblem.java:99)
+	at us.msu.cse.repair.ec.algorithms.GenProgGA.execute(GenProgGA.java:76)
+	at us.msu.cse.repair.core.AbstractRepairAlgorithm.execute(AbstractRepairAlgorithm.java:18)
+	at us.msu.cse.repair.GenProgMain.main(GenProgMain.java:65)
+	at us.msu.cse.repair.Main.main(Main.java:10)
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,8 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
++            List<COSBase> retList = new ArrayList<>(size());
++			retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+java.io.IOException: Stream closed
+	at java.io.BufferedInputStream.getBufIfOpen(BufferedInputStream.java:170)
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:336)
+	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
+	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
+	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
+	at java.io.InputStreamReader.read(InputStreamReader.java:184)
+	at java.io.BufferedReader.fill(BufferedReader.java:161)
+	at java.io.BufferedReader.readLine(BufferedReader.java:324)
+	at java.io.BufferedReader.readLine(BufferedReader.java:389)
+	at us.msu.cse.repair.core.util.StreamReaderThread.run(StreamReaderThread.java:36)
+java.lang.IllegalStateException: Exception Occurred
+	at us.msu.cse.repair.core.testexecutors.RExternalTestExecutor.runShell(RExternalTestExecutor.java:108)
+	at us.msu.cse.repair.core.testexecutors.RExternalTestExecutor.runTests(RExternalTestExecutor.java:44)
+	at us.msu.cse.repair.ec.problems.GenProgProblem.invokeTestExecutor(GenProgProblem.java:144)
+	at us.msu.cse.repair.ec.problems.GenProgProblem.evaluate(GenProgProblem.java:99)
+	at us.msu.cse.repair.ec.algorithms.GenProgGA.execute(GenProgGA.java:76)
+	at us.msu.cse.repair.core.AbstractRepairAlgorithm.execute(AbstractRepairAlgorithm.java:18)
+	at us.msu.cse.repair.GenProgMain.main(GenProgMain.java:65)
+	at us.msu.cse.repair.Main.main(Main.java:10)
+java.lang.NullPointerException
+	at us.msu.cse.repair.core.testexecutors.RExternalTestExecutor.runTests(RExternalTestExecutor.java:85)
+	at us.msu.cse.repair.ec.problems.GenProgProblem.invokeTestExecutor(GenProgProblem.java:144)
+	at us.msu.cse.repair.ec.problems.GenProgProblem.evaluate(GenProgProblem.java:99)
+	at us.msu.cse.repair.ec.algorithms.GenProgGA.execute(GenProgGA.java:76)
+	at us.msu.cse.repair.core.AbstractRepairAlgorithm.execute(AbstractRepairAlgorithm.java:18)
+	at us.msu.cse.repair.GenProgMain.main(GenProgMain.java:65)
+	at us.msu.cse.repair.Main.main(Main.java:10)
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,7 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
++            set(0x95, '\u0141');
+}
+return retval;
+}
+Number of failed tests: 91
+Fitness: 92.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,7 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
++            set(0x95, '\u0141');
+}
+return retval;
+}
+Number of failed tests: 91
+Fitness: 92.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,8 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
++            List<COSBase> retList = new ArrayList<>(size());
++			retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,8 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
++            List<COSBase> retList = new ArrayList<>(size());
++			retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+java.io.IOException: Stream closed
+	at java.io.BufferedInputStream.getBufIfOpen(BufferedInputStream.java:170)
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:336)
+	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
+	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
+	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
+	at java.io.InputStreamReader.read(InputStreamReader.java:184)
+	at java.io.BufferedReader.fill(BufferedReader.java:161)
+	at java.io.BufferedReader.readLine(BufferedReader.java:324)
+	at java.io.BufferedReader.readLine(BufferedReader.java:389)
+	at us.msu.cse.repair.core.util.StreamReaderThread.run(StreamReaderThread.java:36)
+java.lang.IllegalStateException: Exception Occurred
+	at us.msu.cse.repair.core.testexecutors.RExternalTestExecutor.runShell(RExternalTestExecutor.java:108)
+	at us.msu.cse.repair.core.testexecutors.RExternalTestExecutor.runTests(RExternalTestExecutor.java:44)
+	at us.msu.cse.repair.ec.problems.GenProgProblem.invokeTestExecutor(GenProgProblem.java:144)
+	at us.msu.cse.repair.ec.problems.GenProgProblem.evaluate(GenProgProblem.java:99)
+	at us.msu.cse.repair.ec.algorithms.GenProgGA.execute(GenProgGA.java:76)
+	at us.msu.cse.repair.core.AbstractRepairAlgorithm.execute(AbstractRepairAlgorithm.java:18)
+	at us.msu.cse.repair.GenProgMain.main(GenProgMain.java:65)
+	at us.msu.cse.repair.Main.main(Main.java:10)
+java.lang.NullPointerException
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+java.io.IOException: Stream closed
+	at java.io.BufferedInputStream.getBufIfOpen(BufferedInputStream.java:170)
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:336)
+	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
+	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
+	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
+	at java.io.InputStreamReader.read(InputStreamReader.java:184)
+	at java.io.BufferedReader.fill(BufferedReader.java:161)
+	at java.io.BufferedReader.readLine(BufferedReader.java:324)
+	at java.io.BufferedReader.readLine(BufferedReader.java:389)
+	at us.msu.cse.repair.core.util.StreamReaderThread.run(StreamReaderThread.java:36)
+java.lang.IllegalStateException: Exception Occurred
+	at us.msu.cse.repair.core.testexecutors.RExternalTestExecutor.runShell(RExternalTestExecutor.java:108)
+	at us.msu.cse.repair.core.testexecutors.RExternalTestExecutor.runTests(RExternalTestExecutor.java:44)
+	at us.msu.cse.repair.ec.problems.GenProgProblem.invokeTestExecutor(GenProgProblem.java:144)
+	at us.msu.cse.repair.ec.problems.GenProgProblem.evaluate(GenProgProblem.java:99)
+	at us.msu.cse.repair.ec.algorithms.GenProgGA.execute(GenProgGA.java:76)
+	at us.msu.cse.repair.core.AbstractRepairAlgorithm.execute(AbstractRepairAlgorithm.java:18)
+	at us.msu.cse.repair.GenProgMain.main(GenProgMain.java:65)
+	at us.msu.cse.repair.Main.main(Main.java:10)
+java.lang.NullPointerException
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,8 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
++            List<COSBase> retList = new ArrayList<>(size());
++			retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,8 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
++            List<COSBase> retList = new ArrayList<>(size());
++			retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 1
+Fitness: 2.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+Number of failed tests: 41
+Fitness: 41.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
+@@ -536,7 +536,6 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+float[] retval = new float[size()];
+for (int i = 0; i < size(); i++)
+{
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+}
+return retval;
+}
+
+
+Node: 2c8178711f7b
+
+
+
+Date: Thu Sep 29 11:17:42 EDT 2022
+

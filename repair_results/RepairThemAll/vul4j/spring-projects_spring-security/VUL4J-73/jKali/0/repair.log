@@ -1,0 +1,211 @@
+cd /workdir/jKali_vul4j_spring-projects_spring-security_VUL4J-73;
+export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en";
+TZ="America/New_York"; export TZ;
+export PATH="/usr/lib/jvm/java-8-openjdk-amd64/bin:$PATH";
+export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64/bin";
+time java -Xmx4g -Xms1g -XX:MaxPermSize=512m -cp /script/../libs/jtestex7.jar:/script/../repair_tools/astor.jar fr.inria.main.evolution.AstorMain \
+	-mode jkali \
+	-location . \
+	-id spring-projects_spring-security-VUL4J-73 \
+	-failing org.springframework.security.authentication.encoding.PlaintextPasswordEncoderTests#testNull \
+	-jvm4testexecution /usr/lib/jvm/java-8-openjdk-amd64/bin \
+	-jvm4evosuitetestexecution /usr/lib/jvm/java-8-openjdk-amd64/bin \
+	-maxgen 1000000 \
+	-maxtime 120 \
+	-stopfirst true \
+	-seed 0 \
+	-scope local \
+	-population 1 \
+	-javacompliancelevel 8 \
+	-faultlocalization perfect \
+    -perfectdata /script/../data/benchmarks/vul4j/perfectfl/VUL4J-73 \
+    -validation externalcmd \
+    -testfailingcmd "./gradlew :spring-security-core:test --tests org.springframework.security.authentication.encoding.PlaintextPasswordEncoderTests.testNull" \
+    -testallcmd "./gradlew :spring-security-core:test"  \ \
+	-srcjavafolder core/src/main/java \
+	-srctestfolder core/src/test/java \
+	-binjavafolder core/build/classes/main \
+	-bintestfolder core/build/classes/test \
+	-parameters x:x \
+	-dependencies /workdir/jKali_vul4j_spring-projects_spring-security_VUL4J-73/core/build/classes/test:/workdir/jKali_vul4j_spring-projects_spring-security_VUL4J-73/core/build/resources/test:/workdir/jKali_vul4j_spring-projects_spring-security_VUL4J-73/core/build/classes/main:/workdir/jKali_vul4j_spring-projects_spring-security_VUL4J-73/core/build/resources/main:/root/.gradle/caches/modules-2/files-2.1/org.springframework/spring-core/4.3.23.RELEASE/1481429d44ea0deca1d8b9d6d5e948cb7f063bdb/spring-core-4.3.23.RELEASE.jar:/root/.gradle/caches/modules-2/files-2.1/aopalliance/aopalliance/1.0/235ba8b489512805ac13a8f9ea77a1ca5ebe3e8/aopalliance-1.0.jar:/root/.gradle/caches/modules-2/files-2.1/org.springframework/spring-aop/4.3.23.RELEASE/f49489bf0774db690f85588cab86d943069704bd/spring-aop-4.3.23.RELEASE.jar:/root/.gradle/caches/modules-2/files-2.1/org.springframework/spring-beans/4.3.23.RELEASE/27570e1d493f636c910191004f822e756a9df871/spring-beans-4.3.23.RELEASE.jar:/root/.gradle/caches/modules-2/files-2.1/org.springframework/spring-context/4.3.23.RELEASE/337d1030cb7abeeb28618b01dab7250a90d77151/spring-context-4.3.23.RELEASE.jar:/root/.gradle/caches/modules-2/files-2.1/org.springframework/spring-expression/4.3.23.RELEASE/cebdf400b3c820220deb868a84bce627eb8ad18c/spring-expression-4.3.23.RELEASE.jar:/workdir/jKali_vul4j_spring-projects_spring-security_VUL4J-73/crypto/build/libs/spring-security-crypto-4.2.13.BUILD-SNAPSHOT.jar:/root/.gradle/caches/modules-2/files-2.1/net.sf.ehcache/ehcache/2.10.6/38076997b10f5c762a210ea8b9f6099da35ac5f/ehcache-2.10.6.jar:/root/.gradle/caches/modules-2/files-2.1/javax.annotation/jsr250-api/1.0/5025422767732a1ab45d93abfea846513d742dcf/jsr250-api-1.0.jar:/root/.gradle/caches/modules-2/files-2.1/org.aspectj/aspectjrt/1.8.14/65af551c0487609d48b91ea401de61f72bb91a09/aspectjrt-1.8.14.jar:/root/.gradle/caches/modules-2/files-2.1/org.springframework/spring-jdbc/4.3.23.RELEASE/61baab23c8938b96cb5f355dbf85359241d7b69e/spring-jdbc-4.3.23.RELEASE.jar:/root/.gradle/caches/modules-2/files-2.1/org.springframework/spring-tx/4.3.23.RELEASE/2a2d4a24b161f0fdd14816a715a760d2fa1f357b/spring-tx-4.3.23.RELEASE.jar:/root/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.8.11.3/844df5aba5a1a56e00905b165b12bb34116ee858/jackson-databind-2.8.11.3.jar:/root/.gradle/caches/modules-2/files-2.1/junit/junit/4.12/2973d150c0dc1fefe998f834810d68f278ea58ec/junit-4.12.jar:/root/.gradle/caches/modules-2/files-2.1/org.mockito/mockito-core/1.10.19/e8546f5bef4e061d8dd73895b4e8f40e3fe6effe/mockito-core-1.10.19.jar:/root/.gradle/caches/modules-2/files-2.1/org.springframework/spring-test/4.3.23.RELEASE/fb5a41e62dc86ca11f666691e13ea0b5573f20b4/spring-test-4.3.23.RELEASE.jar:/root/.gradle/caches/modules-2/files-2.1/org.assertj/assertj-core/2.2.0/edd59795b236afc790dd161e7e3677757b06f2e7/assertj-core-2.2.0.jar:/root/.gradle/caches/modules-2/files-2.1/commons-collections/commons-collections/3.2.2/8ad72fe39fa8c91eaaf12aadb21e0c3661fe26d5/commons-collections-3.2.2.jar:/root/.gradle/caches/modules-2/files-2.1/org.slf4j/jcl-over-slf4j/1.7.25/f8c32b13ff142a513eeb5b6330b1588dcb2c0461/jcl-over-slf4j-1.7.25.jar:/root/.gradle/caches/modules-2/files-2.1/org.powermock/powermock-core/1.6.5/5c7f30af24a260b9a452c194be0cca373db9aaf6/powermock-core-1.6.5.jar:/root/.gradle/caches/modules-2/files-2.1/org.powermock/powermock-api-support/1.6.5/9b0cdf26351d3608a1bf11d3a5b8c96e9c32605/powermock-api-support-1.6.5.jar:/root/.gradle/caches/modules-2/files-2.1/org.powermock/powermock-module-junit4-common/1.6.5/ef0b8507142b3c176d1b8a1937a8490eaf8babe9/powermock-module-junit4-common-1.6.5.jar:/root/.gradle/caches/modules-2/files-2.1/org.powermock/powermock-module-junit4/1.6.5/e6ad8d4fddb3cc1e11ebf343ecc82ea10b12d5a4/powermock-module-junit4-1.6.5.jar:/root/.gradle/caches/modules-2/files-2.1/org.powermock/powermock-api-mockito/1.6.5/7f5cf8f0ddb3539b28581431bbeda4d81ff5ef02/powermock-api-mockito-1.6.5.jar:/root/.gradle/caches/modules-2/files-2.1/org.powermock/powermock-reflect/1.6.5/3569903763e7741965acc9627ad8253d210feedf/powermock-reflect-1.6.5.jar:/root/.gradle/caches/modules-2/files-2.1/org.skyscreamer/jsonassert/1.4.0/9cdbb373a06f6513e51e8c545ee6a5e981463edb/jsonassert-1.4.0.jar:/root/.gradle/caches/modules-2/files-2.1/ch.qos.logback/logback-classic/1.1.11/ccedfbacef4a6515d2983e3f89ed753d5d4fb665/logback-classic-1.1.11.jar:/root/.gradle/caches/modules-2/files-2.1/org.hsqldb/hsqldb/2.3.6/d4adfef3f017dd71fe789067cc6b7c39f31f2a3a/hsqldb-2.3.6.jar:/root/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.7.25/da76ca59f6a57ee3102f8f9bd9cee742973efa8a/slf4j-api-1.7.25.jar:/root/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-annotations/2.8.0/45b426f7796b741035581a176744d91090e2e6fb/jackson-annotations-2.8.0.jar:/root/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.8.10/eb21a035c66ad307e66ec8fce37f5d50fd62d039/jackson-core-2.8.10.jar:/root/.gradle/caches/modules-2/files-2.1/org.hamcrest/hamcrest-core/1.3/42a25dc3219429f0e5d060061f71acb49bf010a0/hamcrest-core-1.3.jar:/root/.gradle/caches/modules-2/files-2.1/org.javassist/javassist/3.20.0-GA/a9cbcdfb7e9f86fbc74d3afae65f2248bfbf82a0/javassist-3.20.0-GA.jar:/root/.gradle/caches/modules-2/files-2.1/org.powermock/powermock-api-mockito-common/1.6.5/50929570ea185735f8f038ea650a60f6444e7ec3/powermock-api-mockito-common-1.6.5.jar:/root/.gradle/caches/modules-2/files-2.1/com.vaadin.external.google/android-json/0.0.20131108.vaadin1/fa26d351fe62a6a17f5cda1287c1c6110dec413f/android-json-0.0.20131108.vaadin1.jar:/root/.gradle/caches/modules-2/files-2.1/ch.qos.logback/logback-core/1.1.11/88b8df40340eed549fb07e2613879bf6b006704d/logback-core-1.1.11.jar:/root/.gradle/caches/modules-2/files-2.1/org.objenesis/objenesis/2.2/3fb533efdaa50a768c394aa4624144cf8df17845/objenesis-2.2.jar;
+	echo "\n\nNode: `hostname`\n";
+	echo "\n\nDate: `date`\n";
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en
+OpenJDK 64-Bit Server VM warning: ignoring option MaxPermSize=512m; support was removed in 8.0
+[0] INFO ProjectConfiguration - Version of the JVM used: 1.8.0_342
+[1] INFO main - Java version of the JDK used to run tests: 1.8.0_342
+[1] INFO main - The compliance of the JVM is:  8
+[5] INFO main - command line arguments: [-mode  jkali  -location  .  -id  spring-projects_spring-security-VUL4J-73  -failing  org.springframework.security.authentication.encoding.PlaintextPasswordEncoderTests#testNull  -jvm4testexecution  /usr/lib/jvm/java-8-openjdk-amd64/bin  -jvm4evosuitetestexecution  /usr/lib/jvm/java-8-openjdk-amd64/bin  -maxgen  1000000  -maxtime  120  -stopfirst  true  -seed  0  -scope  local  -population  1  -javacompliancelevel  8  -faultlocalization  perfect  -perfectdata  /script/../data/benchmarks/vul4j/perfectfl/VUL4J-73  -validation  externalcmd  -testfailingcmd  ./gradlew :spring-security-core:test --tests org.springframework.security.authentication.encoding.PlaintextPasswordEncoderTests.testNull  -testallcmd  ./gradlew :spring-security-core:test     -srcjavafolder  core/src/main/java  -srctestfolder  core/src/test/java  -binjavafolder  core/build/classes/main  -bintestfolder  core/build/classes/test  -parameters  x:x  -dependencies  /workdir/jKali_vul4j_spring-projects_spring-security_VUL4J-73/core/build/classes/test:/workdir/jKali_vul4j_spring-projects_spring-security_VUL4J-73/core/build/resources/test:/workdir/jKali_vul4j_spring-projects_spring-security_VUL4J-73/core/build/classes/main:/workdir/jKali_vul4j_spring-projects_spring-security_VUL4J-73/core/build/resources/main:/root/.gradle/caches/modules-2/files-2.1/org.springframework/spring-core/4.3.23.RELEASE/1481429d44ea0deca1d8b9d6d5e948cb7f063bdb/spring-core-4.3.23.RELEASE.jar:/root/.gradle/caches/modules-2/files-2.1/aopalliance/aopalliance/1.0/235ba8b489512805ac13a8f9ea77a1ca5ebe3e8/aopalliance-1.0.jar:/root/.gradle/caches/modules-2/files-2.1/org.springframework/spring-aop/4.3.23.RELEASE/f49489bf0774db690f85588cab86d943069704bd/spring-aop-4.3.23.RELEASE.jar:/root/.gradle/caches/modules-2/files-2.1/org.springframework/spring-beans/4.3.23.RELEASE/27570e1d493f636c910191004f822e756a9df871/spring-beans-4.3.23.RELEASE.jar:/root/.gradle/caches/modules-2/files-2.1/org.springframework/spring-context/4.3.23.RELEASE/337d1030cb7abeeb28618b01dab7250a90d77151/spring-context-4.3.23.RELEASE.jar:/root/.gradle/caches/modules-2/files-2.1/org.springframework/spring-expression/4.3.23.RELEASE/cebdf400b3c820220deb868a84bce627eb8ad18c/spring-expression-4.3.23.RELEASE.jar:/workdir/jKali_vul4j_spring-projects_spring-security_VUL4J-73/crypto/build/libs/spring-security-crypto-4.2.13.BUILD-SNAPSHOT.jar:/root/.gradle/caches/modules-2/files-2.1/net.sf.ehcache/ehcache/2.10.6/38076997b10f5c762a210ea8b9f6099da35ac5f/ehcache-2.10.6.jar:/root/.gradle/caches/modules-2/files-2.1/javax.annotation/jsr250-api/1.0/5025422767732a1ab45d93abfea846513d742dcf/jsr250-api-1.0.jar:/root/.gradle/caches/modules-2/files-2.1/org.aspectj/aspectjrt/1.8.14/65af551c0487609d48b91ea401de61f72bb91a09/aspectjrt-1.8.14.jar:/root/.gradle/caches/modules-2/files-2.1/org.springframework/spring-jdbc/4.3.23.RELEASE/61baab23c8938b96cb5f355dbf85359241d7b69e/spring-jdbc-4.3.23.RELEASE.jar:/root/.gradle/caches/modules-2/files-2.1/org.springframework/spring-tx/4.3.23.RELEASE/2a2d4a24b161f0fdd14816a715a760d2fa1f357b/spring-tx-4.3.23.RELEASE.jar:/root/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.8.11.3/844df5aba5a1a56e00905b165b12bb34116ee858/jackson-databind-2.8.11.3.jar:/root/.gradle/caches/modules-2/files-2.1/junit/junit/4.12/2973d150c0dc1fefe998f834810d68f278ea58ec/junit-4.12.jar:/root/.gradle/caches/modules-2/files-2.1/org.mockito/mockito-core/1.10.19/e8546f5bef4e061d8dd73895b4e8f40e3fe6effe/mockito-core-1.10.19.jar:/root/.gradle/caches/modules-2/files-2.1/org.springframework/spring-test/4.3.23.RELEASE/fb5a41e62dc86ca11f666691e13ea0b5573f20b4/spring-test-4.3.23.RELEASE.jar:/root/.gradle/caches/modules-2/files-2.1/org.assertj/assertj-core/2.2.0/edd59795b236afc790dd161e7e3677757b06f2e7/assertj-core-2.2.0.jar:/root/.gradle/caches/modules-2/files-2.1/commons-collections/commons-collections/3.2.2/8ad72fe39fa8c91eaaf12aadb21e0c3661fe26d5/commons-collections-3.2.2.jar:/root/.gradle/caches/modules-2/files-2.1/org.slf4j/jcl-over-slf4j/1.7.25/f8c32b13ff142a513eeb5b6330b1588dcb2c0461/jcl-over-slf4j-1.7.25.jar:/root/.gradle/caches/modules-2/files-2.1/org.powermock/powermock-core/1.6.5/5c7f30af24a260b9a452c194be0cca373db9aaf6/powermock-core-1.6.5.jar:/root/.gradle/caches/modules-2/files-2.1/org.powermock/powermock-api-support/1.6.5/9b0cdf26351d3608a1bf11d3a5b8c96e9c32605/powermock-api-support-1.6.5.jar:/root/.gradle/caches/modules-2/files-2.1/org.powermock/powermock-module-junit4-common/1.6.5/ef0b8507142b3c176d1b8a1937a8490eaf8babe9/powermock-module-junit4-common-1.6.5.jar:/root/.gradle/caches/modules-2/files-2.1/org.powermock/powermock-module-junit4/1.6.5/e6ad8d4fddb3cc1e11ebf343ecc82ea10b12d5a4/powermock-module-junit4-1.6.5.jar:/root/.gradle/caches/modules-2/files-2.1/org.powermock/powermock-api-mockito/1.6.5/7f5cf8f0ddb3539b28581431bbeda4d81ff5ef02/powermock-api-mockito-1.6.5.jar:/root/.gradle/caches/modules-2/files-2.1/org.powermock/powermock-reflect/1.6.5/3569903763e7741965acc9627ad8253d210feedf/powermock-reflect-1.6.5.jar:/root/.gradle/caches/modules-2/files-2.1/org.skyscreamer/jsonassert/1.4.0/9cdbb373a06f6513e51e8c545ee6a5e981463edb/jsonassert-1.4.0.jar:/root/.gradle/caches/modules-2/files-2.1/ch.qos.logback/logback-classic/1.1.11/ccedfbacef4a6515d2983e3f89ed753d5d4fb665/logback-classic-1.1.11.jar:/root/.gradle/caches/modules-2/files-2.1/org.hsqldb/hsqldb/2.3.6/d4adfef3f017dd71fe789067cc6b7c39f31f2a3a/hsqldb-2.3.6.jar:/root/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.7.25/da76ca59f6a57ee3102f8f9bd9cee742973efa8a/slf4j-api-1.7.25.jar:/root/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-annotations/2.8.0/45b426f7796b741035581a176744d91090e2e6fb/jackson-annotations-2.8.0.jar:/root/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.8.10/eb21a035c66ad307e66ec8fce37f5d50fd62d039/jackson-core-2.8.10.jar:/root/.gradle/caches/modules-2/files-2.1/org.hamcrest/hamcrest-core/1.3/42a25dc3219429f0e5d060061f71acb49bf010a0/hamcrest-core-1.3.jar:/root/.gradle/caches/modules-2/files-2.1/org.javassist/javassist/3.20.0-GA/a9cbcdfb7e9f86fbc74d3afae65f2248bfbf82a0/javassist-3.20.0-GA.jar:/root/.gradle/caches/modules-2/files-2.1/org.powermock/powermock-api-mockito-common/1.6.5/50929570ea185735f8f038ea650a60f6444e7ec3/powermock-api-mockito-common-1.6.5.jar:/root/.gradle/caches/modules-2/files-2.1/com.vaadin.external.google/android-json/0.0.20131108.vaadin1/fa26d351fe62a6a17f5cda1287c1c6110dec413f/android-json-0.0.20131108.vaadin1.jar:/root/.gradle/caches/modules-2/files-2.1/ch.qos.logback/logback-core/1.1.11/88b8df40340eed549fb07e2613879bf6b006704d/logback-core-1.1.11.jar:/root/.gradle/caches/modules-2/files-2.1/org.objenesis/objenesis/2.2/3fb533efdaa50a768c394aa4624144cf8df17845/objenesis-2.2.jar]
+[7] INFO AstorMain - Running Astor on a JDK at /usr/lib/jvm/java-8-openjdk-amd64/jre
+[35] INFO main - Source folders: [/workdir/jKali_vul4j_spring-projects_spring-security_VUL4J-73/./core/src/main/java]
+[36] INFO main - Source Test folders: [/workdir/jKali_vul4j_spring-projects_spring-security_VUL4J-73/./core/src/test/java]
+[3161] INFO AstorCoreEngine - ---- Creating spoon model
+[3219] INFO MutationSupporter - Creating model,  Code location from working folder: /workdir/jKali_vul4j_spring-projects_spring-security_VUL4J-73/./core/src/main/java
+[3219] INFO MutationSupporter - building model: /workdir/jKali_vul4j_spring-projects_spring-security_VUL4J-73/./core/src/main/java, compliance level: 8
+[3492] INFO MutationSupporter - Classpath (Dependencies) for building SpoonModel: [/workdir/jKali_vul4j_spring-projects_spring-security_VUL4J-73/core/build/classes/test/, /workdir/jKali_vul4j_spring-projects_spring-security_VUL4J-73/core/build/resources/test/, /workdir/jKali_vul4j_spring-projects_spring-security_VUL4J-73/core/build/classes/main/, /workdir/jKali_vul4j_spring-projects_spring-security_VUL4J-73/core/build/resources/main/, /root/.gradle/caches/modules-2/files-2.1/org.springframework/spring-core/4.3.23.RELEASE/1481429d44ea0deca1d8b9d6d5e948cb7f063bdb/spring-core-4.3.23.RELEASE.jar, /root/.gradle/caches/modules-2/files-2.1/aopalliance/aopalliance/1.0/235ba8b489512805ac13a8f9ea77a1ca5ebe3e8/aopalliance-1.0.jar, /root/.gradle/caches/modules-2/files-2.1/org.springframework/spring-aop/4.3.23.RELEASE/f49489bf0774db690f85588cab86d943069704bd/spring-aop-4.3.23.RELEASE.jar, /root/.gradle/caches/modules-2/files-2.1/org.springframework/spring-beans/4.3.23.RELEASE/27570e1d493f636c910191004f822e756a9df871/spring-beans-4.3.23.RELEASE.jar, /root/.gradle/caches/modules-2/files-2.1/org.springframework/spring-context/4.3.23.RELEASE/337d1030cb7abeeb28618b01dab7250a90d77151/spring-context-4.3.23.RELEASE.jar, /root/.gradle/caches/modules-2/files-2.1/org.springframework/spring-expression/4.3.23.RELEASE/cebdf400b3c820220deb868a84bce627eb8ad18c/spring-expression-4.3.23.RELEASE.jar, /workdir/jKali_vul4j_spring-projects_spring-security_VUL4J-73/crypto/build/libs/spring-security-crypto-4.2.13.BUILD-SNAPSHOT.jar, /root/.gradle/caches/modules-2/files-2.1/net.sf.ehcache/ehcache/2.10.6/38076997b10f5c762a210ea8b9f6099da35ac5f/ehcache-2.10.6.jar, /root/.gradle/caches/modules-2/files-2.1/javax.annotation/jsr250-api/1.0/5025422767732a1ab45d93abfea846513d742dcf/jsr250-api-1.0.jar, /root/.gradle/caches/modules-2/files-2.1/org.aspectj/aspectjrt/1.8.14/65af551c0487609d48b91ea401de61f72bb91a09/aspectjrt-1.8.14.jar, /root/.gradle/caches/modules-2/files-2.1/org.springframework/spring-jdbc/4.3.23.RELEASE/61baab23c8938b96cb5f355dbf85359241d7b69e/spring-jdbc-4.3.23.RELEASE.jar, /root/.gradle/caches/modules-2/files-2.1/org.springframework/spring-tx/4.3.23.RELEASE/2a2d4a24b161f0fdd14816a715a760d2fa1f357b/spring-tx-4.3.23.RELEASE.jar, /root/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.8.11.3/844df5aba5a1a56e00905b165b12bb34116ee858/jackson-databind-2.8.11.3.jar, /root/.gradle/caches/modules-2/files-2.1/junit/junit/4.12/2973d150c0dc1fefe998f834810d68f278ea58ec/junit-4.12.jar, /root/.gradle/caches/modules-2/files-2.1/org.mockito/mockito-core/1.10.19/e8546f5bef4e061d8dd73895b4e8f40e3fe6effe/mockito-core-1.10.19.jar, /root/.gradle/caches/modules-2/files-2.1/org.springframework/spring-test/4.3.23.RELEASE/fb5a41e62dc86ca11f666691e13ea0b5573f20b4/spring-test-4.3.23.RELEASE.jar, /root/.gradle/caches/modules-2/files-2.1/org.assertj/assertj-core/2.2.0/edd59795b236afc790dd161e7e3677757b06f2e7/assertj-core-2.2.0.jar, /root/.gradle/caches/modules-2/files-2.1/commons-collections/commons-collections/3.2.2/8ad72fe39fa8c91eaaf12aadb21e0c3661fe26d5/commons-collections-3.2.2.jar, /root/.gradle/caches/modules-2/files-2.1/org.slf4j/jcl-over-slf4j/1.7.25/f8c32b13ff142a513eeb5b6330b1588dcb2c0461/jcl-over-slf4j-1.7.25.jar, /root/.gradle/caches/modules-2/files-2.1/org.powermock/powermock-core/1.6.5/5c7f30af24a260b9a452c194be0cca373db9aaf6/powermock-core-1.6.5.jar, /root/.gradle/caches/modules-2/files-2.1/org.powermock/powermock-api-support/1.6.5/9b0cdf26351d3608a1bf11d3a5b8c96e9c32605/powermock-api-support-1.6.5.jar, /root/.gradle/caches/modules-2/files-2.1/org.powermock/powermock-module-junit4-common/1.6.5/ef0b8507142b3c176d1b8a1937a8490eaf8babe9/powermock-module-junit4-common-1.6.5.jar, /root/.gradle/caches/modules-2/files-2.1/org.powermock/powermock-module-junit4/1.6.5/e6ad8d4fddb3cc1e11ebf343ecc82ea10b12d5a4/powermock-module-junit4-1.6.5.jar, /root/.gradle/caches/modules-2/files-2.1/org.powermock/powermock-api-mockito/1.6.5/7f5cf8f0ddb3539b28581431bbeda4d81ff5ef02/powermock-api-mockito-1.6.5.jar, /root/.gradle/caches/modules-2/files-2.1/org.powermock/powermock-reflect/1.6.5/3569903763e7741965acc9627ad8253d210feedf/powermock-reflect-1.6.5.jar, /root/.gradle/caches/modules-2/files-2.1/org.skyscreamer/jsonassert/1.4.0/9cdbb373a06f6513e51e8c545ee6a5e981463edb/jsonassert-1.4.0.jar, /root/.gradle/caches/modules-2/files-2.1/ch.qos.logback/logback-classic/1.1.11/ccedfbacef4a6515d2983e3f89ed753d5d4fb665/logback-classic-1.1.11.jar, /root/.gradle/caches/modules-2/files-2.1/org.hsqldb/hsqldb/2.3.6/d4adfef3f017dd71fe789067cc6b7c39f31f2a3a/hsqldb-2.3.6.jar, /root/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.7.25/da76ca59f6a57ee3102f8f9bd9cee742973efa8a/slf4j-api-1.7.25.jar, /root/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-annotations/2.8.0/45b426f7796b741035581a176744d91090e2e6fb/jackson-annotations-2.8.0.jar, /root/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.8.10/eb21a035c66ad307e66ec8fce37f5d50fd62d039/jackson-core-2.8.10.jar, /root/.gradle/caches/modules-2/files-2.1/org.hamcrest/hamcrest-core/1.3/42a25dc3219429f0e5d060061f71acb49bf010a0/hamcrest-core-1.3.jar, /root/.gradle/caches/modules-2/files-2.1/org.javassist/javassist/3.20.0-GA/a9cbcdfb7e9f86fbc74d3afae65f2248bfbf82a0/javassist-3.20.0-GA.jar, /root/.gradle/caches/modules-2/files-2.1/org.powermock/powermock-api-mockito-common/1.6.5/50929570ea185735f8f038ea650a60f6444e7ec3/powermock-api-mockito-common-1.6.5.jar, /root/.gradle/caches/modules-2/files-2.1/com.vaadin.external.google/android-json/0.0.20131108.vaadin1/fa26d351fe62a6a17f5cda1287c1c6110dec413f/android-json-0.0.20131108.vaadin1.jar, /root/.gradle/caches/modules-2/files-2.1/ch.qos.logback/logback-core/1.1.11/88b8df40340eed549fb07e2613879bf6b006704d/logback-core-1.1.11.jar, /root/.gradle/caches/modules-2/files-2.1/org.objenesis/objenesis/2.2/3fb533efdaa50a768c394aa4624144cf8df17845/objenesis-2.2.jar]
+[20509] INFO AstorCoreEngine - Number of CtTypes created: 250
+[20704] INFO AstorCoreEngine - Test retrieved from classes: 0
+[20902] INFO AstorCoreEngine - Setting up the max to 1970 milliseconds (1 sec)
+[20902] INFO AstorCoreEngine - ---- Initial suspicious size: 1
+[21449] INFO main - Total suspicious from FL: 1,  1
+[21449] INFO main - Total ModPoint created: 1
+[21449] INFO main - Creating program variant #1, [Variant id: 1, #gens: 1, #ops: 0, parent:-]
+[21450] INFO main - Run previously failing tests...
+[181392] INFO main - Failed tests: 1
+[181395] INFO AstorCoreEngine - The original fitness is : 1.0
+[181396] WARN ConfigurationProperties - ----------------------------
+[181396] INFO ConfigurationProperties - ---Configuration properties
+[181407] INFO ConfigurationProperties - p:lastJUnitVersion= ./examples/libs/junit-4.11.jar
+[181407] INFO ConfigurationProperties - p:alternativecompliancelevel= 8
+[181407] INFO ConfigurationProperties - p:ignoredTestCases= 
+[181407] INFO ConfigurationProperties - p:workingDirectory= /workdir/jKali_vul4j_spring-projects_spring-security_VUL4J-73/./output_astor
+[181407] INFO ConfigurationProperties - p:manipulatesuper= false
+[181407] INFO ConfigurationProperties - p:validation= externalcmd
+[181407] INFO ConfigurationProperties - p:jvm4testexecution= /usr/lib/jvm/java-8-openjdk-amd64/bin
+[181408] INFO ConfigurationProperties - p:operatorspace= suppression
+[181408] INFO ConfigurationProperties - p:diffcontext= 0
+[181408] INFO ConfigurationProperties - p:binjavafolder= core/build/classes/main
+[181408] INFO ConfigurationProperties - p:synthesis_depth= 3
+[181408] INFO ConfigurationProperties - p:gzoltartestpackagetoexclude= junit.framework
+[181408] INFO ConfigurationProperties - p:skipfitnessinitialpopulation= false
+[181408] INFO ConfigurationProperties - p:evosuiteresultfolder= evosuite
+[181408] INFO ConfigurationProperties - p:flthreshold= 0.1
+[181408] INFO ConfigurationProperties - p:regressionforfaultlocalization= true
+[181408] INFO ConfigurationProperties - p:collectonlyusedmethod= false
+[181408] INFO ConfigurationProperties - p:preservelinenumbers= true
+[181410] INFO ConfigurationProperties - p:tmax2= 1970
+[181410] INFO ConfigurationProperties - p:tmax1= 10000
+[181410] INFO ConfigurationProperties - p:probagenmutation= false
+[181410] INFO ConfigurationProperties - p:nomodificationconvergence= 100
+[181411] INFO ConfigurationProperties - p:diff_type= relative
+[181411] INFO ConfigurationProperties - p:targetelementprocessor= statements
+[181411] INFO ConfigurationProperties - p:srctestfolder= core/src/test/java
+[181411] INFO ConfigurationProperties - p:forceExecuteRegression= false
+[181411] INFO ConfigurationProperties - p:clusteringfilename= clustering.csv
+[181411] INFO ConfigurationProperties - p:failing= org.springframework.security.authentication.encoding.PlaintextPasswordEncoderTests#testNull
+[181411] INFO ConfigurationProperties - p:logtestexecution= false
+[181413] INFO ConfigurationProperties - p:evo_buggy_class= true
+[181413] INFO ConfigurationProperties - p:numberExecutions= 1
+[181413] INFO ConfigurationProperties - p:maxnumbersolutions= 1000000
+[181420] INFO ConfigurationProperties - p:evo_affected_by_op= true
+[181420] INFO ConfigurationProperties - p:population= 1
+[181420] INFO ConfigurationProperties - p:considerzerovaluesusp= false
+[181420] INFO ConfigurationProperties - p:maxCombinationVariableLimit= false
+[181420] INFO ConfigurationProperties - p:savesolution= true
+[181420] INFO ConfigurationProperties - p:javacompliancelevel= 8
+[181420] INFO ConfigurationProperties - p:x= x
+[181420] INFO ConfigurationProperties - p:uniqueoptogen= false
+[181420] INFO ConfigurationProperties - p:gzoltarpackagetonotinstrument= junit.framework
+[181428] INFO ConfigurationProperties - p:projectIdentifier= spring-projects_spring-security-VUL4J-73
+[181428] INFO ConfigurationProperties - p:modificationpointnavigation= weight
+[181428] INFO ConfigurationProperties - p:stopfirst= true
+[181428] INFO ConfigurationProperties - p:multipointmodification= false
+[181428] INFO ConfigurationProperties - p:elementsToMutate= 10
+[181428] INFO ConfigurationProperties - p:jsonoutputname= astor_output
+[181428] INFO ConfigurationProperties - p:evoDSE= false
+[181428] INFO ConfigurationProperties - p:bintestfolder= core/build/classes/test
+[181428] INFO ConfigurationProperties - p:testbystep= false
+[181428] INFO ConfigurationProperties - p:version-location= ./math-version/
+[181428] INFO ConfigurationProperties - p:reintroduce= PARENTS:ORIGINAL
+[181428] INFO ConfigurationProperties - p:perfectdata= /script/../data/benchmarks/vul4j/perfectfl/VUL4J-73
+[181428] INFO ConfigurationProperties - p:executorjar= ./lib/jtestex7.jar
+[181428] INFO ConfigurationProperties - p:maxGeneration= 1000000
+[181429] INFO ConfigurationProperties - p:max_synthesis_step= 10000
+[181429] INFO ConfigurationProperties - p:projectinfocommand= com.github.tdurieux:project-config-maven-plugin:info
+[181429] INFO ConfigurationProperties - p:maxVarCombination= 1000
+[181429] INFO ConfigurationProperties - p:maxtime= 120
+[181429] INFO ConfigurationProperties - p:evosuitejar= ./lib/evosuite-master-1.0.4-SNAPSHOT.jar
+[181429] INFO ConfigurationProperties - p:jvmversion= 1.8.0_342
+[181429] INFO ConfigurationProperties - p:commandTrunk= 50000
+[181429] INFO ConfigurationProperties - p:faultlocalization= perfect
+[181429] INFO ConfigurationProperties - p:resetmodel= true
+[181429] INFO ConfigurationProperties - p:maxsuspcandidates= 1000
+[181429] INFO ConfigurationProperties - p:mode= jkali
+[181429] INFO ConfigurationProperties - p:learningdir= 
+[181429] INFO ConfigurationProperties - p:jvm4evosuitetestexecution= /usr/lib/jvm/java-8-openjdk-amd64/bin
+[181429] INFO ConfigurationProperties - p:filterfaultlocalization= true
+[181429] INFO ConfigurationProperties - p:mutationrate= 1 
+[181429] INFO ConfigurationProperties - p:pathToMVNRepository= 
+[181429] INFO ConfigurationProperties - p:resourcesfolder= /src/main/resources:/src/test/resources:
+[181429] INFO ConfigurationProperties - p:timezone= America/Los_Angeles
+[181429] INFO ConfigurationProperties - p:runjava7code= false
+[181429] INFO ConfigurationProperties - p:testfailingcmd= ./gradlew :spring-security-core:test --tests org.springframework.security.authentication.encoding.PlaintextPasswordEncoderTests.testNull
+[181430] INFO ConfigurationProperties - p:evoRunOnBuggyClass= true
+[181430] INFO ConfigurationProperties - p:compiler= fr.inria.astor.core.manipulation.bytecode.compiler.SpoonClassCompiler
+[181430] INFO ConfigurationProperties - p:limitbysuspicious= true
+[181430] INFO ConfigurationProperties - p:logsattemps= true
+[181430] INFO ConfigurationProperties - p:dependenciespath= /workdir/jKali_vul4j_spring-projects_spring-security_VUL4J-73/core/build/classes/test:/workdir/jKali_vul4j_spring-projects_spring-security_VUL4J-73/core/build/resources/test:/workdir/jKali_vul4j_spring-projects_spring-security_VUL4J-73/core/build/classes/main:/workdir/jKali_vul4j_spring-projects_spring-security_VUL4J-73/core/build/resources/main:/root/.gradle/caches/modules-2/files-2.1/org.springframework/spring-core/4.3.23.RELEASE/1481429d44ea0deca1d8b9d6d5e948cb7f063bdb/spring-core-4.3.23.RELEASE.jar:/root/.gradle/caches/modules-2/files-2.1/aopalliance/aopalliance/1.0/235ba8b489512805ac13a8f9ea77a1ca5ebe3e8/aopalliance-1.0.jar:/root/.gradle/caches/modules-2/files-2.1/org.springframework/spring-aop/4.3.23.RELEASE/f49489bf0774db690f85588cab86d943069704bd/spring-aop-4.3.23.RELEASE.jar:/root/.gradle/caches/modules-2/files-2.1/org.springframework/spring-beans/4.3.23.RELEASE/27570e1d493f636c910191004f822e756a9df871/spring-beans-4.3.23.RELEASE.jar:/root/.gradle/caches/modules-2/files-2.1/org.springframework/spring-context/4.3.23.RELEASE/337d1030cb7abeeb28618b01dab7250a90d77151/spring-context-4.3.23.RELEASE.jar:/root/.gradle/caches/modules-2/files-2.1/org.springframework/spring-expression/4.3.23.RELEASE/cebdf400b3c820220deb868a84bce627eb8ad18c/spring-expression-4.3.23.RELEASE.jar:/workdir/jKali_vul4j_spring-projects_spring-security_VUL4J-73/crypto/build/libs/spring-security-crypto-4.2.13.BUILD-SNAPSHOT.jar:/root/.gradle/caches/modules-2/files-2.1/net.sf.ehcache/ehcache/2.10.6/38076997b10f5c762a210ea8b9f6099da35ac5f/ehcache-2.10.6.jar:/root/.gradle/caches/modules-2/files-2.1/javax.annotation/jsr250-api/1.0/5025422767732a1ab45d93abfea846513d742dcf/jsr250-api-1.0.jar:/root/.gradle/caches/modules-2/files-2.1/org.aspectj/aspectjrt/1.8.14/65af551c0487609d48b91ea401de61f72bb91a09/aspectjrt-1.8.14.jar:/root/.gradle/caches/modules-2/files-2.1/org.springframework/spring-jdbc/4.3.23.RELEASE/61baab23c8938b96cb5f355dbf85359241d7b69e/spring-jdbc-4.3.23.RELEASE.jar:/root/.gradle/caches/modules-2/files-2.1/org.springframework/spring-tx/4.3.23.RELEASE/2a2d4a24b161f0fdd14816a715a760d2fa1f357b/spring-tx-4.3.23.RELEASE.jar:/root/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.8.11.3/844df5aba5a1a56e00905b165b12bb34116ee858/jackson-databind-2.8.11.3.jar:/root/.gradle/caches/modules-2/files-2.1/junit/junit/4.12/2973d150c0dc1fefe998f834810d68f278ea58ec/junit-4.12.jar:/root/.gradle/caches/modules-2/files-2.1/org.mockito/mockito-core/1.10.19/e8546f5bef4e061d8dd73895b4e8f40e3fe6effe/mockito-core-1.10.19.jar:/root/.gradle/caches/modules-2/files-2.1/org.springframework/spring-test/4.3.23.RELEASE/fb5a41e62dc86ca11f666691e13ea0b5573f20b4/spring-test-4.3.23.RELEASE.jar:/root/.gradle/caches/modules-2/files-2.1/org.assertj/assertj-core/2.2.0/edd59795b236afc790dd161e7e3677757b06f2e7/assertj-core-2.2.0.jar:/root/.gradle/caches/modules-2/files-2.1/commons-collections/commons-collections/3.2.2/8ad72fe39fa8c91eaaf12aadb21e0c3661fe26d5/commons-collections-3.2.2.jar:/root/.gradle/caches/modules-2/files-2.1/org.slf4j/jcl-over-slf4j/1.7.25/f8c32b13ff142a513eeb5b6330b1588dcb2c0461/jcl-over-slf4j-1.7.25.jar:/root/.gradle/caches/modules-2/files-2.1/org.powermock/powermock-core/1.6.5/5c7f30af24a260b9a452c194be0cca373db9aaf6/powermock-core-1.6.5.jar:/root/.gradle/caches/modules-2/files-2.1/org.powermock/powermock-api-support/1.6.5/9b0cdf26351d3608a1bf11d3a5b8c96e9c32605/powermock-api-support-1.6.5.jar:/root/.gradle/caches/modules-2/files-2.1/org.powermock/powermock-module-junit4-common/1.6.5/ef0b8507142b3c176d1b8a1937a8490eaf8babe9/powermock-module-junit4-common-1.6.5.jar:/root/.gradle/caches/modules-2/files-2.1/org.powermock/powermock-module-junit4/1.6.5/e6ad8d4fddb3cc1e11ebf343ecc82ea10b12d5a4/powermock-module-junit4-1.6.5.jar:/root/.gradle/caches/modules-2/files-2.1/org.powermock/powermock-api-mockito/1.6.5/7f5cf8f0ddb3539b28581431bbeda4d81ff5ef02/powermock-api-mockito-1.6.5.jar:/root/.gradle/caches/modules-2/files-2.1/org.powermock/powermock-reflect/1.6.5/3569903763e7741965acc9627ad8253d210feedf/powermock-reflect-1.6.5.jar:/root/.gradle/caches/modules-2/files-2.1/org.skyscreamer/jsonassert/1.4.0/9cdbb373a06f6513e51e8c545ee6a5e981463edb/jsonassert-1.4.0.jar:/root/.gradle/caches/modules-2/files-2.1/ch.qos.logback/logback-classic/1.1.11/ccedfbacef4a6515d2983e3f89ed753d5d4fb665/logback-classic-1.1.11.jar:/root/.gradle/caches/modules-2/files-2.1/org.hsqldb/hsqldb/2.3.6/d4adfef3f017dd71fe789067cc6b7c39f31f2a3a/hsqldb-2.3.6.jar:/root/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.7.25/da76ca59f6a57ee3102f8f9bd9cee742973efa8a/slf4j-api-1.7.25.jar:/root/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-annotations/2.8.0/45b426f7796b741035581a176744d91090e2e6fb/jackson-annotations-2.8.0.jar:/root/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.8.10/eb21a035c66ad307e66ec8fce37f5d50fd62d039/jackson-core-2.8.10.jar:/root/.gradle/caches/modules-2/files-2.1/org.hamcrest/hamcrest-core/1.3/42a25dc3219429f0e5d060061f71acb49bf010a0/hamcrest-core-1.3.jar:/root/.gradle/caches/modules-2/files-2.1/org.javassist/javassist/3.20.0-GA/a9cbcdfb7e9f86fbc74d3afae65f2248bfbf82a0/javassist-3.20.0-GA.jar:/root/.gradle/caches/modules-2/files-2.1/org.powermock/powermock-api-mockito-common/1.6.5/50929570ea185735f8f038ea650a60f6444e7ec3/powermock-api-mockito-common-1.6.5.jar:/root/.gradle/caches/modules-2/files-2.1/com.vaadin.external.google/android-json/0.0.20131108.vaadin1/fa26d351fe62a6a17f5cda1287c1c6110dec413f/android-json-0.0.20131108.vaadin1.jar:/root/.gradle/caches/modules-2/files-2.1/ch.qos.logback/logback-core/1.1.11/88b8df40340eed549fb07e2613879bf6b006704d/logback-core-1.1.11.jar:/root/.gradle/caches/modules-2/files-2.1/org.objenesis/objenesis/2.2/3fb533efdaa50a768c394aa4624144cf8df17845/objenesis-2.2.jar
+[181430] INFO ConfigurationProperties - p:packageToInstrument= 
+[181430] INFO ConfigurationProperties - p:skipfaultlocalization= false
+[181430] INFO ConfigurationProperties - p:scope= local
+[181430] INFO ConfigurationProperties - p:transformingredient= false
+[181430] INFO ConfigurationProperties - p:fitnessfunction= fr.inria.astor.core.solutionsearch.population.TestCaseFitnessFunction
+[181430] INFO ConfigurationProperties - p:maxnumvariablesperingredient= 10
+[181430] INFO ConfigurationProperties - p:parsesourcefromoriginal= true
+[181430] INFO ConfigurationProperties - p:pvariantfoldername= variant-
+[181430] INFO ConfigurationProperties - p:savespoonmodelondisk= false
+[181430] INFO ConfigurationProperties - p:srcjavafolder= core/src/main/java
+[181430] INFO ConfigurationProperties - p:populationcontroller= fr.inria.astor.core.solutionsearch.population.TestCaseBasedFitnessPopulationController
+[181430] INFO ConfigurationProperties - p:ignoreflakyinfl= false
+[181431] INFO ConfigurationProperties - p:cleantemplates= true
+[181431] INFO ConfigurationProperties - p:applyCrossover= false
+[181431] INFO ConfigurationProperties - p:maxmodificationpoints= 1000
+[181431] INFO ConfigurationProperties - p:duplicateingredientsinspace= false
+[181431] INFO ConfigurationProperties - p:metid= 0
+[181431] INFO ConfigurationProperties - p:continuewhenmodelfail= true
+[181431] INFO ConfigurationProperties - p:saveall= false
+[181431] INFO ConfigurationProperties - p:seed= 0
+[181431] INFO ConfigurationProperties - p:savecompletepatched= true
+[181431] INFO ConfigurationProperties - p:resetoperations= false
+[181431] INFO ConfigurationProperties - p:keepcomments= false
+[181431] INFO ConfigurationProperties - p:processoutputinfile= false
+[181431] INFO ConfigurationProperties - p:location= .
+[181431] INFO ConfigurationProperties - p:probabilistictransformation= true
+[181431] INFO ConfigurationProperties - p:overridemaxtime= true
+[181431] INFO ConfigurationProperties - p:outputjsonresult= true
+[181431] INFO ConfigurationProperties - p:allpoints= false
+[181431] INFO ConfigurationProperties - p:antipattern= false
+[181432] INFO ConfigurationProperties - p:bugId= 280
+[181432] INFO ConfigurationProperties - p:evosuitetimeout= 120
+[181432] INFO ConfigurationProperties - p:maxtimefactor= 10
+[181432] INFO ConfigurationProperties - p:nrPlaceholders= 1
+[181432] INFO ConfigurationProperties - p:testallcmd= ./gradlew :spring-security-core:test
+[181432] INFO ConfigurationProperties - p:forcesubprocesskilling= false
+[181432] INFO ConfigurationProperties - ----------------------------
+[181434] INFO AstorCoreEngine - Time Repair Loop (s): 0.002
+[181434] INFO AstorCoreEngine - generationsexecuted: 1
+[181434] WARN AstorCoreEngine - ----SUMMARY_EXECUTION---
+[181435] WARN AstorCoreEngine - End Repair Search: NOT Found solution
+[181435] WARN AstorCoreEngine - Number suspicious:1
+[181462] INFO AstorCoreEngine - 
+ --SOLUTIONS DESCRIPTION--
+
+
+Astor Output:
+
+General stats:
+EXECUTION_IDENTIFIER=spring-projects_spring-security-VUL4J-73
+TOTAL_TIME=0.002
+NR_GENERATIONS=null
+NR_RIGHT_COMPILATIONS=null
+NR_FAILLING_COMPILATIONS=null
+NR_ERRONEOUS_VARIANCES=null
+NR_FAILING_VALIDATION_PROCESS=null
+OUTPUT_STATUS=EXHAUSTIVE_NAVIGATED
+
+Patch stats:
+
+[181524] INFO Stats - Storing ing JSON at /workdir/jKali_vul4j_spring-projects_spring-security_VUL4J-73/./output_astor/AstorMain-spring-projects_spring-security-VUL4J-73//astor_output.json
+[181524] INFO Stats - astor_output:
+{"general":{"NR_RIGHT_COMPILATIONS":null,"NR_ERRONEOUS_VARIANCES":null,"EXECUTION_IDENTIFIER":"spring-projects_spring-security-VUL4J-73","OUTPUT_STATUS":"EXHAUSTIVE_NAVIGATED","NR_FAILLING_COMPILATIONS":null,"NR_GENERATIONS":null,"TOTAL_TIME":0.002,"NR_FAILING_VALIDATION_PROCESS":null},"patches":[]}
+[181525] INFO AstorMain - Time Total(s): 181.499
+128.98user 27.72system 3:04.19elapsed 85%CPU (0avgtext+0avgdata 880752maxresident)k
+184inputs+11704outputs (0major+662200minor)pagefaults 0swaps
+
+
+Node: 9670332cfea8
+
+
+
+Date: Thu Sep  8 22:56:26 EDT 2022
+

@@ -1,0 +1,77 @@
+diff --git a/core/src/main/java/org/springframework/security/core/token/SecureRandomFactoryBean.java b/core/src/main/java/org/springframework/security/core/token/SecureRandomFactoryBean.java
+index 3e06edef826..2d640de72a9 100644
+--- a/core/src/main/java/org/springframework/security/core/token/SecureRandomFactoryBean.java
++++ b/core/src/main/java/org/springframework/security/core/token/SecureRandomFactoryBean.java
+@@ -1,5 +1,5 @@
+ /*
+- * Copyright 2002-2016 the original author or authors.
++ * Copyright 2002-2019 the original author or authors.
+  *
+  * Licensed under the Apache License, Version 2.0 (the "License");
+  * you may not use this file except in compliance with the License.
+@@ -37,16 +37,15 @@ public class SecureRandomFactoryBean implements FactoryBean<SecureRandom> {
+ 	public SecureRandom getObject() throws Exception {
+ 		SecureRandom rnd = SecureRandom.getInstance(algorithm);
+ 
++		// Request the next bytes, thus eagerly incurring the expense of default
++		// seeding and to prevent the see from replacing the entire state
++		rnd.nextBytes(new byte[1]);
++
+ 		if (seed != null) {
+ 			// Seed specified, so use it
+ 			byte[] seedBytes = FileCopyUtils.copyToByteArray(seed.getInputStream());
+ 			rnd.setSeed(seedBytes);
+ 		}
+-		else {
+-			// Request the next bytes, thus eagerly incurring the expense of default
+-			// seeding
+-			rnd.nextBytes(new byte[1]);
+-		}
+ 
+ 		return rnd;
+ 	}
+diff --git a/core/src/test/java/org/springframework/security/core/token/SecureRandomFactoryBeanTests.java b/core/src/test/java/org/springframework/security/core/token/SecureRandomFactoryBeanTests.java
+index b83d5d49d19..da7144dd11f 100644
+--- a/core/src/test/java/org/springframework/security/core/token/SecureRandomFactoryBeanTests.java
++++ b/core/src/test/java/org/springframework/security/core/token/SecureRandomFactoryBeanTests.java
+@@ -1,5 +1,5 @@
+ /*
+- * Copyright 2002-2016 the original author or authors.
++ * Copyright 2002-2019 the original author or authors.
+  *
+  * Licensed under the Apache License, Version 2.0 (the "License");
+  * you may not use this file except in compliance with the License.
+@@ -15,14 +15,14 @@
+  */
+ package org.springframework.security.core.token;
+ 
+-import static org.assertj.core.api.Assertions.*;
+-
+ import java.security.SecureRandom;
+ 
+ import org.junit.Test;
++
+ import org.springframework.core.io.ClassPathResource;
+ import org.springframework.core.io.Resource;
+-import org.springframework.security.core.token.SecureRandomFactoryBean;
++
++import static org.assertj.core.api.Assertions.assertThat;
+ 
+ /**
+  * Tests {@link SecureRandomFactoryBean}.
+@@ -59,10 +59,11 @@ public void testCreatesUsingSeed() throws Exception {
+ 				"org/springframework/security/core/token/SecureRandomFactoryBeanTests.class");
+ 		assertThat(resource).isNotNull();
+ 		factory.setSeed(resource);
+-		Object result = factory.getObject();
+-		assertThat(result).isInstanceOf(SecureRandom.class);
+-		int rnd = ((SecureRandom) result).nextInt();
+-		assertThat(rnd).isNotEqualTo(0);
++		SecureRandom first = factory.getObject();
++		SecureRandom second = factory.getObject();
++		assertThat(first.nextInt())
++				.isNotEqualTo(0)
++				.isNotEqualTo(second.nextInt());
+ 	}
+ 
+ }

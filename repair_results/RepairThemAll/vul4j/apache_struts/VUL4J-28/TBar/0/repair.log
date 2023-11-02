@@ -1,0 +1,492 @@
+cd /workdir/TBar_vul4j_apache_struts_VUL4J-28;
+export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en";
+TZ="America/New_York"; export TZ;
+export PATH="/usr/lib/jvm/jdk1.7.0_80/bin:$PATH";
+export JAVA_HOME="/usr/lib/jvm/jdk1.7.0_80";
+timeout 240m java -Xmx4g -Xms1g -XX:MaxPermSize=512m \
+    -cp /script/../libs/tbar_external/com.gzoltar-0.1.1-jdk7.jar:/script/../repair_tools/tbar.jar edu.lu.uni.serval.tbar.main.Main \
+    "/workdir/TBar_vul4j_apache_struts_VUL4J-28" "org.apache.struts2.interceptor.CookieInterceptorTest#testCookiesWithClassPollution" "/core/src/main/java/" "/core/src/test/java/" "/core/target/classes/" "/core/target/test-classes/" "/script/../data/benchmarks/vul4j/perfectfl/VUL4J-28/spectra.txt" "mvn test -pl core -Dtest=org.apache.struts2.interceptor.CookieInterceptorTest -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B" "mvn test -pl core -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B" "/root/.m2/repository/javax/servlet/servlet-api/2.4/servlet-api-2.4.jar:/root/.m2/repository/mockobjects/mockobjects-jdk1.3-j2ee1.3/0.09/mockobjects-jdk1.3-j2ee1.3-0.09.jar:/root/.m2/repository/jmock/jmock/1.2.0/jmock-1.2.0.jar:/root/.m2/repository/javassist/javassist/3.11.0.GA/javassist-3.11.0.GA.jar:/root/.m2/repository/org/easymock/easymock/2.4/easymock-2.4.jar:/root/.m2/repository/asm/asm-commons/3.3/asm-commons-3.3.jar:/root/.m2/repository/org/testng/testng/5.1/testng-5.1-jdk15.jar:/root/.m2/repository/asm/asm/3.3/asm-3.3.jar:/root/.m2/repository/mockobjects/mockobjects-jdk1.3/0.09/mockobjects-jdk1.3-0.09.jar:/root/.m2/repository/asm/asm-tree/3.3/asm-tree-3.3.jar:/root/.m2/repository/org/apache/struts/struts-annotations/1.0.5/struts-annotations-1.0.5.jar:/root/.m2/repository/commons-collections/commons-collections/3.1/commons-collections-3.1.jar:/root/.m2/repository/mockobjects/mockobjects-core/0.09/mockobjects-core-0.09.jar:/root/.m2/repository/org/apache/commons/commons-lang3/3.1/commons-lang3-3.1.jar:/root/.m2/repository/sslext/sslext/1.2-0/sslext-1.2-0.jar:/root/.m2/repository/org/freemarker/freemarker/2.3.19/freemarker-2.3.19.jar:/root/.m2/repository/mockobjects/mockobjects-alt-jdk1.3-j2ee1.3/0.09/mockobjects-alt-jdk1.3-j2ee1.3-0.09.jar:/root/.m2/repository/org/apache/velocity/velocity/1.6.4/velocity-1.6.4.jar:/root/.m2/repository/junit/junit/4.8.2/junit-4.8.2.jar:/root/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar:/root/.m2/repository/org/springframework/spring-test/3.0.5.RELEASE/spring-test-3.0.5.RELEASE.jar:/root/.m2/repository/org/apache/velocity/velocity-tools/1.3/velocity-tools-1.3.jar:/root/.m2/repository/org/springframework/spring-core/3.0.5.RELEASE/spring-core-3.0.5.RELEASE.jar:/root/.m2/repository/mockobjects/mockobjects-alt-jdk1.3/0.09/mockobjects-alt-jdk1.3-0.09.jar:/root/.m2/repository/commons-validator/commons-validator/1.3.1/commons-validator-1.3.1.jar:/root/.m2/repository/commons-io/commons-io/2.2/commons-io-2.2.jar:/root/.m2/repository/commons-lang/commons-lang/2.4/commons-lang-2.4.jar:/root/.m2/repository/ognl/ognl/3.0.6/ognl-3.0.6.jar:/root/.m2/repository/commons-digester/commons-digester/2.0/commons-digester-2.0.jar:/root/.m2/repository/commons-fileupload/commons-fileupload/1.3.1/commons-fileupload-1.3.1.jar:/root/.m2/repository/javax/servlet/jsp-api/2.0/jsp-api-2.0.jar:/root/.m2/repository/org/apache/struts/xwork/xwork-core/2.3.16.2-SNAPSHOT/xwork-core-2.3.16.2-SNAPSHOT.jar:/root/.m2/repository/commons-beanutils/commons-beanutils/1.7.0/commons-beanutils-1.7.0.jar:/root/.m2/repository/org/springframework/spring-asm/3.0.5.RELEASE/spring-asm-3.0.5.RELEASE.jar:/root/.m2/repository/oro/oro/2.0.8/oro-2.0.8.jar:/root/.m2/repository/commons-logging/commons-logging/1.1.3/commons-logging-1.1.3.jar";
+echo "\n\nNode: `hostname`\n";
+echo "\n\nDate: `date`\n";
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en
+08:12:41,898 |-INFO in ch.qos.logback.classic.LoggerContext[TBar] - Could NOT find resource [logback-test.xml]
+08:12:41,898 |-INFO in ch.qos.logback.classic.LoggerContext[TBar] - Could NOT find resource [logback.groovy]
+08:12:41,898 |-INFO in ch.qos.logback.classic.LoggerContext[TBar] - Found resource [logback.xml] at [jar:file:/repair_tools/tbar.jar!/logback.xml]
+08:12:41,915 |-INFO in ch.qos.logback.core.joran.spi.ConfigurationWatchList@4e3dabe4 - URL [jar:file:/repair_tools/tbar.jar!/logback.xml] is not of type file
+08:12:41,954 |-INFO in ch.qos.logback.classic.joran.action.ConfigurationAction - debug attribute not set
+08:12:41,956 |-INFO in ch.qos.logback.classic.joran.action.ContextNameAction - Setting logger context name as [TBar]
+08:12:41,956 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - About to instantiate appender of type [ch.qos.logback.core.ConsoleAppender]
+08:12:41,959 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - Naming appender as [STDOUT]
+08:12:42,002 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting level of logger [org.hibernate.engine.query.HQLQueryPlan] to DEBUG
+08:12:42,002 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting additivity of logger [org.hibernate.engine.query.HQLQueryPlan] to false
+08:12:42,002 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting level of logger [com.piedra.logback] to DEBUG
+08:12:42,002 |-ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - Could not find an appender named [FILE]. Did you define it below instead of above in the configuration file?
+08:12:42,002 |-ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - See http://logback.qos.ch/codes.html#appender_order for more details.
+08:12:42,002 |-INFO in ch.qos.logback.classic.joran.action.RootLoggerAction - Setting level of ROOT logger to DEBUG
+08:12:42,002 |-INFO in ch.qos.logback.core.joran.action.AppenderRefAction - Attaching appender named [STDOUT] to Logger[ROOT]
+08:12:42,003 |-ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - Could not find an appender named [ROLLINGFILE]. Did you define it below instead of above in the configuration file?
+08:12:42,003 |-ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - See http://logback.qos.ch/codes.html#appender_order for more details.
+08:12:42,003 |-INFO in ch.qos.logback.classic.joran.action.ConfigurationAction - End of configuration.
+08:12:42,004 |-INFO in ch.qos.logback.classic.joran.JoranConfigurator@32e02ddd - Registering current configuration as safe fallback point
+
+2022-10-17 08:12:42.499 [main] INFO  edu.lu.uni.serval.tbar.AbstractFixer - TBar_vul4j_apache_struts_VUL4J-28 Failed Tests: 1
+2022-10-17 08:12:42.502 [main] INFO  edu.lu.uni.serval.tbar.TBarFixer - =======StaticBugFixer: Start to fix suspicious code======
+2022-10-17 08:12:42.502 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.apache.struts2.interceptor.CookieInterceptor ===226
+2022-10-17 08:12:42.960 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+if (isAcceptableName(name)) {
+                    if (cookiesNameSet.contains("*")) {
+                        if (LOG.isDebugEnabled()) {
+                            LOG.debug("contains cookie name [*] in configured cookies name set, cookie with name [" + name + "] with value [" + value + "] will be injected");
+                        }
+                        populateCookieValueIntoStack(name, value, cookiesMap, stack);
+                    } else if (cookiesNameSet.contains(cookie.getName())) {
+                        populateCookieValueIntoStack(name, value, cookiesMap, stack);
+                    }
+                } else {
+                    LOG.warn("Cookie name [" + name + "] does not match accepted cookie names pattern [" + acceptedPattern + "]");
+                }
+2022-10-17 08:12:45.073 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -223,7 +223,7 @@ public class CookieInterceptor extends AbstractInterceptor {
+-                if (isAcceptableName(name)) {
++                if (name != value && (isAcceptableName(name))) {
+2022-10-17 08:12:45.073 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:12:45.996 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-10-17 08:12:59.042 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -223,7 +223,7 @@ public class CookieInterceptor extends AbstractInterceptor {
+-                if (isAcceptableName(name)) {
++                if (name != value || (isAcceptableName(name))) {
+2022-10-17 08:12:59.042 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:12:59.914 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-10-17 08:13:13.514 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -223,7 +223,7 @@ public class CookieInterceptor extends AbstractInterceptor {
+-                if (isAcceptableName(name)) {
++                if (name == value && (isAcceptableName(name))) {
+2022-10-17 08:13:13.514 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:13:14.477 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-10-17 08:13:27.831 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -223,7 +223,7 @@ public class CookieInterceptor extends AbstractInterceptor {
+-                if (isAcceptableName(name)) {
++                if (name == value || (isAcceptableName(name))) {
+2022-10-17 08:13:27.831 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:13:28.729 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-10-17 08:13:42.131 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -223,7 +223,7 @@ public class CookieInterceptor extends AbstractInterceptor {
+-                if (isAcceptableName(name)) {
++                if (name != ACCEPTED_PATTERN && (isAcceptableName(name))) {
+2022-10-17 08:13:42.131 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:13:43.031 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-10-17 08:13:56.168 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -223,7 +223,7 @@ public class CookieInterceptor extends AbstractInterceptor {
+-                if (isAcceptableName(name)) {
++                if (name != ACCEPTED_PATTERN || (isAcceptableName(name))) {
+2022-10-17 08:13:56.168 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:13:57.130 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-10-17 08:14:10.505 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -223,7 +223,7 @@ public class CookieInterceptor extends AbstractInterceptor {
+-                if (isAcceptableName(name)) {
++                if (name == ACCEPTED_PATTERN && (isAcceptableName(name))) {
+2022-10-17 08:14:10.505 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:14:11.441 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-10-17 08:14:24.685 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -223,7 +223,7 @@ public class CookieInterceptor extends AbstractInterceptor {
+-                if (isAcceptableName(name)) {
++                if (name == ACCEPTED_PATTERN || (isAcceptableName(name))) {
+2022-10-17 08:14:24.685 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:14:25.563 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-10-17 08:14:38.870 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -223,7 +223,7 @@ public class CookieInterceptor extends AbstractInterceptor {
+-                if (isAcceptableName(name)) {
++                if (intercept(name)) {
+2022-10-17 08:14:38.870 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:14:39.865 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-10-17 08:14:39.883 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -223,7 +223,7 @@ public class CookieInterceptor extends AbstractInterceptor {
+-                if (isAcceptableName(name)) {
++                if (setCookiesName(name)) {
+2022-10-17 08:14:39.883 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:14:40.774 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-10-17 08:14:40.793 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -223,7 +223,7 @@ public class CookieInterceptor extends AbstractInterceptor {
+-                if (isAcceptableName(name)) {
++                if (setCookiesValue(name)) {
+2022-10-17 08:14:40.793 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:14:41.623 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-10-17 08:14:41.642 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -223,7 +223,7 @@ public class CookieInterceptor extends AbstractInterceptor {
+-                if (isAcceptableName(name)) {
++                if (setAcceptCookieNames(name)) {
+2022-10-17 08:14:41.642 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:14:42.511 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-10-17 08:14:42.529 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -223,7 +223,7 @@ public class CookieInterceptor extends AbstractInterceptor {
+-                if (isAcceptableName(name)) {
++                if (isAcceptableName()) {
+2022-10-17 08:14:42.529 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:14:43.403 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-10-17 08:14:43.590 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -223,7 +223,7 @@ public class CookieInterceptor extends AbstractInterceptor {
+-                if (isAcceptableName(name)) {
++                if (isAcceptableName(value)) {
+2022-10-17 08:14:43.590 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:14:44.444 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-10-17 08:14:58.065 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -223,7 +223,8 @@ public class CookieInterceptor extends AbstractInterceptor {
+-                if (isAcceptableName(name)) {
++                if (name != null) {
++	if (isAcceptableName(name)) {
+@@ -235,6 +236,8 @@ public class CookieInterceptor extends AbstractInterceptor {
++	}
++
+2022-10-17 08:14:58.065 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:14:58.969 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-10-17 08:15:12.212 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -223,7 +223,10 @@ public class CookieInterceptor extends AbstractInterceptor {
+-                if (isAcceptableName(name)) {
++                if (name == null) {
++	    throw new IllegalArgumentException("Null 'name' argument.");
++	}
++if (isAcceptableName(name)) {
+2022-10-17 08:15:12.212 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:15:13.093 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-10-17 08:15:26.436 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -223,7 +223,10 @@ public class CookieInterceptor extends AbstractInterceptor {
+-                if (isAcceptableName(name)) {
++                if (name == null) {
++	    return null;
++	}
++if (isAcceptableName(name)) {
+2022-10-17 08:15:26.436 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:15:27.306 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-10-17 08:15:40.669 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -223,7 +223,8 @@ public class CookieInterceptor extends AbstractInterceptor {
+-                if (isAcceptableName(name)) {
++                if (name == null) name = value;
++ if (isAcceptableName(name)) {
+2022-10-17 08:15:40.669 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:15:41.424 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-10-17 08:15:54.559 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -223,7 +223,8 @@ public class CookieInterceptor extends AbstractInterceptor {
+-                if (isAcceptableName(name)) {
++                if (name == null) name = ACCEPTED_PATTERN;
++ if (isAcceptableName(name)) {
+2022-10-17 08:15:54.559 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:15:55.485 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-10-17 08:16:08.874 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -223,7 +223,8 @@ public class CookieInterceptor extends AbstractInterceptor {
+-                if (isAcceptableName(name)) {
++                if (name == null) name = new String();
++ if (isAcceptableName(name)) {
+2022-10-17 08:16:08.874 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:16:09.873 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-10-17 08:16:23.079 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -223,7 +223,8 @@ public class CookieInterceptor extends AbstractInterceptor {
+-                if (isAcceptableName(name)) {
++                if (name == null) return new String();
++	 if (isAcceptableName(name)) {
+2022-10-17 08:16:23.079 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:16:24.014 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-10-17 08:16:37.196 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -223,7 +223,8 @@ public class CookieInterceptor extends AbstractInterceptor {
+-                if (isAcceptableName(name)) {
++                if (name == null) return value;
++	 if (isAcceptableName(name)) {
+2022-10-17 08:16:37.196 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:16:38.143 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-10-17 08:16:51.526 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -223,7 +223,8 @@ public class CookieInterceptor extends AbstractInterceptor {
+-                if (isAcceptableName(name)) {
++                if (name == null) return ACCEPTED_PATTERN;
++	 if (isAcceptableName(name)) {
+2022-10-17 08:16:51.526 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:16:52.408 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-10-17 08:17:05.419 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -223,7 +223,8 @@ public class CookieInterceptor extends AbstractInterceptor {
+-                if (isAcceptableName(name)) {
++                if (name == null) continue;
++	if (isAcceptableName(name)) {
+2022-10-17 08:17:05.419 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:17:06.302 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-10-17 08:17:19.726 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -220,9 +220,6 @@ public class CookieInterceptor extends AbstractInterceptor {
+-                String name = cookie.getName();
+-                String value = cookie.getValue();
+-
+@@ -235,6 +232,10 @@ public class CookieInterceptor extends AbstractInterceptor {
++	String name = cookie.getName();
++                String value = cookie.getValue();
++
++
+2022-10-17 08:17:19.726 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:17:20.642 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-10-17 08:17:20.667 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -221,8 +221,6 @@ public class CookieInterceptor extends AbstractInterceptor {
+-                String value = cookie.getValue();
+-
+@@ -235,6 +233,9 @@ public class CookieInterceptor extends AbstractInterceptor {
++	String value = cookie.getValue();
++
++
+2022-10-17 08:17:20.667 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:17:21.542 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-10-17 08:17:21.598 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -223,18 +223,7 @@ public class CookieInterceptor extends AbstractInterceptor {
+-                if (isAcceptableName(name)) {
+-                    if (cookiesNameSet.contains("*")) {
+-                        if (LOG.isDebugEnabled()) {
+-                            LOG.debug("contains cookie name [*] in configured cookies name set, cookie with name [" + name + "] with value [" + value + "] will be injected");
+-                        }
+-                        populateCookieValueIntoStack(name, value, cookiesMap, stack);
+-                    } else if (cookiesNameSet.contains(cookie.getName())) {
+-                        populateCookieValueIntoStack(name, value, cookiesMap, stack);
+-                    }
+-                } else {
+-                    LOG.warn("Cookie name [" + name + "] does not match accepted cookie names pattern [" + acceptedPattern + "]");
+-                }
++                LOG.warn("Cookie name [" + name + "] does not match accepted cookie names pattern [" + acceptedPattern + "]");
+2022-10-17 08:17:21.598 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:17:22.425 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-10-17 08:17:35.443 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -223,8 +223,7 @@ public class CookieInterceptor extends AbstractInterceptor {
+-                if (isAcceptableName(name)) {
+-                    if (cookiesNameSet.contains("*")) {
++                if (cookiesNameSet.contains("*")) {
+@@ -232,9 +231,6 @@ public class CookieInterceptor extends AbstractInterceptor {
+-                } else {
+-                    LOG.warn("Cookie name [" + name + "] does not match accepted cookie names pattern [" + acceptedPattern + "]");
+-                }
+2022-10-17 08:17:35.443 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:17:36.315 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-10-17 08:17:49.252 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -223,18 +223,7 @@ public class CookieInterceptor extends AbstractInterceptor {
+-                if (isAcceptableName(name)) {
+-                    if (cookiesNameSet.contains("*")) {
+-                        if (LOG.isDebugEnabled()) {
+-                            LOG.debug("contains cookie name [*] in configured cookies name set, cookie with name [" + name + "] with value [" + value + "] will be injected");
+-                        }
+-                        populateCookieValueIntoStack(name, value, cookiesMap, stack);
+-                    } else if (cookiesNameSet.contains(cookie.getName())) {
+-                        populateCookieValueIntoStack(name, value, cookiesMap, stack);
+-                    }
+-                } else {
+-                    LOG.warn("Cookie name [" + name + "] does not match accepted cookie names pattern [" + acceptedPattern + "]");
+-                }
++
+2022-10-17 08:17:49.252 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:17:50.097 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-10-17 08:18:03.251 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -207,42 +207,7 @@ public class CookieInterceptor extends AbstractInterceptor {
+-    public String intercept(ActionInvocation invocation) throws Exception {
+-        if (LOG.isDebugEnabled()) {
+-            LOG.debug("start interception");
+-        }
+-
+-        // contains selected cookies
+-        final Map<String, String> cookiesMap = new LinkedHashMap<String, String>();
+-
+-        Cookie[] cookies = ServletActionContext.getRequest().getCookies();
+-        if (cookies != null) {
+-            final ValueStack stack = ActionContext.getContext().getValueStack();
+-
+-            for (Cookie cookie : cookies) {
+-                String name = cookie.getName();
+-                String value = cookie.getValue();
+-
+-                if (isAcceptableName(name)) {
+-                    if (cookiesNameSet.contains("*")) {
+-                        if (LOG.isDebugEnabled()) {
+-                            LOG.debug("contains cookie name [*] in configured cookies name set, cookie with name [" + name + "] with value [" + value + "] will be injected");
+-                        }
+-                        populateCookieValueIntoStack(name, value, cookiesMap, stack);
+-                    } else if (cookiesNameSet.contains(cookie.getName())) {
+-                        populateCookieValueIntoStack(name, value, cookiesMap, stack);
+-                    }
+-                } else {
+-                    LOG.warn("Cookie name [" + name + "] does not match accepted cookie names pattern [" + acceptedPattern + "]");
+-                }
+-            }
+-        }
+-
+-        // inject the cookiesMap, even if we don't have any cookies
+-        injectIntoCookiesAwareAction(invocation.getAction(), cookiesMap);
+-
+-        return invocation.invoke();
+-    }
++
+2022-10-17 08:18:03.251 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:18:04.126 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-10-17 08:18:04.192 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -223,18 +223,7 @@ public class CookieInterceptor extends AbstractInterceptor {
+-                if (isAcceptableName(name)) {
+-                    if (cookiesNameSet.contains("*")) {
+-                        if (LOG.isDebugEnabled()) {
+-                            LOG.debug("contains cookie name [*] in configured cookies name set, cookie with name [" + name + "] with value [" + value + "] will be injected");
+-                        }
+-                        populateCookieValueIntoStack(name, value, cookiesMap, stack);
+-                    } else if (cookiesNameSet.contains(cookie.getName())) {
+-                        populateCookieValueIntoStack(name, value, cookiesMap, stack);
+-                    }
+-                } else {
+-                    LOG.warn("Cookie name [" + name + "] does not match accepted cookie names pattern [" + acceptedPattern + "]");
+-                }
++                setCookiesName(name);
+2022-10-17 08:18:04.192 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:18:05.146 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-10-17 08:18:18.349 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -223,7 +223,8 @@ public class CookieInterceptor extends AbstractInterceptor {
+-                if (isAcceptableName(name)) {
++                setCookiesName(name);
++	if (isAcceptableName(name)) {
+2022-10-17 08:18:18.349 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:18:19.196 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-10-17 08:18:32.210 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -235,6 +235,7 @@ public class CookieInterceptor extends AbstractInterceptor {
++	setCookiesName(name);
+2022-10-17 08:18:32.211 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:18:33.099 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-10-17 08:18:46.245 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -223,18 +223,7 @@ public class CookieInterceptor extends AbstractInterceptor {
+-                if (isAcceptableName(name)) {
+-                    if (cookiesNameSet.contains("*")) {
+-                        if (LOG.isDebugEnabled()) {
+-                            LOG.debug("contains cookie name [*] in configured cookies name set, cookie with name [" + name + "] with value [" + value + "] will be injected");
+-                        }
+-                        populateCookieValueIntoStack(name, value, cookiesMap, stack);
+-                    } else if (cookiesNameSet.contains(cookie.getName())) {
+-                        populateCookieValueIntoStack(name, value, cookiesMap, stack);
+-                    }
+-                } else {
+-                    LOG.warn("Cookie name [" + name + "] does not match accepted cookie names pattern [" + acceptedPattern + "]");
+-                }
++                setCookiesValue(name);
+2022-10-17 08:18:46.245 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:18:47.108 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-10-17 08:19:00.420 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -223,7 +223,8 @@ public class CookieInterceptor extends AbstractInterceptor {
+-                if (isAcceptableName(name)) {
++                setCookiesValue(name);
++	if (isAcceptableName(name)) {
+2022-10-17 08:19:00.420 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:19:01.304 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-10-17 08:19:14.853 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -235,6 +235,7 @@ public class CookieInterceptor extends AbstractInterceptor {
++	setCookiesValue(name);
+2022-10-17 08:19:14.853 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:19:15.830 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-10-17 08:19:29.240 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -223,18 +223,7 @@ public class CookieInterceptor extends AbstractInterceptor {
+-                if (isAcceptableName(name)) {
+-                    if (cookiesNameSet.contains("*")) {
+-                        if (LOG.isDebugEnabled()) {
+-                            LOG.debug("contains cookie name [*] in configured cookies name set, cookie with name [" + name + "] with value [" + value + "] will be injected");
+-                        }
+-                        populateCookieValueIntoStack(name, value, cookiesMap, stack);
+-                    } else if (cookiesNameSet.contains(cookie.getName())) {
+-                        populateCookieValueIntoStack(name, value, cookiesMap, stack);
+-                    }
+-                } else {
+-                    LOG.warn("Cookie name [" + name + "] does not match accepted cookie names pattern [" + acceptedPattern + "]");
+-                }
++                setAcceptCookieNames(name);
+2022-10-17 08:19:29.240 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:19:30.193 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-10-17 08:19:43.286 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -223,7 +223,8 @@ public class CookieInterceptor extends AbstractInterceptor {
+-                if (isAcceptableName(name)) {
++                setAcceptCookieNames(name);
++	if (isAcceptableName(name)) {
+2022-10-17 08:19:43.287 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:19:44.185 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-10-17 08:19:57.222 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -235,6 +235,7 @@ public class CookieInterceptor extends AbstractInterceptor {
++	setAcceptCookieNames(name);
+2022-10-17 08:19:57.222 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:19:58.161 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-10-17 08:20:11.387 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.apache.struts2.interceptor.CookieInterceptor ===176
+2022-10-17 08:20:11.431 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+private Pattern acceptedPattern = Pattern.compile(ACCEPTED_PATTERN);
+2022-10-17 08:20:11.560 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -173,7 +173,10 @@ public class CookieInterceptor extends AbstractInterceptor {
+-    private Pattern acceptedPattern = Pattern.compile(ACCEPTED_PATTERN);
++    if (ACCEPTED_PATTERN != null) {
++	private Pattern acceptedPattern = Pattern.compile(ACCEPTED_PATTERN);
++	}
++
+2022-10-17 08:20:11.560 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:20:11.867 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-10-17 08:20:11.886 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -173,7 +173,8 @@ public class CookieInterceptor extends AbstractInterceptor {
+-    private Pattern acceptedPattern = Pattern.compile(ACCEPTED_PATTERN);
++    if (ACCEPTED_PATTERN == null) ACCEPTED_PATTERN = new String();
++ private Pattern acceptedPattern = Pattern.compile(ACCEPTED_PATTERN);
+2022-10-17 08:20:11.886 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:20:12.176 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-10-17 08:20:12.345 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -173,7 +173,7 @@ public class CookieInterceptor extends AbstractInterceptor {
+-    private Pattern acceptedPattern = Pattern.compile(ACCEPTED_PATTERN);
++
+2022-10-17 08:20:12.345 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:20:13.268 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-10-17 08:20:13.311 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -173,7 +173,7 @@ public class CookieInterceptor extends AbstractInterceptor {
+-    private Pattern acceptedPattern = Pattern.compile(ACCEPTED_PATTERN);
++    setCookiesName(ACCEPTED_PATTERN);
+2022-10-17 08:20:13.311 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:20:13.605 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-10-17 08:20:13.624 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -173,7 +173,8 @@ public class CookieInterceptor extends AbstractInterceptor {
+-    private Pattern acceptedPattern = Pattern.compile(ACCEPTED_PATTERN);
++    setCookiesName(ACCEPTED_PATTERN);
++	private Pattern acceptedPattern = Pattern.compile(ACCEPTED_PATTERN);
+2022-10-17 08:20:13.624 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:20:13.930 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-10-17 08:20:13.949 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -174,6 +174,7 @@ public class CookieInterceptor extends AbstractInterceptor {
++	setCookiesName(ACCEPTED_PATTERN);
+2022-10-17 08:20:13.949 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:20:14.247 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-10-17 08:20:14.269 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -173,7 +173,7 @@ public class CookieInterceptor extends AbstractInterceptor {
+-    private Pattern acceptedPattern = Pattern.compile(ACCEPTED_PATTERN);
++    setCookiesValue(ACCEPTED_PATTERN);
+2022-10-17 08:20:14.269 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:20:14.562 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-10-17 08:20:14.581 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -173,7 +173,8 @@ public class CookieInterceptor extends AbstractInterceptor {
+-    private Pattern acceptedPattern = Pattern.compile(ACCEPTED_PATTERN);
++    setCookiesValue(ACCEPTED_PATTERN);
++	private Pattern acceptedPattern = Pattern.compile(ACCEPTED_PATTERN);
+2022-10-17 08:20:14.581 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:20:14.871 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-10-17 08:20:14.888 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -174,6 +174,7 @@ public class CookieInterceptor extends AbstractInterceptor {
++	setCookiesValue(ACCEPTED_PATTERN);
+2022-10-17 08:20:14.889 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:20:15.177 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-10-17 08:20:15.195 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -173,7 +173,7 @@ public class CookieInterceptor extends AbstractInterceptor {
+-    private Pattern acceptedPattern = Pattern.compile(ACCEPTED_PATTERN);
++    setAcceptCookieNames(ACCEPTED_PATTERN);
+2022-10-17 08:20:15.195 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:20:15.499 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-10-17 08:20:15.518 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -173,7 +173,8 @@ public class CookieInterceptor extends AbstractInterceptor {
+-    private Pattern acceptedPattern = Pattern.compile(ACCEPTED_PATTERN);
++    setAcceptCookieNames(ACCEPTED_PATTERN);
++	private Pattern acceptedPattern = Pattern.compile(ACCEPTED_PATTERN);
+2022-10-17 08:20:15.518 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:20:15.824 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-10-17 08:20:15.842 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -174,6 +174,7 @@ public class CookieInterceptor extends AbstractInterceptor {
++	setAcceptCookieNames(ACCEPTED_PATTERN);
+2022-10-17 08:20:15.842 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:20:16.128 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-10-17 08:20:16.129 [main] INFO  edu.lu.uni.serval.tbar.TBarFixer - =======StaticBugFixer: Finish off fixing======
+Failed to fix bug
+
+
+Node: 2c8178711f7b
+
+
+
+Date: Mon Oct 17 08:20:16 EDT 2022
+

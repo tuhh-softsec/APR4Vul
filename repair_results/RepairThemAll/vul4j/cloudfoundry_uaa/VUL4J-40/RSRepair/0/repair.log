@@ -1,0 +1,911 @@
+cd /workdir/RSRepair_vul4j_cloudfoundry_uaa_VUL4J-40;
+export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en";
+TZ="America/New_York"; export TZ;
+export PATH="/usr/lib/jvm/java-8-openjdk-amd64/bin:$PATH";
+export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64";
+timeout 240m java -Xmx4g -Xms1g -XX:MaxPermSize=512m -cp /script/../libs/jmetal.jar:/script/../repair_tools/arja.jar us.msu.cse.repair.Main \
+	RSRepair \
+	-DexternalProjRoot /script/../libs/arja_external \
+	-DprojectDir /workdir/RSRepair_vul4j_cloudfoundry_uaa_VUL4J-40 \
+    -DtestFiltered false \
+    -DrunTestCommand "./gradlew :cloudfoundry-identity-server:test" \
+	-DsrcJavaDir /workdir/RSRepair_vul4j_cloudfoundry_uaa_VUL4J-40/server/src/main/java \
+	-DbinJavaDir /workdir/RSRepair_vul4j_cloudfoundry_uaa_VUL4J-40/server/build/classes/java/main \
+	-DbinTestDir /workdir/RSRepair_vul4j_cloudfoundry_uaa_VUL4J-40/server/build/classes/java/test \
+	-DdiffFormat true \
+	-Dseed 0 \
+	-DgzoltarDataDir /script/../data/benchmarks/vul4j/perfectfl/VUL4J-40 \
+	-Ddependences /workdir/RSRepair_vul4j_cloudfoundry_uaa_VUL4J-40/server/build/classes/java/test:/workdir/RSRepair_vul4j_cloudfoundry_uaa_VUL4J-40/server/build/resources/test:/workdir/RSRepair_vul4j_cloudfoundry_uaa_VUL4J-40/server/build/classes/java/main:/workdir/RSRepair_vul4j_cloudfoundry_uaa_VUL4J-40/server/build/resources/main:/workdir/RSRepair_vul4j_cloudfoundry_uaa_VUL4J-40/model/build/libs/cloudfoundry-identity-model-4.28.0-SNAPSHOT.jar:/root/.gradle/caches/modules-2/files-2.1/org.apache.tomcat/tomcat-jdbc/8.5.32/9d2bf02f75c1f72b5346b60263d44b1a1ab8da43/tomcat-jdbc-8.5.32.jar:/root/.gradle/caches/modules-2/files-2.1/javax.mail/mail/1.4.7/9add058589d5d85adeb625859bf2c5eeaaedf12d/mail-1.4.7.jar:/root/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-openid/4.2.9.RELEASE/9b1b61fc8bc14896b09994294961edaa0e32a3f1/spring-security-openid-4.2.9.RELEASE.jar:/root/.gradle/caches/modules-2/files-2.1/com.warrenstrange/googleauth/1.1.2/8d3cbde11f4c18fe5463ae96c391655032626916/googleauth-1.1.2.jar:/root/.gradle/caches/modules-2/files-2.1/org.springframework.security.extensions/spring-security-saml2-core/1.0.4.RELEASE/d3b296f3a5b17b2ece0bda43d9f9b6389d7d6489/spring-security-saml2-core-1.0.4.RELEASE.jar:/root/.gradle/caches/modules-2/files-2.1/org.owasp.antisamy/antisamy/1.5.7/6fbfe2c8e95d21a99cfd2acc242fd47ea8458e1b/antisamy-1.5.7.jar:/root/.gradle/caches/modules-2/files-2.1/org.apache.httpcomponents/httpclient/4.5.3/d1577ae15f01ef5438c5afc62162457c00a34713/httpclient-4.5.3.jar:/root/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-web/4.2.9.RELEASE/1e98fdf8bbaf21296739facf04657a7fd2b9ca5d/spring-security-web-4.2.9.RELEASE.jar:/root/.gradle/caches/modules-2/files-2.1/org.springframework.security.oauth/spring-security-oauth2/2.3.0.RELEASE/ea6b5dfcc23c6b0becb74388abd369705a15bc35/spring-security-oauth2-2.3.0.RELEASE.jar:/root/.gradle/caches/modules-2/files-2.1/org.springframework/spring-webmvc/4.3.20.RELEASE/3b00aa246ea48a292539c2f8228107ba57f1ec6c/spring-webmvc-4.3.20.RELEASE.jar:/root/.gradle/caches/modules-2/files-2.1/org.springframework/spring-web/4.3.20.RELEASE/a942ae206c061c6112c457f358a5a5d903896940/spring-web-4.3.20.RELEASE.jar:/root/.gradle/caches/modules-2/files-2.1/org.springframework/spring-context-support/4.3.20.RELEASE/b712dd1911920539d36a0fa54bf490470b23f574/spring-context-support-4.3.20.RELEASE.jar:/root/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-ldap/4.2.9.RELEASE/d55bdb08934221c7593dcf2394096aed32b5d5f8/spring-security-ldap-4.2.9.RELEASE.jar:/root/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-config/4.2.9.RELEASE/518e4fde11c1bc217a56f4cb9ce35d67bf69a1e4/spring-security-config-4.2.9.RELEASE.jar:/root/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-core/4.2.9.RELEASE/dfd359be8b6ad41b851730794ab2bf97adc90eb5/spring-security-core-4.2.9.RELEASE.jar:/root/.gradle/caches/modules-2/files-2.1/com.github.sbrannen/spring-test-junit5/1.2.0/eb6ec8c4324ef15eef693459b36f9cc02a53d580/spring-test-junit5-1.2.0.jar:/root/.gradle/caches/modules-2/files-2.1/org.springframework/spring-context/4.3.20.RELEASE/e017a69366a176e2f256aefb385cb73a210b2e1d/spring-context-4.3.20.RELEASE.jar:/root/.gradle/caches/modules-2/files-2.1/org.springframework/spring-jdbc/4.3.20.RELEASE/2f64c8d416e8248252fa79346bdd598a8444d3c9/spring-jdbc-4.3.20.RELEASE.jar:/root/.gradle/caches/modules-2/files-2.1/org.springframework.ldap/spring-ldap-core-tiger/2.3.2.RELEASE/68584f4d235624467a2a934c9086e227672641a/spring-ldap-core-tiger-2.3.2.RELEASE.jar:/root/.gradle/caches/modules-2/files-2.1/org.springframework.ldap/spring-ldap-core/2.3.2.RELEASE/8bd3457711b1746af93daa0aa04c9fc886569b1/spring-ldap-core-2.3.2.RELEASE.jar:/root/.gradle/caches/modules-2/files-2.1/org.springframework/spring-tx/4.3.20.RELEASE/7e7465ddee9d11a8b68a380ba11ff92750bc9156/spring-tx-4.3.20.RELEASE.jar:/root/.gradle/caches/modules-2/files-2.1/org.springframework/spring-aop/4.3.20.RELEASE/f8866f9c38396b1d3cb2ec4c364a4b83729a78c2/spring-aop-4.3.20.RELEASE.jar:/root/.gradle/caches/modules-2/files-2.1/org.springframework/spring-beans/4.3.20.RELEASE/776c7c6e040f857b3402bcc96424e1e528737e6d/spring-beans-4.3.20.RELEASE.jar:/root/.gradle/caches/modules-2/files-2.1/org.springframework/spring-test/4.3.20.RELEASE/78496507c91ab2542f88fc47b94785e0eaa2dfb7/spring-test-4.3.20.RELEASE.jar:/root/.gradle/caches/modules-2/files-2.1/org.springframework/spring-expression/4.3.20.RELEASE/c682890fb815e991ce22e2087cb372f1b1531fc6/spring-expression-4.3.20.RELEASE.jar:/root/.gradle/caches/modules-2/files-2.1/org.springframework/spring-core/4.3.20.RELEASE/fcc490a68e7cd151867534f1629d2d26b1ca69b2/spring-core-4.3.20.RELEASE.jar:/root/.gradle/caches/modules-2/files-2.1/org.openid4java/openid4java-nodeps/0.9.6/52ca394f5f6d38b78e35a5a6a0a341dc5b3aaf34/openid4java-nodeps-0.9.6.jar:/root/.gradle/caches/modules-2/files-2.1/commons-beanutils/commons-beanutils/1.9.3/c845703de334ddc6b4b3cd26835458cb1cba1f3d/commons-beanutils-1.9.3.jar:/root/.gradle/caches/modules-2/files-2.1/org.owasp.esapi/esapi/2.1.0.1/8d35e0bad77067b534664cb408493136e086aae1/esapi-2.1.0.1.jar:/root/.gradle/caches/modules-2/files-2.1/commons-configuration/commons-configuration/1.10/2b36e4adfb66d966c5aef2d73deb6be716389dc9/commons-configuration-1.10.jar:/root/.gradle/caches/modules-2/files-2.1/org.apache.xmlgraphics/batik-css/1.9.1/e4f2f684387f18994727583c047c6e53d427aac1/batik-css-1.9.1.jar:/root/.gradle/caches/modules-2/files-2.1/org.apache.xmlgraphics/xmlgraphics-commons/2.2/89f22650b8b8a5ac91207bf58190df852d97415a/xmlgraphics-commons-2.2.jar:/root/.gradle/caches/modules-2/files-2.1/commons-logging/commons-logging/1.2/4bfc12adfe4842bf07b657f0369c4cb522955686/commons-logging-1.2.jar:/root/.gradle/caches/modules-2/files-2.1/com.jayway.jsonpath/json-path-assert/2.4.0/7f0af70880604c03cfcaf7e830d776b87ecf729d/json-path-assert-2.4.0.jar:/root/.gradle/caches/modules-2/files-2.1/com.jayway.jsonpath/json-path/2.4.0/765a4401ceb2dc8d40553c2075eb80a8fa35c2ae/json-path-2.4.0.jar:/root/.gradle/caches/modules-2/files-2.1/com.google.zxing/javase/3.3.1/6e689e4a7f2ccf9060b67e0b59d207ae45f46fe2/javase-3.3.1.jar:/root/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-jwt/1.0.8.RELEASE/c7d3199e032027f1073e8039293be46e9be281e5/spring-security-jwt-1.0.8.RELEASE.jar:/root/.gradle/caches/modules-2/files-2.1/org.bouncycastle/bcpkix-jdk15on/1.60/d0c46320fbc07be3a24eb13a56cee4e3d38e0c75/bcpkix-jdk15on-1.60.jar:/root/.gradle/caches/modules-2/files-2.1/org.passay/passay/1.2.0/286fb3c747ec1434a745c643b96496ffe398ef60/passay-1.2.0.jar:/root/.gradle/caches/modules-2/files-2.1/org.cryptacular/cryptacular/1.2.0/94f6cb97d7f7487a183f283ae80c6e61c86156e3/cryptacular-1.2.0.jar:/root/.gradle/caches/modules-2/files-2.1/org.bouncycastle/bcprov-jdk15on/1.60/bd47ad3bd14b8e82595c7adaa143501e60842a84/bcprov-jdk15on-1.60.jar:/root/.gradle/caches/modules-2/files-2.1/com.google.guava/guava/24.1.1-jre/2e3014320a8005e3f3c1800cb246ed42db8cab81/guava-24.1.1-jre.jar:/root/.gradle/caches/modules-2/files-2.1/org.aspectj/aspectjrt/1.8.12/afaa5bdae313ed3ea119eb26c8848fca21e8b04e/aspectjrt-1.8.12.jar:/root/.gradle/caches/modules-2/files-2.1/org.aspectj/aspectjweaver/1.8.12/87be4d5a1c68004a247a62c011fa63da786965fb/aspectjweaver-1.8.12.jar:/root/.gradle/caches/modules-2/files-2.1/org.thymeleaf/thymeleaf-spring4/3.0.6.RELEASE/32c1d8e3d96cd7160dfd7b9f5c9a58da2a9058cc/thymeleaf-spring4-3.0.6.RELEASE.jar:/root/.gradle/caches/modules-2/files-2.1/nz.net.ultraq.thymeleaf/thymeleaf-layout-dialect/2.3.0/51c8c3fd5341e7f5e0410dc7056f7bece1acb4ad/thymeleaf-layout-dialect-2.3.0.jar:/root/.gradle/caches/modules-2/files-2.1/org.thymeleaf.extras/thymeleaf-extras-springsecurity4/3.0.2.RELEASE/ef051e8a72074063ca587bef9ee397a1ebe0cdcd/thymeleaf-extras-springsecurity4-3.0.2.RELEASE.jar:/root/.gradle/caches/modules-2/files-2.1/nz.net.ultraq.thymeleaf/thymeleaf-expression-processor/1.1.3/e74d87b7d068fb9b9f52dc764c53409d7e732670/thymeleaf-expression-processor-1.1.3.jar:/root/.gradle/caches/modules-2/files-2.1/org.codehaus.groovy/groovy/2.5.2/ff667436cfd98cc2c7e58631883c75d23d52261b/groovy-2.5.2.jar:/root/.gradle/caches/modules-2/files-2.1/com.unboundid.product.scim/scim-sdk/1.8.18/bd706095696c452482c51aca7d4fd29703694b60/scim-sdk-1.8.18.jar:/root/.gradle/caches/modules-2/files-2.1/org.hibernate/hibernate-validator/5.3.6.Final/4c730be8bf55a8e9a61e79a2f2c079abf48b718/hibernate-validator-5.3.6.Final.jar:/root/.gradle/caches/modules-2/files-2.1/org.flywaydb/flyway-core/4.2.0/1cbe078e49e81ef13b5eafd54552feac0a55c19e/flyway-core-4.2.0.jar:/root/.gradle/caches/modules-2/files-2.1/org.mariadb.jdbc/mariadb-java-client/2.2.0/cbad0797cd528a899f39b1b5ef833e11b8fc3a20/mariadb-java-client-2.2.0.jar:/root/.gradle/caches/modules-2/files-2.1/com.microsoft.sqlserver/mssql-jdbc/6.2.2.jre8/a9ee2b0234f623f49fad888550011035b99d0861/mssql-jdbc-6.2.2.jre8.jar:/root/.gradle/caches/modules-2/files-2.1/org.hsqldb/hsqldb/2.3.1/bd7153caa30958e1c64a3dd38b93e5a7442d9a0e/hsqldb-2.3.1.jar:/root/.gradle/caches/modules-2/files-2.1/org.yaml/snakeyaml/1.18/e4a441249ade301985cb8d009d4e4a72b85bf68e/snakeyaml-1.18.jar:/root/.gradle/caches/modules-2/files-2.1/org.apache.directory.api/api-ldap-model/1.0.0/f165ffb59e93d9190b601400776ac102764137c1/api-ldap-model-1.0.0.jar:/root/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-log4j12/1.7.25/110cefe2df103412849d72ef7a67e4e91e4266b4/slf4j-log4j12-1.7.25.jar:/root/.gradle/caches/modules-2/files-2.1/commons-fileupload/commons-fileupload/1.3.3/4ff14d809195b711fd6bcc87e6777f886730ca1/commons-fileupload-1.3.3.jar:/root/.gradle/caches/modules-2/files-2.1/commons-io/commons-io/2.6/815893df5f31da2ece4040fe0a12fd44b577afaf/commons-io-2.6.jar:/root/.gradle/caches/modules-2/files-2.1/org.opensaml/opensaml/2.6.6/2d2ea39a37920fa1c21330b5730619703421e839/opensaml-2.6.6.jar:/root/.gradle/caches/modules-2/files-2.1/org.opensaml/openws/1.5.6/53c9e39201fb588b42ea4059fa062ced76acba01/openws-1.5.6.jar:/root/.gradle/caches/modules-2/files-2.1/org.opensaml/xmltooling/1.4.6/6fd85523ede1bd431de1099b822ee55d4d08b7ea/xmltooling-1.4.6.jar:/root/.gradle/caches/modules-2/files-2.1/org.apache.santuario/xmlsec/2.1.2/328ca2bb1711bec4d3ed03d6d80a7e27a4c967e6/xmlsec-2.1.2.jar:/root/.gradle/caches/modules-2/files-2.1/javax.servlet/javax.servlet-api/3.1.0/3cd63d075497751784b2fa84be59432f4905bf7c/javax.servlet-api-3.1.0.jar:/root/.gradle/caches/modules-2/files-2.1/org.junit.jupiter/junit-jupiter-params/5.2.0/d70083080bf3400c181562919cb03bf7588104e1/junit-jupiter-params-5.2.0.jar:/root/.gradle/caches/modules-2/files-2.1/org.junit.jupiter/junit-jupiter-engine/5.2.0/de87318ccd3dfa1a98ebfef792d362776f1914de/junit-jupiter-engine-5.2.0.jar:/root/.gradle/caches/modules-2/files-2.1/org.junit.jupiter/junit-jupiter-api/5.2.0/9cd901df48d88d8e605a6ccb2c3f140c92db6bf2/junit-jupiter-api-5.2.0.jar:/root/.gradle/caches/modules-2/files-2.1/org.hamcrest/hamcrest-all/1.3/63a21ebc981131004ad02e0434e799fd7f3a8d5a/hamcrest-all-1.3.jar:/root/.gradle/caches/modules-2/files-2.1/io.honeycomb.libhoney/libhoney-java/1.0.2/a7d3848a690040175fd5ad7e960521fa424c5e69/libhoney-java-1.0.2.jar:/root/.gradle/caches/modules-2/files-2.1/org.powermock/powermock-module-junit4/2.0.0-beta.5/4863d6a71361f1aaa7c162146646c50a47e97ee3/powermock-module-junit4-2.0.0-beta.5.jar:/root/.gradle/caches/modules-2/files-2.1/org.junit.vintage/junit-vintage-engine/5.2.0/ff11a5d0674df5e2264e50fe3f8a3485a4399ccb/junit-vintage-engine-5.2.0.jar:/root/.gradle/caches/modules-2/files-2.1/org.powermock/powermock-module-junit4-common/2.0.0-beta.5/cb845360267ab2dfac0ac1d59819501a66ccd139/powermock-module-junit4-common-2.0.0-beta.5.jar:/root/.gradle/caches/modules-2/files-2.1/junit/junit/4.12/2973d150c0dc1fefe998f834810d68f278ea58ec/junit-4.12.jar:/root/.gradle/caches/modules-2/files-2.1/org.powermock/powermock-api-mockito2/2.0.0-beta.5/5aadd697a176794368d6750aafe6d7525ddbcef8/powermock-api-mockito2-2.0.0-beta.5.jar:/root/.gradle/caches/modules-2/files-2.1/org.mockito/mockito-core/2.13.0/8e372943974e4a121fb8617baced8ebfe46d54f0/mockito-core-2.13.0.jar:/root/.gradle/caches/modules-2/files-2.1/org.postgresql/postgresql/42.1.4/1c7788d16b67d51f2f38ae99e474ece968bf715a/postgresql-42.1.4.jar:/root/.gradle/caches/modules-2/files-2.1/org.apache.tomcat/tomcat-jasper-el/8.5.32/db74e6ae2d91140c147d73b6513526761f5ead7a/tomcat-jasper-el-8.5.32.jar:/root/.gradle/caches/modules-2/files-2.1/org.apache.tomcat/tomcat-el-api/8.5.32/20547e2ab0787b4c2171d8c968352b15cc3dbb9b/tomcat-el-api-8.5.32.jar:/workdir/RSRepair_vul4j_cloudfoundry_uaa_VUL4J-40/metrics-data/build/libs/cloudfoundry-identity-metrics-data-4.28.0-SNAPSHOT.jar:/root/.gradle/caches/modules-2/files-2.1/javax.validation/validation-api/2.0.1.Final/cb855558e6271b1b32e716d24cb85c7f583ce09e/validation-api-2.0.1.Final.jar:/root/.gradle/caches/modules-2/files-2.1/org.apache.velocity/velocity-engine-core/2.0/6e5f29e1237b1764a4ce769feeffb85b0b19cfa7/velocity-engine-core-2.0.jar:/root/.gradle/caches/modules-2/files-2.1/org.thymeleaf/thymeleaf/3.0.6.RELEASE/5101df9798ac08865717dd0bf6860504cd3bd758/thymeleaf-3.0.6.RELEASE.jar:/root/.gradle/caches/modules-2/files-2.1/org.slf4j/jcl-over-slf4j/1.7.5/cd5970bd13fa85f7bed41ca606d6daf7cbf1365/jcl-over-slf4j-1.7.5.jar:/root/.gradle/caches/modules-2/files-2.1/org.slf4j/jul-to-slf4j/1.7.5/d2b0f76abde33a62f1dbc19a9da726ffe9a0180e/jul-to-slf4j-1.7.5.jar:/root/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.7.25/da76ca59f6a57ee3102f8f9bd9cee742973efa8a/slf4j-api-1.7.25.jar:/root/.gradle/caches/modules-2/files-2.1/org.apache.tomcat/tomcat-juli/8.5.32/c659f0c0bc6e1124bf3461ca51b25724a2335cf6/tomcat-juli-8.5.32.jar:/root/.gradle/caches/modules-2/files-2.1/javax.activation/activation/1.1/e6cb541461c2834bdea3eb920f1884d1eb508b50/activation-1.1.jar:/root/.gradle/caches/modules-2/files-2.1/net.minidev/json-smart/2.3/7396407491352ce4fa30de92efb158adb76b5b/json-smart-2.3.jar:/root/.gradle/caches/modules-2/files-2.1/com.google.zxing/core/3.3.1/bd5bb06f4ae0fef8e67044131272905eb8895230/core-3.3.1.jar:/root/.gradle/caches/modules-2/files-2.1/com.beust/jcommander/1.72/6375e521c1e11d6563d4f25a07ce124ccf8cd171/jcommander-1.72.jar:/root/.gradle/caches/modules-2/files-2.1/com.github.jai-imageio/jai-imageio-core/1.3.1/300f3f0dedfca37b3278991f9397354971b37156/jai-imageio-core-1.3.1.jar:/root/.gradle/caches/modules-2/files-2.1/com.google.inject/guice/2.0/a4c67006178262122e93121e94fff306fcf0cda1/guice-2.0.jar:/root/.gradle/caches/modules-2/files-2.1/aopalliance/aopalliance/1.0/235ba8b489512805ac13a8f9ea77a1ca5ebe3e8/aopalliance-1.0.jar:/root/.gradle/caches/modules-2/files-2.1/org.apache.httpcomponents/httpcore/4.4.6/e3fd8ced1f52c7574af952e2e6da0df8df08eb82/httpcore-4.4.6.jar:/root/.gradle/caches/modules-2/files-2.1/commons-httpclient/commons-httpclient/3.1/964cd74171f427720480efdec40a7c7f6e58426a/commons-httpclient-3.1.jar:/root/.gradle/caches/modules-2/files-2.1/commons-codec/commons-codec/1.11/3acb4705652e16236558f0f4f2192cc33c3bd189/commons-codec-1.11.jar:/root/.gradle/caches/modules-2/files-2.1/net.sourceforge.nekohtml/nekohtml/1.9.22/4f54af68ecb345f2453fb6884672ad08414154e3/nekohtml-1.9.22.jar:/root/.gradle/caches/modules-2/files-2.1/ca.juliusdavies/not-yet-commons-ssl/0.3.17/4858e51d5290a3640f706ed0c7db8eda5c646899/not-yet-commons-ssl-0.3.17.jar:/root/.gradle/caches/modules-2/files-2.1/xalan/xalan/2.7.2/d55d3f02a56ec4c25695fe67e1334ff8c2ecea23/xalan-2.7.2.jar:/root/.gradle/caches/modules-2/files-2.1/xom/xom/1.2.5/4166493b9f04e91b858ba4150b28b4d197f8f8ea/xom-1.2.5.jar:/root/.gradle/caches/modules-2/files-2.1/xalan/serializer/2.7.2/24247f3bb052ee068971393bdb83e04512bb1c3c/serializer-2.7.2.jar:/root/.gradle/caches/modules-2/files-2.1/xerces/xercesImpl/2.11.0/9bb329db1cfc4e22462c9d6b43a8432f5850e92c/xercesImpl-2.11.0.jar:/root/.gradle/caches/modules-2/files-2.1/xml-apis/xml-apis/1.4.01/3789d9fada2d3d458c4ba2de349d48780f381ee3/xml-apis-1.4.01.jar:/root/.gradle/caches/modules-2/files-2.1/com.google.code.findbugs/jsr305/1.3.9/40719ea6961c0cb6afaeb6a921eaa1f6afd4cfdf/jsr305-1.3.9.jar:/root/.gradle/caches/modules-2/files-2.1/org.checkerframework/checker-compat-qual/2.0.0/fc89b03860d11d6213d0154a62bcd1c2f69b9efa/checker-compat-qual-2.0.0.jar:/root/.gradle/caches/modules-2/files-2.1/com.google.errorprone/error_prone_annotations/2.1.3/39b109f2cd352b2d71b52a3b5a1a9850e1dc304b/error_prone_annotations-2.1.3.jar:/root/.gradle/caches/modules-2/files-2.1/com.google.j2objc/j2objc-annotations/1.1/ed28ded51a8b1c6b112568def5f4b455e6809019/j2objc-annotations-1.1.jar:/root/.gradle/caches/modules-2/files-2.1/org.codehaus.mojo/animal-sniffer-annotations/1.14/775b7e22fb10026eed3f86e8dc556dfafe35f2d5/animal-sniffer-annotations-1.14.jar:/root/.gradle/caches/modules-2/files-2.1/com.unboundid.components/json/1.0.0/303cbecf0318a237170ec51aed40a85796e03872/json-1.0.0.jar:/root/.gradle/caches/modules-2/files-2.1/org.glassfish.jersey.connectors/jersey-apache-connector/2.17/e762e4cbf4823605e7e4630869b3fdc71e983ca6/jersey-apache-connector-2.17.jar:/root/.gradle/caches/modules-2/files-2.1/org.jboss.logging/jboss-logging/3.3.0.Final/3616bb87707910296e2c195dc016287080bba5af/jboss-logging-3.3.0.Final.jar:/root/.gradle/caches/modules-2/files-2.1/com.fasterxml/classmate/1.3.1/2ad2fd09dcf5607ca96f8ef432096a96986c40a/classmate-1.3.1.jar:/root/.gradle/caches/modules-2/files-2.1/org.apache.directory.api/api-asn1-ber/1.0.0/a6fdbae1547130ade1996b2c97e2849846e90b63/api-asn1-ber-1.0.0.jar:/root/.gradle/caches/modules-2/files-2.1/org.apache.directory.api/api-util/1.0.0/1506f71c676067657c80349d7debe9db15a21f20/api-util-1.0.0.jar:/root/.gradle/caches/modules-2/files-2.1/org.apache.directory.api/api-asn1-api/1.0.0/2a9e3da36be2ef389e7aaa8268caf40cbd6b72e5/api-asn1-api-1.0.0.jar:/root/.gradle/caches/modules-2/files-2.1/org.apache.directory.api/api-i18n/1.0.0/90fcad491605e7d59968f38a240b2406c4646e45/api-i18n-1.0.0.jar:/root/.gradle/caches/modules-2/files-2.1/org.apache.mina/mina-core/2.0.16/f720f17643eaa7b0fec07c1d7f6272972c02bba4/mina-core-2.0.16.jar:/root/.gradle/caches/modules-2/files-2.1/org.apache.servicemix.bundles/org.apache.servicemix.bundles.antlr/2.7.7_5/98912946d4e6746792c631d31a742f7d4d9c75a3/org.apache.servicemix.bundles.antlr-2.7.7_5.jar:/root/.gradle/caches/modules-2/files-2.1/commons-lang/commons-lang/2.6/ce1edb914c94ebc388f086c6827e8bdeec71ac2/commons-lang-2.6.jar:/root/.gradle/caches/modules-2/files-2.1/commons-collections/commons-collections/3.2.2/8ad72fe39fa8c91eaaf12aadb21e0c3661fe26d5/commons-collections-3.2.2.jar:/root/.gradle/caches/modules-2/files-2.1/log4j/log4j/1.2.17/5af35056b4d257e4b64b9e8069c0746e8b08629f/log4j-1.2.17.jar:/root/.gradle/caches/modules-2/files-2.1/com.fasterxml.woodstox/woodstox-core/5.0.3/10aa199207fda142eff01cd61c69244877d71770/woodstox-core-5.0.3.jar:/root/.gradle/caches/modules-2/files-2.1/org.junit.platform/junit-platform-engine/1.2.0/35fa3529ce843ada1a10b0909ccb4a8148ee638d/junit-platform-engine-1.2.0.jar:/root/.gradle/caches/modules-2/files-2.1/org.junit.platform/junit-platform-commons/1.2.0/dbce1d822d3dc6c61703b340cd79018518685451/junit-platform-commons-1.2.0.jar:/root/.gradle/caches/modules-2/files-2.1/org.apiguardian/apiguardian-api/1.0.0/3ef5276905e36f4d8055fe3cb0bdcc7503ffc85d/apiguardian-api-1.0.0.jar:/root/.gradle/caches/modules-2/files-2.1/org.opentest4j/opentest4j/1.1.0/c8e2a3e3bc7f3e4bb5075306452db5290f9b117a/opentest4j-1.1.0.jar:/root/.gradle/caches/modules-2/files-2.1/org.powermock/powermock-api-support/2.0.0-beta.5/613616628925ecc461ed8b826e44b0c4928261e0/powermock-api-support-2.0.0-beta.5.jar:/root/.gradle/caches/modules-2/files-2.1/org.powermock/powermock-core/2.0.0-beta.5/3e148ed3b247bc856e8e067349983bbd4f047698/powermock-core-2.0.0-beta.5.jar:/root/.gradle/caches/modules-2/files-2.1/org.powermock/powermock-reflect/2.0.0-beta.5/4ea415348f15620783a1f26343d6732adfa86bc8/powermock-reflect-2.0.0-beta.5.jar:/root/.gradle/caches/modules-2/files-2.1/net.bytebuddy/byte-buddy/1.7.9/51218a01a882c04d0aba8c028179cce488bbcb58/byte-buddy-1.7.9.jar:/root/.gradle/caches/modules-2/files-2.1/net.bytebuddy/byte-buddy-agent/1.7.9/a6c65f9da7f467ee1f02ff2841ffd3155aee2fc9/byte-buddy-agent-1.7.9.jar:/root/.gradle/caches/modules-2/files-2.1/org.objenesis/objenesis/2.6/639033469776fd37c08358c6b92a4761feb2af4b/objenesis-2.6.jar:/root/.gradle/caches/modules-2/files-2.1/org.hamcrest/hamcrest-library/1.3/4785a3c21320980282f9f33d0d1264a69040538f/hamcrest-library-1.3.jar:/root/.gradle/caches/modules-2/files-2.1/org.hamcrest/hamcrest-core/1.3/42a25dc3219429f0e5d060061f71acb49bf010a0/hamcrest-core-1.3.jar:/root/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.9.8/11283f21cc480aa86c4df7a0a3243ec508372ed2/jackson-databind-2.9.8.jar:/root/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-annotations/2.9.8/ba7f0e6f8f1b28d251eeff2a5604bed34c53ff35/jackson-annotations-2.9.8.jar:/root/.gradle/caches/modules-2/files-2.1/net.minidev/accessors-smart/1.2/c592b500269bfde36096641b01238a8350f8aa31/accessors-smart-1.2.jar:/root/.gradle/caches/modules-2/files-2.1/net.jcip/jcip-annotations/1.0/afba4942caaeaf46aab0b976afd57cc7c181467e/jcip-annotations-1.0.jar:/root/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-lang3/3.5/6c6c702c89bfff3cd9e80b04d668c5e190d588c6/commons-lang3-3.5.jar:/root/.gradle/caches/modules-2/files-2.1/joda-time/joda-time/2.2/a5f29a7acaddea3f4af307e8cf2d0cc82645fd7d/joda-time-2.2.jar:/root/.gradle/caches/modules-2/files-2.1/ognl/ognl/3.1.12/a7fa0db32f882cd3bb41ec6c489853b3bfb6aebc/ognl-3.1.12.jar:/root/.gradle/caches/modules-2/files-2.1/org.attoparser/attoparser/2.0.4.RELEASE/5cf02c4d8303a81f0c80971bb1dcd40d3ba96009/attoparser-2.0.4.RELEASE.jar:/root/.gradle/caches/modules-2/files-2.1/org.unbescape/unbescape/1.1.4.RELEASE/1ef1371149efc31d72d35dc290cf16c1a4736a12/unbescape-1.1.4.RELEASE.jar:/root/.gradle/caches/modules-2/files-2.1/org.glassfish.jersey.core/jersey-client/2.17/e6f4d0ce184a497d56ba07adfca6a118d4e34be5/jersey-client-2.17.jar:/root/.gradle/caches/modules-2/files-2.1/org.glassfish.jersey.core/jersey-common/2.17/1de6cd181cec39cf80fff71aae78d2cf7b37a397/jersey-common-2.17.jar:/root/.gradle/caches/modules-2/files-2.1/javax.ws.rs/javax.ws.rs-api/2.0.1/104e9c2b5583cfcfeac0402316221648d6d8ea6b/javax.ws.rs-api-2.0.1.jar:/root/.gradle/caches/modules-2/files-2.1/org.codehaus.woodstox/stax2-api/3.1.4/ac19014b1e6a7c08aad07fe114af792676b685b7/stax2-api-3.1.4.jar:/root/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.9.8/f5a654e4675769c716e5b387830d19b501ca191/jackson-core-2.9.8.jar:/root/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm/5.0.4/da08b8cce7bbf903602a25a3a163ae252435795/asm-5.0.4.jar:/root/.gradle/caches/modules-2/files-2.1/org.apache.xmlgraphics/batik-util/1.9.1/fe6eb3318c63c32b5177a4de6c60eaa100c58c80/batik-util-1.9.1.jar:/root/.gradle/caches/modules-2/files-2.1/xml-apis/xml-apis-ext/1.3.04/41a8b86b358e87f3f13cf46069721719105aff66/xml-apis-ext-1.3.04.jar:/root/.gradle/caches/modules-2/files-2.1/org.glassfish.hk2/hk2-locator/2.4.0-b10/cdf32df093932263538771642477da5b5a042524/hk2-locator-2.4.0-b10.jar:/root/.gradle/caches/modules-2/files-2.1/org.javassist/javassist/3.22.0-CR2/44eaf0990dea92f4bca4b9931b2239c0e8756ee7/javassist-3.22.0-CR2.jar:/root/.gradle/caches/modules-2/files-2.1/javax.annotation/javax.annotation-api/1.2/479c1e06db31c432330183f5cae684163f186146/javax.annotation-api-1.2.jar:/root/.gradle/caches/modules-2/files-2.1/org.glassfish.jersey.bundles.repackaged/jersey-guava/2.17/11c0e1283749af6398c812d8dc9137ea540e6ae3/jersey-guava-2.17.jar:/root/.gradle/caches/modules-2/files-2.1/org.glassfish.hk2/hk2-api/2.4.0-b10/adb198b7105fb385bd94e4638f9808b2e6eeaa00/hk2-api-2.4.0-b10.jar:/root/.gradle/caches/modules-2/files-2.1/org.glassfish.hk2.external/javax.inject/2.4.0-b10/79e93bb1216d1dae2c6776441842b088878f5ec5/javax.inject-2.4.0-b10.jar:/root/.gradle/caches/modules-2/files-2.1/org.glassfish.hk2/osgi-resource-locator/1.0.1/4ed2b2d4738aed5786cfa64cba5a332779c4c708/osgi-resource-locator-1.0.1.jar:/root/.gradle/caches/modules-2/files-2.1/org.apache.xmlgraphics/batik-constants/1.9.1/6b23bc5198799df7105170b9bce589dd381be937/batik-constants-1.9.1.jar:/root/.gradle/caches/modules-2/files-2.1/org.apache.xmlgraphics/batik-i18n/1.9.1/5d4cfc4b43f9cc2330533ef3e5fc65ef6e02a43/batik-i18n-1.9.1.jar:/root/.gradle/caches/modules-2/files-2.1/org.glassfish.hk2/hk2-utils/2.4.0-b10/1e6a3365b0c5e10759ee03df893ee10c60c28c1d/hk2-utils-2.4.0-b10.jar:/root/.gradle/caches/modules-2/files-2.1/org.glassfish.hk2.external/aopalliance-repackaged/2.4.0-b10/3e5aeba99b991784cae322c0265e972c1bfde64b/aopalliance-repackaged-2.4.0-b10.jar:/root/.gradle/caches/modules-2/files-2.1/javax.inject/javax.inject/1/6975da39a7040257bd51d21a231b76c915872d38/javax.inject-1.jar;
+	echo "\n\nNode: `hostname`\n";
+	echo "\n\nDate: `date`\n";
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en
+OpenJDK 64-Bit Server VM warning: ignoring option MaxPermSize=512m; support was removed in 8.0
+Fault localization starts...
+Number of positive tests: 2965
+Number of negative tests: 1
+Negative tests: [org.cloudfoundry.identity.uaa.security.ScimUserSelfUpdateAllowedTest$WithInternalUserStoreEnabled$WhenAttemptingToUpdateAFieldThatIsNotAllowedToBeUpdated$WhenUpdatingTheEmailField#isNotAllowedToUpdateField()]
+Faulty Lines: 
+org.cloudfoundry.identity.uaa.security.ScimUserSelfUpdateAllowed#37:1.0
+org.cloudfoundry.identity.uaa.security.ScimUserSelfUpdateAllowed#32:1.0
+Fault localization is finished!
+AST parsing starts...
+AST parsing is finished!
+Detection of local variables starts...
+Detection of local variables is finished!
+Detection of fields starts...
+Detection of fields is finished!
+Detection of methods starts...
+Detection of methods is finished!
+Ingredient screener starts...
+Ingredient screener is finished!
+Initialization of manipulations starts...
+Initialization of manipulations is finished!
+Filtering of the tests starts...
+Number of positive tests considered: 2965
+Filtering of the tests is finished!
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
++++ b/server/src/main/java/org/cloudfoundry/identity/uaa/security/ScimUserSelfUpdateAllowed.java
+@@ -34,10 +34,6 @@ public class ScimUserSelfUpdateAllowed {
+return true;
+}
+
+-        if (!scimUserFromDb.getPrimaryEmail().equals(scimUserFromRequest.getPrimaryEmail())) {
+-            return false;
+-        }
+-
+if (!scimUserFromDb.getUserName().equals(scimUserFromRequest.getUserName())) {
+return false;
+}
+Number of failed tests: 6
+Fitness: 6.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
++++ b/server/src/main/java/org/cloudfoundry/identity/uaa/security/ScimUserSelfUpdateAllowed.java
+@@ -34,10 +34,6 @@ public class ScimUserSelfUpdateAllowed {
+return true;
+}
+
+-        if (!scimUserFromDb.getPrimaryEmail().equals(scimUserFromRequest.getPrimaryEmail())) {
+-            return false;
+-        }
+-
+if (!scimUserFromDb.getUserName().equals(scimUserFromRequest.getUserName())) {
+return false;
+}
+Number of failed tests: 4
+Fitness: 4.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
++++ b/server/src/main/java/org/cloudfoundry/identity/uaa/security/ScimUserSelfUpdateAllowed.java
+@@ -34,10 +34,6 @@ public class ScimUserSelfUpdateAllowed {
+return true;
+}
+
+-        if (!scimUserFromDb.getPrimaryEmail().equals(scimUserFromRequest.getPrimaryEmail())) {
+-            return false;
+-        }
+-
+if (!scimUserFromDb.getUserName().equals(scimUserFromRequest.getUserName())) {
+return false;
+}
+Number of failed tests: 6
+Fitness: 6.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
++++ b/server/src/main/java/org/cloudfoundry/identity/uaa/security/ScimUserSelfUpdateAllowed.java
+@@ -34,10 +34,6 @@ public class ScimUserSelfUpdateAllowed {
+return true;
+}
+
+-        if (!scimUserFromDb.getPrimaryEmail().equals(scimUserFromRequest.getPrimaryEmail())) {
+-            return false;
+-        }
+-
+if (!scimUserFromDb.getUserName().equals(scimUserFromRequest.getUserName())) {
+return false;
+}
+Number of failed tests: 4
+Fitness: 4.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
++++ b/server/src/main/java/org/cloudfoundry/identity/uaa/security/ScimUserSelfUpdateAllowed.java
+@@ -34,10 +34,6 @@ public class ScimUserSelfUpdateAllowed {
+return true;
+}
+
+-        if (!scimUserFromDb.getPrimaryEmail().equals(scimUserFromRequest.getPrimaryEmail())) {
+-            return false;
+-        }
+-
+if (!scimUserFromDb.getUserName().equals(scimUserFromRequest.getUserName())) {
+return false;
+}
+Number of failed tests: 6
+Fitness: 6.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
++++ b/server/src/main/java/org/cloudfoundry/identity/uaa/security/ScimUserSelfUpdateAllowed.java
+@@ -34,9 +34,7 @@ public class ScimUserSelfUpdateAllowed {
+return true;
+}
+
+-        if (!scimUserFromDb.getPrimaryEmail().equals(scimUserFromRequest.getPrimaryEmail())) {
+-            return false;
+-        }
++        String pathInfo = UaaUrlUtils.getRequestPath(request);
+
+if (!scimUserFromDb.getUserName().equals(scimUserFromRequest.getUserName())) {
+return false;
+Number of failed tests: 4
+Fitness: 4.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
++++ b/server/src/main/java/org/cloudfoundry/identity/uaa/security/ScimUserSelfUpdateAllowed.java
+@@ -34,9 +34,8 @@ public class ScimUserSelfUpdateAllowed {
+return true;
+}
+
+-        if (!scimUserFromDb.getPrimaryEmail().equals(scimUserFromRequest.getPrimaryEmail())) {
+-            return false;
+-        }
++        String zoneAdminRole = "zones." + IdentityZoneHolder.get().getId()
++				+ ".admin";
+
+if (!scimUserFromDb.getUserName().equals(scimUserFromRequest.getUserName())) {
+return false;
+Number of failed tests: 6
+Fitness: 6.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
++++ b/server/src/main/java/org/cloudfoundry/identity/uaa/security/ScimUserSelfUpdateAllowed.java
+@@ -34,10 +34,6 @@ public class ScimUserSelfUpdateAllowed {
+return true;
+}
+
+-        if (!scimUserFromDb.getPrimaryEmail().equals(scimUserFromRequest.getPrimaryEmail())) {
+-            return false;
+-        }
+-
+if (!scimUserFromDb.getUserName().equals(scimUserFromRequest.getUserName())) {
+return false;
+}
+Number of failed tests: 4
+Fitness: 4.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
++++ b/server/src/main/java/org/cloudfoundry/identity/uaa/security/ScimUserSelfUpdateAllowed.java
+@@ -34,10 +34,6 @@ public class ScimUserSelfUpdateAllowed {
+return true;
+}
+
+-        if (!scimUserFromDb.getPrimaryEmail().equals(scimUserFromRequest.getPrimaryEmail())) {
+-            return false;
+-        }
+-
+if (!scimUserFromDb.getUserName().equals(scimUserFromRequest.getUserName())) {
+return false;
+}
+Number of failed tests: 6
+Fitness: 6.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
++++ b/server/src/main/java/org/cloudfoundry/identity/uaa/security/ScimUserSelfUpdateAllowed.java
+@@ -34,7 +34,8 @@ public class ScimUserSelfUpdateAllowed {
+return true;
+}
+
+-        if (!scimUserFromDb.getPrimaryEmail().equals(scimUserFromRequest.getPrimaryEmail())) {
++        String[] adminRoles = new String[] { "uaa.admin" };
++		if (!scimUserFromDb.getPrimaryEmail().equals(scimUserFromRequest.getPrimaryEmail())) {
+return false;
+}
+
+Number of failed tests: 3
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
++++ b/server/src/main/java/org/cloudfoundry/identity/uaa/security/ScimUserSelfUpdateAllowed.java
+@@ -34,9 +34,7 @@ public class ScimUserSelfUpdateAllowed {
+return true;
+}
+
+-        if (!scimUserFromDb.getPrimaryEmail().equals(scimUserFromRequest.getPrimaryEmail())) {
+-            return false;
+-        }
++        String accept = request.getHeader("Accept");
+
+if (!scimUserFromDb.getUserName().equals(scimUserFromRequest.getUserName())) {
+return false;
+Number of failed tests: 6
+Fitness: 6.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
++++ b/server/src/main/java/org/cloudfoundry/identity/uaa/security/ScimUserSelfUpdateAllowed.java
+@@ -34,9 +34,7 @@ public class ScimUserSelfUpdateAllowed {
+return true;
+}
+
+-        if (!scimUserFromDb.getPrimaryEmail().equals(scimUserFromRequest.getPrimaryEmail())) {
+-            return false;
+-        }
++        String pathInfo = UaaUrlUtils.getRequestPath(request);
+
+if (!scimUserFromDb.getUserName().equals(scimUserFromRequest.getUserName())) {
+return false;
+Number of failed tests: 4
+Fitness: 4.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
++++ b/server/src/main/java/org/cloudfoundry/identity/uaa/security/ScimUserSelfUpdateAllowed.java
+@@ -34,9 +34,8 @@ public class ScimUserSelfUpdateAllowed {
+return true;
+}
+
+-        if (!scimUserFromDb.getPrimaryEmail().equals(scimUserFromRequest.getPrimaryEmail())) {
+-            return false;
+-        }
++        String zoneAdminRole = "zones." + IdentityZoneHolder.get().getId()
++				+ ".admin";
+
+if (!scimUserFromDb.getUserName().equals(scimUserFromRequest.getUserName())) {
+return false;
+Number of failed tests: 6
+Fitness: 6.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
++++ b/server/src/main/java/org/cloudfoundry/identity/uaa/security/ScimUserSelfUpdateAllowed.java
+@@ -34,10 +34,6 @@ public class ScimUserSelfUpdateAllowed {
+return true;
+}
+
+-        if (!scimUserFromDb.getPrimaryEmail().equals(scimUserFromRequest.getPrimaryEmail())) {
+-            return false;
+-        }
+-
+if (!scimUserFromDb.getUserName().equals(scimUserFromRequest.getUserName())) {
+return false;
+}
+Number of failed tests: 4
+Fitness: 4.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
++++ b/server/src/main/java/org/cloudfoundry/identity/uaa/security/ScimUserSelfUpdateAllowed.java
+@@ -34,10 +34,6 @@ public class ScimUserSelfUpdateAllowed {
+return true;
+}
+
+-        if (!scimUserFromDb.getPrimaryEmail().equals(scimUserFromRequest.getPrimaryEmail())) {
+-            return false;
+-        }
+-
+if (!scimUserFromDb.getUserName().equals(scimUserFromRequest.getUserName())) {
+return false;
+}
+Number of failed tests: 6
+Fitness: 6.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
++++ b/server/src/main/java/org/cloudfoundry/identity/uaa/security/ScimUserSelfUpdateAllowed.java
+@@ -34,10 +34,6 @@ public class ScimUserSelfUpdateAllowed {
+return true;
+}
+
+-        if (!scimUserFromDb.getPrimaryEmail().equals(scimUserFromRequest.getPrimaryEmail())) {
+-            return false;
+-        }
+-
+if (!scimUserFromDb.getUserName().equals(scimUserFromRequest.getUserName())) {
+return false;
+}
+Number of failed tests: 4
+Fitness: 4.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
++++ b/server/src/main/java/org/cloudfoundry/identity/uaa/security/ScimUserSelfUpdateAllowed.java
+@@ -34,10 +34,6 @@ public class ScimUserSelfUpdateAllowed {
+return true;
+}
+
+-        if (!scimUserFromDb.getPrimaryEmail().equals(scimUserFromRequest.getPrimaryEmail())) {
+-            return false;
+-        }
+-
+if (!scimUserFromDb.getUserName().equals(scimUserFromRequest.getUserName())) {
+return false;
+}
+Number of failed tests: 6
+Fitness: 6.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
++++ b/server/src/main/java/org/cloudfoundry/identity/uaa/security/ScimUserSelfUpdateAllowed.java
+@@ -34,10 +34,6 @@ public class ScimUserSelfUpdateAllowed {
+return true;
+}
+
+-        if (!scimUserFromDb.getPrimaryEmail().equals(scimUserFromRequest.getPrimaryEmail())) {
+-            return false;
+-        }
+-
+if (!scimUserFromDb.getUserName().equals(scimUserFromRequest.getUserName())) {
+return false;
+}
+Number of failed tests: 4
+Fitness: 4.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
++++ b/server/src/main/java/org/cloudfoundry/identity/uaa/security/ScimUserSelfUpdateAllowed.java
+@@ -34,9 +34,7 @@ public class ScimUserSelfUpdateAllowed {
+return true;
+}
+
+-        if (!scimUserFromDb.getPrimaryEmail().equals(scimUserFromRequest.getPrimaryEmail())) {
+-            return false;
+-        }
++        boolean result = false;
+
+if (!scimUserFromDb.getUserName().equals(scimUserFromRequest.getUserName())) {
+return false;
+Number of failed tests: 6
+Fitness: 6.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
++++ b/server/src/main/java/org/cloudfoundry/identity/uaa/security/ScimUserSelfUpdateAllowed.java
+@@ -34,9 +34,8 @@ public class ScimUserSelfUpdateAllowed {
+return true;
+}
+
+-        if (!scimUserFromDb.getPrimaryEmail().equals(scimUserFromRequest.getPrimaryEmail())) {
+-            return false;
+-        }
++        String zoneAdminRole = "zones." + IdentityZoneHolder.get().getId()
++				+ ".admin";
+
+if (!scimUserFromDb.getUserName().equals(scimUserFromRequest.getUserName())) {
+return false;
+Number of failed tests: 4
+Fitness: 4.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
++++ b/server/src/main/java/org/cloudfoundry/identity/uaa/security/ScimUserSelfUpdateAllowed.java
+@@ -34,7 +34,8 @@ public class ScimUserSelfUpdateAllowed {
+return true;
+}
+
+-        if (!scimUserFromDb.getPrimaryEmail().equals(scimUserFromRequest.getPrimaryEmail())) {
++        String accept = request.getHeader("Accept");
++		if (!scimUserFromDb.getPrimaryEmail().equals(scimUserFromRequest.getPrimaryEmail())) {
+return false;
+}
+
+Number of failed tests: 5
+Fitness: 5.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
++++ b/server/src/main/java/org/cloudfoundry/identity/uaa/security/ScimUserSelfUpdateAllowed.java
+@@ -34,10 +34,6 @@ public class ScimUserSelfUpdateAllowed {
+return true;
+}
+
+-        if (!scimUserFromDb.getPrimaryEmail().equals(scimUserFromRequest.getPrimaryEmail())) {
+-            return false;
+-        }
+-
+if (!scimUserFromDb.getUserName().equals(scimUserFromRequest.getUserName())) {
+return false;
+}
+Number of failed tests: 4
+Fitness: 4.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
++++ b/server/src/main/java/org/cloudfoundry/identity/uaa/security/ScimUserSelfUpdateAllowed.java
+@@ -34,10 +34,6 @@ public class ScimUserSelfUpdateAllowed {
+return true;
+}
+
+-        if (!scimUserFromDb.getPrimaryEmail().equals(scimUserFromRequest.getPrimaryEmail())) {
+-            return false;
+-        }
+-
+if (!scimUserFromDb.getUserName().equals(scimUserFromRequest.getUserName())) {
+return false;
+}
+Number of failed tests: 6
+Fitness: 6.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
++++ b/server/src/main/java/org/cloudfoundry/identity/uaa/security/ScimUserSelfUpdateAllowed.java
+@@ -34,10 +34,6 @@ public class ScimUserSelfUpdateAllowed {
+return true;
+}
+
+-        if (!scimUserFromDb.getPrimaryEmail().equals(scimUserFromRequest.getPrimaryEmail())) {
+-            return false;
+-        }
+-
+if (!scimUserFromDb.getUserName().equals(scimUserFromRequest.getUserName())) {
+return false;
+}
+Number of failed tests: 4
+Fitness: 4.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
++++ b/server/src/main/java/org/cloudfoundry/identity/uaa/security/ScimUserSelfUpdateAllowed.java
+@@ -34,10 +34,6 @@ public class ScimUserSelfUpdateAllowed {
+return true;
+}
+
+-        if (!scimUserFromDb.getPrimaryEmail().equals(scimUserFromRequest.getPrimaryEmail())) {
+-            return false;
+-        }
+-
+if (!scimUserFromDb.getUserName().equals(scimUserFromRequest.getUserName())) {
+return false;
+}
+Number of failed tests: 6
+Fitness: 6.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
++++ b/server/src/main/java/org/cloudfoundry/identity/uaa/security/ScimUserSelfUpdateAllowed.java
+@@ -34,7 +34,8 @@ public class ScimUserSelfUpdateAllowed {
+return true;
+}
+
+-        if (!scimUserFromDb.getPrimaryEmail().equals(scimUserFromRequest.getPrimaryEmail())) {
++        String pathInfo = UaaUrlUtils.getRequestPath(request);
++		if (!scimUserFromDb.getPrimaryEmail().equals(scimUserFromRequest.getPrimaryEmail())) {
+return false;
+}
+
+Number of failed tests: 3
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
++++ b/server/src/main/java/org/cloudfoundry/identity/uaa/security/ScimUserSelfUpdateAllowed.java
+@@ -34,10 +34,6 @@ public class ScimUserSelfUpdateAllowed {
+return true;
+}
+
+-        if (!scimUserFromDb.getPrimaryEmail().equals(scimUserFromRequest.getPrimaryEmail())) {
+-            return false;
+-        }
+-
+if (!scimUserFromDb.getUserName().equals(scimUserFromRequest.getUserName())) {
+return false;
+}
+Number of failed tests: 6
+Fitness: 6.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
++++ b/server/src/main/java/org/cloudfoundry/identity/uaa/security/ScimUserSelfUpdateAllowed.java
+@@ -34,7 +34,8 @@ public class ScimUserSelfUpdateAllowed {
+return true;
+}
+
+-        if (!scimUserFromDb.getPrimaryEmail().equals(scimUserFromRequest.getPrimaryEmail())) {
++        boolean json = false;
++		if (!scimUserFromDb.getPrimaryEmail().equals(scimUserFromRequest.getPrimaryEmail())) {
+return false;
+}
+
+Number of failed tests: 3
+Fitness: 3.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
++++ b/server/src/main/java/org/cloudfoundry/identity/uaa/security/ScimUserSelfUpdateAllowed.java
+@@ -29,7 +29,8 @@ public class ScimUserSelfUpdateAllowed {
+ScimUser scimUserFromDb;
+
+try {
+-            scimUserFromDb = scimUserProvisioning.retrieve(id, zoneId);
++            boolean result = false;
++			scimUserFromDb = scimUserProvisioning.retrieve(id, zoneId);
+} catch (ScimResourceNotFoundException e) {
+return true;
+}
+Number of failed tests: 5
+Fitness: 5.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
++++ b/server/src/main/java/org/cloudfoundry/identity/uaa/security/ScimUserSelfUpdateAllowed.java
+@@ -34,10 +34,6 @@ public class ScimUserSelfUpdateAllowed {
+return true;
+}
+
+-        if (!scimUserFromDb.getPrimaryEmail().equals(scimUserFromRequest.getPrimaryEmail())) {
+-            return false;
+-        }
+-
+if (!scimUserFromDb.getUserName().equals(scimUserFromRequest.getUserName())) {
+return false;
+}
+Number of failed tests: 4
+Fitness: 4.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
++++ b/server/src/main/java/org/cloudfoundry/identity/uaa/security/ScimUserSelfUpdateAllowed.java
+@@ -34,10 +34,6 @@ public class ScimUserSelfUpdateAllowed {
+return true;
+}
+
+-        if (!scimUserFromDb.getPrimaryEmail().equals(scimUserFromRequest.getPrimaryEmail())) {
+-            return false;
+-        }
+-
+if (!scimUserFromDb.getUserName().equals(scimUserFromRequest.getUserName())) {
+return false;
+}
+Number of failed tests: 6
+Fitness: 6.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
++++ b/server/src/main/java/org/cloudfoundry/identity/uaa/security/ScimUserSelfUpdateAllowed.java
+@@ -34,9 +34,7 @@ public class ScimUserSelfUpdateAllowed {
+return true;
+}
+
+-        if (!scimUserFromDb.getPrimaryEmail().equals(scimUserFromRequest.getPrimaryEmail())) {
+-            return false;
+-        }
++        String pathInfo = UaaUrlUtils.getRequestPath(request);
+
+if (!scimUserFromDb.getUserName().equals(scimUserFromRequest.getUserName())) {
+return false;
+Number of failed tests: 4
+Fitness: 4.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
++++ b/server/src/main/java/org/cloudfoundry/identity/uaa/security/ScimUserSelfUpdateAllowed.java
+@@ -34,10 +34,6 @@ public class ScimUserSelfUpdateAllowed {
+return true;
+}
+
+-        if (!scimUserFromDb.getPrimaryEmail().equals(scimUserFromRequest.getPrimaryEmail())) {
+-            return false;
+-        }
+-
+if (!scimUserFromDb.getUserName().equals(scimUserFromRequest.getUserName())) {
+return false;
+}
+Number of failed tests: 6
+Fitness: 6.0
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+Compilation fails!
+One fitness evaluation is finished...
+One fitness evaluation starts...
+----------------------------------
+Patch Candidate:
++++ b/server/src/main/java/org/cloudfoundry/identity/uaa/security/ScimUserSelfUpdateAllowed.java
+@@ -29,7 +29,8 @@ public class ScimUserSelfUpdateAllowed {
+ScimUser scimUserFromDb;
+
+try {
+-            scimUserFromDb = scimUserProvisioning.retrieve(id, zoneId);
++            String accept = request.getHeader("Accept");
++			scimUserFromDb = scimUserProvisioning.retrieve(id, zoneId);
+} catch (ScimResourceNotFoundException e) {
+return true;
+}
+
+
+Node: 2c8178711f7b
+
+
+
+Date: Mon Nov 28 09:38:25 EST 2022
+

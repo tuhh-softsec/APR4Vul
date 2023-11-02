@@ -1,0 +1,30 @@
+{
+  "repair_end": "2022-10-11 09:27:52.859635", 
+  "repair_begin": "2022-10-11 05:12:55.780895", 
+  "patches": [
+    {
+      "edits": [
+        {
+          "path": "src/main/java/org/apache/commons/compress/archivers/zip/X0017_StrongEncryptionHeader.java", 
+          "line": 313, 
+          "faulty": "for (int i=0; i < this.rcount; i++) {\n  for (int j=0; j < this.hashSize; j++) {\n  }\n}", 
+          "type": "Replace", 
+          "seed": "final byte[] tmp=new byte[length];"
+        }
+      ], 
+      "patch": "--- /workdir/RSRepair_vul4j_apache_commons-compress_VUL4J-6/src/main/java/org/apache/commons/compress/archivers/zip/X0017_StrongEncryptionHeader.java\t2022-10-11 02:37:30.664156788 -0400\n+++ /workdir/RSRepair_vul4j_apache_commons-compress_VUL4J-6/patches_jrj6/Patch_1/patched/org/apache/commons/compress/archivers/zip/X0017_StrongEncryptionHeader.java\t2022-10-11 02:37:30.676156850 -0400\n@@ -309,12 +309,7 @@\n         if (rcount > 0) {\n             this.hashAlg = HashAlgorithm.getAlgorithmByCode(ZipShort.getValue(data, offset + 12));\n             this.hashSize = ZipShort.getValue(data, offset + 14);\n-            // srlist... hashed public keys\n-            for (int i = 0; i < this.rcount; i++) {\n-                for (int j = 0; j < this.hashSize; j++) {\n-                    //  ZipUtil.signedByteToUnsignedInt(data[offset + 16 + (i * this.hashSize) + j]));\n-                }\n-            }\n+            final byte[] tmp = new byte[length];\n         }\n     }\n \n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "src/main/java/org/apache/commons/compress/archivers/zip/X0017_StrongEncryptionHeader.java", 
+          "line": 313, 
+          "faulty": "for (int i=0; i < this.rcount; i++) {\n  for (int j=0; j < this.hashSize; j++) {\n  }\n}", 
+          "type": "Delete", 
+          "seed": "int pos=4;"
+        }
+      ], 
+      "patch": "--- /workdir/RSRepair_vul4j_apache_commons-compress_VUL4J-6/src/main/java/org/apache/commons/compress/archivers/zip/X0017_StrongEncryptionHeader.java\t2022-10-11 01:55:15.042863472 -0400\n+++ /workdir/RSRepair_vul4j_apache_commons-compress_VUL4J-6/patches_jrj6/Patch_0/patched/org/apache/commons/compress/archivers/zip/X0017_StrongEncryptionHeader.java\t2022-10-11 01:55:15.062863578 -0400\n@@ -309,12 +309,6 @@\n         if (rcount > 0) {\n             this.hashAlg = HashAlgorithm.getAlgorithmByCode(ZipShort.getValue(data, offset + 12));\n             this.hashSize = ZipShort.getValue(data, offset + 14);\n-            // srlist... hashed public keys\n-            for (int i = 0; i < this.rcount; i++) {\n-                for (int j = 0; j < this.hashSize; j++) {\n-                    //  ZipUtil.signedByteToUnsignedInt(data[offset + 16 + (i * this.hashSize) + j]));\n-                }\n-            }\n         }\n     }\n \n\n\n"
+    }
+  ]
+}

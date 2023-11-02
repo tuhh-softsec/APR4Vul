@@ -1,0 +1,470 @@
+cd /workdir/TBar_vul4j_jenkinsci_pipeline-build-step-plugin_VUL4J-57;
+export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en";
+TZ="America/New_York"; export TZ;
+export PATH="/usr/lib/jvm/java-8-openjdk-amd64/bin:$PATH";
+export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64";
+timeout 240m java -Xmx4g -Xms1g -XX:MaxPermSize=512m \
+    -cp /script/../libs/tbar_external/com.gzoltar-0.1.1-jdk7.jar:/script/../repair_tools/tbar.jar edu.lu.uni.serval.tbar.main.Main \
+    "/workdir/TBar_vul4j_jenkinsci_pipeline-build-step-plugin_VUL4J-57" "org.jenkinsci.plugins.workflow.support.steps.build.BuildTriggerStepTest#permissions" "/src/main/java/" "/src/test/java/" "/target/classes/" "/target/test-classes/" "/script/../data/benchmarks/vul4j/perfectfl/VUL4J-57/spectra.txt" "mvn test -Dtest=org.jenkinsci.plugins.workflow.support.steps.build.BuildTriggerStepTest#permissions -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B" "mvn test -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B" "/root/.m2/repository/org/apache/maven/maven-artifact/3.1.0/maven-artifact-3.1.0.jar:/root/.m2/repository/org/jvnet/localizer/localizer/1.23/localizer-1.23.jar:/root/.m2/repository/org/codehaus/plexus/plexus-utils/2.1/plexus-utils-2.1.jar:/root/.m2/repository/org/slf4j/slf4j-jdk14/1.7.7/slf4j-jdk14-1.7.7.jar:/root/.m2/repository/org/kohsuke/stapler/stapler-jelly/1.237/stapler-jelly-1.237.jar:/root/.m2/repository/org/jenkins-ci/main/jenkins-test-harness/2.14/jenkins-test-harness-2.14.jar:/root/.m2/repository/org/ow2/asm/asm-tree/4.0/asm-tree-4.0.jar:/root/.m2/repository/org/eclipse/aether/aether-connector-wagon/0.9.0.M2/aether-connector-wagon-0.9.0.M2.jar:/root/.m2/repository/xerces/xercesImpl/2.11.0/xercesImpl-2.11.0.jar:/root/.m2/repository/commons-httpclient/commons-httpclient/3.1/commons-httpclient-3.1.jar:/root/.m2/repository/jfree/jfreechart/1.0.9/jfreechart-1.0.9.jar:/root/.m2/repository/org/apache/maven/maven-settings-builder/3.1.0/maven-settings-builder-3.1.0.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.7/slf4j-api-1.7.7.jar:/root/.m2/repository/org/jenkins-ci/ui/ace-editor/1.0.1/ace-editor-1.0.1.jar:/root/.m2/repository/org/ow2/asm/asm-commons/4.0/asm-commons-4.0.jar:/root/.m2/repository/xml-apis/xml-apis/1.4.01/xml-apis-1.4.01.jar:/root/.m2/repository/org/eclipse/jetty/jetty-security/9.2.15.v20160210/jetty-security-9.2.15.v20160210.jar:/root/.m2/repository/org/jenkins-ci/modules/windows-slave-installer/1.5.1/windows-slave-installer-1.5.1.jar:/root/.m2/repository/org/antlr/antlr4-runtime/4.5/antlr4-runtime-4.5.jar:/root/.m2/repository/javax/mail/mail/1.4.4/mail-1.4.4.jar:/root/.m2/repository/org/codehaus/plexus/plexus-component-annotations/1.5.5/plexus-component-annotations-1.5.5.jar:/root/.m2/repository/org/eclipse/aether/aether-util/0.9.0.M2/aether-util-0.9.0.M2.jar:/root/.m2/repository/javax/annotation/javax.annotation-api/1.2/javax.annotation-api-1.2.jar:/root/.m2/repository/org/eclipse/sisu/org.eclipse.sisu.inject/0.1.0/org.eclipse.sisu.inject-0.1.0.jar:/root/.m2/repository/org/jenkins-ci/dom4j/dom4j/1.6.1-jenkins-4/dom4j-1.6.1-jenkins-4.jar:/root/.m2/repository/org/jenkins-ci/symbol-annotation/1.5/symbol-annotation-1.5.jar:/root/.m2/repository/org/apache/commons/commons-compress/1.10/commons-compress-1.10.jar:/root/.m2/repository/commons-io/commons-io/2.4/commons-io-2.4.jar:/root/.m2/repository/org/jenkins-ci/plugins/cloudbees-folder/5.18/cloudbees-folder-5.18.jar:/root/.m2/repository/org/jvnet/tiger-types/1.3/tiger-types-1.3.jar:/root/.m2/repository/org/jenkins-ci/main/remoting/2.53.3/remoting-2.53.3.jar:/root/.m2/repository/org/jenkins-ci/plugins/scm-api/2.0.7/scm-api-2.0.7-tests.jar:/root/.m2/repository/org/springframework/spring-web/2.5.6.SEC03/spring-web-2.5.6.SEC03.jar:/root/.m2/repository/org/jenkins-ci/main/jenkins-core/1.642.3/jenkins-core-1.642.3.jar:/root/.m2/repository/org/jenkins-ci/modules/upstart-slave-installer/1.1/upstart-slave-installer-1.1.jar:/root/.m2/repository/javax/xml/stream/stax-api/1.0-2/stax-api-1.0-2.jar:/root/.m2/repository/org/jboss/marshalling/jboss-marshalling/1.4.9.Final/jboss-marshalling-1.4.9.Final.jar:/root/.m2/repository/org/jenkins-ci/modules/ssh-cli-auth/1.2/ssh-cli-auth-1.2.jar:/root/.m2/repository/org/kohsuke/stapler/stapler-adjunct-codemirror/1.3/stapler-adjunct-codemirror-1.3.jar:/root/.m2/repository/org/jenkins-ci/constant-pool-scanner/1.2/constant-pool-scanner-1.2.jar:/root/.m2/repository/commons-discovery/commons-discovery/0.4/commons-discovery-0.4.jar:/root/.m2/repository/oro/oro/2.0.8/oro-2.0.8.jar:/root/.m2/repository/org/apache/sshd/sshd-core/0.8.0/sshd-core-0.8.0.jar:/root/.m2/repository/org/eclipse/jetty/jetty-http/9.2.15.v20160210/jetty-http-9.2.15.v20160210.jar:/root/.m2/repository/org/apache/ant/ant/1.8.4/ant-1.8.4.jar:/root/.m2/repository/org/jenkins-ci/modules/sshd/1.6/sshd-1.6.jar:/root/.m2/repository/org/slf4j/jcl-over-slf4j/1.7.7/jcl-over-slf4j-1.7.7.jar:/root/.m2/repository/org/jvnet/hudson/xstream/1.4.7-jenkins-1/xstream-1.4.7-jenkins-1.jar:/root/.m2/repository/org/jenkins-ci/main/jenkins-test-harness-htmlunit/2.18-1/jenkins-test-harness-htmlunit-2.18-1.jar:/root/.m2/repository/org/jenkins-ci/plugins/workflow/workflow-step-api/2.3/workflow-step-api-2.3-tests.jar:/root/.m2/repository/org/samba/jcifs/jcifs/1.2.19/jcifs-1.2.19.jar:/root/.m2/repository/xalan/xalan/2.7.2/xalan-2.7.2.jar:/root/.m2/repository/org/apache/maven/maven-settings/3.1.0/maven-settings-3.1.0.jar:/root/.m2/repository/org/jenkins-ci/modules/systemd-slave-installer/1.1/systemd-slave-installer-1.1.jar:/root/.m2/repository/org/apache/maven/wagon/wagon-provider-api/2.4/wagon-provider-api-2.4.jar:/root/.m2/repository/org/abego/treelayout/org.abego.treelayout.core/1.0.1/org.abego.treelayout.core-1.0.1.jar:/root/.m2/repository/net/sf/ezmorph/ezmorph/1.0.6/ezmorph-1.0.6.jar:/root/.m2/repository/javax/enterprise/cdi-api/1.0/cdi-api-1.0.jar:/root/.m2/repository/org/eclipse/aether/aether-spi/0.9.0.M2/aether-spi-0.9.0.M2.jar:/root/.m2/repository/org/apache/mina/mina-core/2.0.5/mina-core-2.0.5.jar:/root/.m2/repository/org/jboss/marshalling/jboss-marshalling-river/1.4.9.Final/jboss-marshalling-river-1.4.9.Final.jar:/root/.m2/repository/org/sonatype/plexus/plexus-sec-dispatcher/1.3/plexus-sec-dispatcher-1.3.jar:/root/.m2/repository/org/jenkins-ci/crypto-util/1.1/crypto-util-1.1.jar:/root/.m2/repository/org/kohsuke/jinterop/j-interop/2.0.6-kohsuke-1/j-interop-2.0.6-kohsuke-1.jar:/root/.m2/repository/org/jenkins-ci/plugins/workflow/workflow-scm-step/2.2/workflow-scm-step-2.2.jar:/root/.m2/repository/org/kohsuke/stapler/json-lib/2.4-jenkins-2/json-lib-2.4-jenkins-2.jar:/root/.m2/repository/xpp3/xpp3/1.1.4c/xpp3-1.1.4c.jar:/root/.m2/repository/org/jenkins-ci/ui/jquery-detached/1.2.1/jquery-detached-1.2.1.jar:/root/.m2/repository/org/apache/commons/commons-lang3/3.4/commons-lang3-3.4.jar:/root/.m2/repository/org/springframework/spring-jdbc/1.2.9/spring-jdbc-1.2.9.jar:/root/.m2/repository/org/jenkins-ci/main/jenkins-war/1.642.3/jenkins-war-1.642.3-war-for-test.jar:/root/.m2/repository/org/jenkins-ci/plugins/branch-api/2.0.7/branch-api-2.0.7.jar:/root/.m2/repository/org/apache/maven/maven-model/3.1.0/maven-model-3.1.0.jar:/root/.m2/repository/org/springframework/spring-context-support/2.5.6.SEC03/spring-context-support-2.5.6.SEC03.jar:/root/.m2/repository/com/github/jnr/jffi/1.2.7/jffi-1.2.7.jar:/root/.m2/repository/commons-codec/commons-codec/1.8/commons-codec-1.8.jar:/root/.m2/repository/org/eclipse/jetty/jetty-server/9.2.15.v20160210/jetty-server-9.2.15.v20160210.jar:/root/.m2/repository/org/sonatype/plexus/plexus-cipher/1.7/plexus-cipher-1.7.jar:/root/.m2/repository/org/jenkins-ci/plugins/icon-shim/icon-set/1.0.5/icon-set-1.0.5.jar:/root/.m2/repository/org/jenkins-ci/trilead-ssh2/build217-jenkins-8/trilead-ssh2-build217-jenkins-8.jar:/root/.m2/repository/org/jenkins-ci/plugins/workflow/workflow-cps/2.17/workflow-cps-2.17.jar:/root/.m2/repository/org/jenkins-ci/version-number/1.1/version-number-1.1.jar:/root/.m2/repository/javax/annotation/jsr250-api/1.0/jsr250-api-1.0.jar:/root/.m2/repository/javax/inject/javax.inject/1/javax.inject-1.jar:/root/.m2/repository/javax/servlet/jstl/1.1.0/jstl-1.1.0.jar:/root/.m2/repository/org/kohsuke/trilead-putty-extension/1.2/trilead-putty-extension-1.2.jar:/root/.m2/repository/jaxen/jaxen/1.1-beta-11/jaxen-1.1-beta-11.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/jenkins-ci/plugins/workflow/workflow-support/2.6/workflow-support-2.6.jar:/root/.m2/repository/org/kohsuke/stapler/stapler-adjunct-zeroclipboard/1.3.5-1/stapler-adjunct-zeroclipboard-1.3.5-1.jar:/root/.m2/repository/jfree/jcommon/1.0.12/jcommon-1.0.12.jar:/root/.m2/repository/org/apache/maven/maven-core/3.1.0/maven-core-3.1.0.jar:/root/.m2/repository/org/springframework/spring-webmvc/2.5.6.SEC03/spring-webmvc-2.5.6.SEC03.jar:/root/.m2/repository/org/codehaus/mojo/animal-sniffer-annotations/1.14/animal-sniffer-annotations-1.14.jar:/root/.m2/repository/org/jenkins-ci/modules/launchd-slave-installer/1.2/launchd-slave-installer-1.2.jar:/root/.m2/repository/com/github/jnr/jnr-posix/3.0.1/jnr-posix-3.0.1.jar:/root/.m2/repository/commons-jelly/commons-jelly-tags-xml/1.1/commons-jelly-tags-xml-1.1.jar:/root/.m2/repository/org/eclipse/jetty/jetty-servlet/9.2.15.v20160210/jetty-servlet-9.2.15.v20160210.jar:/root/.m2/repository/org/eclipse/jetty/jetty-webapp/9.2.15.v20160210/jetty-webapp-9.2.15.v20160210.jar:/root/.m2/repository/com/cloudbees/groovy-cps/1.10/groovy-cps-1.10.jar:/root/.m2/repository/org/apache/ant/ant-launcher/1.8.4/ant-launcher-1.8.4.jar:/root/.m2/repository/com/sun/solaris/embedded_su4j/1.1/embedded_su4j-1.1.jar:/root/.m2/repository/org/kohsuke/windows-package-checker/1.0/windows-package-checker-1.0.jar:/root/.m2/repository/org/ow2/asm/asm-util/4.0/asm-util-4.0.jar:/root/.m2/repository/org/jenkins-ci/plugins/script-security/1.21/script-security-1.21.jar:/root/.m2/repository/org/springframework/spring-dao/1.2.9/spring-dao-1.2.9.jar:/root/.m2/repository/org/mindrot/jbcrypt/0.3m/jbcrypt-0.3m.jar:/root/.m2/repository/org/jenkins-ci/plugins/scm-api/2.0.7/scm-api-2.0.7.jar:/root/.m2/repository/org/kohsuke/libpam4j/1.8/libpam4j-1.8.jar:/root/.m2/repository/org/eclipse/jetty/jetty-xml/9.2.15.v20160210/jetty-xml-9.2.15.v20160210.jar:/root/.m2/repository/org/codehaus/plexus/plexus-classworlds/2.4/plexus-classworlds-2.4.jar:/root/.m2/repository/org/jenkins-ci/plugins/workflow/workflow-support/2.6/workflow-support-2.6-tests.jar:/root/.m2/repository/org/eclipse/aether/aether-impl/0.9.0.M2/aether-impl-0.9.0.M2.jar:/root/.m2/repository/com/github/stephenc/findbugs/findbugs-annotations/1.3.9-1/findbugs-annotations-1.3.9-1.jar:/root/.m2/repository/org/ow2/asm/asm-analysis/4.0/asm-analysis-4.0.jar:/root/.m2/repository/jline/jline/0.9.94/jline-0.9.94.jar:/root/.m2/repository/org/jenkins-ci/plugins/credentials/2.1.11/credentials-2.1.11.jar:/root/.m2/repository/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0.jar:/root/.m2/repository/antlr/antlr/2.7.6/antlr-2.7.6.jar:/root/.m2/repository/org/jenkins-ci/jmdns/3.4.0-jenkins-3/jmdns-3.4.0-jenkins-3.jar:/root/.m2/repository/org/eclipse/jetty/websocket/websocket-client/9.2.12.v20150709/websocket-client-9.2.12.v20150709.jar:/root/.m2/repository/com/google/inject/guice/4.0-beta/guice-4.0-beta.jar:/root/.m2/repository/com/sun/xml/txw2/txw2/20110809/txw2-20110809.jar:/root/.m2/repository/net/java/dev/jna/jna/4.2.1/jna-4.2.1.jar:/root/.m2/repository/org/kohsuke/jinterop/j-interopdeps/2.0.6-kohsuke-1/j-interopdeps-2.0.6-kohsuke-1.jar:/root/.m2/repository/org/jenkins-ci/modules/slave-installer/1.5/slave-installer-1.5.jar:/root/.m2/repository/org/codehaus/groovy/groovy-all/1.8.9/groovy-all-1.8.9.jar:/root/.m2/repository/xalan/serializer/2.7.2/serializer-2.7.2.jar:/root/.m2/repository/org/kohsuke/access-modifier-annotation/1.4/access-modifier-annotation-1.4.jar:/root/.m2/repository/org/jvnet/libzfs/libzfs/0.5/libzfs-0.5.jar:/root/.m2/repository/org/ow2/asm/asm/4.0/asm-4.0.jar:/root/.m2/repository/org/jenkins-ci/plugins/mailer/1.13/mailer-1.13.jar:/root/.m2/repository/org/eclipse/jetty/jetty-io/9.2.12.v20150709/jetty-io-9.2.12.v20150709.jar:/root/.m2/repository/org/eclipse/jetty/jetty-util/9.2.12.v20150709/jetty-util-9.2.12.v20150709.jar:/root/.m2/repository/org/jenkins-ci/modules/instance-identity/1.4/instance-identity-1.4.jar:/root/.m2/repository/org/eclipse/jetty/websocket/websocket-api/9.2.12.v20150709/websocket-api-9.2.12.v20150709.jar:/root/.m2/repository/com/jcraft/jzlib/1.1.3-kohsuke-1/jzlib-1.1.3-kohsuke-1.jar:/root/.m2/repository/org/jenkins-ci/commons-jexl/1.1-jenkins-20111212/commons-jexl-1.1-jenkins-20111212.jar:/root/.m2/repository/com/github/jnr/jnr-constants/0.8.5/jnr-constants-0.8.5.jar:/root/.m2/repository/org/jenkins-ci/plugins/structs/1.5/structs-1.5.jar:/root/.m2/repository/org/codehaus/woodstox/wstx-asl/3.2.9/wstx-asl-3.2.9.jar:/root/.m2/repository/org/jenkins-ci/plugins/workflow/workflow-basic-steps/2.1/workflow-basic-steps-2.1.jar:/root/.m2/repository/org/eclipse/sisu/org.eclipse.sisu.plexus/0.1.0/org.eclipse.sisu.plexus-0.1.0.jar:/root/.m2/repository/relaxngDatatype/relaxngDatatype/20020414/relaxngDatatype-20020414.jar:/root/.m2/repository/com/cloudbees/diff4j/1.2/diff4j-1.2.jar:/root/.m2/repository/org/apache/maven/maven-model-builder/3.1.0/maven-model-builder-3.1.0.jar:/root/.m2/repository/org/kohsuke/stapler/stapler-groovy/1.237/stapler-groovy-1.237.jar:/root/.m2/repository/org/apache/maven/maven-plugin-api/3.1.0/maven-plugin-api-3.1.0.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/1.3.9/jsr305-1.3.9.jar:/root/.m2/repository/args4j/args4j/2.0.31/args4j-2.0.31.jar:/root/.m2/repository/org/eclipse/jetty/websocket/websocket-common/9.2.12.v20150709/websocket-common-9.2.12.v20150709.jar:/root/.m2/repository/org/jenkins-ci/plugins/workflow/workflow-api/2.3/workflow-api-2.3.jar:/root/.m2/repository/org/hamcrest/hamcrest-library/1.3/hamcrest-library-1.3.jar:/root/.m2/repository/org/kohsuke/stapler/stapler-adjunct-timeline/1.4/stapler-adjunct-timeline-1.4.jar:/root/.m2/repository/org/slf4j/log4j-over-slf4j/1.7.7/log4j-over-slf4j-1.7.7.jar:/root/.m2/repository/net/sourceforge/nekohtml/nekohtml/1.9.22/nekohtml-1.9.22.jar:/root/.m2/repository/com/github/jnr/jnr-x86asm/1.0.2/jnr-x86asm-1.0.2.jar:/root/.m2/repository/org/jenkins-ci/lib/lib-jenkins-maven-embedder/3.11/lib-jenkins-maven-embedder-3.11.jar:/root/.m2/repository/org/jenkins-ci/plugins/workflow/workflow-step-api/2.3/workflow-step-api-2.3.jar:/root/.m2/repository/org/bouncycastle/bcprov-jdk15on/1.47/bcprov-jdk15on-1.47.jar:/root/.m2/repository/org/jvnet/hudson/jtidy/4aug2000r7-dev-hudson-1/jtidy-4aug2000r7-dev-hudson-1.jar:/root/.m2/repository/org/jruby/ext/posix/jna-posix/1.0.3-jenkins-1/jna-posix-1.0.3-jenkins-1.jar:/root/.m2/repository/net/sourceforge/cssparser/cssparser/0.9.16/cssparser-0.9.16.jar:/root/.m2/repository/commons-cli/commons-cli/1.2/commons-cli-1.2.jar:/root/.m2/repository/org/jvnet/hudson/embedded-rhino-debugger/1.2/embedded-rhino-debugger-1.2.jar:/root/.m2/repository/org/fusesource/jansi/jansi/1.9/jansi-1.9.jar:/root/.m2/repository/org/apache/maven/maven-aether-provider/3.1.0/maven-aether-provider-3.1.0.jar:/root/.m2/repository/net/java/sezpoz/sezpoz/1.9/sezpoz-1.9.jar:/root/.m2/repository/javax/servlet/servlet-api/2.4/servlet-api-2.4.jar:/root/.m2/repository/org/jenkins-ci/bytecode-compatibility-transformer/1.8/bytecode-compatibility-transformer-1.8.jar:/root/.m2/repository/stax/stax-api/1.0.1/stax-api-1.0.1.jar:/root/.m2/repository/org/apache/maven/maven-compat/3.1.0/maven-compat-3.1.0.jar:/root/.m2/repository/org/kohsuke/stapler/stapler-jrebel/1.237/stapler-jrebel-1.237.jar:/root/.m2/repository/org/kohsuke/groovy-sandbox/1.10/groovy-sandbox-1.10.jar:/root/.m2/repository/commons-beanutils/commons-beanutils/1.8.3/commons-beanutils-1.8.3.jar:/root/.m2/repository/org/jvnet/hudson/commons-jelly-tags-define/1.0.1-hudson-20071021/commons-jelly-tags-define-1.0.1-hudson-20071021.jar:/root/.m2/repository/org/springframework/spring-core/2.5.6.SEC03/spring-core-2.5.6.SEC03.jar:/root/.m2/repository/org/apache/maven/maven-embedder/3.1.0/maven-embedder-3.1.0.jar:/root/.m2/repository/org/kohsuke/akuma/1.10/akuma-1.10.jar:/root/.m2/repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar:/root/.m2/repository/org/jenkins-ci/main/cli/1.642.3/cli-1.642.3.jar:/root/.m2/repository/org/netbeans/modules/org-netbeans-insane/RELEASE72/org-netbeans-insane-RELEASE72.jar:/root/.m2/repository/commons-collections/commons-collections/3.2.1/commons-collections-3.2.1.jar:/root/.m2/repository/commons-fileupload/commons-fileupload/1.3.1-jenkins-1/commons-fileupload-1.3.1-jenkins-1.jar:/root/.m2/repository/com/infradna/tool/bridge-method-annotation/1.13/bridge-method-annotation-1.13.jar:/root/.m2/repository/net/jcip/jcip-annotations/1.0/jcip-annotations-1.0.jar:/root/.m2/repository/org/springframework/spring-beans/2.5.6.SEC03/spring-beans-2.5.6.SEC03.jar:/root/.m2/repository/org/bouncycastle/bcpkix-jdk15on/1.47/bcpkix-jdk15on-1.47.jar:/root/.m2/repository/commons-digester/commons-digester/2.1/commons-digester-2.1.jar:/root/.m2/repository/commons-logging/commons-logging/1.1.3/commons-logging-1.1.3.jar:/root/.m2/repository/org/springframework/spring-aop/2.5.6.SEC03/spring-aop-2.5.6.SEC03.jar:/root/.m2/repository/org/jenkins-ci/memory-monitor/1.9/memory-monitor-1.9.jar:/root/.m2/repository/com/github/jnr/jnr-ffi/1.0.7/jnr-ffi-1.0.7.jar:/root/.m2/repository/commons-jelly/commons-jelly-tags-fmt/1.0/commons-jelly-tags-fmt-1.0.jar:/root/.m2/repository/com/google/code/findbugs/annotations/3.0.0/annotations-3.0.0.jar:/root/.m2/repository/com/github/jnr/jffi/1.2.7/jffi-1.2.7-native.jar:/root/.m2/repository/org/jenkins-ci/test-annotations/1.2/test-annotations-1.2.jar:/root/.m2/repository/org/w3c/css/sac/1.3/sac-1.3.jar:/root/.m2/repository/org/jvnet/winp/winp/1.22/winp-1.22.jar:/root/.m2/repository/org/eclipse/aether/aether-api/0.9.0.M2/aether-api-0.9.0.M2.jar:/root/.m2/repository/org/jenkins-ci/commons-jelly/1.1-jenkins-20120928/commons-jelly-1.1-jenkins-20120928.jar:/root/.m2/repository/org/jvnet/hudson/activation/1.1.1-hudson-1/activation-1.1.1-hudson-1.jar:/root/.m2/repository/org/jenkins-ci/annotation-indexer/1.7/annotation-indexer-1.7.jar:/root/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar:/root/.m2/repository/org/codehaus/plexus/plexus-interpolation/1.16/plexus-interpolation-1.16.jar:/root/.m2/repository/commons-lang/commons-lang/2.6/commons-lang-2.6.jar:/root/.m2/repository/org/jenkins-ci/task-reactor/1.4/task-reactor-1.4.jar:/root/.m2/repository/org/apache/maven/maven-repository-metadata/3.1.0/maven-repository-metadata-3.1.0.jar:/root/.m2/repository/org/kohsuke/stapler/stapler/1.237/stapler-1.237.jar:/root/.m2/repository/org/jvnet/robust-http-client/robust-http-client/1.2/robust-http-client-1.2.jar:/root/.m2/repository/org/jenkins-ci/plugins/workflow/workflow-job/2.6/workflow-job-2.6.jar:/root/.m2/repository/junit/junit/4.12/junit-4.12.jar:/root/.m2/repository/org/acegisecurity/acegi-security/1.0.7/acegi-security-1.0.7.jar:/root/.m2/repository/org/kohsuke/asm5/5.0.1/asm5-5.0.1.jar:/root/.m2/repository/com/google/guava/guava/11.0.1/guava-11.0.1.jar:/root/.m2/repository/org/springframework/spring-context/2.5.6.SEC03/spring-context-2.5.6.SEC03.jar";
+echo "\n\nNode: `hostname`\n";
+echo "\n\nDate: `date`\n";
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en
+OpenJDK 64-Bit Server VM warning: ignoring option MaxPermSize=512m; support was removed in 8.0
+16:19:53,365 |-INFO in ch.qos.logback.classic.LoggerContext[TBar] - Could NOT find resource [logback-test.xml]
+16:19:53,365 |-INFO in ch.qos.logback.classic.LoggerContext[TBar] - Could NOT find resource [logback.groovy]
+16:19:53,365 |-INFO in ch.qos.logback.classic.LoggerContext[TBar] - Found resource [logback.xml] at [jar:file:/repair_tools/tbar.jar!/logback.xml]
+16:19:53,375 |-INFO in ch.qos.logback.core.joran.spi.ConfigurationWatchList@5a42bbf4 - URL [jar:file:/repair_tools/tbar.jar!/logback.xml] is not of type file
+16:19:53,409 |-INFO in ch.qos.logback.classic.joran.action.ConfigurationAction - debug attribute not set
+16:19:53,411 |-INFO in ch.qos.logback.classic.joran.action.ContextNameAction - Setting logger context name as [TBar]
+16:19:53,411 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - About to instantiate appender of type [ch.qos.logback.core.ConsoleAppender]
+16:19:53,413 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - Naming appender as [STDOUT]
+16:19:53,457 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting level of logger [org.hibernate.engine.query.HQLQueryPlan] to DEBUG
+16:19:53,457 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting additivity of logger [org.hibernate.engine.query.HQLQueryPlan] to false
+16:19:53,457 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting level of logger [com.piedra.logback] to DEBUG
+16:19:53,457 |-ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - Could not find an appender named [FILE]. Did you define it below instead of above in the configuration file?
+16:19:53,457 |-ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - See http://logback.qos.ch/codes.html#appender_order for more details.
+16:19:53,457 |-INFO in ch.qos.logback.classic.joran.action.RootLoggerAction - Setting level of ROOT logger to DEBUG
+16:19:53,458 |-INFO in ch.qos.logback.core.joran.action.AppenderRefAction - Attaching appender named [STDOUT] to Logger[ROOT]
+16:19:53,458 |-ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - Could not find an appender named [ROLLINGFILE]. Did you define it below instead of above in the configuration file?
+16:19:53,458 |-ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - See http://logback.qos.ch/codes.html#appender_order for more details.
+16:19:53,458 |-INFO in ch.qos.logback.classic.joran.action.ConfigurationAction - End of configuration.
+16:19:53,459 |-INFO in ch.qos.logback.classic.joran.JoranConfigurator@270421f5 - Registering current configuration as safe fallback point
+
+2022-09-14 16:19:53.528 [main] INFO  edu.lu.uni.serval.tbar.AbstractFixer - TBar_vul4j_jenkinsci_pipeline-build-step-plugin_VUL4J-57 Failed Tests: 1
+2022-09-14 16:19:53.533 [main] INFO  edu.lu.uni.serval.tbar.TBarFixer - =======StaticBugFixer: Start to fix suspicious code======
+2022-09-14 16:19:53.533 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.jenkinsci.plugins.workflow.support.steps.build.BuildTriggerStepExecution ===62
+2022-09-14 16:19:53.943 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+Item item = Jenkins.getActiveInstance().getItem(job, invokingRun.getParent(), Item.class);
+2022-09-14 16:19:55.474 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -59,7 +59,7 @@ public class BuildTriggerStepExecution extends AbstractStepExecutionImpl {
+-        Item item = Jenkins.getActiveInstance().getItem(job, invokingRun.getParent(), Item.class);
++        Item item = Jenkins.getActiveInstance().getItem(getStatus(), invokingRun.getParent(), Item.class);
+2022-09-14 16:19:55.474 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 16:19:56.951 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 16:20:22.342 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -59,7 +59,7 @@ public class BuildTriggerStepExecution extends AbstractStepExecutionImpl {
+-        Item item = Jenkins.getActiveInstance().getItem(job, invokingRun.getParent(), Item.class);
++        Item item = Jenkins.getActiveInstance().getItem(job, getStatus().getParent(), Item.class);
+2022-09-14 16:20:22.342 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 16:20:23.636 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 16:20:23.698 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -59,7 +59,8 @@ public class BuildTriggerStepExecution extends AbstractStepExecutionImpl {
+-        Item item = Jenkins.getActiveInstance().getItem(job, invokingRun.getParent(), Item.class);
++        if (job != null) {
++	Item item = Jenkins.getActiveInstance().getItem(job, invokingRun.getParent(), Item.class);
+@@ -139,6 +140,8 @@ public class BuildTriggerStepExecution extends AbstractStepExecutionImpl {
++ " which is not something that can be built");
++	}
++
+2022-09-14 16:20:23.698 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 16:20:25.243 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 16:21:25.120 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -59,7 +59,10 @@ public class BuildTriggerStepExecution extends AbstractStepExecutionImpl {
+-        Item item = Jenkins.getActiveInstance().getItem(job, invokingRun.getParent(), Item.class);
++        if (job == null) {
++	    throw new IllegalArgumentException("Null 'job' argument.");
++	}
++Item item = Jenkins.getActiveInstance().getItem(job, invokingRun.getParent(), Item.class);
+2022-09-14 16:21:25.120 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 16:21:26.414 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 16:22:37.227 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -59,7 +59,10 @@ public class BuildTriggerStepExecution extends AbstractStepExecutionImpl {
+-        Item item = Jenkins.getActiveInstance().getItem(job, invokingRun.getParent(), Item.class);
++        if (job == null) {
++	    return false;
++	}
++Item item = Jenkins.getActiveInstance().getItem(job, invokingRun.getParent(), Item.class);
+2022-09-14 16:22:37.228 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 16:22:38.704 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 16:25:09.272 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -59,7 +59,10 @@ public class BuildTriggerStepExecution extends AbstractStepExecutionImpl {
+-        Item item = Jenkins.getActiveInstance().getItem(job, invokingRun.getParent(), Item.class);
++        if (job == null) {
++	    return true;
++	}
++Item item = Jenkins.getActiveInstance().getItem(job, invokingRun.getParent(), Item.class);
+2022-09-14 16:25:09.272 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 16:25:10.692 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 16:26:13.612 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -59,7 +59,8 @@ public class BuildTriggerStepExecution extends AbstractStepExecutionImpl {
+-        Item item = Jenkins.getActiveInstance().getItem(job, invokingRun.getParent(), Item.class);
++        if (job == null) job = new String();
++ Item item = Jenkins.getActiveInstance().getItem(job, invokingRun.getParent(), Item.class);
+2022-09-14 16:26:13.612 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 16:26:14.909 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 16:27:19.169 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -59,7 +59,8 @@ public class BuildTriggerStepExecution extends AbstractStepExecutionImpl {
+-        Item item = Jenkins.getActiveInstance().getItem(job, invokingRun.getParent(), Item.class);
++        if (invokingRun != null) {
++	Item item = Jenkins.getActiveInstance().getItem(job, invokingRun.getParent(), Item.class);
+@@ -139,6 +140,8 @@ public class BuildTriggerStepExecution extends AbstractStepExecutionImpl {
++ " which is not something that can be built");
++	}
++
+2022-09-14 16:27:19.169 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 16:27:20.631 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 16:29:49.157 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -59,7 +59,10 @@ public class BuildTriggerStepExecution extends AbstractStepExecutionImpl {
+-        Item item = Jenkins.getActiveInstance().getItem(job, invokingRun.getParent(), Item.class);
++        if (invokingRun == null) {
++	    throw new IllegalArgumentException("Null 'invokingRun' argument.");
++	}
++Item item = Jenkins.getActiveInstance().getItem(job, invokingRun.getParent(), Item.class);
+2022-09-14 16:29:49.157 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 16:29:50.483 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 16:30:55.223 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -59,7 +59,10 @@ public class BuildTriggerStepExecution extends AbstractStepExecutionImpl {
+-        Item item = Jenkins.getActiveInstance().getItem(job, invokingRun.getParent(), Item.class);
++        if (invokingRun == null) {
++	    return false;
++	}
++Item item = Jenkins.getActiveInstance().getItem(job, invokingRun.getParent(), Item.class);
+2022-09-14 16:30:55.223 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 16:30:56.563 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 16:32:04.382 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -59,7 +59,10 @@ public class BuildTriggerStepExecution extends AbstractStepExecutionImpl {
+-        Item item = Jenkins.getActiveInstance().getItem(job, invokingRun.getParent(), Item.class);
++        if (invokingRun == null) {
++	    return true;
++	}
++Item item = Jenkins.getActiveInstance().getItem(job, invokingRun.getParent(), Item.class);
+2022-09-14 16:32:04.382 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 16:32:05.887 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 16:34:27.984 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -59,7 +59,8 @@ public class BuildTriggerStepExecution extends AbstractStepExecutionImpl {
+-        Item item = Jenkins.getActiveInstance().getItem(job, invokingRun.getParent(), Item.class);
++        if (invokingRun == null) invokingRun = new Run();
++ Item item = Jenkins.getActiveInstance().getItem(job, invokingRun.getParent(), Item.class);
+2022-09-14 16:34:27.984 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 16:34:29.367 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 16:34:29.373 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -59,7 +59,8 @@ public class BuildTriggerStepExecution extends AbstractStepExecutionImpl {
+-        Item item = Jenkins.getActiveInstance().getItem(job, invokingRun.getParent(), Item.class);
++        if (job != null && invokingRun != null) {
++	Item item = Jenkins.getActiveInstance().getItem(job, invokingRun.getParent(), Item.class);
+@@ -139,6 +140,8 @@ public class BuildTriggerStepExecution extends AbstractStepExecutionImpl {
++ " which is not something that can be built");
++	}
++
+2022-09-14 16:34:29.373 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 16:34:30.857 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 16:35:35.683 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -59,7 +59,7 @@ public class BuildTriggerStepExecution extends AbstractStepExecutionImpl {
+-        Item item = Jenkins.getActiveInstance().getItem(job, invokingRun.getParent(), Item.class);
++
+2022-09-14 16:35:35.683 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 16:35:37.012 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 16:35:37.021 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -55,97 +55,7 @@ public class BuildTriggerStepExecution extends AbstractStepExecutionImpl {
+-    @SuppressWarnings({"unchecked", "rawtypes"}) // cannot get from ParameterizedJob back to ParameterizedJobMixIn trivially
+-    @Override
+-    public boolean start() throws Exception {
+-        String job = step.getJob();
+-        Item item = Jenkins.getActiveInstance().getItem(job, invokingRun.getParent(), Item.class);
+-        if (item == null) {
+-            throw new AbortException("No item named " + job + " found");
+-        }
+-        if (step.getWait() && !(item instanceof Job)) {
+-            // TODO find some way of allowing ComputedFolders to hook into the listener code
+-            throw new AbortException("Waiting for non-job items is not supported");
+-        }
+-        if (item instanceof ParameterizedJobMixIn.ParameterizedJob) {
+-            final ParameterizedJobMixIn.ParameterizedJob project = (ParameterizedJobMixIn.ParameterizedJob) item;
+-            listener.getLogger().println("Scheduling project: " + ModelHyperlinkNote.encodeTo(project));
+-
+-            node.addAction(new LabelAction(Messages.BuildTriggerStepExecution_building_(project.getFullDisplayName())));
+-            List<Action> actions = new ArrayList<>();
+-            if (step.getWait()) {
+-                StepContext context = getContext();
+-                actions.add(new BuildTriggerAction(context, step.isPropagate()));
+-                LOGGER.log(Level.FINER, "scheduling a build of {0} from {1}", new Object[]{project, context});
+-            }
+-            actions.add(new CauseAction(new Cause.UpstreamCause(invokingRun)));
+-            List<ParameterValue> parameters = step.getParameters();
+-            if (parameters != null) {
+-                parameters = completeDefaultParameters(parameters, (Job) project);
+-                actions.add(new ParametersAction(parameters));
+-            }
+-            Integer quietPeriod = step.getQuietPeriod();
+-            // TODO use new convenience method in 1.621
+-            if (quietPeriod == null) {
+-                quietPeriod = project.getQuietPeriod();
+-            }
+-            QueueTaskFuture<?> f = new ParameterizedJobMixIn() {
+-                @Override
+-                protected Job asJob() {
+-                    return (Job) project;
+-                }
+-            }.scheduleBuild2(quietPeriod, actions.toArray(new Action[actions.size()]));
+-            if (f == null) {
+-                throw new AbortException("Failed to trigger build of " + project.getFullName());
+-            }
+-        } else if (item instanceof Queue.Task){
+-            if (step.getParameters() != null && !step.getParameters().isEmpty()) {
+-                throw new AbortException("Item type does not support parameters");
+-            }
+-            Queue.Task task = (Queue.Task) item;
+-            listener.getLogger().println("Scheduling item: " + ModelHyperlinkNote.encodeTo(item));
+-            node.addAction(new LabelAction(Messages.BuildTriggerStepExecution_building_(task.getFullDisplayName())));
+-            List<Action> actions = new ArrayList<>();
+-            if (step.getWait()) {
+-                StepContext context = getContext();
+-                actions.add(new BuildTriggerAction(context, step.isPropagate()));
+-                LOGGER.log(Level.FINER, "scheduling a build of {0} from {1}", new Object[]{task, context});
+-            }
+-            actions.add(new CauseAction(new Cause.UpstreamCause(invokingRun)));
+-            Integer quietPeriod = step.getQuietPeriod();
+-            if (quietPeriod == null) {
+-                try {
+-                    Method getQuietPeriod = task.getClass().getMethod("getQuietPeriod");
+-                    if (getQuietPeriod.getReturnType().equals(int.class)) {
+-                        quietPeriod = (Integer) getQuietPeriod.invoke(task);
+-                    }
+-                } catch (NoSuchMethodException e) {
+-                    // ignore, best effort only
+-                } catch (IllegalAccessError | IllegalArgumentException | InvocationTargetException e) {
+-                    LOGGER.log(Level.WARNING, "Could not determine quiet period of " + item.getFullName(), e);
+-                }
+-            }
+-            if (quietPeriod == null) {
+-                quietPeriod = Jenkins.getActiveInstance().getQuietPeriod();
+-            }
+-            ScheduleResult scheduleResult = Jenkins.getActiveInstance().getQueue().schedule2(task, quietPeriod,actions);
+-            if (scheduleResult.isRefused()) {
+-                throw new AbortException("Failed to trigger build of " + item.getFullName());
+-            }
+-        } else {
+-            throw new AbortException("The item named " + job + " is a "
+-                    + (item instanceof Describable
+-                    ? ((Describable) item).getDescriptor().getDisplayName()
+-                    : item.getClass().getName())
+-                    + " which is not something that can be built");
+-        }
+-        if (step.getWait()) {
+-            return false;
+-        } else {
+-            getContext().onSuccess(null);
+-            return true;
+-        }
+-    }
++
+2022-09-14 16:35:37.022 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 16:35:38.327 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 16:35:38.343 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.jenkinsci.plugins.workflow.support.steps.build.BuildTriggerStepExecution ===63
+2022-09-14 16:35:38.364 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+if (item == null) {
+            throw new AbortException("No item named " + job + " found");
+        }
+2022-09-14 16:35:38.397 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -60,7 +60,7 @@ public class BuildTriggerStepExecution extends AbstractStepExecutionImpl {
+-        if (item == null) {
++        if (item != null) {
+2022-09-14 16:35:38.397 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 16:35:39.832 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 16:36:44.033 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -60,7 +60,7 @@ public class BuildTriggerStepExecution extends AbstractStepExecutionImpl {
+-        if (item == null) {
++        if ((item == null) || (item instanceof ParameterizedJobMixIn.ParameterizedJob)) {
+2022-09-14 16:36:44.033 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 16:36:45.478 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 16:39:09.574 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -60,7 +60,7 @@ public class BuildTriggerStepExecution extends AbstractStepExecutionImpl {
+-        if (item == null) {
++        if ((item == null) && (item instanceof ParameterizedJobMixIn.ParameterizedJob)) {
+2022-09-14 16:39:09.574 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 16:39:11.083 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 16:40:19.816 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -60,7 +60,7 @@ public class BuildTriggerStepExecution extends AbstractStepExecutionImpl {
+-        if (item == null) {
++        if ((item == null) || !(item instanceof ParameterizedJobMixIn.ParameterizedJob)) {
+2022-09-14 16:40:19.816 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 16:40:21.421 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 16:41:26.676 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -60,7 +60,7 @@ public class BuildTriggerStepExecution extends AbstractStepExecutionImpl {
+-        if (item == null) {
++        if ((item == null) && !(item instanceof ParameterizedJobMixIn.ParameterizedJob)) {
+2022-09-14 16:41:26.677 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 16:41:28.184 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 16:43:58.841 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -60,7 +60,7 @@ public class BuildTriggerStepExecution extends AbstractStepExecutionImpl {
+-        if (item == null) {
++        if ((item == null) || (step.getWait() && !(item instanceof Job))) {
+2022-09-14 16:43:58.841 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 16:44:00.313 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 16:45:09.573 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -60,7 +60,7 @@ public class BuildTriggerStepExecution extends AbstractStepExecutionImpl {
+-        if (item == null) {
++        if ((item == null) && (step.getWait() && !(item instanceof Job))) {
+2022-09-14 16:45:09.573 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 16:45:11.118 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 16:46:15.300 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -60,7 +60,7 @@ public class BuildTriggerStepExecution extends AbstractStepExecutionImpl {
+-        if (item == null) {
++        if ((item == null) || !(step.getWait() && !(item instanceof Job))) {
+2022-09-14 16:46:15.301 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 16:46:16.677 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 16:48:39.727 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -60,7 +60,7 @@ public class BuildTriggerStepExecution extends AbstractStepExecutionImpl {
+-        if (item == null) {
++        if ((item == null) && !(step.getWait() && !(item instanceof Job))) {
+2022-09-14 16:48:39.727 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 16:48:41.080 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 16:49:52.747 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -60,7 +60,7 @@ public class BuildTriggerStepExecution extends AbstractStepExecutionImpl {
+-        if (item == null) {
++        if ((item == null) || (!(item instanceof Job))) {
+2022-09-14 16:49:52.747 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 16:49:54.112 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 16:51:06.481 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -60,7 +60,7 @@ public class BuildTriggerStepExecution extends AbstractStepExecutionImpl {
+-        if (item == null) {
++        if ((item == null) && (!(item instanceof Job))) {
+2022-09-14 16:51:06.481 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 16:51:08.000 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 16:53:40.115 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -60,7 +60,7 @@ public class BuildTriggerStepExecution extends AbstractStepExecutionImpl {
+-        if (item == null) {
++        if ((item == null) || !(!(item instanceof Job))) {
+2022-09-14 16:53:40.116 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 16:53:41.615 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 16:54:47.523 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -60,7 +60,7 @@ public class BuildTriggerStepExecution extends AbstractStepExecutionImpl {
+-        if (item == null) {
++        if ((item == null) && !(!(item instanceof Job))) {
+2022-09-14 16:54:47.523 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 16:54:48.950 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 16:55:56.270 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -60,7 +60,7 @@ public class BuildTriggerStepExecution extends AbstractStepExecutionImpl {
+-        if (item == null) {
++        if ((item == null) || (item instanceof Queue.Task)) {
+2022-09-14 16:55:56.270 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 16:55:57.701 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 16:58:33.107 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -60,7 +60,7 @@ public class BuildTriggerStepExecution extends AbstractStepExecutionImpl {
+-        if (item == null) {
++        if ((item == null) && (item instanceof Queue.Task)) {
+2022-09-14 16:58:33.108 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 16:58:34.616 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 16:59:38.484 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -60,7 +60,7 @@ public class BuildTriggerStepExecution extends AbstractStepExecutionImpl {
+-        if (item == null) {
++        if ((item == null) || !(item instanceof Queue.Task)) {
+2022-09-14 16:59:38.484 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 16:59:39.878 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 17:00:48.217 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -60,7 +60,7 @@ public class BuildTriggerStepExecution extends AbstractStepExecutionImpl {
+-        if (item == null) {
++        if ((item == null) && !(item instanceof Queue.Task)) {
+2022-09-14 17:00:48.217 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 17:00:49.699 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 17:03:19.301 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -60,7 +60,7 @@ public class BuildTriggerStepExecution extends AbstractStepExecutionImpl {
+-        if (item == null) {
++        if ((item == null) || (item instanceof Describable)) {
+2022-09-14 17:03:19.302 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 17:03:20.777 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 17:04:27.364 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -60,7 +60,7 @@ public class BuildTriggerStepExecution extends AbstractStepExecutionImpl {
+-        if (item == null) {
++        if ((item == null) && (item instanceof Describable)) {
+2022-09-14 17:04:27.365 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 17:04:28.913 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 17:05:34.740 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -60,7 +60,7 @@ public class BuildTriggerStepExecution extends AbstractStepExecutionImpl {
+-        if (item == null) {
++        if ((item == null) || !(item instanceof Describable)) {
+2022-09-14 17:05:34.740 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 17:05:36.123 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 17:07:59.166 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -60,7 +60,7 @@ public class BuildTriggerStepExecution extends AbstractStepExecutionImpl {
+-        if (item == null) {
++        if ((item == null) && !(item instanceof Describable)) {
+2022-09-14 17:07:59.167 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 17:08:00.573 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 17:09:06.256 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -60,7 +60,7 @@ public class BuildTriggerStepExecution extends AbstractStepExecutionImpl {
+-        if (item == null) {
++        if (getStatus() == null) {
+2022-09-14 17:09:06.256 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 17:09:07.787 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 17:10:13.271 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -58,11 +58,12 @@ public class BuildTriggerStepExecution extends AbstractStepExecutionImpl {
+-        String job = step.getJob();
+-        Item item = Jenkins.getActiveInstance().getItem(job, invokingRun.getParent(), Item.class);
++	String job = step.getJob();
++        Item item = Jenkins.getActiveInstance().getItem(job, invokingRun.getParent(), Item.class);
++
+2022-09-14 17:10:13.272 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 17:10:14.663 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 17:10:14.669 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -59,10 +59,11 @@ public class BuildTriggerStepExecution extends AbstractStepExecutionImpl {
+-        Item item = Jenkins.getActiveInstance().getItem(job, invokingRun.getParent(), Item.class);
++	Item item = Jenkins.getActiveInstance().getItem(job, invokingRun.getParent(), Item.class);
++
+2022-09-14 17:10:14.670 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 17:10:16.179 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 17:10:16.185 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -60,13 +60,15 @@ public class BuildTriggerStepExecution extends AbstractStepExecutionImpl {
+-        if (item == null) {
+-            throw new AbortException("No item named " + job + " found");
+-        }
++
++	if (item == null) {
++            throw new AbortException("No item named " + job + " found");
++        }
++
+2022-09-14 17:10:16.186 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 17:10:17.546 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 17:12:41.640 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -60,9 +60,7 @@ public class BuildTriggerStepExecution extends AbstractStepExecutionImpl {
+-        if (item == null) {
+-            throw new AbortException("No item named " + job + " found");
+-        }
++
+@@ -139,6 +137,10 @@ public class BuildTriggerStepExecution extends AbstractStepExecutionImpl {
++ " which is not something that can be built");
++	if (item == null) {
++            throw new AbortException("No item named " + job + " found");
++        }
++
+2022-09-14 17:12:41.640 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 17:12:42.984 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 17:13:51.653 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -60,9 +60,7 @@ public class BuildTriggerStepExecution extends AbstractStepExecutionImpl {
+-        if (item == null) {
+-            throw new AbortException("No item named " + job + " found");
+-        }
++
+@@ -145,6 +143,10 @@ public class BuildTriggerStepExecution extends AbstractStepExecutionImpl {
++	if (item == null) {
++            throw new AbortException("No item named " + job + " found");
++        }
++
+2022-09-14 17:13:51.653 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 17:13:52.902 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 17:13:52.925 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -60,9 +60,7 @@ public class BuildTriggerStepExecution extends AbstractStepExecutionImpl {
+-        if (item == null) {
+-            throw new AbortException("No item named " + job + " found");
+-        }
++        throw new AbortException("No item named " + job + " found");
+2022-09-14 17:13:52.925 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 17:13:54.331 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 17:13:54.337 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -60,9 +60,7 @@ public class BuildTriggerStepExecution extends AbstractStepExecutionImpl {
+-        if (item == null) {
+-            throw new AbortException("No item named " + job + " found");
+-        }
++
+2022-09-14 17:13:54.337 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 17:13:55.596 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 17:15:00.574 [main] INFO  edu.lu.uni.serval.tbar.TBarFixer - =======StaticBugFixer: Finish off fixing======
+Failed to fix bug
+
+
+Node: ee2bf67284b9
+
+
+
+Date: Wed Sep 14 17:15:00 EDT 2022
+

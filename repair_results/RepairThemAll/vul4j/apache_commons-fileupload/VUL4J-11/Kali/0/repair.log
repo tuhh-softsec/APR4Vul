@@ -1,0 +1,78 @@
+cd /workdir/Kali_vul4j_apache_commons-fileupload_VUL4J-11;
+export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en";
+TZ="America/New_York"; export TZ;
+export PATH="/usr/lib/jvm/java-8-openjdk-amd64/bin:$PATH";
+export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64";
+timeout 240m java -Xmx4g -Xms1g -XX:MaxPermSize=512m -cp /script/../libs/jmetal.jar:/script/../repair_tools/arja.jar us.msu.cse.repair.Main \
+	Kali \
+	-DexternalProjRoot /script/../libs/arja_external \
+	-DprojectDir /workdir/Kali_vul4j_apache_commons-fileupload_VUL4J-11 \
+    -DtestFiltered false \
+    -DrunTestCommand "mvn test -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B" \
+	-DsrcJavaDir /workdir/Kali_vul4j_apache_commons-fileupload_VUL4J-11/src/main/java \
+	-DbinJavaDir /workdir/Kali_vul4j_apache_commons-fileupload_VUL4J-11/target/classes \
+	-DbinTestDir /workdir/Kali_vul4j_apache_commons-fileupload_VUL4J-11/target/test-classes \
+	-DdiffFormat true \
+	-Dseed 0 \
+	-DgzoltarDataDir /script/../data/benchmarks/vul4j/perfectfl/VUL4J-11 \
+	-Ddependences /root/.m2/repository/javax/servlet/servlet-api/2.4/servlet-api-2.4.jar:/root/.m2/repository/commons-io/commons-io/2.2/commons-io-2.2.jar:/root/.m2/repository/portlet-api/portlet-api/1.0/portlet-api-1.0.jar:/root/.m2/repository/junit/junit/4.11/junit-4.11.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar;
+	echo "\n\nNode: `hostname`\n";
+	echo "\n\nDate: `date`\n";
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en
+OpenJDK 64-Bit Server VM warning: ignoring option MaxPermSize=512m; support was removed in 8.0
+Fault localization starts...
+Number of positive tests: 70
+Number of negative tests: 1
+Negative tests: [org.apache.commons.fileupload.MultipartStreamTest#testSmallBuffer]
+Faulty Lines: 
+org.apache.commons.fileupload.MultipartStream#335:1.0
+org.apache.commons.fileupload.FileUploadBase#994:1.0
+org.apache.commons.fileupload.MultipartStream#334:1.0
+Fault localization is finished!
+AST parsing starts...
+AST parsing is finished!
+Detection of local variables starts...
+Detection of local variables is finished!
+Detection of fields starts...
+Detection of fields is finished!
+Detection of methods starts...
+Detection of methods is finished!
+Ingredient screener starts...
+Ingredient screener is finished!
+Initialization of manipulations starts...
+Initialization of manipulations is finished!
+Filtering of the tests starts...
+Number of positive tests considered: 70
+Filtering of the tests is finished!
+----------------------------------
+Patch Candidate:
+@@ -329,9 +329,6 @@ public class MultipartStream {
+this.buffer = new byte[bufSize];
+this.notifier = pNotifier;
+
+-        // We prepend CR/LF to the boundary to chop trailing CR/LF from
+-        // body-data tokens.
+-        this.boundary = new byte[boundary.length + BOUNDARY_PREFIX.length];
+this.boundaryLength = boundary.length + BOUNDARY_PREFIX.length;
+this.keepRegion = this.boundary.length;
+System.arraycopy(BOUNDARY_PREFIX, 0, this.boundary, 0,
+Number of failed tests: 1, 20
+----------------------------------
+Patch Candidate:
+@@ -332,7 +332,6 @@ public class MultipartStream {
+// We prepend CR/LF to the boundary to chop trailing CR/LF from
+// body-data tokens.
+this.boundary = new byte[boundary.length + BOUNDARY_PREFIX.length];
+-        this.boundaryLength = boundary.length + BOUNDARY_PREFIX.length;
+this.keepRegion = this.boundary.length;
+System.arraycopy(BOUNDARY_PREFIX, 0, this.boundary, 0,
+BOUNDARY_PREFIX.length);
+Number of failed tests: 1, 0
+
+
+Node: 2c8178711f7b
+
+
+
+Date: Thu Oct  6 20:38:11 EDT 2022
+

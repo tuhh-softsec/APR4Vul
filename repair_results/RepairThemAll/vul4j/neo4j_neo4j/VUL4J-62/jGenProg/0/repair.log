@@ -1,0 +1,784 @@
+cd /workdir/jGenProg_vul4j_neo4j_neo4j_VUL4J-62;
+export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en";
+TZ="America/New_York"; export TZ;
+export PATH="/usr/lib/jvm/java-8-openjdk-amd64/bin:$PATH";
+export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64/bin";
+time java -Xmx4g -Xms1g -XX:MaxPermSize=512m -cp /script/../libs/jtestex7.jar:/script/../repair_tools/astor.jar fr.inria.main.evolution.AstorMain \
+	-mode jgenprog \
+	-location . \
+	-id neo4j_neo4j-VUL4J-62 \
+	-failing org.neo4j.server.security.enterprise.auth.integration.bolt.LdapAuthIT#shouldFailLoginWrongPasswordWithLdapOnlyUsingStartTls \
+	-jvm4testexecution /usr/lib/jvm/java-8-openjdk-amd64/bin \
+	-jvm4evosuitetestexecution /usr/lib/jvm/java-8-openjdk-amd64/bin \
+	-maxgen 1000000 \
+	-maxtime 120 \
+	-stopfirst true \
+	-seed 0 \
+	-scope local \
+	-population 1 \
+	-javacompliancelevel 8 \
+	-faultlocalization perfect \
+    -perfectdata /script/../data/benchmarks/vul4j/perfectfl/VUL4J-62 \
+    -validation externalcmd \
+    -testfailingcmd "mvn test -pl enterprise/security -Dtest=org.neo4j.server.security.enterprise.auth.integration.bolt.LdapAuthIT#shouldFailLoginWrongPasswordWithLdapOnlyUsingStartTls -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B" \
+    -testallcmd "mvn failsafe:integration-test -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B"  \ \
+	-srcjavafolder enterprise/security/src/main/java \
+	-srctestfolder enterprise/security/src/test/java \
+	-binjavafolder enterprise/security/target/classes \
+	-bintestfolder enterprise/security/target/test-classes \
+	-parameters x:x \
+	-dependencies /workdir/jGenProg_vul4j_neo4j_neo4j_VUL4J-62/enterprise/security/target/classes:/root/.m2/repository/org/apache/directory/server/apacheds-server-integ/2.0.0-M21/apacheds-server-integ-2.0.0-M21.jar:/root/.m2/repository/org/neo4j/neo4j-unsafe/3.4.9-SNAPSHOT/neo4j-unsafe-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/apache/directory/api/api-ldap-extras-util/1.0.0-M33/api-ldap-extras-util-1.0.0-M33.jar:/root/.m2/repository/com/google/guava/guava/24.1-jre/guava-24.1-jre.jar:/root/.m2/repository/org/apache/shiro/shiro-cache/1.4.0/shiro-cache-1.4.0.jar:/root/.m2/repository/org/apache/directory/server/apacheds-interceptors-event/2.0.0-M21/apacheds-interceptors-event-2.0.0-M21.jar:/root/.m2/repository/org/apache/commons/commons-text/1.3/commons-text-1.3.jar:/root/.m2/repository/org/neo4j/neo4j-io/3.4.9-SNAPSHOT/neo4j-io-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/apache/directory/mavibot/mavibot/1.0.0-M8/mavibot-1.0.0-M8.jar:/root/.m2/repository/org/neo4j/neo4j-cypher-ir-3.4/3.4.9-SNAPSHOT/neo4j-cypher-ir-3.4-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/neo4j/neo4j-procedure-api/3.4.9-SNAPSHOT/neo4j-procedure-api-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/apache/directory/api/api-ldap-codec-standalone/1.0.0-M33/api-ldap-codec-standalone-1.0.0-M33.jar:/root/.m2/repository/org/parboiled/parboiled-core/1.1.7/parboiled-core-1.1.7.jar:/root/.m2/repository/org/neo4j/neo4j-cypher-logical-plans-3.4/3.4.9-SNAPSHOT/neo4j-cypher-logical-plans-3.4-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/apache/directory/server/apacheds-interceptors-subtree/2.0.0-M21/apacheds-interceptors-subtree-2.0.0-M21.jar:/root/.m2/repository/org/ow2/asm/asm-tree/6.2/asm-tree-6.2.jar:/root/.m2/repository/org/apache/directory/server/apacheds-interceptors-admin/2.0.0-M21/apacheds-interceptors-admin-2.0.0-M21.jar:/root/.m2/repository/org/neo4j/neo4j-enterprise-kernel/3.4.9-SNAPSHOT/neo4j-enterprise-kernel-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/neo4j/neo4j-security/3.4.9-SNAPSHOT/neo4j-security-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/neo4j/neo4j/3.4.9-SNAPSHOT/neo4j-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/neo4j/neo4j-graphdb-api/3.4.9-SNAPSHOT/neo4j-graphdb-api-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar:/root/.m2/repository/org/neo4j/neo4j-bolt/3.4.9-SNAPSHOT/neo4j-bolt-3.4.9-SNAPSHOT-tests.jar:/root/.m2/repository/org/apache/commons/commons-lang3/3.7/commons-lang3-3.7.jar:/root/.m2/repository/commons-io/commons-io/2.6/commons-io-2.6.jar:/root/.m2/repository/org/jprocesses/jProcesses/1.6.4/jProcesses-1.6.4.jar:/root/.m2/repository/org/apache/directory/api/api-ldap-model/1.0.0-M33/api-ldap-model-1.0.0-M33.jar:/root/.m2/repository/com/profesorfalken/WMI4Java/1.6.1/WMI4Java-1.6.1.jar:/root/.m2/repository/org/neo4j/neo4j-cypher-compiler-3.3/3.3.7/neo4j-cypher-compiler-3.3-3.3.7.jar:/root/.m2/repository/commons-codec/commons-codec/1.11/commons-codec-1.11.jar:/root/.m2/repository/org/neo4j/neo4j-cypher-logical-plans-3.3/3.3.7/neo4j-cypher-logical-plans-3.3-3.3.7.jar:/root/.m2/repository/org/neo4j/neo4j-lucene-upgrade/3.4.9-SNAPSHOT/neo4j-lucene-upgrade-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/neo4j/neo4j-dbms/3.4.9-SNAPSHOT/neo4j-dbms-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/apache/directory/server/apacheds-interceptors-normalization/2.0.0-M21/apacheds-interceptors-normalization-2.0.0-M21.jar:/root/.m2/repository/org/apache/directory/server/apacheds-xdbm-partition/2.0.0-M21/apacheds-xdbm-partition-2.0.0-M21.jar:/root/.m2/repository/com/profesorfalken/jPowerShell/1.9/jPowerShell-1.9.jar:/root/.m2/repository/org/apache/directory/server/apacheds-server-config/2.0.0-M21/apacheds-server-config-2.0.0-M21.jar:/root/.m2/repository/org/neo4j/neo4j-import-tool/3.4.9-SNAPSHOT/neo4j-import-tool-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/apache/mina/mina-core/2.0.10/mina-core-2.0.10.jar:/root/.m2/repository/org/apache/directory/api/api-dsml-engine/1.0.0-M33/api-dsml-engine-1.0.0-M33.jar:/root/.m2/repository/org/objenesis/objenesis/2.6/objenesis-2.6.jar:/root/.m2/repository/net/sf/opencsv/opencsv/2.3/opencsv-2.3.jar:/root/.m2/repository/xml-apis/xml-apis/1.0.b2/xml-apis-1.0.b2.jar:/root/.m2/repository/org/neo4j/neo4j-collections/3.4.9-SNAPSHOT/neo4j-collections-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/neo4j/neo4j-cypher-frontend-2.3/2.3.12/neo4j-cypher-frontend-2.3-2.3.12.jar:/root/.m2/repository/commons-pool/commons-pool/1.6/commons-pool-1.6.jar:/root/.m2/repository/org/apache/directory/server/apacheds-interceptors-trigger/2.0.0-M21/apacheds-interceptors-trigger-2.0.0-M21.jar:/root/.m2/repository/org/apache/shiro/shiro-config-ogdl/1.4.0/shiro-config-ogdl-1.4.0.jar:/root/.m2/repository/org/checkerframework/checker-compat-qual/2.0.0/checker-compat-qual-2.0.0.jar:/root/.m2/repository/org/apache/shiro/shiro-event/1.4.0/shiro-event-1.4.0.jar:/root/.m2/repository/org/apache/directory/server/apacheds-core-avl/2.0.0-M21/apacheds-core-avl-2.0.0-M21.jar:/root/.m2/repository/org/neo4j/neo4j-cypher-frontend-3.3/3.3.7/neo4j-cypher-frontend-3.3-3.3.7.jar:/root/.m2/repository/org/apache/directory/api/api-ldap-extras-aci/1.0.0-M33/api-ldap-extras-aci-1.0.0-M33.jar:/root/.m2/repository/org/neo4j/neo4j-cypher-util-3.4/3.4.9-SNAPSHOT/neo4j-cypher-util-3.4-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/neo4j/neo4j-cypher-compiler-3.1/3.1.9/neo4j-cypher-compiler-3.1-3.1.9.jar:/root/.m2/repository/org/apache/shiro/shiro-config-core/1.4.0/shiro-config-core-1.4.0.jar:/root/.m2/repository/org/apache/directory/api/api-ldap-client-api/1.0.0-M33/api-ldap-client-api-1.0.0-M33.jar:/root/.m2/repository/org/slf4j/slf4j-nop/1.7.25/slf4j-nop-1.7.25.jar:/root/.m2/repository/org/apache/directory/server/apacheds-interceptors-number/2.0.0-M21/apacheds-interceptors-number-2.0.0-M21.jar:/root/.m2/repository/org/apache/directory/server/apacheds-ldif-partition/2.0.0-M21/apacheds-ldif-partition-2.0.0-M21.jar:/root/.m2/repository/org/scala-lang/scala-reflect/2.11.12/scala-reflect-2.11.12.jar:/root/.m2/repository/org/apache/directory/server/apacheds-protocol-shared/2.0.0-M21/apacheds-protocol-shared-2.0.0-M21.jar:/root/.m2/repository/org/eclipse/jetty/jetty-io/9.4.11.v20180605/jetty-io-9.4.11.v20180605.jar:/root/.m2/repository/org/neo4j/neo4j-kernel-api/3.4.9-SNAPSHOT/neo4j-kernel-api-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/apache/servicemix/bundles/org.apache.servicemix.bundles.xpp3/1.1.4c_6/org.apache.servicemix.bundles.xpp3-1.1.4c_6.jar:/root/.m2/repository/org/neo4j/neo4j-graph-algo/3.4.9-SNAPSHOT/neo4j-graph-algo-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/apache/directory/server/apacheds-core-shared/2.0.0-M21/apacheds-core-shared-2.0.0-M21.jar:/root/.m2/repository/org/apache/servicemix/bundles/org.apache.servicemix.bundles.dom4j/1.6.1_5/org.apache.servicemix.bundles.dom4j-1.6.1_5.jar:/root/.m2/repository/com/google/guava/guava-testlib/24.1-jre/guava-testlib-24.1-jre.jar:/root/.m2/repository/org/apache/shiro/shiro-crypto-core/1.4.0/shiro-crypto-core-1.4.0.jar:/root/.m2/repository/org/ow2/asm/asm-analysis/6.2/asm-analysis-6.2.jar:/root/.m2/repository/org/neo4j/neo4j-spatial-index/3.4.9-SNAPSHOT/neo4j-spatial-index-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/apache/directory/server/apacheds-core-integ/2.0.0-M21/apacheds-core-integ-2.0.0-M21.jar:/root/.m2/repository/org/neo4j/neo4j-consistency-check/3.4.9-SNAPSHOT/neo4j-consistency-check-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/apache/directory/api/api-ldap-extras-trigger/1.0.0-M33/api-ldap-extras-trigger-1.0.0-M33.jar:/root/.m2/repository/org/neo4j/neo4j-jmx/3.4.9-SNAPSHOT/neo4j-jmx-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/parboiled/parboiled-scala_2.11/1.1.7/parboiled-scala_2.11-1.1.7.jar:/root/.m2/repository/org/neo4j/neo4j-security/3.4.9-SNAPSHOT/neo4j-security-3.4.9-SNAPSHOT-tests.jar:/root/.m2/repository/org/neo4j/neo4j-bolt/3.4.9-SNAPSHOT/neo4j-bolt-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/neo4j/openCypher-frontend-1/3.4.9-SNAPSHOT/openCypher-frontend-1-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/eclipse/jetty/jetty-server/9.4.11.v20180605/jetty-server-9.4.11.v20180605.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/neo4j/neo4j-cypher-planner-3.4/3.4.9-SNAPSHOT/neo4j-cypher-planner-3.4-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/codehaus/mojo/animal-sniffer-annotations/1.14/animal-sniffer-annotations-1.14.jar:/root/.m2/repository/org/apache/directory/server/apacheds-jdbm-partition/2.0.0-M21/apacheds-jdbm-partition-2.0.0-M21.jar:/root/.m2/repository/org/scala-lang/scala-library/2.11.12/scala-library-2.11.12.jar:/root/.m2/repository/org/apache/directory/api/api-util/1.0.0-M33/api-util-1.0.0-M33.jar:/root/.m2/repository/org/apache/directory/server/apacheds-core-jndi/2.0.0-M21/apacheds-core-jndi-2.0.0-M21.jar:/root/.m2/repository/org/neo4j/neo4j-common/3.4.9-SNAPSHOT/neo4j-common-3.4.9-SNAPSHOT-tests.jar:/root/.m2/repository/com/google/errorprone/error_prone_annotations/2.1.3/error_prone_annotations-2.1.3.jar:/root/.m2/repository/org/eclipse/jetty/jetty-http/9.4.11.v20180605/jetty-http-9.4.11.v20180605.jar:/root/.m2/repository/org/apache/directory/server/apacheds-server-annotations/2.0.0-M21/apacheds-server-annotations-2.0.0-M21.jar:/root/.m2/repository/org/codehaus/jackson/jackson-mapper-asl/1.9.13/jackson-mapper-asl-1.9.13.jar:/root/.m2/repository/org/bouncycastle/bcpkix-jdk15on/1.60/bcpkix-jdk15on-1.60.jar:/root/.m2/repository/org/apache/directory/server/apacheds-interceptors-changelog/2.0.0-M21/apacheds-interceptors-changelog-2.0.0-M21.jar:/root/.m2/repository/org/apache/directory/api/api-asn1-ber/1.0.0-M33/api-asn1-ber-1.0.0-M33.jar:/root/.m2/repository/org/apache/directory/server/apacheds-protocol-ldap/2.0.0-M21/apacheds-protocol-ldap-2.0.0-M21.jar:/root/.m2/repository/org/eclipse/jetty/websocket/websocket-api/9.4.11.v20180605/websocket-api-9.4.11.v20180605.jar:/root/.m2/repository/org/apache/directory/server/apacheds-i18n/2.0.0-M21/apacheds-i18n-2.0.0-M21.jar:/root/.m2/repository/org/apache/directory/api/api-ldap-extras-codec/1.0.0-M33/api-ldap-extras-codec-1.0.0-M33.jar:/root/.m2/repository/org/neo4j/neo4j-logging/3.4.9-SNAPSHOT/neo4j-logging-3.4.9-SNAPSHOT-tests.jar:/root/.m2/repository/org/apache/directory/server/apacheds-interceptors-referral/2.0.0-M21/apacheds-interceptors-referral-2.0.0-M21.jar:/root/.m2/repository/org/neo4j/neo4j-kernel/3.4.9-SNAPSHOT/neo4j-kernel-3.4.9-SNAPSHOT-tests.jar:/root/.m2/repository/org/apache/directory/server/apacheds-interceptors-operational/2.0.0-M21/apacheds-interceptors-operational-2.0.0-M21.jar:/root/.m2/repository/org/apache/directory/server/apacheds-core-annotations/2.0.0-M21/apacheds-core-annotations-2.0.0-M21.jar:/root/.m2/repository/org/neo4j/neo4j-index/3.4.9-SNAPSHOT/neo4j-index-3.4.9-SNAPSHOT.jar:/root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.8.5/byte-buddy-agent-1.8.5.jar:/root/.m2/repository/org/apache/shiro/shiro-core/1.4.0/shiro-core-1.4.0.jar:/root/.m2/repository/org/apache/directory/server/apacheds-interceptor-kerberos/2.0.0-M21/apacheds-interceptor-kerberos-2.0.0-M21.jar:/root/.m2/repository/org/neo4j/neo4j-cypher/3.4.9-SNAPSHOT/neo4j-cypher-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/apache/directory/api/api-ldap-extras-sp/1.0.0-M33/api-ldap-extras-sp-1.0.0-M33.jar:/root/.m2/repository/org/codehaus/jackson/jackson-core-asl/1.9.13/jackson-core-asl-1.9.13.jar:/root/.m2/repository/org/apache/shiro/shiro-lang/1.4.0/shiro-lang-1.4.0.jar:/root/.m2/repository/org/neo4j/neo4j-io/3.4.9-SNAPSHOT/neo4j-io-3.4.9-SNAPSHOT-tests.jar:/root/.m2/repository/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0.jar:/root/.m2/repository/org/neo4j/neo4j-udc/3.4.9-SNAPSHOT/neo4j-udc-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/neo4j/neo4j-kernel/3.4.9-SNAPSHOT/neo4j-kernel-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/neo4j/neo4j-logging/3.4.9-SNAPSHOT/neo4j-logging-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/neo4j/neo4j-configuration/3.4.9-SNAPSHOT/neo4j-configuration-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/apache/directory/server/apacheds-interceptors-hash/2.0.0-M21/apacheds-interceptors-hash-2.0.0-M21.jar:/root/.m2/repository/org/apache/directory/server/apacheds-interceptors-journal/2.0.0-M21/apacheds-interceptors-journal-2.0.0-M21.jar:/root/.m2/repository/org/neo4j/neo4j-cypher-compiler-2.3/2.3.12/neo4j-cypher-compiler-2.3-2.3.12.jar:/root/.m2/repository/org/neo4j/neo4j-cypher-interpreted-runtime/3.4.9-SNAPSHOT/neo4j-cypher-interpreted-runtime-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/neo4j/neo4j-graph-matching/3.1.9/neo4j-graph-matching-3.1.9.jar:/root/.m2/repository/org/neo4j/neo4j-cypher-expression-3.4/3.4.9-SNAPSHOT/neo4j-cypher-expression-3.4-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/mockito/mockito-core/2.18.3/mockito-core-2.18.3.jar:/root/.m2/repository/org/neo4j/neo4j-command-line/3.4.9-SNAPSHOT/neo4j-command-line-3.4.9-SNAPSHOT.jar:/root/.m2/repository/com/github/ben-manes/caffeine/caffeine/2.6.2/caffeine-2.6.2.jar:/root/.m2/repository/org/eclipse/jetty/jetty-client/9.4.11.v20180605/jetty-client-9.4.11.v20180605.jar:/root/.m2/repository/org/neo4j/neo4j-codegen/3.4.9-SNAPSHOT/neo4j-codegen-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/apache/directory/api/api-ldap-schema-data/1.0.0-M33/api-ldap-schema-data-1.0.0-M33.jar:/root/.m2/repository/org/eclipse/jetty/jetty-xml/9.4.11.v20180605/jetty-xml-9.4.11.v20180605.jar:/root/.m2/repository/org/apache/directory/server/apacheds-core/2.0.0-M21/apacheds-core-2.0.0-M21.jar:/root/.m2/repository/org/neo4j/neo4j-primitive-collections/3.4.9-SNAPSHOT/neo4j-primitive-collections-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/apache/directory/server/apacheds-mavibot-partition/2.0.0-M21/apacheds-mavibot-partition-2.0.0-M21.jar:/root/.m2/repository/org/apache/lucene/lucene-codecs/5.5.5/lucene-codecs-5.5.5.jar:/root/.m2/repository/org/neo4j/neo4j-cypher-runtime-util/3.4.9-SNAPSHOT/neo4j-cypher-runtime-util-3.4.9-SNAPSHOT.jar:/root/.m2/repository/commons-beanutils/commons-beanutils/1.9.3/commons-beanutils-1.9.3.jar:/root/.m2/repository/org/apache/directory/server/apacheds-kerberos-codec/2.0.0-M21/apacheds-kerberos-codec-2.0.0-M21.jar:/root/.m2/repository/org/apache/lucene/lucene-analyzers-common/5.5.5/lucene-analyzers-common-5.5.5.jar:/root/.m2/repository/org/apache/directory/api/api-i18n/1.0.0-M33/api-i18n-1.0.0-M33.jar:/root/.m2/repository/org/apache/directory/server/apacheds-protocol-kerberos/2.0.0-M21/apacheds-protocol-kerberos-2.0.0-M21.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/1.3.9/jsr305-1.3.9.jar:/root/.m2/repository/org/apache/directory/jdbm/apacheds-jdbm1/2.0.0-M3/apacheds-jdbm1-2.0.0-M3.jar:/root/.m2/repository/org/hamcrest/hamcrest-library/1.3/hamcrest-library-1.3.jar:/root/.m2/repository/org/neo4j/neo4j-ssl/3.4.9-SNAPSHOT/neo4j-ssl-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/apache/directory/api/api-asn1-api/1.0.0-M33/api-asn1-api-1.0.0-M33.jar:/root/.m2/repository/org/apache/directory/server/apacheds-core-api/2.0.0-M21/apacheds-core-api-2.0.0-M21.jar:/root/.m2/repository/org/eclipse/jetty/websocket/websocket-common/9.4.11.v20180605/websocket-common-9.4.11.v20180605.jar:/root/.m2/repository/org/apache/directory/server/apacheds-test-framework/2.0.0-M21/apacheds-test-framework-2.0.0-M21.jar:/root/.m2/repository/org/neo4j/neo4j-auth-plugin-api/3.4.9-SNAPSHOT/neo4j-auth-plugin-api-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/ow2/asm/asm-util/6.2/asm-util-6.2.jar:/root/.m2/repository/org/neo4j/neo4j-enterprise-kernel/3.4.9-SNAPSHOT/neo4j-enterprise-kernel-3.4.9-SNAPSHOT-tests.jar:/root/.m2/repository/org/apache/directory/api/api-ldap-net-mina/1.0.0-M33/api-ldap-net-mina-1.0.0-M33.jar:/root/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:/root/.m2/repository/org/apache/directory/api/api-ldap-extras-codec-api/1.0.0-M33/api-ldap-extras-codec-api-1.0.0-M33.jar:/root/.m2/repository/org/apache/commons/commons-compress/1.16.1/commons-compress-1.16.1.jar:/root/.m2/repository/ldapsdk/ldapsdk/4.1/ldapsdk-4.1.jar:/root/.m2/repository/com/google/j2objc/j2objc-annotations/1.1/j2objc-annotations-1.1.jar:/root/.m2/repository/org/neo4j/neo4j-cypher-ir-3.3/3.3.7/neo4j-cypher-ir-3.3-3.3.7.jar:/root/.m2/repository/org/neo4j/neo4j-cypher-planner-spi-3.4/3.4.9-SNAPSHOT/neo4j-cypher-planner-spi-3.4-3.4.9-SNAPSHOT.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/../lib/tools.jar:/root/.m2/repository/org/neo4j/neo4j-resource/3.4.9-SNAPSHOT/neo4j-resource-3.4.9-SNAPSHOT.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.8.5/byte-buddy-1.8.5.jar:/root/.m2/repository/org/apache/servicemix/bundles/org.apache.servicemix.bundles.antlr/2.7.7_5/org.apache.servicemix.bundles.antlr-2.7.7_5.jar:/root/.m2/repository/org/eclipse/jetty/websocket/websocket-client/9.4.11.v20180605/websocket-client-9.4.11.v20180605.jar:/root/.m2/repository/org/apache/directory/server/apacheds-interceptors-exception/2.0.0-M21/apacheds-interceptors-exception-2.0.0-M21.jar:/root/.m2/repository/org/apache/directory/server/apacheds-core-constants/2.0.0-M21/apacheds-core-constants-2.0.0-M21.jar:/root/.m2/repository/net/sf/ehcache/ehcache/2.8.5/ehcache-2.8.5.jar:/root/.m2/repository/io/netty/netty-all/4.1.24.Final/netty-all-4.1.24.Final.jar:/root/.m2/repository/org/apache/directory/api/api-ldap-codec-core/1.0.0-M33/api-ldap-codec-core-1.0.0-M33.jar:/root/.m2/repository/org/ow2/asm/asm/6.2/asm-6.2.jar:/root/.m2/repository/org/neo4j/neo4j-csv/3.4.9-SNAPSHOT/neo4j-csv-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/apache/lucene/lucene-backward-codecs/5.5.0/lucene-backward-codecs-5.5.0.jar:/root/.m2/repository/org/bouncycastle/bcprov-jdk15on/1.60/bcprov-jdk15on-1.60.jar:/root/.m2/repository/org/apache/directory/server/apacheds-interceptors-collective/2.0.0-M21/apacheds-interceptors-collective-2.0.0-M21.jar:/root/.m2/repository/org/apache/lucene/lucene-core/5.5.5/lucene-core-5.5.5.jar:/root/.m2/repository/org/apache/directory/server/apacheds-interceptors-authn/2.0.0-M21/apacheds-interceptors-authn-2.0.0-M21.jar:/root/.m2/repository/org/apache/directory/server/apacheds-interceptors-authz/2.0.0-M21/apacheds-interceptors-authz-2.0.0-M21.jar:/root/.m2/repository/org/neo4j/neo4j-lucene-index/3.4.9-SNAPSHOT/neo4j-lucene-index-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/neo4j/neo4j-cypher-frontend-3.1/3.1.9/neo4j-cypher-frontend-3.1-3.1.9.jar:/root/.m2/repository/org/neo4j/neo4j-values/3.4.9-SNAPSHOT/neo4j-values-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/apache/directory/server/apacheds-interceptors-schema/2.0.0-M21/apacheds-interceptors-schema-2.0.0-M21.jar:/root/.m2/repository/org/eclipse/jetty/jetty-util/9.4.11.v20180605/jetty-util-9.4.11.v20180605.jar:/root/.m2/repository/org/apache/shiro/shiro-crypto-hash/1.4.0/shiro-crypto-hash-1.4.0.jar:/root/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar:/root/.m2/repository/org/apache/directory/api/api-dsml-parser/1.0.0-M33/api-dsml-parser-1.0.0-M33.jar:/root/.m2/repository/commons-lang/commons-lang/2.6/commons-lang-2.6.jar:/root/.m2/repository/org/apache/lucene/lucene-queryparser/5.5.5/lucene-queryparser-5.5.5.jar:/root/.m2/repository/org/neo4j/neo4j-common/3.4.9-SNAPSHOT/neo4j-common-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/apache/shiro/shiro-crypto-cipher/1.4.0/shiro-crypto-cipher-1.4.0.jar:/root/.m2/repository/com/googlecode/concurrentlinkedhashmap/concurrentlinkedhashmap-lru/1.4.2/concurrentlinkedhashmap-lru-1.4.2.jar:/root/.m2/repository/junit/junit/4.12/junit-4.12.jar;
+	echo "\n\nNode: `hostname`\n";
+	echo "\n\nDate: `date`\n";
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en
+OpenJDK 64-Bit Server VM warning: ignoring option MaxPermSize=512m; support was removed in 8.0
+[0] INFO ProjectConfiguration - Version of the JVM used: 1.8.0_342
+[0] INFO main - Java version of the JDK used to run tests: 1.8.0_342
+[2] INFO main - The compliance of the JVM is:  8
+[17] INFO main - command line arguments: [-mode  jgenprog  -location  .  -id  neo4j_neo4j-VUL4J-62  -failing  org.neo4j.server.security.enterprise.auth.integration.bolt.LdapAuthIT#shouldFailLoginWrongPasswordWithLdapOnlyUsingStartTls  -jvm4testexecution  /usr/lib/jvm/java-8-openjdk-amd64/bin  -jvm4evosuitetestexecution  /usr/lib/jvm/java-8-openjdk-amd64/bin  -maxgen  1000000  -maxtime  120  -stopfirst  true  -seed  0  -scope  local  -population  1  -javacompliancelevel  8  -faultlocalization  perfect  -perfectdata  /script/../data/benchmarks/vul4j/perfectfl/VUL4J-62  -validation  externalcmd  -testfailingcmd  mvn test -pl enterprise/security -Dtest=org.neo4j.server.security.enterprise.auth.integration.bolt.LdapAuthIT#shouldFailLoginWrongPasswordWithLdapOnlyUsingStartTls -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B  -testallcmd  mvn failsafe:integration-test -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B     -srcjavafolder  enterprise/security/src/main/java  -srctestfolder  enterprise/security/src/test/java  -binjavafolder  enterprise/security/target/classes  -bintestfolder  enterprise/security/target/test-classes  -parameters  x:x  -dependencies  /workdir/jGenProg_vul4j_neo4j_neo4j_VUL4J-62/enterprise/security/target/classes:/root/.m2/repository/org/apache/directory/server/apacheds-server-integ/2.0.0-M21/apacheds-server-integ-2.0.0-M21.jar:/root/.m2/repository/org/neo4j/neo4j-unsafe/3.4.9-SNAPSHOT/neo4j-unsafe-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/apache/directory/api/api-ldap-extras-util/1.0.0-M33/api-ldap-extras-util-1.0.0-M33.jar:/root/.m2/repository/com/google/guava/guava/24.1-jre/guava-24.1-jre.jar:/root/.m2/repository/org/apache/shiro/shiro-cache/1.4.0/shiro-cache-1.4.0.jar:/root/.m2/repository/org/apache/directory/server/apacheds-interceptors-event/2.0.0-M21/apacheds-interceptors-event-2.0.0-M21.jar:/root/.m2/repository/org/apache/commons/commons-text/1.3/commons-text-1.3.jar:/root/.m2/repository/org/neo4j/neo4j-io/3.4.9-SNAPSHOT/neo4j-io-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/apache/directory/mavibot/mavibot/1.0.0-M8/mavibot-1.0.0-M8.jar:/root/.m2/repository/org/neo4j/neo4j-cypher-ir-3.4/3.4.9-SNAPSHOT/neo4j-cypher-ir-3.4-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/neo4j/neo4j-procedure-api/3.4.9-SNAPSHOT/neo4j-procedure-api-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/apache/directory/api/api-ldap-codec-standalone/1.0.0-M33/api-ldap-codec-standalone-1.0.0-M33.jar:/root/.m2/repository/org/parboiled/parboiled-core/1.1.7/parboiled-core-1.1.7.jar:/root/.m2/repository/org/neo4j/neo4j-cypher-logical-plans-3.4/3.4.9-SNAPSHOT/neo4j-cypher-logical-plans-3.4-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/apache/directory/server/apacheds-interceptors-subtree/2.0.0-M21/apacheds-interceptors-subtree-2.0.0-M21.jar:/root/.m2/repository/org/ow2/asm/asm-tree/6.2/asm-tree-6.2.jar:/root/.m2/repository/org/apache/directory/server/apacheds-interceptors-admin/2.0.0-M21/apacheds-interceptors-admin-2.0.0-M21.jar:/root/.m2/repository/org/neo4j/neo4j-enterprise-kernel/3.4.9-SNAPSHOT/neo4j-enterprise-kernel-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/neo4j/neo4j-security/3.4.9-SNAPSHOT/neo4j-security-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/neo4j/neo4j/3.4.9-SNAPSHOT/neo4j-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/neo4j/neo4j-graphdb-api/3.4.9-SNAPSHOT/neo4j-graphdb-api-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar:/root/.m2/repository/org/neo4j/neo4j-bolt/3.4.9-SNAPSHOT/neo4j-bolt-3.4.9-SNAPSHOT-tests.jar:/root/.m2/repository/org/apache/commons/commons-lang3/3.7/commons-lang3-3.7.jar:/root/.m2/repository/commons-io/commons-io/2.6/commons-io-2.6.jar:/root/.m2/repository/org/jprocesses/jProcesses/1.6.4/jProcesses-1.6.4.jar:/root/.m2/repository/org/apache/directory/api/api-ldap-model/1.0.0-M33/api-ldap-model-1.0.0-M33.jar:/root/.m2/repository/com/profesorfalken/WMI4Java/1.6.1/WMI4Java-1.6.1.jar:/root/.m2/repository/org/neo4j/neo4j-cypher-compiler-3.3/3.3.7/neo4j-cypher-compiler-3.3-3.3.7.jar:/root/.m2/repository/commons-codec/commons-codec/1.11/commons-codec-1.11.jar:/root/.m2/repository/org/neo4j/neo4j-cypher-logical-plans-3.3/3.3.7/neo4j-cypher-logical-plans-3.3-3.3.7.jar:/root/.m2/repository/org/neo4j/neo4j-lucene-upgrade/3.4.9-SNAPSHOT/neo4j-lucene-upgrade-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/neo4j/neo4j-dbms/3.4.9-SNAPSHOT/neo4j-dbms-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/apache/directory/server/apacheds-interceptors-normalization/2.0.0-M21/apacheds-interceptors-normalization-2.0.0-M21.jar:/root/.m2/repository/org/apache/directory/server/apacheds-xdbm-partition/2.0.0-M21/apacheds-xdbm-partition-2.0.0-M21.jar:/root/.m2/repository/com/profesorfalken/jPowerShell/1.9/jPowerShell-1.9.jar:/root/.m2/repository/org/apache/directory/server/apacheds-server-config/2.0.0-M21/apacheds-server-config-2.0.0-M21.jar:/root/.m2/repository/org/neo4j/neo4j-import-tool/3.4.9-SNAPSHOT/neo4j-import-tool-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/apache/mina/mina-core/2.0.10/mina-core-2.0.10.jar:/root/.m2/repository/org/apache/directory/api/api-dsml-engine/1.0.0-M33/api-dsml-engine-1.0.0-M33.jar:/root/.m2/repository/org/objenesis/objenesis/2.6/objenesis-2.6.jar:/root/.m2/repository/net/sf/opencsv/opencsv/2.3/opencsv-2.3.jar:/root/.m2/repository/xml-apis/xml-apis/1.0.b2/xml-apis-1.0.b2.jar:/root/.m2/repository/org/neo4j/neo4j-collections/3.4.9-SNAPSHOT/neo4j-collections-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/neo4j/neo4j-cypher-frontend-2.3/2.3.12/neo4j-cypher-frontend-2.3-2.3.12.jar:/root/.m2/repository/commons-pool/commons-pool/1.6/commons-pool-1.6.jar:/root/.m2/repository/org/apache/directory/server/apacheds-interceptors-trigger/2.0.0-M21/apacheds-interceptors-trigger-2.0.0-M21.jar:/root/.m2/repository/org/apache/shiro/shiro-config-ogdl/1.4.0/shiro-config-ogdl-1.4.0.jar:/root/.m2/repository/org/checkerframework/checker-compat-qual/2.0.0/checker-compat-qual-2.0.0.jar:/root/.m2/repository/org/apache/shiro/shiro-event/1.4.0/shiro-event-1.4.0.jar:/root/.m2/repository/org/apache/directory/server/apacheds-core-avl/2.0.0-M21/apacheds-core-avl-2.0.0-M21.jar:/root/.m2/repository/org/neo4j/neo4j-cypher-frontend-3.3/3.3.7/neo4j-cypher-frontend-3.3-3.3.7.jar:/root/.m2/repository/org/apache/directory/api/api-ldap-extras-aci/1.0.0-M33/api-ldap-extras-aci-1.0.0-M33.jar:/root/.m2/repository/org/neo4j/neo4j-cypher-util-3.4/3.4.9-SNAPSHOT/neo4j-cypher-util-3.4-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/neo4j/neo4j-cypher-compiler-3.1/3.1.9/neo4j-cypher-compiler-3.1-3.1.9.jar:/root/.m2/repository/org/apache/shiro/shiro-config-core/1.4.0/shiro-config-core-1.4.0.jar:/root/.m2/repository/org/apache/directory/api/api-ldap-client-api/1.0.0-M33/api-ldap-client-api-1.0.0-M33.jar:/root/.m2/repository/org/slf4j/slf4j-nop/1.7.25/slf4j-nop-1.7.25.jar:/root/.m2/repository/org/apache/directory/server/apacheds-interceptors-number/2.0.0-M21/apacheds-interceptors-number-2.0.0-M21.jar:/root/.m2/repository/org/apache/directory/server/apacheds-ldif-partition/2.0.0-M21/apacheds-ldif-partition-2.0.0-M21.jar:/root/.m2/repository/org/scala-lang/scala-reflect/2.11.12/scala-reflect-2.11.12.jar:/root/.m2/repository/org/apache/directory/server/apacheds-protocol-shared/2.0.0-M21/apacheds-protocol-shared-2.0.0-M21.jar:/root/.m2/repository/org/eclipse/jetty/jetty-io/9.4.11.v20180605/jetty-io-9.4.11.v20180605.jar:/root/.m2/repository/org/neo4j/neo4j-kernel-api/3.4.9-SNAPSHOT/neo4j-kernel-api-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/apache/servicemix/bundles/org.apache.servicemix.bundles.xpp3/1.1.4c_6/org.apache.servicemix.bundles.xpp3-1.1.4c_6.jar:/root/.m2/repository/org/neo4j/neo4j-graph-algo/3.4.9-SNAPSHOT/neo4j-graph-algo-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/apache/directory/server/apacheds-core-shared/2.0.0-M21/apacheds-core-shared-2.0.0-M21.jar:/root/.m2/repository/org/apache/servicemix/bundles/org.apache.servicemix.bundles.dom4j/1.6.1_5/org.apache.servicemix.bundles.dom4j-1.6.1_5.jar:/root/.m2/repository/com/google/guava/guava-testlib/24.1-jre/guava-testlib-24.1-jre.jar:/root/.m2/repository/org/apache/shiro/shiro-crypto-core/1.4.0/shiro-crypto-core-1.4.0.jar:/root/.m2/repository/org/ow2/asm/asm-analysis/6.2/asm-analysis-6.2.jar:/root/.m2/repository/org/neo4j/neo4j-spatial-index/3.4.9-SNAPSHOT/neo4j-spatial-index-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/apache/directory/server/apacheds-core-integ/2.0.0-M21/apacheds-core-integ-2.0.0-M21.jar:/root/.m2/repository/org/neo4j/neo4j-consistency-check/3.4.9-SNAPSHOT/neo4j-consistency-check-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/apache/directory/api/api-ldap-extras-trigger/1.0.0-M33/api-ldap-extras-trigger-1.0.0-M33.jar:/root/.m2/repository/org/neo4j/neo4j-jmx/3.4.9-SNAPSHOT/neo4j-jmx-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/parboiled/parboiled-scala_2.11/1.1.7/parboiled-scala_2.11-1.1.7.jar:/root/.m2/repository/org/neo4j/neo4j-security/3.4.9-SNAPSHOT/neo4j-security-3.4.9-SNAPSHOT-tests.jar:/root/.m2/repository/org/neo4j/neo4j-bolt/3.4.9-SNAPSHOT/neo4j-bolt-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/neo4j/openCypher-frontend-1/3.4.9-SNAPSHOT/openCypher-frontend-1-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/eclipse/jetty/jetty-server/9.4.11.v20180605/jetty-server-9.4.11.v20180605.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/neo4j/neo4j-cypher-planner-3.4/3.4.9-SNAPSHOT/neo4j-cypher-planner-3.4-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/codehaus/mojo/animal-sniffer-annotations/1.14/animal-sniffer-annotations-1.14.jar:/root/.m2/repository/org/apache/directory/server/apacheds-jdbm-partition/2.0.0-M21/apacheds-jdbm-partition-2.0.0-M21.jar:/root/.m2/repository/org/scala-lang/scala-library/2.11.12/scala-library-2.11.12.jar:/root/.m2/repository/org/apache/directory/api/api-util/1.0.0-M33/api-util-1.0.0-M33.jar:/root/.m2/repository/org/apache/directory/server/apacheds-core-jndi/2.0.0-M21/apacheds-core-jndi-2.0.0-M21.jar:/root/.m2/repository/org/neo4j/neo4j-common/3.4.9-SNAPSHOT/neo4j-common-3.4.9-SNAPSHOT-tests.jar:/root/.m2/repository/com/google/errorprone/error_prone_annotations/2.1.3/error_prone_annotations-2.1.3.jar:/root/.m2/repository/org/eclipse/jetty/jetty-http/9.4.11.v20180605/jetty-http-9.4.11.v20180605.jar:/root/.m2/repository/org/apache/directory/server/apacheds-server-annotations/2.0.0-M21/apacheds-server-annotations-2.0.0-M21.jar:/root/.m2/repository/org/codehaus/jackson/jackson-mapper-asl/1.9.13/jackson-mapper-asl-1.9.13.jar:/root/.m2/repository/org/bouncycastle/bcpkix-jdk15on/1.60/bcpkix-jdk15on-1.60.jar:/root/.m2/repository/org/apache/directory/server/apacheds-interceptors-changelog/2.0.0-M21/apacheds-interceptors-changelog-2.0.0-M21.jar:/root/.m2/repository/org/apache/directory/api/api-asn1-ber/1.0.0-M33/api-asn1-ber-1.0.0-M33.jar:/root/.m2/repository/org/apache/directory/server/apacheds-protocol-ldap/2.0.0-M21/apacheds-protocol-ldap-2.0.0-M21.jar:/root/.m2/repository/org/eclipse/jetty/websocket/websocket-api/9.4.11.v20180605/websocket-api-9.4.11.v20180605.jar:/root/.m2/repository/org/apache/directory/server/apacheds-i18n/2.0.0-M21/apacheds-i18n-2.0.0-M21.jar:/root/.m2/repository/org/apache/directory/api/api-ldap-extras-codec/1.0.0-M33/api-ldap-extras-codec-1.0.0-M33.jar:/root/.m2/repository/org/neo4j/neo4j-logging/3.4.9-SNAPSHOT/neo4j-logging-3.4.9-SNAPSHOT-tests.jar:/root/.m2/repository/org/apache/directory/server/apacheds-interceptors-referral/2.0.0-M21/apacheds-interceptors-referral-2.0.0-M21.jar:/root/.m2/repository/org/neo4j/neo4j-kernel/3.4.9-SNAPSHOT/neo4j-kernel-3.4.9-SNAPSHOT-tests.jar:/root/.m2/repository/org/apache/directory/server/apacheds-interceptors-operational/2.0.0-M21/apacheds-interceptors-operational-2.0.0-M21.jar:/root/.m2/repository/org/apache/directory/server/apacheds-core-annotations/2.0.0-M21/apacheds-core-annotations-2.0.0-M21.jar:/root/.m2/repository/org/neo4j/neo4j-index/3.4.9-SNAPSHOT/neo4j-index-3.4.9-SNAPSHOT.jar:/root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.8.5/byte-buddy-agent-1.8.5.jar:/root/.m2/repository/org/apache/shiro/shiro-core/1.4.0/shiro-core-1.4.0.jar:/root/.m2/repository/org/apache/directory/server/apacheds-interceptor-kerberos/2.0.0-M21/apacheds-interceptor-kerberos-2.0.0-M21.jar:/root/.m2/repository/org/neo4j/neo4j-cypher/3.4.9-SNAPSHOT/neo4j-cypher-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/apache/directory/api/api-ldap-extras-sp/1.0.0-M33/api-ldap-extras-sp-1.0.0-M33.jar:/root/.m2/repository/org/codehaus/jackson/jackson-core-asl/1.9.13/jackson-core-asl-1.9.13.jar:/root/.m2/repository/org/apache/shiro/shiro-lang/1.4.0/shiro-lang-1.4.0.jar:/root/.m2/repository/org/neo4j/neo4j-io/3.4.9-SNAPSHOT/neo4j-io-3.4.9-SNAPSHOT-tests.jar:/root/.m2/repository/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0.jar:/root/.m2/repository/org/neo4j/neo4j-udc/3.4.9-SNAPSHOT/neo4j-udc-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/neo4j/neo4j-kernel/3.4.9-SNAPSHOT/neo4j-kernel-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/neo4j/neo4j-logging/3.4.9-SNAPSHOT/neo4j-logging-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/neo4j/neo4j-configuration/3.4.9-SNAPSHOT/neo4j-configuration-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/apache/directory/server/apacheds-interceptors-hash/2.0.0-M21/apacheds-interceptors-hash-2.0.0-M21.jar:/root/.m2/repository/org/apache/directory/server/apacheds-interceptors-journal/2.0.0-M21/apacheds-interceptors-journal-2.0.0-M21.jar:/root/.m2/repository/org/neo4j/neo4j-cypher-compiler-2.3/2.3.12/neo4j-cypher-compiler-2.3-2.3.12.jar:/root/.m2/repository/org/neo4j/neo4j-cypher-interpreted-runtime/3.4.9-SNAPSHOT/neo4j-cypher-interpreted-runtime-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/neo4j/neo4j-graph-matching/3.1.9/neo4j-graph-matching-3.1.9.jar:/root/.m2/repository/org/neo4j/neo4j-cypher-expression-3.4/3.4.9-SNAPSHOT/neo4j-cypher-expression-3.4-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/mockito/mockito-core/2.18.3/mockito-core-2.18.3.jar:/root/.m2/repository/org/neo4j/neo4j-command-line/3.4.9-SNAPSHOT/neo4j-command-line-3.4.9-SNAPSHOT.jar:/root/.m2/repository/com/github/ben-manes/caffeine/caffeine/2.6.2/caffeine-2.6.2.jar:/root/.m2/repository/org/eclipse/jetty/jetty-client/9.4.11.v20180605/jetty-client-9.4.11.v20180605.jar:/root/.m2/repository/org/neo4j/neo4j-codegen/3.4.9-SNAPSHOT/neo4j-codegen-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/apache/directory/api/api-ldap-schema-data/1.0.0-M33/api-ldap-schema-data-1.0.0-M33.jar:/root/.m2/repository/org/eclipse/jetty/jetty-xml/9.4.11.v20180605/jetty-xml-9.4.11.v20180605.jar:/root/.m2/repository/org/apache/directory/server/apacheds-core/2.0.0-M21/apacheds-core-2.0.0-M21.jar:/root/.m2/repository/org/neo4j/neo4j-primitive-collections/3.4.9-SNAPSHOT/neo4j-primitive-collections-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/apache/directory/server/apacheds-mavibot-partition/2.0.0-M21/apacheds-mavibot-partition-2.0.0-M21.jar:/root/.m2/repository/org/apache/lucene/lucene-codecs/5.5.5/lucene-codecs-5.5.5.jar:/root/.m2/repository/org/neo4j/neo4j-cypher-runtime-util/3.4.9-SNAPSHOT/neo4j-cypher-runtime-util-3.4.9-SNAPSHOT.jar:/root/.m2/repository/commons-beanutils/commons-beanutils/1.9.3/commons-beanutils-1.9.3.jar:/root/.m2/repository/org/apache/directory/server/apacheds-kerberos-codec/2.0.0-M21/apacheds-kerberos-codec-2.0.0-M21.jar:/root/.m2/repository/org/apache/lucene/lucene-analyzers-common/5.5.5/lucene-analyzers-common-5.5.5.jar:/root/.m2/repository/org/apache/directory/api/api-i18n/1.0.0-M33/api-i18n-1.0.0-M33.jar:/root/.m2/repository/org/apache/directory/server/apacheds-protocol-kerberos/2.0.0-M21/apacheds-protocol-kerberos-2.0.0-M21.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/1.3.9/jsr305-1.3.9.jar:/root/.m2/repository/org/apache/directory/jdbm/apacheds-jdbm1/2.0.0-M3/apacheds-jdbm1-2.0.0-M3.jar:/root/.m2/repository/org/hamcrest/hamcrest-library/1.3/hamcrest-library-1.3.jar:/root/.m2/repository/org/neo4j/neo4j-ssl/3.4.9-SNAPSHOT/neo4j-ssl-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/apache/directory/api/api-asn1-api/1.0.0-M33/api-asn1-api-1.0.0-M33.jar:/root/.m2/repository/org/apache/directory/server/apacheds-core-api/2.0.0-M21/apacheds-core-api-2.0.0-M21.jar:/root/.m2/repository/org/eclipse/jetty/websocket/websocket-common/9.4.11.v20180605/websocket-common-9.4.11.v20180605.jar:/root/.m2/repository/org/apache/directory/server/apacheds-test-framework/2.0.0-M21/apacheds-test-framework-2.0.0-M21.jar:/root/.m2/repository/org/neo4j/neo4j-auth-plugin-api/3.4.9-SNAPSHOT/neo4j-auth-plugin-api-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/ow2/asm/asm-util/6.2/asm-util-6.2.jar:/root/.m2/repository/org/neo4j/neo4j-enterprise-kernel/3.4.9-SNAPSHOT/neo4j-enterprise-kernel-3.4.9-SNAPSHOT-tests.jar:/root/.m2/repository/org/apache/directory/api/api-ldap-net-mina/1.0.0-M33/api-ldap-net-mina-1.0.0-M33.jar:/root/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:/root/.m2/repository/org/apache/directory/api/api-ldap-extras-codec-api/1.0.0-M33/api-ldap-extras-codec-api-1.0.0-M33.jar:/root/.m2/repository/org/apache/commons/commons-compress/1.16.1/commons-compress-1.16.1.jar:/root/.m2/repository/ldapsdk/ldapsdk/4.1/ldapsdk-4.1.jar:/root/.m2/repository/com/google/j2objc/j2objc-annotations/1.1/j2objc-annotations-1.1.jar:/root/.m2/repository/org/neo4j/neo4j-cypher-ir-3.3/3.3.7/neo4j-cypher-ir-3.3-3.3.7.jar:/root/.m2/repository/org/neo4j/neo4j-cypher-planner-spi-3.4/3.4.9-SNAPSHOT/neo4j-cypher-planner-spi-3.4-3.4.9-SNAPSHOT.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/../lib/tools.jar:/root/.m2/repository/org/neo4j/neo4j-resource/3.4.9-SNAPSHOT/neo4j-resource-3.4.9-SNAPSHOT.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.8.5/byte-buddy-1.8.5.jar:/root/.m2/repository/org/apache/servicemix/bundles/org.apache.servicemix.bundles.antlr/2.7.7_5/org.apache.servicemix.bundles.antlr-2.7.7_5.jar:/root/.m2/repository/org/eclipse/jetty/websocket/websocket-client/9.4.11.v20180605/websocket-client-9.4.11.v20180605.jar:/root/.m2/repository/org/apache/directory/server/apacheds-interceptors-exception/2.0.0-M21/apacheds-interceptors-exception-2.0.0-M21.jar:/root/.m2/repository/org/apache/directory/server/apacheds-core-constants/2.0.0-M21/apacheds-core-constants-2.0.0-M21.jar:/root/.m2/repository/net/sf/ehcache/ehcache/2.8.5/ehcache-2.8.5.jar:/root/.m2/repository/io/netty/netty-all/4.1.24.Final/netty-all-4.1.24.Final.jar:/root/.m2/repository/org/apache/directory/api/api-ldap-codec-core/1.0.0-M33/api-ldap-codec-core-1.0.0-M33.jar:/root/.m2/repository/org/ow2/asm/asm/6.2/asm-6.2.jar:/root/.m2/repository/org/neo4j/neo4j-csv/3.4.9-SNAPSHOT/neo4j-csv-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/apache/lucene/lucene-backward-codecs/5.5.0/lucene-backward-codecs-5.5.0.jar:/root/.m2/repository/org/bouncycastle/bcprov-jdk15on/1.60/bcprov-jdk15on-1.60.jar:/root/.m2/repository/org/apache/directory/server/apacheds-interceptors-collective/2.0.0-M21/apacheds-interceptors-collective-2.0.0-M21.jar:/root/.m2/repository/org/apache/lucene/lucene-core/5.5.5/lucene-core-5.5.5.jar:/root/.m2/repository/org/apache/directory/server/apacheds-interceptors-authn/2.0.0-M21/apacheds-interceptors-authn-2.0.0-M21.jar:/root/.m2/repository/org/apache/directory/server/apacheds-interceptors-authz/2.0.0-M21/apacheds-interceptors-authz-2.0.0-M21.jar:/root/.m2/repository/org/neo4j/neo4j-lucene-index/3.4.9-SNAPSHOT/neo4j-lucene-index-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/neo4j/neo4j-cypher-frontend-3.1/3.1.9/neo4j-cypher-frontend-3.1-3.1.9.jar:/root/.m2/repository/org/neo4j/neo4j-values/3.4.9-SNAPSHOT/neo4j-values-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/apache/directory/server/apacheds-interceptors-schema/2.0.0-M21/apacheds-interceptors-schema-2.0.0-M21.jar:/root/.m2/repository/org/eclipse/jetty/jetty-util/9.4.11.v20180605/jetty-util-9.4.11.v20180605.jar:/root/.m2/repository/org/apache/shiro/shiro-crypto-hash/1.4.0/shiro-crypto-hash-1.4.0.jar:/root/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar:/root/.m2/repository/org/apache/directory/api/api-dsml-parser/1.0.0-M33/api-dsml-parser-1.0.0-M33.jar:/root/.m2/repository/commons-lang/commons-lang/2.6/commons-lang-2.6.jar:/root/.m2/repository/org/apache/lucene/lucene-queryparser/5.5.5/lucene-queryparser-5.5.5.jar:/root/.m2/repository/org/neo4j/neo4j-common/3.4.9-SNAPSHOT/neo4j-common-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/apache/shiro/shiro-crypto-cipher/1.4.0/shiro-crypto-cipher-1.4.0.jar:/root/.m2/repository/com/googlecode/concurrentlinkedhashmap/concurrentlinkedhashmap-lru/1.4.2/concurrentlinkedhashmap-lru-1.4.2.jar:/root/.m2/repository/junit/junit/4.12/junit-4.12.jar]
+[20] INFO AstorMain - Running Astor on a JDK at /usr/lib/jvm/java-8-openjdk-amd64/jre
+[29] INFO main - Source folders: [/workdir/jGenProg_vul4j_neo4j_neo4j_VUL4J-62/./enterprise/security/src/main/java]
+[44] INFO main - Source Test folders: [/workdir/jGenProg_vul4j_neo4j_neo4j_VUL4J-62/./enterprise/security/src/test/java]
+[1948] INFO AstorCoreEngine - ---- Creating spoon model
+[2098] INFO MutationSupporter - Creating model,  Code location from working folder: /workdir/jGenProg_vul4j_neo4j_neo4j_VUL4J-62/./enterprise/security/src/main/java
+[2098] INFO MutationSupporter - building model: /workdir/jGenProg_vul4j_neo4j_neo4j_VUL4J-62/./enterprise/security/src/main/java, compliance level: 8
+[2205] INFO MutationSupporter - Classpath (Dependencies) for building SpoonModel: [/workdir/jGenProg_vul4j_neo4j_neo4j_VUL4J-62/enterprise/security/target/classes/, /root/.m2/repository/org/apache/directory/server/apacheds-server-integ/2.0.0-M21/apacheds-server-integ-2.0.0-M21.jar, /root/.m2/repository/org/neo4j/neo4j-unsafe/3.4.9-SNAPSHOT/neo4j-unsafe-3.4.9-SNAPSHOT.jar, /root/.m2/repository/org/apache/directory/api/api-ldap-extras-util/1.0.0-M33/api-ldap-extras-util-1.0.0-M33.jar, /root/.m2/repository/com/google/guava/guava/24.1-jre/guava-24.1-jre.jar, /root/.m2/repository/org/apache/shiro/shiro-cache/1.4.0/shiro-cache-1.4.0.jar, /root/.m2/repository/org/apache/directory/server/apacheds-interceptors-event/2.0.0-M21/apacheds-interceptors-event-2.0.0-M21.jar, /root/.m2/repository/org/apache/commons/commons-text/1.3/commons-text-1.3.jar, /root/.m2/repository/org/neo4j/neo4j-io/3.4.9-SNAPSHOT/neo4j-io-3.4.9-SNAPSHOT.jar, /root/.m2/repository/org/apache/directory/mavibot/mavibot/1.0.0-M8/mavibot-1.0.0-M8.jar, /root/.m2/repository/org/neo4j/neo4j-cypher-ir-3.4/3.4.9-SNAPSHOT/neo4j-cypher-ir-3.4-3.4.9-SNAPSHOT.jar, /root/.m2/repository/org/neo4j/neo4j-procedure-api/3.4.9-SNAPSHOT/neo4j-procedure-api-3.4.9-SNAPSHOT.jar, /root/.m2/repository/org/apache/directory/api/api-ldap-codec-standalone/1.0.0-M33/api-ldap-codec-standalone-1.0.0-M33.jar, /root/.m2/repository/org/parboiled/parboiled-core/1.1.7/parboiled-core-1.1.7.jar, /root/.m2/repository/org/neo4j/neo4j-cypher-logical-plans-3.4/3.4.9-SNAPSHOT/neo4j-cypher-logical-plans-3.4-3.4.9-SNAPSHOT.jar, /root/.m2/repository/org/apache/directory/server/apacheds-interceptors-subtree/2.0.0-M21/apacheds-interceptors-subtree-2.0.0-M21.jar, /root/.m2/repository/org/ow2/asm/asm-tree/6.2/asm-tree-6.2.jar, /root/.m2/repository/org/apache/directory/server/apacheds-interceptors-admin/2.0.0-M21/apacheds-interceptors-admin-2.0.0-M21.jar, /root/.m2/repository/org/neo4j/neo4j-enterprise-kernel/3.4.9-SNAPSHOT/neo4j-enterprise-kernel-3.4.9-SNAPSHOT.jar, /root/.m2/repository/org/neo4j/neo4j-security/3.4.9-SNAPSHOT/neo4j-security-3.4.9-SNAPSHOT.jar, /root/.m2/repository/org/neo4j/neo4j/3.4.9-SNAPSHOT/neo4j-3.4.9-SNAPSHOT.jar, /root/.m2/repository/org/neo4j/neo4j-graphdb-api/3.4.9-SNAPSHOT/neo4j-graphdb-api-3.4.9-SNAPSHOT.jar, /root/.m2/repository/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar, /root/.m2/repository/org/neo4j/neo4j-bolt/3.4.9-SNAPSHOT/neo4j-bolt-3.4.9-SNAPSHOT-tests.jar, /root/.m2/repository/org/apache/commons/commons-lang3/3.7/commons-lang3-3.7.jar, /root/.m2/repository/commons-io/commons-io/2.6/commons-io-2.6.jar, /root/.m2/repository/org/jprocesses/jProcesses/1.6.4/jProcesses-1.6.4.jar, /root/.m2/repository/org/apache/directory/api/api-ldap-model/1.0.0-M33/api-ldap-model-1.0.0-M33.jar, /root/.m2/repository/com/profesorfalken/WMI4Java/1.6.1/WMI4Java-1.6.1.jar, /root/.m2/repository/org/neo4j/neo4j-cypher-compiler-3.3/3.3.7/neo4j-cypher-compiler-3.3-3.3.7.jar, /root/.m2/repository/commons-codec/commons-codec/1.11/commons-codec-1.11.jar, /root/.m2/repository/org/neo4j/neo4j-cypher-logical-plans-3.3/3.3.7/neo4j-cypher-logical-plans-3.3-3.3.7.jar, /root/.m2/repository/org/neo4j/neo4j-lucene-upgrade/3.4.9-SNAPSHOT/neo4j-lucene-upgrade-3.4.9-SNAPSHOT.jar, /root/.m2/repository/org/neo4j/neo4j-dbms/3.4.9-SNAPSHOT/neo4j-dbms-3.4.9-SNAPSHOT.jar, /root/.m2/repository/org/apache/directory/server/apacheds-interceptors-normalization/2.0.0-M21/apacheds-interceptors-normalization-2.0.0-M21.jar, /root/.m2/repository/org/apache/directory/server/apacheds-xdbm-partition/2.0.0-M21/apacheds-xdbm-partition-2.0.0-M21.jar, /root/.m2/repository/com/profesorfalken/jPowerShell/1.9/jPowerShell-1.9.jar, /root/.m2/repository/org/apache/directory/server/apacheds-server-config/2.0.0-M21/apacheds-server-config-2.0.0-M21.jar, /root/.m2/repository/org/neo4j/neo4j-import-tool/3.4.9-SNAPSHOT/neo4j-import-tool-3.4.9-SNAPSHOT.jar, /root/.m2/repository/org/apache/mina/mina-core/2.0.10/mina-core-2.0.10.jar, /root/.m2/repository/org/apache/directory/api/api-dsml-engine/1.0.0-M33/api-dsml-engine-1.0.0-M33.jar, /root/.m2/repository/org/objenesis/objenesis/2.6/objenesis-2.6.jar, /root/.m2/repository/net/sf/opencsv/opencsv/2.3/opencsv-2.3.jar, /root/.m2/repository/xml-apis/xml-apis/1.0.b2/xml-apis-1.0.b2.jar, /root/.m2/repository/org/neo4j/neo4j-collections/3.4.9-SNAPSHOT/neo4j-collections-3.4.9-SNAPSHOT.jar, /root/.m2/repository/org/neo4j/neo4j-cypher-frontend-2.3/2.3.12/neo4j-cypher-frontend-2.3-2.3.12.jar, /root/.m2/repository/commons-pool/commons-pool/1.6/commons-pool-1.6.jar, /root/.m2/repository/org/apache/directory/server/apacheds-interceptors-trigger/2.0.0-M21/apacheds-interceptors-trigger-2.0.0-M21.jar, /root/.m2/repository/org/apache/shiro/shiro-config-ogdl/1.4.0/shiro-config-ogdl-1.4.0.jar, /root/.m2/repository/org/checkerframework/checker-compat-qual/2.0.0/checker-compat-qual-2.0.0.jar, /root/.m2/repository/org/apache/shiro/shiro-event/1.4.0/shiro-event-1.4.0.jar, /root/.m2/repository/org/apache/directory/server/apacheds-core-avl/2.0.0-M21/apacheds-core-avl-2.0.0-M21.jar, /root/.m2/repository/org/neo4j/neo4j-cypher-frontend-3.3/3.3.7/neo4j-cypher-frontend-3.3-3.3.7.jar, /root/.m2/repository/org/apache/directory/api/api-ldap-extras-aci/1.0.0-M33/api-ldap-extras-aci-1.0.0-M33.jar, /root/.m2/repository/org/neo4j/neo4j-cypher-util-3.4/3.4.9-SNAPSHOT/neo4j-cypher-util-3.4-3.4.9-SNAPSHOT.jar, /root/.m2/repository/org/neo4j/neo4j-cypher-compiler-3.1/3.1.9/neo4j-cypher-compiler-3.1-3.1.9.jar, /root/.m2/repository/org/apache/shiro/shiro-config-core/1.4.0/shiro-config-core-1.4.0.jar, /root/.m2/repository/org/apache/directory/api/api-ldap-client-api/1.0.0-M33/api-ldap-client-api-1.0.0-M33.jar, /root/.m2/repository/org/slf4j/slf4j-nop/1.7.25/slf4j-nop-1.7.25.jar, /root/.m2/repository/org/apache/directory/server/apacheds-interceptors-number/2.0.0-M21/apacheds-interceptors-number-2.0.0-M21.jar, /root/.m2/repository/org/apache/directory/server/apacheds-ldif-partition/2.0.0-M21/apacheds-ldif-partition-2.0.0-M21.jar, /root/.m2/repository/org/scala-lang/scala-reflect/2.11.12/scala-reflect-2.11.12.jar, /root/.m2/repository/org/apache/directory/server/apacheds-protocol-shared/2.0.0-M21/apacheds-protocol-shared-2.0.0-M21.jar, /root/.m2/repository/org/eclipse/jetty/jetty-io/9.4.11.v20180605/jetty-io-9.4.11.v20180605.jar, /root/.m2/repository/org/neo4j/neo4j-kernel-api/3.4.9-SNAPSHOT/neo4j-kernel-api-3.4.9-SNAPSHOT.jar, /root/.m2/repository/org/apache/servicemix/bundles/org.apache.servicemix.bundles.xpp3/1.1.4c_6/org.apache.servicemix.bundles.xpp3-1.1.4c_6.jar, /root/.m2/repository/org/neo4j/neo4j-graph-algo/3.4.9-SNAPSHOT/neo4j-graph-algo-3.4.9-SNAPSHOT.jar, /root/.m2/repository/org/apache/directory/server/apacheds-core-shared/2.0.0-M21/apacheds-core-shared-2.0.0-M21.jar, /root/.m2/repository/org/apache/servicemix/bundles/org.apache.servicemix.bundles.dom4j/1.6.1_5/org.apache.servicemix.bundles.dom4j-1.6.1_5.jar, /root/.m2/repository/com/google/guava/guava-testlib/24.1-jre/guava-testlib-24.1-jre.jar, /root/.m2/repository/org/apache/shiro/shiro-crypto-core/1.4.0/shiro-crypto-core-1.4.0.jar, /root/.m2/repository/org/ow2/asm/asm-analysis/6.2/asm-analysis-6.2.jar, /root/.m2/repository/org/neo4j/neo4j-spatial-index/3.4.9-SNAPSHOT/neo4j-spatial-index-3.4.9-SNAPSHOT.jar, /root/.m2/repository/org/apache/directory/server/apacheds-core-integ/2.0.0-M21/apacheds-core-integ-2.0.0-M21.jar, /root/.m2/repository/org/neo4j/neo4j-consistency-check/3.4.9-SNAPSHOT/neo4j-consistency-check-3.4.9-SNAPSHOT.jar, /root/.m2/repository/org/apache/directory/api/api-ldap-extras-trigger/1.0.0-M33/api-ldap-extras-trigger-1.0.0-M33.jar, /root/.m2/repository/org/neo4j/neo4j-jmx/3.4.9-SNAPSHOT/neo4j-jmx-3.4.9-SNAPSHOT.jar, /root/.m2/repository/org/parboiled/parboiled-scala_2.11/1.1.7/parboiled-scala_2.11-1.1.7.jar, /root/.m2/repository/org/neo4j/neo4j-security/3.4.9-SNAPSHOT/neo4j-security-3.4.9-SNAPSHOT-tests.jar, /root/.m2/repository/org/neo4j/neo4j-bolt/3.4.9-SNAPSHOT/neo4j-bolt-3.4.9-SNAPSHOT.jar, /root/.m2/repository/org/neo4j/openCypher-frontend-1/3.4.9-SNAPSHOT/openCypher-frontend-1-3.4.9-SNAPSHOT.jar, /root/.m2/repository/org/eclipse/jetty/jetty-server/9.4.11.v20180605/jetty-server-9.4.11.v20180605.jar, /root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar, /root/.m2/repository/org/neo4j/neo4j-cypher-planner-3.4/3.4.9-SNAPSHOT/neo4j-cypher-planner-3.4-3.4.9-SNAPSHOT.jar, /root/.m2/repository/org/codehaus/mojo/animal-sniffer-annotations/1.14/animal-sniffer-annotations-1.14.jar, /root/.m2/repository/org/apache/directory/server/apacheds-jdbm-partition/2.0.0-M21/apacheds-jdbm-partition-2.0.0-M21.jar, /root/.m2/repository/org/scala-lang/scala-library/2.11.12/scala-library-2.11.12.jar, /root/.m2/repository/org/apache/directory/api/api-util/1.0.0-M33/api-util-1.0.0-M33.jar, /root/.m2/repository/org/apache/directory/server/apacheds-core-jndi/2.0.0-M21/apacheds-core-jndi-2.0.0-M21.jar, /root/.m2/repository/org/neo4j/neo4j-common/3.4.9-SNAPSHOT/neo4j-common-3.4.9-SNAPSHOT-tests.jar, /root/.m2/repository/com/google/errorprone/error_prone_annotations/2.1.3/error_prone_annotations-2.1.3.jar, /root/.m2/repository/org/eclipse/jetty/jetty-http/9.4.11.v20180605/jetty-http-9.4.11.v20180605.jar, /root/.m2/repository/org/apache/directory/server/apacheds-server-annotations/2.0.0-M21/apacheds-server-annotations-2.0.0-M21.jar, /root/.m2/repository/org/codehaus/jackson/jackson-mapper-asl/1.9.13/jackson-mapper-asl-1.9.13.jar, /root/.m2/repository/org/bouncycastle/bcpkix-jdk15on/1.60/bcpkix-jdk15on-1.60.jar, /root/.m2/repository/org/apache/directory/server/apacheds-interceptors-changelog/2.0.0-M21/apacheds-interceptors-changelog-2.0.0-M21.jar, /root/.m2/repository/org/apache/directory/api/api-asn1-ber/1.0.0-M33/api-asn1-ber-1.0.0-M33.jar, /root/.m2/repository/org/apache/directory/server/apacheds-protocol-ldap/2.0.0-M21/apacheds-protocol-ldap-2.0.0-M21.jar, /root/.m2/repository/org/eclipse/jetty/websocket/websocket-api/9.4.11.v20180605/websocket-api-9.4.11.v20180605.jar, /root/.m2/repository/org/apache/directory/server/apacheds-i18n/2.0.0-M21/apacheds-i18n-2.0.0-M21.jar, /root/.m2/repository/org/apache/directory/api/api-ldap-extras-codec/1.0.0-M33/api-ldap-extras-codec-1.0.0-M33.jar, /root/.m2/repository/org/neo4j/neo4j-logging/3.4.9-SNAPSHOT/neo4j-logging-3.4.9-SNAPSHOT-tests.jar, /root/.m2/repository/org/apache/directory/server/apacheds-interceptors-referral/2.0.0-M21/apacheds-interceptors-referral-2.0.0-M21.jar, /root/.m2/repository/org/neo4j/neo4j-kernel/3.4.9-SNAPSHOT/neo4j-kernel-3.4.9-SNAPSHOT-tests.jar, /root/.m2/repository/org/apache/directory/server/apacheds-interceptors-operational/2.0.0-M21/apacheds-interceptors-operational-2.0.0-M21.jar, /root/.m2/repository/org/apache/directory/server/apacheds-core-annotations/2.0.0-M21/apacheds-core-annotations-2.0.0-M21.jar, /root/.m2/repository/org/neo4j/neo4j-index/3.4.9-SNAPSHOT/neo4j-index-3.4.9-SNAPSHOT.jar, /root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.8.5/byte-buddy-agent-1.8.5.jar, /root/.m2/repository/org/apache/shiro/shiro-core/1.4.0/shiro-core-1.4.0.jar, /root/.m2/repository/org/apache/directory/server/apacheds-interceptor-kerberos/2.0.0-M21/apacheds-interceptor-kerberos-2.0.0-M21.jar, /root/.m2/repository/org/neo4j/neo4j-cypher/3.4.9-SNAPSHOT/neo4j-cypher-3.4.9-SNAPSHOT.jar, /root/.m2/repository/org/apache/directory/api/api-ldap-extras-sp/1.0.0-M33/api-ldap-extras-sp-1.0.0-M33.jar, /root/.m2/repository/org/codehaus/jackson/jackson-core-asl/1.9.13/jackson-core-asl-1.9.13.jar, /root/.m2/repository/org/apache/shiro/shiro-lang/1.4.0/shiro-lang-1.4.0.jar, /root/.m2/repository/org/neo4j/neo4j-io/3.4.9-SNAPSHOT/neo4j-io-3.4.9-SNAPSHOT-tests.jar, /root/.m2/repository/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0.jar, /root/.m2/repository/org/neo4j/neo4j-udc/3.4.9-SNAPSHOT/neo4j-udc-3.4.9-SNAPSHOT.jar, /root/.m2/repository/org/neo4j/neo4j-kernel/3.4.9-SNAPSHOT/neo4j-kernel-3.4.9-SNAPSHOT.jar, /root/.m2/repository/org/neo4j/neo4j-logging/3.4.9-SNAPSHOT/neo4j-logging-3.4.9-SNAPSHOT.jar, /root/.m2/repository/org/neo4j/neo4j-configuration/3.4.9-SNAPSHOT/neo4j-configuration-3.4.9-SNAPSHOT.jar, /root/.m2/repository/org/apache/directory/server/apacheds-interceptors-hash/2.0.0-M21/apacheds-interceptors-hash-2.0.0-M21.jar, /root/.m2/repository/org/apache/directory/server/apacheds-interceptors-journal/2.0.0-M21/apacheds-interceptors-journal-2.0.0-M21.jar, /root/.m2/repository/org/neo4j/neo4j-cypher-compiler-2.3/2.3.12/neo4j-cypher-compiler-2.3-2.3.12.jar, /root/.m2/repository/org/neo4j/neo4j-cypher-interpreted-runtime/3.4.9-SNAPSHOT/neo4j-cypher-interpreted-runtime-3.4.9-SNAPSHOT.jar, /root/.m2/repository/org/neo4j/neo4j-graph-matching/3.1.9/neo4j-graph-matching-3.1.9.jar, /root/.m2/repository/org/neo4j/neo4j-cypher-expression-3.4/3.4.9-SNAPSHOT/neo4j-cypher-expression-3.4-3.4.9-SNAPSHOT.jar, /root/.m2/repository/org/mockito/mockito-core/2.18.3/mockito-core-2.18.3.jar, /root/.m2/repository/org/neo4j/neo4j-command-line/3.4.9-SNAPSHOT/neo4j-command-line-3.4.9-SNAPSHOT.jar, /root/.m2/repository/com/github/ben-manes/caffeine/caffeine/2.6.2/caffeine-2.6.2.jar, /root/.m2/repository/org/eclipse/jetty/jetty-client/9.4.11.v20180605/jetty-client-9.4.11.v20180605.jar, /root/.m2/repository/org/neo4j/neo4j-codegen/3.4.9-SNAPSHOT/neo4j-codegen-3.4.9-SNAPSHOT.jar, /root/.m2/repository/org/apache/directory/api/api-ldap-schema-data/1.0.0-M33/api-ldap-schema-data-1.0.0-M33.jar, /root/.m2/repository/org/eclipse/jetty/jetty-xml/9.4.11.v20180605/jetty-xml-9.4.11.v20180605.jar, /root/.m2/repository/org/apache/directory/server/apacheds-core/2.0.0-M21/apacheds-core-2.0.0-M21.jar, /root/.m2/repository/org/neo4j/neo4j-primitive-collections/3.4.9-SNAPSHOT/neo4j-primitive-collections-3.4.9-SNAPSHOT.jar, /root/.m2/repository/org/apache/directory/server/apacheds-mavibot-partition/2.0.0-M21/apacheds-mavibot-partition-2.0.0-M21.jar, /root/.m2/repository/org/apache/lucene/lucene-codecs/5.5.5/lucene-codecs-5.5.5.jar, /root/.m2/repository/org/neo4j/neo4j-cypher-runtime-util/3.4.9-SNAPSHOT/neo4j-cypher-runtime-util-3.4.9-SNAPSHOT.jar, /root/.m2/repository/commons-beanutils/commons-beanutils/1.9.3/commons-beanutils-1.9.3.jar, /root/.m2/repository/org/apache/directory/server/apacheds-kerberos-codec/2.0.0-M21/apacheds-kerberos-codec-2.0.0-M21.jar, /root/.m2/repository/org/apache/lucene/lucene-analyzers-common/5.5.5/lucene-analyzers-common-5.5.5.jar, /root/.m2/repository/org/apache/directory/api/api-i18n/1.0.0-M33/api-i18n-1.0.0-M33.jar, /root/.m2/repository/org/apache/directory/server/apacheds-protocol-kerberos/2.0.0-M21/apacheds-protocol-kerberos-2.0.0-M21.jar, /root/.m2/repository/com/google/code/findbugs/jsr305/1.3.9/jsr305-1.3.9.jar, /root/.m2/repository/org/apache/directory/jdbm/apacheds-jdbm1/2.0.0-M3/apacheds-jdbm1-2.0.0-M3.jar, /root/.m2/repository/org/hamcrest/hamcrest-library/1.3/hamcrest-library-1.3.jar, /root/.m2/repository/org/neo4j/neo4j-ssl/3.4.9-SNAPSHOT/neo4j-ssl-3.4.9-SNAPSHOT.jar, /root/.m2/repository/org/apache/directory/api/api-asn1-api/1.0.0-M33/api-asn1-api-1.0.0-M33.jar, /root/.m2/repository/org/apache/directory/server/apacheds-core-api/2.0.0-M21/apacheds-core-api-2.0.0-M21.jar, /root/.m2/repository/org/eclipse/jetty/websocket/websocket-common/9.4.11.v20180605/websocket-common-9.4.11.v20180605.jar, /root/.m2/repository/org/apache/directory/server/apacheds-test-framework/2.0.0-M21/apacheds-test-framework-2.0.0-M21.jar, /root/.m2/repository/org/neo4j/neo4j-auth-plugin-api/3.4.9-SNAPSHOT/neo4j-auth-plugin-api-3.4.9-SNAPSHOT.jar, /root/.m2/repository/org/ow2/asm/asm-util/6.2/asm-util-6.2.jar, /root/.m2/repository/org/neo4j/neo4j-enterprise-kernel/3.4.9-SNAPSHOT/neo4j-enterprise-kernel-3.4.9-SNAPSHOT-tests.jar, /root/.m2/repository/org/apache/directory/api/api-ldap-net-mina/1.0.0-M33/api-ldap-net-mina-1.0.0-M33.jar, /root/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar, /root/.m2/repository/org/apache/directory/api/api-ldap-extras-codec-api/1.0.0-M33/api-ldap-extras-codec-api-1.0.0-M33.jar, /root/.m2/repository/org/apache/commons/commons-compress/1.16.1/commons-compress-1.16.1.jar, /root/.m2/repository/ldapsdk/ldapsdk/4.1/ldapsdk-4.1.jar, /root/.m2/repository/com/google/j2objc/j2objc-annotations/1.1/j2objc-annotations-1.1.jar, /root/.m2/repository/org/neo4j/neo4j-cypher-ir-3.3/3.3.7/neo4j-cypher-ir-3.3-3.3.7.jar, /root/.m2/repository/org/neo4j/neo4j-cypher-planner-spi-3.4/3.4.9-SNAPSHOT/neo4j-cypher-planner-spi-3.4-3.4.9-SNAPSHOT.jar, /usr/lib/jvm/java-8-openjdk-amd64/jre/../lib/tools.jar, /root/.m2/repository/org/neo4j/neo4j-resource/3.4.9-SNAPSHOT/neo4j-resource-3.4.9-SNAPSHOT.jar, /root/.m2/repository/net/bytebuddy/byte-buddy/1.8.5/byte-buddy-1.8.5.jar, /root/.m2/repository/org/apache/servicemix/bundles/org.apache.servicemix.bundles.antlr/2.7.7_5/org.apache.servicemix.bundles.antlr-2.7.7_5.jar, /root/.m2/repository/org/eclipse/jetty/websocket/websocket-client/9.4.11.v20180605/websocket-client-9.4.11.v20180605.jar, /root/.m2/repository/org/apache/directory/server/apacheds-interceptors-exception/2.0.0-M21/apacheds-interceptors-exception-2.0.0-M21.jar, /root/.m2/repository/org/apache/directory/server/apacheds-core-constants/2.0.0-M21/apacheds-core-constants-2.0.0-M21.jar, /root/.m2/repository/net/sf/ehcache/ehcache/2.8.5/ehcache-2.8.5.jar, /root/.m2/repository/io/netty/netty-all/4.1.24.Final/netty-all-4.1.24.Final.jar, /root/.m2/repository/org/apache/directory/api/api-ldap-codec-core/1.0.0-M33/api-ldap-codec-core-1.0.0-M33.jar, /root/.m2/repository/org/ow2/asm/asm/6.2/asm-6.2.jar, /root/.m2/repository/org/neo4j/neo4j-csv/3.4.9-SNAPSHOT/neo4j-csv-3.4.9-SNAPSHOT.jar, /root/.m2/repository/org/apache/lucene/lucene-backward-codecs/5.5.0/lucene-backward-codecs-5.5.0.jar, /root/.m2/repository/org/bouncycastle/bcprov-jdk15on/1.60/bcprov-jdk15on-1.60.jar, /root/.m2/repository/org/apache/directory/server/apacheds-interceptors-collective/2.0.0-M21/apacheds-interceptors-collective-2.0.0-M21.jar, /root/.m2/repository/org/apache/lucene/lucene-core/5.5.5/lucene-core-5.5.5.jar, /root/.m2/repository/org/apache/directory/server/apacheds-interceptors-authn/2.0.0-M21/apacheds-interceptors-authn-2.0.0-M21.jar, /root/.m2/repository/org/apache/directory/server/apacheds-interceptors-authz/2.0.0-M21/apacheds-interceptors-authz-2.0.0-M21.jar, /root/.m2/repository/org/neo4j/neo4j-lucene-index/3.4.9-SNAPSHOT/neo4j-lucene-index-3.4.9-SNAPSHOT.jar, /root/.m2/repository/org/neo4j/neo4j-cypher-frontend-3.1/3.1.9/neo4j-cypher-frontend-3.1-3.1.9.jar, /root/.m2/repository/org/neo4j/neo4j-values/3.4.9-SNAPSHOT/neo4j-values-3.4.9-SNAPSHOT.jar, /root/.m2/repository/org/apache/directory/server/apacheds-interceptors-schema/2.0.0-M21/apacheds-interceptors-schema-2.0.0-M21.jar, /root/.m2/repository/org/eclipse/jetty/jetty-util/9.4.11.v20180605/jetty-util-9.4.11.v20180605.jar, /root/.m2/repository/org/apache/shiro/shiro-crypto-hash/1.4.0/shiro-crypto-hash-1.4.0.jar, /root/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar, /root/.m2/repository/org/apache/directory/api/api-dsml-parser/1.0.0-M33/api-dsml-parser-1.0.0-M33.jar, /root/.m2/repository/commons-lang/commons-lang/2.6/commons-lang-2.6.jar, /root/.m2/repository/org/apache/lucene/lucene-queryparser/5.5.5/lucene-queryparser-5.5.5.jar, /root/.m2/repository/org/neo4j/neo4j-common/3.4.9-SNAPSHOT/neo4j-common-3.4.9-SNAPSHOT.jar, /root/.m2/repository/org/apache/shiro/shiro-crypto-cipher/1.4.0/shiro-crypto-cipher-1.4.0.jar, /root/.m2/repository/com/googlecode/concurrentlinkedhashmap/concurrentlinkedhashmap-lru/1.4.2/concurrentlinkedhashmap-lru-1.4.2.jar, /root/.m2/repository/junit/junit/4.12/junit-4.12.jar]
+[13293] INFO AstorCoreEngine - Number of CtTypes created: 37
+[13491] INFO AstorCoreEngine - Test retrieved from classes: 0
+[13583] INFO AstorCoreEngine - Setting up the max to 910 milliseconds (0 sec)
+[13583] INFO AstorCoreEngine - ---- Initial suspicious size: 2
+[13925] INFO main - Total suspicious from FL: 2,  2
+[13926] INFO main - Total ModPoint created: 2
+[13926] INFO main - Creating program variant #1, [Variant id: 1, #gens: 2, #ops: 0, parent:-]
+[13926] INFO main - Run previously failing tests...
+[64526] INFO main - Failed tests: 1
+[64531] INFO AstorCoreEngine - The original fitness is : 1.0
+[83482] WARN ConfigurationProperties - ----------------------------
+[83483] INFO ConfigurationProperties - ---Configuration properties
+[83483] INFO ConfigurationProperties - p:lastJUnitVersion= ./examples/libs/junit-4.11.jar
+[83483] INFO ConfigurationProperties - p:alternativecompliancelevel= 8
+[83483] INFO ConfigurationProperties - p:ignoredTestCases= 
+[83484] INFO ConfigurationProperties - p:workingDirectory= /workdir/jGenProg_vul4j_neo4j_neo4j_VUL4J-62/./output_astor
+[83484] INFO ConfigurationProperties - p:manipulatesuper= false
+[83484] INFO ConfigurationProperties - p:validation= externalcmd
+[83484] INFO ConfigurationProperties - p:jvm4testexecution= /usr/lib/jvm/java-8-openjdk-amd64/bin
+[83484] INFO ConfigurationProperties - p:operatorspace= irr-statements
+[83484] INFO ConfigurationProperties - p:diffcontext= 0
+[83484] INFO ConfigurationProperties - p:binjavafolder= enterprise/security/target/classes
+[83484] INFO ConfigurationProperties - p:synthesis_depth= 3
+[83484] INFO ConfigurationProperties - p:gzoltartestpackagetoexclude= junit.framework
+[83484] INFO ConfigurationProperties - p:skipfitnessinitialpopulation= false
+[83484] INFO ConfigurationProperties - p:evosuiteresultfolder= evosuite
+[83484] INFO ConfigurationProperties - p:flthreshold= 0.1
+[83485] INFO ConfigurationProperties - p:regressionforfaultlocalization= true
+[83485] INFO ConfigurationProperties - p:collectonlyusedmethod= false
+[83485] INFO ConfigurationProperties - p:preservelinenumbers= true
+[83485] INFO ConfigurationProperties - p:tmax2= 910
+[83485] INFO ConfigurationProperties - p:tmax1= 10000
+[83485] INFO ConfigurationProperties - p:probagenmutation= false
+[83485] INFO ConfigurationProperties - p:nomodificationconvergence= 100
+[83485] INFO ConfigurationProperties - p:diff_type= relative
+[83485] INFO ConfigurationProperties - p:targetelementprocessor= statements
+[83485] INFO ConfigurationProperties - p:srctestfolder= enterprise/security/src/test/java
+[83485] INFO ConfigurationProperties - p:forceExecuteRegression= false
+[83486] INFO ConfigurationProperties - p:clusteringfilename= clustering.csv
+[83486] INFO ConfigurationProperties - p:failing= org.neo4j.server.security.enterprise.auth.integration.bolt.LdapAuthIT#shouldFailLoginWrongPasswordWithLdapOnlyUsingStartTls
+[83486] INFO ConfigurationProperties - p:logtestexecution= false
+[83486] INFO ConfigurationProperties - p:evo_buggy_class= true
+[83486] INFO ConfigurationProperties - p:numberExecutions= 1
+[83486] INFO ConfigurationProperties - p:maxnumbersolutions= 1000000
+[83486] INFO ConfigurationProperties - p:evo_affected_by_op= true
+[83486] INFO ConfigurationProperties - p:population= 1
+[83486] INFO ConfigurationProperties - p:considerzerovaluesusp= false
+[83486] INFO ConfigurationProperties - p:maxCombinationVariableLimit= false
+[83486] INFO ConfigurationProperties - p:savesolution= true
+[83486] INFO ConfigurationProperties - p:javacompliancelevel= 8
+[83487] INFO ConfigurationProperties - p:x= x
+[83487] INFO ConfigurationProperties - p:uniqueoptogen= false
+[83487] INFO ConfigurationProperties - p:gzoltarpackagetonotinstrument= junit.framework
+[83487] INFO ConfigurationProperties - p:projectIdentifier= neo4j_neo4j-VUL4J-62
+[83487] INFO ConfigurationProperties - p:modificationpointnavigation= weight
+[83487] INFO ConfigurationProperties - p:stopfirst= true
+[83487] INFO ConfigurationProperties - p:multipointmodification= false
+[83487] INFO ConfigurationProperties - p:elementsToMutate= 10
+[83487] INFO ConfigurationProperties - p:jsonoutputname= astor_output
+[83487] INFO ConfigurationProperties - p:evoDSE= false
+[83487] INFO ConfigurationProperties - p:bintestfolder= enterprise/security/target/test-classes
+[83487] INFO ConfigurationProperties - p:testbystep= false
+[83487] INFO ConfigurationProperties - p:version-location= ./math-version/
+[83487] INFO ConfigurationProperties - p:reintroduce= PARENTS:ORIGINAL
+[83487] INFO ConfigurationProperties - p:perfectdata= /script/../data/benchmarks/vul4j/perfectfl/VUL4J-62
+[83487] INFO ConfigurationProperties - p:executorjar= ./lib/jtestex7.jar
+[83487] INFO ConfigurationProperties - p:maxGeneration= 1000000
+[83487] INFO ConfigurationProperties - p:max_synthesis_step= 10000
+[83487] INFO ConfigurationProperties - p:projectinfocommand= com.github.tdurieux:project-config-maven-plugin:info
+[83487] INFO ConfigurationProperties - p:maxVarCombination= 1000
+[83487] INFO ConfigurationProperties - p:maxtime= 120
+[83488] INFO ConfigurationProperties - p:evosuitejar= ./lib/evosuite-master-1.0.4-SNAPSHOT.jar
+[83488] INFO ConfigurationProperties - p:jvmversion= 1.8.0_342
+[83488] INFO ConfigurationProperties - p:commandTrunk= 50000
+[83488] INFO ConfigurationProperties - p:faultlocalization= perfect
+[83488] INFO ConfigurationProperties - p:resetmodel= true
+[83488] INFO ConfigurationProperties - p:maxsuspcandidates= 1000
+[83488] INFO ConfigurationProperties - p:mode= jgenprog
+[83488] INFO ConfigurationProperties - p:learningdir= 
+[83488] INFO ConfigurationProperties - p:jvm4evosuitetestexecution= /usr/lib/jvm/java-8-openjdk-amd64/bin
+[83488] INFO ConfigurationProperties - p:filterfaultlocalization= true
+[83488] INFO ConfigurationProperties - p:mutationrate= 1 
+[83488] INFO ConfigurationProperties - p:pathToMVNRepository= 
+[83488] INFO ConfigurationProperties - p:resourcesfolder= /src/main/resources:/src/test/resources:
+[83488] INFO ConfigurationProperties - p:timezone= America/Los_Angeles
+[83488] INFO ConfigurationProperties - p:runjava7code= false
+[83488] INFO ConfigurationProperties - p:testfailingcmd= mvn test -pl enterprise/security -Dtest=org.neo4j.server.security.enterprise.auth.integration.bolt.LdapAuthIT#shouldFailLoginWrongPasswordWithLdapOnlyUsingStartTls -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B
+[83488] INFO ConfigurationProperties - p:evoRunOnBuggyClass= true
+[83488] INFO ConfigurationProperties - p:compiler= fr.inria.astor.core.manipulation.bytecode.compiler.SpoonClassCompiler
+[83488] INFO ConfigurationProperties - p:limitbysuspicious= true
+[83489] INFO ConfigurationProperties - p:logsattemps= true
+[83489] INFO ConfigurationProperties - p:dependenciespath= /workdir/jGenProg_vul4j_neo4j_neo4j_VUL4J-62/enterprise/security/target/classes:/root/.m2/repository/org/apache/directory/server/apacheds-server-integ/2.0.0-M21/apacheds-server-integ-2.0.0-M21.jar:/root/.m2/repository/org/neo4j/neo4j-unsafe/3.4.9-SNAPSHOT/neo4j-unsafe-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/apache/directory/api/api-ldap-extras-util/1.0.0-M33/api-ldap-extras-util-1.0.0-M33.jar:/root/.m2/repository/com/google/guava/guava/24.1-jre/guava-24.1-jre.jar:/root/.m2/repository/org/apache/shiro/shiro-cache/1.4.0/shiro-cache-1.4.0.jar:/root/.m2/repository/org/apache/directory/server/apacheds-interceptors-event/2.0.0-M21/apacheds-interceptors-event-2.0.0-M21.jar:/root/.m2/repository/org/apache/commons/commons-text/1.3/commons-text-1.3.jar:/root/.m2/repository/org/neo4j/neo4j-io/3.4.9-SNAPSHOT/neo4j-io-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/apache/directory/mavibot/mavibot/1.0.0-M8/mavibot-1.0.0-M8.jar:/root/.m2/repository/org/neo4j/neo4j-cypher-ir-3.4/3.4.9-SNAPSHOT/neo4j-cypher-ir-3.4-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/neo4j/neo4j-procedure-api/3.4.9-SNAPSHOT/neo4j-procedure-api-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/apache/directory/api/api-ldap-codec-standalone/1.0.0-M33/api-ldap-codec-standalone-1.0.0-M33.jar:/root/.m2/repository/org/parboiled/parboiled-core/1.1.7/parboiled-core-1.1.7.jar:/root/.m2/repository/org/neo4j/neo4j-cypher-logical-plans-3.4/3.4.9-SNAPSHOT/neo4j-cypher-logical-plans-3.4-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/apache/directory/server/apacheds-interceptors-subtree/2.0.0-M21/apacheds-interceptors-subtree-2.0.0-M21.jar:/root/.m2/repository/org/ow2/asm/asm-tree/6.2/asm-tree-6.2.jar:/root/.m2/repository/org/apache/directory/server/apacheds-interceptors-admin/2.0.0-M21/apacheds-interceptors-admin-2.0.0-M21.jar:/root/.m2/repository/org/neo4j/neo4j-enterprise-kernel/3.4.9-SNAPSHOT/neo4j-enterprise-kernel-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/neo4j/neo4j-security/3.4.9-SNAPSHOT/neo4j-security-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/neo4j/neo4j/3.4.9-SNAPSHOT/neo4j-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/neo4j/neo4j-graphdb-api/3.4.9-SNAPSHOT/neo4j-graphdb-api-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar:/root/.m2/repository/org/neo4j/neo4j-bolt/3.4.9-SNAPSHOT/neo4j-bolt-3.4.9-SNAPSHOT-tests.jar:/root/.m2/repository/org/apache/commons/commons-lang3/3.7/commons-lang3-3.7.jar:/root/.m2/repository/commons-io/commons-io/2.6/commons-io-2.6.jar:/root/.m2/repository/org/jprocesses/jProcesses/1.6.4/jProcesses-1.6.4.jar:/root/.m2/repository/org/apache/directory/api/api-ldap-model/1.0.0-M33/api-ldap-model-1.0.0-M33.jar:/root/.m2/repository/com/profesorfalken/WMI4Java/1.6.1/WMI4Java-1.6.1.jar:/root/.m2/repository/org/neo4j/neo4j-cypher-compiler-3.3/3.3.7/neo4j-cypher-compiler-3.3-3.3.7.jar:/root/.m2/repository/commons-codec/commons-codec/1.11/commons-codec-1.11.jar:/root/.m2/repository/org/neo4j/neo4j-cypher-logical-plans-3.3/3.3.7/neo4j-cypher-logical-plans-3.3-3.3.7.jar:/root/.m2/repository/org/neo4j/neo4j-lucene-upgrade/3.4.9-SNAPSHOT/neo4j-lucene-upgrade-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/neo4j/neo4j-dbms/3.4.9-SNAPSHOT/neo4j-dbms-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/apache/directory/server/apacheds-interceptors-normalization/2.0.0-M21/apacheds-interceptors-normalization-2.0.0-M21.jar:/root/.m2/repository/org/apache/directory/server/apacheds-xdbm-partition/2.0.0-M21/apacheds-xdbm-partition-2.0.0-M21.jar:/root/.m2/repository/com/profesorfalken/jPowerShell/1.9/jPowerShell-1.9.jar:/root/.m2/repository/org/apache/directory/server/apacheds-server-config/2.0.0-M21/apacheds-server-config-2.0.0-M21.jar:/root/.m2/repository/org/neo4j/neo4j-import-tool/3.4.9-SNAPSHOT/neo4j-import-tool-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/apache/mina/mina-core/2.0.10/mina-core-2.0.10.jar:/root/.m2/repository/org/apache/directory/api/api-dsml-engine/1.0.0-M33/api-dsml-engine-1.0.0-M33.jar:/root/.m2/repository/org/objenesis/objenesis/2.6/objenesis-2.6.jar:/root/.m2/repository/net/sf/opencsv/opencsv/2.3/opencsv-2.3.jar:/root/.m2/repository/xml-apis/xml-apis/1.0.b2/xml-apis-1.0.b2.jar:/root/.m2/repository/org/neo4j/neo4j-collections/3.4.9-SNAPSHOT/neo4j-collections-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/neo4j/neo4j-cypher-frontend-2.3/2.3.12/neo4j-cypher-frontend-2.3-2.3.12.jar:/root/.m2/repository/commons-pool/commons-pool/1.6/commons-pool-1.6.jar:/root/.m2/repository/org/apache/directory/server/apacheds-interceptors-trigger/2.0.0-M21/apacheds-interceptors-trigger-2.0.0-M21.jar:/root/.m2/repository/org/apache/shiro/shiro-config-ogdl/1.4.0/shiro-config-ogdl-1.4.0.jar:/root/.m2/repository/org/checkerframework/checker-compat-qual/2.0.0/checker-compat-qual-2.0.0.jar:/root/.m2/repository/org/apache/shiro/shiro-event/1.4.0/shiro-event-1.4.0.jar:/root/.m2/repository/org/apache/directory/server/apacheds-core-avl/2.0.0-M21/apacheds-core-avl-2.0.0-M21.jar:/root/.m2/repository/org/neo4j/neo4j-cypher-frontend-3.3/3.3.7/neo4j-cypher-frontend-3.3-3.3.7.jar:/root/.m2/repository/org/apache/directory/api/api-ldap-extras-aci/1.0.0-M33/api-ldap-extras-aci-1.0.0-M33.jar:/root/.m2/repository/org/neo4j/neo4j-cypher-util-3.4/3.4.9-SNAPSHOT/neo4j-cypher-util-3.4-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/neo4j/neo4j-cypher-compiler-3.1/3.1.9/neo4j-cypher-compiler-3.1-3.1.9.jar:/root/.m2/repository/org/apache/shiro/shiro-config-core/1.4.0/shiro-config-core-1.4.0.jar:/root/.m2/repository/org/apache/directory/api/api-ldap-client-api/1.0.0-M33/api-ldap-client-api-1.0.0-M33.jar:/root/.m2/repository/org/slf4j/slf4j-nop/1.7.25/slf4j-nop-1.7.25.jar:/root/.m2/repository/org/apache/directory/server/apacheds-interceptors-number/2.0.0-M21/apacheds-interceptors-number-2.0.0-M21.jar:/root/.m2/repository/org/apache/directory/server/apacheds-ldif-partition/2.0.0-M21/apacheds-ldif-partition-2.0.0-M21.jar:/root/.m2/repository/org/scala-lang/scala-reflect/2.11.12/scala-reflect-2.11.12.jar:/root/.m2/repository/org/apache/directory/server/apacheds-protocol-shared/2.0.0-M21/apacheds-protocol-shared-2.0.0-M21.jar:/root/.m2/repository/org/eclipse/jetty/jetty-io/9.4.11.v20180605/jetty-io-9.4.11.v20180605.jar:/root/.m2/repository/org/neo4j/neo4j-kernel-api/3.4.9-SNAPSHOT/neo4j-kernel-api-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/apache/servicemix/bundles/org.apache.servicemix.bundles.xpp3/1.1.4c_6/org.apache.servicemix.bundles.xpp3-1.1.4c_6.jar:/root/.m2/repository/org/neo4j/neo4j-graph-algo/3.4.9-SNAPSHOT/neo4j-graph-algo-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/apache/directory/server/apacheds-core-shared/2.0.0-M21/apacheds-core-shared-2.0.0-M21.jar:/root/.m2/repository/org/apache/servicemix/bundles/org.apache.servicemix.bundles.dom4j/1.6.1_5/org.apache.servicemix.bundles.dom4j-1.6.1_5.jar:/root/.m2/repository/com/google/guava/guava-testlib/24.1-jre/guava-testlib-24.1-jre.jar:/root/.m2/repository/org/apache/shiro/shiro-crypto-core/1.4.0/shiro-crypto-core-1.4.0.jar:/root/.m2/repository/org/ow2/asm/asm-analysis/6.2/asm-analysis-6.2.jar:/root/.m2/repository/org/neo4j/neo4j-spatial-index/3.4.9-SNAPSHOT/neo4j-spatial-index-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/apache/directory/server/apacheds-core-integ/2.0.0-M21/apacheds-core-integ-2.0.0-M21.jar:/root/.m2/repository/org/neo4j/neo4j-consistency-check/3.4.9-SNAPSHOT/neo4j-consistency-check-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/apache/directory/api/api-ldap-extras-trigger/1.0.0-M33/api-ldap-extras-trigger-1.0.0-M33.jar:/root/.m2/repository/org/neo4j/neo4j-jmx/3.4.9-SNAPSHOT/neo4j-jmx-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/parboiled/parboiled-scala_2.11/1.1.7/parboiled-scala_2.11-1.1.7.jar:/root/.m2/repository/org/neo4j/neo4j-security/3.4.9-SNAPSHOT/neo4j-security-3.4.9-SNAPSHOT-tests.jar:/root/.m2/repository/org/neo4j/neo4j-bolt/3.4.9-SNAPSHOT/neo4j-bolt-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/neo4j/openCypher-frontend-1/3.4.9-SNAPSHOT/openCypher-frontend-1-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/eclipse/jetty/jetty-server/9.4.11.v20180605/jetty-server-9.4.11.v20180605.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/neo4j/neo4j-cypher-planner-3.4/3.4.9-SNAPSHOT/neo4j-cypher-planner-3.4-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/codehaus/mojo/animal-sniffer-annotations/1.14/animal-sniffer-annotations-1.14.jar:/root/.m2/repository/org/apache/directory/server/apacheds-jdbm-partition/2.0.0-M21/apacheds-jdbm-partition-2.0.0-M21.jar:/root/.m2/repository/org/scala-lang/scala-library/2.11.12/scala-library-2.11.12.jar:/root/.m2/repository/org/apache/directory/api/api-util/1.0.0-M33/api-util-1.0.0-M33.jar:/root/.m2/repository/org/apache/directory/server/apacheds-core-jndi/2.0.0-M21/apacheds-core-jndi-2.0.0-M21.jar:/root/.m2/repository/org/neo4j/neo4j-common/3.4.9-SNAPSHOT/neo4j-common-3.4.9-SNAPSHOT-tests.jar:/root/.m2/repository/com/google/errorprone/error_prone_annotations/2.1.3/error_prone_annotations-2.1.3.jar:/root/.m2/repository/org/eclipse/jetty/jetty-http/9.4.11.v20180605/jetty-http-9.4.11.v20180605.jar:/root/.m2/repository/org/apache/directory/server/apacheds-server-annotations/2.0.0-M21/apacheds-server-annotations-2.0.0-M21.jar:/root/.m2/repository/org/codehaus/jackson/jackson-mapper-asl/1.9.13/jackson-mapper-asl-1.9.13.jar:/root/.m2/repository/org/bouncycastle/bcpkix-jdk15on/1.60/bcpkix-jdk15on-1.60.jar:/root/.m2/repository/org/apache/directory/server/apacheds-interceptors-changelog/2.0.0-M21/apacheds-interceptors-changelog-2.0.0-M21.jar:/root/.m2/repository/org/apache/directory/api/api-asn1-ber/1.0.0-M33/api-asn1-ber-1.0.0-M33.jar:/root/.m2/repository/org/apache/directory/server/apacheds-protocol-ldap/2.0.0-M21/apacheds-protocol-ldap-2.0.0-M21.jar:/root/.m2/repository/org/eclipse/jetty/websocket/websocket-api/9.4.11.v20180605/websocket-api-9.4.11.v20180605.jar:/root/.m2/repository/org/apache/directory/server/apacheds-i18n/2.0.0-M21/apacheds-i18n-2.0.0-M21.jar:/root/.m2/repository/org/apache/directory/api/api-ldap-extras-codec/1.0.0-M33/api-ldap-extras-codec-1.0.0-M33.jar:/root/.m2/repository/org/neo4j/neo4j-logging/3.4.9-SNAPSHOT/neo4j-logging-3.4.9-SNAPSHOT-tests.jar:/root/.m2/repository/org/apache/directory/server/apacheds-interceptors-referral/2.0.0-M21/apacheds-interceptors-referral-2.0.0-M21.jar:/root/.m2/repository/org/neo4j/neo4j-kernel/3.4.9-SNAPSHOT/neo4j-kernel-3.4.9-SNAPSHOT-tests.jar:/root/.m2/repository/org/apache/directory/server/apacheds-interceptors-operational/2.0.0-M21/apacheds-interceptors-operational-2.0.0-M21.jar:/root/.m2/repository/org/apache/directory/server/apacheds-core-annotations/2.0.0-M21/apacheds-core-annotations-2.0.0-M21.jar:/root/.m2/repository/org/neo4j/neo4j-index/3.4.9-SNAPSHOT/neo4j-index-3.4.9-SNAPSHOT.jar:/root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.8.5/byte-buddy-agent-1.8.5.jar:/root/.m2/repository/org/apache/shiro/shiro-core/1.4.0/shiro-core-1.4.0.jar:/root/.m2/repository/org/apache/directory/server/apacheds-interceptor-kerberos/2.0.0-M21/apacheds-interceptor-kerberos-2.0.0-M21.jar:/root/.m2/repository/org/neo4j/neo4j-cypher/3.4.9-SNAPSHOT/neo4j-cypher-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/apache/directory/api/api-ldap-extras-sp/1.0.0-M33/api-ldap-extras-sp-1.0.0-M33.jar:/root/.m2/repository/org/codehaus/jackson/jackson-core-asl/1.9.13/jackson-core-asl-1.9.13.jar:/root/.m2/repository/org/apache/shiro/shiro-lang/1.4.0/shiro-lang-1.4.0.jar:/root/.m2/repository/org/neo4j/neo4j-io/3.4.9-SNAPSHOT/neo4j-io-3.4.9-SNAPSHOT-tests.jar:/root/.m2/repository/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0.jar:/root/.m2/repository/org/neo4j/neo4j-udc/3.4.9-SNAPSHOT/neo4j-udc-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/neo4j/neo4j-kernel/3.4.9-SNAPSHOT/neo4j-kernel-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/neo4j/neo4j-logging/3.4.9-SNAPSHOT/neo4j-logging-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/neo4j/neo4j-configuration/3.4.9-SNAPSHOT/neo4j-configuration-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/apache/directory/server/apacheds-interceptors-hash/2.0.0-M21/apacheds-interceptors-hash-2.0.0-M21.jar:/root/.m2/repository/org/apache/directory/server/apacheds-interceptors-journal/2.0.0-M21/apacheds-interceptors-journal-2.0.0-M21.jar:/root/.m2/repository/org/neo4j/neo4j-cypher-compiler-2.3/2.3.12/neo4j-cypher-compiler-2.3-2.3.12.jar:/root/.m2/repository/org/neo4j/neo4j-cypher-interpreted-runtime/3.4.9-SNAPSHOT/neo4j-cypher-interpreted-runtime-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/neo4j/neo4j-graph-matching/3.1.9/neo4j-graph-matching-3.1.9.jar:/root/.m2/repository/org/neo4j/neo4j-cypher-expression-3.4/3.4.9-SNAPSHOT/neo4j-cypher-expression-3.4-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/mockito/mockito-core/2.18.3/mockito-core-2.18.3.jar:/root/.m2/repository/org/neo4j/neo4j-command-line/3.4.9-SNAPSHOT/neo4j-command-line-3.4.9-SNAPSHOT.jar:/root/.m2/repository/com/github/ben-manes/caffeine/caffeine/2.6.2/caffeine-2.6.2.jar:/root/.m2/repository/org/eclipse/jetty/jetty-client/9.4.11.v20180605/jetty-client-9.4.11.v20180605.jar:/root/.m2/repository/org/neo4j/neo4j-codegen/3.4.9-SNAPSHOT/neo4j-codegen-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/apache/directory/api/api-ldap-schema-data/1.0.0-M33/api-ldap-schema-data-1.0.0-M33.jar:/root/.m2/repository/org/eclipse/jetty/jetty-xml/9.4.11.v20180605/jetty-xml-9.4.11.v20180605.jar:/root/.m2/repository/org/apache/directory/server/apacheds-core/2.0.0-M21/apacheds-core-2.0.0-M21.jar:/root/.m2/repository/org/neo4j/neo4j-primitive-collections/3.4.9-SNAPSHOT/neo4j-primitive-collections-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/apache/directory/server/apacheds-mavibot-partition/2.0.0-M21/apacheds-mavibot-partition-2.0.0-M21.jar:/root/.m2/repository/org/apache/lucene/lucene-codecs/5.5.5/lucene-codecs-5.5.5.jar:/root/.m2/repository/org/neo4j/neo4j-cypher-runtime-util/3.4.9-SNAPSHOT/neo4j-cypher-runtime-util-3.4.9-SNAPSHOT.jar:/root/.m2/repository/commons-beanutils/commons-beanutils/1.9.3/commons-beanutils-1.9.3.jar:/root/.m2/repository/org/apache/directory/server/apacheds-kerberos-codec/2.0.0-M21/apacheds-kerberos-codec-2.0.0-M21.jar:/root/.m2/repository/org/apache/lucene/lucene-analyzers-common/5.5.5/lucene-analyzers-common-5.5.5.jar:/root/.m2/repository/org/apache/directory/api/api-i18n/1.0.0-M33/api-i18n-1.0.0-M33.jar:/root/.m2/repository/org/apache/directory/server/apacheds-protocol-kerberos/2.0.0-M21/apacheds-protocol-kerberos-2.0.0-M21.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/1.3.9/jsr305-1.3.9.jar:/root/.m2/repository/org/apache/directory/jdbm/apacheds-jdbm1/2.0.0-M3/apacheds-jdbm1-2.0.0-M3.jar:/root/.m2/repository/org/hamcrest/hamcrest-library/1.3/hamcrest-library-1.3.jar:/root/.m2/repository/org/neo4j/neo4j-ssl/3.4.9-SNAPSHOT/neo4j-ssl-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/apache/directory/api/api-asn1-api/1.0.0-M33/api-asn1-api-1.0.0-M33.jar:/root/.m2/repository/org/apache/directory/server/apacheds-core-api/2.0.0-M21/apacheds-core-api-2.0.0-M21.jar:/root/.m2/repository/org/eclipse/jetty/websocket/websocket-common/9.4.11.v20180605/websocket-common-9.4.11.v20180605.jar:/root/.m2/repository/org/apache/directory/server/apacheds-test-framework/2.0.0-M21/apacheds-test-framework-2.0.0-M21.jar:/root/.m2/repository/org/neo4j/neo4j-auth-plugin-api/3.4.9-SNAPSHOT/neo4j-auth-plugin-api-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/ow2/asm/asm-util/6.2/asm-util-6.2.jar:/root/.m2/repository/org/neo4j/neo4j-enterprise-kernel/3.4.9-SNAPSHOT/neo4j-enterprise-kernel-3.4.9-SNAPSHOT-tests.jar:/root/.m2/repository/org/apache/directory/api/api-ldap-net-mina/1.0.0-M33/api-ldap-net-mina-1.0.0-M33.jar:/root/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:/root/.m2/repository/org/apache/directory/api/api-ldap-extras-codec-api/1.0.0-M33/api-ldap-extras-codec-api-1.0.0-M33.jar:/root/.m2/repository/org/apache/commons/commons-compress/1.16.1/commons-compress-1.16.1.jar:/root/.m2/repository/ldapsdk/ldapsdk/4.1/ldapsdk-4.1.jar:/root/.m2/repository/com/google/j2objc/j2objc-annotations/1.1/j2objc-annotations-1.1.jar:/root/.m2/repository/org/neo4j/neo4j-cypher-ir-3.3/3.3.7/neo4j-cypher-ir-3.3-3.3.7.jar:/root/.m2/repository/org/neo4j/neo4j-cypher-planner-spi-3.4/3.4.9-SNAPSHOT/neo4j-cypher-planner-spi-3.4-3.4.9-SNAPSHOT.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/../lib/tools.jar:/root/.m2/repository/org/neo4j/neo4j-resource/3.4.9-SNAPSHOT/neo4j-resource-3.4.9-SNAPSHOT.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.8.5/byte-buddy-1.8.5.jar:/root/.m2/repository/org/apache/servicemix/bundles/org.apache.servicemix.bundles.antlr/2.7.7_5/org.apache.servicemix.bundles.antlr-2.7.7_5.jar:/root/.m2/repository/org/eclipse/jetty/websocket/websocket-client/9.4.11.v20180605/websocket-client-9.4.11.v20180605.jar:/root/.m2/repository/org/apache/directory/server/apacheds-interceptors-exception/2.0.0-M21/apacheds-interceptors-exception-2.0.0-M21.jar:/root/.m2/repository/org/apache/directory/server/apacheds-core-constants/2.0.0-M21/apacheds-core-constants-2.0.0-M21.jar:/root/.m2/repository/net/sf/ehcache/ehcache/2.8.5/ehcache-2.8.5.jar:/root/.m2/repository/io/netty/netty-all/4.1.24.Final/netty-all-4.1.24.Final.jar:/root/.m2/repository/org/apache/directory/api/api-ldap-codec-core/1.0.0-M33/api-ldap-codec-core-1.0.0-M33.jar:/root/.m2/repository/org/ow2/asm/asm/6.2/asm-6.2.jar:/root/.m2/repository/org/neo4j/neo4j-csv/3.4.9-SNAPSHOT/neo4j-csv-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/apache/lucene/lucene-backward-codecs/5.5.0/lucene-backward-codecs-5.5.0.jar:/root/.m2/repository/org/bouncycastle/bcprov-jdk15on/1.60/bcprov-jdk15on-1.60.jar:/root/.m2/repository/org/apache/directory/server/apacheds-interceptors-collective/2.0.0-M21/apacheds-interceptors-collective-2.0.0-M21.jar:/root/.m2/repository/org/apache/lucene/lucene-core/5.5.5/lucene-core-5.5.5.jar:/root/.m2/repository/org/apache/directory/server/apacheds-interceptors-authn/2.0.0-M21/apacheds-interceptors-authn-2.0.0-M21.jar:/root/.m2/repository/org/apache/directory/server/apacheds-interceptors-authz/2.0.0-M21/apacheds-interceptors-authz-2.0.0-M21.jar:/root/.m2/repository/org/neo4j/neo4j-lucene-index/3.4.9-SNAPSHOT/neo4j-lucene-index-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/neo4j/neo4j-cypher-frontend-3.1/3.1.9/neo4j-cypher-frontend-3.1-3.1.9.jar:/root/.m2/repository/org/neo4j/neo4j-values/3.4.9-SNAPSHOT/neo4j-values-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/apache/directory/server/apacheds-interceptors-schema/2.0.0-M21/apacheds-interceptors-schema-2.0.0-M21.jar:/root/.m2/repository/org/eclipse/jetty/jetty-util/9.4.11.v20180605/jetty-util-9.4.11.v20180605.jar:/root/.m2/repository/org/apache/shiro/shiro-crypto-hash/1.4.0/shiro-crypto-hash-1.4.0.jar:/root/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar:/root/.m2/repository/org/apache/directory/api/api-dsml-parser/1.0.0-M33/api-dsml-parser-1.0.0-M33.jar:/root/.m2/repository/commons-lang/commons-lang/2.6/commons-lang-2.6.jar:/root/.m2/repository/org/apache/lucene/lucene-queryparser/5.5.5/lucene-queryparser-5.5.5.jar:/root/.m2/repository/org/neo4j/neo4j-common/3.4.9-SNAPSHOT/neo4j-common-3.4.9-SNAPSHOT.jar:/root/.m2/repository/org/apache/shiro/shiro-crypto-cipher/1.4.0/shiro-crypto-cipher-1.4.0.jar:/root/.m2/repository/com/googlecode/concurrentlinkedhashmap/concurrentlinkedhashmap-lru/1.4.2/concurrentlinkedhashmap-lru-1.4.2.jar:/root/.m2/repository/junit/junit/4.12/junit-4.12.jar
+[83489] INFO ConfigurationProperties - p:packageToInstrument= 
+[83489] INFO ConfigurationProperties - p:skipfaultlocalization= false
+[83490] INFO ConfigurationProperties - p:scope= local
+[83490] INFO ConfigurationProperties - p:transformingredient= false
+[83490] INFO ConfigurationProperties - p:fitnessfunction= fr.inria.astor.core.solutionsearch.population.TestCaseFitnessFunction
+[83490] INFO ConfigurationProperties - p:maxnumvariablesperingredient= 10
+[83490] INFO ConfigurationProperties - p:parsesourcefromoriginal= true
+[83490] INFO ConfigurationProperties - p:pvariantfoldername= variant-
+[83490] INFO ConfigurationProperties - p:savespoonmodelondisk= false
+[83490] INFO ConfigurationProperties - p:srcjavafolder= enterprise/security/src/main/java
+[83490] INFO ConfigurationProperties - p:populationcontroller= fr.inria.astor.core.solutionsearch.population.TestCaseBasedFitnessPopulationController
+[83490] INFO ConfigurationProperties - p:ignoreflakyinfl= false
+[83490] INFO ConfigurationProperties - p:cleantemplates= true
+[83490] INFO ConfigurationProperties - p:applyCrossover= false
+[83490] INFO ConfigurationProperties - p:maxmodificationpoints= 1000
+[83490] INFO ConfigurationProperties - p:duplicateingredientsinspace= false
+[83490] INFO ConfigurationProperties - p:metid= 0
+[83490] INFO ConfigurationProperties - p:continuewhenmodelfail= true
+[83490] INFO ConfigurationProperties - p:saveall= false
+[83490] INFO ConfigurationProperties - p:seed= 0
+[83490] INFO ConfigurationProperties - p:savecompletepatched= true
+[83490] INFO ConfigurationProperties - p:resetoperations= false
+[83491] INFO ConfigurationProperties - p:keepcomments= false
+[83491] INFO ConfigurationProperties - p:processoutputinfile= false
+[83491] INFO ConfigurationProperties - p:location= .
+[83491] INFO ConfigurationProperties - p:probabilistictransformation= true
+[83491] INFO ConfigurationProperties - p:overridemaxtime= true
+[83491] INFO ConfigurationProperties - p:outputjsonresult= true
+[83491] INFO ConfigurationProperties - p:allpoints= false
+[83491] INFO ConfigurationProperties - p:antipattern= false
+[83491] INFO ConfigurationProperties - p:bugId= 280
+[83491] INFO ConfigurationProperties - p:evosuitetimeout= 120
+[83491] INFO ConfigurationProperties - p:maxtimefactor= 10
+[83491] INFO ConfigurationProperties - p:nrPlaceholders= 1
+[83491] INFO ConfigurationProperties - p:testallcmd= mvn failsafe:integration-test -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B
+[83491] INFO ConfigurationProperties - p:forcesubprocesskilling= false
+[83491] INFO ConfigurationProperties - ----------------------------
+[83491] INFO AstorCoreEngine - ----Starting Solution Search
+[83492] WARN AstorCoreEngine - ----------Running generation: 1, population size: 1
+[88112] INFO main - Run previously failing tests...
+[142249] INFO main - Failed tests: 1
+[142269] WARN AstorCoreEngine - ----------Running generation: 2, population size: 1
+[142639] WARN AstorCoreEngine - ----------Running generation: 3, population size: 1
+[145043] INFO main - Run previously failing tests...
+[201375] INFO main - Failed tests: 1
+[201406] WARN AstorCoreEngine - ----------Running generation: 4, population size: 1
+[203146] WARN AstorCoreEngine - ----------Running generation: 5, population size: 1
+[204430] WARN AstorCoreEngine - ----------Running generation: 6, population size: 1
+[206056] WARN AstorCoreEngine - ----------Running generation: 7, population size: 1
+[206221] WARN AstorCoreEngine - ----------Running generation: 8, population size: 1
+[207452] WARN AstorCoreEngine - ----------Running generation: 9, population size: 1
+[208612] INFO main - Run previously failing tests...
+[264461] INFO main - Failed tests: 1
+[264485] WARN AstorCoreEngine - ----------Running generation: 10, population size: 1
+[264884] WARN AstorCoreEngine - ----------Running generation: 11, population size: 1
+[265360] WARN AstorCoreEngine - ----------Running generation: 12, population size: 1
+[266961] WARN AstorCoreEngine - ----------Running generation: 13, population size: 1
+[268969] INFO main - Run previously failing tests...
+[336334] INFO main - Failed tests: 1
+[336342] WARN AstorCoreEngine - ----------Running generation: 14, population size: 1
+[337365] INFO main - Run previously failing tests...
+[411044] INFO main - Failed tests: 1
+[411068] WARN AstorCoreEngine - ----------Running generation: 15, population size: 1
+[412141] WARN AstorCoreEngine - ----------Running generation: 16, population size: 1
+[413785] INFO main - Run previously failing tests...
+[485774] INFO main - Failed tests: 1
+[485782] WARN AstorCoreEngine - ----------Running generation: 17, population size: 1
+[487086] INFO main - Run previously failing tests...
+[556622] INFO main - Failed tests: 1
+[556642] WARN AstorCoreEngine - ----------Running generation: 18, population size: 1
+[556809] WARN AstorCoreEngine - ----------Running generation: 19, population size: 1
+[556942] WARN AstorCoreEngine - ----------Running generation: 20, population size: 1
+[558570] INFO main - Run previously failing tests...
+[626078] INFO main - Failed tests: 1
+[626086] WARN AstorCoreEngine - ----------Running generation: 21, population size: 1
+[626940] WARN AstorCoreEngine - ----------Running generation: 22, population size: 1
+[627133] WARN AstorCoreEngine - ----------Running generation: 23, population size: 1
+[628445] WARN AstorCoreEngine - ----------Running generation: 24, population size: 1
+[630247] WARN AstorCoreEngine - ----------Running generation: 25, population size: 1
+[630315] WARN AstorCoreEngine - ----------Running generation: 26, population size: 1
+[630398] WARN AstorCoreEngine - ----------Running generation: 27, population size: 1
+[631994] WARN AstorCoreEngine - ----------Running generation: 28, population size: 1
+[632222] WARN AstorCoreEngine - ----------Running generation: 29, population size: 1
+[633184] INFO main - Run previously failing tests...
+[701258] INFO main - Failed tests: 1
+[701293] WARN AstorCoreEngine - ----------Running generation: 30, population size: 1
+[701390] WARN AstorCoreEngine - ----------Running generation: 31, population size: 1
+[702608] INFO main - Run previously failing tests...
+[771830] INFO main - Failed tests: 1
+[771838] WARN AstorCoreEngine - ----------Running generation: 32, population size: 1
+[773682] WARN AstorCoreEngine - ----------Running generation: 33, population size: 1
+[773781] WARN AstorCoreEngine - ----------Running generation: 34, population size: 1
+[773906] WARN AstorCoreEngine - ----------Running generation: 35, population size: 1
+[775125] INFO main - Run previously failing tests...
+[850489] INFO main - Failed tests: 1
+[850515] WARN AstorCoreEngine - ----------Running generation: 36, population size: 1
+[851676] INFO main - Run previously failing tests...
+[924968] INFO main - Failed tests: 1
+[924976] WARN AstorCoreEngine - ----------Running generation: 37, population size: 1
+[925312] WARN AstorCoreEngine - ----------Running generation: 38, population size: 1
+[926829] INFO main - Run previously failing tests...
+[1021320] INFO main - Failed tests: 1
+[1021338] WARN AstorCoreEngine - ----------Running generation: 39, population size: 1
+[1023653] INFO main - Run previously failing tests...
+[1091169] INFO main - Failed tests: 1
+[1091202] WARN AstorCoreEngine - ----------Running generation: 40, population size: 1
+[1092418] WARN AstorCoreEngine - ----------Running generation: 41, population size: 1
+[1094592] INFO main - Run previously failing tests...
+[1162373] INFO main - Failed tests: 1
+[1162382] WARN AstorCoreEngine - ----------Running generation: 42, population size: 1
+[1163317] WARN AstorCoreEngine - ----------Running generation: 43, population size: 1
+[1164124] WARN AstorCoreEngine - ----------Running generation: 44, population size: 1
+[1165268] INFO main - Run previously failing tests...
+[1236011] INFO main - Failed tests: 1
+[1236020] WARN AstorCoreEngine - ----------Running generation: 45, population size: 1
+[1236139] WARN AstorCoreEngine - ----------Running generation: 46, population size: 1
+[1238485] INFO main - Run previously failing tests...
+[1313817] INFO main - Failed tests: 1
+[1313842] WARN AstorCoreEngine - ----------Running generation: 47, population size: 1
+[1314717] WARN AstorCoreEngine - ----------Running generation: 48, population size: 1
+[1315932] INFO main - Run previously failing tests...
+[1389016] INFO main - Failed tests: 1
+[1389034] WARN AstorCoreEngine - ----------Running generation: 49, population size: 1
+[1389165] WARN AstorCoreEngine - ----------Running generation: 50, population size: 1
+[1390704] INFO main - Run previously failing tests...
+[1467314] INFO main - Failed tests: 1
+[1467331] WARN AstorCoreEngine - ----------Running generation: 51, population size: 1
+[1468453] INFO main - Run previously failing tests...
+[1539543] INFO main - Failed tests: 1
+[1539569] WARN AstorCoreEngine - ----------Running generation: 52, population size: 1
+[1540780] INFO main - Run previously failing tests...
+[1707365] INFO main - Failed tests: 0
+[1707368] INFO main - Run whole testsuite...
+[1744653] INFO main - Failed tests: 0
+[1744666] INFO AstorCoreEngine - -Found Solution, child variant #104
+[1744945] INFO AstorCoreEngine - Time Repair Loop (s): 1661.453
+[1744945] INFO AstorCoreEngine - generationsexecuted: 52
+[1744945] WARN AstorCoreEngine - ----SUMMARY_EXECUTION---
+[1744945] WARN AstorCoreEngine - End Repair Search: Found solution
+[1744945] WARN AstorCoreEngine - Solution stored at: /workdir/jGenProg_vul4j_neo4j_neo4j_VUL4J-62/./output_astor/AstorMain-neo4j_neo4j-VUL4J-62//src/
+[1744945] WARN AstorCoreEngine - Number solutions:1
+[1744945] INFO AstorCoreEngine - f (sol): 0.0, [Variant id: 104 (SOL) , #gens: 2, #ops: 1, parent:103]
+[1744945] WARN AstorCoreEngine - Number suspicious:1
+[1745271] INFO AstorCoreEngine - 
+ --SOLUTIONS DESCRIPTION--
+
+ ----
+ProgramVariant 104
+ 
+time(sec)= 1661
+operation: ReplaceOp
+location= org.neo4j.server.security.enterprise.auth.LdapRealm
+line= 235
+lineSuspiciousness= 1
+lineSuspiciousness= 1
+original statement= return ctx
+buggy kind= CtReturnImpl|CtBlockImpl
+fixed statement= return getLdapContextUsingStartTls(ldapContextFactory, jndiLdapContextFactory.getSystemUsername(), 
+jndiLdapContextFactory.getSystemPassword())
+Patch kind= CtReturnImpl|CtBlockImpl
+generation= 52
+ingredientScope= LOCAL
+validation=|true|0|0|[]|
+diffpatch=--- /workdir/jGenProg_vul4j_neo4j_neo4j_VUL4J-62/enterprise/security/src/main/java/org/neo4j/server/security/enterprise/auth/LdapRealmjava
++++ /workdir/jGenProg_vul4j_neo4j_neo4j_VUL4J-62/enterprise/security/src/main/java/org/neo4j/server/security/enterprise/auth/LdapRealmjava
+@@ -130 +130 @@
+-			return ctx;
++			return getLdapContextUsingStartTls(ldapContextFactory, jndiLdapContextFactory.getSystemUsername(), jndiLdapContextFactory.getSystemPassword());
+
+
+diffpatchoriginal=--- /workdir/jGenProg_vul4j_neo4j_neo4j_VUL4J-62/enterprise/security/src/main/java/org/neo4j/server/security/enterprise/auth/LdapRealmjava
++++ /workdir/jGenProg_vul4j_neo4j_neo4j_VUL4J-62/enterprise/security/src/main/java/org/neo4j/server/security/enterprise/auth/LdapRealmjava
+@@ -235,86 +235,86 @@
+-			return ctx;
+-		}
+-		 catch (java.io.IOException e) 
+-		{
+-			org.apache.shiro.realm.ldap.LdapUtils.closeContext(ctx);
+-			securityLog.error(withRealm("Failed to negotiate TLS connection with '%s': ", 
+-			server(jndiLdapContextFactory), e));
+-			throw new javax.naming.CommunicationException(e.getMessage());
+-		}
+-		 catch (java.lang.Throwable t) 
+-		{
+-			org.apache.shiro.realm.ldap.LdapUtils.closeContext(ctx);
+-			securityLog.error(withRealm("Unexpected failure to negotiate TLS connection with '%s': ", 
+-			server(jndiLdapContextFactory), t));
+-			throw t;
+-		}
+-	}
+-
+-	@java.lang.Override
+-	protected org.apache.shiro.authz.AuthorizationInfo queryForAuthorizationInfo(org.apache.shiro.subject.PrincipalCollection principals, 
+-	org.apache.shiro.realm.ldap.LdapContextFactory ldapContextFactory) throws javax.naming.NamingException 
+-	{
+-		if (authorizationEnabled) 
+-		{
+-			java.lang.String username = getUsername(principals);
+-			if (username == null) 
+-			{
+-				return null;
+-			}
+-
+-			if (useSystemAccountForAuthorization) 
+-			{
+-
+-				javax.naming.ldap.LdapContext ldapContext = (useStartTls) ? getSystemLdapContextUsingStartTls(ldapContextFactory) : 
+-				ldapContextFactory.getSystemLdapContext();
+-
+-				java.util.Set<java.lang.String> roleNames;
+-				try 
+-				{
+-					roleNames = findRoleNamesForUser(username, ldapContext);
+-				} finally 
+-
+-				{
+-					org.apache.shiro.realm.ldap.LdapUtils.closeContext(ldapContext);
+-				}
+-
+-				return new org.apache.shiro.authz.SimpleAuthorizationInfo(roleNames);
+-			} else 
+-
+-			{
+-
+-				org.apache.shiro.cache.Cache<java.lang.Object, org.apache.shiro.authz.AuthorizationInfo> authorizationCache = getAuthorizationCache();
+-				org.apache.shiro.authz.AuthorizationInfo authorizationInfo = authorizationCache.get(username);
+-				if (authorizationInfo == null) 
+-				{
+-
+-
+-
+-
+-					throw new org.neo4j.graphdb.security.AuthorizationExpiredException("LDAP authorization info expired.");
+-				}
+-				return authorizationInfo;
+-			}
+-		}
+-		return null;
+-	}
+-
+-	private java.lang.String getUsername(org.apache.shiro.subject.PrincipalCollection principals) 
+-	{
+-		java.lang.String username = null;
+-		java.util.Collection ldapPrincipals = principals.fromRealm(getName());
+-		if (!ldapPrincipals.isEmpty()) 
+-		{
+-			username = ((java.lang.String) (ldapPrincipals.iterator().next()));
+-		} else 
+-		if (useSystemAccountForAuthorization) 
+-		{
+-			username = ((java.lang.String) (principals.getPrimaryPrincipal()));
+-		}
+-		return username;
+-	}
+-
+-	private javax.naming.ldap.LdapContext getSystemLdapContextUsingStartTls(org.apache.shiro.realm.ldap.LdapContextFactory ldapContextFactory) throws 
+-	javax.naming.NamingException 
+-	{
+-		org.apache.shiro.realm.ldap.JndiLdapContextFactory jndiLdapContextFactory = ((org.apache.shiro.realm.ldap.JndiLdapContextFactory) (ldapContextFactory));
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
+@@ -322 +322 @@
+-		jndiLdapContextFactory.getSystemPassword());
++			jndiLdapContextFactory.getSystemPassword());} catch (java.io.IOException e) { 			org.apache.shiro.realm.ldap.LdapUtils.closeContext(ctx); 			securityLog.error(withRealm("Failed to negotiate TLS connection with '%s': ", server(jndiLdapContextFactory), e)); 			throw new javax.naming.CommunicationException(e.getMessage());} catch (java.lang.Throwable t) { 			org.apache.shiro.realm.ldap.LdapUtils.closeContext(ctx); 			securityLog.error(withRealm("Unexpected failure to negotiate TLS connection with '%s': ", server(jndiLdapContextFactory), t)); 			throw t;}} 	@java.lang.Override 	protected org.apache.shiro.authz.AuthorizationInfo queryForAuthorizationInfo(org.apache.shiro.subject.PrincipalCollection principals, org.apache.shiro.realm.ldap.LdapContextFactory ldapContextFactory) throws javax.naming.NamingException { 		if (authorizationEnabled) { 			java.lang.String username = getUsername(principals); 			if (username == null) { 				return null;} 			if (useSystemAccountForAuthorization) { 				javax.naming.ldap.LdapContext ldapContext = (useStartTls) ? getSystemLdapContextUsingStartTls(ldapContextFactory) : ldapContextFactory.getSystemLdapContext(); 				java.util.Set<java.lang.String> roleNames; 				try { 					roleNames = findRoleNamesForUser(username, ldapContext);} finally { 					org.apache.shiro.realm.ldap.LdapUtils.closeContext(ldapContext);} 				return new org.apache.shiro.authz.SimpleAuthorizationInfo(roleNames);} else { 				org.apache.shiro.cache.Cache<java.lang.Object, org.apache.shiro.authz.AuthorizationInfo> authorizationCache = getAuthorizationCache(); 				org.apache.shiro.authz.AuthorizationInfo authorizationInfo = authorizationCache.get(username); 				if (authorizationInfo == null) { 					throw new org.neo4j.graphdb.security.AuthorizationExpiredException("LDAP authorization info expired.");} 				return authorizationInfo;}} 		return null;} 	private java.lang.String getUsername(org.apache.shiro.subject.PrincipalCollection principals) { 		java.lang.String username = null; 		java.util.Collection ldapPrincipals = principals.fromRealm(getName()); 		if (!ldapPrincipals.isEmpty()) { 			username = ((java.lang.String) (ldapPrincipals.iterator().next()));} else if (useSystemAccountForAuthorization) { 			username = ((java.lang.String) (principals.getPrimaryPrincipal()));} 		return username;} 	private javax.naming.ldap.LdapContext getSystemLdapContextUsingStartTls(org.apache.shiro.realm.ldap.LdapContextFactory ldapContextFactory) throws javax.naming.NamingException { 		org.apache.shiro.realm.ldap.JndiLdapContextFactory jndiLdapContextFactory = ((org.apache.shiro.realm.ldap.JndiLdapContextFactory) (ldapContextFactory)); 		return getLdapContextUsingStartTls(ldapContextFactory, jndiLdapContextFactory.getSystemUsername(), jndiLdapContextFactory.getSystemPassword());
+
+
+
+[1745286] INFO AstorCoreEngine - Generation 1
+[1745286] INFO AstorCoreEngine - Generation 2
+[1745286] INFO AstorCoreEngine - Generation 3
+[1745286] INFO AstorCoreEngine - Generation 4
+[1745286] INFO AstorCoreEngine - Generation 5
+[1745286] INFO AstorCoreEngine - Generation 6
+[1745293] INFO AstorCoreEngine - Generation 7
+[1745296] INFO AstorCoreEngine - Generation 8
+[1745297] INFO AstorCoreEngine - Generation 9
+[1745313] INFO AstorCoreEngine - Generation 10
+[1745314] INFO AstorCoreEngine - Generation 11
+[1745314] INFO AstorCoreEngine - Generation 12
+[1745314] INFO AstorCoreEngine - Generation 13
+[1745314] INFO AstorCoreEngine - Generation 14
+[1745314] INFO AstorCoreEngine - Generation 15
+[1745314] INFO AstorCoreEngine - Generation 16
+[1745314] INFO AstorCoreEngine - Generation 17
+[1745314] INFO AstorCoreEngine - Generation 18
+[1745314] INFO AstorCoreEngine - Generation 19
+[1745314] INFO AstorCoreEngine - Generation 20
+[1745314] INFO AstorCoreEngine - Generation 21
+[1745314] INFO AstorCoreEngine - Generation 22
+[1745314] INFO AstorCoreEngine - Generation 23
+[1745315] INFO AstorCoreEngine - Generation 24
+[1745315] INFO AstorCoreEngine - Generation 25
+[1745315] INFO AstorCoreEngine - Generation 26
+[1745315] INFO AstorCoreEngine - Generation 27
+[1745317] INFO AstorCoreEngine - Generation 28
+[1745317] INFO AstorCoreEngine - Generation 29
+[1745317] INFO AstorCoreEngine - Generation 30
+[1745325] INFO AstorCoreEngine - Generation 31
+[1745326] INFO AstorCoreEngine - Generation 32
+[1745326] INFO AstorCoreEngine - Generation 33
+[1745326] INFO AstorCoreEngine - Generation 34
+[1745327] INFO AstorCoreEngine - Generation 35
+[1745327] INFO AstorCoreEngine - Generation 36
+[1745328] INFO AstorCoreEngine - Generation 37
+[1745328] INFO AstorCoreEngine - Generation 38
+[1745328] INFO AstorCoreEngine - Generation 39
+[1745328] INFO AstorCoreEngine - Generation 40
+[1745328] INFO AstorCoreEngine - Generation 41
+[1745329] INFO AstorCoreEngine - Generation 42
+[1745329] INFO AstorCoreEngine - Generation 43
+[1745329] INFO AstorCoreEngine - Generation 44
+[1745329] INFO AstorCoreEngine - Generation 45
+[1745341] INFO AstorCoreEngine - Generation 46
+[1745345] INFO AstorCoreEngine - Generation 47
+[1745345] INFO AstorCoreEngine - Generation 48
+[1745345] INFO AstorCoreEngine - Generation 49
+[1745345] INFO AstorCoreEngine - Generation 50
+[1745346] INFO AstorCoreEngine - Generation 51
+[1745349] INFO AstorCoreEngine - Generation 52
+Astor Output:
+
+General stats:
+EXECUTION_IDENTIFIER=neo4j_neo4j-VUL4J-62
+TOTAL_TIME=1661.453
+NR_GENERATIONS=52
+NR_RIGHT_COMPILATIONS=21
+NR_FAILLING_COMPILATIONS=15
+NR_ERRONEOUS_VARIANCES=null
+NR_FAILING_VALIDATION_PROCESS=null
+OUTPUT_STATUS=STOP_BY_PATCH_FOUND
+
+Patch stats:
+
+Patch 1
+VARIANT_ID=104
+TIME=1661
+VALIDATION=|true|0|0|[]|
+GENERATION=52
+FOLDER_SOLUTION_CODE=/workdir/jGenProg_vul4j_neo4j_neo4j_VUL4J-62/./output_astor/AstorMain-neo4j_neo4j-VUL4J-62//src//variant-104
+--Patch Hunk #1
+OPERATOR=ReplaceOp
+
+LOCATION=org.neo4j.server.security.enterprise.auth.LdapRealm
+
+PATH=/workdir/jGenProg_vul4j_neo4j_neo4j_VUL4J-62/enterprise/security/src/main/java/org/neo4j/server/security/enterprise/auth/LdapRealm.java
+
+MODIFIED_FILE_PATH=/workdir/jGenProg_vul4j_neo4j_neo4j_VUL4J-62/./output_astor/AstorMain-neo4j_neo4j-VUL4J-62//src//variant-104/org/neo4j/server/security/enterprise/auth/LdapRealm.java
+
+LINE=235
+
+SUSPICIOUNESS=1
+
+MP_RANKING=1
+
+ORIGINAL_CODE=return ctx
+
+BUGGY_CODE_TYPE=CtReturnImpl|CtBlockImpl
+
+PATCH_HUNK_CODE=return getLdapContextUsingStartTls(ldapContextFactory, jndiLdapContextFactory.getSystemUsername(), 
+jndiLdapContextFactory.getSystemPassword())
+
+PATCH_HUNK_TYPE=CtReturnImpl|CtBlockImpl
+
+INGREDIENT_SCOPE=LOCAL
+
+INGREDIENT_PARENT=return getLdapContextUsingStartTls(ldapContextFactory, jndiLdapContextFactory.getSystemUsername(), 
+jndiLdapContextFactory.getSystemPassword())
+
+PATCH_DIFF_ORIG=--- /workdir/jGenProg_vul4j_neo4j_neo4j_VUL4J-62/enterprise/security/src/main/java/org/neo4j/server/security/enterprise/auth/LdapRealmjava
++++ /workdir/jGenProg_vul4j_neo4j_neo4j_VUL4J-62/enterprise/security/src/main/java/org/neo4j/server/security/enterprise/auth/LdapRealmjava
+@@ -235,86 +235,86 @@
+-			return ctx;
+-		}
+-		 catch (java.io.IOException e) 
+-		{
+-			org.apache.shiro.realm.ldap.LdapUtils.closeContext(ctx);
+-			securityLog.error(withRealm("Failed to negotiate TLS connection with '%s': ", 
+-			server(jndiLdapContextFactory), e));
+-			throw new javax.naming.CommunicationException(e.getMessage());
+-		}
+-		 catch (java.lang.Throwable t) 
+-		{
+-			org.apache.shiro.realm.ldap.LdapUtils.closeContext(ctx);
+-			securityLog.error(withRealm("Unexpected failure to negotiate TLS connection with '%s': ", 
+-			server(jndiLdapContextFactory), t));
+-			throw t;
+-		}
+-	}
+-
+-	@java.lang.Override
+-	protected org.apache.shiro.authz.AuthorizationInfo queryForAuthorizationInfo(org.apache.shiro.subject.PrincipalCollection principals, 
+-	org.apache.shiro.realm.ldap.LdapContextFactory ldapContextFactory) throws javax.naming.NamingException 
+-	{
+-		if (authorizationEnabled) 
+-		{
+-			java.lang.String username = getUsername(principals);
+-			if (username == null) 
+-			{
+-				return null;
+-			}
+-
+-			if (useSystemAccountForAuthorization) 
+-			{
+-
+-				javax.naming.ldap.LdapContext ldapContext = (useStartTls) ? getSystemLdapContextUsingStartTls(ldapContextFactory) : 
+-				ldapContextFactory.getSystemLdapContext();
+-
+-				java.util.Set<java.lang.String> roleNames;
+-				try 
+-				{
+-					roleNames = findRoleNamesForUser(username, ldapContext);
+-				} finally 
+-
+-				{
+-					org.apache.shiro.realm.ldap.LdapUtils.closeContext(ldapContext);
+-				}
+-
+-				return new org.apache.shiro.authz.SimpleAuthorizationInfo(roleNames);
+-			} else 
+-
+-			{
+-
+-				org.apache.shiro.cache.Cache<java.lang.Object, org.apache.shiro.authz.AuthorizationInfo> authorizationCache = getAuthorizationCache();
+-				org.apache.shiro.authz.AuthorizationInfo authorizationInfo = authorizationCache.get(username);
+-				if (authorizationInfo == null) 
+-				{
+-
+-
+-
+-
+-					throw new org.neo4j.graphdb.security.AuthorizationExpiredException("LDAP authorization info expired.");
+-				}
+-				return authorizationInfo;
+-			}
+-		}
+-		return null;
+-	}
+-
+-	private java.lang.String getUsername(org.apache.shiro.subject.PrincipalCollection principals) 
+-	{
+-		java.lang.String username = null;
+-		java.util.Collection ldapPrincipals = principals.fromRealm(getName());
+-		if (!ldapPrincipals.isEmpty()) 
+-		{
+-			username = ((java.lang.String) (ldapPrincipals.iterator().next()));
+-		} else 
+-		if (useSystemAccountForAuthorization) 
+-		{
+-			username = ((java.lang.String) (principals.getPrimaryPrincipal()));
+-		}
+-		return username;
+-	}
+-
+-	private javax.naming.ldap.LdapContext getSystemLdapContextUsingStartTls(org.apache.shiro.realm.ldap.LdapContextFactory ldapContextFactory) throws 
+-	javax.naming.NamingException 
+-	{
+-		org.apache.shiro.realm.ldap.JndiLdapContextFactory jndiLdapContextFactory = ((org.apache.shiro.realm.ldap.JndiLdapContextFactory) (ldapContextFactory));
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
+@@ -322 +322 @@
+-		jndiLdapContextFactory.getSystemPassword());
++			jndiLdapContextFactory.getSystemPassword());} catch (java.io.IOException e) { 			org.apache.shiro.realm.ldap.LdapUtils.closeContext(ctx); 			securityLog.error(withRealm("Failed to negotiate TLS connection with '%s': ", server(jndiLdapContextFactory), e)); 			throw new javax.naming.CommunicationException(e.getMessage());} catch (java.lang.Throwable t) { 			org.apache.shiro.realm.ldap.LdapUtils.closeContext(ctx); 			securityLog.error(withRealm("Unexpected failure to negotiate TLS connection with '%s': ", server(jndiLdapContextFactory), t)); 			throw t;}} 	@java.lang.Override 	protected org.apache.shiro.authz.AuthorizationInfo queryForAuthorizationInfo(org.apache.shiro.subject.PrincipalCollection principals, org.apache.shiro.realm.ldap.LdapContextFactory ldapContextFactory) throws javax.naming.NamingException { 		if (authorizationEnabled) { 			java.lang.String username = getUsername(principals); 			if (username == null) { 				return null;} 			if (useSystemAccountForAuthorization) { 				javax.naming.ldap.LdapContext ldapContext = (useStartTls) ? getSystemLdapContextUsingStartTls(ldapContextFactory) : ldapContextFactory.getSystemLdapContext(); 				java.util.Set<java.lang.String> roleNames; 				try { 					roleNames = findRoleNamesForUser(username, ldapContext);} finally { 					org.apache.shiro.realm.ldap.LdapUtils.closeContext(ldapContext);} 				return new org.apache.shiro.authz.SimpleAuthorizationInfo(roleNames);} else { 				org.apache.shiro.cache.Cache<java.lang.Object, org.apache.shiro.authz.AuthorizationInfo> authorizationCache = getAuthorizationCache(); 				org.apache.shiro.authz.AuthorizationInfo authorizationInfo = authorizationCache.get(username); 				if (authorizationInfo == null) { 					throw new org.neo4j.graphdb.security.AuthorizationExpiredException("LDAP authorization info expired.");} 				return authorizationInfo;}} 		return null;} 	private java.lang.String getUsername(org.apache.shiro.subject.PrincipalCollection principals) { 		java.lang.String username = null; 		java.util.Collection ldapPrincipals = principals.fromRealm(getName()); 		if (!ldapPrincipals.isEmpty()) { 			username = ((java.lang.String) (ldapPrincipals.iterator().next()));} else if (useSystemAccountForAuthorization) { 			username = ((java.lang.String) (principals.getPrimaryPrincipal()));} 		return username;} 	private javax.naming.ldap.LdapContext getSystemLdapContextUsingStartTls(org.apache.shiro.realm.ldap.LdapContextFactory ldapContextFactory) throws javax.naming.NamingException { 		org.apache.shiro.realm.ldap.JndiLdapContextFactory jndiLdapContextFactory = ((org.apache.shiro.realm.ldap.JndiLdapContextFactory) (ldapContextFactory)); 		return getLdapContextUsingStartTls(ldapContextFactory, jndiLdapContextFactory.getSystemUsername(), jndiLdapContextFactory.getSystemPassword());
+
+
+
+[1745455] INFO Stats - Storing ing JSON at /workdir/jGenProg_vul4j_neo4j_neo4j_VUL4J-62/./output_astor/AstorMain-neo4j_neo4j-VUL4J-62//astor_output.json
+[1745488] INFO Stats - astor_output:
+{"general":{"NR_RIGHT_COMPILATIONS":21,"NR_ERRONEOUS_VARIANCES":null,"EXECUTION_IDENTIFIER":"neo4j_neo4j-VUL4J-62","OUTPUT_STATUS":"STOP_BY_PATCH_FOUND","NR_FAILLING_COMPILATIONS":15,"NR_GENERATIONS":52,"TOTAL_TIME":1661.453,"NR_FAILING_VALIDATION_PROCESS":null},"patches":[{"VARIANT_ID":"104","VALIDATION":"|true|0|0|[]|","patchhunks":[{"LOCATION":"org.neo4j.server.security.enterprise.auth.LdapRealm","PATH":"\\\/workdir\\\/jGenProg_vul4j_neo4j_neo4j_VUL4J-62\\\/enterprise\\\/security\\\/src\\\/main\\\/java\\\/org\\\/neo4j\\\/server\\\/security\\\/enterprise\\\/auth\\\/LdapRealm.java","INGREDIENT_SCOPE":"LOCAL","SUSPICIOUNESS":"1","INGREDIENT_PARENT":"return getLdapContextUsingStartTls(ldapContextFactory, jndiLdapContextFactory.getSystemUsername(), \\njndiLdapContextFactory.getSystemPassword())","PATCH_HUNK_TYPE":"CtReturnImpl|CtBlockImpl","ORIGINAL_CODE":"return ctx","BUGGY_CODE_TYPE":"CtReturnImpl|CtBlockImpl","OPERATOR":"ReplaceOp","MODIFIED_FILE_PATH":"\\\/workdir\\\/jGenProg_vul4j_neo4j_neo4j_VUL4J-62\\\/.\\\/output_astor\\\/AstorMain-neo4j_neo4j-VUL4J-62\\\/\\\/src\\\/\\\/variant-104\\\/org\\\/neo4j\\\/server\\\/security\\\/enterprise\\\/auth\\\/LdapRealm.java","LINE":"235","MP_RANKING":"1","PATCH_HUNK_CODE":"return getLdapContextUsingStartTls(ldapContextFactory, jndiLdapContextFactory.getSystemUsername(), \\njndiLdapContextFactory.getSystemPassword())"}],"TIME":"1661","GENERATION":"52","FOLDER_SOLUTION_CODE":"\\\/workdir\\\/jGenProg_vul4j_neo4j_neo4j_VUL4J-62\\\/.\\\/output_astor\\\/AstorMain-neo4j_neo4j-VUL4J-62\\\/\\\/src\\\/\\\/variant-104","PATCH_DIFF_ORIG":"--- \\\/workdir\\\/jGenProg_vul4j_neo4j_neo4j_VUL4J-62\\\/enterprise\\\/security\\\/src\\\/main\\\/java\\\/org\\\/neo4j\\\/server\\\/security\\\/enterprise\\\/auth\\\/LdapRealmjava\\n+++ \\\/workdir\\\/jGenProg_vul4j_neo4j_neo4j_VUL4J-62\\\/enterprise\\\/security\\\/src\\\/main\\\/java\\\/org\\\/neo4j\\\/server\\\/security\\\/enterprise\\\/auth\\\/LdapRealmjava\\n@@ -235,86 +235,86 @@\\n-\\t\\t\\treturn ctx;\\n-\\t\\t}\\n-\\t\\t catch (java.io.IOException e) \\n-\\t\\t{\\n-\\t\\t\\torg.apache.shiro.realm.ldap.LdapUtils.closeContext(ctx);\\n-\\t\\t\\tsecurityLog.error(withRealm(\\\"Failed to negotiate TLS connection with '%s': \\\", \\n-\\t\\t\\tserver(jndiLdapContextFactory), e));\\n-\\t\\t\\tthrow new javax.naming.CommunicationException(e.getMessage());\\n-\\t\\t}\\n-\\t\\t catch (java.lang.Throwable t) \\n-\\t\\t{\\n-\\t\\t\\torg.apache.shiro.realm.ldap.LdapUtils.closeContext(ctx);\\n-\\t\\t\\tsecurityLog.error(withRealm(\\\"Unexpected failure to negotiate TLS connection with '%s': \\\", \\n-\\t\\t\\tserver(jndiLdapContextFactory), t));\\n-\\t\\t\\tthrow t;\\n-\\t\\t}\\n-\\t}\\n-\\n-\\t@java.lang.Override\\n-\\tprotected org.apache.shiro.authz.AuthorizationInfo queryForAuthorizationInfo(org.apache.shiro.subject.PrincipalCollection principals, \\n-\\torg.apache.shiro.realm.ldap.LdapContextFactory ldapContextFactory) throws javax.naming.NamingException \\n-\\t{\\n-\\t\\tif (authorizationEnabled) \\n-\\t\\t{\\n-\\t\\t\\tjava.lang.String username = getUsername(principals);\\n-\\t\\t\\tif (username == null) \\n-\\t\\t\\t{\\n-\\t\\t\\t\\treturn null;\\n-\\t\\t\\t}\\n-\\n-\\t\\t\\tif (useSystemAccountForAuthorization) \\n-\\t\\t\\t{\\n-\\n-\\t\\t\\t\\tjavax.naming.ldap.LdapContext ldapContext = (useStartTls) ? getSystemLdapContextUsingStartTls(ldapContextFactory) : \\n-\\t\\t\\t\\tldapContextFactory.getSystemLdapContext();\\n-\\n-\\t\\t\\t\\tjava.util.Set<java.lang.String> roleNames;\\n-\\t\\t\\t\\ttry \\n-\\t\\t\\t\\t{\\n-\\t\\t\\t\\t\\troleNames = findRoleNamesForUser(username, ldapContext);\\n-\\t\\t\\t\\t} finally \\n-\\n-\\t\\t\\t\\t{\\n-\\t\\t\\t\\t\\torg.apache.shiro.realm.ldap.LdapUtils.closeContext(ldapContext);\\n-\\t\\t\\t\\t}\\n-\\n-\\t\\t\\t\\treturn new org.apache.shiro.authz.SimpleAuthorizationInfo(roleNames);\\n-\\t\\t\\t} else \\n-\\n-\\t\\t\\t{\\n-\\n-\\t\\t\\t\\torg.apache.shiro.cache.Cache<java.lang.Object, org.apache.shiro.authz.AuthorizationInfo> authorizationCache = getAuthorizationCache();\\n-\\t\\t\\t\\torg.apache.shiro.authz.AuthorizationInfo authorizationInfo = authorizationCache.get(username);\\n-\\t\\t\\t\\tif (authorizationInfo == null) \\n-\\t\\t\\t\\t{\\n-\\n-\\n-\\n-\\n-\\t\\t\\t\\t\\tthrow new org.neo4j.graphdb.security.AuthorizationExpiredException(\\\"LDAP authorization info expired.\\\");\\n-\\t\\t\\t\\t}\\n-\\t\\t\\t\\treturn authorizationInfo;\\n-\\t\\t\\t}\\n-\\t\\t}\\n-\\t\\treturn null;\\n-\\t}\\n-\\n-\\tprivate java.lang.String getUsername(org.apache.shiro.subject.PrincipalCollection principals) \\n-\\t{\\n-\\t\\tjava.lang.String username = null;\\n-\\t\\tjava.util.Collection ldapPrincipals = principals.fromRealm(getName());\\n-\\t\\tif (!ldapPrincipals.isEmpty()) \\n-\\t\\t{\\n-\\t\\t\\tusername = ((java.lang.String) (ldapPrincipals.iterator().next()));\\n-\\t\\t} else \\n-\\t\\tif (useSystemAccountForAuthorization) \\n-\\t\\t{\\n-\\t\\t\\tusername = ((java.lang.String) (principals.getPrimaryPrincipal()));\\n-\\t\\t}\\n-\\t\\treturn username;\\n-\\t}\\n-\\n-\\tprivate javax.naming.ldap.LdapContext getSystemLdapContextUsingStartTls(org.apache.shiro.realm.ldap.LdapContextFactory ldapContextFactory) throws \\n-\\tjavax.naming.NamingException \\n-\\t{\\n-\\t\\torg.apache.shiro.realm.ldap.JndiLdapContextFactory jndiLdapContextFactory = ((org.apache.shiro.realm.ldap.JndiLdapContextFactory) (ldapContextFactory));\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n@@ -322 +322 @@\\n-\\t\\tjndiLdapContextFactory.getSystemPassword());\\n+\\t\\t\\tjndiLdapContextFactory.getSystemPassword());} catch (java.io.IOException e) { \\t\\t\\torg.apache.shiro.realm.ldap.LdapUtils.closeContext(ctx); \\t\\t\\tsecurityLog.error(withRealm(\\\"Failed to negotiate TLS connection with '%s': \\\", server(jndiLdapContextFactory), e)); \\t\\t\\tthrow new javax.naming.CommunicationException(e.getMessage());} catch (java.lang.Throwable t) { \\t\\t\\torg.apache.shiro.realm.ldap.LdapUtils.closeContext(ctx); \\t\\t\\tsecurityLog.error(withRealm(\\\"Unexpected failure to negotiate TLS connection with '%s': \\\", server(jndiLdapContextFactory), t)); \\t\\t\\tthrow t;}} \\t@java.lang.Override \\tprotected org.apache.shiro.authz.AuthorizationInfo queryForAuthorizationInfo(org.apache.shiro.subject.PrincipalCollection principals, org.apache.shiro.realm.ldap.LdapContextFactory ldapContextFactory) throws javax.naming.NamingException { \\t\\tif (authorizationEnabled) { \\t\\t\\tjava.lang.String username = getUsername(principals); \\t\\t\\tif (username == null) { \\t\\t\\t\\treturn null;} \\t\\t\\tif (useSystemAccountForAuthorization) { \\t\\t\\t\\tjavax.naming.ldap.LdapContext ldapContext = (useStartTls) ? getSystemLdapContextUsingStartTls(ldapContextFactory) : ldapContextFactory.getSystemLdapContext(); \\t\\t\\t\\tjava.util.Set<java.lang.String> roleNames; \\t\\t\\t\\ttry { \\t\\t\\t\\t\\troleNames = findRoleNamesForUser(username, ldapContext);} finally { \\t\\t\\t\\t\\torg.apache.shiro.realm.ldap.LdapUtils.closeContext(ldapContext);} \\t\\t\\t\\treturn new org.apache.shiro.authz.SimpleAuthorizationInfo(roleNames);} else { \\t\\t\\t\\torg.apache.shiro.cache.Cache<java.lang.Object, org.apache.shiro.authz.AuthorizationInfo> authorizationCache = getAuthorizationCache(); \\t\\t\\t\\torg.apache.shiro.authz.AuthorizationInfo authorizationInfo = authorizationCache.get(username); \\t\\t\\t\\tif (authorizationInfo == null) { \\t\\t\\t\\t\\tthrow new org.neo4j.graphdb.security.AuthorizationExpiredException(\\\"LDAP authorization info expired.\\\");} \\t\\t\\t\\treturn authorizationInfo;}} \\t\\treturn null;} \\tprivate java.lang.String getUsername(org.apache.shiro.subject.PrincipalCollection principals) { \\t\\tjava.lang.String username = null; \\t\\tjava.util.Collection ldapPrincipals = principals.fromRealm(getName()); \\t\\tif (!ldapPrincipals.isEmpty()) { \\t\\t\\tusername = ((java.lang.String) (ldapPrincipals.iterator().next()));} else if (useSystemAccountForAuthorization) { \\t\\t\\tusername = ((java.lang.String) (principals.getPrimaryPrincipal()));} \\t\\treturn username;} \\tprivate javax.naming.ldap.LdapContext getSystemLdapContextUsingStartTls(org.apache.shiro.realm.ldap.LdapContextFactory ldapContextFactory) throws javax.naming.NamingException { \\t\\torg.apache.shiro.realm.ldap.JndiLdapContextFactory jndiLdapContextFactory = ((org.apache.shiro.realm.ldap.JndiLdapContextFactory) (ldapContextFactory)); \\t\\treturn getLdapContextUsingStartTls(ldapContextFactory, jndiLdapContextFactory.getSystemUsername(), jndiLdapContextFactory.getSystemPassword());\\n\\n"}]}
+[1745489] INFO AstorMain - Time Total(s): 1745.465
+1566.24user 267.82system 29:07.00elapsed 104%CPU (0avgtext+0avgdata 1699352maxresident)k
+12608inputs+557632outputs (38major+7821691minor)pagefaults 0swaps
+
+
+Node: 9670332cfea8
+
+
+
+Date: Thu Sep  8 19:10:45 EDT 2022
+

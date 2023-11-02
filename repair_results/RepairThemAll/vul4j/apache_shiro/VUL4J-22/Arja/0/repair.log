@@ -1,0 +1,613 @@
+cd /workdir/Arja_vul4j_apache_shiro_VUL4J-22;
+export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en";
+TZ="America/New_York"; export TZ;
+export PATH="/usr/lib/jvm/java-8-openjdk-amd64/bin:$PATH";
+export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64";
+timeout 240m java -Xmx4g -Xms1g -XX:MaxPermSize=512m -cp /script/../libs/jmetal.jar:/script/../repair_tools/arja.jar us.msu.cse.repair.Main \
+	Arja \
+	-DexternalProjRoot /script/../libs/arja_external \
+	-DprojectDir /workdir/Arja_vul4j_apache_shiro_VUL4J-22 \
+    -DtestFiltered false \
+    -DrunTestCommand "mvn test -pl web -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B" \
+	-DsrcJavaDir /workdir/Arja_vul4j_apache_shiro_VUL4J-22/web/src/main/java \
+	-DbinJavaDir /workdir/Arja_vul4j_apache_shiro_VUL4J-22/web/target/classes \
+	-DbinTestDir /workdir/Arja_vul4j_apache_shiro_VUL4J-22/web/target/test-classes \
+	-DdiffFormat true \
+	-Dseed 0 \
+	-DgzoltarDataDir /script/../data/benchmarks/vul4j/perfectfl/VUL4J-22 \
+	-Ddependences /root/.m2/repository/org/powermock/powermock-api-support/1.5/powermock-api-support-1.5.jar:/root/.m2/repository/junit/junit/4.8.2/junit-4.8.2.jar:/root/.m2/repository/log4j/log4j/1.2.16/log4j-1.2.16.jar:/root/.m2/repository/javax/servlet/jsp/jsp-api/2.1/jsp-api-2.1.jar:/root/.m2/repository/org/powermock/powermock-core/1.5/powermock-core-1.5.jar:/root/.m2/repository/org/slf4j/jcl-over-slf4j/1.6.4/jcl-over-slf4j-1.6.4.jar:/root/.m2/repository/javax/servlet/jstl/1.1.2/jstl-1.1.2.jar:/root/.m2/repository/cglib/cglib-nodep/2.2.2/cglib-nodep-2.2.2.jar:/root/.m2/repository/org/easymock/easymock/3.1/easymock-3.1.jar:/root/.m2/repository/org/javassist/javassist/3.17.1-GA/javassist-3.17.1-GA.jar:/root/.m2/repository/org/powermock/powermock-api-easymock/1.5/powermock-api-easymock-1.5.jar:/root/.m2/repository/org/apache/shiro/shiro-core/1.3.2-SNAPSHOT/shiro-core-1.3.2-SNAPSHOT-tests.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.6.4/slf4j-api-1.6.4.jar:/root/.m2/repository/org/slf4j/slf4j-log4j12/1.6.4/slf4j-log4j12-1.6.4.jar:/root/.m2/repository/org/powermock/powermock-reflect/1.5/powermock-reflect-1.5.jar:/root/.m2/repository/commons-beanutils/commons-beanutils/1.8.3/commons-beanutils-1.8.3.jar:/root/.m2/repository/org/powermock/powermock-module-junit4/1.5/powermock-module-junit4-1.5.jar:/root/.m2/repository/org/powermock/powermock-module-junit4-common/1.5/powermock-module-junit4-common-1.5.jar:/root/.m2/repository/javax/servlet/servlet-api/2.5/servlet-api-2.5.jar:/root/.m2/repository/org/codehaus/groovy/groovy-all/1.8.5/groovy-all-1.8.5.jar:/root/.m2/repository/org/objenesis/objenesis/1.2/objenesis-1.2.jar:/root/.m2/repository/org/apache/shiro/shiro-core/1.3.2-SNAPSHOT/shiro-core-1.3.2-SNAPSHOT.jar;
+	echo "\n\nNode: `hostname`\n";
+	echo "\n\nDate: `date`\n";
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en
+OpenJDK 64-Bit Server VM warning: ignoring option MaxPermSize=512m; support was removed in 8.0
+Fault localization starts...
+Number of positive tests: 125
+Number of negative tests: 3
+Negative tests: [org.apache.shiro.web.util.WebUtilsTest#testGetContextPath, org.apache.shiro.web.util.WebUtilsTest#testGetPathWithinApplication, org.apache.shiro.web.util.WebUtilsTest#testGetContextPathIncludes]
+Faulty Lines: 
+org.apache.shiro.web.util.WebUtils#255:1.0
+org.apache.shiro.web.util.WebUtils#248:1.0
+Fault localization is finished!
+AST parsing starts...
+AST parsing is finished!
+Detection of local variables starts...
+Detection of local variables is finished!
+Detection of fields starts...
+Detection of fields is finished!
+Detection of methods starts...
+Detection of methods is finished!
+Ingredient screener starts...
+Ingredient screener is finished!
+Initialization of manipulations starts...
+Initialization of manipulations is finished!
+Filtering of the tests starts...
+Number of positive tests considered: 125
+Filtering of the tests is finished!
+----------------------------------
+Patch Candidate:
+@@ -245,9 +245,6 @@ public class WebUtils {
+*/
+public static String getContextPath(HttpServletRequest request) {
+String contextPath = (String) request.getAttribute(INCLUDE_CONTEXT_PATH_ATTRIBUTE);
+-        if (contextPath == null) {
+-            contextPath = request.getContextPath();
+-        }
+if ("/".equals(contextPath)) {
+// Invalid case, but happens for includes on Jetty: silently adapt it.
+contextPath = "";
+Number of failed tests: 3, 6
+Weighted failure rate: 1.024
+----------------------------------
+Patch Candidate:
+@@ -245,9 +245,6 @@ public class WebUtils {
+*/
+public static String getContextPath(HttpServletRequest request) {
+String contextPath = (String) request.getAttribute(INCLUDE_CONTEXT_PATH_ATTRIBUTE);
+-        if (contextPath == null) {
+-            contextPath = request.getContextPath();
+-        }
+if ("/".equals(contextPath)) {
+// Invalid case, but happens for includes on Jetty: silently adapt it.
+contextPath = "";
+Number of failed tests: 3, 6
+Weighted failure rate: 1.024
+----------------------------------
+Patch Candidate:
+@@ -245,9 +245,6 @@ public class WebUtils {
+*/
+public static String getContextPath(HttpServletRequest request) {
+String contextPath = (String) request.getAttribute(INCLUDE_CONTEXT_PATH_ATTRIBUTE);
+-        if (contextPath == null) {
+-            contextPath = request.getContextPath();
+-        }
+if ("/".equals(contextPath)) {
+// Invalid case, but happens for includes on Jetty: silently adapt it.
+contextPath = "";
+Number of failed tests: 3, 6
+Weighted failure rate: 1.024
+----------------------------------
+Patch Candidate:
+@@ -245,9 +245,6 @@ public class WebUtils {
+*/
+public static String getContextPath(HttpServletRequest request) {
+String contextPath = (String) request.getAttribute(INCLUDE_CONTEXT_PATH_ATTRIBUTE);
+-        if (contextPath == null) {
+-            contextPath = request.getContextPath();
+-        }
+if ("/".equals(contextPath)) {
+// Invalid case, but happens for includes on Jetty: silently adapt it.
+contextPath = "";
+Number of failed tests: 3, 6
+Weighted failure rate: 1.024
+----------------------------------
+Patch Candidate:
+@@ -245,9 +245,6 @@ public class WebUtils {
+*/
+public static String getContextPath(HttpServletRequest request) {
+String contextPath = (String) request.getAttribute(INCLUDE_CONTEXT_PATH_ATTRIBUTE);
+-        if (contextPath == null) {
+-            contextPath = request.getContextPath();
+-        }
+if ("/".equals(contextPath)) {
+// Invalid case, but happens for includes on Jetty: silently adapt it.
+contextPath = "";
+Number of failed tests: 3, 6
+Weighted failure rate: 1.024
+----------------------------------
+Patch Candidate:
+@@ -245,9 +245,6 @@ public class WebUtils {
+*/
+public static String getContextPath(HttpServletRequest request) {
+String contextPath = (String) request.getAttribute(INCLUDE_CONTEXT_PATH_ATTRIBUTE);
+-        if (contextPath == null) {
+-            contextPath = request.getContextPath();
+-        }
+if ("/".equals(contextPath)) {
+// Invalid case, but happens for includes on Jetty: silently adapt it.
+contextPath = "";
+Number of failed tests: 3, 6
+Weighted failure rate: 1.024
+----------------------------------
+Patch Candidate:
+@@ -245,9 +245,6 @@ public class WebUtils {
+*/
+public static String getContextPath(HttpServletRequest request) {
+String contextPath = (String) request.getAttribute(INCLUDE_CONTEXT_PATH_ATTRIBUTE);
+-        if (contextPath == null) {
+-            contextPath = request.getContextPath();
+-        }
+if ("/".equals(contextPath)) {
+// Invalid case, but happens for includes on Jetty: silently adapt it.
+contextPath = "";
+Number of failed tests: 3, 6
+Weighted failure rate: 1.024
+----------------------------------
+Patch Candidate:
+@@ -245,9 +245,6 @@ public class WebUtils {
+*/
+public static String getContextPath(HttpServletRequest request) {
+String contextPath = (String) request.getAttribute(INCLUDE_CONTEXT_PATH_ATTRIBUTE);
+-        if (contextPath == null) {
+-            contextPath = request.getContextPath();
+-        }
+if ("/".equals(contextPath)) {
+// Invalid case, but happens for includes on Jetty: silently adapt it.
+contextPath = "";
+Number of failed tests: 3, 6
+Weighted failure rate: 1.024
+----------------------------------
+Patch Candidate:
+@@ -245,9 +245,6 @@ public class WebUtils {
+*/
+public static String getContextPath(HttpServletRequest request) {
+String contextPath = (String) request.getAttribute(INCLUDE_CONTEXT_PATH_ATTRIBUTE);
+-        if (contextPath == null) {
+-            contextPath = request.getContextPath();
+-        }
+if ("/".equals(contextPath)) {
+// Invalid case, but happens for includes on Jetty: silently adapt it.
+contextPath = "";
+Number of failed tests: 3, 6
+Weighted failure rate: 1.024
+----------------------------------
+Patch Candidate:
+@@ -245,9 +245,6 @@ public class WebUtils {
+*/
+public static String getContextPath(HttpServletRequest request) {
+String contextPath = (String) request.getAttribute(INCLUDE_CONTEXT_PATH_ATTRIBUTE);
+-        if (contextPath == null) {
+-            contextPath = request.getContextPath();
+-        }
+if ("/".equals(contextPath)) {
+// Invalid case, but happens for includes on Jetty: silently adapt it.
+contextPath = "";
+Number of failed tests: 3, 6
+Weighted failure rate: 1.024
+----------------------------------
+Patch Candidate:
+@@ -245,9 +245,6 @@ public class WebUtils {
+*/
+public static String getContextPath(HttpServletRequest request) {
+String contextPath = (String) request.getAttribute(INCLUDE_CONTEXT_PATH_ATTRIBUTE);
+-        if (contextPath == null) {
+-            contextPath = request.getContextPath();
+-        }
+if ("/".equals(contextPath)) {
+// Invalid case, but happens for includes on Jetty: silently adapt it.
+contextPath = "";
+Number of failed tests: 3, 6
+Weighted failure rate: 1.024
+----------------------------------
+Patch Candidate:
+@@ -245,9 +245,6 @@ public class WebUtils {
+*/
+public static String getContextPath(HttpServletRequest request) {
+String contextPath = (String) request.getAttribute(INCLUDE_CONTEXT_PATH_ATTRIBUTE);
+-        if (contextPath == null) {
+-            contextPath = request.getContextPath();
+-        }
+if ("/".equals(contextPath)) {
+// Invalid case, but happens for includes on Jetty: silently adapt it.
+contextPath = "";
+Number of failed tests: 3, 6
+Weighted failure rate: 1.024
+----------------------------------
+Patch Candidate:
+@@ -245,9 +245,6 @@ public class WebUtils {
+*/
+public static String getContextPath(HttpServletRequest request) {
+String contextPath = (String) request.getAttribute(INCLUDE_CONTEXT_PATH_ATTRIBUTE);
+-        if (contextPath == null) {
+-            contextPath = request.getContextPath();
+-        }
+if ("/".equals(contextPath)) {
+// Invalid case, but happens for includes on Jetty: silently adapt it.
+contextPath = "";
+Number of failed tests: 3, 6
+Weighted failure rate: 1.024
+----------------------------------
+Patch Candidate:
+@@ -245,9 +245,6 @@ public class WebUtils {
+*/
+public static String getContextPath(HttpServletRequest request) {
+String contextPath = (String) request.getAttribute(INCLUDE_CONTEXT_PATH_ATTRIBUTE);
+-        if (contextPath == null) {
+-            contextPath = request.getContextPath();
+-        }
+if ("/".equals(contextPath)) {
+// Invalid case, but happens for includes on Jetty: silently adapt it.
+contextPath = "";
+Number of failed tests: 3, 6
+Weighted failure rate: 1.024
+----------------------------------
+Patch Candidate:
+@@ -245,9 +245,6 @@ public class WebUtils {
+*/
+public static String getContextPath(HttpServletRequest request) {
+String contextPath = (String) request.getAttribute(INCLUDE_CONTEXT_PATH_ATTRIBUTE);
+-        if (contextPath == null) {
+-            contextPath = request.getContextPath();
+-        }
+if ("/".equals(contextPath)) {
+// Invalid case, but happens for includes on Jetty: silently adapt it.
+contextPath = "";
+Number of failed tests: 3, 6
+Weighted failure rate: 1.024
+----------------------------------
+Patch Candidate:
+@@ -245,9 +245,6 @@ public class WebUtils {
+*/
+public static String getContextPath(HttpServletRequest request) {
+String contextPath = (String) request.getAttribute(INCLUDE_CONTEXT_PATH_ATTRIBUTE);
+-        if (contextPath == null) {
+-            contextPath = request.getContextPath();
+-        }
+if ("/".equals(contextPath)) {
+// Invalid case, but happens for includes on Jetty: silently adapt it.
+contextPath = "";
+Number of failed tests: 3, 6
+Weighted failure rate: 1.024
+----------------------------------
+Patch Candidate:
+@@ -245,9 +245,6 @@ public class WebUtils {
+*/
+public static String getContextPath(HttpServletRequest request) {
+String contextPath = (String) request.getAttribute(INCLUDE_CONTEXT_PATH_ATTRIBUTE);
+-        if (contextPath == null) {
+-            contextPath = request.getContextPath();
+-        }
+if ("/".equals(contextPath)) {
+// Invalid case, but happens for includes on Jetty: silently adapt it.
+contextPath = "";
+Number of failed tests: 3, 6
+Weighted failure rate: 1.024
+----------------------------------
+Patch Candidate:
+@@ -245,9 +245,6 @@ public class WebUtils {
+*/
+public static String getContextPath(HttpServletRequest request) {
+String contextPath = (String) request.getAttribute(INCLUDE_CONTEXT_PATH_ATTRIBUTE);
+-        if (contextPath == null) {
+-            contextPath = request.getContextPath();
+-        }
+if ("/".equals(contextPath)) {
+// Invalid case, but happens for includes on Jetty: silently adapt it.
+contextPath = "";
+Number of failed tests: 3, 6
+Weighted failure rate: 1.024
+----------------------------------
+Patch Candidate:
+@@ -245,9 +245,6 @@ public class WebUtils {
+*/
+public static String getContextPath(HttpServletRequest request) {
+String contextPath = (String) request.getAttribute(INCLUDE_CONTEXT_PATH_ATTRIBUTE);
+-        if (contextPath == null) {
+-            contextPath = request.getContextPath();
+-        }
+if ("/".equals(contextPath)) {
+// Invalid case, but happens for includes on Jetty: silently adapt it.
+contextPath = "";
+Number of failed tests: 3, 6
+Weighted failure rate: 1.024
+----------------------------------
+Patch Candidate:
+@@ -245,9 +245,6 @@ public class WebUtils {
+*/
+public static String getContextPath(HttpServletRequest request) {
+String contextPath = (String) request.getAttribute(INCLUDE_CONTEXT_PATH_ATTRIBUTE);
+-        if (contextPath == null) {
+-            contextPath = request.getContextPath();
+-        }
+if ("/".equals(contextPath)) {
+// Invalid case, but happens for includes on Jetty: silently adapt it.
+contextPath = "";
+Number of failed tests: 3, 6
+Weighted failure rate: 1.024
+----------------------------------
+Patch Candidate:
+@@ -245,9 +245,6 @@ public class WebUtils {
+*/
+public static String getContextPath(HttpServletRequest request) {
+String contextPath = (String) request.getAttribute(INCLUDE_CONTEXT_PATH_ATTRIBUTE);
+-        if (contextPath == null) {
+-            contextPath = request.getContextPath();
+-        }
+if ("/".equals(contextPath)) {
+// Invalid case, but happens for includes on Jetty: silently adapt it.
+contextPath = "";
+Number of failed tests: 3, 6
+Weighted failure rate: 1.024
+----------------------------------
+Patch Candidate:
+@@ -245,9 +245,6 @@ public class WebUtils {
+*/
+public static String getContextPath(HttpServletRequest request) {
+String contextPath = (String) request.getAttribute(INCLUDE_CONTEXT_PATH_ATTRIBUTE);
+-        if (contextPath == null) {
+-            contextPath = request.getContextPath();
+-        }
+if ("/".equals(contextPath)) {
+// Invalid case, but happens for includes on Jetty: silently adapt it.
+contextPath = "";
+Number of failed tests: 3, 6
+Weighted failure rate: 1.024
+----------------------------------
+Patch Candidate:
+@@ -245,9 +245,6 @@ public class WebUtils {
+*/
+public static String getContextPath(HttpServletRequest request) {
+String contextPath = (String) request.getAttribute(INCLUDE_CONTEXT_PATH_ATTRIBUTE);
+-        if (contextPath == null) {
+-            contextPath = request.getContextPath();
+-        }
+if ("/".equals(contextPath)) {
+// Invalid case, but happens for includes on Jetty: silently adapt it.
+contextPath = "";
+Number of failed tests: 3, 6
+Weighted failure rate: 1.024
+----------------------------------
+Patch Candidate:
+@@ -245,9 +245,6 @@ public class WebUtils {
+*/
+public static String getContextPath(HttpServletRequest request) {
+String contextPath = (String) request.getAttribute(INCLUDE_CONTEXT_PATH_ATTRIBUTE);
+-        if (contextPath == null) {
+-            contextPath = request.getContextPath();
+-        }
+if ("/".equals(contextPath)) {
+// Invalid case, but happens for includes on Jetty: silently adapt it.
+contextPath = "";
+Number of failed tests: 3, 6
+Weighted failure rate: 1.024
+----------------------------------
+Patch Candidate:
+@@ -245,9 +245,6 @@ public class WebUtils {
+*/
+public static String getContextPath(HttpServletRequest request) {
+String contextPath = (String) request.getAttribute(INCLUDE_CONTEXT_PATH_ATTRIBUTE);
+-        if (contextPath == null) {
+-            contextPath = request.getContextPath();
+-        }
+if ("/".equals(contextPath)) {
+// Invalid case, but happens for includes on Jetty: silently adapt it.
+contextPath = "";
+Number of failed tests: 3, 6
+Weighted failure rate: 1.024
+----------------------------------
+Patch Candidate:
+@@ -245,9 +245,6 @@ public class WebUtils {
+*/
+public static String getContextPath(HttpServletRequest request) {
+String contextPath = (String) request.getAttribute(INCLUDE_CONTEXT_PATH_ATTRIBUTE);
+-        if (contextPath == null) {
+-            contextPath = request.getContextPath();
+-        }
+if ("/".equals(contextPath)) {
+// Invalid case, but happens for includes on Jetty: silently adapt it.
+contextPath = "";
+Number of failed tests: 3, 6
+Weighted failure rate: 1.024
+----------------------------------
+Patch Candidate:
+@@ -245,9 +245,6 @@ public class WebUtils {
+*/
+public static String getContextPath(HttpServletRequest request) {
+String contextPath = (String) request.getAttribute(INCLUDE_CONTEXT_PATH_ATTRIBUTE);
+-        if (contextPath == null) {
+-            contextPath = request.getContextPath();
+-        }
+if ("/".equals(contextPath)) {
+// Invalid case, but happens for includes on Jetty: silently adapt it.
+contextPath = "";
+Number of failed tests: 3, 6
+Weighted failure rate: 1.024
+----------------------------------
+Patch Candidate:
+@@ -245,9 +245,6 @@ public class WebUtils {
+*/
+public static String getContextPath(HttpServletRequest request) {
+String contextPath = (String) request.getAttribute(INCLUDE_CONTEXT_PATH_ATTRIBUTE);
+-        if (contextPath == null) {
+-            contextPath = request.getContextPath();
+-        }
+if ("/".equals(contextPath)) {
+// Invalid case, but happens for includes on Jetty: silently adapt it.
+contextPath = "";
+Number of failed tests: 3, 6
+Weighted failure rate: 1.024
+----------------------------------
+Patch Candidate:
+@@ -245,9 +245,6 @@ public class WebUtils {
+*/
+public static String getContextPath(HttpServletRequest request) {
+String contextPath = (String) request.getAttribute(INCLUDE_CONTEXT_PATH_ATTRIBUTE);
+-        if (contextPath == null) {
+-            contextPath = request.getContextPath();
+-        }
+if ("/".equals(contextPath)) {
+// Invalid case, but happens for includes on Jetty: silently adapt it.
+contextPath = "";
+Number of failed tests: 3, 6
+Weighted failure rate: 1.024
+----------------------------------
+Patch Candidate:
+@@ -245,9 +245,6 @@ public class WebUtils {
+*/
+public static String getContextPath(HttpServletRequest request) {
+String contextPath = (String) request.getAttribute(INCLUDE_CONTEXT_PATH_ATTRIBUTE);
+-        if (contextPath == null) {
+-            contextPath = request.getContextPath();
+-        }
+if ("/".equals(contextPath)) {
+// Invalid case, but happens for includes on Jetty: silently adapt it.
+contextPath = "";
+Number of failed tests: 3, 6
+Weighted failure rate: 1.024
+----------------------------------
+Patch Candidate:
+@@ -245,9 +245,6 @@ public class WebUtils {
+*/
+public static String getContextPath(HttpServletRequest request) {
+String contextPath = (String) request.getAttribute(INCLUDE_CONTEXT_PATH_ATTRIBUTE);
+-        if (contextPath == null) {
+-            contextPath = request.getContextPath();
+-        }
+if ("/".equals(contextPath)) {
+// Invalid case, but happens for includes on Jetty: silently adapt it.
+contextPath = "";
+Number of failed tests: 3, 6
+Weighted failure rate: 1.024
+----------------------------------
+Patch Candidate:
+@@ -245,9 +245,6 @@ public class WebUtils {
+*/
+public static String getContextPath(HttpServletRequest request) {
+String contextPath = (String) request.getAttribute(INCLUDE_CONTEXT_PATH_ATTRIBUTE);
+-        if (contextPath == null) {
+-            contextPath = request.getContextPath();
+-        }
+if ("/".equals(contextPath)) {
+// Invalid case, but happens for includes on Jetty: silently adapt it.
+contextPath = "";
+Number of failed tests: 3, 6
+Weighted failure rate: 1.024
+----------------------------------
+Patch Candidate:
+@@ -245,9 +245,6 @@ public class WebUtils {
+*/
+public static String getContextPath(HttpServletRequest request) {
+String contextPath = (String) request.getAttribute(INCLUDE_CONTEXT_PATH_ATTRIBUTE);
+-        if (contextPath == null) {
+-            contextPath = request.getContextPath();
+-        }
+if ("/".equals(contextPath)) {
+// Invalid case, but happens for includes on Jetty: silently adapt it.
+contextPath = "";
+Number of failed tests: 3, 6
+Weighted failure rate: 1.024
+----------------------------------
+Patch Candidate:
+@@ -245,9 +245,6 @@ public class WebUtils {
+*/
+public static String getContextPath(HttpServletRequest request) {
+String contextPath = (String) request.getAttribute(INCLUDE_CONTEXT_PATH_ATTRIBUTE);
+-        if (contextPath == null) {
+-            contextPath = request.getContextPath();
+-        }
+if ("/".equals(contextPath)) {
+// Invalid case, but happens for includes on Jetty: silently adapt it.
+contextPath = "";
+Number of failed tests: 3, 6
+Weighted failure rate: 1.024
+----------------------------------
+Patch Candidate:
+@@ -245,9 +245,6 @@ public class WebUtils {
+*/
+public static String getContextPath(HttpServletRequest request) {
+String contextPath = (String) request.getAttribute(INCLUDE_CONTEXT_PATH_ATTRIBUTE);
+-        if (contextPath == null) {
+-            contextPath = request.getContextPath();
+-        }
+if ("/".equals(contextPath)) {
+// Invalid case, but happens for includes on Jetty: silently adapt it.
+contextPath = "";
+Number of failed tests: 3, 6
+Weighted failure rate: 1.024
+----------------------------------
+Patch Candidate:
+@@ -245,9 +245,6 @@ public class WebUtils {
+*/
+public static String getContextPath(HttpServletRequest request) {
+String contextPath = (String) request.getAttribute(INCLUDE_CONTEXT_PATH_ATTRIBUTE);
+-        if (contextPath == null) {
+-            contextPath = request.getContextPath();
+-        }
+if ("/".equals(contextPath)) {
+// Invalid case, but happens for includes on Jetty: silently adapt it.
+contextPath = "";
+Number of failed tests: 3, 6
+Weighted failure rate: 1.024
+----------------------------------
+Patch Candidate:
+@@ -245,9 +245,6 @@ public class WebUtils {
+*/
+public static String getContextPath(HttpServletRequest request) {
+String contextPath = (String) request.getAttribute(INCLUDE_CONTEXT_PATH_ATTRIBUTE);
+-        if (contextPath == null) {
+-            contextPath = request.getContextPath();
+-        }
+if ("/".equals(contextPath)) {
+// Invalid case, but happens for includes on Jetty: silently adapt it.
+contextPath = "";
+Number of failed tests: 3, 6
+Weighted failure rate: 1.024
+----------------------------------
+Patch Candidate:
+@@ -245,9 +245,6 @@ public class WebUtils {
+*/
+public static String getContextPath(HttpServletRequest request) {
+String contextPath = (String) request.getAttribute(INCLUDE_CONTEXT_PATH_ATTRIBUTE);
+-        if (contextPath == null) {
+-            contextPath = request.getContextPath();
+-        }
+if ("/".equals(contextPath)) {
+// Invalid case, but happens for includes on Jetty: silently adapt it.
+contextPath = "";
+Number of failed tests: 3, 6
+Weighted failure rate: 1.024
+----------------------------------
+Patch Candidate:
+@@ -245,9 +245,6 @@ public class WebUtils {
+*/
+public static String getContextPath(HttpServletRequest request) {
+String contextPath = (String) request.getAttribute(INCLUDE_CONTEXT_PATH_ATTRIBUTE);
+-        if (contextPath == null) {
+-            contextPath = request.getContextPath();
+-        }
+if ("/".equals(contextPath)) {
+// Invalid case, but happens for includes on Jetty: silently adapt it.
+contextPath = "";
+Number of failed tests: 3, 6
+Weighted failure rate: 1.024
+----------------------------------
+Patch Candidate:
+@@ -245,9 +245,6 @@ public class WebUtils {
+*/
+public static String getContextPath(HttpServletRequest request) {
+String contextPath = (String) request.getAttribute(INCLUDE_CONTEXT_PATH_ATTRIBUTE);
+-        if (contextPath == null) {
+-            contextPath = request.getContextPath();
+-        }
+if ("/".equals(contextPath)) {
+// Invalid case, but happens for includes on Jetty: silently adapt it.
+contextPath = "";
+Number of failed tests: 3, 6
+Weighted failure rate: 1.024
+
+
+Node: b97f25038321
+
+
+
+Date: Fri Sep 16 16:14:07 EDT 2022
+

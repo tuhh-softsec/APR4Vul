@@ -1,0 +1,116 @@
+{
+  "repair_end": "2022-10-02 00:18:00.116026", 
+  "repair_begin": "2022-10-01 20:17:50.017516", 
+  "patches": [
+    {
+      "edits": [
+        {
+          "path": "server/src/main/java/org/cloudfoundry/identity/uaa/authentication/UaaAuthenticationDetails.java", 
+          "line": 116, 
+          "faulty": "if (sessionId != null) {\n  if (sb.length() > 0) {\n    sb.append(\", \");\n  }\n  sb.append(\"sessionId=\").append(sessionId);\n}", 
+          "type": "Replace", 
+          "seed": "this.sessionId=\"unknown\";"
+        }
+      ], 
+      "patch": "--- /workdir/GenProg_vul4j_cloudfoundry_uaa_VUL4J-39/server/src/main/java/org/cloudfoundry/identity/uaa/authentication/UaaAuthenticationDetails.java\t2022-10-01 16:52:51.307615714 -0400\n+++ /workdir/GenProg_vul4j_cloudfoundry_uaa_VUL4J-39/patches_grdn/Patch_4/patched/org/cloudfoundry/identity/uaa/authentication/UaaAuthenticationDetails.java\t2022-10-01 16:52:51.307615714 -0400\n@@ -113,12 +113,7 @@\n             }\n             sb.append(\"clientId=\").append(clientId);\n         }\n-        if (sessionId != null) {\n-            if (sb.length() > 0) {\n-                sb.append(\", \");\n-            }\n-            sb.append(\"sessionId=\").append(sessionId);\n-        }\n+        this.sessionId = \"unknown\";\n         return sb.toString();\n     }\n \n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "server/src/main/java/org/cloudfoundry/identity/uaa/authentication/UaaAuthenticationDetails.java", 
+          "line": 116, 
+          "faulty": "if (sessionId != null) {\n  if (sb.length() > 0) {\n    sb.append(\", \");\n  }\n  sb.append(\"sessionId=\").append(sessionId);\n}", 
+          "type": "Delete", 
+          "seed": "long expiresAt=-1;"
+        }, 
+        {
+          "path": "server/src/main/java/org/cloudfoundry/identity/uaa/authentication/UaaAuthenticationDetails.java", 
+          "line": 116, 
+          "faulty": "if (sessionId != null) {\n  if (sb.length() > 0) {\n    sb.append(\", \");\n  }\n  sb.append(\"sessionId=\").append(sessionId);\n}", 
+          "type": "InsertBefore", 
+          "seed": "boolean buggyVmcAcceptHeader=false;"
+        }
+      ], 
+      "patch": "--- /workdir/GenProg_vul4j_cloudfoundry_uaa_VUL4J-39/server/src/main/java/org/cloudfoundry/identity/uaa/authentication/UaaAuthenticationDetails.java\t2022-10-01 19:58:09.761053514 -0400\n+++ /workdir/GenProg_vul4j_cloudfoundry_uaa_VUL4J-39/patches_grdn/Patch_7/patched/org/cloudfoundry/identity/uaa/authentication/UaaAuthenticationDetails.java\t2022-10-01 19:58:09.765053625 -0400\n@@ -113,13 +113,8 @@\n             }\n             sb.append(\"clientId=\").append(clientId);\n         }\n-        if (sessionId != null) {\n-            if (sb.length() > 0) {\n-                sb.append(\", \");\n-            }\n-            sb.append(\"sessionId=\").append(sessionId);\n-        }\n-        return sb.toString();\n+        boolean buggyVmcAcceptHeader = false;\n+\t\treturn sb.toString();\n     }\n \n     @Override\n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "server/src/main/java/org/cloudfoundry/identity/uaa/authentication/UaaAuthenticationDetails.java", 
+          "line": 116, 
+          "faulty": "if (sessionId != null) {\n  if (sb.length() > 0) {\n    sb.append(\", \");\n  }\n  sb.append(\"sessionId=\").append(sessionId);\n}", 
+          "type": "Replace", 
+          "seed": "long authenticatedTime=-1;"
+        }, 
+        {
+          "path": "server/src/main/java/org/cloudfoundry/identity/uaa/authentication/UaaAuthenticationDetails.java", 
+          "line": 116, 
+          "faulty": "if (sessionId != null) {\n  if (sb.length() > 0) {\n    sb.append(\", \");\n  }\n  sb.append(\"sessionId=\").append(sessionId);\n}", 
+          "type": "InsertBefore", 
+          "seed": "this.addNew=addNew;"
+        }
+      ], 
+      "patch": "--- /workdir/GenProg_vul4j_cloudfoundry_uaa_VUL4J-39/server/src/main/java/org/cloudfoundry/identity/uaa/authentication/UaaAuthenticationDetails.java\t2022-10-01 18:32:44.398670403 -0400\n+++ /workdir/GenProg_vul4j_cloudfoundry_uaa_VUL4J-39/patches_grdn/Patch_6/patched/org/cloudfoundry/identity/uaa/authentication/UaaAuthenticationDetails.java\t2022-10-01 18:32:44.398670403 -0400\n@@ -113,12 +113,8 @@\n             }\n             sb.append(\"clientId=\").append(clientId);\n         }\n-        if (sessionId != null) {\n-            if (sb.length() > 0) {\n-                sb.append(\", \");\n-            }\n-            sb.append(\"sessionId=\").append(sessionId);\n-        }\n+        this.addNew = addNew;\n+\t\tlong authenticatedTime = -1;\n         return sb.toString();\n     }\n \n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "server/src/main/java/org/cloudfoundry/identity/uaa/authentication/UaaAuthenticationDetails.java", 
+          "line": 116, 
+          "faulty": "if (sessionId != null) {\n  if (sb.length() > 0) {\n    sb.append(\", \");\n  }\n  sb.append(\"sessionId=\").append(sessionId);\n}", 
+          "type": "Replace", 
+          "seed": "if (clientId != null) {\n  if (sb.length() > 0) {\n    sb.append(\", \");\n  }\n  sb.append(\"clientId=\").append(clientId);\n}"
+        }
+      ], 
+      "patch": "--- /workdir/GenProg_vul4j_cloudfoundry_uaa_VUL4J-39/server/src/main/java/org/cloudfoundry/identity/uaa/authentication/UaaAuthenticationDetails.java\t2022-10-01 16:49:46.994466234 -0400\n+++ /workdir/GenProg_vul4j_cloudfoundry_uaa_VUL4J-39/patches_grdn/Patch_3/patched/org/cloudfoundry/identity/uaa/authentication/UaaAuthenticationDetails.java\t2022-10-01 16:49:46.994466234 -0400\n@@ -113,12 +113,12 @@\n             }\n             sb.append(\"clientId=\").append(clientId);\n         }\n-        if (sessionId != null) {\n-            if (sb.length() > 0) {\n-                sb.append(\", \");\n-            }\n-            sb.append(\"sessionId=\").append(sessionId);\n-        }\n+        if (clientId != null) {\n+\t\t\tif (sb.length() > 0) {\n+\t\t\t\tsb.append(\", \");\n+\t\t\t}\n+\t\t\tsb.append(\"clientId=\").append(clientId);\n+\t\t}\n         return sb.toString();\n     }\n \n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "server/src/main/java/org/cloudfoundry/identity/uaa/authentication/UaaAuthenticationDetails.java", 
+          "line": 116, 
+          "faulty": "if (sessionId != null) {\n  if (sb.length() > 0) {\n    sb.append(\", \");\n  }\n  sb.append(\"sessionId=\").append(sessionId);\n}", 
+          "type": "Replace", 
+          "seed": "long authenticatedTime=-1;"
+        }
+      ], 
+      "patch": "--- /workdir/GenProg_vul4j_cloudfoundry_uaa_VUL4J-39/server/src/main/java/org/cloudfoundry/identity/uaa/authentication/UaaAuthenticationDetails.java\t2022-10-01 16:46:45.585396852 -0400\n+++ /workdir/GenProg_vul4j_cloudfoundry_uaa_VUL4J-39/patches_grdn/Patch_2/patched/org/cloudfoundry/identity/uaa/authentication/UaaAuthenticationDetails.java\t2022-10-01 16:46:45.585396852 -0400\n@@ -113,12 +113,7 @@\n             }\n             sb.append(\"clientId=\").append(clientId);\n         }\n-        if (sessionId != null) {\n-            if (sb.length() > 0) {\n-                sb.append(\", \");\n-            }\n-            sb.append(\"sessionId=\").append(sessionId);\n-        }\n+        long authenticatedTime = -1;\n         return sb.toString();\n     }\n \n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "server/src/main/java/org/cloudfoundry/identity/uaa/authentication/UaaAuthenticationDetails.java", 
+          "line": 116, 
+          "faulty": "if (sessionId != null) {\n  if (sb.length() > 0) {\n    sb.append(\", \");\n  }\n  sb.append(\"sessionId=\").append(sessionId);\n}", 
+          "type": "Delete", 
+          "seed": "HttpStatus status=HttpStatus.UNAUTHORIZED;"
+        }
+      ], 
+      "patch": "--- /workdir/GenProg_vul4j_cloudfoundry_uaa_VUL4J-39/server/src/main/java/org/cloudfoundry/identity/uaa/authentication/UaaAuthenticationDetails.java\t2022-10-01 16:31:32.959854449 -0400\n+++ /workdir/GenProg_vul4j_cloudfoundry_uaa_VUL4J-39/patches_grdn/Patch_1/patched/org/cloudfoundry/identity/uaa/authentication/UaaAuthenticationDetails.java\t2022-10-01 16:31:32.959854449 -0400\n@@ -113,12 +113,6 @@\n             }\n             sb.append(\"clientId=\").append(clientId);\n         }\n-        if (sessionId != null) {\n-            if (sb.length() > 0) {\n-                sb.append(\", \");\n-            }\n-            sb.append(\"sessionId=\").append(sessionId);\n-        }\n         return sb.toString();\n     }\n \n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "server/src/main/java/org/cloudfoundry/identity/uaa/authentication/UaaAuthenticationDetails.java", 
+          "line": 116, 
+          "faulty": "if (sessionId != null) {\n  if (sb.length() > 0) {\n    sb.append(\", \");\n  }\n  sb.append(\"sessionId=\").append(sessionId);\n}", 
+          "type": "Replace", 
+          "seed": "long previousLoginSuccessTime=-1;"
+        }
+      ], 
+      "patch": "--- /workdir/GenProg_vul4j_cloudfoundry_uaa_VUL4J-39/server/src/main/java/org/cloudfoundry/identity/uaa/authentication/UaaAuthenticationDetails.java\t2022-10-01 17:26:41.328324882 -0400\n+++ /workdir/GenProg_vul4j_cloudfoundry_uaa_VUL4J-39/patches_grdn/Patch_5/patched/org/cloudfoundry/identity/uaa/authentication/UaaAuthenticationDetails.java\t2022-10-01 17:26:41.328324882 -0400\n@@ -113,12 +113,7 @@\n             }\n             sb.append(\"clientId=\").append(clientId);\n         }\n-        if (sessionId != null) {\n-            if (sb.length() > 0) {\n-                sb.append(\", \");\n-            }\n-            sb.append(\"sessionId=\").append(sessionId);\n-        }\n+        long previousLoginSuccessTime = -1;\n         return sb.toString();\n     }\n \n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "server/src/main/java/org/cloudfoundry/identity/uaa/authentication/UaaAuthenticationDetails.java", 
+          "line": 116, 
+          "faulty": "if (sessionId != null) {\n  if (sb.length() > 0) {\n    sb.append(\", \");\n  }\n  sb.append(\"sessionId=\").append(sessionId);\n}", 
+          "type": "Replace", 
+          "seed": "UaaPrincipal princpal=null;"
+        }
+      ], 
+      "patch": "--- /workdir/GenProg_vul4j_cloudfoundry_uaa_VUL4J-39/server/src/main/java/org/cloudfoundry/identity/uaa/authentication/UaaAuthenticationDetails.java\t2022-10-01 16:25:24.457551000 -0400\n+++ /workdir/GenProg_vul4j_cloudfoundry_uaa_VUL4J-39/patches_grdn/Patch_0/patched/org/cloudfoundry/identity/uaa/authentication/UaaAuthenticationDetails.java\t2022-10-01 16:25:24.461551111 -0400\n@@ -113,12 +113,7 @@\n             }\n             sb.append(\"clientId=\").append(clientId);\n         }\n-        if (sessionId != null) {\n-            if (sb.length() > 0) {\n-                sb.append(\", \");\n-            }\n-            sb.append(\"sessionId=\").append(sessionId);\n-        }\n+        UaaPrincipal princpal = null;\n         return sb.toString();\n     }\n \n\n\n"
+    }
+  ]
+}

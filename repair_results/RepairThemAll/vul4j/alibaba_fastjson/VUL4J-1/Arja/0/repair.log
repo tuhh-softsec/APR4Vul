@@ -1,0 +1,602 @@
+cd /workdir/Arja_vul4j_alibaba_fastjson_VUL4J-1;
+export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en";
+TZ="America/New_York"; export TZ;
+export PATH="/usr/lib/jvm/java-8-openjdk-amd64/bin:$PATH";
+export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64";
+timeout 240m java -Xmx4g -Xms1g -XX:MaxPermSize=512m -cp /script/../libs/jmetal.jar:/script/../repair_tools/arja.jar us.msu.cse.repair.Main \
+	Arja \
+	-DexternalProjRoot /script/../libs/arja_external \
+	-DprojectDir /workdir/Arja_vul4j_alibaba_fastjson_VUL4J-1 \
+    -DtestFiltered false \
+    -DrunTestCommand "mvn test -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B" \
+	-DsrcJavaDir /workdir/Arja_vul4j_alibaba_fastjson_VUL4J-1/src/main/java \
+	-DbinJavaDir /workdir/Arja_vul4j_alibaba_fastjson_VUL4J-1/target/classes \
+	-DbinTestDir /workdir/Arja_vul4j_alibaba_fastjson_VUL4J-1/target/test-classes \
+	-DdiffFormat true \
+	-Dseed 0 \
+	-DgzoltarDataDir /script/../data/benchmarks/vul4j/perfectfl/VUL4J-1 \
+	-Ddependences /root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.7.0/jackson-annotations-2.7.0.jar:/root/.m2/repository/com/owlike/genson/1.4/genson-1.4.jar:/root/.m2/repository/org/glassfish/jersey/containers/jersey-container-jdk-http/2.21/jersey-container-jdk-http-2.21.jar:/root/.m2/repository/net/sf/ezmorph/ezmorph/1.0.6/ezmorph-1.0.6.jar:/root/.m2/repository/javax/ws/rs/javax.ws.rs-api/2.0.1/javax.ws.rs-api-2.0.1.jar:/root/.m2/repository/org/eclipse/jetty/jetty-webapp/8.1.8.v20121106/jetty-webapp-8.1.8.v20121106.jar:/root/.m2/repository/org/ow2/asm/asm-analysis/4.0/asm-analysis-4.0.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.7.3/jackson-databind-2.7.3.jar:/root/.m2/repository/org/ow2/asm/asm-tree/4.0/asm-tree-4.0.jar:/root/.m2/repository/org/springframework/spring-beans/4.2.5.RELEASE/spring-beans-4.2.5.RELEASE.jar:/root/.m2/repository/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0.jar:/root/.m2/repository/com/fasterxml/jackson/module/jackson-module-afterburner/2.7.3/jackson-module-afterburner-2.7.3.jar:/root/.m2/repository/com/google/guava/guava/18.0/guava-18.0.jar:/root/.m2/repository/org/eclipse/jetty/orbit/javax.servlet/3.0.0.v201112011016/javax.servlet-3.0.0.v201112011016.jar:/root/.m2/repository/org/glassfish/jersey/test-framework/providers/jersey-test-framework-provider-jdk-http/2.21/jersey-test-framework-provider-jdk-http-2.21.jar:/root/.m2/repository/org/glassfish/jersey/core/jersey-common/2.21/jersey-common-2.21.jar:/root/.m2/repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.7.3/jackson-core-2.7.3.jar:/root/.m2/repository/commons-beanutils/commons-beanutils/1.8.0/commons-beanutils-1.8.0.jar:/root/.m2/repository/org/codehaus/groovy/groovy/2.1.5/groovy-2.1.5.jar:/root/.m2/repository/org/ow2/asm/asm-commons/4.0/asm-commons-4.0.jar:/root/.m2/repository/org/glassfish/jersey/media/jersey-media-jaxb/2.21/jersey-media-jaxb-2.21.jar:/root/.m2/repository/org/glassfish/hk2/hk2-utils/2.4.0-b31/hk2-utils-2.4.0-b31.jar:/root/.m2/repository/org/apache/cxf/cxf-rt-rs-client/3.1.2/cxf-rt-rs-client-3.1.2.jar:/root/.m2/repository/com/google/code/gson/gson/2.6.2/gson-2.6.2.jar:/root/.m2/repository/com/squareup/retrofit2/retrofit/2.1.0/retrofit-2.1.0.jar:/root/.m2/repository/commons-collections/commons-collections/3.2.1/commons-collections-3.2.1.jar:/root/.m2/repository/org/ow2/asm/asm/4.0/asm-4.0.jar:/root/.m2/repository/org/glassfish/jersey/test-framework/jersey-test-framework-core/2.21/jersey-test-framework-core-2.21.jar:/root/.m2/repository/org/eclipse/jetty/jetty-http/8.1.8.v20121106/jetty-http-8.1.8.v20121106.jar:/root/.m2/repository/com/googlecode/json-simple/json-simple/1.1.1/json-simple-1.1.1.jar:/root/.m2/repository/org/javassist/javassist/3.18.0-GA/javassist-3.18.0-GA.jar:/root/.m2/repository/org/springframework/plugin/spring-plugin-metadata/1.2.0.RELEASE/spring-plugin-metadata-1.2.0.RELEASE.jar:/root/.m2/repository/org/glassfish/hk2/hk2-api/2.4.0-b31/hk2-api-2.4.0-b31.jar:/root/.m2/repository/com/fasterxml/classmate/1.3.1/classmate-1.3.1.jar:/root/.m2/repository/org/springframework/plugin/spring-plugin-core/1.2.0.RELEASE/spring-plugin-core-1.2.0.RELEASE.jar:/root/.m2/repository/org/eclipse/jetty/jetty-security/8.1.8.v20121106/jetty-security-8.1.8.v20121106.jar:/root/.m2/repository/org/scala-lang/scala-reflect/2.11.0/scala-reflect-2.11.0.jar:/root/.m2/repository/javax/annotation/javax.annotation-api/1.2/javax.annotation-api-1.2.jar:/root/.m2/repository/com/squareup/okio/okio/1.11.0/okio-1.11.0.jar:/root/.m2/repository/org/glassfish/jersey/containers/jersey-container-servlet/2.21/jersey-container-servlet-2.21.jar:/root/.m2/repository/org/glassfish/hk2/external/javax.inject/2.4.0-b31/javax.inject-2.4.0-b31.jar:/root/.m2/repository/org/eclipse/jetty/jetty-io/8.1.8.v20121106/jetty-io-8.1.8.v20121106.jar:/root/.m2/repository/commons-lang/commons-lang/2.5/commons-lang-2.5.jar:/root/.m2/repository/org/springframework/spring-websocket/4.2.5.RELEASE/spring-websocket-4.2.5.RELEASE.jar:/root/.m2/repository/com/squareup/okhttp3/okhttp/3.5.0/okhttp-3.5.0.jar:/root/.m2/repository/org/clojure/clojure/1.5.1/clojure-1.5.1.jar:/root/.m2/repository/org/glassfish/jersey/containers/jersey-container-servlet-core/2.21/jersey-container-servlet-core-2.21.jar:/root/.m2/repository/org/springframework/spring-core/4.2.5.RELEASE/spring-core-4.2.5.RELEASE.jar:/root/.m2/repository/org/codehaus/woodstox/woodstox-core-asl/4.4.1/woodstox-core-asl-4.4.1.jar:/root/.m2/repository/org/glassfish/hk2/osgi-resource-locator/1.0.1/osgi-resource-locator-1.0.1.jar:/root/.m2/repository/org/springframework/spring-web/4.2.5.RELEASE/spring-web-4.2.5.RELEASE.jar:/root/.m2/repository/com/owlike/genson-scala_2.11/1.4/genson-scala_2.11-1.4.jar:/root/.m2/repository/org/springframework/data/spring-data-commons-core/1.4.1.RELEASE/spring-data-commons-core-1.4.1.RELEASE.jar:/root/.m2/repository/commons-io/commons-io/1.4/commons-io-1.4.jar:/root/.m2/repository/com/fasterxml/jackson/jaxrs/jackson-jaxrs-json-provider/2.7.3/jackson-jaxrs-json-provider-2.7.3.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/scala-lang/scala-library/2.11.0/scala-library-2.11.0.jar:/root/.m2/repository/org/eclipse/jetty/jetty-continuation/8.1.8.v20121106/jetty-continuation-8.1.8.v20121106.jar:/root/.m2/repository/antlr/antlr/2.7.7/antlr-2.7.7.jar:/root/.m2/repository/org/eclipse/jetty/jetty-xml/8.1.8.v20121106/jetty-xml-8.1.8.v20121106.jar:/root/.m2/repository/com/fasterxml/jackson/module/jackson-module-jaxb-annotations/2.7.3/jackson-module-jaxb-annotations-2.7.3.jar:/root/.m2/repository/org/glassfish/jersey/bundles/repackaged/jersey-guava/2.21/jersey-guava-2.21.jar:/root/.m2/repository/net/sf/json-lib/json-lib/2.4/json-lib-2.4-jdk15.jar:/root/.m2/repository/org/glassfish/jersey/core/jersey-server/2.21/jersey-server-2.21.jar:/root/.m2/repository/org/springframework/spring-expression/4.2.5.RELEASE/spring-expression-4.2.5.RELEASE.jar:/root/.m2/repository/io/springfox/springfox-core/2.5.0/springfox-core-2.5.0.jar:/root/.m2/repository/org/eclipse/jetty/jetty-util/8.1.8.v20121106/jetty-util-8.1.8.v20121106.jar:/root/.m2/repository/org/springframework/spring-aop/4.2.5.RELEASE/spring-aop-4.2.5.RELEASE.jar:/root/.m2/repository/org/glassfish/jersey/core/jersey-client/2.21/jersey-client-2.21.jar:/root/.m2/repository/com/jsoniter/jsoniter/0.9.4/jsoniter-0.9.4.jar:/root/.m2/repository/cglib/cglib-nodep/2.2.2/cglib-nodep-2.2.2.jar:/root/.m2/repository/io/springfox/springfox-spring-web/2.5.0/springfox-spring-web-2.5.0.jar:/root/.m2/repository/net/minidev/accessors-smart/1.1/accessors-smart-1.1.jar:/root/.m2/repository/org/ow2/asm/asm-debug-all/5.0.4/asm-debug-all-5.0.4.jar:/root/.m2/repository/org/apache/cxf/cxf-core/3.1.2/cxf-core-3.1.2.jar:/root/.m2/repository/org/apache/cxf/cxf-rt-frontend-jaxrs/3.1.2/cxf-rt-frontend-jaxrs-3.1.2.jar:/root/.m2/repository/org/ow2/asm/asm-util/4.0/asm-util-4.0.jar:/root/.m2/repository/com/fasterxml/jackson/jaxrs/jackson-jaxrs-base/2.7.3/jackson-jaxrs-base-2.7.3.jar:/root/.m2/repository/javax/validation/validation-api/1.1.0.Final/validation-api-1.1.0.Final.jar:/root/.m2/repository/org/glassfish/hk2/external/aopalliance-repackaged/2.4.0-b31/aopalliance-repackaged-2.4.0-b31.jar:/root/.m2/repository/net/minidev/json-smart/2.2.1/json-smart-2.2.1.jar:/root/.m2/repository/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1.jar:/root/.m2/repository/org/springframework/spring-test/4.2.5.RELEASE/spring-test-4.2.5.RELEASE.jar:/root/.m2/repository/org/codehaus/woodstox/stax2-api/3.1.4/stax2-api-3.1.4.jar:/root/.m2/repository/org/springframework/spring-webmvc/4.2.5.RELEASE/spring-webmvc-4.2.5.RELEASE.jar:/root/.m2/repository/org/apache/cxf/cxf-rt-transports-http/3.1.2/cxf-rt-transports-http-3.1.2.jar:/root/.m2/repository/junit/junit/4.11/junit-4.11.jar:/root/.m2/repository/org/apache/ws/xmlschema/xmlschema-core/2.2.1/xmlschema-core-2.2.1.jar:/root/.m2/repository/org/springframework/spring-context/4.2.5.RELEASE/spring-context-4.2.5.RELEASE.jar:/root/.m2/repository/org/eclipse/jetty/jetty-servlet/8.1.8.v20121106/jetty-servlet-8.1.8.v20121106.jar:/root/.m2/repository/io/springfox/springfox-spi/2.5.0/springfox-spi-2.5.0.jar:/root/.m2/repository/org/eclipse/jetty/jetty-server/8.1.8.v20121106/jetty-server-8.1.8.v20121106.jar:/root/.m2/repository/org/glassfish/hk2/hk2-locator/2.4.0-b31/hk2-locator-2.4.0-b31.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.21/slf4j-api-1.7.21.jar;
+	echo "\n\nNode: `hostname`\n";
+	echo "\n\nDate: `date`\n";
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en
+OpenJDK 64-Bit Server VM warning: ignoring option MaxPermSize=512m; support was removed in 8.0
+Fault localization starts...
+Number of positive tests: 3596
+Number of negative tests: 1
+Negative tests: [com.alibaba.json.bvt.bug.Issue1005#test_for_issue]
+Faulty Lines: 
+com.alibaba.fastjson.serializer.ObjectArrayCodec#177:1.0
+Fault localization is finished!
+AST parsing starts...
+AST parsing is finished!
+Detection of local variables starts...
+Detection of local variables is finished!
+Detection of fields starts...
+Detection of fields is finished!
+Detection of methods starts...
+Detection of methods is finished!
+Ingredient screener starts...
+Ingredient screener is finished!
+Initialization of manipulations starts...
+Initialization of manipulations is finished!
+Filtering of the tests starts...
+Number of positive tests considered: 3596
+Filtering of the tests is finished!
+----------------------------------
+Patch Candidate:
+@@ -174,8 +174,6 @@ public class ObjectArrayCodec implements ObjectSerializer, ObjectDeserializer {
+componentType = componentClass = clazz.getComponentType();
+}
+JSONArray array = new JSONArray();
+-        parser.parseArray(componentClass, array, fieldName);
+-
+return (T) toObjectArray(parser, componentClass, array);
+}
+
+Number of failed tests: 1, 65
+Weighted failure rate: 1.0090378197997776
+----------------------------------
+Patch Candidate:
+@@ -174,8 +174,6 @@ public class ObjectArrayCodec implements ObjectSerializer, ObjectDeserializer {
+componentType = componentClass = clazz.getComponentType();
+}
+JSONArray array = new JSONArray();
+-        parser.parseArray(componentClass, array, fieldName);
+-
+return (T) toObjectArray(parser, componentClass, array);
+}
+
+Number of failed tests: 1, 65
+Weighted failure rate: 1.0090378197997776
+----------------------------------
+Patch Candidate:
+@@ -174,8 +174,6 @@ public class ObjectArrayCodec implements ObjectSerializer, ObjectDeserializer {
+componentType = componentClass = clazz.getComponentType();
+}
+JSONArray array = new JSONArray();
+-        parser.parseArray(componentClass, array, fieldName);
+-
+return (T) toObjectArray(parser, componentClass, array);
+}
+
+Number of failed tests: 1, 65
+Weighted failure rate: 1.0090378197997776
+----------------------------------
+Patch Candidate:
+@@ -174,8 +174,6 @@ public class ObjectArrayCodec implements ObjectSerializer, ObjectDeserializer {
+componentType = componentClass = clazz.getComponentType();
+}
+JSONArray array = new JSONArray();
+-        parser.parseArray(componentClass, array, fieldName);
+-
+return (T) toObjectArray(parser, componentClass, array);
+}
+
+Number of failed tests: 1, 65
+Weighted failure rate: 1.0090378197997776
+----------------------------------
+Patch Candidate:
+@@ -174,8 +174,6 @@ public class ObjectArrayCodec implements ObjectSerializer, ObjectDeserializer {
+componentType = componentClass = clazz.getComponentType();
+}
+JSONArray array = new JSONArray();
+-        parser.parseArray(componentClass, array, fieldName);
+-
+return (T) toObjectArray(parser, componentClass, array);
+}
+
+Number of failed tests: 1, 65
+Weighted failure rate: 1.0090378197997776
+----------------------------------
+Patch Candidate:
+@@ -174,8 +174,6 @@ public class ObjectArrayCodec implements ObjectSerializer, ObjectDeserializer {
+componentType = componentClass = clazz.getComponentType();
+}
+JSONArray array = new JSONArray();
+-        parser.parseArray(componentClass, array, fieldName);
+-
+return (T) toObjectArray(parser, componentClass, array);
+}
+
+Number of failed tests: 1, 65
+Weighted failure rate: 1.0090378197997776
+----------------------------------
+Patch Candidate:
+@@ -174,8 +174,6 @@ public class ObjectArrayCodec implements ObjectSerializer, ObjectDeserializer {
+componentType = componentClass = clazz.getComponentType();
+}
+JSONArray array = new JSONArray();
+-        parser.parseArray(componentClass, array, fieldName);
+-
+return (T) toObjectArray(parser, componentClass, array);
+}
+
+Number of failed tests: 1, 65
+Weighted failure rate: 1.0090378197997776
+----------------------------------
+Patch Candidate:
+@@ -174,8 +174,6 @@ public class ObjectArrayCodec implements ObjectSerializer, ObjectDeserializer {
+componentType = componentClass = clazz.getComponentType();
+}
+JSONArray array = new JSONArray();
+-        parser.parseArray(componentClass, array, fieldName);
+-
+return (T) toObjectArray(parser, componentClass, array);
+}
+
+Number of failed tests: 1, 65
+Weighted failure rate: 1.0090378197997776
+----------------------------------
+Patch Candidate:
+@@ -174,8 +174,6 @@ public class ObjectArrayCodec implements ObjectSerializer, ObjectDeserializer {
+componentType = componentClass = clazz.getComponentType();
+}
+JSONArray array = new JSONArray();
+-        parser.parseArray(componentClass, array, fieldName);
+-
+return (T) toObjectArray(parser, componentClass, array);
+}
+
+Number of failed tests: 1, 65
+Weighted failure rate: 1.0090378197997776
+----------------------------------
+Patch Candidate:
+@@ -174,8 +174,6 @@ public class ObjectArrayCodec implements ObjectSerializer, ObjectDeserializer {
+componentType = componentClass = clazz.getComponentType();
+}
+JSONArray array = new JSONArray();
+-        parser.parseArray(componentClass, array, fieldName);
+-
+return (T) toObjectArray(parser, componentClass, array);
+}
+
+Number of failed tests: 1, 65
+Weighted failure rate: 1.0090378197997776
+----------------------------------
+Patch Candidate:
+@@ -174,8 +174,6 @@ public class ObjectArrayCodec implements ObjectSerializer, ObjectDeserializer {
+componentType = componentClass = clazz.getComponentType();
+}
+JSONArray array = new JSONArray();
+-        parser.parseArray(componentClass, array, fieldName);
+-
+return (T) toObjectArray(parser, componentClass, array);
+}
+
+Number of failed tests: 1, 65
+Weighted failure rate: 1.0090378197997776
+----------------------------------
+Patch Candidate:
+@@ -174,8 +174,6 @@ public class ObjectArrayCodec implements ObjectSerializer, ObjectDeserializer {
+componentType = componentClass = clazz.getComponentType();
+}
+JSONArray array = new JSONArray();
+-        parser.parseArray(componentClass, array, fieldName);
+-
+return (T) toObjectArray(parser, componentClass, array);
+}
+
+Number of failed tests: 1, 65
+Weighted failure rate: 1.0090378197997776
+----------------------------------
+Patch Candidate:
+@@ -174,8 +174,6 @@ public class ObjectArrayCodec implements ObjectSerializer, ObjectDeserializer {
+componentType = componentClass = clazz.getComponentType();
+}
+JSONArray array = new JSONArray();
+-        parser.parseArray(componentClass, array, fieldName);
+-
+return (T) toObjectArray(parser, componentClass, array);
+}
+
+Number of failed tests: 1, 65
+Weighted failure rate: 1.0090378197997776
+----------------------------------
+Patch Candidate:
+@@ -174,8 +174,6 @@ public class ObjectArrayCodec implements ObjectSerializer, ObjectDeserializer {
+componentType = componentClass = clazz.getComponentType();
+}
+JSONArray array = new JSONArray();
+-        parser.parseArray(componentClass, array, fieldName);
+-
+return (T) toObjectArray(parser, componentClass, array);
+}
+
+Number of failed tests: 1, 65
+Weighted failure rate: 1.0090378197997776
+----------------------------------
+Patch Candidate:
+@@ -174,8 +174,6 @@ public class ObjectArrayCodec implements ObjectSerializer, ObjectDeserializer {
+componentType = componentClass = clazz.getComponentType();
+}
+JSONArray array = new JSONArray();
+-        parser.parseArray(componentClass, array, fieldName);
+-
+return (T) toObjectArray(parser, componentClass, array);
+}
+
+Number of failed tests: 1, 65
+Weighted failure rate: 1.0090378197997776
+----------------------------------
+Patch Candidate:
+@@ -174,8 +174,6 @@ public class ObjectArrayCodec implements ObjectSerializer, ObjectDeserializer {
+componentType = componentClass = clazz.getComponentType();
+}
+JSONArray array = new JSONArray();
+-        parser.parseArray(componentClass, array, fieldName);
+-
+return (T) toObjectArray(parser, componentClass, array);
+}
+
+java.io.IOException: Stream closed
+	at java.io.BufferedInputStream.getBufIfOpen(BufferedInputStream.java:170)
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:336)
+	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
+	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
+	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
+	at java.io.InputStreamReader.read(InputStreamReader.java:184)
+	at java.io.BufferedReader.fill(BufferedReader.java:161)
+	at java.io.BufferedReader.readLine(BufferedReader.java:324)
+	at java.io.BufferedReader.readLine(BufferedReader.java:389)
+	at us.msu.cse.repair.core.util.StreamReaderThread.run(StreamReaderThread.java:36)
+java.lang.IllegalStateException: Exception Occurred
+	at us.msu.cse.repair.core.testexecutors.RExternalTestExecutor.runShell(RExternalTestExecutor.java:108)
+	at us.msu.cse.repair.core.testexecutors.RExternalTestExecutor.runTests(RExternalTestExecutor.java:54)
+	at us.msu.cse.repair.ec.problems.ArjaProblem.invokeTestExecutor(ArjaProblem.java:248)
+	at us.msu.cse.repair.ec.problems.ArjaProblem.evaluate(ArjaProblem.java:177)
+	at jmetal.metaheuristics.nsgaII.NSGAII.execute(NSGAII.java:124)
+	at us.msu.cse.repair.core.AbstractRepairAlgorithm.execute(AbstractRepairAlgorithm.java:18)
+	at us.msu.cse.repair.ArjaMain.main(ArjaMain.java:66)
+	at us.msu.cse.repair.Main.main(Main.java:8)
+java.lang.NullPointerException
+	at us.msu.cse.repair.core.testexecutors.RExternalTestExecutor.runTests(RExternalTestExecutor.java:85)
+	at us.msu.cse.repair.ec.problems.ArjaProblem.invokeTestExecutor(ArjaProblem.java:248)
+	at us.msu.cse.repair.ec.problems.ArjaProblem.evaluate(ArjaProblem.java:177)
+	at jmetal.metaheuristics.nsgaII.NSGAII.execute(NSGAII.java:124)
+	at us.msu.cse.repair.core.AbstractRepairAlgorithm.execute(AbstractRepairAlgorithm.java:18)
+	at us.msu.cse.repair.ArjaMain.main(ArjaMain.java:66)
+	at us.msu.cse.repair.Main.main(Main.java:8)
+----------------------------------
+Patch Candidate:
+@@ -174,8 +174,6 @@ public class ObjectArrayCodec implements ObjectSerializer, ObjectDeserializer {
+componentType = componentClass = clazz.getComponentType();
+}
+JSONArray array = new JSONArray();
+-        parser.parseArray(componentClass, array, fieldName);
+-
+return (T) toObjectArray(parser, componentClass, array);
+}
+
+Number of failed tests: 1, 65
+Weighted failure rate: 1.0090378197997776
+----------------------------------
+Patch Candidate:
+@@ -174,8 +174,6 @@ public class ObjectArrayCodec implements ObjectSerializer, ObjectDeserializer {
+componentType = componentClass = clazz.getComponentType();
+}
+JSONArray array = new JSONArray();
+-        parser.parseArray(componentClass, array, fieldName);
+-
+return (T) toObjectArray(parser, componentClass, array);
+}
+
+Number of failed tests: 1, 65
+Weighted failure rate: 1.0090378197997776
+----------------------------------
+Patch Candidate:
+@@ -174,8 +174,6 @@ public class ObjectArrayCodec implements ObjectSerializer, ObjectDeserializer {
+componentType = componentClass = clazz.getComponentType();
+}
+JSONArray array = new JSONArray();
+-        parser.parseArray(componentClass, array, fieldName);
+-
+return (T) toObjectArray(parser, componentClass, array);
+}
+
+Number of failed tests: 1, 65
+Weighted failure rate: 1.0090378197997776
+----------------------------------
+Patch Candidate:
+@@ -174,8 +174,6 @@ public class ObjectArrayCodec implements ObjectSerializer, ObjectDeserializer {
+componentType = componentClass = clazz.getComponentType();
+}
+JSONArray array = new JSONArray();
+-        parser.parseArray(componentClass, array, fieldName);
+-
+return (T) toObjectArray(parser, componentClass, array);
+}
+
+Number of failed tests: 1, 65
+Weighted failure rate: 1.0090378197997776
+----------------------------------
+Patch Candidate:
+@@ -174,8 +174,6 @@ public class ObjectArrayCodec implements ObjectSerializer, ObjectDeserializer {
+componentType = componentClass = clazz.getComponentType();
+}
+JSONArray array = new JSONArray();
+-        parser.parseArray(componentClass, array, fieldName);
+-
+return (T) toObjectArray(parser, componentClass, array);
+}
+
+Number of failed tests: 1, 65
+Weighted failure rate: 1.0090378197997776
+----------------------------------
+Patch Candidate:
+@@ -174,8 +174,6 @@ public class ObjectArrayCodec implements ObjectSerializer, ObjectDeserializer {
+componentType = componentClass = clazz.getComponentType();
+}
+JSONArray array = new JSONArray();
+-        parser.parseArray(componentClass, array, fieldName);
+-
+return (T) toObjectArray(parser, componentClass, array);
+}
+
+Number of failed tests: 1, 65
+Weighted failure rate: 1.0090378197997776
+----------------------------------
+Patch Candidate:
+@@ -174,8 +174,6 @@ public class ObjectArrayCodec implements ObjectSerializer, ObjectDeserializer {
+componentType = componentClass = clazz.getComponentType();
+}
+JSONArray array = new JSONArray();
+-        parser.parseArray(componentClass, array, fieldName);
+-
+return (T) toObjectArray(parser, componentClass, array);
+}
+
+Number of failed tests: 1, 65
+Weighted failure rate: 1.0090378197997776
+----------------------------------
+Patch Candidate:
+@@ -174,8 +174,6 @@ public class ObjectArrayCodec implements ObjectSerializer, ObjectDeserializer {
+componentType = componentClass = clazz.getComponentType();
+}
+JSONArray array = new JSONArray();
+-        parser.parseArray(componentClass, array, fieldName);
+-
+return (T) toObjectArray(parser, componentClass, array);
+}
+
+Number of failed tests: 1, 65
+Weighted failure rate: 1.0090378197997776
+----------------------------------
+Patch Candidate:
+@@ -174,8 +174,6 @@ public class ObjectArrayCodec implements ObjectSerializer, ObjectDeserializer {
+componentType = componentClass = clazz.getComponentType();
+}
+JSONArray array = new JSONArray();
+-        parser.parseArray(componentClass, array, fieldName);
+-
+return (T) toObjectArray(parser, componentClass, array);
+}
+
+Number of failed tests: 1, 65
+Weighted failure rate: 1.0090378197997776
+----------------------------------
+Patch Candidate:
+@@ -174,8 +174,6 @@ public class ObjectArrayCodec implements ObjectSerializer, ObjectDeserializer {
+componentType = componentClass = clazz.getComponentType();
+}
+JSONArray array = new JSONArray();
+-        parser.parseArray(componentClass, array, fieldName);
+-
+return (T) toObjectArray(parser, componentClass, array);
+}
+
+Number of failed tests: 1, 65
+Weighted failure rate: 1.0090378197997776
+----------------------------------
+Patch Candidate:
+@@ -174,8 +174,6 @@ public class ObjectArrayCodec implements ObjectSerializer, ObjectDeserializer {
+componentType = componentClass = clazz.getComponentType();
+}
+JSONArray array = new JSONArray();
+-        parser.parseArray(componentClass, array, fieldName);
+-
+return (T) toObjectArray(parser, componentClass, array);
+}
+
+Number of failed tests: 1, 65
+Weighted failure rate: 1.0090378197997776
+----------------------------------
+Patch Candidate:
+@@ -174,8 +174,6 @@ public class ObjectArrayCodec implements ObjectSerializer, ObjectDeserializer {
+componentType = componentClass = clazz.getComponentType();
+}
+JSONArray array = new JSONArray();
+-        parser.parseArray(componentClass, array, fieldName);
+-
+return (T) toObjectArray(parser, componentClass, array);
+}
+
+Number of failed tests: 1, 65
+Weighted failure rate: 1.0090378197997776
+----------------------------------
+Patch Candidate:
+@@ -174,8 +174,6 @@ public class ObjectArrayCodec implements ObjectSerializer, ObjectDeserializer {
+componentType = componentClass = clazz.getComponentType();
+}
+JSONArray array = new JSONArray();
+-        parser.parseArray(componentClass, array, fieldName);
+-
+return (T) toObjectArray(parser, componentClass, array);
+}
+
+Number of failed tests: 1, 65
+Weighted failure rate: 1.0090378197997776
+----------------------------------
+Patch Candidate:
+@@ -174,8 +174,6 @@ public class ObjectArrayCodec implements ObjectSerializer, ObjectDeserializer {
+componentType = componentClass = clazz.getComponentType();
+}
+JSONArray array = new JSONArray();
+-        parser.parseArray(componentClass, array, fieldName);
+-
+return (T) toObjectArray(parser, componentClass, array);
+}
+
+Number of failed tests: 1, 65
+Weighted failure rate: 1.0090378197997776
+----------------------------------
+Patch Candidate:
+@@ -174,8 +174,6 @@ public class ObjectArrayCodec implements ObjectSerializer, ObjectDeserializer {
+componentType = componentClass = clazz.getComponentType();
+}
+JSONArray array = new JSONArray();
+-        parser.parseArray(componentClass, array, fieldName);
+-
+return (T) toObjectArray(parser, componentClass, array);
+}
+
+Number of failed tests: 1, 65
+Weighted failure rate: 1.0090378197997776
+----------------------------------
+Patch Candidate:
+@@ -174,8 +174,6 @@ public class ObjectArrayCodec implements ObjectSerializer, ObjectDeserializer {
+componentType = componentClass = clazz.getComponentType();
+}
+JSONArray array = new JSONArray();
+-        parser.parseArray(componentClass, array, fieldName);
+-
+return (T) toObjectArray(parser, componentClass, array);
+}
+
+Number of failed tests: 1, 65
+Weighted failure rate: 1.0090378197997776
+----------------------------------
+Patch Candidate:
+@@ -174,8 +174,6 @@ public class ObjectArrayCodec implements ObjectSerializer, ObjectDeserializer {
+componentType = componentClass = clazz.getComponentType();
+}
+JSONArray array = new JSONArray();
+-        parser.parseArray(componentClass, array, fieldName);
+-
+return (T) toObjectArray(parser, componentClass, array);
+}
+
+Number of failed tests: 1, 65
+Weighted failure rate: 1.0090378197997776
+----------------------------------
+Patch Candidate:
+java.io.IOException: Stream closed
+	at java.io.BufferedInputStream.getBufIfOpen(BufferedInputStream.java:170)
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:336)
+	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
+	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
+	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
+	at java.io.InputStreamReader.read(InputStreamReader.java:184)
+	at java.io.BufferedReader.fill(BufferedReader.java:161)
+	at java.io.BufferedReader.readLine(BufferedReader.java:324)
+	at java.io.BufferedReader.readLine(BufferedReader.java:389)
+	at us.msu.cse.repair.core.util.StreamReaderThread.run(StreamReaderThread.java:36)
+java.lang.IllegalStateException: Exception Occurred
+	at us.msu.cse.repair.core.testexecutors.RExternalTestExecutor.runShell(RExternalTestExecutor.java:108)
+	at us.msu.cse.repair.core.testexecutors.RExternalTestExecutor.runTests(RExternalTestExecutor.java:44)
+	at us.msu.cse.repair.ec.problems.ArjaProblem.invokeTestExecutor(ArjaProblem.java:248)
+	at us.msu.cse.repair.ec.problems.ArjaProblem.evaluate(ArjaProblem.java:177)
+	at jmetal.metaheuristics.nsgaII.NSGAII.execute(NSGAII.java:122)
+	at us.msu.cse.repair.core.AbstractRepairAlgorithm.execute(AbstractRepairAlgorithm.java:18)
+	at us.msu.cse.repair.ArjaMain.main(ArjaMain.java:66)
+	at us.msu.cse.repair.Main.main(Main.java:8)
+java.lang.NullPointerException
+	at us.msu.cse.repair.core.testexecutors.RExternalTestExecutor.runTests(RExternalTestExecutor.java:85)
+	at us.msu.cse.repair.ec.problems.ArjaProblem.invokeTestExecutor(ArjaProblem.java:248)
+	at us.msu.cse.repair.ec.problems.ArjaProblem.evaluate(ArjaProblem.java:177)
+	at jmetal.metaheuristics.nsgaII.NSGAII.execute(NSGAII.java:122)
+	at us.msu.cse.repair.core.AbstractRepairAlgorithm.execute(AbstractRepairAlgorithm.java:18)
+	at us.msu.cse.repair.ArjaMain.main(ArjaMain.java:66)
+	at us.msu.cse.repair.Main.main(Main.java:8)
+----------------------------------
+Patch Candidate:
+@@ -174,8 +174,6 @@ public class ObjectArrayCodec implements ObjectSerializer, ObjectDeserializer {
+componentType = componentClass = clazz.getComponentType();
+}
+JSONArray array = new JSONArray();
+-        parser.parseArray(componentClass, array, fieldName);
+-
+return (T) toObjectArray(parser, componentClass, array);
+}
+
+Number of failed tests: 1, 65
+Weighted failure rate: 1.0090378197997776
+----------------------------------
+Patch Candidate:
+@@ -174,8 +174,6 @@ public class ObjectArrayCodec implements ObjectSerializer, ObjectDeserializer {
+componentType = componentClass = clazz.getComponentType();
+}
+JSONArray array = new JSONArray();
+-        parser.parseArray(componentClass, array, fieldName);
+-
+return (T) toObjectArray(parser, componentClass, array);
+}
+
+Number of failed tests: 1, 65
+Weighted failure rate: 1.0090378197997776
+----------------------------------
+Patch Candidate:
+@@ -174,8 +174,6 @@ public class ObjectArrayCodec implements ObjectSerializer, ObjectDeserializer {
+componentType = componentClass = clazz.getComponentType();
+}
+JSONArray array = new JSONArray();
+-        parser.parseArray(componentClass, array, fieldName);
+-
+return (T) toObjectArray(parser, componentClass, array);
+}
+
+Number of failed tests: 1, 65
+Weighted failure rate: 1.0090378197997776
+----------------------------------
+Patch Candidate:
+@@ -174,8 +174,6 @@ public class ObjectArrayCodec implements ObjectSerializer, ObjectDeserializer {
+componentType = componentClass = clazz.getComponentType();
+}
+JSONArray array = new JSONArray();
+-        parser.parseArray(componentClass, array, fieldName);
+-
+return (T) toObjectArray(parser, componentClass, array);
+}
+
+Number of failed tests: 1, 65
+Weighted failure rate: 1.0090378197997776
+----------------------------------
+Patch Candidate:
+@@ -174,8 +174,6 @@ public class ObjectArrayCodec implements ObjectSerializer, ObjectDeserializer {
+componentType = componentClass = clazz.getComponentType();
+}
+JSONArray array = new JSONArray();
+-        parser.parseArray(componentClass, array, fieldName);
+-
+return (T) toObjectArray(parser, componentClass, array);
+}
+
+Number of failed tests: 1, 65
+Weighted failure rate: 1.0090378197997776
+
+
+Node: b97f25038321
+
+
+
+Date: Fri Sep 16 11:29:58 EDT 2022
+

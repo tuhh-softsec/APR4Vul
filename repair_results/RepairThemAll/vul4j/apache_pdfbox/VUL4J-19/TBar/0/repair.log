@@ -1,0 +1,504 @@
+cd /workdir/TBar_vul4j_apache_pdfbox_VUL4J-19;
+export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en";
+TZ="America/New_York"; export TZ;
+export PATH="/usr/lib/jvm/java-8-openjdk-amd64/bin:$PATH";
+export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64";
+timeout 240m java -Xmx4g -Xms1g -XX:MaxPermSize=512m \
+    -cp /script/../libs/tbar_external/com.gzoltar-0.1.1-jdk7.jar:/script/../repair_tools/tbar.jar edu.lu.uni.serval.tbar.main.Main \
+    "/workdir/TBar_vul4j_apache_pdfbox_VUL4J-19" "org.apache.pdfbox.encryption.TestSymmetricKeyEncryption#testPermissions" "/pdfbox/src/main/java/" "/pdfbox/src/test/java/" "/pdfbox/target/classes/" "/pdfbox/target/test-classes/" "/script/../data/benchmarks/vul4j/perfectfl/VUL4J-19/spectra.txt" "mvn test -pl pdfbox -Dtest=org.apache.pdfbox.encryption.TestSymmetricKeyEncryption -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B" "mvn test -pl pdfbox -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B" "/root/.m2/repository/com/github/jai-imageio/jai-imageio-jpeg2000/1.3.0/jai-imageio-jpeg2000-1.3.0.jar:/root/.m2/repository/org/bouncycastle/bcpkix-jdk15on/1.54/bcpkix-jdk15on-1.54.jar:/root/.m2/repository/com/github/jai-imageio/jai-imageio-core/1.3.1/jai-imageio-core-1.3.1.jar:/root/.m2/repository/org/bouncycastle/bcmail-jdk15on/1.54/bcmail-jdk15on-1.54.jar:/root/.m2/repository/org/apache/pdfbox/fontbox/2.1.0-SNAPSHOT/fontbox-2.1.0-SNAPSHOT.jar:/root/.m2/repository/com/googlecode/java-diff-utils/diffutils/1.3.0/diffutils-1.3.0.jar:/root/.m2/repository/junit/junit/4.12/junit-4.12.jar:/root/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/root/.m2/repository/com/levigo/jbig2/levigo-jbig2-imageio/1.6.5/levigo-jbig2-imageio-1.6.5.jar:/root/.m2/repository/org/bouncycastle/bcprov-jdk15on/1.54/bcprov-jdk15on-1.54.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar";
+echo "\n\nNode: `hostname`\n";
+echo "\n\nDate: `date`\n";
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en
+OpenJDK 64-Bit Server VM warning: ignoring option MaxPermSize=512m; support was removed in 8.0
+06:57:17,194 |-INFO in ch.qos.logback.classic.LoggerContext[TBar] - Could NOT find resource [logback-test.xml]
+06:57:17,194 |-INFO in ch.qos.logback.classic.LoggerContext[TBar] - Could NOT find resource [logback.groovy]
+06:57:17,194 |-INFO in ch.qos.logback.classic.LoggerContext[TBar] - Found resource [logback.xml] at [jar:file:/repair_tools/tbar.jar!/logback.xml]
+06:57:17,204 |-INFO in ch.qos.logback.core.joran.spi.ConfigurationWatchList@5a42bbf4 - URL [jar:file:/repair_tools/tbar.jar!/logback.xml] is not of type file
+06:57:17,247 |-INFO in ch.qos.logback.classic.joran.action.ConfigurationAction - debug attribute not set
+06:57:17,248 |-INFO in ch.qos.logback.classic.joran.action.ContextNameAction - Setting logger context name as [TBar]
+06:57:17,248 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - About to instantiate appender of type [ch.qos.logback.core.ConsoleAppender]
+06:57:17,250 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - Naming appender as [STDOUT]
+06:57:17,292 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting level of logger [org.hibernate.engine.query.HQLQueryPlan] to DEBUG
+06:57:17,292 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting additivity of logger [org.hibernate.engine.query.HQLQueryPlan] to false
+06:57:17,292 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting level of logger [com.piedra.logback] to DEBUG
+06:57:17,292 |-ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - Could not find an appender named [FILE]. Did you define it below instead of above in the configuration file?
+06:57:17,292 |-ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - See http://logback.qos.ch/codes.html#appender_order for more details.
+06:57:17,292 |-INFO in ch.qos.logback.classic.joran.action.RootLoggerAction - Setting level of ROOT logger to DEBUG
+06:57:17,293 |-INFO in ch.qos.logback.core.joran.action.AppenderRefAction - Attaching appender named [STDOUT] to Logger[ROOT]
+06:57:17,293 |-ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - Could not find an appender named [ROLLINGFILE]. Did you define it below instead of above in the configuration file?
+06:57:17,293 |-ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - See http://logback.qos.ch/codes.html#appender_order for more details.
+06:57:17,293 |-INFO in ch.qos.logback.classic.joran.action.ConfigurationAction - End of configuration.
+06:57:17,295 |-INFO in ch.qos.logback.classic.joran.JoranConfigurator@270421f5 - Registering current configuration as safe fallback point
+
+2022-09-14 06:57:17.638 [main] INFO  edu.lu.uni.serval.tbar.AbstractFixer - TBar_vul4j_apache_pdfbox_VUL4J-19 Failed Tests: 1
+2022-09-14 06:57:17.640 [main] INFO  edu.lu.uni.serval.tbar.TBarFixer - =======StaticBugFixer: Start to fix suspicious code======
+2022-09-14 06:57:17.640 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.apache.pdfbox.pdmodel.encryption.StandardSecurityHandler ===239
+2022-09-14 06:57:18.199 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+currentAccessPermission = new AccessPermission(dicPermissions);
+2022-09-14 06:57:19.768 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -236,7 +236,7 @@ public final class StandardSecurityHandler extends SecurityHandler
+-            currentAccessPermission = new AccessPermission(dicPermissions);
++            currentAccessPermission = new AccessPermission(dicRevision);
+2022-09-14 06:57:19.768 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:57:20.685 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 06:57:28.971 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -236,7 +236,7 @@ public final class StandardSecurityHandler extends SecurityHandler
+-            currentAccessPermission = new AccessPermission(dicPermissions);
++            currentAccessPermission = new AccessPermission(dicLength);
+2022-09-14 06:57:28.971 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:57:29.814 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 06:57:37.705 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -236,7 +236,7 @@ public final class StandardSecurityHandler extends SecurityHandler
+-            currentAccessPermission = new AccessPermission(dicPermissions);
++            currentAccessPermission = new AccessPermission(computeVersionNumber());
+2022-09-14 06:57:37.705 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:57:38.593 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 06:57:45.969 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -236,7 +236,7 @@ public final class StandardSecurityHandler extends SecurityHandler
+-            currentAccessPermission = new AccessPermission(dicPermissions);
++            currentAccessPermission = new AccessPermission(logIfStrongEncryptionMissing());
+2022-09-14 06:57:45.969 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:57:46.804 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:57:46.820 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -236,7 +236,7 @@ public final class StandardSecurityHandler extends SecurityHandler
+-            currentAccessPermission = new AccessPermission(dicPermissions);
++            currentAccessPermission = new AccessPermission(hasProtectionPolicy());
+2022-09-14 06:57:46.820 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:57:47.655 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:57:47.928 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -236,7 +236,7 @@ public final class StandardSecurityHandler extends SecurityHandler
+-            currentAccessPermission = new AccessPermission(dicPermissions);
++            currentAccessPermission = new AccessPermission(currentAccessPermission, dicPermissions);
+2022-09-14 06:57:47.928 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:57:48.804 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:57:48.814 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -236,7 +236,7 @@ public final class StandardSecurityHandler extends SecurityHandler
+-            currentAccessPermission = new AccessPermission(dicPermissions);
++            currentAccessPermission = new AccessPermission(passwordCharset, dicPermissions);
+2022-09-14 06:57:48.814 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:57:49.599 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:57:49.611 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -236,7 +236,7 @@ public final class StandardSecurityHandler extends SecurityHandler
+-            currentAccessPermission = new AccessPermission(dicPermissions);
++            currentAccessPermission = new AccessPermission(ue, dicPermissions);
+2022-09-14 06:57:49.611 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:57:50.431 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:57:50.443 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -236,7 +236,7 @@ public final class StandardSecurityHandler extends SecurityHandler
+-            currentAccessPermission = new AccessPermission(dicPermissions);
++            currentAccessPermission = new AccessPermission(oe, dicPermissions);
+2022-09-14 06:57:50.443 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:57:51.344 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:57:51.355 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -236,7 +236,7 @@ public final class StandardSecurityHandler extends SecurityHandler
+-            currentAccessPermission = new AccessPermission(dicPermissions);
++            currentAccessPermission = new AccessPermission(ownerKey, dicPermissions);
+2022-09-14 06:57:51.355 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:57:52.263 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:57:52.279 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -236,7 +236,7 @@ public final class StandardSecurityHandler extends SecurityHandler
+-            currentAccessPermission = new AccessPermission(dicPermissions);
++            currentAccessPermission = new AccessPermission(userKey, dicPermissions);
+2022-09-14 06:57:52.279 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:57:53.101 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:57:53.112 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -236,7 +236,7 @@ public final class StandardSecurityHandler extends SecurityHandler
+-            currentAccessPermission = new AccessPermission(dicPermissions);
++            currentAccessPermission = new AccessPermission(encryptMetadata, dicPermissions);
+2022-09-14 06:57:53.112 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:57:53.914 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:57:53.924 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -236,7 +236,7 @@ public final class StandardSecurityHandler extends SecurityHandler
+-            currentAccessPermission = new AccessPermission(dicPermissions);
++            currentAccessPermission = new AccessPermission(documentIDBytes, dicPermissions);
+2022-09-14 06:57:53.925 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:57:54.721 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:57:54.731 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -236,7 +236,7 @@ public final class StandardSecurityHandler extends SecurityHandler
+-            currentAccessPermission = new AccessPermission(dicPermissions);
++            currentAccessPermission = new AccessPermission(dicLength, dicPermissions);
+2022-09-14 06:57:54.731 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:57:55.532 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:57:55.543 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -236,7 +236,7 @@ public final class StandardSecurityHandler extends SecurityHandler
+-            currentAccessPermission = new AccessPermission(dicPermissions);
++            currentAccessPermission = new AccessPermission(dicRevision, dicPermissions);
+2022-09-14 06:57:55.544 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:57:56.352 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:57:56.370 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -236,7 +236,7 @@ public final class StandardSecurityHandler extends SecurityHandler
+-            currentAccessPermission = new AccessPermission(dicPermissions);
++            currentAccessPermission = new AccessPermission(password, dicPermissions);
+2022-09-14 06:57:56.370 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:57:57.185 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:57:57.215 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -236,7 +236,7 @@ public final class StandardSecurityHandler extends SecurityHandler
+-            currentAccessPermission = new AccessPermission(dicPermissions);
++            currentAccessPermission = new AccessPermission(material, dicPermissions);
+2022-09-14 06:57:57.215 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:57:58.022 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:57:58.032 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -236,7 +236,7 @@ public final class StandardSecurityHandler extends SecurityHandler
+-            currentAccessPermission = new AccessPermission(dicPermissions);
++            currentAccessPermission = new AccessPermission(encryption, dicPermissions);
+2022-09-14 06:57:58.032 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:57:58.922 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:57:58.933 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -236,7 +236,7 @@ public final class StandardSecurityHandler extends SecurityHandler
+-            currentAccessPermission = new AccessPermission(dicPermissions);
++            currentAccessPermission = new AccessPermission(documentIDArray, dicPermissions);
+2022-09-14 06:57:58.933 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:57:59.774 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:57:59.785 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -236,7 +236,7 @@ public final class StandardSecurityHandler extends SecurityHandler
+-            currentAccessPermission = new AccessPermission(dicPermissions);
++            currentAccessPermission = new AccessPermission(decryptionMaterial, dicPermissions);
+2022-09-14 06:57:59.785 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:58:00.535 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:58:00.546 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -236,7 +236,7 @@ public final class StandardSecurityHandler extends SecurityHandler
+-            currentAccessPermission = new AccessPermission(dicPermissions);
++            currentAccessPermission = new AccessPermission(this.policy, dicPermissions);
+2022-09-14 06:58:00.546 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:58:01.425 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:58:01.435 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -236,7 +236,7 @@ public final class StandardSecurityHandler extends SecurityHandler
+-            currentAccessPermission = new AccessPermission(dicPermissions);
++            currentAccessPermission = new AccessPermission(this.keyLength, dicPermissions);
+2022-09-14 06:58:01.435 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:58:02.257 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:58:02.267 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -236,7 +236,7 @@ public final class StandardSecurityHandler extends SecurityHandler
+-            currentAccessPermission = new AccessPermission(dicPermissions);
++            currentAccessPermission = new AccessPermission(this.encryptionKey, dicPermissions);
+2022-09-14 06:58:02.267 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:58:03.037 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:58:03.047 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -236,7 +236,7 @@ public final class StandardSecurityHandler extends SecurityHandler
+-            currentAccessPermission = new AccessPermission(dicPermissions);
++            currentAccessPermission = new AccessPermission(this.rc4, dicPermissions);
+2022-09-14 06:58:03.047 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:58:03.841 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:58:03.852 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -236,7 +236,7 @@ public final class StandardSecurityHandler extends SecurityHandler
+-            currentAccessPermission = new AccessPermission(dicPermissions);
++            currentAccessPermission = new AccessPermission(this.decryptMetadata, dicPermissions);
+2022-09-14 06:58:03.852 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:58:04.706 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:58:04.719 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -236,7 +236,7 @@ public final class StandardSecurityHandler extends SecurityHandler
+-            currentAccessPermission = new AccessPermission(dicPermissions);
++            currentAccessPermission = new AccessPermission(this.objects, dicPermissions);
+2022-09-14 06:58:04.719 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:58:05.626 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:58:05.636 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -236,7 +236,7 @@ public final class StandardSecurityHandler extends SecurityHandler
+-            currentAccessPermission = new AccessPermission(dicPermissions);
++            currentAccessPermission = new AccessPermission(this.useAES, dicPermissions);
+2022-09-14 06:58:05.636 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:58:06.498 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:58:06.511 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -236,7 +236,7 @@ public final class StandardSecurityHandler extends SecurityHandler
+-            currentAccessPermission = new AccessPermission(dicPermissions);
++            currentAccessPermission = new AccessPermission(this.currentAccessPermission, dicPermissions);
+2022-09-14 06:58:06.511 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:58:07.445 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:58:07.455 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -236,7 +236,7 @@ public final class StandardSecurityHandler extends SecurityHandler
+-            currentAccessPermission = new AccessPermission(dicPermissions);
++            currentAccessPermission = new AccessPermission(dicPermissions, currentAccessPermission);
+2022-09-14 06:58:07.455 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:58:08.289 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:58:08.301 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -236,7 +236,7 @@ public final class StandardSecurityHandler extends SecurityHandler
+-            currentAccessPermission = new AccessPermission(dicPermissions);
++            currentAccessPermission = new AccessPermission(dicPermissions, passwordCharset);
+2022-09-14 06:58:08.301 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:58:09.161 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:58:09.171 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -236,7 +236,7 @@ public final class StandardSecurityHandler extends SecurityHandler
+-            currentAccessPermission = new AccessPermission(dicPermissions);
++            currentAccessPermission = new AccessPermission(dicPermissions, ue);
+2022-09-14 06:58:09.171 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:58:10.024 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:58:10.034 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -236,7 +236,7 @@ public final class StandardSecurityHandler extends SecurityHandler
+-            currentAccessPermission = new AccessPermission(dicPermissions);
++            currentAccessPermission = new AccessPermission(dicPermissions, oe);
+2022-09-14 06:58:10.034 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:58:10.892 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:58:10.903 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -236,7 +236,7 @@ public final class StandardSecurityHandler extends SecurityHandler
+-            currentAccessPermission = new AccessPermission(dicPermissions);
++            currentAccessPermission = new AccessPermission(dicPermissions, ownerKey);
+2022-09-14 06:58:10.903 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:58:11.731 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:58:11.743 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -236,7 +236,7 @@ public final class StandardSecurityHandler extends SecurityHandler
+-            currentAccessPermission = new AccessPermission(dicPermissions);
++            currentAccessPermission = new AccessPermission(dicPermissions, userKey);
+2022-09-14 06:58:11.743 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:58:12.594 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:58:12.604 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -236,7 +236,7 @@ public final class StandardSecurityHandler extends SecurityHandler
+-            currentAccessPermission = new AccessPermission(dicPermissions);
++            currentAccessPermission = new AccessPermission(dicPermissions, encryptMetadata);
+2022-09-14 06:58:12.604 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:58:13.448 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:58:13.458 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -236,7 +236,7 @@ public final class StandardSecurityHandler extends SecurityHandler
+-            currentAccessPermission = new AccessPermission(dicPermissions);
++            currentAccessPermission = new AccessPermission(dicPermissions, documentIDBytes);
+2022-09-14 06:58:13.458 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:58:14.306 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:58:14.316 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -236,7 +236,7 @@ public final class StandardSecurityHandler extends SecurityHandler
+-            currentAccessPermission = new AccessPermission(dicPermissions);
++            currentAccessPermission = new AccessPermission(dicPermissions, dicLength);
+2022-09-14 06:58:14.316 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:58:15.173 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:58:15.183 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -236,7 +236,7 @@ public final class StandardSecurityHandler extends SecurityHandler
+-            currentAccessPermission = new AccessPermission(dicPermissions);
++            currentAccessPermission = new AccessPermission(dicPermissions, dicRevision);
+2022-09-14 06:58:15.183 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:58:15.978 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:58:15.988 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -236,7 +236,7 @@ public final class StandardSecurityHandler extends SecurityHandler
+-            currentAccessPermission = new AccessPermission(dicPermissions);
++            currentAccessPermission = new AccessPermission(dicPermissions, password);
+2022-09-14 06:58:15.989 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:58:16.858 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:58:16.868 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -236,7 +236,7 @@ public final class StandardSecurityHandler extends SecurityHandler
+-            currentAccessPermission = new AccessPermission(dicPermissions);
++            currentAccessPermission = new AccessPermission(dicPermissions, material);
+2022-09-14 06:58:16.868 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:58:17.685 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:58:17.695 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -236,7 +236,7 @@ public final class StandardSecurityHandler extends SecurityHandler
+-            currentAccessPermission = new AccessPermission(dicPermissions);
++            currentAccessPermission = new AccessPermission(dicPermissions, encryption);
+2022-09-14 06:58:17.695 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:58:18.456 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:58:18.467 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -236,7 +236,7 @@ public final class StandardSecurityHandler extends SecurityHandler
+-            currentAccessPermission = new AccessPermission(dicPermissions);
++            currentAccessPermission = new AccessPermission(dicPermissions, documentIDArray);
+2022-09-14 06:58:18.468 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:58:19.250 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:58:19.260 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -236,7 +236,7 @@ public final class StandardSecurityHandler extends SecurityHandler
+-            currentAccessPermission = new AccessPermission(dicPermissions);
++            currentAccessPermission = new AccessPermission(dicPermissions, decryptionMaterial);
+2022-09-14 06:58:19.260 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:58:20.132 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:58:20.143 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -236,7 +236,7 @@ public final class StandardSecurityHandler extends SecurityHandler
+-            currentAccessPermission = new AccessPermission(dicPermissions);
++            currentAccessPermission = new AccessPermission(dicPermissions, this.policy);
+2022-09-14 06:58:20.143 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:58:20.963 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:58:20.974 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -236,7 +236,7 @@ public final class StandardSecurityHandler extends SecurityHandler
+-            currentAccessPermission = new AccessPermission(dicPermissions);
++            currentAccessPermission = new AccessPermission(dicPermissions, this.keyLength);
+2022-09-14 06:58:20.974 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:58:21.795 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:58:21.806 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -236,7 +236,7 @@ public final class StandardSecurityHandler extends SecurityHandler
+-            currentAccessPermission = new AccessPermission(dicPermissions);
++            currentAccessPermission = new AccessPermission(dicPermissions, this.encryptionKey);
+2022-09-14 06:58:21.806 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:58:22.679 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:58:22.690 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -236,7 +236,7 @@ public final class StandardSecurityHandler extends SecurityHandler
+-            currentAccessPermission = new AccessPermission(dicPermissions);
++            currentAccessPermission = new AccessPermission(dicPermissions, this.rc4);
+2022-09-14 06:58:22.690 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:58:23.579 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:58:23.590 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -236,7 +236,7 @@ public final class StandardSecurityHandler extends SecurityHandler
+-            currentAccessPermission = new AccessPermission(dicPermissions);
++            currentAccessPermission = new AccessPermission(dicPermissions, this.decryptMetadata);
+2022-09-14 06:58:23.590 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:58:24.304 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:58:24.331 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -236,7 +236,7 @@ public final class StandardSecurityHandler extends SecurityHandler
+-            currentAccessPermission = new AccessPermission(dicPermissions);
++            currentAccessPermission = new AccessPermission(dicPermissions, this.objects);
+2022-09-14 06:58:24.331 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:58:25.135 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:58:25.145 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -236,7 +236,7 @@ public final class StandardSecurityHandler extends SecurityHandler
+-            currentAccessPermission = new AccessPermission(dicPermissions);
++            currentAccessPermission = new AccessPermission(dicPermissions, this.useAES);
+2022-09-14 06:58:25.145 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:58:25.926 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:58:25.937 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -236,7 +236,7 @@ public final class StandardSecurityHandler extends SecurityHandler
+-            currentAccessPermission = new AccessPermission(dicPermissions);
++            currentAccessPermission = new AccessPermission(dicPermissions, this.currentAccessPermission);
+2022-09-14 06:58:25.938 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:58:26.802 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:58:26.813 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -236,7 +236,7 @@ public final class StandardSecurityHandler extends SecurityHandler
+-            currentAccessPermission = new AccessPermission(dicPermissions);
++            currentAccessPermission = new AccessPermission();
+2022-09-14 06:58:26.813 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:58:27.714 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 06:58:35.238 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -236,7 +236,7 @@ public final class StandardSecurityHandler extends SecurityHandler
+-            currentAccessPermission = new AccessPermission(dicPermissions);
++
+2022-09-14 06:58:35.238 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:58:36.166 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:58:36.182 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -152,128 +152,7 @@ public final class StandardSecurityHandler extends SecurityHandler
+-    /**
+-     * Prepares everything to decrypt the document.
+-     *
+-     * Only if decryption of single objects is needed this should be called.
+-     *
+-     * @param encryption  encryption dictionary
+-     * @param documentIDArray  document id
+-     * @param decryptionMaterial Information used to decrypt the document.
+-     *
+-     * @throws IOException If there is an error accessing data.
+-     */
+-    @Override
+-    public void prepareForDecryption(PDEncryption encryption, COSArray documentIDArray,
+-                                     DecryptionMaterial decryptionMaterial)
+-                                     throws IOException
+-    {
+-        if(!(decryptionMaterial instanceof StandardDecryptionMaterial))
+-        {
+-            throw new IOException("Decryption material is not compatible with the document");
+-        }
+-        setDecryptMetadata(encryption.isEncryptMetaData());
+-        StandardDecryptionMaterial material = (StandardDecryptionMaterial)decryptionMaterial;
+-
+-        String password = material.getPassword();
+-        if(password == null)
+-        {
+-            password = "";
+-        }
+-
+-        int dicPermissions = encryption.getPermissions();
+-        int dicRevision = encryption.getRevision();
+-        int dicLength = encryption.getVersion() == 1 ? 5 : encryption.getLength() / 8;
+-
+-        byte[] documentIDBytes = getDocumentIDBytes(documentIDArray);
+-
+-        // we need to know whether the meta data was encrypted for password calculation
+-        boolean encryptMetadata = encryption.isEncryptMetaData();
+-
+-        byte[] userKey = encryption.getUserKey();
+-        byte[] ownerKey = encryption.getOwnerKey();
+-        byte[] ue = null, oe = null;
+-
+-        Charset passwordCharset = Charsets.ISO_8859_1;
+-        if (dicRevision == 6 || dicRevision == 5)
+-        {
+-            passwordCharset = Charsets.UTF_8;
+-            ue = encryption.getUserEncryptionKey();
+-            oe = encryption.getOwnerEncryptionKey();
+-        }
+-
+-        AccessPermission currentAccessPermission;
+-
+-        if( isOwnerPassword(password.getBytes(passwordCharset), userKey, ownerKey,
+-                                 dicPermissions, documentIDBytes, dicRevision,
+-                                 dicLength, encryptMetadata) )
+-        {
+-            currentAccessPermission = AccessPermission.getOwnerAccessPermission();
+-            setCurrentAccessPermission(currentAccessPermission);
+-
+-            byte[] computedPassword;
+-            if (dicRevision == 6 || dicRevision == 5)
+-            {
+-                computedPassword = password.getBytes(passwordCharset);
+-            }
+-            else
+-            {
+-                computedPassword = getUserPassword(password.getBytes(passwordCharset),
+-                        ownerKey, dicRevision, dicLength );
+-            }
+-
+-            encryptionKey =
+-                computeEncryptedKey(
+-                    computedPassword,
+-                    ownerKey, userKey, oe, ue,
+-                    dicPermissions,
+-                    documentIDBytes,
+-                    dicRevision,
+-                    dicLength,
+-                    encryptMetadata, true );
+-        }
+-        else if( isUserPassword(password.getBytes(passwordCharset), userKey, ownerKey,
+-                           dicPermissions, documentIDBytes, dicRevision,
+-                           dicLength, encryptMetadata) )
+-        {
+-            currentAccessPermission = new AccessPermission(dicPermissions);
+-            setCurrentAccessPermission(currentAccessPermission);
+-
+-            encryptionKey =
+-                computeEncryptedKey(
+-                    password.getBytes(passwordCharset),
+-                    ownerKey, userKey, oe, ue,
+-                    dicPermissions,
+-                    documentIDBytes,
+-                    dicRevision,
+-                    dicLength,
+-                    encryptMetadata, false );
+-        }
+-        else
+-        {
+-            throw new InvalidPasswordException("Cannot decrypt PDF, the password is incorrect");
+-        }
+-
+-        if (dicRevision == 6 || dicRevision == 5)
+-        {
+-            validatePerms(encryption, dicPermissions, encryptMetadata);
+-        }
+-
+-        if (encryption.getVersion() == 4 || encryption.getVersion() == 5)
+-        {
+-            // detect whether AES encryption is used. This assumes that the encryption algo is
+-            // stored in the PDCryptFilterDictionary
+-            // However, crypt filters are used only when V is 4 or 5.
+-            PDCryptFilterDictionary stdCryptFilterDictionary = encryption.getStdCryptFilterDictionary();
+-
+-            if (stdCryptFilterDictionary != null)
+-            {
+-                COSName cryptFilterMethod = stdCryptFilterDictionary.getCryptFilterMethod();
+-                setAES(COSName.AESV2.equals(cryptFilterMethod) ||
+-                       COSName.AESV3.equals(cryptFilterMethod));
+-            }
+-        }
+-    }
++
+2022-09-14 06:58:36.182 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:58:36.998 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:58:37.076 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -236,7 +236,8 @@ public final class StandardSecurityHandler extends SecurityHandler
+-            currentAccessPermission = new AccessPermission(dicPermissions);
++            logIfStrongEncryptionMissing();
++	currentAccessPermission = new AccessPermission(dicPermissions);
+2022-09-14 06:58:37.076 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:58:38.086 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 06:58:51.049 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -237,6 +237,7 @@ public final class StandardSecurityHandler extends SecurityHandler
++	logIfStrongEncryptionMissing();
+2022-09-14 06:58:51.049 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:58:51.981 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 06:59:04.927 [main] INFO  edu.lu.uni.serval.tbar.TBarFixer - =======StaticBugFixer: Finish off fixing======
+Failed to fix bug
+
+
+Node: ee2bf67284b9
+
+
+
+Date: Wed Sep 14 06:59:04 EDT 2022
+

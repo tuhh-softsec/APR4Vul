@@ -1,0 +1,381 @@
+cd /workdir/jGenProg_vul4j_eclipse_rdf4j_VUL4J-43;
+export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en";
+TZ="America/New_York"; export TZ;
+export PATH="/usr/lib/jvm/java-8-openjdk-amd64/bin:$PATH";
+export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64/bin";
+time java -Xmx4g -Xms1g -XX:MaxPermSize=512m -cp /script/../libs/jtestex7.jar:/script/../repair_tools/astor.jar fr.inria.main.evolution.AstorMain \
+	-mode jgenprog \
+	-location . \
+	-id eclipse_rdf4j-VUL4J-43 \
+	-failing org.eclipse.rdf4j.common.io.ZipUtilTest#testWriteEntryPathTraversing \
+	-jvm4testexecution /usr/lib/jvm/java-8-openjdk-amd64/bin \
+	-jvm4evosuitetestexecution /usr/lib/jvm/java-8-openjdk-amd64/bin \
+	-maxgen 1000000 \
+	-maxtime 120 \
+	-stopfirst true \
+	-seed 0 \
+	-scope local \
+	-population 1 \
+	-javacompliancelevel 8 \
+	-faultlocalization perfect \
+    -perfectdata /script/../data/benchmarks/vul4j/perfectfl/VUL4J-43 \
+    -validation externalcmd \
+    -testfailingcmd "mvn test -pl util -Dtest=org.eclipse.rdf4j.common.io.ZipUtilTest#testWriteEntryPathTraversing -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B" \
+    -testallcmd "mvn test -pl util -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B"  \ \
+	-srcjavafolder util/src/main/java \
+	-srctestfolder util/src/test/java \
+	-binjavafolder util/target/classes \
+	-bintestfolder util/target/test-classes \
+	-parameters x:x \
+	-dependencies /root/.m2/repository/junit/junit/4.12/junit-4.12.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar;
+	echo "\n\nNode: `hostname`\n";
+	echo "\n\nDate: `date`\n";
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en
+OpenJDK 64-Bit Server VM warning: ignoring option MaxPermSize=512m; support was removed in 8.0
+[0] INFO ProjectConfiguration - Version of the JVM used: 1.8.0_342
+[0] INFO main - Java version of the JDK used to run tests: 1.8.0_342
+[0] INFO main - The compliance of the JVM is:  8
+[3] INFO main - command line arguments: [-mode  jgenprog  -location  .  -id  eclipse_rdf4j-VUL4J-43  -failing  org.eclipse.rdf4j.common.io.ZipUtilTest#testWriteEntryPathTraversing  -jvm4testexecution  /usr/lib/jvm/java-8-openjdk-amd64/bin  -jvm4evosuitetestexecution  /usr/lib/jvm/java-8-openjdk-amd64/bin  -maxgen  1000000  -maxtime  120  -stopfirst  true  -seed  0  -scope  local  -population  1  -javacompliancelevel  8  -faultlocalization  perfect  -perfectdata  /script/../data/benchmarks/vul4j/perfectfl/VUL4J-43  -validation  externalcmd  -testfailingcmd  mvn test -pl util -Dtest=org.eclipse.rdf4j.common.io.ZipUtilTest#testWriteEntryPathTraversing -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B  -testallcmd  mvn test -pl util -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B     -srcjavafolder  util/src/main/java  -srctestfolder  util/src/test/java  -binjavafolder  util/target/classes  -bintestfolder  util/target/test-classes  -parameters  x:x  -dependencies  /root/.m2/repository/junit/junit/4.12/junit-4.12.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar]
+[13] INFO AstorMain - Running Astor on a JDK at /usr/lib/jvm/java-8-openjdk-amd64/jre
+[88] INFO main - Source folders: [/workdir/jGenProg_vul4j_eclipse_rdf4j_VUL4J-43/./util/src/main/java]
+[88] INFO main - Source Test folders: [/workdir/jGenProg_vul4j_eclipse_rdf4j_VUL4J-43/./util/src/test/java]
+[1222] INFO AstorCoreEngine - ---- Creating spoon model
+[1256] INFO MutationSupporter - Creating model,  Code location from working folder: /workdir/jGenProg_vul4j_eclipse_rdf4j_VUL4J-43/./util/src/main/java
+[1256] INFO MutationSupporter - building model: /workdir/jGenProg_vul4j_eclipse_rdf4j_VUL4J-43/./util/src/main/java, compliance level: 8
+[1291] INFO MutationSupporter - Classpath (Dependencies) for building SpoonModel: [/root/.m2/repository/junit/junit/4.12/junit-4.12.jar, /root/.m2/repository/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar, /root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar]
+[6432] INFO AstorCoreEngine - Number of CtTypes created: 63
+[6615] INFO AstorCoreEngine - Test retrieved from classes: 0
+[6754] INFO AstorCoreEngine - Setting up the max to 1380 milliseconds (1 sec)
+[6754] INFO AstorCoreEngine - ---- Initial suspicious size: 1
+[6859] INFO main - Total suspicious from FL: 1,  1
+[6859] INFO main - Total ModPoint created: 1
+[6859] INFO main - Creating program variant #1, [Variant id: 1, #gens: 1, #ops: 0, parent:-]
+[6860] INFO main - Run previously failing tests...
+[26660] INFO main - Failed tests: 1
+[26662] INFO AstorCoreEngine - The original fitness is : 1.0
+[27243] WARN ConfigurationProperties - ----------------------------
+[27244] INFO ConfigurationProperties - ---Configuration properties
+[27245] INFO ConfigurationProperties - p:lastJUnitVersion= ./examples/libs/junit-4.11.jar
+[27245] INFO ConfigurationProperties - p:alternativecompliancelevel= 8
+[27245] INFO ConfigurationProperties - p:ignoredTestCases= 
+[27245] INFO ConfigurationProperties - p:workingDirectory= /workdir/jGenProg_vul4j_eclipse_rdf4j_VUL4J-43/./output_astor
+[27245] INFO ConfigurationProperties - p:manipulatesuper= false
+[27246] INFO ConfigurationProperties - p:validation= externalcmd
+[27246] INFO ConfigurationProperties - p:jvm4testexecution= /usr/lib/jvm/java-8-openjdk-amd64/bin
+[27246] INFO ConfigurationProperties - p:operatorspace= irr-statements
+[27246] INFO ConfigurationProperties - p:diffcontext= 0
+[27246] INFO ConfigurationProperties - p:binjavafolder= util/target/classes
+[27246] INFO ConfigurationProperties - p:synthesis_depth= 3
+[27246] INFO ConfigurationProperties - p:gzoltartestpackagetoexclude= junit.framework
+[27246] INFO ConfigurationProperties - p:skipfitnessinitialpopulation= false
+[27246] INFO ConfigurationProperties - p:evosuiteresultfolder= evosuite
+[27246] INFO ConfigurationProperties - p:flthreshold= 0.1
+[27246] INFO ConfigurationProperties - p:regressionforfaultlocalization= true
+[27246] INFO ConfigurationProperties - p:collectonlyusedmethod= false
+[27246] INFO ConfigurationProperties - p:preservelinenumbers= true
+[27246] INFO ConfigurationProperties - p:tmax2= 1380
+[27246] INFO ConfigurationProperties - p:tmax1= 10000
+[27246] INFO ConfigurationProperties - p:probagenmutation= false
+[27246] INFO ConfigurationProperties - p:nomodificationconvergence= 100
+[27247] INFO ConfigurationProperties - p:diff_type= relative
+[27247] INFO ConfigurationProperties - p:targetelementprocessor= statements
+[27247] INFO ConfigurationProperties - p:srctestfolder= util/src/test/java
+[27247] INFO ConfigurationProperties - p:forceExecuteRegression= false
+[27247] INFO ConfigurationProperties - p:clusteringfilename= clustering.csv
+[27247] INFO ConfigurationProperties - p:failing= org.eclipse.rdf4j.common.io.ZipUtilTest#testWriteEntryPathTraversing
+[27247] INFO ConfigurationProperties - p:logtestexecution= false
+[27247] INFO ConfigurationProperties - p:evo_buggy_class= true
+[27247] INFO ConfigurationProperties - p:numberExecutions= 1
+[27247] INFO ConfigurationProperties - p:maxnumbersolutions= 1000000
+[27247] INFO ConfigurationProperties - p:evo_affected_by_op= true
+[27247] INFO ConfigurationProperties - p:population= 1
+[27247] INFO ConfigurationProperties - p:considerzerovaluesusp= false
+[27247] INFO ConfigurationProperties - p:maxCombinationVariableLimit= false
+[27247] INFO ConfigurationProperties - p:savesolution= true
+[27247] INFO ConfigurationProperties - p:javacompliancelevel= 8
+[27248] INFO ConfigurationProperties - p:x= x
+[27248] INFO ConfigurationProperties - p:uniqueoptogen= false
+[27248] INFO ConfigurationProperties - p:gzoltarpackagetonotinstrument= junit.framework
+[27248] INFO ConfigurationProperties - p:projectIdentifier= eclipse_rdf4j-VUL4J-43
+[27248] INFO ConfigurationProperties - p:modificationpointnavigation= weight
+[27248] INFO ConfigurationProperties - p:stopfirst= true
+[27248] INFO ConfigurationProperties - p:multipointmodification= false
+[27248] INFO ConfigurationProperties - p:elementsToMutate= 10
+[27248] INFO ConfigurationProperties - p:jsonoutputname= astor_output
+[27248] INFO ConfigurationProperties - p:evoDSE= false
+[27248] INFO ConfigurationProperties - p:bintestfolder= util/target/test-classes
+[27248] INFO ConfigurationProperties - p:testbystep= false
+[27248] INFO ConfigurationProperties - p:version-location= ./math-version/
+[27248] INFO ConfigurationProperties - p:reintroduce= PARENTS:ORIGINAL
+[27248] INFO ConfigurationProperties - p:perfectdata= /script/../data/benchmarks/vul4j/perfectfl/VUL4J-43
+[27248] INFO ConfigurationProperties - p:executorjar= ./lib/jtestex7.jar
+[27248] INFO ConfigurationProperties - p:maxGeneration= 1000000
+[27249] INFO ConfigurationProperties - p:max_synthesis_step= 10000
+[27249] INFO ConfigurationProperties - p:projectinfocommand= com.github.tdurieux:project-config-maven-plugin:info
+[27249] INFO ConfigurationProperties - p:maxVarCombination= 1000
+[27249] INFO ConfigurationProperties - p:maxtime= 120
+[27249] INFO ConfigurationProperties - p:evosuitejar= ./lib/evosuite-master-1.0.4-SNAPSHOT.jar
+[27249] INFO ConfigurationProperties - p:jvmversion= 1.8.0_342
+[27249] INFO ConfigurationProperties - p:commandTrunk= 50000
+[27249] INFO ConfigurationProperties - p:faultlocalization= perfect
+[27249] INFO ConfigurationProperties - p:resetmodel= true
+[27249] INFO ConfigurationProperties - p:maxsuspcandidates= 1000
+[27249] INFO ConfigurationProperties - p:mode= jgenprog
+[27249] INFO ConfigurationProperties - p:learningdir= 
+[27249] INFO ConfigurationProperties - p:jvm4evosuitetestexecution= /usr/lib/jvm/java-8-openjdk-amd64/bin
+[27249] INFO ConfigurationProperties - p:filterfaultlocalization= true
+[27249] INFO ConfigurationProperties - p:mutationrate= 1 
+[27249] INFO ConfigurationProperties - p:pathToMVNRepository= 
+[27249] INFO ConfigurationProperties - p:resourcesfolder= /src/main/resources:/src/test/resources:
+[27249] INFO ConfigurationProperties - p:timezone= America/Los_Angeles
+[27250] INFO ConfigurationProperties - p:runjava7code= false
+[27250] INFO ConfigurationProperties - p:testfailingcmd= mvn test -pl util -Dtest=org.eclipse.rdf4j.common.io.ZipUtilTest#testWriteEntryPathTraversing -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B
+[27250] INFO ConfigurationProperties - p:evoRunOnBuggyClass= true
+[27250] INFO ConfigurationProperties - p:compiler= fr.inria.astor.core.manipulation.bytecode.compiler.SpoonClassCompiler
+[27250] INFO ConfigurationProperties - p:limitbysuspicious= true
+[27250] INFO ConfigurationProperties - p:logsattemps= true
+[27250] INFO ConfigurationProperties - p:dependenciespath= /root/.m2/repository/junit/junit/4.12/junit-4.12.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar
+[27250] INFO ConfigurationProperties - p:packageToInstrument= 
+[27250] INFO ConfigurationProperties - p:skipfaultlocalization= false
+[27250] INFO ConfigurationProperties - p:scope= local
+[27250] INFO ConfigurationProperties - p:transformingredient= false
+[27250] INFO ConfigurationProperties - p:fitnessfunction= fr.inria.astor.core.solutionsearch.population.TestCaseFitnessFunction
+[27250] INFO ConfigurationProperties - p:maxnumvariablesperingredient= 10
+[27258] INFO ConfigurationProperties - p:parsesourcefromoriginal= true
+[27258] INFO ConfigurationProperties - p:pvariantfoldername= variant-
+[27258] INFO ConfigurationProperties - p:savespoonmodelondisk= false
+[27258] INFO ConfigurationProperties - p:srcjavafolder= util/src/main/java
+[27258] INFO ConfigurationProperties - p:populationcontroller= fr.inria.astor.core.solutionsearch.population.TestCaseBasedFitnessPopulationController
+[27258] INFO ConfigurationProperties - p:ignoreflakyinfl= false
+[27258] INFO ConfigurationProperties - p:cleantemplates= true
+[27258] INFO ConfigurationProperties - p:applyCrossover= false
+[27258] INFO ConfigurationProperties - p:maxmodificationpoints= 1000
+[27258] INFO ConfigurationProperties - p:duplicateingredientsinspace= false
+[27258] INFO ConfigurationProperties - p:metid= 0
+[27258] INFO ConfigurationProperties - p:continuewhenmodelfail= true
+[27258] INFO ConfigurationProperties - p:saveall= false
+[27258] INFO ConfigurationProperties - p:seed= 0
+[27258] INFO ConfigurationProperties - p:savecompletepatched= true
+[27258] INFO ConfigurationProperties - p:resetoperations= false
+[27259] INFO ConfigurationProperties - p:keepcomments= false
+[27259] INFO ConfigurationProperties - p:processoutputinfile= false
+[27259] INFO ConfigurationProperties - p:location= .
+[27259] INFO ConfigurationProperties - p:probabilistictransformation= true
+[27259] INFO ConfigurationProperties - p:overridemaxtime= true
+[27259] INFO ConfigurationProperties - p:outputjsonresult= true
+[27259] INFO ConfigurationProperties - p:allpoints= false
+[27259] INFO ConfigurationProperties - p:antipattern= false
+[27259] INFO ConfigurationProperties - p:bugId= 280
+[27259] INFO ConfigurationProperties - p:evosuitetimeout= 120
+[27259] INFO ConfigurationProperties - p:maxtimefactor= 10
+[27259] INFO ConfigurationProperties - p:nrPlaceholders= 1
+[27259] INFO ConfigurationProperties - p:testallcmd= mvn test -pl util -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B
+[27259] INFO ConfigurationProperties - p:forcesubprocesskilling= false
+[27259] INFO ConfigurationProperties - ----------------------------
+[27261] INFO AstorCoreEngine - ----Starting Solution Search
+[27262] WARN AstorCoreEngine - ----------Running generation: 1, population size: 1
+[27342] WARN AstorCoreEngine - ----------Running generation: 2, population size: 1
+[27438] WARN AstorCoreEngine - ----------Running generation: 3, population size: 1
+[27472] WARN AstorCoreEngine - ----------Running generation: 4, population size: 1
+[28946] INFO main - Run previously failing tests...
+[51660] INFO main - Failed tests: 1
+[51679] WARN AstorCoreEngine - ----------Running generation: 5, population size: 1
+[52187] INFO main - Run previously failing tests...
+[75604] INFO main - Failed tests: 1
+[75613] WARN AstorCoreEngine - ----------Running generation: 6, population size: 1
+[75655] WARN AstorCoreEngine - ----------Running generation: 7, population size: 1
+[75664] WARN AstorCoreEngine - ----------Running generation: 8, population size: 1
+[75709] WARN AstorCoreEngine - ----------Running generation: 9, population size: 1
+[76035] WARN AstorCoreEngine - ----------Running generation: 10, population size: 1
+[76063] WARN AstorCoreEngine - ----------Running generation: 11, population size: 1
+[76088] WARN AstorCoreEngine - ----------Running generation: 12, population size: 1
+[76226] INFO main - Run previously failing tests...
+[99803] INFO main - Failed tests: 1
+[99810] WARN AstorCoreEngine - ----------Running generation: 13, population size: 1
+[99858] WARN AstorCoreEngine - ----------Running generation: 14, population size: 1
+[99894] WARN AstorCoreEngine - ----------Running generation: 15, population size: 1
+[100169] WARN AstorCoreEngine - ----------Running generation: 16, population size: 1
+[100202] WARN AstorCoreEngine - ----------Running generation: 17, population size: 1
+[100677] WARN AstorCoreEngine - ----------Running generation: 18, population size: 1
+[100699] WARN AstorCoreEngine - ----------Running generation: 19, population size: 1
+[100727] WARN AstorCoreEngine - ----------Running generation: 20, population size: 1
+[100779] WARN AstorCoreEngine - ----------Running generation: 21, population size: 1
+[100828] WARN AstorCoreEngine - ----------Running generation: 22, population size: 1
+[100860] WARN AstorCoreEngine - ----------Running generation: 23, population size: 1
+[100889] WARN AstorCoreEngine - ----------Running generation: 24, population size: 1
+[101124] INFO main - Run previously failing tests...
+[123347] INFO main - Failed tests: 1
+[123354] WARN AstorCoreEngine - ----------Running generation: 25, population size: 1
+[123632] INFO main - Run previously failing tests...
+[146092] INFO main - Failed tests: 1
+[146107] WARN AstorCoreEngine - ----------Running generation: 26, population size: 1
+[146126] WARN AstorCoreEngine - ----------Running generation: 27, population size: 1
+[146138] WARN AstorCoreEngine - ----------Running generation: 28, population size: 1
+[146163] WARN AstorCoreEngine - ----------Running generation: 29, population size: 1
+[146200] WARN AstorCoreEngine - ----------Running generation: 30, population size: 1
+[146218] WARN AstorCoreEngine - ----------Running generation: 31, population size: 1
+[146225] WARN AstorCoreEngine - ----------Running generation: 32, population size: 1
+[146239] WARN AstorCoreEngine - ----------Running generation: 33, population size: 1
+[146247] WARN AstorCoreEngine - ----------Running generation: 34, population size: 1
+[146270] WARN AstorCoreEngine - ----------Running generation: 35, population size: 1
+[146283] WARN AstorCoreEngine - ----------Running generation: 36, population size: 1
+[146293] WARN AstorCoreEngine - ----------Running generation: 37, population size: 1
+[146310] WARN AstorCoreEngine - ----------Running generation: 38, population size: 1
+[146322] WARN AstorCoreEngine - ----------Running generation: 39, population size: 1
+[146333] WARN AstorCoreEngine - ----------Running generation: 40, population size: 1
+[146343] WARN AstorCoreEngine - ----------Running generation: 41, population size: 1
+[146360] WARN AstorCoreEngine - ----------Running generation: 42, population size: 1
+[146369] WARN AstorCoreEngine - ----------Running generation: 43, population size: 1
+[146408] WARN AstorCoreEngine - ----------Running generation: 44, population size: 1
+[146428] WARN AstorCoreEngine - ----------Running generation: 45, population size: 1
+[146633] INFO main - Run previously failing tests...
+[165127] INFO main - Failed tests: 1
+[165140] WARN AstorCoreEngine - ----------Running generation: 46, population size: 1
+[165156] WARN AstorCoreEngine - ----------Running generation: 47, population size: 1
+[165191] WARN AstorCoreEngine - ----------Running generation: 48, population size: 1
+[165200] WARN AstorCoreEngine - ----------Running generation: 49, population size: 1
+[165231] WARN AstorCoreEngine - ----------Running generation: 50, population size: 1
+[165241] WARN AstorCoreEngine - ----------Running generation: 51, population size: 1
+[165248] WARN AstorCoreEngine - ----------Running generation: 52, population size: 1
+[165276] WARN AstorCoreEngine - ----------Running generation: 53, population size: 1
+[165304] WARN AstorCoreEngine - ----------Running generation: 54, population size: 1
+[165592] INFO main - Run previously failing tests...
+[186888] INFO main - Failed tests: 1
+[186904] WARN AstorCoreEngine - ----------Running generation: 55, population size: 1
+[186919] WARN AstorCoreEngine - ----------Running generation: 56, population size: 1
+[186930] WARN AstorCoreEngine - ----------Running generation: 57, population size: 1
+[186967] WARN AstorCoreEngine - ----------Running generation: 58, population size: 1
+[186976] WARN AstorCoreEngine - ----------Running generation: 59, population size: 1
+[187023] WARN AstorCoreEngine - ----------Running generation: 60, population size: 1
+[187044] WARN AstorCoreEngine - ----------Running generation: 61, population size: 1
+[187050] WARN AstorCoreEngine - ----------Running generation: 62, population size: 1
+[187059] WARN AstorCoreEngine - ----------Running generation: 63, population size: 1
+[187075] WARN AstorCoreEngine - ----------Running generation: 64, population size: 1
+[187081] WARN AstorCoreEngine - ----------Running generation: 65, population size: 1
+[187089] WARN AstorCoreEngine - ----------Running generation: 66, population size: 1
+[187100] WARN AstorCoreEngine - ----------Running generation: 67, population size: 1
+[187113] WARN AstorCoreEngine - ----------Running generation: 68, population size: 1
+[187124] WARN AstorCoreEngine - ----------Running generation: 69, population size: 1
+[187132] WARN AstorCoreEngine - ----------Running generation: 70, population size: 1
+[187138] WARN AstorCoreEngine - ----------Running generation: 71, population size: 1
+[187148] WARN AstorCoreEngine - ----------Running generation: 72, population size: 1
+[187154] WARN AstorCoreEngine - ----------Running generation: 73, population size: 1
+[187175] WARN AstorCoreEngine - ----------Running generation: 74, population size: 1
+[187181] WARN AstorCoreEngine - ----------Running generation: 75, population size: 1
+[187204] WARN AstorCoreEngine - ----------Running generation: 76, population size: 1
+[187212] WARN AstorCoreEngine - ----------Running generation: 77, population size: 1
+[187218] WARN AstorCoreEngine - ----------Running generation: 78, population size: 1
+[187224] WARN AstorCoreEngine - ----------Running generation: 79, population size: 1
+[187250] WARN AstorCoreEngine - ----------Running generation: 80, population size: 1
+[187265] WARN AstorCoreEngine - ----------Running generation: 81, population size: 1
+[187276] WARN AstorCoreEngine - ----------Running generation: 82, population size: 1
+[187287] WARN AstorCoreEngine - ----------Running generation: 83, population size: 1
+[187296] WARN AstorCoreEngine - ----------Running generation: 84, population size: 1
+[187310] WARN AstorCoreEngine - ----------Running generation: 85, population size: 1
+[187318] WARN AstorCoreEngine - ----------Running generation: 86, population size: 1
+[187323] WARN AstorCoreEngine - ----------Running generation: 87, population size: 1
+[187339] WARN AstorCoreEngine - ----------Running generation: 88, population size: 1
+[187350] WARN AstorCoreEngine - ----------Running generation: 89, population size: 1
+[187366] WARN AstorCoreEngine - ----------Running generation: 90, population size: 1
+[187372] WARN AstorCoreEngine - ----------Running generation: 91, population size: 1
+[187382] WARN AstorCoreEngine - ----------Running generation: 92, population size: 1
+[187391] WARN AstorCoreEngine - ----------Running generation: 93, population size: 1
+[187425] WARN AstorCoreEngine - ----------Running generation: 94, population size: 1
+[187440] WARN AstorCoreEngine - ----------Running generation: 95, population size: 1
+[187471] WARN AstorCoreEngine - ----------Running generation: 96, population size: 1
+[187486] WARN AstorCoreEngine - ----------Running generation: 97, population size: 1
+[187499] WARN AstorCoreEngine - ----------Running generation: 98, population size: 1
+[187506] WARN AstorCoreEngine - ----------Running generation: 99, population size: 1
+[187516] WARN AstorCoreEngine - ----------Running generation: 100, population size: 1
+[187544] WARN AstorCoreEngine - ----------Running generation: 101, population size: 1
+[187560] WARN AstorCoreEngine - ----------Running generation: 102, population size: 1
+[187576] WARN AstorCoreEngine - ----------Running generation: 103, population size: 1
+[187582] WARN AstorCoreEngine - ----------Running generation: 104, population size: 1
+[187593] WARN AstorCoreEngine - ----------Running generation: 105, population size: 1
+[187605] WARN AstorCoreEngine - ----------Running generation: 106, population size: 1
+[187611] WARN AstorCoreEngine - ----------Running generation: 107, population size: 1
+[187619] WARN AstorCoreEngine - ----------Running generation: 108, population size: 1
+[187625] WARN AstorCoreEngine - ----------Running generation: 109, population size: 1
+[187649] WARN AstorCoreEngine - ----------Running generation: 110, population size: 1
+[187659] WARN AstorCoreEngine - ----------Running generation: 111, population size: 1
+[187680] WARN AstorCoreEngine - ----------Running generation: 112, population size: 1
+[187687] WARN AstorCoreEngine - ----------Running generation: 113, population size: 1
+[187697] WARN AstorCoreEngine - ----------Running generation: 114, population size: 1
+[187702] WARN AstorCoreEngine - ----------Running generation: 115, population size: 1
+[187713] WARN AstorCoreEngine - ----------Running generation: 116, population size: 1
+[187725] WARN AstorCoreEngine - ----------Running generation: 117, population size: 1
+[187730] WARN AstorCoreEngine - ----------Running generation: 118, population size: 1
+[187754] WARN AstorCoreEngine - ----------Running generation: 119, population size: 1
+[187758] WARN AstorCoreEngine - ----------Running generation: 120, population size: 1
+[187786] WARN AstorCoreEngine - ----------Running generation: 121, population size: 1
+[187794] WARN AstorCoreEngine - ----------Running generation: 122, population size: 1
+[187813] WARN AstorCoreEngine - ----------Running generation: 123, population size: 1
+[187826] WARN AstorCoreEngine - ----------Running generation: 124, population size: 1
+[187838] WARN AstorCoreEngine - ----------Running generation: 125, population size: 1
+[187853] WARN AstorCoreEngine - ----------Running generation: 126, population size: 1
+[187859] WARN AstorCoreEngine - ----------Running generation: 127, population size: 1
+[187894] WARN AstorCoreEngine - ----------Running generation: 128, population size: 1
+[187921] WARN AstorCoreEngine - ----------Running generation: 129, population size: 1
+[187927] WARN AstorCoreEngine - ----------Running generation: 130, population size: 1
+[187938] WARN AstorCoreEngine - ----------Running generation: 131, population size: 1
+[187952] WARN AstorCoreEngine - ----------Running generation: 132, population size: 1
+[187967] WARN AstorCoreEngine - ----------Running generation: 133, population size: 1
+[187987] WARN AstorCoreEngine - ----------Running generation: 134, population size: 1
+[187993] WARN AstorCoreEngine - ----------Running generation: 135, population size: 1
+[188001] WARN AstorCoreEngine - ----------Running generation: 136, population size: 1
+[188009] WARN AstorCoreEngine - ----------Running generation: 137, population size: 1
+[188019] WARN AstorCoreEngine - ----------Running generation: 138, population size: 1
+[188037] WARN AstorCoreEngine - ----------Running generation: 139, population size: 1
+[188043] WARN AstorCoreEngine - ----------Running generation: 140, population size: 1
+[188049] WARN AstorCoreEngine - ----------Running generation: 141, population size: 1
+[188057] WARN AstorCoreEngine - ----------Running generation: 142, population size: 1
+[188084] WARN AstorCoreEngine - ----------Running generation: 143, population size: 1
+[188092] WARN AstorCoreEngine - ----------Running generation: 144, population size: 1
+[188123] WARN AstorCoreEngine - ----------Running generation: 145, population size: 1
+[188130] WARN AstorCoreEngine - ----------Running generation: 146, population size: 1
+[188136] WARN AstorCoreEngine - ----------Running generation: 147, population size: 1
+[188142] WARN AstorCoreEngine - ----------Running generation: 148, population size: 1
+[188146] WARN AstorCoreEngine - ----------Running generation: 149, population size: 1
+[188152] WARN AstorCoreEngine - ----------Running generation: 150, population size: 1
+[188172] WARN AstorCoreEngine - ----------Running generation: 151, population size: 1
+[188183] WARN AstorCoreEngine - ----------Running generation: 152, population size: 1
+[188195] WARN AstorCoreEngine - ----------Running generation: 153, population size: 1
+[188206] WARN AstorCoreEngine - ----------Running generation: 154, population size: 1
+[188220] ERROR AstorCoreEngine - Stopping main loop at 154 generation
+[188221] INFO AstorCoreEngine - Time Repair Loop (s): 160.96
+[188221] INFO AstorCoreEngine - generationsexecuted: 154
+[188221] WARN AstorCoreEngine - ----SUMMARY_EXECUTION---
+[188221] WARN AstorCoreEngine - End Repair Search: NOT Found solution
+[188222] WARN AstorCoreEngine - Number suspicious:1
+[188225] INFO AstorCoreEngine - 
+ --SOLUTIONS DESCRIPTION--
+
+
+Astor Output:
+
+General stats:
+EXECUTION_IDENTIFIER=eclipse_rdf4j-VUL4J-43
+TOTAL_TIME=160.96
+NR_GENERATIONS=154
+NR_RIGHT_COMPILATIONS=7
+NR_FAILLING_COMPILATIONS=3
+NR_ERRONEOUS_VARIANCES=null
+NR_FAILING_VALIDATION_PROCESS=null
+OUTPUT_STATUS=CONVERGED
+
+Patch stats:
+
+[188248] INFO Stats - Storing ing JSON at /workdir/jGenProg_vul4j_eclipse_rdf4j_VUL4J-43/./output_astor/AstorMain-eclipse_rdf4j-VUL4J-43//astor_output.json
+[188249] INFO Stats - astor_output:
+{"general":{"NR_RIGHT_COMPILATIONS":7,"NR_ERRONEOUS_VARIANCES":null,"EXECUTION_IDENTIFIER":"eclipse_rdf4j-VUL4J-43","OUTPUT_STATUS":"CONVERGED","NR_FAILLING_COMPILATIONS":3,"NR_GENERATIONS":154,"TOTAL_TIME":160.96,"NR_FAILING_VALIDATION_PROCESS":null},"patches":[]}
+[188249] INFO AstorMain - Time Total(s): 188.232
+254.94user 32.73system 3:09.27elapsed 151%CPU (0avgtext+0avgdata 474272maxresident)k
+4040inputs+9448outputs (12major+1434331minor)pagefaults 0swaps
+
+
+Node: 9670332cfea8
+
+
+
+Date: Thu Sep  8 15:47:49 EDT 2022
+

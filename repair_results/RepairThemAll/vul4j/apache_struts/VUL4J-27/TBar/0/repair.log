@@ -1,0 +1,402 @@
+cd /workdir/TBar_vul4j_apache_struts_VUL4J-27;
+export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en";
+TZ="America/New_York"; export TZ;
+export PATH="/usr/lib/jvm/jdk1.7.0_80/bin:$PATH";
+export JAVA_HOME="/usr/lib/jvm/jdk1.7.0_80";
+timeout 240m java -Xmx4g -Xms1g -XX:MaxPermSize=512m \
+    -cp /script/../libs/tbar_external/com.gzoltar-0.1.1-jdk7.jar:/script/../repair_tools/tbar.jar edu.lu.uni.serval.tbar.main.Main \
+    "/workdir/TBar_vul4j_apache_struts_VUL4J-27" "com.opensymphony.xwork2.interceptor.ParametersInterceptorTest#testArrayClassPollutionBlockedByPattern" "/xwork-core/src/main/java/" "/xwork-core/src/test/java/" "/xwork-core/target/classes/" "/xwork-core/target/test-classes/" "/script/../data/benchmarks/vul4j/perfectfl/VUL4J-27/spectra.txt" "mvn test -pl xwork-core -Dtest=com.opensymphony.xwork2.interceptor.ParametersInterceptorTest -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B" "mvn test -pl xwork-core -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B" "/root/.m2/repository/javassist/javassist/3.11.0.GA/javassist-3.11.0.GA.jar:/root/.m2/repository/org/springframework/spring-expression/3.0.5.RELEASE/spring-expression-3.0.5.RELEASE.jar:/root/.m2/repository/org/easymock/easymock/2.4/easymock-2.4.jar:/root/.m2/repository/org/springframework/spring-aop/3.0.5.RELEASE/spring-aop-3.0.5.RELEASE.jar:/root/.m2/repository/asm/asm-commons/3.3/asm-commons-3.3.jar:/root/.m2/repository/org/testng/testng/5.1/testng-5.1-jdk15.jar:/root/.m2/repository/asm/asm/3.3/asm-3.3.jar:/root/.m2/repository/asm/asm-tree/3.3/asm-tree-3.3.jar:/root/.m2/repository/org/springframework/spring-web/3.0.5.RELEASE/spring-web-3.0.5.RELEASE.jar:/root/.m2/repository/mockobjects/mockobjects-core/0.09/mockobjects-core-0.09.jar:/root/.m2/repository/org/apache/commons/commons-lang3/3.1/commons-lang3-3.1.jar:/root/.m2/repository/org/springframework/spring-context-support/3.0.5.RELEASE/spring-context-support-3.0.5.RELEASE.jar:/root/.m2/repository/cglib/cglib-nodep/2.1_3/cglib-nodep-2.1_3.jar:/root/.m2/repository/org/springframework/spring-aspects/3.0.5.RELEASE/spring-aspects-3.0.5.RELEASE.jar:/root/.m2/repository/junit/junit/4.8.2/junit-4.8.2.jar:/root/.m2/repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar:/root/.m2/repository/org/springframework/spring-test/3.0.5.RELEASE/spring-test-3.0.5.RELEASE.jar:/root/.m2/repository/org/springframework/spring-context/3.0.5.RELEASE/spring-context-3.0.5.RELEASE.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.2/slf4j-api-1.7.2.jar:/root/.m2/repository/org/springframework/spring-core/3.0.5.RELEASE/spring-core-3.0.5.RELEASE.jar:/root/.m2/repository/org/springframework/spring-beans/3.0.5.RELEASE/spring-beans-3.0.5.RELEASE.jar:/root/.m2/repository/commons-io/commons-io/2.2/commons-io-2.2.jar:/root/.m2/repository/ognl/ognl/3.0.6/ognl-3.0.6.jar:/root/.m2/repository/org/springframework/spring-asm/3.0.5.RELEASE/spring-asm-3.0.5.RELEASE.jar:/root/.m2/repository/commons-logging/commons-logging/1.1.3/commons-logging-1.1.3.jar:/root/.m2/repository/org/slf4j/slf4j-simple/1.7.2/slf4j-simple-1.7.2.jar";
+echo "\n\nNode: `hostname`\n";
+echo "\n\nDate: `date`\n";
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en
+08:04:59,990 |-INFO in ch.qos.logback.classic.LoggerContext[TBar] - Could NOT find resource [logback-test.xml]
+08:04:59,990 |-INFO in ch.qos.logback.classic.LoggerContext[TBar] - Could NOT find resource [logback.groovy]
+08:04:59,990 |-INFO in ch.qos.logback.classic.LoggerContext[TBar] - Found resource [logback.xml] at [jar:file:/repair_tools/tbar.jar!/logback.xml]
+08:05:00,007 |-INFO in ch.qos.logback.core.joran.spi.ConfigurationWatchList@4e3dabe4 - URL [jar:file:/repair_tools/tbar.jar!/logback.xml] is not of type file
+08:05:00,046 |-INFO in ch.qos.logback.classic.joran.action.ConfigurationAction - debug attribute not set
+08:05:00,048 |-INFO in ch.qos.logback.classic.joran.action.ContextNameAction - Setting logger context name as [TBar]
+08:05:00,048 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - About to instantiate appender of type [ch.qos.logback.core.ConsoleAppender]
+08:05:00,050 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - Naming appender as [STDOUT]
+08:05:00,094 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting level of logger [org.hibernate.engine.query.HQLQueryPlan] to DEBUG
+08:05:00,094 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting additivity of logger [org.hibernate.engine.query.HQLQueryPlan] to false
+08:05:00,094 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting level of logger [com.piedra.logback] to DEBUG
+08:05:00,094 |-ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - Could not find an appender named [FILE]. Did you define it below instead of above in the configuration file?
+08:05:00,095 |-ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - See http://logback.qos.ch/codes.html#appender_order for more details.
+08:05:00,095 |-INFO in ch.qos.logback.classic.joran.action.RootLoggerAction - Setting level of ROOT logger to DEBUG
+08:05:00,095 |-INFO in ch.qos.logback.core.joran.action.AppenderRefAction - Attaching appender named [STDOUT] to Logger[ROOT]
+08:05:00,095 |-ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - Could not find an appender named [ROLLINGFILE]. Did you define it below instead of above in the configuration file?
+08:05:00,095 |-ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - See http://logback.qos.ch/codes.html#appender_order for more details.
+08:05:00,095 |-INFO in ch.qos.logback.classic.joran.action.ConfigurationAction - End of configuration.
+08:05:00,096 |-INFO in ch.qos.logback.classic.joran.JoranConfigurator@32e02ddd - Registering current configuration as safe fallback point
+
+2022-10-17 08:05:00.711 [main] INFO  edu.lu.uni.serval.tbar.AbstractFixer - TBar_vul4j_apache_struts_VUL4J-27 Failed Tests: 1
+2022-10-17 08:05:00.714 [main] INFO  edu.lu.uni.serval.tbar.TBarFixer - =======StaticBugFixer: Start to fix suspicious code======
+2022-10-17 08:05:00.715 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - com.opensymphony.xwork2.interceptor.ParametersInterceptor ===508
+2022-10-17 08:05:01.416 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+excludeParams.add(Pattern.compile(pattern));
+2022-10-17 08:05:04.436 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -505,7 +505,7 @@ public class ParametersInterceptor extends MethodFilterInterceptor {
+-                excludeParams.add(Pattern.compile(pattern));
++                this.acceptParams.add(Pattern.compile(pattern));
+2022-10-17 08:05:04.436 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:05:05.434 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-10-17 08:05:14.741 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -505,7 +505,7 @@ public class ParametersInterceptor extends MethodFilterInterceptor {
+-                excludeParams.add(Pattern.compile(pattern));
++                getOrderedComparator().add(Pattern.compile(pattern));
+2022-10-17 08:05:14.741 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:05:15.699 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-10-17 08:05:15.719 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -505,7 +505,7 @@ public class ParametersInterceptor extends MethodFilterInterceptor {
+-                excludeParams.add(Pattern.compile(pattern));
++                isOrdered().add(Pattern.compile(pattern));
+2022-10-17 08:05:15.719 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:05:16.656 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-10-17 08:05:16.675 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -505,7 +505,7 @@ public class ParametersInterceptor extends MethodFilterInterceptor {
+-                excludeParams.add(Pattern.compile(pattern));
++                getExcludeParamsSet().add(Pattern.compile(pattern));
+2022-10-17 08:05:16.675 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:05:17.696 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-10-17 08:05:26.879 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -505,7 +505,7 @@ public class ParametersInterceptor extends MethodFilterInterceptor {
+-                excludeParams.add(Pattern.compile(pattern));
++                excludeParams.add(Pattern.compile(getOrderedComparator()));
+2022-10-17 08:05:26.879 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:05:27.836 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-10-17 08:05:27.858 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -505,7 +505,7 @@ public class ParametersInterceptor extends MethodFilterInterceptor {
+-                excludeParams.add(Pattern.compile(pattern));
++                excludeParams.add(Pattern.compile(isOrdered()));
+2022-10-17 08:05:27.858 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:05:28.844 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-10-17 08:05:28.862 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -505,7 +505,7 @@ public class ParametersInterceptor extends MethodFilterInterceptor {
+-                excludeParams.add(Pattern.compile(pattern));
++                excludeParams.add(Pattern.compile(getExcludeParamsSet()));
+2022-10-17 08:05:28.863 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:05:29.833 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-10-17 08:05:29.887 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -505,7 +505,10 @@ public class ParametersInterceptor extends MethodFilterInterceptor {
+-                excludeParams.add(Pattern.compile(pattern));
++                if (excludeParams != null) {
++	excludeParams.add(Pattern.compile(pattern));
++	}
++
+2022-10-17 08:05:29.887 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:05:30.866 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-10-17 08:05:40.049 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -505,7 +505,10 @@ public class ParametersInterceptor extends MethodFilterInterceptor {
+-                excludeParams.add(Pattern.compile(pattern));
++                if (excludeParams == null) {
++	    throw new IllegalArgumentException("Null 'excludeParams' argument.");
++	}
++excludeParams.add(Pattern.compile(pattern));
+2022-10-17 08:05:40.049 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:05:41.065 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-10-17 08:05:50.100 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -505,7 +505,10 @@ public class ParametersInterceptor extends MethodFilterInterceptor {
+-                excludeParams.add(Pattern.compile(pattern));
++                if (excludeParams == null) {
++	    return;
++	}
++excludeParams.add(Pattern.compile(pattern));
+2022-10-17 08:05:50.100 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:05:51.040 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-10-17 08:06:00.083 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -505,7 +505,8 @@ public class ParametersInterceptor extends MethodFilterInterceptor {
+-                excludeParams.add(Pattern.compile(pattern));
++                if (excludeParams == null) excludeParams = this.acceptParams;
++ excludeParams.add(Pattern.compile(pattern));
+2022-10-17 08:06:00.084 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:06:01.037 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-10-17 08:06:10.301 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -505,7 +505,8 @@ public class ParametersInterceptor extends MethodFilterInterceptor {
+-                excludeParams.add(Pattern.compile(pattern));
++                if (excludeParams == null) excludeParams = new Set();
++ excludeParams.add(Pattern.compile(pattern));
+2022-10-17 08:06:10.301 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:06:11.225 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-10-17 08:06:11.244 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -505,7 +505,10 @@ public class ParametersInterceptor extends MethodFilterInterceptor {
+-                excludeParams.add(Pattern.compile(pattern));
++                if (pattern != null) {
++	excludeParams.add(Pattern.compile(pattern));
++	}
++
+2022-10-17 08:06:11.244 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:06:12.280 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-10-17 08:06:21.390 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -505,7 +505,10 @@ public class ParametersInterceptor extends MethodFilterInterceptor {
+-                excludeParams.add(Pattern.compile(pattern));
++                if (pattern == null) {
++	    throw new IllegalArgumentException("Null 'pattern' argument.");
++	}
++excludeParams.add(Pattern.compile(pattern));
+2022-10-17 08:06:21.390 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:06:22.314 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-10-17 08:06:31.351 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -505,7 +505,10 @@ public class ParametersInterceptor extends MethodFilterInterceptor {
+-                excludeParams.add(Pattern.compile(pattern));
++                if (pattern == null) {
++	    return;
++	}
++excludeParams.add(Pattern.compile(pattern));
+2022-10-17 08:06:31.351 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:06:32.303 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-10-17 08:06:41.365 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -505,7 +505,8 @@ public class ParametersInterceptor extends MethodFilterInterceptor {
+-                excludeParams.add(Pattern.compile(pattern));
++                if (pattern == null) pattern = commaDelim;
++ excludeParams.add(Pattern.compile(pattern));
+2022-10-17 08:06:41.365 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:06:42.299 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-10-17 08:06:51.377 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -505,7 +505,8 @@ public class ParametersInterceptor extends MethodFilterInterceptor {
+-                excludeParams.add(Pattern.compile(pattern));
++                if (pattern == null) pattern = ACCEPTED_PARAM_NAMES;
++ excludeParams.add(Pattern.compile(pattern));
+2022-10-17 08:06:51.377 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:06:52.337 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-10-17 08:07:01.541 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -505,7 +505,8 @@ public class ParametersInterceptor extends MethodFilterInterceptor {
+-                excludeParams.add(Pattern.compile(pattern));
++                if (pattern == null) pattern = ParametersInterceptor.ACCEPTED_PARAM_NAMES;
++ excludeParams.add(Pattern.compile(pattern));
+2022-10-17 08:07:01.542 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:07:02.589 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-10-17 08:07:12.187 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -505,7 +505,8 @@ public class ParametersInterceptor extends MethodFilterInterceptor {
+-                excludeParams.add(Pattern.compile(pattern));
++                if (pattern == null) pattern = new String();
++ excludeParams.add(Pattern.compile(pattern));
+2022-10-17 08:07:12.187 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:07:13.227 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-10-17 08:07:22.342 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -505,7 +505,9 @@ public class ParametersInterceptor extends MethodFilterInterceptor {
+-                excludeParams.add(Pattern.compile(pattern));
++                if (excludeParams == null) continue;
++	if (pattern == null) continue;
++	excludeParams.add(Pattern.compile(pattern));
+2022-10-17 08:07:22.343 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:07:23.338 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-10-17 08:07:32.311 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -505,7 +505,10 @@ public class ParametersInterceptor extends MethodFilterInterceptor {
+-                excludeParams.add(Pattern.compile(pattern));
++                if (excludeParams != null && pattern != null) {
++	excludeParams.add(Pattern.compile(pattern));
++	}
++
+2022-10-17 08:07:32.311 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:07:33.250 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-10-17 08:07:42.595 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -505,7 +505,7 @@ public class ParametersInterceptor extends MethodFilterInterceptor {
+-                excludeParams.add(Pattern.compile(pattern));
++
+2022-10-17 08:07:42.595 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:07:43.510 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-10-17 08:07:52.738 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -494,22 +494,6 @@ public class ParametersInterceptor extends MethodFilterInterceptor {
+-    /**
+-     * Sets a comma-delimited list of regular expressions to match
+-     * parameters that should be removed from the parameter map.
+-     *
+-     * @param commaDelim A comma-delimited list of regular expressions
+-     */
+-    public void setExcludeParams(String commaDelim) {
+-        Collection<String> excludePatterns = ArrayUtils.asCollection(commaDelim);
+-        if (excludePatterns != null) {
+-            excludeParams = new HashSet<Pattern>();
+-            for (String pattern : excludePatterns) {
+-                excludeParams.add(Pattern.compile(pattern));
+-            }
+-            // Patch: Add excludeParams.add(Pattern.compile("(.*\\.|^|.*|\\[('|\"))class(\\.|('|\")]|\\[).*"));
+-//            excludeParams.add(Pattern.compile("(.*\\.|^|.*|\\[('|\"))class(\\.|('|\")]|\\[).*"));
+-        }
+-    }
++
+2022-10-17 08:07:52.738 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:07:53.703 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-10-17 08:08:02.938 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -505,7 +505,7 @@ public class ParametersInterceptor extends MethodFilterInterceptor {
+-                excludeParams.add(Pattern.compile(pattern));
++                setDevMode(pattern);
+2022-10-17 08:08:02.938 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:08:03.910 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-10-17 08:08:13.025 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -505,7 +505,8 @@ public class ParametersInterceptor extends MethodFilterInterceptor {
+-                excludeParams.add(Pattern.compile(pattern));
++                setDevMode(pattern);
++	excludeParams.add(Pattern.compile(pattern));
+2022-10-17 08:08:13.025 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:08:13.994 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-10-17 08:08:23.085 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -506,6 +506,7 @@ public class ParametersInterceptor extends MethodFilterInterceptor {
++	setDevMode(pattern);
+2022-10-17 08:08:23.086 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:08:24.068 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-10-17 08:08:33.279 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -505,7 +505,7 @@ public class ParametersInterceptor extends MethodFilterInterceptor {
+-                excludeParams.add(Pattern.compile(pattern));
++                setAcceptParamNames(pattern);
+2022-10-17 08:08:33.279 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:08:34.238 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-10-17 08:08:43.374 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -505,7 +505,8 @@ public class ParametersInterceptor extends MethodFilterInterceptor {
+-                excludeParams.add(Pattern.compile(pattern));
++                setAcceptParamNames(pattern);
++	excludeParams.add(Pattern.compile(pattern));
+2022-10-17 08:08:43.374 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:08:44.416 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-10-17 08:08:53.480 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -506,6 +506,7 @@ public class ParametersInterceptor extends MethodFilterInterceptor {
++	setAcceptParamNames(pattern);
+2022-10-17 08:08:53.480 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:08:54.493 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-10-17 08:09:04.151 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -505,7 +505,7 @@ public class ParametersInterceptor extends MethodFilterInterceptor {
+-                excludeParams.add(Pattern.compile(pattern));
++                setExcludeParams(pattern);
+2022-10-17 08:09:04.151 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:09:05.194 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-10-17 08:09:14.431 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -505,7 +505,8 @@ public class ParametersInterceptor extends MethodFilterInterceptor {
+-                excludeParams.add(Pattern.compile(pattern));
++                setExcludeParams(pattern);
++	excludeParams.add(Pattern.compile(pattern));
+2022-10-17 08:09:14.431 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:09:15.359 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-10-17 08:09:24.739 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -506,6 +506,7 @@ public class ParametersInterceptor extends MethodFilterInterceptor {
++	setExcludeParams(pattern);
+2022-10-17 08:09:24.739 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:09:25.794 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-10-17 08:09:35.095 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - com.opensymphony.xwork2.interceptor.ParametersInterceptor ===506
+2022-10-17 08:09:35.140 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+excludeParams = new HashSet<Pattern>();
+2022-10-17 08:09:35.323 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -503,7 +503,7 @@ public class ParametersInterceptor extends MethodFilterInterceptor {
+-            excludeParams = new HashSet<Pattern>();
++
+2022-10-17 08:09:35.323 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:09:36.322 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-10-17 08:09:45.270 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - com.opensymphony.xwork2.interceptor.ParametersInterceptor ===158
+2022-10-17 08:09:45.296 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+private Pattern acceptedPattern = Pattern.compile(ACCEPTED_PARAM_NAMES);
+2022-10-17 08:09:45.332 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -155,7 +155,7 @@ public class ParametersInterceptor extends MethodFilterInterceptor {
+-    private Pattern acceptedPattern = Pattern.compile(ACCEPTED_PARAM_NAMES);
++    private Pattern acceptedPattern = Pattern.compile(ParametersInterceptor.ACCEPTED_PARAM_NAMES);
+2022-10-17 08:09:45.332 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:09:46.360 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-10-17 08:09:55.591 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -155,7 +155,7 @@ public class ParametersInterceptor extends MethodFilterInterceptor {
+-    private Pattern acceptedPattern = Pattern.compile(ACCEPTED_PARAM_NAMES);
++    private Pattern acceptedPattern = Pattern.compile(getOrderedComparator());
+2022-10-17 08:09:55.591 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:09:56.493 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-10-17 08:09:56.511 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -155,7 +155,7 @@ public class ParametersInterceptor extends MethodFilterInterceptor {
+-    private Pattern acceptedPattern = Pattern.compile(ACCEPTED_PARAM_NAMES);
++    private Pattern acceptedPattern = Pattern.compile(isOrdered());
+2022-10-17 08:09:56.511 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:09:57.411 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-10-17 08:09:57.429 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -155,7 +155,7 @@ public class ParametersInterceptor extends MethodFilterInterceptor {
+-    private Pattern acceptedPattern = Pattern.compile(ACCEPTED_PARAM_NAMES);
++    private Pattern acceptedPattern = Pattern.compile(getExcludeParamsSet());
+2022-10-17 08:09:57.429 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:09:58.374 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-10-17 08:09:58.410 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -155,7 +155,10 @@ public class ParametersInterceptor extends MethodFilterInterceptor {
+-    private Pattern acceptedPattern = Pattern.compile(ACCEPTED_PARAM_NAMES);
++    if (ACCEPTED_PARAM_NAMES != null) {
++	private Pattern acceptedPattern = Pattern.compile(ACCEPTED_PARAM_NAMES);
++	}
++
+2022-10-17 08:09:58.411 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:09:58.742 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-10-17 08:09:58.760 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -155,7 +155,8 @@ public class ParametersInterceptor extends MethodFilterInterceptor {
+-    private Pattern acceptedPattern = Pattern.compile(ACCEPTED_PARAM_NAMES);
++    if (ACCEPTED_PARAM_NAMES == null) ACCEPTED_PARAM_NAMES = ParametersInterceptor.ACCEPTED_PARAM_NAMES;
++ private Pattern acceptedPattern = Pattern.compile(ACCEPTED_PARAM_NAMES);
+2022-10-17 08:09:58.761 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:09:59.057 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-10-17 08:09:59.076 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -155,7 +155,8 @@ public class ParametersInterceptor extends MethodFilterInterceptor {
+-    private Pattern acceptedPattern = Pattern.compile(ACCEPTED_PARAM_NAMES);
++    if (ACCEPTED_PARAM_NAMES == null) ACCEPTED_PARAM_NAMES = new String();
++ private Pattern acceptedPattern = Pattern.compile(ACCEPTED_PARAM_NAMES);
+2022-10-17 08:09:59.076 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:09:59.394 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-10-17 08:09:59.501 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -155,7 +155,7 @@ public class ParametersInterceptor extends MethodFilterInterceptor {
+-    private Pattern acceptedPattern = Pattern.compile(ACCEPTED_PARAM_NAMES);
++
+2022-10-17 08:09:59.501 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:10:00.463 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-10-17 08:10:00.501 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -155,7 +155,7 @@ public class ParametersInterceptor extends MethodFilterInterceptor {
+-    private Pattern acceptedPattern = Pattern.compile(ACCEPTED_PARAM_NAMES);
++    setDevMode(ACCEPTED_PARAM_NAMES);
+2022-10-17 08:10:00.501 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:10:00.795 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-10-17 08:10:00.813 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -155,7 +155,8 @@ public class ParametersInterceptor extends MethodFilterInterceptor {
+-    private Pattern acceptedPattern = Pattern.compile(ACCEPTED_PARAM_NAMES);
++    setDevMode(ACCEPTED_PARAM_NAMES);
++	private Pattern acceptedPattern = Pattern.compile(ACCEPTED_PARAM_NAMES);
+2022-10-17 08:10:00.813 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:10:01.115 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-10-17 08:10:01.133 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -156,6 +156,7 @@ public class ParametersInterceptor extends MethodFilterInterceptor {
++	setDevMode(ACCEPTED_PARAM_NAMES);
+2022-10-17 08:10:01.133 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:10:01.433 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-10-17 08:10:01.452 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -155,7 +155,7 @@ public class ParametersInterceptor extends MethodFilterInterceptor {
+-    private Pattern acceptedPattern = Pattern.compile(ACCEPTED_PARAM_NAMES);
++    setAcceptParamNames(ACCEPTED_PARAM_NAMES);
+2022-10-17 08:10:01.452 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:10:01.756 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-10-17 08:10:01.774 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -155,7 +155,8 @@ public class ParametersInterceptor extends MethodFilterInterceptor {
+-    private Pattern acceptedPattern = Pattern.compile(ACCEPTED_PARAM_NAMES);
++    setAcceptParamNames(ACCEPTED_PARAM_NAMES);
++	private Pattern acceptedPattern = Pattern.compile(ACCEPTED_PARAM_NAMES);
+2022-10-17 08:10:01.774 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:10:02.096 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-10-17 08:10:02.116 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -156,6 +156,7 @@ public class ParametersInterceptor extends MethodFilterInterceptor {
++	setAcceptParamNames(ACCEPTED_PARAM_NAMES);
+2022-10-17 08:10:02.116 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:10:02.446 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-10-17 08:10:02.466 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -155,7 +155,7 @@ public class ParametersInterceptor extends MethodFilterInterceptor {
+-    private Pattern acceptedPattern = Pattern.compile(ACCEPTED_PARAM_NAMES);
++    setExcludeParams(ACCEPTED_PARAM_NAMES);
+2022-10-17 08:10:02.466 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:10:02.787 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-10-17 08:10:02.806 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -155,7 +155,8 @@ public class ParametersInterceptor extends MethodFilterInterceptor {
+-    private Pattern acceptedPattern = Pattern.compile(ACCEPTED_PARAM_NAMES);
++    setExcludeParams(ACCEPTED_PARAM_NAMES);
++	private Pattern acceptedPattern = Pattern.compile(ACCEPTED_PARAM_NAMES);
+2022-10-17 08:10:02.806 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:10:03.114 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-10-17 08:10:03.138 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -156,6 +156,7 @@ public class ParametersInterceptor extends MethodFilterInterceptor {
++	setExcludeParams(ACCEPTED_PARAM_NAMES);
+2022-10-17 08:10:03.138 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-10-17 08:10:03.475 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-10-17 08:10:03.476 [main] INFO  edu.lu.uni.serval.tbar.TBarFixer - =======StaticBugFixer: Finish off fixing======
+Failed to fix bug
+
+
+Node: 2c8178711f7b
+
+
+
+Date: Mon Oct 17 08:10:03 EDT 2022
+

@@ -1,0 +1,211 @@
+cd /workdir/jMutRepair_vul4j_apache_httpcomponents-client_VUL4J-17;
+export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en";
+TZ="America/New_York"; export TZ;
+export PATH="/usr/lib/jvm/java-8-openjdk-amd64/bin:$PATH";
+export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64/bin";
+time java -Xmx4g -Xms1g -XX:MaxPermSize=512m -cp /script/../libs/jtestex7.jar:/script/../repair_tools/astor.jar fr.inria.main.evolution.AstorMain \
+	-mode jMutRepair \
+	-location . \
+	-id apache_httpcomponents-client-VUL4J-17 \
+	-failing org.apache.http.client.utils.TestURIBuilder#testMalformedPath \
+	-jvm4testexecution /usr/lib/jvm/java-8-openjdk-amd64/bin \
+	-jvm4evosuitetestexecution /usr/lib/jvm/java-8-openjdk-amd64/bin \
+	-maxgen 1000000 \
+	-maxtime 120 \
+	-stopfirst true \
+	-seed 0 \
+	-scope local \
+	-population 1 \
+	-javacompliancelevel 8 \
+	-faultlocalization perfect \
+    -perfectdata /script/../data/benchmarks/vul4j/perfectfl/VUL4J-17 \
+    -validation externalcmd \
+    -testfailingcmd "mvn test -pl httpclient -Dtest=org.apache.http.client.utils.TestURIBuilder#testMalformedPath -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B" \
+    -testallcmd "mvn test -pl httpclient -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B"  \ \
+	-srcjavafolder httpclient/src/main/java \
+	-srctestfolder httpclient/src/test/java \
+	-binjavafolder httpclient/target/classes \
+	-bintestfolder httpclient/target/test-classes \
+	-parameters x:x \
+	-dependencies /root/.m2/repository/org/apache/httpcomponents/httpcore/4.4.6/httpcore-4.4.6.jar:/root/.m2/repository/commons-codec/commons-codec/1.9/commons-codec-1.9.jar:/root/.m2/repository/junit/junit/4.11/junit-4.11.jar:/root/.m2/repository/org/mockito/mockito-core/1.8.5/mockito-core-1.8.5.jar:/root/.m2/repository/org/objenesis/objenesis/1.0/objenesis-1.0.jar:/root/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar;
+	echo "\n\nNode: `hostname`\n";
+	echo "\n\nDate: `date`\n";
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en
+OpenJDK 64-Bit Server VM warning: ignoring option MaxPermSize=512m; support was removed in 8.0
+[0] INFO ProjectConfiguration - Version of the JVM used: 1.8.0_342
+[1] INFO main - Java version of the JDK used to run tests: 1.8.0_342
+[1] INFO main - The compliance of the JVM is:  8
+[5] INFO main - command line arguments: [-mode  jMutRepair  -location  .  -id  apache_httpcomponents-client-VUL4J-17  -failing  org.apache.http.client.utils.TestURIBuilder#testMalformedPath  -jvm4testexecution  /usr/lib/jvm/java-8-openjdk-amd64/bin  -jvm4evosuitetestexecution  /usr/lib/jvm/java-8-openjdk-amd64/bin  -maxgen  1000000  -maxtime  120  -stopfirst  true  -seed  0  -scope  local  -population  1  -javacompliancelevel  8  -faultlocalization  perfect  -perfectdata  /script/../data/benchmarks/vul4j/perfectfl/VUL4J-17  -validation  externalcmd  -testfailingcmd  mvn test -pl httpclient -Dtest=org.apache.http.client.utils.TestURIBuilder#testMalformedPath -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B  -testallcmd  mvn test -pl httpclient -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B     -srcjavafolder  httpclient/src/main/java  -srctestfolder  httpclient/src/test/java  -binjavafolder  httpclient/target/classes  -bintestfolder  httpclient/target/test-classes  -parameters  x:x  -dependencies  /root/.m2/repository/org/apache/httpcomponents/httpcore/4.4.6/httpcore-4.4.6.jar:/root/.m2/repository/commons-codec/commons-codec/1.9/commons-codec-1.9.jar:/root/.m2/repository/junit/junit/4.11/junit-4.11.jar:/root/.m2/repository/org/mockito/mockito-core/1.8.5/mockito-core-1.8.5.jar:/root/.m2/repository/org/objenesis/objenesis/1.0/objenesis-1.0.jar:/root/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar]
+[7] INFO AstorMain - Running Astor on a JDK at /usr/lib/jvm/java-8-openjdk-amd64/jre
+[16] INFO main - Source folders: [/workdir/jMutRepair_vul4j_apache_httpcomponents-client_VUL4J-17/./httpclient/src/main/java]
+[24] INFO main - Source Test folders: [/workdir/jMutRepair_vul4j_apache_httpcomponents-client_VUL4J-17/./httpclient/src/test/java]
+[2801] INFO AstorCoreEngine - ---- Creating spoon model
+[2910] INFO MutationSupporter - Creating model,  Code location from working folder: /workdir/jMutRepair_vul4j_apache_httpcomponents-client_VUL4J-17/./httpclient/src/main/java
+[2910] INFO MutationSupporter - building model: /workdir/jMutRepair_vul4j_apache_httpcomponents-client_VUL4J-17/./httpclient/src/main/java, compliance level: 8
+[3406] INFO MutationSupporter - Classpath (Dependencies) for building SpoonModel: [/root/.m2/repository/org/apache/httpcomponents/httpcore/4.4.6/httpcore-4.4.6.jar, /root/.m2/repository/commons-codec/commons-codec/1.9/commons-codec-1.9.jar, /root/.m2/repository/junit/junit/4.11/junit-4.11.jar, /root/.m2/repository/org/mockito/mockito-core/1.8.5/mockito-core-1.8.5.jar, /root/.m2/repository/org/objenesis/objenesis/1.0/objenesis-1.0.jar, /root/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar, /root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar]
+[28849] INFO AstorCoreEngine - Number of CtTypes created: 296
+[29658] INFO AstorCoreEngine - Test retrieved from classes: 0
+[30032] INFO AstorCoreEngine - Setting up the max to 3840 milliseconds (3 sec)
+[30032] INFO AstorCoreEngine - ---- Initial suspicious size: 2
+[31698] INFO main - Total suspicious from FL: 2,  2
+[31717] INFO main - Total ModPoint created: 2
+[31717] INFO main - Creating program variant #1, [Variant id: 1, #gens: 2, #ops: 0, parent:-]
+[31718] INFO main - Run previously failing tests...
+[76759] INFO main - Failed tests: 1
+[76761] INFO AstorCoreEngine - The original fitness is : 1.0
+[76761] WARN ConfigurationProperties - ----------------------------
+[76761] INFO ConfigurationProperties - ---Configuration properties
+[76762] INFO ConfigurationProperties - p:lastJUnitVersion= ./examples/libs/junit-4.11.jar
+[76762] INFO ConfigurationProperties - p:alternativecompliancelevel= 8
+[76762] INFO ConfigurationProperties - p:ignoredTestCases= 
+[76763] INFO ConfigurationProperties - p:workingDirectory= /workdir/jMutRepair_vul4j_apache_httpcomponents-client_VUL4J-17/./output_astor
+[76763] INFO ConfigurationProperties - p:manipulatesuper= false
+[76763] INFO ConfigurationProperties - p:validation= externalcmd
+[76763] INFO ConfigurationProperties - p:jvm4testexecution= /usr/lib/jvm/java-8-openjdk-amd64/bin
+[76763] INFO ConfigurationProperties - p:operatorspace= mutationspace
+[76763] INFO ConfigurationProperties - p:diffcontext= 0
+[76763] INFO ConfigurationProperties - p:binjavafolder= httpclient/target/classes
+[76763] INFO ConfigurationProperties - p:synthesis_depth= 3
+[76763] INFO ConfigurationProperties - p:gzoltartestpackagetoexclude= junit.framework
+[76763] INFO ConfigurationProperties - p:skipfitnessinitialpopulation= false
+[76763] INFO ConfigurationProperties - p:evosuiteresultfolder= evosuite
+[76763] INFO ConfigurationProperties - p:flthreshold= 0.1
+[76763] INFO ConfigurationProperties - p:regressionforfaultlocalization= true
+[76763] INFO ConfigurationProperties - p:collectonlyusedmethod= false
+[76763] INFO ConfigurationProperties - p:preservelinenumbers= true
+[76763] INFO ConfigurationProperties - p:tmax2= 3840
+[76764] INFO ConfigurationProperties - p:tmax1= 10000
+[76764] INFO ConfigurationProperties - p:probagenmutation= false
+[76764] INFO ConfigurationProperties - p:nomodificationconvergence= 100
+[76764] INFO ConfigurationProperties - p:diff_type= relative
+[76764] INFO ConfigurationProperties - p:targetelementprocessor= if-conditions:return-op-mutation
+[76764] INFO ConfigurationProperties - p:srctestfolder= httpclient/src/test/java
+[76764] INFO ConfigurationProperties - p:forceExecuteRegression= false
+[76764] INFO ConfigurationProperties - p:clusteringfilename= clustering.csv
+[76764] INFO ConfigurationProperties - p:failing= org.apache.http.client.utils.TestURIBuilder#testMalformedPath
+[76764] INFO ConfigurationProperties - p:logtestexecution= false
+[76764] INFO ConfigurationProperties - p:evo_buggy_class= true
+[76764] INFO ConfigurationProperties - p:numberExecutions= 1
+[76764] INFO ConfigurationProperties - p:maxnumbersolutions= 1000000
+[76764] INFO ConfigurationProperties - p:evo_affected_by_op= true
+[76764] INFO ConfigurationProperties - p:population= 1
+[76764] INFO ConfigurationProperties - p:considerzerovaluesusp= false
+[76764] INFO ConfigurationProperties - p:maxCombinationVariableLimit= false
+[76764] INFO ConfigurationProperties - p:savesolution= true
+[76765] INFO ConfigurationProperties - p:javacompliancelevel= 8
+[76765] INFO ConfigurationProperties - p:x= x
+[76765] INFO ConfigurationProperties - p:uniqueoptogen= false
+[76765] INFO ConfigurationProperties - p:gzoltarpackagetonotinstrument= junit.framework
+[76765] INFO ConfigurationProperties - p:projectIdentifier= apache_httpcomponents-client-VUL4J-17
+[76765] INFO ConfigurationProperties - p:modificationpointnavigation= weight
+[76765] INFO ConfigurationProperties - p:stopfirst= true
+[76765] INFO ConfigurationProperties - p:multipointmodification= false
+[76765] INFO ConfigurationProperties - p:elementsToMutate= 10
+[76765] INFO ConfigurationProperties - p:jsonoutputname= astor_output
+[76765] INFO ConfigurationProperties - p:evoDSE= false
+[76765] INFO ConfigurationProperties - p:bintestfolder= httpclient/target/test-classes
+[76765] INFO ConfigurationProperties - p:testbystep= false
+[76765] INFO ConfigurationProperties - p:version-location= ./math-version/
+[76765] INFO ConfigurationProperties - p:reintroduce= PARENTS:ORIGINAL
+[76765] INFO ConfigurationProperties - p:perfectdata= /script/../data/benchmarks/vul4j/perfectfl/VUL4J-17
+[76765] INFO ConfigurationProperties - p:executorjar= ./lib/jtestex7.jar
+[76765] INFO ConfigurationProperties - p:maxGeneration= 1000000
+[76765] INFO ConfigurationProperties - p:max_synthesis_step= 10000
+[76766] INFO ConfigurationProperties - p:projectinfocommand= com.github.tdurieux:project-config-maven-plugin:info
+[76766] INFO ConfigurationProperties - p:maxVarCombination= 1000
+[76766] INFO ConfigurationProperties - p:maxtime= 120
+[76766] INFO ConfigurationProperties - p:evosuitejar= ./lib/evosuite-master-1.0.4-SNAPSHOT.jar
+[76766] INFO ConfigurationProperties - p:jvmversion= 1.8.0_342
+[76766] INFO ConfigurationProperties - p:commandTrunk= 50000
+[76766] INFO ConfigurationProperties - p:faultlocalization= perfect
+[76766] INFO ConfigurationProperties - p:resetmodel= true
+[76766] INFO ConfigurationProperties - p:maxsuspcandidates= 1000
+[76766] INFO ConfigurationProperties - p:mode= jMutRepair
+[76766] INFO ConfigurationProperties - p:learningdir= 
+[76766] INFO ConfigurationProperties - p:jvm4evosuitetestexecution= /usr/lib/jvm/java-8-openjdk-amd64/bin
+[76766] INFO ConfigurationProperties - p:filterfaultlocalization= true
+[76766] INFO ConfigurationProperties - p:mutationrate= 1 
+[76766] INFO ConfigurationProperties - p:pathToMVNRepository= 
+[76766] INFO ConfigurationProperties - p:resourcesfolder= /src/main/resources:/src/test/resources:
+[76766] INFO ConfigurationProperties - p:timezone= America/Los_Angeles
+[76766] INFO ConfigurationProperties - p:runjava7code= false
+[76766] INFO ConfigurationProperties - p:testfailingcmd= mvn test -pl httpclient -Dtest=org.apache.http.client.utils.TestURIBuilder#testMalformedPath -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B
+[76767] INFO ConfigurationProperties - p:evoRunOnBuggyClass= true
+[76767] INFO ConfigurationProperties - p:compiler= fr.inria.astor.core.manipulation.bytecode.compiler.SpoonClassCompiler
+[76767] INFO ConfigurationProperties - p:limitbysuspicious= true
+[76767] INFO ConfigurationProperties - p:logsattemps= true
+[76767] INFO ConfigurationProperties - p:dependenciespath= /root/.m2/repository/org/apache/httpcomponents/httpcore/4.4.6/httpcore-4.4.6.jar:/root/.m2/repository/commons-codec/commons-codec/1.9/commons-codec-1.9.jar:/root/.m2/repository/junit/junit/4.11/junit-4.11.jar:/root/.m2/repository/org/mockito/mockito-core/1.8.5/mockito-core-1.8.5.jar:/root/.m2/repository/org/objenesis/objenesis/1.0/objenesis-1.0.jar:/root/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar
+[76767] INFO ConfigurationProperties - p:packageToInstrument= 
+[76767] INFO ConfigurationProperties - p:skipfaultlocalization= false
+[76767] INFO ConfigurationProperties - p:scope= local
+[76767] INFO ConfigurationProperties - p:transformingredient= false
+[76767] INFO ConfigurationProperties - p:fitnessfunction= fr.inria.astor.core.solutionsearch.population.TestCaseFitnessFunction
+[76767] INFO ConfigurationProperties - p:maxnumvariablesperingredient= 10
+[76767] INFO ConfigurationProperties - p:parsesourcefromoriginal= true
+[76767] INFO ConfigurationProperties - p:pvariantfoldername= variant-
+[76767] INFO ConfigurationProperties - p:savespoonmodelondisk= false
+[76767] INFO ConfigurationProperties - p:srcjavafolder= httpclient/src/main/java
+[76767] INFO ConfigurationProperties - p:populationcontroller= fr.inria.astor.core.solutionsearch.population.TestCaseBasedFitnessPopulationController
+[76767] INFO ConfigurationProperties - p:ignoreflakyinfl= false
+[76767] INFO ConfigurationProperties - p:cleantemplates= true
+[76768] INFO ConfigurationProperties - p:applyCrossover= false
+[76768] INFO ConfigurationProperties - p:maxmodificationpoints= 1000
+[76768] INFO ConfigurationProperties - p:duplicateingredientsinspace= false
+[76768] INFO ConfigurationProperties - p:metid= 0
+[76768] INFO ConfigurationProperties - p:continuewhenmodelfail= true
+[76768] INFO ConfigurationProperties - p:saveall= false
+[76768] INFO ConfigurationProperties - p:seed= 0
+[76768] INFO ConfigurationProperties - p:savecompletepatched= true
+[76768] INFO ConfigurationProperties - p:resetoperations= false
+[76768] INFO ConfigurationProperties - p:keepcomments= false
+[76768] INFO ConfigurationProperties - p:processoutputinfile= false
+[76768] INFO ConfigurationProperties - p:location= .
+[76768] INFO ConfigurationProperties - p:probabilistictransformation= true
+[76768] INFO ConfigurationProperties - p:overridemaxtime= true
+[76768] INFO ConfigurationProperties - p:outputjsonresult= true
+[76768] INFO ConfigurationProperties - p:allpoints= false
+[76768] INFO ConfigurationProperties - p:antipattern= false
+[76769] INFO ConfigurationProperties - p:bugId= 280
+[76769] INFO ConfigurationProperties - p:evosuitetimeout= 120
+[76769] INFO ConfigurationProperties - p:maxtimefactor= 10
+[76769] INFO ConfigurationProperties - p:nrPlaceholders= 1
+[76769] INFO ConfigurationProperties - p:testallcmd= mvn test -pl httpclient -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B
+[76769] INFO ConfigurationProperties - p:forcesubprocesskilling= false
+[76769] INFO ConfigurationProperties - ----------------------------
+[76772] INFO AstorCoreEngine - Time Repair Loop (s): 0.002
+[76772] INFO AstorCoreEngine - generationsexecuted: 1
+[76772] WARN AstorCoreEngine - ----SUMMARY_EXECUTION---
+[76772] WARN AstorCoreEngine - End Repair Search: NOT Found solution
+[76786] WARN AstorCoreEngine - Number suspicious:1
+[76788] INFO AstorCoreEngine - 
+ --SOLUTIONS DESCRIPTION--
+
+
+Astor Output:
+
+General stats:
+EXECUTION_IDENTIFIER=apache_httpcomponents-client-VUL4J-17
+TOTAL_TIME=0.002
+NR_GENERATIONS=null
+NR_RIGHT_COMPILATIONS=null
+NR_FAILLING_COMPILATIONS=null
+NR_ERRONEOUS_VARIANCES=null
+NR_FAILING_VALIDATION_PROCESS=null
+OUTPUT_STATUS=EXHAUSTIVE_NAVIGATED
+
+Patch stats:
+
+[76848] INFO Stats - Storing ing JSON at /workdir/jMutRepair_vul4j_apache_httpcomponents-client_VUL4J-17/./output_astor/AstorMain-apache_httpcomponents-client-VUL4J-17//astor_output.json
+[76849] INFO Stats - astor_output:
+{"general":{"NR_RIGHT_COMPILATIONS":null,"NR_ERRONEOUS_VARIANCES":null,"EXECUTION_IDENTIFIER":"apache_httpcomponents-client-VUL4J-17","OUTPUT_STATUS":"EXHAUSTIVE_NAVIGATED","NR_FAILLING_COMPILATIONS":null,"NR_GENERATIONS":null,"TOTAL_TIME":0.002,"NR_FAILING_VALIDATION_PROCESS":null},"patches":[]}
+[76849] INFO AstorMain - Time Total(s): 76.838
+73.56user 10.42system 1:18.29elapsed 107%CPU (0avgtext+0avgdata 716364maxresident)k
+560inputs+18248outputs (1major+344168minor)pagefaults 0swaps
+
+
+Node: 9670332cfea8
+
+
+
+Date: Fri Sep  9 06:16:27 EDT 2022
+

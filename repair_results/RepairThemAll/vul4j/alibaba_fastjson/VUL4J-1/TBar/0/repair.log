@@ -1,0 +1,498 @@
+cd /workdir/TBar_vul4j_alibaba_fastjson_VUL4J-1;
+export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en";
+TZ="America/New_York"; export TZ;
+export PATH="/usr/lib/jvm/java-8-openjdk-amd64/bin:$PATH";
+export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64";
+timeout 240m java -Xmx4g -Xms1g -XX:MaxPermSize=512m \
+    -cp /script/../libs/tbar_external/com.gzoltar-0.1.1-jdk7.jar:/script/../repair_tools/tbar.jar edu.lu.uni.serval.tbar.main.Main \
+    "/workdir/TBar_vul4j_alibaba_fastjson_VUL4J-1" "com.alibaba.json.bvt.bug.Issue1005#test_for_issue" "/src/main/java/" "/src/test/java/" "/target/classes/" "/target/test-classes/" "/script/../data/benchmarks/vul4j/perfectfl/VUL4J-1/spectra.txt" "mvn test -Dtest=com.alibaba.json.bvt.bug.Issue1005#test_for_issue -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B" "mvn test -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B" "/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.7.0/jackson-annotations-2.7.0.jar:/root/.m2/repository/com/owlike/genson/1.4/genson-1.4.jar:/root/.m2/repository/org/glassfish/jersey/containers/jersey-container-jdk-http/2.21/jersey-container-jdk-http-2.21.jar:/root/.m2/repository/net/sf/ezmorph/ezmorph/1.0.6/ezmorph-1.0.6.jar:/root/.m2/repository/javax/ws/rs/javax.ws.rs-api/2.0.1/javax.ws.rs-api-2.0.1.jar:/root/.m2/repository/org/eclipse/jetty/jetty-webapp/8.1.8.v20121106/jetty-webapp-8.1.8.v20121106.jar:/root/.m2/repository/org/ow2/asm/asm-analysis/4.0/asm-analysis-4.0.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.7.3/jackson-databind-2.7.3.jar:/root/.m2/repository/org/ow2/asm/asm-tree/4.0/asm-tree-4.0.jar:/root/.m2/repository/org/springframework/spring-beans/4.2.5.RELEASE/spring-beans-4.2.5.RELEASE.jar:/root/.m2/repository/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0.jar:/root/.m2/repository/com/fasterxml/jackson/module/jackson-module-afterburner/2.7.3/jackson-module-afterburner-2.7.3.jar:/root/.m2/repository/com/google/guava/guava/18.0/guava-18.0.jar:/root/.m2/repository/org/eclipse/jetty/orbit/javax.servlet/3.0.0.v201112011016/javax.servlet-3.0.0.v201112011016.jar:/root/.m2/repository/org/glassfish/jersey/test-framework/providers/jersey-test-framework-provider-jdk-http/2.21/jersey-test-framework-provider-jdk-http-2.21.jar:/root/.m2/repository/org/glassfish/jersey/core/jersey-common/2.21/jersey-common-2.21.jar:/root/.m2/repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.7.3/jackson-core-2.7.3.jar:/root/.m2/repository/commons-beanutils/commons-beanutils/1.8.0/commons-beanutils-1.8.0.jar:/root/.m2/repository/org/codehaus/groovy/groovy/2.1.5/groovy-2.1.5.jar:/root/.m2/repository/org/ow2/asm/asm-commons/4.0/asm-commons-4.0.jar:/root/.m2/repository/org/glassfish/jersey/media/jersey-media-jaxb/2.21/jersey-media-jaxb-2.21.jar:/root/.m2/repository/org/glassfish/hk2/hk2-utils/2.4.0-b31/hk2-utils-2.4.0-b31.jar:/root/.m2/repository/org/apache/cxf/cxf-rt-rs-client/3.1.2/cxf-rt-rs-client-3.1.2.jar:/root/.m2/repository/com/google/code/gson/gson/2.6.2/gson-2.6.2.jar:/root/.m2/repository/com/squareup/retrofit2/retrofit/2.1.0/retrofit-2.1.0.jar:/root/.m2/repository/commons-collections/commons-collections/3.2.1/commons-collections-3.2.1.jar:/root/.m2/repository/org/ow2/asm/asm/4.0/asm-4.0.jar:/root/.m2/repository/org/glassfish/jersey/test-framework/jersey-test-framework-core/2.21/jersey-test-framework-core-2.21.jar:/root/.m2/repository/org/eclipse/jetty/jetty-http/8.1.8.v20121106/jetty-http-8.1.8.v20121106.jar:/root/.m2/repository/com/googlecode/json-simple/json-simple/1.1.1/json-simple-1.1.1.jar:/root/.m2/repository/org/javassist/javassist/3.18.0-GA/javassist-3.18.0-GA.jar:/root/.m2/repository/org/springframework/plugin/spring-plugin-metadata/1.2.0.RELEASE/spring-plugin-metadata-1.2.0.RELEASE.jar:/root/.m2/repository/org/glassfish/hk2/hk2-api/2.4.0-b31/hk2-api-2.4.0-b31.jar:/root/.m2/repository/com/fasterxml/classmate/1.3.1/classmate-1.3.1.jar:/root/.m2/repository/org/springframework/plugin/spring-plugin-core/1.2.0.RELEASE/spring-plugin-core-1.2.0.RELEASE.jar:/root/.m2/repository/org/eclipse/jetty/jetty-security/8.1.8.v20121106/jetty-security-8.1.8.v20121106.jar:/root/.m2/repository/org/scala-lang/scala-reflect/2.11.0/scala-reflect-2.11.0.jar:/root/.m2/repository/javax/annotation/javax.annotation-api/1.2/javax.annotation-api-1.2.jar:/root/.m2/repository/com/squareup/okio/okio/1.11.0/okio-1.11.0.jar:/root/.m2/repository/org/glassfish/jersey/containers/jersey-container-servlet/2.21/jersey-container-servlet-2.21.jar:/root/.m2/repository/org/glassfish/hk2/external/javax.inject/2.4.0-b31/javax.inject-2.4.0-b31.jar:/root/.m2/repository/org/eclipse/jetty/jetty-io/8.1.8.v20121106/jetty-io-8.1.8.v20121106.jar:/root/.m2/repository/commons-lang/commons-lang/2.5/commons-lang-2.5.jar:/root/.m2/repository/org/springframework/spring-websocket/4.2.5.RELEASE/spring-websocket-4.2.5.RELEASE.jar:/root/.m2/repository/com/squareup/okhttp3/okhttp/3.5.0/okhttp-3.5.0.jar:/root/.m2/repository/org/clojure/clojure/1.5.1/clojure-1.5.1.jar:/root/.m2/repository/org/glassfish/jersey/containers/jersey-container-servlet-core/2.21/jersey-container-servlet-core-2.21.jar:/root/.m2/repository/org/springframework/spring-core/4.2.5.RELEASE/spring-core-4.2.5.RELEASE.jar:/root/.m2/repository/org/codehaus/woodstox/woodstox-core-asl/4.4.1/woodstox-core-asl-4.4.1.jar:/root/.m2/repository/org/glassfish/hk2/osgi-resource-locator/1.0.1/osgi-resource-locator-1.0.1.jar:/root/.m2/repository/org/springframework/spring-web/4.2.5.RELEASE/spring-web-4.2.5.RELEASE.jar:/root/.m2/repository/com/owlike/genson-scala_2.11/1.4/genson-scala_2.11-1.4.jar:/root/.m2/repository/org/springframework/data/spring-data-commons-core/1.4.1.RELEASE/spring-data-commons-core-1.4.1.RELEASE.jar:/root/.m2/repository/commons-io/commons-io/1.4/commons-io-1.4.jar:/root/.m2/repository/com/fasterxml/jackson/jaxrs/jackson-jaxrs-json-provider/2.7.3/jackson-jaxrs-json-provider-2.7.3.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/scala-lang/scala-library/2.11.0/scala-library-2.11.0.jar:/root/.m2/repository/org/eclipse/jetty/jetty-continuation/8.1.8.v20121106/jetty-continuation-8.1.8.v20121106.jar:/root/.m2/repository/antlr/antlr/2.7.7/antlr-2.7.7.jar:/root/.m2/repository/org/eclipse/jetty/jetty-xml/8.1.8.v20121106/jetty-xml-8.1.8.v20121106.jar:/root/.m2/repository/com/fasterxml/jackson/module/jackson-module-jaxb-annotations/2.7.3/jackson-module-jaxb-annotations-2.7.3.jar:/root/.m2/repository/org/glassfish/jersey/bundles/repackaged/jersey-guava/2.21/jersey-guava-2.21.jar:/root/.m2/repository/net/sf/json-lib/json-lib/2.4/json-lib-2.4-jdk15.jar:/root/.m2/repository/org/glassfish/jersey/core/jersey-server/2.21/jersey-server-2.21.jar:/root/.m2/repository/org/springframework/spring-expression/4.2.5.RELEASE/spring-expression-4.2.5.RELEASE.jar:/root/.m2/repository/io/springfox/springfox-core/2.5.0/springfox-core-2.5.0.jar:/root/.m2/repository/org/eclipse/jetty/jetty-util/8.1.8.v20121106/jetty-util-8.1.8.v20121106.jar:/root/.m2/repository/org/springframework/spring-aop/4.2.5.RELEASE/spring-aop-4.2.5.RELEASE.jar:/root/.m2/repository/org/glassfish/jersey/core/jersey-client/2.21/jersey-client-2.21.jar:/root/.m2/repository/com/jsoniter/jsoniter/0.9.4/jsoniter-0.9.4.jar:/root/.m2/repository/cglib/cglib-nodep/2.2.2/cglib-nodep-2.2.2.jar:/root/.m2/repository/io/springfox/springfox-spring-web/2.5.0/springfox-spring-web-2.5.0.jar:/root/.m2/repository/net/minidev/accessors-smart/1.1/accessors-smart-1.1.jar:/root/.m2/repository/org/ow2/asm/asm-debug-all/5.0.4/asm-debug-all-5.0.4.jar:/root/.m2/repository/org/apache/cxf/cxf-core/3.1.2/cxf-core-3.1.2.jar:/root/.m2/repository/org/apache/cxf/cxf-rt-frontend-jaxrs/3.1.2/cxf-rt-frontend-jaxrs-3.1.2.jar:/root/.m2/repository/org/ow2/asm/asm-util/4.0/asm-util-4.0.jar:/root/.m2/repository/com/fasterxml/jackson/jaxrs/jackson-jaxrs-base/2.7.3/jackson-jaxrs-base-2.7.3.jar:/root/.m2/repository/javax/validation/validation-api/1.1.0.Final/validation-api-1.1.0.Final.jar:/root/.m2/repository/org/glassfish/hk2/external/aopalliance-repackaged/2.4.0-b31/aopalliance-repackaged-2.4.0-b31.jar:/root/.m2/repository/net/minidev/json-smart/2.2.1/json-smart-2.2.1.jar:/root/.m2/repository/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1.jar:/root/.m2/repository/org/springframework/spring-test/4.2.5.RELEASE/spring-test-4.2.5.RELEASE.jar:/root/.m2/repository/org/codehaus/woodstox/stax2-api/3.1.4/stax2-api-3.1.4.jar:/root/.m2/repository/org/springframework/spring-webmvc/4.2.5.RELEASE/spring-webmvc-4.2.5.RELEASE.jar:/root/.m2/repository/org/apache/cxf/cxf-rt-transports-http/3.1.2/cxf-rt-transports-http-3.1.2.jar:/root/.m2/repository/junit/junit/4.11/junit-4.11.jar:/root/.m2/repository/org/apache/ws/xmlschema/xmlschema-core/2.2.1/xmlschema-core-2.2.1.jar:/root/.m2/repository/org/springframework/spring-context/4.2.5.RELEASE/spring-context-4.2.5.RELEASE.jar:/root/.m2/repository/org/eclipse/jetty/jetty-servlet/8.1.8.v20121106/jetty-servlet-8.1.8.v20121106.jar:/root/.m2/repository/io/springfox/springfox-spi/2.5.0/springfox-spi-2.5.0.jar:/root/.m2/repository/org/eclipse/jetty/jetty-server/8.1.8.v20121106/jetty-server-8.1.8.v20121106.jar:/root/.m2/repository/org/glassfish/hk2/hk2-locator/2.4.0-b31/hk2-locator-2.4.0-b31.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.21/slf4j-api-1.7.21.jar";
+echo "\n\nNode: `hostname`\n";
+echo "\n\nDate: `date`\n";
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en
+OpenJDK 64-Bit Server VM warning: ignoring option MaxPermSize=512m; support was removed in 8.0
+04:30:55,758 |-INFO in ch.qos.logback.classic.LoggerContext[TBar] - Could NOT find resource [logback-test.xml]
+04:30:55,758 |-INFO in ch.qos.logback.classic.LoggerContext[TBar] - Could NOT find resource [logback.groovy]
+04:30:55,758 |-INFO in ch.qos.logback.classic.LoggerContext[TBar] - Found resource [logback.xml] at [jar:file:/repair_tools/tbar.jar!/logback.xml]
+04:30:55,768 |-INFO in ch.qos.logback.core.joran.spi.ConfigurationWatchList@5a42bbf4 - URL [jar:file:/repair_tools/tbar.jar!/logback.xml] is not of type file
+04:30:55,803 |-INFO in ch.qos.logback.classic.joran.action.ConfigurationAction - debug attribute not set
+04:30:55,804 |-INFO in ch.qos.logback.classic.joran.action.ContextNameAction - Setting logger context name as [TBar]
+04:30:55,805 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - About to instantiate appender of type [ch.qos.logback.core.ConsoleAppender]
+04:30:55,807 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - Naming appender as [STDOUT]
+04:30:55,856 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting level of logger [org.hibernate.engine.query.HQLQueryPlan] to DEBUG
+04:30:55,856 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting additivity of logger [org.hibernate.engine.query.HQLQueryPlan] to false
+04:30:55,856 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting level of logger [com.piedra.logback] to DEBUG
+04:30:55,856 |-ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - Could not find an appender named [FILE]. Did you define it below instead of above in the configuration file?
+04:30:55,856 |-ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - See http://logback.qos.ch/codes.html#appender_order for more details.
+04:30:55,856 |-INFO in ch.qos.logback.classic.joran.action.RootLoggerAction - Setting level of ROOT logger to DEBUG
+04:30:55,856 |-INFO in ch.qos.logback.core.joran.action.AppenderRefAction - Attaching appender named [STDOUT] to Logger[ROOT]
+04:30:55,857 |-ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - Could not find an appender named [ROLLINGFILE]. Did you define it below instead of above in the configuration file?
+04:30:55,857 |-ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - See http://logback.qos.ch/codes.html#appender_order for more details.
+04:30:55,857 |-INFO in ch.qos.logback.classic.joran.action.ConfigurationAction - End of configuration.
+04:30:55,858 |-INFO in ch.qos.logback.classic.joran.JoranConfigurator@270421f5 - Registering current configuration as safe fallback point
+
+2022-09-14 04:30:56.641 [main] INFO  edu.lu.uni.serval.tbar.AbstractFixer - TBar_vul4j_alibaba_fastjson_VUL4J-1 Failed Tests: 1
+2022-09-14 04:30:56.656 [main] INFO  edu.lu.uni.serval.tbar.TBarFixer - =======StaticBugFixer: Start to fix suspicious code======
+2022-09-14 04:30:56.657 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - com.alibaba.fastjson.serializer.ObjectArrayCodec ===177
+2022-09-14 04:30:57.218 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+parser.parseArray(componentClass, array, fieldName);
+2022-09-14 04:30:58.405 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+--- a/src/main/java/com/alibaba/fastjson/serializer/ObjectArrayCodec.java
++++ b/src/main/java/com/alibaba/fastjson/serializer/ObjectArrayCodec.java
+@@ -174,7 +174,7 @@ public class ObjectArrayCodec implements ObjectSerializer, ObjectDeserializer {
+-        parser.parseArray(componentClass, array, fieldName);
++        parser.setContext(componentClass, array, fieldName);
+2022-09-14 04:30:58.406 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 04:30:59.145 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 04:30:59.158 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+--- a/src/main/java/com/alibaba/fastjson/serializer/ObjectArrayCodec.java
++++ b/src/main/java/com/alibaba/fastjson/serializer/ObjectArrayCodec.java
+@@ -174,7 +174,7 @@ public class ObjectArrayCodec implements ObjectSerializer, ObjectDeserializer {
+-        parser.parseArray(componentClass, array, fieldName);
++        parser.parseArray(array, fieldName);
+2022-09-14 04:30:59.158 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 04:30:59.993 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 04:31:04.809 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+--- a/src/main/java/com/alibaba/fastjson/serializer/ObjectArrayCodec.java
++++ b/src/main/java/com/alibaba/fastjson/serializer/ObjectArrayCodec.java
+@@ -174,7 +174,7 @@ public class ObjectArrayCodec implements ObjectSerializer, ObjectDeserializer {
+-        parser.parseArray(componentClass, array, fieldName);
++        parser.parseArray(componentClass, fieldName);
+2022-09-14 04:31:04.809 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 04:31:05.547 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 04:31:05.566 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+--- a/src/main/java/com/alibaba/fastjson/serializer/ObjectArrayCodec.java
++++ b/src/main/java/com/alibaba/fastjson/serializer/ObjectArrayCodec.java
+@@ -174,7 +174,7 @@ public class ObjectArrayCodec implements ObjectSerializer, ObjectDeserializer {
+-        parser.parseArray(componentClass, array, fieldName);
++        parser.parseArray(componentClass, array);
+2022-09-14 04:31:05.566 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 04:31:06.325 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 04:31:10.519 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+--- a/src/main/java/com/alibaba/fastjson/serializer/ObjectArrayCodec.java
++++ b/src/main/java/com/alibaba/fastjson/serializer/ObjectArrayCodec.java
+@@ -174,7 +174,7 @@ public class ObjectArrayCodec implements ObjectSerializer, ObjectDeserializer {
+-        parser.parseArray(componentClass, array, fieldName);
++        getFastMatchToken().parseArray(componentClass, array, fieldName);
+2022-09-14 04:31:10.519 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 04:31:11.330 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 04:31:11.341 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+--- a/src/main/java/com/alibaba/fastjson/serializer/ObjectArrayCodec.java
++++ b/src/main/java/com/alibaba/fastjson/serializer/ObjectArrayCodec.java
+@@ -174,7 +174,7 @@ public class ObjectArrayCodec implements ObjectSerializer, ObjectDeserializer {
+-        parser.parseArray(componentClass, array, fieldName);
++        parser.parseArray(getFastMatchToken(), array, fieldName);
+2022-09-14 04:31:11.341 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 04:31:12.040 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 04:31:12.050 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+--- a/src/main/java/com/alibaba/fastjson/serializer/ObjectArrayCodec.java
++++ b/src/main/java/com/alibaba/fastjson/serializer/ObjectArrayCodec.java
+@@ -174,7 +174,7 @@ public class ObjectArrayCodec implements ObjectSerializer, ObjectDeserializer {
+-        parser.parseArray(componentClass, array, fieldName);
++        parser.parseArray(componentClass, getFastMatchToken(), fieldName);
+2022-09-14 04:31:12.051 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 04:31:12.777 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 04:31:12.791 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+--- a/src/main/java/com/alibaba/fastjson/serializer/ObjectArrayCodec.java
++++ b/src/main/java/com/alibaba/fastjson/serializer/ObjectArrayCodec.java
+@@ -174,7 +174,7 @@ public class ObjectArrayCodec implements ObjectSerializer, ObjectDeserializer {
+-        parser.parseArray(componentClass, array, fieldName);
++        parser.parseArray(componentClass, array, getFastMatchToken());
+2022-09-14 04:31:12.791 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 04:31:13.648 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 04:31:17.754 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+--- a/src/main/java/com/alibaba/fastjson/serializer/ObjectArrayCodec.java
++++ b/src/main/java/com/alibaba/fastjson/serializer/ObjectArrayCodec.java
+@@ -174,9 +174,12 @@ public class ObjectArrayCodec implements ObjectSerializer, ObjectDeserializer {
+-        parser.parseArray(componentClass, array, fieldName);
++        if (parser != null) {
++	parser.parseArray(componentClass, array, fieldName);
++
++        return (T) toObjectArray(parser, componentClass, array);
++	}
+-        return (T) toObjectArray(parser, componentClass, array);
+2022-09-14 04:31:17.754 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 04:31:18.555 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 04:31:18.571 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+--- a/src/main/java/com/alibaba/fastjson/serializer/ObjectArrayCodec.java
++++ b/src/main/java/com/alibaba/fastjson/serializer/ObjectArrayCodec.java
+@@ -174,7 +174,10 @@ public class ObjectArrayCodec implements ObjectSerializer, ObjectDeserializer {
+-        parser.parseArray(componentClass, array, fieldName);
++        if (parser == null) {
++	    throw new IllegalArgumentException("Null 'parser' argument.");
++	}
++parser.parseArray(componentClass, array, fieldName);
+2022-09-14 04:31:18.571 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 04:31:19.342 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 04:31:23.336 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+--- a/src/main/java/com/alibaba/fastjson/serializer/ObjectArrayCodec.java
++++ b/src/main/java/com/alibaba/fastjson/serializer/ObjectArrayCodec.java
+@@ -174,7 +174,10 @@ public class ObjectArrayCodec implements ObjectSerializer, ObjectDeserializer {
+-        parser.parseArray(componentClass, array, fieldName);
++        if (parser == null) {
++	    return null;
++	}
++parser.parseArray(componentClass, array, fieldName);
+2022-09-14 04:31:23.336 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 04:31:24.136 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 04:31:27.983 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+--- a/src/main/java/com/alibaba/fastjson/serializer/ObjectArrayCodec.java
++++ b/src/main/java/com/alibaba/fastjson/serializer/ObjectArrayCodec.java
+@@ -174,7 +174,8 @@ public class ObjectArrayCodec implements ObjectSerializer, ObjectDeserializer {
+-        parser.parseArray(componentClass, array, fieldName);
++        if (parser == null) parser = new DefaultJSONParser();
++ parser.parseArray(componentClass, array, fieldName);
+2022-09-14 04:31:27.983 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 04:31:28.787 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 04:31:28.797 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+--- a/src/main/java/com/alibaba/fastjson/serializer/ObjectArrayCodec.java
++++ b/src/main/java/com/alibaba/fastjson/serializer/ObjectArrayCodec.java
+@@ -174,7 +174,8 @@ public class ObjectArrayCodec implements ObjectSerializer, ObjectDeserializer {
+-        parser.parseArray(componentClass, array, fieldName);
++        if (parser == null) return new T();
++	 parser.parseArray(componentClass, array, fieldName);
+2022-09-14 04:31:28.798 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 04:31:29.578 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 04:31:29.588 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+--- a/src/main/java/com/alibaba/fastjson/serializer/ObjectArrayCodec.java
++++ b/src/main/java/com/alibaba/fastjson/serializer/ObjectArrayCodec.java
+@@ -174,9 +174,12 @@ public class ObjectArrayCodec implements ObjectSerializer, ObjectDeserializer {
+-        parser.parseArray(componentClass, array, fieldName);
++        if (componentClass != null) {
++	parser.parseArray(componentClass, array, fieldName);
++
++        return (T) toObjectArray(parser, componentClass, array);
++	}
+-        return (T) toObjectArray(parser, componentClass, array);
+2022-09-14 04:31:29.588 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 04:31:30.271 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 04:31:30.281 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+--- a/src/main/java/com/alibaba/fastjson/serializer/ObjectArrayCodec.java
++++ b/src/main/java/com/alibaba/fastjson/serializer/ObjectArrayCodec.java
+@@ -174,7 +174,10 @@ public class ObjectArrayCodec implements ObjectSerializer, ObjectDeserializer {
+-        parser.parseArray(componentClass, array, fieldName);
++        if (componentClass == null) {
++	    throw new IllegalArgumentException("Null 'componentClass' argument.");
++	}
++parser.parseArray(componentClass, array, fieldName);
+2022-09-14 04:31:30.281 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 04:31:30.933 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 04:31:34.760 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+--- a/src/main/java/com/alibaba/fastjson/serializer/ObjectArrayCodec.java
++++ b/src/main/java/com/alibaba/fastjson/serializer/ObjectArrayCodec.java
+@@ -174,7 +174,10 @@ public class ObjectArrayCodec implements ObjectSerializer, ObjectDeserializer {
+-        parser.parseArray(componentClass, array, fieldName);
++        if (componentClass == null) {
++	    return null;
++	}
++parser.parseArray(componentClass, array, fieldName);
+2022-09-14 04:31:34.760 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 04:31:35.472 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 04:31:39.087 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+--- a/src/main/java/com/alibaba/fastjson/serializer/ObjectArrayCodec.java
++++ b/src/main/java/com/alibaba/fastjson/serializer/ObjectArrayCodec.java
+@@ -174,7 +174,8 @@ public class ObjectArrayCodec implements ObjectSerializer, ObjectDeserializer {
+-        parser.parseArray(componentClass, array, fieldName);
++        if (componentClass == null) componentClass = new Class();
++ parser.parseArray(componentClass, array, fieldName);
+2022-09-14 04:31:39.087 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 04:31:39.879 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 04:31:39.888 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+--- a/src/main/java/com/alibaba/fastjson/serializer/ObjectArrayCodec.java
++++ b/src/main/java/com/alibaba/fastjson/serializer/ObjectArrayCodec.java
+@@ -174,7 +174,8 @@ public class ObjectArrayCodec implements ObjectSerializer, ObjectDeserializer {
+-        parser.parseArray(componentClass, array, fieldName);
++        if (componentClass == null) return new T();
++	 parser.parseArray(componentClass, array, fieldName);
+2022-09-14 04:31:39.888 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 04:31:40.612 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 04:31:40.622 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+--- a/src/main/java/com/alibaba/fastjson/serializer/ObjectArrayCodec.java
++++ b/src/main/java/com/alibaba/fastjson/serializer/ObjectArrayCodec.java
+@@ -174,9 +174,12 @@ public class ObjectArrayCodec implements ObjectSerializer, ObjectDeserializer {
+-        parser.parseArray(componentClass, array, fieldName);
++        if (array != null) {
++	parser.parseArray(componentClass, array, fieldName);
++
++        return (T) toObjectArray(parser, componentClass, array);
++	}
+-        return (T) toObjectArray(parser, componentClass, array);
+2022-09-14 04:31:40.622 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 04:31:41.332 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 04:31:41.341 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+--- a/src/main/java/com/alibaba/fastjson/serializer/ObjectArrayCodec.java
++++ b/src/main/java/com/alibaba/fastjson/serializer/ObjectArrayCodec.java
+@@ -174,7 +174,10 @@ public class ObjectArrayCodec implements ObjectSerializer, ObjectDeserializer {
+-        parser.parseArray(componentClass, array, fieldName);
++        if (array == null) {
++	    throw new IllegalArgumentException("Null 'array' argument.");
++	}
++parser.parseArray(componentClass, array, fieldName);
+2022-09-14 04:31:41.341 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 04:31:42.074 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 04:31:46.108 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+--- a/src/main/java/com/alibaba/fastjson/serializer/ObjectArrayCodec.java
++++ b/src/main/java/com/alibaba/fastjson/serializer/ObjectArrayCodec.java
+@@ -174,7 +174,10 @@ public class ObjectArrayCodec implements ObjectSerializer, ObjectDeserializer {
+-        parser.parseArray(componentClass, array, fieldName);
++        if (array == null) {
++	    return null;
++	}
++parser.parseArray(componentClass, array, fieldName);
+2022-09-14 04:31:46.108 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 04:31:46.949 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 04:31:51.046 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+--- a/src/main/java/com/alibaba/fastjson/serializer/ObjectArrayCodec.java
++++ b/src/main/java/com/alibaba/fastjson/serializer/ObjectArrayCodec.java
+@@ -174,7 +174,8 @@ public class ObjectArrayCodec implements ObjectSerializer, ObjectDeserializer {
+-        parser.parseArray(componentClass, array, fieldName);
++        if (array == null) array = new JSONArray();
++ parser.parseArray(componentClass, array, fieldName);
+2022-09-14 04:31:51.046 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 04:31:51.779 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 04:31:55.523 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+--- a/src/main/java/com/alibaba/fastjson/serializer/ObjectArrayCodec.java
++++ b/src/main/java/com/alibaba/fastjson/serializer/ObjectArrayCodec.java
+@@ -174,7 +174,8 @@ public class ObjectArrayCodec implements ObjectSerializer, ObjectDeserializer {
+-        parser.parseArray(componentClass, array, fieldName);
++        if (array == null) return new T();
++	 parser.parseArray(componentClass, array, fieldName);
+2022-09-14 04:31:55.523 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 04:31:56.266 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 04:31:56.276 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+--- a/src/main/java/com/alibaba/fastjson/serializer/ObjectArrayCodec.java
++++ b/src/main/java/com/alibaba/fastjson/serializer/ObjectArrayCodec.java
+@@ -174,7 +174,10 @@ public class ObjectArrayCodec implements ObjectSerializer, ObjectDeserializer {
+-        parser.parseArray(componentClass, array, fieldName);
++        if (fieldName != null) {
++	parser.parseArray(componentClass, array, fieldName);
++	}
++
+2022-09-14 04:31:56.276 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 04:31:57.027 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 04:32:00.827 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+--- a/src/main/java/com/alibaba/fastjson/serializer/ObjectArrayCodec.java
++++ b/src/main/java/com/alibaba/fastjson/serializer/ObjectArrayCodec.java
+@@ -174,7 +174,10 @@ public class ObjectArrayCodec implements ObjectSerializer, ObjectDeserializer {
+-        parser.parseArray(componentClass, array, fieldName);
++        if (fieldName == null) {
++	    throw new IllegalArgumentException("Null 'fieldName' argument.");
++	}
++parser.parseArray(componentClass, array, fieldName);
+2022-09-14 04:32:00.827 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 04:32:01.624 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 04:32:05.587 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+--- a/src/main/java/com/alibaba/fastjson/serializer/ObjectArrayCodec.java
++++ b/src/main/java/com/alibaba/fastjson/serializer/ObjectArrayCodec.java
+@@ -174,7 +174,10 @@ public class ObjectArrayCodec implements ObjectSerializer, ObjectDeserializer {
+-        parser.parseArray(componentClass, array, fieldName);
++        if (fieldName == null) {
++	    return null;
++	}
++parser.parseArray(componentClass, array, fieldName);
+2022-09-14 04:32:05.588 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 04:32:06.347 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 04:32:10.136 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+--- a/src/main/java/com/alibaba/fastjson/serializer/ObjectArrayCodec.java
++++ b/src/main/java/com/alibaba/fastjson/serializer/ObjectArrayCodec.java
+@@ -174,7 +174,8 @@ public class ObjectArrayCodec implements ObjectSerializer, ObjectDeserializer {
+-        parser.parseArray(componentClass, array, fieldName);
++        if (fieldName == null) fieldName = new Object();
++ parser.parseArray(componentClass, array, fieldName);
+2022-09-14 04:32:10.137 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 04:32:10.932 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 04:32:14.874 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+--- a/src/main/java/com/alibaba/fastjson/serializer/ObjectArrayCodec.java
++++ b/src/main/java/com/alibaba/fastjson/serializer/ObjectArrayCodec.java
+@@ -174,7 +174,8 @@ public class ObjectArrayCodec implements ObjectSerializer, ObjectDeserializer {
+-        parser.parseArray(componentClass, array, fieldName);
++        if (fieldName == null) return new T();
++	 parser.parseArray(componentClass, array, fieldName);
+2022-09-14 04:32:14.874 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 04:32:15.649 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 04:32:15.659 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+--- a/src/main/java/com/alibaba/fastjson/serializer/ObjectArrayCodec.java
++++ b/src/main/java/com/alibaba/fastjson/serializer/ObjectArrayCodec.java
+@@ -174,9 +174,12 @@ public class ObjectArrayCodec implements ObjectSerializer, ObjectDeserializer {
+-        parser.parseArray(componentClass, array, fieldName);
++        if (parser != null && componentClass != null && array != null && fieldName != null) {
++	parser.parseArray(componentClass, array, fieldName);
++
++        return (T) toObjectArray(parser, componentClass, array);
++	}
+-        return (T) toObjectArray(parser, componentClass, array);
+2022-09-14 04:32:15.659 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 04:32:16.283 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 04:32:16.333 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+--- a/src/main/java/com/alibaba/fastjson/serializer/ObjectArrayCodec.java
++++ b/src/main/java/com/alibaba/fastjson/serializer/ObjectArrayCodec.java
+@@ -126,7 +126,8 @@ public class ObjectArrayCodec implements ObjectSerializer, ObjectDeserializer {
+-        final JSONLexer lexer = parser.lexer;
++        parser.parseArray(componentClass, array, fieldName);
++	final JSONLexer lexer = parser.lexer;
+@@ -174,7 +175,7 @@ public class ObjectArrayCodec implements ObjectSerializer, ObjectDeserializer {
+-        parser.parseArray(componentClass, array, fieldName);
++
+2022-09-14 04:32:16.333 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 04:32:17.025 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 04:32:17.037 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+--- a/src/main/java/com/alibaba/fastjson/serializer/ObjectArrayCodec.java
++++ b/src/main/java/com/alibaba/fastjson/serializer/ObjectArrayCodec.java
+@@ -127,7 +127,8 @@ public class ObjectArrayCodec implements ObjectSerializer, ObjectDeserializer {
+-        if (lexer.token() == JSONToken.NULL) {
++        parser.parseArray(componentClass, array, fieldName);
++	if (lexer.token() == JSONToken.NULL) {
+@@ -174,7 +175,7 @@ public class ObjectArrayCodec implements ObjectSerializer, ObjectDeserializer {
+-        parser.parseArray(componentClass, array, fieldName);
++
+2022-09-14 04:32:17.037 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 04:32:17.724 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 04:32:17.735 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+--- a/src/main/java/com/alibaba/fastjson/serializer/ObjectArrayCodec.java
++++ b/src/main/java/com/alibaba/fastjson/serializer/ObjectArrayCodec.java
+@@ -132,7 +132,8 @@ public class ObjectArrayCodec implements ObjectSerializer, ObjectDeserializer {
+-        if (lexer.token() == JSONToken.LITERAL_STRING) {
++        parser.parseArray(componentClass, array, fieldName);
++	if (lexer.token() == JSONToken.LITERAL_STRING) {
+@@ -174,7 +175,7 @@ public class ObjectArrayCodec implements ObjectSerializer, ObjectDeserializer {
+-        parser.parseArray(componentClass, array, fieldName);
++
+2022-09-14 04:32:17.735 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 04:32:18.454 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 04:32:18.463 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+--- a/src/main/java/com/alibaba/fastjson/serializer/ObjectArrayCodec.java
++++ b/src/main/java/com/alibaba/fastjson/serializer/ObjectArrayCodec.java
+@@ -138,7 +138,8 @@ public class ObjectArrayCodec implements ObjectSerializer, ObjectDeserializer {
+-        Class componentClass;
++        parser.parseArray(componentClass, array, fieldName);
++	Class componentClass;
+@@ -174,7 +175,7 @@ public class ObjectArrayCodec implements ObjectSerializer, ObjectDeserializer {
+-        parser.parseArray(componentClass, array, fieldName);
++
+2022-09-14 04:32:18.463 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 04:32:19.147 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 04:32:19.157 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+--- a/src/main/java/com/alibaba/fastjson/serializer/ObjectArrayCodec.java
++++ b/src/main/java/com/alibaba/fastjson/serializer/ObjectArrayCodec.java
+@@ -139,7 +139,8 @@ public class ObjectArrayCodec implements ObjectSerializer, ObjectDeserializer {
+-        Type componentType;
++        parser.parseArray(componentClass, array, fieldName);
++	Type componentType;
+@@ -174,7 +175,7 @@ public class ObjectArrayCodec implements ObjectSerializer, ObjectDeserializer {
+-        parser.parseArray(componentClass, array, fieldName);
++
+2022-09-14 04:32:19.157 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 04:32:19.907 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 04:32:19.917 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+--- a/src/main/java/com/alibaba/fastjson/serializer/ObjectArrayCodec.java
++++ b/src/main/java/com/alibaba/fastjson/serializer/ObjectArrayCodec.java
+@@ -140,7 +140,8 @@ public class ObjectArrayCodec implements ObjectSerializer, ObjectDeserializer {
+-        if (type instanceof GenericArrayType) {
++        parser.parseArray(componentClass, array, fieldName);
++	if (type instanceof GenericArrayType) {
+@@ -174,7 +175,7 @@ public class ObjectArrayCodec implements ObjectSerializer, ObjectDeserializer {
+-        parser.parseArray(componentClass, array, fieldName);
++
+2022-09-14 04:32:19.917 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 04:32:20.615 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 04:32:20.625 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+--- a/src/main/java/com/alibaba/fastjson/serializer/ObjectArrayCodec.java
++++ b/src/main/java/com/alibaba/fastjson/serializer/ObjectArrayCodec.java
+@@ -173,8 +173,9 @@ public class ObjectArrayCodec implements ObjectSerializer, ObjectDeserializer {
+-        JSONArray array = new JSONArray();
+-        parser.parseArray(componentClass, array, fieldName);
++        parser.parseArray(componentClass, array, fieldName);
++	JSONArray array = new JSONArray();
++
+2022-09-14 04:32:20.626 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 04:32:21.367 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 04:32:21.377 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+--- a/src/main/java/com/alibaba/fastjson/serializer/ObjectArrayCodec.java
++++ b/src/main/java/com/alibaba/fastjson/serializer/ObjectArrayCodec.java
+@@ -174,9 +174,11 @@ public class ObjectArrayCodec implements ObjectSerializer, ObjectDeserializer {
+-        parser.parseArray(componentClass, array, fieldName);
++
++
++        return (T) toObjectArray(parser, componentClass, array);
++	parser.parseArray(componentClass, array, fieldName);
+-        return (T) toObjectArray(parser, componentClass, array);
+2022-09-14 04:32:21.377 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 04:32:22.115 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 04:32:22.145 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+--- a/src/main/java/com/alibaba/fastjson/serializer/ObjectArrayCodec.java
++++ b/src/main/java/com/alibaba/fastjson/serializer/ObjectArrayCodec.java
+@@ -174,7 +174,7 @@ public class ObjectArrayCodec implements ObjectSerializer, ObjectDeserializer {
+-        parser.parseArray(componentClass, array, fieldName);
++
+2022-09-14 04:32:22.146 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 04:32:22.992 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 04:32:27.015 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+--- a/src/main/java/com/alibaba/fastjson/serializer/ObjectArrayCodec.java
++++ b/src/main/java/com/alibaba/fastjson/serializer/ObjectArrayCodec.java
+@@ -124,60 +124,7 @@ public class ObjectArrayCodec implements ObjectSerializer, ObjectDeserializer {
+-    @SuppressWarnings({ "unchecked", "rawtypes" })
+-    public <T> T deserialze(DefaultJSONParser parser, Type type, Object fieldName) {
+-        final JSONLexer lexer = parser.lexer;
+-        if (lexer.token() == JSONToken.NULL) {
+-            lexer.nextToken(JSONToken.COMMA);
+-            return null;
+-        }
+-
+-        if (lexer.token() == JSONToken.LITERAL_STRING) {
+-            byte[] bytes = lexer.bytesValue();
+-            lexer.nextToken(JSONToken.COMMA);
+-            return (T) bytes;
+-        }
+-
+-        Class componentClass;
+-        Type componentType;
+-        if (type instanceof GenericArrayType) {
+-            GenericArrayType clazz = (GenericArrayType) type;
+-            componentType = clazz.getGenericComponentType();
+-            if (componentType instanceof TypeVariable) {
+-                TypeVariable typeVar = (TypeVariable) componentType;
+-                Type objType = parser.getContext().type;
+-                if (objType instanceof ParameterizedType) {
+-                    ParameterizedType objParamType = (ParameterizedType) objType;
+-                    Type objRawType = objParamType.getRawType();
+-                    Type actualType = null;
+-                    if (objRawType instanceof Class) {
+-                        TypeVariable[] objTypeParams = ((Class) objRawType).getTypeParameters();
+-                        for (int i = 0; i < objTypeParams.length; ++i) {
+-                            if (objTypeParams[i].getName().equals(typeVar.getName())) {
+-                                actualType = objParamType.getActualTypeArguments()[i];
+-                            }
+-                        }
+-                    }
+-                    if (actualType instanceof Class) {
+-                        componentClass = (Class) actualType;
+-                    } else {
+-                        componentClass = Object.class;
+-                    }
+-                } else {
+-                    componentClass = TypeUtils.getClass(typeVar.getBounds()[0]);
+-                }
+-            } else {
+-                componentClass = TypeUtils.getClass(componentType);
+-            }
+-        } else {
+-            Class clazz = (Class) type;
+-            componentType = componentClass = clazz.getComponentType();
+-        }
+-        JSONArray array = new JSONArray();
+-        parser.parseArray(componentClass, array, fieldName);
+-
+-        return (T) toObjectArray(parser, componentClass, array);
+-    }
++
+2022-09-14 04:32:27.015 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 04:32:27.693 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 04:32:27.711 [main] INFO  edu.lu.uni.serval.tbar.TBarFixer - =======StaticBugFixer: Finish off fixing======
+Failed to fix bug
+
+
+Node: ee2bf67284b9
+
+
+
+Date: Wed Sep 14 04:32:27 EDT 2022
+

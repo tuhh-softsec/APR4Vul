@@ -1,0 +1,583 @@
+cd /workdir/Kali_vul4j_codehaus-plexus_plexus-utils_VUL4J-42;
+export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en";
+TZ="America/New_York"; export TZ;
+export PATH="/usr/lib/jvm/jdk1.7.0_80/bin:$PATH";
+export JAVA_HOME="/usr/lib/jvm/jdk1.7.0_80";
+timeout 240m java -Xmx4g -Xms1g -XX:MaxPermSize=512m -cp /script/../libs/jmetal.jar:/script/../repair_tools/arja.jar us.msu.cse.repair.Main \
+	Kali \
+	-DexternalProjRoot /script/../libs/arja_external \
+	-DprojectDir /workdir/Kali_vul4j_codehaus-plexus_plexus-utils_VUL4J-42 \
+    -DtestFiltered false \
+    -DrunTestCommand "mvn test -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B" \
+	-DsrcJavaDir /workdir/Kali_vul4j_codehaus-plexus_plexus-utils_VUL4J-42/src/main/java \
+	-DbinJavaDir /workdir/Kali_vul4j_codehaus-plexus_plexus-utils_VUL4J-42/target/classes \
+	-DbinTestDir /workdir/Kali_vul4j_codehaus-plexus_plexus-utils_VUL4J-42/target/test-classes \
+	-DdiffFormat true \
+	-Dseed 0 \
+	-DgzoltarDataDir /script/../data/benchmarks/vul4j/perfectfl/VUL4J-42 \
+	-Ddependences /root/.m2/repository/junit/junit/3.8.2/junit-3.8.2.jar;
+	echo "\n\nNode: `hostname`\n";
+	echo "\n\nDate: `date`\n";
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en
+Fault localization starts...
+Number of positive tests: 272
+Number of negative tests: 12
+Negative tests: [org.codehaus.plexus.util.cli.CommandlineTest#testPathWithShellExpansionStrings, org.codehaus.plexus.util.cli.shell.BourneShellTest#testEscapeSingleQuotesOnArgument, org.codehaus.plexus.util.cli.shell.BourneShellTest#testQuoteWorkingDirectoryAndExecutable, org.codehaus.plexus.util.cli.shell.BourneShellTest#testQuoteWorkingDirectoryAndExecutable_WDPathWithSingleQuotes_BackslashFileSep, org.codehaus.plexus.util.cli.shell.BourneShellTest#testBourneShellQuotingCharacters, org.codehaus.plexus.util.cli.CommandlineTest#testGetShellCommandLineBash_WithSingleQuotedArg, org.codehaus.plexus.util.cli.CommandlineTest#testGetShellCommandLineBash_WithWorkingDirectory, org.codehaus.plexus.util.cli.shell.BourneShellTest#testQuoteWorkingDirectoryAndExecutable_WDPathWithSingleQuotes, org.codehaus.plexus.util.cli.shell.BourneShellTest#testArgumentsWithsemicolon, org.codehaus.plexus.util.cli.shell.BourneShellTest#testPreserveSingleQuotesOnArgument, org.codehaus.plexus.util.cli.CommandlineTest#testGetShellCommandLineNonWindows, org.codehaus.plexus.util.cli.CommandlineTest#testGetShellCommandLineBash]
+Faulty Lines: 
+org.codehaus.plexus.util.cli.Commandline#651:1.0
+org.codehaus.plexus.util.cli.shell.BourneShell#164:1.0
+org.codehaus.plexus.util.cli.Commandline#636:1.0
+org.codehaus.plexus.util.cli.Commandline#672:1.0
+org.codehaus.plexus.util.cli.shell.Shell#167:1.0
+org.codehaus.plexus.util.cli.shell.Shell#147:1.0
+org.codehaus.plexus.util.cli.shell.Shell#165:1.0
+org.codehaus.plexus.util.cli.shell.BourneShell#79:1.0
+org.codehaus.plexus.util.cli.Commandline#486:1.0
+org.codehaus.plexus.util.cli.shell.BourneShell#169:1.0
+org.codehaus.plexus.util.cli.shell.BourneShell#59:1.0
+org.codehaus.plexus.util.cli.shell.Shell#149:1.0
+org.codehaus.plexus.util.cli.shell.BourneShell#57:1.0
+org.codehaus.plexus.util.cli.shell.BourneShell#157:1.0
+org.codehaus.plexus.util.cli.Commandline#256:1.0
+org.codehaus.plexus.util.cli.shell.BourneShell#129:1.0
+org.codehaus.plexus.util.cli.shell.Shell#281:1.0
+Fault localization is finished!
+AST parsing starts...
+AST parsing is finished!
+Detection of local variables starts...
+Detection of local variables is finished!
+Detection of fields starts...
+Detection of fields is finished!
+Detection of methods starts...
+Detection of methods is finished!
+Ingredient screener starts...
+Ingredient screener is finished!
+Initialization of manipulations starts...
+Initialization of manipulations is finished!
+Filtering of the tests starts...
+Number of positive tests considered: 272
+Filtering of the tests is finished!
+----------------------------------
+Patch Candidate:
+@@ -669,7 +669,7 @@ public class Commandline
+shell.setWorkingDirectory( workingDir );
+}
+
+-        if ( shell.getExecutable() == null )
++        if ( true )
+{
+shell.setExecutable( executable );
+}
+Number of failed tests: 12, 0
+----------------------------------
+Patch Candidate:
+@@ -669,7 +669,7 @@ public class Commandline
+shell.setWorkingDirectory( workingDir );
+}
+
+-        if ( shell.getExecutable() == null )
++        if ( false )
+{
+shell.setExecutable( executable );
+}
+Number of failed tests: 12, 0
+----------------------------------
+Patch Candidate:
+@@ -161,7 +161,7 @@ public class BourneShell
+return null;
+}
+
+-        if ( path.indexOf( " " ) == -1 && path.indexOf( "'" ) != -1 && path.indexOf( "\"" ) == -1 )
++        if ( true )
+{
+return StringUtils.escape( path );
+}
+Number of failed tests: 12, 3
+----------------------------------
+Patch Candidate:
+@@ -161,7 +161,7 @@ public class BourneShell
+return null;
+}
+
+-        if ( path.indexOf( " " ) == -1 && path.indexOf( "'" ) != -1 && path.indexOf( "\"" ) == -1 )
++        if ( false )
+{
+return StringUtils.escape( path );
+}
+Number of failed tests: 12, 3
+----------------------------------
+Patch Candidate:
+@@ -483,7 +483,9 @@ public class Commandline
+public String[] getCommandline()
+{
+final String[] args = getArguments();
+-        String executable = getExecutable();
++        if (true)
++			return null;
++		String executable = getExecutable();
+
+if ( executable == null )
+{
+Number of failed tests: 12, 1
+----------------------------------
+Patch Candidate:
+@@ -483,7 +483,9 @@ public class Commandline
+public String[] getCommandline()
+{
+final String[] args = getArguments();
+-        String executable = getExecutable();
++        if (true)
++			return null;
++		String executable = getExecutable();
+
+if ( executable == null )
+{
+Number of failed tests: 12, 0
+----------------------------------
+Patch Candidate:
+@@ -633,7 +633,9 @@ public class Commandline
+{
+if ( workingDir == null )
+{
+-                process = Runtime.getRuntime().exec( getShellCommandline(), environment );
++                if (true)
++					return null;
++				process = Runtime.getRuntime().exec( getShellCommandline(), environment );
+}
+else
+{
+Number of failed tests: 12, 1
+----------------------------------
+Patch Candidate:
+@@ -633,7 +633,9 @@ public class Commandline
+{
+if ( workingDir == null )
+{
+-                process = Runtime.getRuntime().exec( getShellCommandline(), environment );
++                if (true)
++					return null;
++				process = Runtime.getRuntime().exec( getShellCommandline(), environment );
+}
+else
+{
+Number of failed tests: 12, 1
+----------------------------------
+Patch Candidate:
+@@ -648,7 +648,9 @@ public class Commandline
++ "\" does not specify a directory." );
+}
+
+-                process = Runtime.getRuntime().exec( getShellCommandline(), environment, workingDir );
++                if (true)
++					return null;
++				process = Runtime.getRuntime().exec( getShellCommandline(), environment, workingDir );
+}
+}
+catch ( IOException ex )
+Number of failed tests: 12, 6
+----------------------------------
+Patch Candidate:
+@@ -648,7 +648,9 @@ public class Commandline
++ "\" does not specify a directory." );
+}
+
+-                process = Runtime.getRuntime().exec( getShellCommandline(), environment, workingDir );
++                if (true)
++					return null;
++				process = Runtime.getRuntime().exec( getShellCommandline(), environment, workingDir );
+}
+}
+catch ( IOException ex )
+Number of failed tests: 12, 6
+----------------------------------
+Patch Candidate:
+@@ -669,7 +669,9 @@ public class Commandline
+shell.setWorkingDirectory( workingDir );
+}
+
+-        if ( shell.getExecutable() == null )
++        if (true)
++			return;
++		if ( shell.getExecutable() == null )
+{
+shell.setExecutable( executable );
+}
+Number of failed tests: 12, 0
+----------------------------------
+Patch Candidate:
+@@ -669,7 +669,9 @@ public class Commandline
+shell.setWorkingDirectory( workingDir );
+}
+
+-        if ( shell.getExecutable() == null )
++        if (true)
++			return;
++		if ( shell.getExecutable() == null )
+{
+shell.setExecutable( executable );
+}
+Number of failed tests: 12, 0
+----------------------------------
+Patch Candidate:
+@@ -76,7 +76,9 @@ public class BourneShell
+return super.getExecutable();
+}
+
+-        return unifyQuotes( super.getExecutable());
++        if (true)
++			return null;
++		return unifyQuotes( super.getExecutable());
+}
+
+public List<String> getShellArgsList()
+Number of failed tests: 11, 2
+----------------------------------
+Patch Candidate:
+@@ -76,7 +76,9 @@ public class BourneShell
+return super.getExecutable();
+}
+
+-        return unifyQuotes( super.getExecutable());
++        if (true)
++			return null;
++		return unifyQuotes( super.getExecutable());
+}
+
+public List<String> getShellArgsList()
+Number of failed tests: 11, 2
+----------------------------------
+Patch Candidate:
+@@ -126,7 +126,9 @@ public class BourneShell
+StringBuilder sb = new StringBuilder();
+sb.append( "cd " );
+
+-        sb.append( unifyQuotes( dir ) );
++        if (true)
++			return null;
++		sb.append( unifyQuotes( dir ) );
+sb.append( " && " );
+
+return sb.toString();
+Number of failed tests: 12, 0
+----------------------------------
+Patch Candidate:
+@@ -126,7 +126,9 @@ public class BourneShell
+StringBuilder sb = new StringBuilder();
+sb.append( "cd " );
+
+-        sb.append( unifyQuotes( dir ) );
++        if (true)
++			return null;
++		sb.append( unifyQuotes( dir ) );
+sb.append( " && " );
+
+return sb.toString();
+Number of failed tests: 12, 1
+----------------------------------
+Patch Candidate:
+@@ -161,7 +161,9 @@ public class BourneShell
+return null;
+}
+
+-        if ( path.indexOf( " " ) == -1 && path.indexOf( "'" ) != -1 && path.indexOf( "\"" ) == -1 )
++        if (true)
++			return null;
++		if ( path.indexOf( " " ) == -1 && path.indexOf( "'" ) != -1 && path.indexOf( "\"" ) == -1 )
+{
+return StringUtils.escape( path );
+}
+Number of failed tests: 11, 2
+----------------------------------
+Patch Candidate:
+@@ -161,7 +161,9 @@ public class BourneShell
+return null;
+}
+
+-        if ( path.indexOf( " " ) == -1 && path.indexOf( "'" ) != -1 && path.indexOf( "\"" ) == -1 )
++        if (true)
++			return null;
++		if ( path.indexOf( " " ) == -1 && path.indexOf( "'" ) != -1 && path.indexOf( "\"" ) == -1 )
+{
+return StringUtils.escape( path );
+}
+Number of failed tests: 11, 2
+----------------------------------
+Patch Candidate:
+@@ -166,6 +166,8 @@ public class BourneShell
+return StringUtils.escape( path );
+}
+
+-        return StringUtils.quoteAndEscape( path, '\"', BASH_QUOTING_TRIGGER_CHARS );
++        if (true)
++			return null;
++		return StringUtils.quoteAndEscape( path, '\"', BASH_QUOTING_TRIGGER_CHARS );
+}
+}
+Number of failed tests: 11, 2
+----------------------------------
+Patch Candidate:
+@@ -166,6 +166,8 @@ public class BourneShell
+return StringUtils.escape( path );
+}
+
+-        return StringUtils.quoteAndEscape( path, '\"', BASH_QUOTING_TRIGGER_CHARS );
++        if (true)
++			return null;
++		return StringUtils.quoteAndEscape( path, '\"', BASH_QUOTING_TRIGGER_CHARS );
+}
+}
+Number of failed tests: 11, 2
+----------------------------------
+Patch Candidate:
+@@ -144,7 +144,9 @@ public class Shell
+
+if ( isQuotedExecutableEnabled() )
+{
+-                char[] escapeChars = getEscapeChars( isSingleQuotedExecutableEscaped(), isDoubleQuotedExecutableEscaped() );
++                if (true)
++					return null;
++				char[] escapeChars = getEscapeChars( isSingleQuotedExecutableEscaped(), isDoubleQuotedExecutableEscaped() );
+
+sb.append( StringUtils.quoteAndEscape( getExecutable(), getExecutableQuoteDelimiter(), escapeChars, getQuotingTriggerChars(), '\\', false ) );
+}
+Number of failed tests: 12, 13
+----------------------------------
+Patch Candidate:
+@@ -144,7 +144,9 @@ public class Shell
+
+if ( isQuotedExecutableEnabled() )
+{
+-                char[] escapeChars = getEscapeChars( isSingleQuotedExecutableEscaped(), isDoubleQuotedExecutableEscaped() );
++                if (true)
++					return null;
++				char[] escapeChars = getEscapeChars( isSingleQuotedExecutableEscaped(), isDoubleQuotedExecutableEscaped() );
+
+sb.append( StringUtils.quoteAndEscape( getExecutable(), getExecutableQuoteDelimiter(), escapeChars, getQuotingTriggerChars(), '\\', false ) );
+}
+Number of failed tests: 12, 12
+----------------------------------
+Patch Candidate:
+@@ -146,7 +146,9 @@ public class Shell
+{
+char[] escapeChars = getEscapeChars( isSingleQuotedExecutableEscaped(), isDoubleQuotedExecutableEscaped() );
+
+-                sb.append( StringUtils.quoteAndEscape( getExecutable(), getExecutableQuoteDelimiter(), escapeChars, getQuotingTriggerChars(), '\\', false ) );
++                if (true)
++					return null;
++				sb.append( StringUtils.quoteAndEscape( getExecutable(), getExecutableQuoteDelimiter(), escapeChars, getQuotingTriggerChars(), '\\', false ) );
+}
+else
+{
+Number of failed tests: 12, 12
+----------------------------------
+Patch Candidate:
+@@ -146,7 +146,9 @@ public class Shell
+{
+char[] escapeChars = getEscapeChars( isSingleQuotedExecutableEscaped(), isDoubleQuotedExecutableEscaped() );
+
+-                sb.append( StringUtils.quoteAndEscape( getExecutable(), getExecutableQuoteDelimiter(), escapeChars, getQuotingTriggerChars(), '\\', false ) );
++                if (true)
++					return null;
++				sb.append( StringUtils.quoteAndEscape( getExecutable(), getExecutableQuoteDelimiter(), escapeChars, getQuotingTriggerChars(), '\\', false ) );
+}
+else
+{
+Number of failed tests: 12, 12
+----------------------------------
+Patch Candidate:
+@@ -162,7 +162,9 @@ public class Shell
+
+if ( isQuotedArgumentsEnabled() )
+{
+-                char[] escapeChars = getEscapeChars( isSingleQuotedArgumentEscaped(), isDoubleQuotedArgumentEscaped() );
++                if (true)
++					return null;
++				char[] escapeChars = getEscapeChars( isSingleQuotedArgumentEscaped(), isDoubleQuotedArgumentEscaped() );
+
+sb.append( StringUtils.quoteAndEscape( arguments[i], getArgumentQuoteDelimiter(), escapeChars, getQuotingTriggerChars(), getArgumentEscapePattern(), false ) );
+}
+Number of failed tests: 12, 11
+----------------------------------
+Patch Candidate:
+@@ -162,7 +162,9 @@ public class Shell
+
+if ( isQuotedArgumentsEnabled() )
+{
+-                char[] escapeChars = getEscapeChars( isSingleQuotedArgumentEscaped(), isDoubleQuotedArgumentEscaped() );
++                if (true)
++					return null;
++				char[] escapeChars = getEscapeChars( isSingleQuotedArgumentEscaped(), isDoubleQuotedArgumentEscaped() );
+
+sb.append( StringUtils.quoteAndEscape( arguments[i], getArgumentQuoteDelimiter(), escapeChars, getQuotingTriggerChars(), getArgumentEscapePattern(), false ) );
+}
+Number of failed tests: 12, 11
+----------------------------------
+Patch Candidate:
+@@ -164,7 +164,9 @@ public class Shell
+{
+char[] escapeChars = getEscapeChars( isSingleQuotedArgumentEscaped(), isDoubleQuotedArgumentEscaped() );
+
+-                sb.append( StringUtils.quoteAndEscape( arguments[i], getArgumentQuoteDelimiter(), escapeChars, getQuotingTriggerChars(), getArgumentEscapePattern(), false ) );
++                if (true)
++					return null;
++				sb.append( StringUtils.quoteAndEscape( arguments[i], getArgumentQuoteDelimiter(), escapeChars, getQuotingTriggerChars(), getArgumentEscapePattern(), false ) );
+}
+else
+{
+Number of failed tests: 12, 12
+----------------------------------
+Patch Candidate:
+@@ -164,7 +164,9 @@ public class Shell
+{
+char[] escapeChars = getEscapeChars( isSingleQuotedArgumentEscaped(), isDoubleQuotedArgumentEscaped() );
+
+-                sb.append( StringUtils.quoteAndEscape( arguments[i], getArgumentQuoteDelimiter(), escapeChars, getQuotingTriggerChars(), getArgumentEscapePattern(), false ) );
++                if (true)
++					return null;
++				sb.append( StringUtils.quoteAndEscape( arguments[i], getArgumentQuoteDelimiter(), escapeChars, getQuotingTriggerChars(), getArgumentEscapePattern(), false ) );
+}
+else
+{
+Number of failed tests: 12, 11
+----------------------------------
+Patch Candidate:
+@@ -278,7 +278,9 @@ public class Shell
+commandLine.addAll( getShellArgsList() );
+}
+
+-        commandLine.addAll( getCommandLine( getExecutable(), arguments ) );
++        if (true)
++			return null;
++		commandLine.addAll( getCommandLine( getExecutable(), arguments ) );
+
+return commandLine;
+
+Number of failed tests: 12, 15
+----------------------------------
+Patch Candidate:
+@@ -278,7 +278,9 @@ public class Shell
+commandLine.addAll( getShellArgsList() );
+}
+
+-        commandLine.addAll( getCommandLine( getExecutable(), arguments ) );
++        if (true)
++			return null;
++		commandLine.addAll( getCommandLine( getExecutable(), arguments ) );
+
+return commandLine;
+
+Number of failed tests: 12, 15
+----------------------------------
+Patch Candidate:
+@@ -483,8 +483,6 @@ public class Commandline
+public String[] getCommandline()
+{
+final String[] args = getArguments();
+-        String executable = getExecutable();
+-
+if ( executable == null )
+{
+return args;
+Number of failed tests: 12, 0
+----------------------------------
+Patch Candidate:
+@@ -668,11 +668,6 @@ public class Commandline
+{
+shell.setWorkingDirectory( workingDir );
+}
+-
+-        if ( shell.getExecutable() == null )
+-        {
+-            shell.setExecutable( executable );
+-        }
+}
+
+public Properties getSystemEnvVars()
+Number of failed tests: 12, 0
+----------------------------------
+Patch Candidate:
+@@ -54,7 +54,6 @@ public class BourneShell
+
+public BourneShell( boolean isLoginShell )
+{
+-        setShellCommand( "/bin/sh" );
+setArgumentQuoteDelimiter( '\'' );
+setExecutableQuoteDelimiter( '\"' );
+setSingleQuotedArgumentEscaped( true );
+Number of failed tests: 12, 7
+----------------------------------
+Patch Candidate:
+@@ -56,7 +56,6 @@ public class BourneShell
+{
+setShellCommand( "/bin/sh" );
+setArgumentQuoteDelimiter( '\'' );
+-        setExecutableQuoteDelimiter( '\"' );
+setSingleQuotedArgumentEscaped( true );
+setSingleQuotedExecutableEscaped( false );
+setQuotedExecutableEnabled( true );
+Number of failed tests: 12, 0
+----------------------------------
+Patch Candidate:
+@@ -126,7 +126,6 @@ public class BourneShell
+StringBuilder sb = new StringBuilder();
+sb.append( "cd " );
+
+-        sb.append( unifyQuotes( dir ) );
+sb.append( " && " );
+
+return sb.toString();
+Number of failed tests: 12, 1
+----------------------------------
+Patch Candidate:
+@@ -161,11 +161,6 @@ public class BourneShell
+return null;
+}
+
+-        if ( path.indexOf( " " ) == -1 && path.indexOf( "'" ) != -1 && path.indexOf( "\"" ) == -1 )
+-        {
+-            return StringUtils.escape( path );
+-        }
+-
+return StringUtils.quoteAndEscape( path, '\"', BASH_QUOTING_TRIGGER_CHARS );
+}
+}
+java.io.IOException: Stream closed
+	at java.io.BufferedInputStream.getBufIfOpen(BufferedInputStream.java:162)
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:325)
+	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:283)
+	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:325)
+	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:177)
+	at java.io.InputStreamReader.read(InputStreamReader.java:184)
+	at java.io.BufferedReader.fill(BufferedReader.java:154)
+	at java.io.BufferedReader.readLine(BufferedReader.java:317)
+	at java.io.BufferedReader.readLine(BufferedReader.java:382)
+	at us.msu.cse.repair.core.util.StreamReaderThread.run(StreamReaderThread.java:36)
+java.lang.IllegalStateException: Exception Occurred
+	at us.msu.cse.repair.core.testexecutors.RExternalTestExecutor.runShell(RExternalTestExecutor.java:108)
+	at us.msu.cse.repair.core.testexecutors.RExternalTestExecutor.runTests(RExternalTestExecutor.java:64)
+	at us.msu.cse.repair.algorithms.kali.Kali.invokeTestExecutor(Kali.java:149)
+	at us.msu.cse.repair.algorithms.kali.Kali.deleteStatement(Kali.java:134)
+	at us.msu.cse.repair.algorithms.kali.Kali.deleteStatement(Kali.java:118)
+	at us.msu.cse.repair.algorithms.kali.Kali.execute(Kali.java:54)
+	at us.msu.cse.repair.algorithms.kali.KaliAlgInterface.execute(KaliAlgInterface.java:24)
+	at us.msu.cse.repair.core.AbstractRepairAlgorithm.execute(AbstractRepairAlgorithm.java:18)
+	at us.msu.cse.repair.KaliMain.main(KaliMain.java:16)
+	at us.msu.cse.repair.Main.main(Main.java:14)
+java.lang.NullPointerException
+	at us.msu.cse.repair.core.testexecutors.RExternalTestExecutor.runTests(RExternalTestExecutor.java:85)
+	at us.msu.cse.repair.algorithms.kali.Kali.invokeTestExecutor(Kali.java:149)
+	at us.msu.cse.repair.algorithms.kali.Kali.deleteStatement(Kali.java:134)
+	at us.msu.cse.repair.algorithms.kali.Kali.deleteStatement(Kali.java:118)
+	at us.msu.cse.repair.algorithms.kali.Kali.execute(Kali.java:54)
+	at us.msu.cse.repair.algorithms.kali.KaliAlgInterface.execute(KaliAlgInterface.java:24)
+	at us.msu.cse.repair.core.AbstractRepairAlgorithm.execute(AbstractRepairAlgorithm.java:18)
+	at us.msu.cse.repair.KaliMain.main(KaliMain.java:16)
+	at us.msu.cse.repair.Main.main(Main.java:14)
+
+
+Node: 2c8178711f7b
+
+
+
+Date: Fri Oct  7 08:43:47 EDT 2022
+

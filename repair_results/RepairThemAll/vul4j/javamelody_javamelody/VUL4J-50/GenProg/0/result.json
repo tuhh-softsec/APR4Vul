@@ -1,0 +1,297 @@
+{
+  "repair_end": "2022-10-03 07:58:04.189393", 
+  "repair_begin": "2022-10-03 03:58:01.393353", 
+  "patches": [
+    {
+      "edits": [
+        {
+          "path": "javamelody-core/src/main/java/net/bull/javamelody/HtmlSessionInformationsReport.java", 
+          "line": 162, 
+          "faulty": "write(remoteAddr);", 
+          "type": "Replace", 
+          "seed": "writeln(\"<link rel='stylesheet' href='?resource=monitoring.css' type='text/css'/>\");"
+        }
+      ], 
+      "patch": "--- /workdir/GenProg_vul4j_javamelody_javamelody_VUL4J-50/javamelody-core/src/main/java/net/bull/javamelody/HtmlSessionInformationsReport.java\t2022-10-03 00:07:26.012403588 -0400\n+++ /workdir/GenProg_vul4j_javamelody_javamelody_VUL4J-50/patches_2yi7/Patch_4/patched/net/bull/javamelody/HtmlSessionInformationsReport.java\t2022-10-03 00:07:26.012403588 -0400\n@@ -159,7 +159,7 @@\n \t\tif (remoteAddr == null) {\n \t\t\twrite(\"&nbsp;\");\n \t\t} else {\n-\t\t\twrite(remoteAddr);\n+\t\t\twriteln(\"<link rel='stylesheet' href='?resource=monitoring.css' type='text/css'/>\");\n \t\t}\n \t\twrite(nextColumnAlignCenter);\n \t\twriteCountry(session);\n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "javamelody-core/src/main/java/net/bull/javamelody/HtmlSessionInformationsReport.java", 
+          "line": 162, 
+          "faulty": "write(remoteAddr);", 
+          "type": "Delete", 
+          "seed": "return isErrorCounter() && !isJobCounter();"
+        }, 
+        {
+          "path": "javamelody-core/src/main/java/net/bull/javamelody/HtmlSessionInformationsReport.java", 
+          "line": 162, 
+          "faulty": "write(remoteAddr);", 
+          "type": "Replace", 
+          "seed": "if (Parameters.isSystemActionsEnabled()) {\n  writeln(\"&nbsp;&nbsp;&nbsp;<a href='?action=purge_obsolete_files' class='noPrint'>\");\n  writeln(\"<img width='14' height='14' src='?resource=user-trash.png' alt='#Purger_les_fichiers_obsoletes#' title='#Purger_les_fichiers_obsoletes#'/></a>\");\n}"
+        }
+      ], 
+      "patch": "--- /workdir/GenProg_vul4j_javamelody_javamelody_VUL4J-50/javamelody-core/src/main/java/net/bull/javamelody/HtmlSessionInformationsReport.java\t2022-10-03 03:53:11.773965345 -0400\n+++ /workdir/GenProg_vul4j_javamelody_javamelody_VUL4J-50/patches_2yi7/Patch_17/patched/net/bull/javamelody/HtmlSessionInformationsReport.java\t2022-10-03 03:53:11.777965457 -0400\n@@ -159,7 +159,10 @@\n \t\tif (remoteAddr == null) {\n \t\t\twrite(\"&nbsp;\");\n \t\t} else {\n-\t\t\twrite(remoteAddr);\n+\t\t\tif (Parameters.isSystemActionsEnabled()) {\n+\t\t\t\twriteln(\"&nbsp;&nbsp;&nbsp;<a href='?action=purge_obsolete_files' class='noPrint'>\");\n+\t\t\t\twriteln(\"<img width='14' height='14' src='?resource=user-trash.png' alt='#Purger_les_fichiers_obsoletes#' title='#Purger_les_fichiers_obsoletes#'/></a>\");\n+\t\t\t}\n \t\t}\n \t\twrite(nextColumnAlignCenter);\n \t\twriteCountry(session);\n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "javamelody-core/src/main/java/net/bull/javamelody/HtmlSessionInformationsReport.java", 
+          "line": 162, 
+          "faulty": "write(remoteAddr);", 
+          "type": "Replace", 
+          "seed": "if (!Parameters.isSystemActionsEnabled()) {\n  throw new IllegalStateException(I18N.getString(\"Actions_non_activees\"));\n}"
+        }
+      ], 
+      "patch": "--- /workdir/GenProg_vul4j_javamelody_javamelody_VUL4J-50/javamelody-core/src/main/java/net/bull/javamelody/HtmlSessionInformationsReport.java\t2022-10-03 00:12:03.468135017 -0400\n+++ /workdir/GenProg_vul4j_javamelody_javamelody_VUL4J-50/patches_2yi7/Patch_7/patched/net/bull/javamelody/HtmlSessionInformationsReport.java\t2022-10-03 00:12:03.472135128 -0400\n@@ -159,7 +159,10 @@\n \t\tif (remoteAddr == null) {\n \t\t\twrite(\"&nbsp;\");\n \t\t} else {\n-\t\t\twrite(remoteAddr);\n+\t\t\tif (!Parameters.isSystemActionsEnabled()) {\n+\t\t\t\tthrow new IllegalStateException(\n+\t\t\t\t\t\tI18N.getString(\"Actions_non_activees\"));\n+\t\t\t}\n \t\t}\n \t\twrite(nextColumnAlignCenter);\n \t\twriteCountry(session);\n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "javamelody-core/src/main/java/net/bull/javamelody/HtmlSessionInformationsReport.java", 
+          "line": 162, 
+          "faulty": "write(remoteAddr);", 
+          "type": "Delete", 
+          "seed": "write(\"<img src='?resource=memory.png' width='20' height='20' alt=\\\"#heaphisto#\\\" /> #heaphisto#</a>\");"
+        }, 
+        {
+          "path": "javamelody-core/src/main/java/net/bull/javamelody/HtmlSessionInformationsReport.java", 
+          "line": 162, 
+          "faulty": "write(remoteAddr);", 
+          "type": "Replace", 
+          "seed": "Log4JAppender.getSingleton().deregister();"
+        }
+      ], 
+      "patch": "--- /workdir/GenProg_vul4j_javamelody_javamelody_VUL4J-50/javamelody-core/src/main/java/net/bull/javamelody/HtmlSessionInformationsReport.java\t2022-10-03 00:23:28.263225329 -0400\n+++ /workdir/GenProg_vul4j_javamelody_javamelody_VUL4J-50/patches_2yi7/Patch_9/patched/net/bull/javamelody/HtmlSessionInformationsReport.java\t2022-10-03 00:23:28.263225329 -0400\n@@ -159,7 +159,7 @@\n \t\tif (remoteAddr == null) {\n \t\t\twrite(\"&nbsp;\");\n \t\t} else {\n-\t\t\twrite(remoteAddr);\n+\t\t\tLog4JAppender.getSingleton().deregister();\n \t\t}\n \t\twrite(nextColumnAlignCenter);\n \t\twriteCountry(session);\n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "javamelody-core/src/main/java/net/bull/javamelody/HtmlSessionInformationsReport.java", 
+          "line": 162, 
+          "faulty": "write(remoteAddr);", 
+          "type": "Replace", 
+          "seed": "write(\"<th>#Thread#</th>\");"
+        }
+      ], 
+      "patch": "--- /workdir/GenProg_vul4j_javamelody_javamelody_VUL4J-50/javamelody-core/src/main/java/net/bull/javamelody/HtmlSessionInformationsReport.java\t2022-10-03 00:33:52.640836288 -0400\n+++ /workdir/GenProg_vul4j_javamelody_javamelody_VUL4J-50/patches_2yi7/Patch_10/patched/net/bull/javamelody/HtmlSessionInformationsReport.java\t2022-10-03 00:33:52.640836288 -0400\n@@ -159,7 +159,7 @@\n \t\tif (remoteAddr == null) {\n \t\t\twrite(\"&nbsp;\");\n \t\t} else {\n-\t\t\twrite(remoteAddr);\n+\t\t\twrite(\"<th>#Thread#</th>\");\n \t\t}\n \t\twrite(nextColumnAlignCenter);\n \t\twriteCountry(session);\n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "javamelody-core/src/main/java/net/bull/javamelody/HtmlSessionInformationsReport.java", 
+          "line": 162, 
+          "faulty": "write(remoteAddr);", 
+          "type": "Delete", 
+          "seed": "return isErrorCounter() && !isJobCounter();"
+        }, 
+        {
+          "path": "javamelody-core/src/main/java/net/bull/javamelody/HtmlSessionInformationsReport.java", 
+          "line": 162, 
+          "faulty": "write(remoteAddr);", 
+          "type": "Replace", 
+          "seed": "writeln(\"<a href='?part=heaphisto'><img src='?resource=action_refresh.png' alt='#Actualiser#'/> #Actualiser#</a>\");"
+        }
+      ], 
+      "patch": "--- /workdir/GenProg_vul4j_javamelody_javamelody_VUL4J-50/javamelody-core/src/main/java/net/bull/javamelody/HtmlSessionInformationsReport.java\t2022-10-03 01:39:19.574475303 -0400\n+++ /workdir/GenProg_vul4j_javamelody_javamelody_VUL4J-50/patches_2yi7/Patch_13/patched/net/bull/javamelody/HtmlSessionInformationsReport.java\t2022-10-03 01:39:19.574475303 -0400\n@@ -159,7 +159,7 @@\n \t\tif (remoteAddr == null) {\n \t\t\twrite(\"&nbsp;\");\n \t\t} else {\n-\t\t\twrite(remoteAddr);\n+\t\t\twriteln(\"<a href='?part=heaphisto'><img src='?resource=action_refresh.png' alt='#Actualiser#'/> #Actualiser#</a>\");\n \t\t}\n \t\twrite(nextColumnAlignCenter);\n \t\twriteCountry(session);\n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "javamelody-core/src/main/java/net/bull/javamelody/HtmlSessionInformationsReport.java", 
+          "line": 162, 
+          "faulty": "write(remoteAddr);", 
+          "type": "Replace", 
+          "seed": "long memorySize=0;"
+        }
+      ], 
+      "patch": "--- /workdir/GenProg_vul4j_javamelody_javamelody_VUL4J-50/javamelody-core/src/main/java/net/bull/javamelody/HtmlSessionInformationsReport.java\t2022-10-03 00:10:20.333260885 -0400\n+++ /workdir/GenProg_vul4j_javamelody_javamelody_VUL4J-50/patches_2yi7/Patch_6/patched/net/bull/javamelody/HtmlSessionInformationsReport.java\t2022-10-03 00:10:20.333260885 -0400\n@@ -159,7 +159,7 @@\n \t\tif (remoteAddr == null) {\n \t\t\twrite(\"&nbsp;\");\n \t\t} else {\n-\t\t\twrite(remoteAddr);\n+\t\t\tlong memorySize = 0;\n \t\t}\n \t\twrite(nextColumnAlignCenter);\n \t\twriteCountry(session);\n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "javamelody-core/src/main/java/net/bull/javamelody/HtmlSessionInformationsReport.java", 
+          "line": 162, 
+          "faulty": "write(remoteAddr);", 
+          "type": "Delete", 
+          "seed": "return isErrorCounter() && !isJobCounter();"
+        }, 
+        {
+          "path": "javamelody-core/src/main/java/net/bull/javamelody/HtmlSessionInformationsReport.java", 
+          "line": 162, 
+          "faulty": "write(remoteAddr);", 
+          "type": "InsertBefore", 
+          "seed": "JdbcWrapper.ACTIVE_THREAD_COUNT.decrementAndGet();"
+        }
+      ], 
+      "patch": "--- /workdir/GenProg_vul4j_javamelody_javamelody_VUL4J-50/javamelody-core/src/main/java/net/bull/javamelody/HtmlSessionInformationsReport.java\t2022-10-03 00:59:19.303581828 -0400\n+++ /workdir/GenProg_vul4j_javamelody_javamelody_VUL4J-50/patches_2yi7/Patch_11/patched/net/bull/javamelody/HtmlSessionInformationsReport.java\t2022-10-03 00:59:19.303581828 -0400\n@@ -159,7 +159,7 @@\n \t\tif (remoteAddr == null) {\n \t\t\twrite(\"&nbsp;\");\n \t\t} else {\n-\t\t\twrite(remoteAddr);\n+\t\t\tJdbcWrapper.ACTIVE_THREAD_COUNT.decrementAndGet();\n \t\t}\n \t\twrite(nextColumnAlignCenter);\n \t\twriteCountry(session);\n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "javamelody-core/src/main/java/net/bull/javamelody/HtmlSessionInformationsReport.java", 
+          "line": 162, 
+          "faulty": "write(remoteAddr);", 
+          "type": "Replace", 
+          "seed": "final String newColumn=\"</td><td>\";"
+        }
+      ], 
+      "patch": "--- /workdir/GenProg_vul4j_javamelody_javamelody_VUL4J-50/javamelody-core/src/main/java/net/bull/javamelody/HtmlSessionInformationsReport.java\t2022-10-03 00:05:02.484405070 -0400\n+++ /workdir/GenProg_vul4j_javamelody_javamelody_VUL4J-50/patches_2yi7/Patch_3/patched/net/bull/javamelody/HtmlSessionInformationsReport.java\t2022-10-03 00:05:02.484405070 -0400\n@@ -159,7 +159,7 @@\n \t\tif (remoteAddr == null) {\n \t\t\twrite(\"&nbsp;\");\n \t\t} else {\n-\t\t\twrite(remoteAddr);\n+\t\t\tfinal String newColumn = \"</td><td>\";\n \t\t}\n \t\twrite(nextColumnAlignCenter);\n \t\twriteCountry(session);\n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "javamelody-core/src/main/java/net/bull/javamelody/HtmlSessionInformationsReport.java", 
+          "line": 162, 
+          "faulty": "write(remoteAddr);", 
+          "type": "Replace", 
+          "seed": "writeln(\"<a href='?part=heaphisto'><img src='?resource=action_refresh.png' alt='#Actualiser#'/> #Actualiser#</a>\");"
+        }, 
+        {
+          "path": "javamelody-core/src/main/java/net/bull/javamelody/HtmlSessionInformationsReport.java", 
+          "line": 162, 
+          "faulty": "write(remoteAddr);", 
+          "type": "InsertBefore", 
+          "seed": "writeln(\"  }\");"
+        }
+      ], 
+      "patch": "--- /workdir/GenProg_vul4j_javamelody_javamelody_VUL4J-50/javamelody-core/src/main/java/net/bull/javamelody/HtmlSessionInformationsReport.java\t2022-10-03 01:27:06.370194868 -0400\n+++ /workdir/GenProg_vul4j_javamelody_javamelody_VUL4J-50/patches_2yi7/Patch_12/patched/net/bull/javamelody/HtmlSessionInformationsReport.java\t2022-10-03 01:27:06.374194980 -0400\n@@ -159,7 +159,8 @@\n \t\tif (remoteAddr == null) {\n \t\t\twrite(\"&nbsp;\");\n \t\t} else {\n-\t\t\twrite(remoteAddr);\n+\t\t\twriteln(\"  }\");\n+\t\t\twriteln(\"<a href='?part=heaphisto'><img src='?resource=action_refresh.png' alt='#Actualiser#'/> #Actualiser#</a>\");\n \t\t}\n \t\twrite(nextColumnAlignCenter);\n \t\twriteCountry(session);\n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "javamelody-core/src/main/java/net/bull/javamelody/HtmlSessionInformationsReport.java", 
+          "line": 162, 
+          "faulty": "write(remoteAddr);", 
+          "type": "Replace", 
+          "seed": "long bytesSent=0;"
+        }
+      ], 
+      "patch": "--- /workdir/GenProg_vul4j_javamelody_javamelody_VUL4J-50/javamelody-core/src/main/java/net/bull/javamelody/HtmlSessionInformationsReport.java\t2022-10-03 00:03:53.198475173 -0400\n+++ /workdir/GenProg_vul4j_javamelody_javamelody_VUL4J-50/patches_2yi7/Patch_2/patched/net/bull/javamelody/HtmlSessionInformationsReport.java\t2022-10-03 00:03:53.198475173 -0400\n@@ -159,7 +159,7 @@\n \t\tif (remoteAddr == null) {\n \t\t\twrite(\"&nbsp;\");\n \t\t} else {\n-\t\t\twrite(remoteAddr);\n+\t\t\tlong bytesSent = 0;\n \t\t}\n \t\twrite(nextColumnAlignCenter);\n \t\twriteCountry(session);\n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "javamelody-core/src/main/java/net/bull/javamelody/HtmlSessionInformationsReport.java", 
+          "line": 162, 
+          "faulty": "write(remoteAddr);", 
+          "type": "Delete", 
+          "seed": "write(\"<img src='?resource=memory.png' width='20' height='20' alt=\\\"#heaphisto#\\\" /> #heaphisto#</a>\");"
+        }
+      ], 
+      "patch": "--- /workdir/GenProg_vul4j_javamelody_javamelody_VUL4J-50/javamelody-core/src/main/java/net/bull/javamelody/HtmlSessionInformationsReport.java\t2022-10-02 23:59:45.071566167 -0400\n+++ /workdir/GenProg_vul4j_javamelody_javamelody_VUL4J-50/patches_2yi7/Patch_1/patched/net/bull/javamelody/HtmlSessionInformationsReport.java\t2022-10-02 23:59:45.075566279 -0400\n@@ -159,7 +159,6 @@\n \t\tif (remoteAddr == null) {\n \t\t\twrite(\"&nbsp;\");\n \t\t} else {\n-\t\t\twrite(remoteAddr);\n \t\t}\n \t\twrite(nextColumnAlignCenter);\n \t\twriteCountry(session);\n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "javamelody-core/src/main/java/net/bull/javamelody/HtmlSessionInformationsReport.java", 
+          "line": 162, 
+          "faulty": "write(remoteAddr);", 
+          "type": "Replace", 
+          "seed": "writeln(\"<a href='?part=heaphisto'><img src='?resource=action_refresh.png' alt='#Actualiser#'/> #Actualiser#</a>\");"
+        }, 
+        {
+          "path": "javamelody-core/src/main/java/net/bull/javamelody/HtmlSessionInformationsReport.java", 
+          "line": 162, 
+          "faulty": "write(remoteAddr);", 
+          "type": "Replace", 
+          "seed": "final String javaVendor=System.getProperty(\"java.vendor\");"
+        }
+      ], 
+      "patch": "--- /workdir/GenProg_vul4j_javamelody_javamelody_VUL4J-50/javamelody-core/src/main/java/net/bull/javamelody/HtmlSessionInformationsReport.java\t2022-10-03 03:56:04.190797900 -0400\n+++ /workdir/GenProg_vul4j_javamelody_javamelody_VUL4J-50/patches_2yi7/Patch_18/patched/net/bull/javamelody/HtmlSessionInformationsReport.java\t2022-10-03 03:56:04.190797900 -0400\n@@ -159,7 +159,7 @@\n \t\tif (remoteAddr == null) {\n \t\t\twrite(\"&nbsp;\");\n \t\t} else {\n-\t\t\twrite(remoteAddr);\n+\t\t\tfinal String javaVendor = System.getProperty(\"java.vendor\");\n \t\t}\n \t\twrite(nextColumnAlignCenter);\n \t\twriteCountry(session);\n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "javamelody-core/src/main/java/net/bull/javamelody/HtmlSessionInformationsReport.java", 
+          "line": 162, 
+          "faulty": "write(remoteAddr);", 
+          "type": "Replace", 
+          "seed": "int op=0;"
+        }
+      ], 
+      "patch": "--- /workdir/GenProg_vul4j_javamelody_javamelody_VUL4J-50/javamelody-core/src/main/java/net/bull/javamelody/HtmlSessionInformationsReport.java\t2022-10-03 00:08:01.225384699 -0400\n+++ /workdir/GenProg_vul4j_javamelody_javamelody_VUL4J-50/patches_2yi7/Patch_5/patched/net/bull/javamelody/HtmlSessionInformationsReport.java\t2022-10-03 00:08:01.225384699 -0400\n@@ -159,7 +159,7 @@\n \t\tif (remoteAddr == null) {\n \t\t\twrite(\"&nbsp;\");\n \t\t} else {\n-\t\t\twrite(remoteAddr);\n+\t\t\tint op = 0;\n \t\t}\n \t\twrite(nextColumnAlignCenter);\n \t\twriteCountry(session);\n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "javamelody-core/src/main/java/net/bull/javamelody/HtmlSessionInformationsReport.java", 
+          "line": 162, 
+          "faulty": "write(remoteAddr);", 
+          "type": "Replace", 
+          "seed": "writeln(\"<div align='center'>\");"
+        }, 
+        {
+          "path": "javamelody-core/src/main/java/net/bull/javamelody/HtmlSessionInformationsReport.java", 
+          "line": 162, 
+          "faulty": "write(remoteAddr);", 
+          "type": "Delete", 
+          "seed": "return isErrorCounter() && !isJobCounter();"
+        }
+      ], 
+      "patch": "--- /workdir/GenProg_vul4j_javamelody_javamelody_VUL4J-50/javamelody-core/src/main/java/net/bull/javamelody/HtmlSessionInformationsReport.java\t2022-10-03 02:57:25.352754940 -0400\n+++ /workdir/GenProg_vul4j_javamelody_javamelody_VUL4J-50/patches_2yi7/Patch_16/patched/net/bull/javamelody/HtmlSessionInformationsReport.java\t2022-10-03 02:57:25.352754940 -0400\n@@ -159,7 +159,6 @@\n \t\tif (remoteAddr == null) {\n \t\t\twrite(\"&nbsp;\");\n \t\t} else {\n-\t\t\twrite(remoteAddr);\n \t\t}\n \t\twrite(nextColumnAlignCenter);\n \t\twriteCountry(session);\n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "javamelody-core/src/main/java/net/bull/javamelody/HtmlSessionInformationsReport.java", 
+          "line": 162, 
+          "faulty": "write(remoteAddr);", 
+          "type": "Replace", 
+          "seed": "writeln(\"<div align='center'>\");"
+        }, 
+        {
+          "path": "javamelody-core/src/main/java/net/bull/javamelody/HtmlSessionInformationsReport.java", 
+          "line": 162, 
+          "faulty": "write(remoteAddr);", 
+          "type": "InsertBefore", 
+          "seed": "write(\"<th>#JobPeriodOrCronExpression#</th>\");"
+        }
+      ], 
+      "patch": "--- /workdir/GenProg_vul4j_javamelody_javamelody_VUL4J-50/javamelody-core/src/main/java/net/bull/javamelody/HtmlSessionInformationsReport.java\t2022-10-03 02:15:07.242159723 -0400\n+++ /workdir/GenProg_vul4j_javamelody_javamelody_VUL4J-50/patches_2yi7/Patch_15/patched/net/bull/javamelody/HtmlSessionInformationsReport.java\t2022-10-03 02:15:07.242159723 -0400\n@@ -159,7 +159,8 @@\n \t\tif (remoteAddr == null) {\n \t\t\twrite(\"&nbsp;\");\n \t\t} else {\n-\t\t\twrite(remoteAddr);\n+\t\t\twrite(\"<th>#JobPeriodOrCronExpression#</th>\");\n+\t\t\twriteln(\"<div align='center'>\");\n \t\t}\n \t\twrite(nextColumnAlignCenter);\n \t\twriteCountry(session);\n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "javamelody-core/src/main/java/net/bull/javamelody/HtmlSessionInformationsReport.java", 
+          "line": 162, 
+          "faulty": "write(remoteAddr);", 
+          "type": "Replace", 
+          "seed": "writeln(\"<div align='center'>\");"
+        }
+      ], 
+      "patch": "--- /workdir/GenProg_vul4j_javamelody_javamelody_VUL4J-50/javamelody-core/src/main/java/net/bull/javamelody/HtmlSessionInformationsReport.java\t2022-10-03 00:18:54.919603018 -0400\n+++ /workdir/GenProg_vul4j_javamelody_javamelody_VUL4J-50/patches_2yi7/Patch_8/patched/net/bull/javamelody/HtmlSessionInformationsReport.java\t2022-10-03 00:18:54.919603018 -0400\n@@ -159,7 +159,7 @@\n \t\tif (remoteAddr == null) {\n \t\t\twrite(\"&nbsp;\");\n \t\t} else {\n-\t\t\twrite(remoteAddr);\n+\t\t\twriteln(\"<div align='center'>\");\n \t\t}\n \t\twrite(nextColumnAlignCenter);\n \t\twriteCountry(session);\n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "javamelody-core/src/main/java/net/bull/javamelody/HtmlSessionInformationsReport.java", 
+          "line": 162, 
+          "faulty": "write(remoteAddr);", 
+          "type": "Replace", 
+          "seed": "writeln(\"<a href='?part=heaphisto'><img src='?resource=action_refresh.png' alt='#Actualiser#'/> #Actualiser#</a>\");"
+        }
+      ], 
+      "patch": "--- /workdir/GenProg_vul4j_javamelody_javamelody_VUL4J-50/javamelody-core/src/main/java/net/bull/javamelody/HtmlSessionInformationsReport.java\t2022-10-02 23:59:10.826612979 -0400\n+++ /workdir/GenProg_vul4j_javamelody_javamelody_VUL4J-50/patches_2yi7/Patch_0/patched/net/bull/javamelody/HtmlSessionInformationsReport.java\t2022-10-02 23:59:10.830613090 -0400\n@@ -159,7 +159,7 @@\n \t\tif (remoteAddr == null) {\n \t\t\twrite(\"&nbsp;\");\n \t\t} else {\n-\t\t\twrite(remoteAddr);\n+\t\t\twriteln(\"<a href='?part=heaphisto'><img src='?resource=action_refresh.png' alt='#Actualiser#'/> #Actualiser#</a>\");\n \t\t}\n \t\twrite(nextColumnAlignCenter);\n \t\twriteCountry(session);\n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "javamelody-core/src/main/java/net/bull/javamelody/HtmlSessionInformationsReport.java", 
+          "line": 162, 
+          "faulty": "write(remoteAddr);", 
+          "type": "Delete", 
+          "seed": "return isErrorCounter() && !isJobCounter();"
+        }, 
+        {
+          "path": "javamelody-core/src/main/java/net/bull/javamelody/HtmlSessionInformationsReport.java", 
+          "line": 162, 
+          "faulty": "write(remoteAddr);", 
+          "type": "Replace", 
+          "seed": "write(\"</span>\");"
+        }
+      ], 
+      "patch": "--- /workdir/GenProg_vul4j_javamelody_javamelody_VUL4J-50/javamelody-core/src/main/java/net/bull/javamelody/HtmlSessionInformationsReport.java\t2022-10-03 01:46:51.086986589 -0400\n+++ /workdir/GenProg_vul4j_javamelody_javamelody_VUL4J-50/patches_2yi7/Patch_14/patched/net/bull/javamelody/HtmlSessionInformationsReport.java\t2022-10-03 01:46:51.086986589 -0400\n@@ -159,7 +159,7 @@\n \t\tif (remoteAddr == null) {\n \t\t\twrite(\"&nbsp;\");\n \t\t} else {\n-\t\t\twrite(remoteAddr);\n+\t\t\twrite(\"</span>\");\n \t\t}\n \t\twrite(nextColumnAlignCenter);\n \t\twriteCountry(session);\n\n\n"
+    }
+  ]
+}

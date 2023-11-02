@@ -1,0 +1,10 @@
+{
+  "repair_end": "2022-09-14 12:22:02.188189", 
+  "repair_begin": "2022-09-14 11:47:30.817024", 
+  "patches": [
+    {
+      "edits": [], 
+      "patch": "diff --git a/tika-parsers/src/main/java/org/apache/tika/parser/iptc/IptcAnpaParser.java b/tika-parsers/src/main/java/org/apache/tika/parser/iptc/IptcAnpaParser.java\nindex 3904244837b2..ce31444209d5 100644\n--- a/tika-parsers/src/main/java/org/apache/tika/parser/iptc/IptcAnpaParser.java\n+++ b/tika-parsers/src/main/java/org/apache/tika/parser/iptc/IptcAnpaParser.java\n@@ -508,7 +508,7 @@ public class IptcAnpaParser implements Parser {\n                while ((val_next != LT) && (val_next != CT) && (val_next != CR) && (val_next != LF)) {   // less than delimiter (\\x3c), or carat (\\x5e) and not EOL\n                   bdy_title += (char)(val_next & 0xff);  // convert the byte to an unsigned int\n                   val_next =  (read < value.length) ? value[read++] : 0x00;\n-                  if (read > value.length) { break; }  // shouldn't ever hit this, but save a NPE\n+                  if (read==value.length) { break; }  // shouldn't ever hit this, but save a NPE\n                }\n \n                if (val_next == CT) {      //  start of a new section , when first didn't finish cleanly"
+    }
+  ]
+}

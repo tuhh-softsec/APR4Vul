@@ -1,0 +1,60 @@
+{
+  "vul_id": "VUL4J-23",
+  "cve_id": "CVE-2016-5394",
+  "repository": {
+    "name": "apache_sling",
+    "url": "https://github.com/apache/sling",
+    "human_patch_url": "https://github.com/apache/sling/commit/7d2365a248943071a44d8495655186e4f14ea294"
+  },
+  "tests": {
+    "overall_metrics": {
+      "number_running": 25,
+      "number_passing": 23,
+      "number_error": 0,
+      "number_failing": 2,
+      "number_skipping": 0
+    },
+    "failures": [
+      {
+        "test_class": "org.apache.sling.xss.impl.XSSAPIImplTest",
+        "test_method": "testEncodeForJSString",
+        "failure_name": "junit.framework.ComparisonFailure",
+        "detail": "Encoding 'break\"out' expected:<break\\[x22]out> but was:<break\\[\"]out>",
+        "is_error": false
+      },
+      {
+        "test_class": "org.apache.sling.xss.impl.XSSAPIImplTest",
+        "test_method": "testGetValidJSToken",
+        "failure_name": "junit.framework.ComparisonFailure",
+        "detail": "Validating Javascript token ''literal'); junk'' expected:<'literal\\[x27]); junk'> but was:<'literal\\[']); junk'>",
+        "is_error": false
+      }
+    ],
+    "passing_tests": [
+      "org.apache.sling.xss.impl.XSSAPIImplTest#testEncodeForHTML",
+      "org.apache.sling.xss.impl.XSSAPIImplTest#testGetValidDimension",
+      "org.apache.sling.xss.impl.XSSProtectionServiceImplTest#testJapaneseStringTwo",
+      "org.apache.sling.xss.impl.XSSAPIImplTest#testEncodeForXMLAttr",
+      "org.apache.sling.xss.impl.XSSAPIImplTest#testGetValidStyleToken",
+      "org.apache.sling.xss.impl.XSSAPIImplTest#testGetValidCSSColor",
+      "org.apache.sling.xss.impl.XSSAPIImplTest#testGetValidHref",
+      "org.apache.sling.xss.impl.XSSAPIImplTest#testGetValidInteger",
+      "org.apache.sling.xss.impl.XSSAPIImplTest#testFilterHTML",
+      "org.apache.sling.xss.impl.XSSProtectionServiceImplTest#test21umlaut",
+      "org.apache.sling.xss.impl.XSSAPIImplTest#testGetValidMultiLineComment",
+      "org.apache.sling.xss.impl.XSSAPIImplTest#testGetValidXML",
+      "org.apache.sling.xss.impl.XSSAPIImplTest#testGetValidHrefWithoutHrefConfig",
+      "org.apache.sling.xss.impl.XSSAPIImplTest#testEncodeForHTMLAttr",
+      "org.apache.sling.xss.impl.XSSProtectionServiceImplTest#simpleStringsTest",
+      "org.apache.sling.xss.impl.XSSAPIImplTest#testGetValidLong",
+      "org.apache.sling.xss.impl.XSSAPIImplTest#testEncodeForCSSString",
+      "org.apache.sling.xss.impl.XSSProtectionServiceImplTest#testWithAccents",
+      "org.apache.sling.xss.impl.XSSAPIImplTest#testGetValidDouble",
+      "org.apache.sling.xss.impl.XSSProtectionServiceImplTest#testStringsThatNeedChanges",
+      "org.apache.sling.xss.impl.XSSProtectionServiceImplTest#testJapaneseStringOne",
+      "org.apache.sling.xss.impl.XSSAPIImplTest#testEncodeForXML",
+      "org.apache.sling.xss.impl.XSSAPIImplTest#testGetValidJSON"
+    ],
+    "skipping_tests": []
+  }
+}

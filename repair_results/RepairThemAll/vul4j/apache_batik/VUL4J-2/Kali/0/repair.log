@@ -1,0 +1,69 @@
+cd /workdir/Kali_vul4j_apache_batik_VUL4J-2;
+export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en";
+TZ="America/New_York"; export TZ;
+export PATH="/usr/lib/jvm/java-8-openjdk-amd64/bin:$PATH";
+export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64";
+timeout 240m java -Xmx4g -Xms1g -XX:MaxPermSize=512m -cp /script/../libs/jmetal.jar:/script/../repair_tools/arja.jar us.msu.cse.repair.Main \
+	Kali \
+	-DexternalProjRoot /script/../libs/arja_external \
+	-DprojectDir /workdir/Kali_vul4j_apache_batik_VUL4J-2 \
+    -DtestFiltered false \
+    -DrunTestCommand "mvn test -pl batik-dom -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B" \
+	-DsrcJavaDir /workdir/Kali_vul4j_apache_batik_VUL4J-2/batik-dom/src/main/java \
+	-DbinJavaDir /workdir/Kali_vul4j_apache_batik_VUL4J-2/batik-dom/target/classes \
+	-DbinTestDir /workdir/Kali_vul4j_apache_batik_VUL4J-2/batik-dom/target/test-classes \
+	-DdiffFormat true \
+	-Dseed 0 \
+	-DgzoltarDataDir /script/../data/benchmarks/vul4j/perfectfl/VUL4J-2 \
+	-Ddependences /root/.m2/repository/xalan/xalan/2.7.2/xalan-2.7.2.jar:/root/.m2/repository/org/apache/xmlgraphics/batik-css/1.9.0-SNAPSHOT/batik-css-1.9.0-SNAPSHOT.jar:/root/.m2/repository/org/apache/xmlgraphics/batik-i18n/1.9.0-SNAPSHOT/batik-i18n-1.9.0-SNAPSHOT.jar:/root/.m2/repository/xalan/serializer/2.7.2/serializer-2.7.2.jar:/root/.m2/repository/xml-apis/xml-apis/1.3.04/xml-apis-1.3.04.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/apache/xmlgraphics/batik-constants/1.9.0-SNAPSHOT/batik-constants-1.9.0-SNAPSHOT.jar:/root/.m2/repository/org/apache/xmlgraphics/xmlgraphics-commons/2.2.0-SNAPSHOT/xmlgraphics-commons-2.2.0-SNAPSHOT.jar:/root/.m2/repository/commons-io/commons-io/1.3.2/commons-io-1.3.2.jar:/root/.m2/repository/org/apache/xmlgraphics/batik-xml/1.9.0-SNAPSHOT/batik-xml-1.9.0-SNAPSHOT.jar:/root/.m2/repository/xml-apis/xml-apis-ext/1.3.04/xml-apis-ext-1.3.04.jar:/root/.m2/repository/org/apache/xmlgraphics/batik-util/1.9.0-SNAPSHOT/batik-util-1.9.0-SNAPSHOT.jar:/root/.m2/repository/junit/junit/4.11/junit-4.11.jar:/root/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/root/.m2/repository/org/apache/xmlgraphics/batik-ext/1.9.0-SNAPSHOT/batik-ext-1.9.0-SNAPSHOT.jar;
+	echo "\n\nNode: `hostname`\n";
+	echo "\n\nDate: `date`\n";
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en
+OpenJDK 64-Bit Server VM warning: ignoring option MaxPermSize=512m; support was removed in 8.0
+Fault localization starts...
+Number of positive tests: 0
+Number of negative tests: 1
+Negative tests: [org.apache.batik.dom.util.TestCVE_2017_5662#testCVE_2017_5662]
+Faulty Lines: 
+org.apache.batik.dom.util.SAXDocumentFactory#404:1.0
+org.apache.batik.dom.util.SAXDocumentFactory#448:1.0
+org.apache.batik.dom.util.SAXDocumentFactory#427:1.0
+org.apache.batik.dom.util.SAXDocumentFactory#401:1.0
+Fault localization is finished!
+AST parsing starts...
+AST parsing is finished!
+Detection of local variables starts...
+Detection of local variables is finished!
+Detection of fields starts...
+Detection of fields is finished!
+Detection of methods starts...
+Detection of methods is finished!
+Ingredient screener starts...
+Ingredient screener is finished!
+Initialization of manipulations starts...
+Initialization of manipulations is finished!
+Filtering of the tests starts...
+Number of positive tests considered: 0
+Filtering of the tests is finished!
+----------------------------------
+Patch Candidate:
+@@ -424,7 +424,9 @@ public class SAXDocumentFactory
+} else {
+SAXParser saxParser;
+try {
+-                    saxParser = saxFactory.newSAXParser();
++                    if (true)
++						return null;
++					saxParser = saxFactory.newSAXParser();
+} catch (ParserConfigurationException pce) {
+throw new IOException("Could not create SAXParser: "
++ pce.getMessage());
+Number of failed tests: 0, 0
+
+
+Node: 2c8178711f7b
+
+
+
+Date: Thu Oct  6 09:57:35 EDT 2022
+

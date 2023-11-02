@@ -1,0 +1,210 @@
+cd /workdir/jMutRepair_vul4j_spring-projects_spring-security-oauth_VUL4J-75;
+export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en";
+TZ="America/New_York"; export TZ;
+export PATH="/usr/lib/jvm/java-8-openjdk-amd64/bin:$PATH";
+export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64/bin";
+time java -Xmx4g -Xms1g -XX:MaxPermSize=512m -cp /script/../libs/jtestex7.jar:/script/../repair_tools/astor.jar fr.inria.main.evolution.AstorMain \
+	-mode jMutRepair \
+	-location . \
+	-id spring-projects_spring-security-oauth-VUL4J-75 \
+	-failing org.springframework.security.oauth2.provider.endpoint.SpelViewTests#nonRecursive:org.springframework.security.oauth2.provider.endpoint.SpelViewTests#recursive \
+	-jvm4testexecution /usr/lib/jvm/jdk1.7.0_80/bin \
+	-jvm4evosuitetestexecution /usr/lib/jvm/jdk1.7.0_80/bin \
+	-maxgen 1000000 \
+	-maxtime 120 \
+	-stopfirst true \
+	-seed 0 \
+	-scope local \
+	-population 1 \
+	-javacompliancelevel 7 \
+	-faultlocalization perfect \
+    -perfectdata /script/../data/benchmarks/vul4j/perfectfl/VUL4J-75 \
+    -validation externalcmd \
+    -testfailingcmd "mvn test -pl spring-security-oauth2 -Dtest=org.springframework.security.oauth2.provider.endpoint.SpelViewTests -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B" \
+    -testallcmd "mvn test -pl spring-security-oauth2 -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B"  \ \
+	-srcjavafolder spring-security-oauth2/src/main/java \
+	-srctestfolder spring-security-oauth2/src/test/java \
+	-binjavafolder spring-security-oauth2/target/classes \
+	-bintestfolder spring-security-oauth2/target/test-classes \
+	-parameters x:x \
+	-dependencies /root/.m2/repository/org/springframework/spring-webmvc/4.0.9.RELEASE/spring-webmvc-4.0.9.RELEASE.jar:/root/.m2/repository/org/springframework/data/spring-data-redis/1.5.0.RELEASE/spring-data-redis-1.5.0.RELEASE.jar:/root/.m2/repository/javax/servlet/javax.servlet-api/3.0.1/javax.servlet-api-3.0.1.jar:/root/.m2/repository/org/springframework/spring-context/4.0.9.RELEASE/spring-context-4.0.9.RELEASE.jar:/root/.m2/repository/org/apache/httpcomponents/httpcore/4.3.2/httpcore-4.3.2.jar:/root/.m2/repository/org/springframework/security/spring-security-core/3.2.8.RELEASE/spring-security-core-3.2.8.RELEASE.jar:/root/.m2/repository/org/powermock/powermock-api-mockito/1.5.4/powermock-api-mockito-1.5.4.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.3.2/jackson-databind-2.3.2.jar:/root/.m2/repository/org/codehaus/jackson/jackson-core-asl/1.9.13/jackson-core-asl-1.9.13.jar:/root/.m2/repository/org/powermock/powermock-reflect/1.5.4/powermock-reflect-1.5.4.jar:/root/.m2/repository/org/springframework/spring-test/4.0.9.RELEASE/spring-test-4.0.9.RELEASE.jar:/root/.m2/repository/org/powermock/powermock-module-junit4/1.5.4/powermock-module-junit4-1.5.4.jar:/root/.m2/repository/org/springframework/spring-core/4.0.9.RELEASE/spring-core-4.0.9.RELEASE.jar:/root/.m2/repository/org/hsqldb/hsqldb-j5/2.0.0/hsqldb-j5-2.0.0.jar:/root/.m2/repository/org/springframework/spring-aop/4.0.9.RELEASE/spring-aop-4.0.9.RELEASE.jar:/root/.m2/repository/org/springframework/spring-expression/4.0.9.RELEASE/spring-expression-4.0.9.RELEASE.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.3.2/jackson-annotations-2.3.2.jar:/root/.m2/repository/redis/clients/jedis/2.6.3/jedis-2.6.3.jar:/root/.m2/repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar:/root/.m2/repository/org/apache/httpcomponents/httpclient/4.3.3/httpclient-4.3.3.jar:/root/.m2/repository/org/springframework/spring-context-support/4.0.9.RELEASE/spring-context-support-4.0.9.RELEASE.jar:/root/.m2/repository/org/springframework/spring-tx/4.0.9.RELEASE/spring-tx-4.0.9.RELEASE.jar:/root/.m2/repository/org/springframework/spring-web/4.0.9.RELEASE/spring-web-4.0.9.RELEASE.jar:/root/.m2/repository/org/objenesis/objenesis/1.0/objenesis-1.0.jar:/root/.m2/repository/org/springframework/spring-beans/4.0.9.RELEASE/spring-beans-4.0.9.RELEASE.jar:/root/.m2/repository/org/apache/commons/commons-pool2/2.3/commons-pool2-2.3.jar:/root/.m2/repository/org/springframework/security/spring-security-jwt/1.0.2.RELEASE/spring-security-jwt-1.0.2.RELEASE.jar:/root/.m2/repository/org/codehaus/jackson/jackson-mapper-asl/1.9.13/jackson-mapper-asl-1.9.13.jar:/root/.m2/repository/org/mockito/mockito-all/1.9.5/mockito-all-1.9.5.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.3.2/jackson-core-2.3.2.jar:/root/.m2/repository/org/powermock/powermock-module-junit4-common/1.5.4/powermock-module-junit4-common-1.5.4.jar:/root/.m2/repository/org/springframework/security/spring-security-config/3.2.8.RELEASE/spring-security-config-3.2.8.RELEASE.jar:/root/.m2/repository/org/bouncycastle/bcprov-jdk15on/1.47/bcprov-jdk15on-1.47.jar:/root/.m2/repository/com/orange/redis-embedded/embedded-redis/0.6/embedded-redis-0.6.jar:/root/.m2/repository/org/springframework/security/spring-security-web/3.2.8.RELEASE/spring-security-web-3.2.8.RELEASE.jar:/root/.m2/repository/org/springframework/spring-jdbc/4.0.9.RELEASE/spring-jdbc-4.0.9.RELEASE.jar:/root/.m2/repository/commons-codec/commons-codec/1.9/commons-codec-1.9.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.6/slf4j-api-1.7.6.jar:/root/.m2/repository/junit/junit/4.11/junit-4.11.jar:/root/.m2/repository/org/mockito/mockito-core/1.9.5/mockito-core-1.9.5.jar:/root/.m2/repository/org/javassist/javassist/3.18.1-GA/javassist-3.18.1-GA.jar:/root/.m2/repository/org/bouncycastle/bcpkix-jdk15on/1.47/bcpkix-jdk15on-1.47.jar:/root/.m2/repository/org/powermock/powermock-core/1.5.4/powermock-core-1.5.4.jar:/root/.m2/repository/org/powermock/powermock-api-support/1.5.4/powermock-api-support-1.5.4.jar:/root/.m2/repository/commons-logging/commons-logging/1.1.3/commons-logging-1.1.3.jar;
+	echo "\n\nNode: `hostname`\n";
+	echo "\n\nDate: `date`\n";
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en
+OpenJDK 64-Bit Server VM warning: ignoring option MaxPermSize=512m; support was removed in 8.0
+[0] INFO ProjectConfiguration - Version of the JVM used: 1.7.0_80
+[1] INFO main - Java version of the JDK used to run tests: 1.7.0_80
+[1] INFO main - The compliance of the JVM is:  7
+[4] INFO main - command line arguments: [-mode  jMutRepair  -location  .  -id  spring-projects_spring-security-oauth-VUL4J-75  -failing  org.springframework.security.oauth2.provider.endpoint.SpelViewTests#nonRecursive:org.springframework.security.oauth2.provider.endpoint.SpelViewTests#recursive  -jvm4testexecution  /usr/lib/jvm/jdk1.7.0_80/bin  -jvm4evosuitetestexecution  /usr/lib/jvm/jdk1.7.0_80/bin  -maxgen  1000000  -maxtime  120  -stopfirst  true  -seed  0  -scope  local  -population  1  -javacompliancelevel  7  -faultlocalization  perfect  -perfectdata  /script/../data/benchmarks/vul4j/perfectfl/VUL4J-75  -validation  externalcmd  -testfailingcmd  mvn test -pl spring-security-oauth2 -Dtest=org.springframework.security.oauth2.provider.endpoint.SpelViewTests -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B  -testallcmd  mvn test -pl spring-security-oauth2 -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B     -srcjavafolder  spring-security-oauth2/src/main/java  -srctestfolder  spring-security-oauth2/src/test/java  -binjavafolder  spring-security-oauth2/target/classes  -bintestfolder  spring-security-oauth2/target/test-classes  -parameters  x:x  -dependencies  /root/.m2/repository/org/springframework/spring-webmvc/4.0.9.RELEASE/spring-webmvc-4.0.9.RELEASE.jar:/root/.m2/repository/org/springframework/data/spring-data-redis/1.5.0.RELEASE/spring-data-redis-1.5.0.RELEASE.jar:/root/.m2/repository/javax/servlet/javax.servlet-api/3.0.1/javax.servlet-api-3.0.1.jar:/root/.m2/repository/org/springframework/spring-context/4.0.9.RELEASE/spring-context-4.0.9.RELEASE.jar:/root/.m2/repository/org/apache/httpcomponents/httpcore/4.3.2/httpcore-4.3.2.jar:/root/.m2/repository/org/springframework/security/spring-security-core/3.2.8.RELEASE/spring-security-core-3.2.8.RELEASE.jar:/root/.m2/repository/org/powermock/powermock-api-mockito/1.5.4/powermock-api-mockito-1.5.4.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.3.2/jackson-databind-2.3.2.jar:/root/.m2/repository/org/codehaus/jackson/jackson-core-asl/1.9.13/jackson-core-asl-1.9.13.jar:/root/.m2/repository/org/powermock/powermock-reflect/1.5.4/powermock-reflect-1.5.4.jar:/root/.m2/repository/org/springframework/spring-test/4.0.9.RELEASE/spring-test-4.0.9.RELEASE.jar:/root/.m2/repository/org/powermock/powermock-module-junit4/1.5.4/powermock-module-junit4-1.5.4.jar:/root/.m2/repository/org/springframework/spring-core/4.0.9.RELEASE/spring-core-4.0.9.RELEASE.jar:/root/.m2/repository/org/hsqldb/hsqldb-j5/2.0.0/hsqldb-j5-2.0.0.jar:/root/.m2/repository/org/springframework/spring-aop/4.0.9.RELEASE/spring-aop-4.0.9.RELEASE.jar:/root/.m2/repository/org/springframework/spring-expression/4.0.9.RELEASE/spring-expression-4.0.9.RELEASE.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.3.2/jackson-annotations-2.3.2.jar:/root/.m2/repository/redis/clients/jedis/2.6.3/jedis-2.6.3.jar:/root/.m2/repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar:/root/.m2/repository/org/apache/httpcomponents/httpclient/4.3.3/httpclient-4.3.3.jar:/root/.m2/repository/org/springframework/spring-context-support/4.0.9.RELEASE/spring-context-support-4.0.9.RELEASE.jar:/root/.m2/repository/org/springframework/spring-tx/4.0.9.RELEASE/spring-tx-4.0.9.RELEASE.jar:/root/.m2/repository/org/springframework/spring-web/4.0.9.RELEASE/spring-web-4.0.9.RELEASE.jar:/root/.m2/repository/org/objenesis/objenesis/1.0/objenesis-1.0.jar:/root/.m2/repository/org/springframework/spring-beans/4.0.9.RELEASE/spring-beans-4.0.9.RELEASE.jar:/root/.m2/repository/org/apache/commons/commons-pool2/2.3/commons-pool2-2.3.jar:/root/.m2/repository/org/springframework/security/spring-security-jwt/1.0.2.RELEASE/spring-security-jwt-1.0.2.RELEASE.jar:/root/.m2/repository/org/codehaus/jackson/jackson-mapper-asl/1.9.13/jackson-mapper-asl-1.9.13.jar:/root/.m2/repository/org/mockito/mockito-all/1.9.5/mockito-all-1.9.5.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.3.2/jackson-core-2.3.2.jar:/root/.m2/repository/org/powermock/powermock-module-junit4-common/1.5.4/powermock-module-junit4-common-1.5.4.jar:/root/.m2/repository/org/springframework/security/spring-security-config/3.2.8.RELEASE/spring-security-config-3.2.8.RELEASE.jar:/root/.m2/repository/org/bouncycastle/bcprov-jdk15on/1.47/bcprov-jdk15on-1.47.jar:/root/.m2/repository/com/orange/redis-embedded/embedded-redis/0.6/embedded-redis-0.6.jar:/root/.m2/repository/org/springframework/security/spring-security-web/3.2.8.RELEASE/spring-security-web-3.2.8.RELEASE.jar:/root/.m2/repository/org/springframework/spring-jdbc/4.0.9.RELEASE/spring-jdbc-4.0.9.RELEASE.jar:/root/.m2/repository/commons-codec/commons-codec/1.9/commons-codec-1.9.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.6/slf4j-api-1.7.6.jar:/root/.m2/repository/junit/junit/4.11/junit-4.11.jar:/root/.m2/repository/org/mockito/mockito-core/1.9.5/mockito-core-1.9.5.jar:/root/.m2/repository/org/javassist/javassist/3.18.1-GA/javassist-3.18.1-GA.jar:/root/.m2/repository/org/bouncycastle/bcpkix-jdk15on/1.47/bcpkix-jdk15on-1.47.jar:/root/.m2/repository/org/powermock/powermock-core/1.5.4/powermock-core-1.5.4.jar:/root/.m2/repository/org/powermock/powermock-api-support/1.5.4/powermock-api-support-1.5.4.jar:/root/.m2/repository/commons-logging/commons-logging/1.1.3/commons-logging-1.1.3.jar]
+[22] INFO AstorMain - Running Astor on a JDK at /usr/lib/jvm/java-8-openjdk-amd64/jre
+[50] INFO main - Source folders: [/workdir/jMutRepair_vul4j_spring-projects_spring-security-oauth_VUL4J-75/./spring-security-oauth2/src/main/java]
+[50] INFO main - Source Test folders: [/workdir/jMutRepair_vul4j_spring-projects_spring-security-oauth_VUL4J-75/./spring-security-oauth2/src/test/java]
+[1429] INFO AstorCoreEngine - ---- Creating spoon model
+[1472] INFO MutationSupporter - Creating model,  Code location from working folder: /workdir/jMutRepair_vul4j_spring-projects_spring-security-oauth_VUL4J-75/./spring-security-oauth2/src/main/java
+[1472] INFO MutationSupporter - building model: /workdir/jMutRepair_vul4j_spring-projects_spring-security-oauth_VUL4J-75/./spring-security-oauth2/src/main/java, compliance level: 7
+[1622] INFO MutationSupporter - Classpath (Dependencies) for building SpoonModel: [/root/.m2/repository/org/springframework/spring-webmvc/4.0.9.RELEASE/spring-webmvc-4.0.9.RELEASE.jar, /root/.m2/repository/org/springframework/data/spring-data-redis/1.5.0.RELEASE/spring-data-redis-1.5.0.RELEASE.jar, /root/.m2/repository/javax/servlet/javax.servlet-api/3.0.1/javax.servlet-api-3.0.1.jar, /root/.m2/repository/org/springframework/spring-context/4.0.9.RELEASE/spring-context-4.0.9.RELEASE.jar, /root/.m2/repository/org/apache/httpcomponents/httpcore/4.3.2/httpcore-4.3.2.jar, /root/.m2/repository/org/springframework/security/spring-security-core/3.2.8.RELEASE/spring-security-core-3.2.8.RELEASE.jar, /root/.m2/repository/org/powermock/powermock-api-mockito/1.5.4/powermock-api-mockito-1.5.4.jar, /root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar, /root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.3.2/jackson-databind-2.3.2.jar, /root/.m2/repository/org/codehaus/jackson/jackson-core-asl/1.9.13/jackson-core-asl-1.9.13.jar, /root/.m2/repository/org/powermock/powermock-reflect/1.5.4/powermock-reflect-1.5.4.jar, /root/.m2/repository/org/springframework/spring-test/4.0.9.RELEASE/spring-test-4.0.9.RELEASE.jar, /root/.m2/repository/org/powermock/powermock-module-junit4/1.5.4/powermock-module-junit4-1.5.4.jar, /root/.m2/repository/org/springframework/spring-core/4.0.9.RELEASE/spring-core-4.0.9.RELEASE.jar, /root/.m2/repository/org/hsqldb/hsqldb-j5/2.0.0/hsqldb-j5-2.0.0.jar, /root/.m2/repository/org/springframework/spring-aop/4.0.9.RELEASE/spring-aop-4.0.9.RELEASE.jar, /root/.m2/repository/org/springframework/spring-expression/4.0.9.RELEASE/spring-expression-4.0.9.RELEASE.jar, /root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.3.2/jackson-annotations-2.3.2.jar, /root/.m2/repository/redis/clients/jedis/2.6.3/jedis-2.6.3.jar, /root/.m2/repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar, /root/.m2/repository/org/apache/httpcomponents/httpclient/4.3.3/httpclient-4.3.3.jar, /root/.m2/repository/org/springframework/spring-context-support/4.0.9.RELEASE/spring-context-support-4.0.9.RELEASE.jar, /root/.m2/repository/org/springframework/spring-tx/4.0.9.RELEASE/spring-tx-4.0.9.RELEASE.jar, /root/.m2/repository/org/springframework/spring-web/4.0.9.RELEASE/spring-web-4.0.9.RELEASE.jar, /root/.m2/repository/org/objenesis/objenesis/1.0/objenesis-1.0.jar, /root/.m2/repository/org/springframework/spring-beans/4.0.9.RELEASE/spring-beans-4.0.9.RELEASE.jar, /root/.m2/repository/org/apache/commons/commons-pool2/2.3/commons-pool2-2.3.jar, /root/.m2/repository/org/springframework/security/spring-security-jwt/1.0.2.RELEASE/spring-security-jwt-1.0.2.RELEASE.jar, /root/.m2/repository/org/codehaus/jackson/jackson-mapper-asl/1.9.13/jackson-mapper-asl-1.9.13.jar, /root/.m2/repository/org/mockito/mockito-all/1.9.5/mockito-all-1.9.5.jar, /root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.3.2/jackson-core-2.3.2.jar, /root/.m2/repository/org/powermock/powermock-module-junit4-common/1.5.4/powermock-module-junit4-common-1.5.4.jar, /root/.m2/repository/org/springframework/security/spring-security-config/3.2.8.RELEASE/spring-security-config-3.2.8.RELEASE.jar, /root/.m2/repository/org/bouncycastle/bcprov-jdk15on/1.47/bcprov-jdk15on-1.47.jar, /root/.m2/repository/com/orange/redis-embedded/embedded-redis/0.6/embedded-redis-0.6.jar, /root/.m2/repository/org/springframework/security/spring-security-web/3.2.8.RELEASE/spring-security-web-3.2.8.RELEASE.jar, /root/.m2/repository/org/springframework/spring-jdbc/4.0.9.RELEASE/spring-jdbc-4.0.9.RELEASE.jar, /root/.m2/repository/commons-codec/commons-codec/1.9/commons-codec-1.9.jar, /root/.m2/repository/org/slf4j/slf4j-api/1.7.6/slf4j-api-1.7.6.jar, /root/.m2/repository/junit/junit/4.11/junit-4.11.jar, /root/.m2/repository/org/mockito/mockito-core/1.9.5/mockito-core-1.9.5.jar, /root/.m2/repository/org/javassist/javassist/3.18.1-GA/javassist-3.18.1-GA.jar, /root/.m2/repository/org/bouncycastle/bcpkix-jdk15on/1.47/bcpkix-jdk15on-1.47.jar, /root/.m2/repository/org/powermock/powermock-core/1.5.4/powermock-core-1.5.4.jar, /root/.m2/repository/org/powermock/powermock-api-support/1.5.4/powermock-api-support-1.5.4.jar, /root/.m2/repository/commons-logging/commons-logging/1.1.3/commons-logging-1.1.3.jar]
+[18334] INFO AstorCoreEngine - Number of CtTypes created: 234
+[18555] INFO AstorCoreEngine - Test retrieved from classes: 0
+[18740] INFO AstorCoreEngine - Setting up the max to 1850 milliseconds (1 sec)
+[18740] INFO AstorCoreEngine - ---- Initial suspicious size: 2
+[19272] INFO main - Total suspicious from FL: 2,  0
+[19272] INFO main - Total ModPoint created: 0
+[19272] INFO main - Creating program variant #1, [Variant id: 1, #gens: 0, #ops: 0, parent:-]
+[19272] ERROR AstorCoreEngine - [warning] Any modification point in variant
+[19272] ERROR AstorCoreEngine - Variant with any gen
+[19272] WARN ConfigurationProperties - ----------------------------
+[19272] INFO ConfigurationProperties - ---Configuration properties
+[19273] INFO ConfigurationProperties - p:lastJUnitVersion= ./examples/libs/junit-4.11.jar
+[19273] INFO ConfigurationProperties - p:alternativecompliancelevel= 8
+[19273] INFO ConfigurationProperties - p:ignoredTestCases= 
+[19273] INFO ConfigurationProperties - p:workingDirectory= /workdir/jMutRepair_vul4j_spring-projects_spring-security-oauth_VUL4J-75/./output_astor
+[19273] INFO ConfigurationProperties - p:manipulatesuper= false
+[19273] INFO ConfigurationProperties - p:validation= externalcmd
+[19273] INFO ConfigurationProperties - p:jvm4testexecution= /usr/lib/jvm/jdk1.7.0_80/bin
+[19273] INFO ConfigurationProperties - p:operatorspace= mutationspace
+[19273] INFO ConfigurationProperties - p:diffcontext= 0
+[19273] INFO ConfigurationProperties - p:binjavafolder= spring-security-oauth2/target/classes
+[19273] INFO ConfigurationProperties - p:synthesis_depth= 3
+[19273] INFO ConfigurationProperties - p:gzoltartestpackagetoexclude= junit.framework
+[19273] INFO ConfigurationProperties - p:skipfitnessinitialpopulation= false
+[19273] INFO ConfigurationProperties - p:evosuiteresultfolder= evosuite
+[19273] INFO ConfigurationProperties - p:flthreshold= 0.1
+[19273] INFO ConfigurationProperties - p:regressionforfaultlocalization= true
+[19274] INFO ConfigurationProperties - p:collectonlyusedmethod= false
+[19274] INFO ConfigurationProperties - p:preservelinenumbers= true
+[19274] INFO ConfigurationProperties - p:tmax2= 1850
+[19274] INFO ConfigurationProperties - p:tmax1= 10000
+[19274] INFO ConfigurationProperties - p:probagenmutation= false
+[19274] INFO ConfigurationProperties - p:nomodificationconvergence= 100
+[19274] INFO ConfigurationProperties - p:diff_type= relative
+[19274] INFO ConfigurationProperties - p:targetelementprocessor= if-conditions:return-op-mutation
+[19274] INFO ConfigurationProperties - p:srctestfolder= spring-security-oauth2/src/test/java
+[19274] INFO ConfigurationProperties - p:forceExecuteRegression= false
+[19274] INFO ConfigurationProperties - p:clusteringfilename= clustering.csv
+[19274] INFO ConfigurationProperties - p:failing= org.springframework.security.oauth2.provider.endpoint.SpelViewTests#nonRecursive:org.springframework.security.oauth2.provider.endpoint.SpelViewTests#recursive
+[19274] INFO ConfigurationProperties - p:logtestexecution= false
+[19274] INFO ConfigurationProperties - p:evo_buggy_class= true
+[19274] INFO ConfigurationProperties - p:numberExecutions= 1
+[19274] INFO ConfigurationProperties - p:maxnumbersolutions= 1000000
+[19274] INFO ConfigurationProperties - p:evo_affected_by_op= true
+[19275] INFO ConfigurationProperties - p:population= 1
+[19275] INFO ConfigurationProperties - p:considerzerovaluesusp= false
+[19275] INFO ConfigurationProperties - p:maxCombinationVariableLimit= false
+[19275] INFO ConfigurationProperties - p:savesolution= true
+[19275] INFO ConfigurationProperties - p:javacompliancelevel= 7
+[19275] INFO ConfigurationProperties - p:x= x
+[19275] INFO ConfigurationProperties - p:uniqueoptogen= false
+[19275] INFO ConfigurationProperties - p:gzoltarpackagetonotinstrument= junit.framework
+[19275] INFO ConfigurationProperties - p:projectIdentifier= spring-projects_spring-security-oauth-VUL4J-75
+[19275] INFO ConfigurationProperties - p:modificationpointnavigation= weight
+[19275] INFO ConfigurationProperties - p:stopfirst= true
+[19275] INFO ConfigurationProperties - p:multipointmodification= false
+[19275] INFO ConfigurationProperties - p:elementsToMutate= 10
+[19275] INFO ConfigurationProperties - p:jsonoutputname= astor_output
+[19275] INFO ConfigurationProperties - p:evoDSE= false
+[19275] INFO ConfigurationProperties - p:bintestfolder= spring-security-oauth2/target/test-classes
+[19275] INFO ConfigurationProperties - p:testbystep= false
+[19275] INFO ConfigurationProperties - p:version-location= ./math-version/
+[19275] INFO ConfigurationProperties - p:reintroduce= PARENTS:ORIGINAL
+[19275] INFO ConfigurationProperties - p:perfectdata= /script/../data/benchmarks/vul4j/perfectfl/VUL4J-75
+[19276] INFO ConfigurationProperties - p:executorjar= ./lib/jtestex7.jar
+[19276] INFO ConfigurationProperties - p:maxGeneration= 1000000
+[19276] INFO ConfigurationProperties - p:max_synthesis_step= 10000
+[19276] INFO ConfigurationProperties - p:projectinfocommand= com.github.tdurieux:project-config-maven-plugin:info
+[19276] INFO ConfigurationProperties - p:maxVarCombination= 1000
+[19276] INFO ConfigurationProperties - p:maxtime= 120
+[19276] INFO ConfigurationProperties - p:evosuitejar= ./lib/evosuite-master-1.0.4-SNAPSHOT.jar
+[19276] INFO ConfigurationProperties - p:jvmversion= 1.7.0_80
+[19276] INFO ConfigurationProperties - p:commandTrunk= 50000
+[19276] INFO ConfigurationProperties - p:faultlocalization= perfect
+[19276] INFO ConfigurationProperties - p:resetmodel= true
+[19276] INFO ConfigurationProperties - p:maxsuspcandidates= 1000
+[19276] INFO ConfigurationProperties - p:mode= jMutRepair
+[19276] INFO ConfigurationProperties - p:learningdir= 
+[19276] INFO ConfigurationProperties - p:jvm4evosuitetestexecution= /usr/lib/jvm/jdk1.7.0_80/bin
+[19276] INFO ConfigurationProperties - p:filterfaultlocalization= true
+[19276] INFO ConfigurationProperties - p:mutationrate= 1 
+[19276] INFO ConfigurationProperties - p:pathToMVNRepository= 
+[19276] INFO ConfigurationProperties - p:resourcesfolder= /src/main/resources:/src/test/resources:
+[19276] INFO ConfigurationProperties - p:timezone= America/Los_Angeles
+[19277] INFO ConfigurationProperties - p:runjava7code= false
+[19277] INFO ConfigurationProperties - p:testfailingcmd= mvn test -pl spring-security-oauth2 -Dtest=org.springframework.security.oauth2.provider.endpoint.SpelViewTests -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B
+[19277] INFO ConfigurationProperties - p:evoRunOnBuggyClass= true
+[19277] INFO ConfigurationProperties - p:compiler= fr.inria.astor.core.manipulation.bytecode.compiler.SpoonClassCompiler
+[19284] INFO ConfigurationProperties - p:limitbysuspicious= true
+[19284] INFO ConfigurationProperties - p:logsattemps= true
+[19284] INFO ConfigurationProperties - p:dependenciespath= /root/.m2/repository/org/springframework/spring-webmvc/4.0.9.RELEASE/spring-webmvc-4.0.9.RELEASE.jar:/root/.m2/repository/org/springframework/data/spring-data-redis/1.5.0.RELEASE/spring-data-redis-1.5.0.RELEASE.jar:/root/.m2/repository/javax/servlet/javax.servlet-api/3.0.1/javax.servlet-api-3.0.1.jar:/root/.m2/repository/org/springframework/spring-context/4.0.9.RELEASE/spring-context-4.0.9.RELEASE.jar:/root/.m2/repository/org/apache/httpcomponents/httpcore/4.3.2/httpcore-4.3.2.jar:/root/.m2/repository/org/springframework/security/spring-security-core/3.2.8.RELEASE/spring-security-core-3.2.8.RELEASE.jar:/root/.m2/repository/org/powermock/powermock-api-mockito/1.5.4/powermock-api-mockito-1.5.4.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.3.2/jackson-databind-2.3.2.jar:/root/.m2/repository/org/codehaus/jackson/jackson-core-asl/1.9.13/jackson-core-asl-1.9.13.jar:/root/.m2/repository/org/powermock/powermock-reflect/1.5.4/powermock-reflect-1.5.4.jar:/root/.m2/repository/org/springframework/spring-test/4.0.9.RELEASE/spring-test-4.0.9.RELEASE.jar:/root/.m2/repository/org/powermock/powermock-module-junit4/1.5.4/powermock-module-junit4-1.5.4.jar:/root/.m2/repository/org/springframework/spring-core/4.0.9.RELEASE/spring-core-4.0.9.RELEASE.jar:/root/.m2/repository/org/hsqldb/hsqldb-j5/2.0.0/hsqldb-j5-2.0.0.jar:/root/.m2/repository/org/springframework/spring-aop/4.0.9.RELEASE/spring-aop-4.0.9.RELEASE.jar:/root/.m2/repository/org/springframework/spring-expression/4.0.9.RELEASE/spring-expression-4.0.9.RELEASE.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.3.2/jackson-annotations-2.3.2.jar:/root/.m2/repository/redis/clients/jedis/2.6.3/jedis-2.6.3.jar:/root/.m2/repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar:/root/.m2/repository/org/apache/httpcomponents/httpclient/4.3.3/httpclient-4.3.3.jar:/root/.m2/repository/org/springframework/spring-context-support/4.0.9.RELEASE/spring-context-support-4.0.9.RELEASE.jar:/root/.m2/repository/org/springframework/spring-tx/4.0.9.RELEASE/spring-tx-4.0.9.RELEASE.jar:/root/.m2/repository/org/springframework/spring-web/4.0.9.RELEASE/spring-web-4.0.9.RELEASE.jar:/root/.m2/repository/org/objenesis/objenesis/1.0/objenesis-1.0.jar:/root/.m2/repository/org/springframework/spring-beans/4.0.9.RELEASE/spring-beans-4.0.9.RELEASE.jar:/root/.m2/repository/org/apache/commons/commons-pool2/2.3/commons-pool2-2.3.jar:/root/.m2/repository/org/springframework/security/spring-security-jwt/1.0.2.RELEASE/spring-security-jwt-1.0.2.RELEASE.jar:/root/.m2/repository/org/codehaus/jackson/jackson-mapper-asl/1.9.13/jackson-mapper-asl-1.9.13.jar:/root/.m2/repository/org/mockito/mockito-all/1.9.5/mockito-all-1.9.5.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.3.2/jackson-core-2.3.2.jar:/root/.m2/repository/org/powermock/powermock-module-junit4-common/1.5.4/powermock-module-junit4-common-1.5.4.jar:/root/.m2/repository/org/springframework/security/spring-security-config/3.2.8.RELEASE/spring-security-config-3.2.8.RELEASE.jar:/root/.m2/repository/org/bouncycastle/bcprov-jdk15on/1.47/bcprov-jdk15on-1.47.jar:/root/.m2/repository/com/orange/redis-embedded/embedded-redis/0.6/embedded-redis-0.6.jar:/root/.m2/repository/org/springframework/security/spring-security-web/3.2.8.RELEASE/spring-security-web-3.2.8.RELEASE.jar:/root/.m2/repository/org/springframework/spring-jdbc/4.0.9.RELEASE/spring-jdbc-4.0.9.RELEASE.jar:/root/.m2/repository/commons-codec/commons-codec/1.9/commons-codec-1.9.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.6/slf4j-api-1.7.6.jar:/root/.m2/repository/junit/junit/4.11/junit-4.11.jar:/root/.m2/repository/org/mockito/mockito-core/1.9.5/mockito-core-1.9.5.jar:/root/.m2/repository/org/javassist/javassist/3.18.1-GA/javassist-3.18.1-GA.jar:/root/.m2/repository/org/bouncycastle/bcpkix-jdk15on/1.47/bcpkix-jdk15on-1.47.jar:/root/.m2/repository/org/powermock/powermock-core/1.5.4/powermock-core-1.5.4.jar:/root/.m2/repository/org/powermock/powermock-api-support/1.5.4/powermock-api-support-1.5.4.jar:/root/.m2/repository/commons-logging/commons-logging/1.1.3/commons-logging-1.1.3.jar
+[19284] INFO ConfigurationProperties - p:packageToInstrument= 
+[19284] INFO ConfigurationProperties - p:skipfaultlocalization= false
+[19284] INFO ConfigurationProperties - p:scope= local
+[19284] INFO ConfigurationProperties - p:transformingredient= false
+[19284] INFO ConfigurationProperties - p:fitnessfunction= fr.inria.astor.core.solutionsearch.population.TestCaseFitnessFunction
+[19285] INFO ConfigurationProperties - p:maxnumvariablesperingredient= 10
+[19285] INFO ConfigurationProperties - p:parsesourcefromoriginal= true
+[19285] INFO ConfigurationProperties - p:pvariantfoldername= variant-
+[19285] INFO ConfigurationProperties - p:savespoonmodelondisk= false
+[19285] INFO ConfigurationProperties - p:srcjavafolder= spring-security-oauth2/src/main/java
+[19285] INFO ConfigurationProperties - p:populationcontroller= fr.inria.astor.core.solutionsearch.population.TestCaseBasedFitnessPopulationController
+[19285] INFO ConfigurationProperties - p:ignoreflakyinfl= false
+[19285] INFO ConfigurationProperties - p:cleantemplates= true
+[19285] INFO ConfigurationProperties - p:applyCrossover= false
+[19285] INFO ConfigurationProperties - p:maxmodificationpoints= 1000
+[19285] INFO ConfigurationProperties - p:duplicateingredientsinspace= false
+[19285] INFO ConfigurationProperties - p:metid= 0
+[19285] INFO ConfigurationProperties - p:continuewhenmodelfail= true
+[19290] INFO ConfigurationProperties - p:saveall= false
+[19290] INFO ConfigurationProperties - p:seed= 0
+[19291] INFO ConfigurationProperties - p:savecompletepatched= true
+[19291] INFO ConfigurationProperties - p:resetoperations= false
+[19291] INFO ConfigurationProperties - p:keepcomments= false
+[19291] INFO ConfigurationProperties - p:processoutputinfile= false
+[19291] INFO ConfigurationProperties - p:location= .
+[19291] INFO ConfigurationProperties - p:probabilistictransformation= true
+[19294] INFO ConfigurationProperties - p:overridemaxtime= true
+[19294] INFO ConfigurationProperties - p:outputjsonresult= true
+[19294] INFO ConfigurationProperties - p:allpoints= false
+[19294] INFO ConfigurationProperties - p:antipattern= false
+[19294] INFO ConfigurationProperties - p:bugId= 280
+[19294] INFO ConfigurationProperties - p:evosuitetimeout= 120
+[19294] INFO ConfigurationProperties - p:maxtimefactor= 10
+[19294] INFO ConfigurationProperties - p:nrPlaceholders= 1
+[19294] INFO ConfigurationProperties - p:testallcmd= mvn test -pl spring-security-oauth2 -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B
+[19294] INFO ConfigurationProperties - p:forcesubprocesskilling= false
+[19294] INFO ConfigurationProperties - ----------------------------
+[19295] INFO AstorCoreEngine - Time Repair Loop (s): 0.0
+[19296] INFO AstorCoreEngine - generationsexecuted: 1
+[19296] WARN AstorCoreEngine - ----SUMMARY_EXECUTION---
+[19296] WARN AstorCoreEngine - End Repair Search: NOT Found solution
+[19298] WARN AstorCoreEngine - Number suspicious:1
+[19299] INFO AstorCoreEngine - 
+ --SOLUTIONS DESCRIPTION--
+
+
+Astor Output:
+
+General stats:
+EXECUTION_IDENTIFIER=spring-projects_spring-security-oauth-VUL4J-75
+TOTAL_TIME=0.0
+NR_GENERATIONS=null
+NR_RIGHT_COMPILATIONS=null
+NR_FAILLING_COMPILATIONS=null
+NR_ERRONEOUS_VARIANCES=null
+NR_FAILING_VALIDATION_PROCESS=null
+OUTPUT_STATUS=EXHAUSTIVE_NAVIGATED
+
+Patch stats:
+
+[19324] INFO Stats - Storing ing JSON at /workdir/jMutRepair_vul4j_spring-projects_spring-security-oauth_VUL4J-75/./output_astor/AstorMain-spring-projects_spring-security-oauth-VUL4J-75//astor_output.json
+[19325] INFO Stats - astor_output:
+{"general":{"NR_RIGHT_COMPILATIONS":null,"NR_ERRONEOUS_VARIANCES":null,"EXECUTION_IDENTIFIER":"spring-projects_spring-security-oauth-VUL4J-75","OUTPUT_STATUS":"EXHAUSTIVE_NAVIGATED","NR_FAILLING_COMPILATIONS":null,"NR_GENERATIONS":null,"TOTAL_TIME":0.0,"NR_FAILING_VALIDATION_PROCESS":null},"patches":[]}
+[19325] INFO AstorMain - Time Total(s): 19.281
+30.58user 3.69system 0:20.89elapsed 164%CPU (0avgtext+0avgdata 590884maxresident)k
+352inputs+8720outputs (0major+159126minor)pagefaults 0swaps
+
+
+Node: 9670332cfea8
+
+
+
+Date: Fri Sep  9 07:15:30 EDT 2022
+

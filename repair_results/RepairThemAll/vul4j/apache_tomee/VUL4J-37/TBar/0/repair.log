@@ -1,0 +1,74 @@
+cd /workdir/TBar_vul4j_apache_tomee_VUL4J-37;
+export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en";
+TZ="America/New_York"; export TZ;
+export PATH="/usr/lib/jvm/java-8-openjdk-amd64/bin:$PATH";
+export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64";
+timeout 240m java -Xmx4g -Xms1g -XX:MaxPermSize=512m \
+    -cp /script/../libs/tbar_external/com.gzoltar-0.1.1-jdk7.jar:/script/../repair_tools/tbar.jar edu.lu.uni.serval.tbar.main.Main \
+    "/workdir/TBar_vul4j_apache_tomee_VUL4J-37" "org.apache.openejb.core.rmi.BlacklistClassResolverTest#wildcard" "/container/openejb-core/src/main/java/" "/container/openejb-core/src/test/java/" "/container/openejb-core/target/classes/" "/container/openejb-core/target/test-classes/" "/script/../data/benchmarks/vul4j/perfectfl/VUL4J-37/spectra.txt" "mvn test -pl container/openejb-core -Dtest=org.apache.openejb.core.rmi.BlacklistClassResolverTest#wildcard -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B" "mvn test -pl container/openejb-core -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B" "/workdir/TBar_vul4j_apache_tomee_VUL4J-37/container/openejb-core/target/classes:/root/.m2/repository/xmlrpc/xmlrpc/1.2-b1/xmlrpc-1.2-b1.jar:/root/.m2/repository/com/sun/xml/bind/jaxb-impl/2.2.6/jaxb-impl-2.2.6.jar:/root/.m2/repository/org/metatype/sxc/sxc-runtime/0.8/sxc-runtime-0.8.jar:/root/.m2/repository/org/apache/activemq/activemq-client/5.13.0/activemq-client-5.13.0.jar:/root/.m2/repository/org/apache/xbean/xbean-reflect/4.5/xbean-reflect-4.5.jar:/root/.m2/repository/org/apache/tomee/openejb-jee/7.0.0-SNAPSHOT/openejb-jee-7.0.0-SNAPSHOT.jar:/root/.m2/repository/org/apache/geronimo/specs/geronimo-j2ee-connector_1.6_spec/1.0/geronimo-j2ee-connector_1.6_spec-1.0.jar:/root/.m2/repository/org/apache/openwebbeans/openwebbeans-web/1.6.3/openwebbeans-web-1.6.3.jar:/root/.m2/repository/org/apache/geronimo/javamail/geronimo-javamail_1.4_mail/1.9.0-alpha-2/geronimo-javamail_1.4_mail-1.9.0-alpha-2.jar:/root/.m2/repository/org/apache/geronimo/components/geronimo-connector/3.1.3/geronimo-connector-3.1.3.jar:/root/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:/root/.m2/repository/org/apache/openejb/itests/failover-ejb/7.0.0-SNAPSHOT/failover-ejb-7.0.0-SNAPSHOT.jar:/root/.m2/repository/org/apache/xbean/xbean-bundleutils/4.5/xbean-bundleutils-4.5.jar:/root/.m2/repository/org/apache/tomee/openejb-itests-app/7.0.0-SNAPSHOT/openejb-itests-app-7.0.0-SNAPSHOT.jar:/root/.m2/repository/org/apache/openejb/shade/quartz-openejb-shade/2.2.1/quartz-openejb-shade-2.2.1.jar:/root/.m2/repository/org/apache/tomee/openejb-loader/7.0.0-SNAPSHOT/openejb-loader-7.0.0-SNAPSHOT.jar:/root/.m2/repository/org/apache/geronimo/components/geronimo-transaction/3.1.3/geronimo-transaction-3.1.3.jar:/root/.m2/repository/org/apache/openwebbeans/openwebbeans-ee/1.6.3/openwebbeans-ee-1.6.3.jar:/root/.m2/repository/org/apache/logging/log4j/log4j-api/2.0.1/log4j-api-2.0.1.jar:/root/.m2/repository/org/apache/commons/commons-lang3/3.4/commons-lang3-3.4.jar:/root/.m2/repository/net/sourceforge/serp/serp/1.14.1/serp-1.14.1.jar:/root/.m2/repository/xml-apis/xml-apis/1.4.01/xml-apis-1.4.01.jar:/root/.m2/repository/org/apache/activemq/activemq-jdbc-store/5.13.0/activemq-jdbc-store-5.13.0.jar:/root/.m2/repository/org/apache/commons/commons-pool2/2.3/commons-pool2-2.3.jar:/root/.m2/repository/org/slf4j/slf4j-jdk14/1.7.10/slf4j-jdk14-1.7.10.jar:/root/.m2/repository/org/apache/tomee/javaee-api/7.0/javaee-api-7.0.jar:/root/.m2/repository/org/objectweb/howl/howl/1.0.1-1/howl-1.0.1-1.jar:/root/.m2/repository/org/apache/activemq/activemq-ra/5.13.0/activemq-ra-5.13.0.jar:/root/.m2/repository/org/apache/openwebbeans/openwebbeans-spi/1.6.3/openwebbeans-spi-1.6.3.jar:/root/.m2/repository/org/beanshell/bsh/2.0b4/bsh-2.0b4.jar:/root/.m2/repository/commons-beanutils/commons-beanutils-core/1.8.3/commons-beanutils-core-1.8.3.jar:/root/.m2/repository/org/apache/tomee/openejb-jpa-integration/7.0.0-SNAPSHOT/openejb-jpa-integration-7.0.0-SNAPSHOT.jar:/root/.m2/repository/org/apache/tomee/openejb-jee-accessors/7.0.0-SNAPSHOT/openejb-jee-accessors-7.0.0-SNAPSHOT.jar:/root/.m2/repository/org/metatype/sxc/sxc-jaxb-core/0.8/sxc-jaxb-core-0.8.jar:/root/.m2/repository/org/apache/tomee/openejb-javaagent/7.0.0-SNAPSHOT/openejb-javaagent-7.0.0-SNAPSHOT.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/javax/xml/bind/jaxb-api/2.2.6/jaxb-api-2.2.6.jar:/root/.m2/repository/org/apache/tomee/openejb-itests-beans/7.0.0-SNAPSHOT/openejb-itests-beans-7.0.0-SNAPSHOT.jar:/root/.m2/repository/org/apache/tomee/openejb-api/7.0.0-SNAPSHOT/openejb-api-7.0.0-SNAPSHOT.jar:/root/.m2/repository/org/apache/openwebbeans/openwebbeans-ee-common/1.6.3/openwebbeans-ee-common-1.6.3.jar:/root/.m2/repository/org/fusesource/jansi/jansi/1.8/jansi-1.8.jar:/root/.m2/repository/org/apache/activemq/activemq-kahadb-store/5.13.0/activemq-kahadb-store-5.13.0.jar:/root/.m2/repository/org/apache/xbean/xbean-naming/4.5/xbean-naming-4.5.jar:/root/.m2/repository/xmlunit/xmlunit/1.6/xmlunit-1.6.jar:/root/.m2/repository/org/apache/tomee/mbean-annotation-api/7.0.0-SNAPSHOT/mbean-annotation-api-7.0.0-SNAPSHOT.jar:/root/.m2/repository/org/apache/commons/commons-dbcp2/2.1/commons-dbcp2-2.1.jar:/root/.m2/repository/org/codehaus/swizzle/swizzle-stream/1.6.2/swizzle-stream-1.6.2.jar:/root/.m2/repository/org/apache/openwebbeans/openwebbeans-ejb/1.6.3/openwebbeans-ejb-1.6.3.jar:/root/.m2/repository/org/apache/tomee/openejb-itests-interceptor-beans/7.0.0-SNAPSHOT/openejb-itests-interceptor-beans-7.0.0-SNAPSHOT.jar:/root/.m2/repository/org/codehaus/swizzle/swizzle-confluence/1.1/swizzle-confluence-1.1.jar:/root/.m2/repository/org/apache/tomee/openejb-itests-client/7.0.0-SNAPSHOT/openejb-itests-client-7.0.0-SNAPSHOT.jar:/root/.m2/repository/org/apache/activemq/activemq-openwire-legacy/5.13.0/activemq-openwire-legacy-5.13.0.jar:/root/.m2/repository/org/apache/bval/bval-core/1.1.1/bval-core-1.1.1.jar:/root/.m2/repository/org/apache/batchee/batchee-jbatch/0.2-incubating/batchee-jbatch-0.2-incubating.jar:/root/.m2/repository/org/testng/testng/6.8.21/testng-6.8.21.jar:/root/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar:/root/.m2/repository/org/apache/activemq/protobuf/activemq-protobuf/1.1/activemq-protobuf-1.1.jar:/root/.m2/repository/org/apache/bval/bval-jsr/1.1.1/bval-jsr-1.1.1.jar:/root/.m2/repository/org/fusesource/hawtbuf/hawtbuf/1.11/hawtbuf-1.11.jar:/root/.m2/repository/org/hsqldb/hsqldb/2.3.2/hsqldb-2.3.2.jar:/root/.m2/repository/org/apache/openwebbeans/openwebbeans-impl/1.6.3/openwebbeans-impl-1.6.3.jar:/root/.m2/repository/commons-lang/commons-lang/2.6/commons-lang-2.6.jar:/root/.m2/repository/org/apache/openwebbeans/openwebbeans-el22/1.6.3/openwebbeans-el22-1.6.3.jar:/root/.m2/repository/com/beust/jcommander/1.27/jcommander-1.27.jar:/root/.m2/repository/wsdl4j/wsdl4j/1.6.3/wsdl4j-1.6.3.jar:/root/.m2/repository/org/apache/xbean/xbean-finder-shaded/4.5/xbean-finder-shaded-4.5.jar:/root/.m2/repository/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.10/slf4j-api-1.7.10.jar:/root/.m2/repository/org/apache/openjpa/openjpa/2.4.1/openjpa-2.4.1.jar:/root/.m2/repository/commons-cli/commons-cli/1.2/commons-cli-1.2.jar:/root/.m2/repository/junit/junit/4.12/junit-4.12.jar:/root/.m2/repository/org/apache/activemq/activemq-broker/5.13.0/activemq-broker-5.13.0.jar:/root/.m2/repository/org/apache/xbean/xbean-asm5-shaded/4.5/xbean-asm5-shaded-4.5.jar";
+echo "\n\nNode: `hostname`\n";
+echo "\n\nDate: `date`\n";
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en
+OpenJDK 64-Bit Server VM warning: ignoring option MaxPermSize=512m; support was removed in 8.0
+08:30:13,912 |-INFO in ch.qos.logback.classic.LoggerContext[TBar] - Could NOT find resource [logback-test.xml]
+08:30:13,912 |-INFO in ch.qos.logback.classic.LoggerContext[TBar] - Could NOT find resource [logback.groovy]
+08:30:13,912 |-INFO in ch.qos.logback.classic.LoggerContext[TBar] - Found resource [logback.xml] at [jar:file:/repair_tools/tbar.jar!/logback.xml]
+08:30:13,923 |-INFO in ch.qos.logback.core.joran.spi.ConfigurationWatchList@5a42bbf4 - URL [jar:file:/repair_tools/tbar.jar!/logback.xml] is not of type file
+08:30:13,982 |-INFO in ch.qos.logback.classic.joran.action.ConfigurationAction - debug attribute not set
+08:30:13,984 |-INFO in ch.qos.logback.classic.joran.action.ContextNameAction - Setting logger context name as [TBar]
+08:30:13,984 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - About to instantiate appender of type [ch.qos.logback.core.ConsoleAppender]
+08:30:13,988 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - Naming appender as [STDOUT]
+08:30:14,032 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting level of logger [org.hibernate.engine.query.HQLQueryPlan] to DEBUG
+08:30:14,032 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting additivity of logger [org.hibernate.engine.query.HQLQueryPlan] to false
+08:30:14,032 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting level of logger [com.piedra.logback] to DEBUG
+08:30:14,033 |-ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - Could not find an appender named [FILE]. Did you define it below instead of above in the configuration file?
+08:30:14,033 |-ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - See http://logback.qos.ch/codes.html#appender_order for more details.
+08:30:14,033 |-INFO in ch.qos.logback.classic.joran.action.RootLoggerAction - Setting level of ROOT logger to DEBUG
+08:30:14,033 |-INFO in ch.qos.logback.core.joran.action.AppenderRefAction - Attaching appender named [STDOUT] to Logger[ROOT]
+08:30:14,033 |-ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - Could not find an appender named [ROLLINGFILE]. Did you define it below instead of above in the configuration file?
+08:30:14,033 |-ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - See http://logback.qos.ch/codes.html#appender_order for more details.
+08:30:14,033 |-INFO in ch.qos.logback.classic.joran.action.ConfigurationAction - End of configuration.
+08:30:14,035 |-INFO in ch.qos.logback.classic.joran.JoranConfigurator@270421f5 - Registering current configuration as safe fallback point
+
+Exception in thread "main" java.lang.RuntimeException: java.util.concurrent.ExecutionException: java.lang.ArrayStoreException: sun.reflect.annotation.TypeNotPresentExceptionProxy
+	at edu.lu.uni.serval.tbar.dataprepare.TestClassesFinder.findIn(TestClassesFinder.java:47)
+	at edu.lu.uni.serval.tbar.dataprepare.TestClassesFinder.findIn(TestClassesFinder.java:76)
+	at edu.lu.uni.serval.tbar.dataprepare.DataPreparer.loadTestCases(DataPreparer.java:131)
+	at edu.lu.uni.serval.tbar.dataprepare.DataPreparer.prepareData(DataPreparer.java:51)
+	at edu.lu.uni.serval.tbar.AbstractFixer.<init>(AbstractFixer.java:102)
+	at edu.lu.uni.serval.tbar.TBarFixer.<init>(TBarFixer.java:58)
+	at edu.lu.uni.serval.tbar.main.Main.main(Main.java:66)
+Caused by: java.util.concurrent.ExecutionException: java.lang.ArrayStoreException: sun.reflect.annotation.TypeNotPresentExceptionProxy
+	at java.util.concurrent.FutureTask.report(FutureTask.java:122)
+	at java.util.concurrent.FutureTask.get(FutureTask.java:192)
+	at edu.lu.uni.serval.tbar.dataprepare.TestClassesFinder.findIn(TestClassesFinder.java:42)
+	... 6 more
+Caused by: java.lang.ArrayStoreException: sun.reflect.annotation.TypeNotPresentExceptionProxy
+	at sun.reflect.annotation.AnnotationParser.parseClassArray(AnnotationParser.java:724)
+	at sun.reflect.annotation.AnnotationParser.parseArray(AnnotationParser.java:531)
+	at sun.reflect.annotation.AnnotationParser.parseMemberValue(AnnotationParser.java:355)
+	at sun.reflect.annotation.AnnotationParser.parseAnnotation2(AnnotationParser.java:286)
+	at sun.reflect.annotation.AnnotationParser.parseAnnotations2(AnnotationParser.java:120)
+	at sun.reflect.annotation.AnnotationParser.parseAnnotations(AnnotationParser.java:72)
+	at java.lang.Class.createAnnotationData(Class.java:3521)
+	at java.lang.Class.annotationData(Class.java:3510)
+	at java.lang.Class.getAnnotation(Class.java:3415)
+	at java.lang.reflect.AnnotatedElement.isAnnotationPresent(AnnotatedElement.java:258)
+	at java.lang.Class.isAnnotationPresent(Class.java:3425)
+	at edu.lu.uni.serval.tbar.dataprepare.TestFilter.acceptRunWithClass(TestFilter.java:72)
+	at edu.lu.uni.serval.tbar.dataprepare.TestFilter.acceptClass(TestFilter.java:58)
+	at edu.lu.uni.serval.tbar.dataprepare.TestFinder.process(TestFinder.java:53)
+	at edu.lu.uni.serval.tbar.dataprepare.TestClassesFinder.call(TestClassesFinder.java:22)
+	at edu.lu.uni.serval.tbar.dataprepare.TestClassesFinder.call(TestClassesFinder.java:14)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:750)
+
+
+Node: ee2bf67284b9
+
+
+
+Date: Wed Sep 14 08:30:14 EDT 2022
+

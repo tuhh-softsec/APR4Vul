@@ -1,0 +1,18 @@
+{
+  "repair_end": "2022-12-05 14:19:39.588833", 
+  "repair_begin": "2022-12-05 13:54:02.984396", 
+  "patches": [
+    {
+      "edits": [
+        {
+          "path": "pdfbox/src/main/java/org/apache/pdfbox/pdmodel/encryption/StandardSecurityHandler.java", 
+          "line": 240, 
+          "faulty": "setCurrentAccessPermission(currentAccessPermission);", 
+          "type": "InsertBefore", 
+          "seed": "currentAccessPermission.setReadOnly();"
+        }
+      ], 
+      "patch": "--- /workdir/Arja_vul4j_apache_pdfbox_VUL4J-19/pdfbox/src/main/java/org/apache/pdfbox/pdmodel/encryption/StandardSecurityHandler.java\t2022-12-05 09:11:03.928656212 -0500\n+++ /workdir/Arja_vul4j_apache_pdfbox_VUL4J-19/patches_lmls/Patch_0/patched/org/apache/pdfbox/pdmodel/encryption/StandardSecurityHandler.java\t2022-12-05 09:11:03.932656322 -0500\n@@ -237,7 +237,8 @@\n                            dicLength, encryptMetadata) )\n         {\n             currentAccessPermission = new AccessPermission(dicPermissions);\n-            setCurrentAccessPermission(currentAccessPermission);\n+            currentAccessPermission.setReadOnly();\n+\t\t\tsetCurrentAccessPermission(currentAccessPermission);\n             \n             encryptionKey =\n                 computeEncryptedKey(\n\n\n"
+    }
+  ]
+}

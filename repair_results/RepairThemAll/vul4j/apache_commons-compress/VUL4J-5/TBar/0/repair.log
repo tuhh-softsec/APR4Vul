@@ -1,0 +1,117 @@
+cd /workdir/TBar_vul4j_apache_commons-compress_VUL4J-5;
+export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en";
+TZ="America/New_York"; export TZ;
+export PATH="/usr/lib/jvm/jdk1.7.0_80/bin:$PATH";
+export JAVA_HOME="/usr/lib/jvm/jdk1.7.0_80";
+timeout 240m java -Xmx4g -Xms1g -XX:MaxPermSize=512m \
+    -cp /script/../libs/tbar_external/com.gzoltar-0.1.1-jdk7.jar:/script/../repair_tools/tbar.jar edu.lu.uni.serval.tbar.main.Main \
+    "/workdir/TBar_vul4j_apache_commons-compress_VUL4J-5" "org.apache.commons.compress.archivers.examples.ExpanderTest#fileCantEscapeDoubleDotPathWithSimilarSibling" "/src/main/java/" "/src/test/java/" "/target/classes/" "/target/test-classes/" "/script/../data/benchmarks/vul4j/perfectfl/VUL4J-5/spectra.txt" "mvn test -Dtest=org.apache.commons.compress.archivers.examples.ExpanderTest#fileCantEscapeDoubleDotPathWithSimilarSibling -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B" "mvn test -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B" "/root/.m2/repository/org/ops4j/pax/swissbox/pax-swissbox-optional-jcl/1.8.2/pax-swissbox-optional-jcl-1.8.2.jar:/root/.m2/repository/org/powermock/powermock-module-junit4-common/1.7.3/powermock-module-junit4-common-1.7.3.jar:/root/.m2/repository/org/ops4j/base/ops4j-base-util-property/1.5.0/ops4j-base-util-property-1.5.0.jar:/root/.m2/repository/org/ops4j/pax/exam/pax-exam/4.11.0/pax-exam-4.11.0.jar:/root/.m2/repository/javax/inject/javax.inject/1/javax.inject-1.jar:/root/.m2/repository/org/ops4j/pax/swissbox/pax-swissbox-lifecycle/1.8.2/pax-swissbox-lifecycle-1.8.2.jar:/root/.m2/repository/org/ops4j/pax/exam/pax-exam-junit4/4.11.0/pax-exam-junit4-4.11.0.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/ops4j/pax/tinybundles/tinybundles/2.1.1/tinybundles-2.1.1.jar:/root/.m2/repository/org/powermock/powermock-api-mockito-common/1.7.3/powermock-api-mockito-common-1.7.3.jar:/root/.m2/repository/org/powermock/powermock-core/1.7.3/powermock-core-1.7.3.jar:/root/.m2/repository/org/ops4j/base/ops4j-base-lang/1.5.0/ops4j-base-lang-1.5.0.jar:/root/.m2/repository/org/powermock/powermock-api-support/1.7.3/powermock-api-support-1.7.3.jar:/root/.m2/repository/org/mockito/mockito-core/1.10.19/mockito-core-1.10.19.jar:/root/.m2/repository/org/objenesis/objenesis/2.1/objenesis-2.1.jar:/root/.m2/repository/org/ops4j/base/ops4j-base-spi/1.5.0/ops4j-base-spi-1.5.0.jar:/root/.m2/repository/org/ops4j/pax/exam/pax-exam-container-native/4.11.0/pax-exam-container-native-4.11.0.jar:/root/.m2/repository/org/ops4j/base/ops4j-base-io/1.5.0/ops4j-base-io-1.5.0.jar:/root/.m2/repository/org/ops4j/pax/url/pax-url-aether/2.4.5/pax-url-aether-2.4.5.jar:/root/.m2/repository/org/powermock/powermock-module-junit4/1.7.3/powermock-module-junit4-1.7.3.jar:/root/.m2/repository/org/powermock/powermock-reflect/1.7.3/powermock-reflect-1.7.3.jar:/root/.m2/repository/org/slf4j/jcl-over-slf4j/1.6.6/jcl-over-slf4j-1.6.6.jar:/root/.m2/repository/com/github/luben/zstd-jni/1.3.3-3/zstd-jni-1.3.3-3.jar:/root/.m2/repository/org/osgi/org.osgi.core/6.0.0/org.osgi.core-6.0.0.jar:/root/.m2/repository/org/ops4j/pax/url/pax-url-classpath/2.4.5/pax-url-classpath-2.4.5.jar:/root/.m2/repository/org/ops4j/base/ops4j-base-net/1.5.0/ops4j-base-net-1.5.0.jar:/root/.m2/repository/biz/aQute/bnd/bndlib/2.4.0/bndlib-2.4.0.jar:/root/.m2/repository/org/ops4j/pax/exam/pax-exam-cm/4.11.0/pax-exam-cm-4.11.0.jar:/root/.m2/repository/org/javassist/javassist/3.21.0-GA/javassist-3.21.0-GA.jar:/root/.m2/repository/org/ops4j/pax/swissbox/pax-swissbox-core/1.8.2/pax-swissbox-core-1.8.2.jar:/root/.m2/repository/org/ops4j/base/ops4j-base-monitors/1.5.0/ops4j-base-monitors-1.5.0.jar:/root/.m2/repository/org/ops4j/base/ops4j-base-store/1.5.0/ops4j-base-store-1.5.0.jar:/root/.m2/repository/org/ops4j/pax/url/pax-url-commons/2.4.5/pax-url-commons-2.4.5.jar:/root/.m2/repository/org/ops4j/pax/swissbox/pax-swissbox-tracker/1.8.2/pax-swissbox-tracker-1.8.2.jar:/root/.m2/repository/org/tukaani/xz/1.8/xz-1.8.jar:/root/.m2/repository/org/ops4j/pax/exam/pax-exam-link-mvn/4.11.0/pax-exam-link-mvn-4.11.0.jar:/root/.m2/repository/org/apache/felix/org.apache.felix.framework/5.6.10/org.apache.felix.framework-5.6.10.jar:/root/.m2/repository/org/powermock/powermock-api-mockito/1.7.3/powermock-api-mockito-1.7.3.jar:/root/.m2/repository/junit/junit/4.12/junit-4.12.jar:/root/.m2/repository/org/ops4j/pax/exam/pax-exam-spi/4.11.0/pax-exam-spi-4.11.0.jar:/root/.m2/repository/org/ops4j/pax/url/pax-url-link/2.4.5/pax-url-link-2.4.5.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.21/slf4j-api-1.7.21.jar:/root/.m2/repository/org/brotli/dec/0.1.2/dec-0.1.2.jar:/root/.m2/repository/org/ops4j/pax/swissbox/pax-swissbox-property/1.8.2/pax-swissbox-property-1.8.2.jar";
+echo "\n\nNode: `hostname`\n";
+echo "\n\nDate: `date`\n";
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en
+06:15:38,783 |-INFO in ch.qos.logback.classic.LoggerContext[TBar] - Could NOT find resource [logback-test.xml]
+06:15:38,783 |-INFO in ch.qos.logback.classic.LoggerContext[TBar] - Could NOT find resource [logback.groovy]
+06:15:38,784 |-INFO in ch.qos.logback.classic.LoggerContext[TBar] - Found resource [logback.xml] at [jar:file:/repair_tools/tbar.jar!/logback.xml]
+06:15:38,795 |-INFO in ch.qos.logback.core.joran.spi.ConfigurationWatchList@32e02ddd - URL [jar:file:/repair_tools/tbar.jar!/logback.xml] is not of type file
+06:15:38,834 |-INFO in ch.qos.logback.classic.joran.action.ConfigurationAction - debug attribute not set
+06:15:38,835 |-INFO in ch.qos.logback.classic.joran.action.ContextNameAction - Setting logger context name as [TBar]
+06:15:38,836 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - About to instantiate appender of type [ch.qos.logback.core.ConsoleAppender]
+06:15:38,838 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - Naming appender as [STDOUT]
+06:15:38,882 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting level of logger [org.hibernate.engine.query.HQLQueryPlan] to DEBUG
+06:15:38,882 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting additivity of logger [org.hibernate.engine.query.HQLQueryPlan] to false
+06:15:38,882 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting level of logger [com.piedra.logback] to DEBUG
+06:15:38,882 |-ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - Could not find an appender named [FILE]. Did you define it below instead of above in the configuration file?
+06:15:38,882 |-ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - See http://logback.qos.ch/codes.html#appender_order for more details.
+06:15:38,882 |-INFO in ch.qos.logback.classic.joran.action.RootLoggerAction - Setting level of ROOT logger to DEBUG
+06:15:38,883 |-INFO in ch.qos.logback.core.joran.action.AppenderRefAction - Attaching appender named [STDOUT] to Logger[ROOT]
+06:15:38,883 |-ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - Could not find an appender named [ROLLINGFILE]. Did you define it below instead of above in the configuration file?
+06:15:38,883 |-ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - See http://logback.qos.ch/codes.html#appender_order for more details.
+06:15:38,883 |-INFO in ch.qos.logback.classic.joran.action.ConfigurationAction - End of configuration.
+06:15:38,884 |-INFO in ch.qos.logback.classic.joran.JoranConfigurator@1be32243 - Registering current configuration as safe fallback point
+
+2022-09-14 06:15:39.203 [main] INFO  edu.lu.uni.serval.tbar.AbstractFixer - TBar_vul4j_apache_commons-compress_VUL4J-5 Failed Tests: 1
+2022-09-14 06:15:39.206 [main] INFO  edu.lu.uni.serval.tbar.TBarFixer - =======StaticBugFixer: Start to fix suspicious code======
+2022-09-14 06:15:39.206 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.apache.commons.compress.archivers.examples.Expander ===241
+2022-09-14 06:15:39.693 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+String targetDirPath = targetDirectory.getCanonicalPath();
+2022-09-14 06:15:41.168 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -238,7 +238,10 @@ private boolean prefersSeekableByteChannel(String format) {
+-        String targetDirPath = targetDirectory.getCanonicalPath();
++        if (targetDirectory != null) {
++	String targetDirPath = targetDirectory.getCanonicalPath();
++	}
++
+2022-09-14 06:15:41.168 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:15:41.945 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:15:41.962 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -238,7 +238,10 @@ private boolean prefersSeekableByteChannel(String format) {
+-        String targetDirPath = targetDirectory.getCanonicalPath();
++        if (targetDirectory == null) {
++	    throw new IllegalArgumentException("Null 'targetDirectory' argument.");
++	}
++String targetDirPath = targetDirectory.getCanonicalPath();
+2022-09-14 06:15:41.962 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:15:42.779 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 06:15:54.175 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -238,7 +238,10 @@ private boolean prefersSeekableByteChannel(String format) {
+-        String targetDirPath = targetDirectory.getCanonicalPath();
++        if (targetDirectory == null) {
++	    return;
++	}
++String targetDirPath = targetDirectory.getCanonicalPath();
+2022-09-14 06:15:54.175 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:15:55.182 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 06:16:06.323 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -238,7 +238,8 @@ private boolean prefersSeekableByteChannel(String format) {
+-        String targetDirPath = targetDirectory.getCanonicalPath();
++        if (targetDirectory == null) targetDirectory = new File();
++ String targetDirPath = targetDirectory.getCanonicalPath();
+2022-09-14 06:16:06.323 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:16:07.263 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:16:07.596 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -238,7 +238,7 @@ private boolean prefersSeekableByteChannel(String format) {
+-        String targetDirPath = targetDirectory.getCanonicalPath();
++
+2022-09-14 06:16:07.596 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:16:08.657 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:16:08.666 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -236,31 +236,6 @@ private boolean prefersSeekableByteChannel(String format) {
+-    private void expand(ArchiveEntrySupplier supplier, EntryWriter writer, File targetDirectory)
+-        throws IOException {
+-        String targetDirPath = targetDirectory.getCanonicalPath();
+-        ArchiveEntry nextEntry = supplier.getNextReadableEntry();
+-        while (nextEntry != null) {
+-            File f = new File(targetDirectory, nextEntry.getName());
+-            if (!f.getCanonicalPath().startsWith(targetDirPath)) {
+-                throw new IOException("expanding " + nextEntry.getName()
+-                    + " would create file outside of " + targetDirectory);
+-            }
+-            if (nextEntry.isDirectory()) {
+-                if (!f.isDirectory() && !f.mkdirs()) {
+-                    throw new IOException("failed to create directory " + f);
+-                }
+-            } else {
+-                File parent = f.getParentFile();
+-                if (!parent.isDirectory() && !parent.mkdirs()) {
+-                    throw new IOException("failed to create directory " + parent);
+-                }
+-                try (OutputStream o = Files.newOutputStream(f.toPath())) {
+-                    writer.writeEntryDataTo(nextEntry, o);
+-                }
+-            }
+-            nextEntry = supplier.getNextReadableEntry();
+-        }
+-    }
++
+2022-09-14 06:16:08.666 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:16:09.708 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:16:09.734 [main] INFO  edu.lu.uni.serval.tbar.TBarFixer - =======StaticBugFixer: Finish off fixing======
+Failed to fix bug
+
+
+Node: ee2bf67284b9
+
+
+
+Date: Wed Sep 14 06:16:09 EDT 2022
+

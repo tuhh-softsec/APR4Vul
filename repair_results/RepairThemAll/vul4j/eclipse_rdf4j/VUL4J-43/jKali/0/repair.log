@@ -1,0 +1,211 @@
+cd /workdir/jKali_vul4j_eclipse_rdf4j_VUL4J-43;
+export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en";
+TZ="America/New_York"; export TZ;
+export PATH="/usr/lib/jvm/java-8-openjdk-amd64/bin:$PATH";
+export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64/bin";
+time java -Xmx4g -Xms1g -XX:MaxPermSize=512m -cp /script/../libs/jtestex7.jar:/script/../repair_tools/astor.jar fr.inria.main.evolution.AstorMain \
+	-mode jkali \
+	-location . \
+	-id eclipse_rdf4j-VUL4J-43 \
+	-failing org.eclipse.rdf4j.common.io.ZipUtilTest#testWriteEntryPathTraversing \
+	-jvm4testexecution /usr/lib/jvm/java-8-openjdk-amd64/bin \
+	-jvm4evosuitetestexecution /usr/lib/jvm/java-8-openjdk-amd64/bin \
+	-maxgen 1000000 \
+	-maxtime 120 \
+	-stopfirst true \
+	-seed 0 \
+	-scope local \
+	-population 1 \
+	-javacompliancelevel 8 \
+	-faultlocalization perfect \
+    -perfectdata /script/../data/benchmarks/vul4j/perfectfl/VUL4J-43 \
+    -validation externalcmd \
+    -testfailingcmd "mvn test -pl util -Dtest=org.eclipse.rdf4j.common.io.ZipUtilTest#testWriteEntryPathTraversing -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B" \
+    -testallcmd "mvn test -pl util -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B"  \ \
+	-srcjavafolder util/src/main/java \
+	-srctestfolder util/src/test/java \
+	-binjavafolder util/target/classes \
+	-bintestfolder util/target/test-classes \
+	-parameters x:x \
+	-dependencies /root/.m2/repository/junit/junit/4.12/junit-4.12.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar;
+	echo "\n\nNode: `hostname`\n";
+	echo "\n\nDate: `date`\n";
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en
+OpenJDK 64-Bit Server VM warning: ignoring option MaxPermSize=512m; support was removed in 8.0
+[0] INFO ProjectConfiguration - Version of the JVM used: 1.8.0_342
+[3] INFO main - Java version of the JDK used to run tests: 1.8.0_342
+[3] INFO main - The compliance of the JVM is:  8
+[9] INFO main - command line arguments: [-mode  jkali  -location  .  -id  eclipse_rdf4j-VUL4J-43  -failing  org.eclipse.rdf4j.common.io.ZipUtilTest#testWriteEntryPathTraversing  -jvm4testexecution  /usr/lib/jvm/java-8-openjdk-amd64/bin  -jvm4evosuitetestexecution  /usr/lib/jvm/java-8-openjdk-amd64/bin  -maxgen  1000000  -maxtime  120  -stopfirst  true  -seed  0  -scope  local  -population  1  -javacompliancelevel  8  -faultlocalization  perfect  -perfectdata  /script/../data/benchmarks/vul4j/perfectfl/VUL4J-43  -validation  externalcmd  -testfailingcmd  mvn test -pl util -Dtest=org.eclipse.rdf4j.common.io.ZipUtilTest#testWriteEntryPathTraversing -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B  -testallcmd  mvn test -pl util -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B     -srcjavafolder  util/src/main/java  -srctestfolder  util/src/test/java  -binjavafolder  util/target/classes  -bintestfolder  util/target/test-classes  -parameters  x:x  -dependencies  /root/.m2/repository/junit/junit/4.12/junit-4.12.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar]
+[11] INFO AstorMain - Running Astor on a JDK at /usr/lib/jvm/java-8-openjdk-amd64/jre
+[48] INFO main - Source folders: [/workdir/jKali_vul4j_eclipse_rdf4j_VUL4J-43/./util/src/main/java]
+[49] INFO main - Source Test folders: [/workdir/jKali_vul4j_eclipse_rdf4j_VUL4J-43/./util/src/test/java]
+[1599] INFO AstorCoreEngine - ---- Creating spoon model
+[1674] INFO MutationSupporter - Creating model,  Code location from working folder: /workdir/jKali_vul4j_eclipse_rdf4j_VUL4J-43/./util/src/main/java
+[1675] INFO MutationSupporter - building model: /workdir/jKali_vul4j_eclipse_rdf4j_VUL4J-43/./util/src/main/java, compliance level: 8
+[1805] INFO MutationSupporter - Classpath (Dependencies) for building SpoonModel: [/root/.m2/repository/junit/junit/4.12/junit-4.12.jar, /root/.m2/repository/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar, /root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar]
+[14719] INFO AstorCoreEngine - Number of CtTypes created: 63
+[14903] INFO AstorCoreEngine - Test retrieved from classes: 0
+[15191] INFO AstorCoreEngine - Setting up the max to 2730 milliseconds (2 sec)
+[15191] INFO AstorCoreEngine - ---- Initial suspicious size: 1
+[16220] INFO main - Total suspicious from FL: 1,  1
+[16221] INFO main - Total ModPoint created: 1
+[16221] INFO main - Creating program variant #1, [Variant id: 1, #gens: 1, #ops: 0, parent:-]
+[16221] INFO main - Run previously failing tests...
+[45703] INFO main - Failed tests: 1
+[45706] INFO AstorCoreEngine - The original fitness is : 1.0
+[45713] WARN ConfigurationProperties - ----------------------------
+[45713] INFO ConfigurationProperties - ---Configuration properties
+[45713] INFO ConfigurationProperties - p:lastJUnitVersion= ./examples/libs/junit-4.11.jar
+[45714] INFO ConfigurationProperties - p:alternativecompliancelevel= 8
+[45714] INFO ConfigurationProperties - p:ignoredTestCases= 
+[45714] INFO ConfigurationProperties - p:workingDirectory= /workdir/jKali_vul4j_eclipse_rdf4j_VUL4J-43/./output_astor
+[45714] INFO ConfigurationProperties - p:manipulatesuper= false
+[45714] INFO ConfigurationProperties - p:validation= externalcmd
+[45714] INFO ConfigurationProperties - p:jvm4testexecution= /usr/lib/jvm/java-8-openjdk-amd64/bin
+[45714] INFO ConfigurationProperties - p:operatorspace= suppression
+[45714] INFO ConfigurationProperties - p:diffcontext= 0
+[45714] INFO ConfigurationProperties - p:binjavafolder= util/target/classes
+[45714] INFO ConfigurationProperties - p:synthesis_depth= 3
+[45714] INFO ConfigurationProperties - p:gzoltartestpackagetoexclude= junit.framework
+[45714] INFO ConfigurationProperties - p:skipfitnessinitialpopulation= false
+[45714] INFO ConfigurationProperties - p:evosuiteresultfolder= evosuite
+[45714] INFO ConfigurationProperties - p:flthreshold= 0.1
+[45714] INFO ConfigurationProperties - p:regressionforfaultlocalization= true
+[45716] INFO ConfigurationProperties - p:collectonlyusedmethod= false
+[45716] INFO ConfigurationProperties - p:preservelinenumbers= true
+[45716] INFO ConfigurationProperties - p:tmax2= 2730
+[45716] INFO ConfigurationProperties - p:tmax1= 10000
+[45716] INFO ConfigurationProperties - p:probagenmutation= false
+[45716] INFO ConfigurationProperties - p:nomodificationconvergence= 100
+[45716] INFO ConfigurationProperties - p:diff_type= relative
+[45716] INFO ConfigurationProperties - p:targetelementprocessor= statements
+[45716] INFO ConfigurationProperties - p:srctestfolder= util/src/test/java
+[45716] INFO ConfigurationProperties - p:forceExecuteRegression= false
+[45716] INFO ConfigurationProperties - p:clusteringfilename= clustering.csv
+[45716] INFO ConfigurationProperties - p:failing= org.eclipse.rdf4j.common.io.ZipUtilTest#testWriteEntryPathTraversing
+[45716] INFO ConfigurationProperties - p:logtestexecution= false
+[45725] INFO ConfigurationProperties - p:evo_buggy_class= true
+[45725] INFO ConfigurationProperties - p:numberExecutions= 1
+[45725] INFO ConfigurationProperties - p:maxnumbersolutions= 1000000
+[45725] INFO ConfigurationProperties - p:evo_affected_by_op= true
+[45725] INFO ConfigurationProperties - p:population= 1
+[45725] INFO ConfigurationProperties - p:considerzerovaluesusp= false
+[45725] INFO ConfigurationProperties - p:maxCombinationVariableLimit= false
+[45725] INFO ConfigurationProperties - p:savesolution= true
+[45725] INFO ConfigurationProperties - p:javacompliancelevel= 8
+[45725] INFO ConfigurationProperties - p:x= x
+[45726] INFO ConfigurationProperties - p:uniqueoptogen= false
+[45726] INFO ConfigurationProperties - p:gzoltarpackagetonotinstrument= junit.framework
+[45726] INFO ConfigurationProperties - p:projectIdentifier= eclipse_rdf4j-VUL4J-43
+[45726] INFO ConfigurationProperties - p:modificationpointnavigation= weight
+[45726] INFO ConfigurationProperties - p:stopfirst= true
+[45726] INFO ConfigurationProperties - p:multipointmodification= false
+[45726] INFO ConfigurationProperties - p:elementsToMutate= 10
+[45726] INFO ConfigurationProperties - p:jsonoutputname= astor_output
+[45726] INFO ConfigurationProperties - p:evoDSE= false
+[45726] INFO ConfigurationProperties - p:bintestfolder= util/target/test-classes
+[45726] INFO ConfigurationProperties - p:testbystep= false
+[45726] INFO ConfigurationProperties - p:version-location= ./math-version/
+[45726] INFO ConfigurationProperties - p:reintroduce= PARENTS:ORIGINAL
+[45726] INFO ConfigurationProperties - p:perfectdata= /script/../data/benchmarks/vul4j/perfectfl/VUL4J-43
+[45726] INFO ConfigurationProperties - p:executorjar= ./lib/jtestex7.jar
+[45726] INFO ConfigurationProperties - p:maxGeneration= 1000000
+[45726] INFO ConfigurationProperties - p:max_synthesis_step= 10000
+[45726] INFO ConfigurationProperties - p:projectinfocommand= com.github.tdurieux:project-config-maven-plugin:info
+[45727] INFO ConfigurationProperties - p:maxVarCombination= 1000
+[45727] INFO ConfigurationProperties - p:maxtime= 120
+[45727] INFO ConfigurationProperties - p:evosuitejar= ./lib/evosuite-master-1.0.4-SNAPSHOT.jar
+[45727] INFO ConfigurationProperties - p:jvmversion= 1.8.0_342
+[45727] INFO ConfigurationProperties - p:commandTrunk= 50000
+[45727] INFO ConfigurationProperties - p:faultlocalization= perfect
+[45727] INFO ConfigurationProperties - p:resetmodel= true
+[45727] INFO ConfigurationProperties - p:maxsuspcandidates= 1000
+[45727] INFO ConfigurationProperties - p:mode= jkali
+[45727] INFO ConfigurationProperties - p:learningdir= 
+[45727] INFO ConfigurationProperties - p:jvm4evosuitetestexecution= /usr/lib/jvm/java-8-openjdk-amd64/bin
+[45727] INFO ConfigurationProperties - p:filterfaultlocalization= true
+[45727] INFO ConfigurationProperties - p:mutationrate= 1 
+[45727] INFO ConfigurationProperties - p:pathToMVNRepository= 
+[45727] INFO ConfigurationProperties - p:resourcesfolder= /src/main/resources:/src/test/resources:
+[45727] INFO ConfigurationProperties - p:timezone= America/Los_Angeles
+[45727] INFO ConfigurationProperties - p:runjava7code= false
+[45727] INFO ConfigurationProperties - p:testfailingcmd= mvn test -pl util -Dtest=org.eclipse.rdf4j.common.io.ZipUtilTest#testWriteEntryPathTraversing -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B
+[45728] INFO ConfigurationProperties - p:evoRunOnBuggyClass= true
+[45728] INFO ConfigurationProperties - p:compiler= fr.inria.astor.core.manipulation.bytecode.compiler.SpoonClassCompiler
+[45728] INFO ConfigurationProperties - p:limitbysuspicious= true
+[45728] INFO ConfigurationProperties - p:logsattemps= true
+[45728] INFO ConfigurationProperties - p:dependenciespath= /root/.m2/repository/junit/junit/4.12/junit-4.12.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar
+[45728] INFO ConfigurationProperties - p:packageToInstrument= 
+[45728] INFO ConfigurationProperties - p:skipfaultlocalization= false
+[45728] INFO ConfigurationProperties - p:scope= local
+[45728] INFO ConfigurationProperties - p:transformingredient= false
+[45728] INFO ConfigurationProperties - p:fitnessfunction= fr.inria.astor.core.solutionsearch.population.TestCaseFitnessFunction
+[45728] INFO ConfigurationProperties - p:maxnumvariablesperingredient= 10
+[45728] INFO ConfigurationProperties - p:parsesourcefromoriginal= true
+[45728] INFO ConfigurationProperties - p:pvariantfoldername= variant-
+[45728] INFO ConfigurationProperties - p:savespoonmodelondisk= false
+[45728] INFO ConfigurationProperties - p:srcjavafolder= util/src/main/java
+[45728] INFO ConfigurationProperties - p:populationcontroller= fr.inria.astor.core.solutionsearch.population.TestCaseBasedFitnessPopulationController
+[45728] INFO ConfigurationProperties - p:ignoreflakyinfl= false
+[45728] INFO ConfigurationProperties - p:cleantemplates= true
+[45728] INFO ConfigurationProperties - p:applyCrossover= false
+[45728] INFO ConfigurationProperties - p:maxmodificationpoints= 1000
+[45729] INFO ConfigurationProperties - p:duplicateingredientsinspace= false
+[45729] INFO ConfigurationProperties - p:metid= 0
+[45729] INFO ConfigurationProperties - p:continuewhenmodelfail= true
+[45729] INFO ConfigurationProperties - p:saveall= false
+[45729] INFO ConfigurationProperties - p:seed= 0
+[45729] INFO ConfigurationProperties - p:savecompletepatched= true
+[45729] INFO ConfigurationProperties - p:resetoperations= false
+[45731] INFO ConfigurationProperties - p:keepcomments= false
+[45731] INFO ConfigurationProperties - p:processoutputinfile= false
+[45731] INFO ConfigurationProperties - p:location= .
+[45745] INFO ConfigurationProperties - p:probabilistictransformation= true
+[45745] INFO ConfigurationProperties - p:overridemaxtime= true
+[45745] INFO ConfigurationProperties - p:outputjsonresult= true
+[45745] INFO ConfigurationProperties - p:allpoints= false
+[45745] INFO ConfigurationProperties - p:antipattern= false
+[45745] INFO ConfigurationProperties - p:bugId= 280
+[45745] INFO ConfigurationProperties - p:evosuitetimeout= 120
+[45745] INFO ConfigurationProperties - p:maxtimefactor= 10
+[45745] INFO ConfigurationProperties - p:nrPlaceholders= 1
+[45745] INFO ConfigurationProperties - p:testallcmd= mvn test -pl util -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B
+[45745] INFO ConfigurationProperties - p:forcesubprocesskilling= false
+[45745] INFO ConfigurationProperties - ----------------------------
+[45747] INFO AstorCoreEngine - Time Repair Loop (s): 0.001
+[45748] INFO AstorCoreEngine - generationsexecuted: 1
+[45748] WARN AstorCoreEngine - ----SUMMARY_EXECUTION---
+[45748] WARN AstorCoreEngine - End Repair Search: NOT Found solution
+[45748] WARN AstorCoreEngine - Number suspicious:1
+[45749] INFO AstorCoreEngine - 
+ --SOLUTIONS DESCRIPTION--
+
+
+Astor Output:
+
+General stats:
+EXECUTION_IDENTIFIER=eclipse_rdf4j-VUL4J-43
+TOTAL_TIME=0.001
+NR_GENERATIONS=null
+NR_RIGHT_COMPILATIONS=null
+NR_FAILLING_COMPILATIONS=null
+NR_ERRONEOUS_VARIANCES=null
+NR_FAILING_VALIDATION_PROCESS=null
+OUTPUT_STATUS=EXHAUSTIVE_NAVIGATED
+
+Patch stats:
+
+[45805] INFO Stats - Storing ing JSON at /workdir/jKali_vul4j_eclipse_rdf4j_VUL4J-43/./output_astor/AstorMain-eclipse_rdf4j-VUL4J-43//astor_output.json
+[45805] INFO Stats - astor_output:
+{"general":{"NR_RIGHT_COMPILATIONS":null,"NR_ERRONEOUS_VARIANCES":null,"EXECUTION_IDENTIFIER":"eclipse_rdf4j-VUL4J-43","OUTPUT_STATUS":"EXHAUSTIVE_NAVIGATED","NR_FAILLING_COMPILATIONS":null,"NR_GENERATIONS":null,"TOTAL_TIME":0.001,"NR_FAILING_VALIDATION_PROCESS":null},"patches":[]}
+[45806] INFO AstorMain - Time Total(s): 45.79
+38.32user 5.48system 0:47.98elapsed 91%CPU (0avgtext+0avgdata 464772maxresident)k
+584inputs+2096outputs (7major+228841minor)pagefaults 0swaps
+
+
+Node: 9670332cfea8
+
+
+
+Date: Thu Sep  8 22:22:37 EDT 2022
+

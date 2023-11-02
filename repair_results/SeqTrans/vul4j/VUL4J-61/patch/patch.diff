@@ -1,0 +1,69 @@
+diff --git a/src/main/java/apoc/load/Xml.java b/src/main/java/apoc/load/Xml.java
+index aba6beb436..f199fc5806 100644
+--- a/src/main/java/apoc/load/Xml.java
++++ b/src/main/java/apoc/load/Xml.java
+@@ -65,6 +65,7 @@ private Stream<MapResult> xmlXpathToMapResult(@Name("url") String url, boolean s
+             DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
+             documentBuilderFactory.setNamespaceAware(true);
+             documentBuilderFactory.setIgnoringElementContentWhitespace(true);
++            documentBuilderFactory.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true);
+             DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
+ 
+             FileUtils.checkReadAllowed(url);
+diff --git a/src/test/java/apoc/load/XmlTest.java b/src/test/java/apoc/load/XmlTest.java
+index 76004e90c8..2b4c7e222e 100644
+--- a/src/test/java/apoc/load/XmlTest.java
++++ b/src/test/java/apoc/load/XmlTest.java
+@@ -1,12 +1,15 @@
+ package apoc.load;
+ 
+ import apoc.util.TestUtil;
++import org.apache.commons.lang.exception.ExceptionUtils;
+ import org.junit.After;
+ import org.junit.Before;
+ import org.junit.Test;
+ import org.neo4j.graphdb.GraphDatabaseService;
++import org.neo4j.graphdb.QueryExecutionException;
+ import org.neo4j.helpers.collection.Iterators;
+ import org.neo4j.test.TestGraphDatabaseFactory;
++import org.xml.sax.SAXParseException;
+ 
+ import java.util.Collections;
+ import java.util.List;
+@@ -342,4 +345,17 @@ public void testLoadXmlFromTgzByUrl() {
+             assertTrue(IntStream.rangeClosed(1,12).allMatch(value -> ids.contains(String.format("bk1%02d",value))));
+         });
+     }
++
++    @Test(expected = QueryExecutionException.class)
++    public void testLoadXmlPreventXXEVulnerabilityThrowsQueryExecutionException() {
++        try {
++            testResult(db, "CALL apoc.load.xml('file:src/test/resources/xml/xxe.xml', '/catalog/book[genre=\"Computer\"]') yield value as result", (r) -> {});
++        } catch (QueryExecutionException e) {
++            // We want test that the cause of the exception is SAXParseException with the correct cause message
++            Throwable except = ExceptionUtils.getRootCause(e);
++            assertTrue(except instanceof SAXParseException);
++            assertEquals("DOCTYPE is disallowed when the feature \"http://apache.org/xml/features/disallow-doctype-decl\" set to true.", except.getMessage());
++            throw e;
++        }
++    }
+ }
+diff --git a/src/test/resources/xml/xxe.xml b/src/test/resources/xml/xxe.xml
+new file mode 100644
+index 0000000000..451ba82eae
+--- /dev/null
++++ b/src/test/resources/xml/xxe.xml
+@@ -0,0 +1,12 @@
++<?xml version="1.0"?>
++<!DOCTYPE GVI [<!ENTITY xxe SYSTEM "file:///etc/passwd" >]>
++<catalog>
++    <book id="bk101">
++        <author>Gambardella, Matthew</author>
++        <title>XML Developer's Guide</title>
++        <genre>Computer</genre>
++        <price>44.95</price>
++        <publish_date>2000-10-01</publish_date>
++        <description>&xxe;</description>
++    </book>
++</catalog>
+\ No newline at end of file

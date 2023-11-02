@@ -1,0 +1,210 @@
+cd /workdir/jMutRepair_vul4j_apache_struts_VUL4J-32;
+export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en";
+TZ="America/New_York"; export TZ;
+export PATH="/usr/lib/jvm/java-8-openjdk-amd64/bin:$PATH";
+export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64/bin";
+time java -Xmx4g -Xms1g -XX:MaxPermSize=512m -cp /script/../libs/jtestex7.jar:/script/../repair_tools/astor.jar fr.inria.main.evolution.AstorMain \
+	-mode jMutRepair \
+	-location . \
+	-id apache_struts-VUL4J-32 \
+	-failing com.opensymphony.xwork2.security.DefaultExcludedPatternsCheckerTest#testParamWithClassInName \
+	-jvm4testexecution /usr/lib/jvm/jdk1.7.0_80/bin \
+	-jvm4evosuitetestexecution /usr/lib/jvm/jdk1.7.0_80/bin \
+	-maxgen 1000000 \
+	-maxtime 120 \
+	-stopfirst true \
+	-seed 0 \
+	-scope local \
+	-population 1 \
+	-javacompliancelevel 7 \
+	-faultlocalization perfect \
+    -perfectdata /script/../data/benchmarks/vul4j/perfectfl/VUL4J-32 \
+    -validation externalcmd \
+    -testfailingcmd "mvn test -pl xwork-core -Dtest=com.opensymphony.xwork2.security.DefaultExcludedPatternsCheckerTest test -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B" \
+    -testallcmd "mvn test -pl xwork-core -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B"  \ \
+	-srcjavafolder xwork-core/src/main/java \
+	-srctestfolder xwork-core/src/test/java \
+	-binjavafolder xwork-core/target/classes \
+	-bintestfolder xwork-core/target/test-classes \
+	-parameters x:x \
+	-dependencies /root/.m2/repository/javassist/javassist/3.11.0.GA/javassist-3.11.0.GA.jar:/root/.m2/repository/org/springframework/spring-expression/3.0.5.RELEASE/spring-expression-3.0.5.RELEASE.jar:/root/.m2/repository/org/easymock/easymock/2.4/easymock-2.4.jar:/root/.m2/repository/org/springframework/spring-aop/3.0.5.RELEASE/spring-aop-3.0.5.RELEASE.jar:/root/.m2/repository/org/ow2/asm/asm/5.0.2/asm-5.0.2.jar:/root/.m2/repository/org/testng/testng/5.1/testng-5.1-jdk15.jar:/root/.m2/repository/org/springframework/spring-web/3.0.5.RELEASE/spring-web-3.0.5.RELEASE.jar:/root/.m2/repository/org/apache/commons/commons-lang3/3.2/commons-lang3-3.2.jar:/root/.m2/repository/mockobjects/mockobjects-core/0.09/mockobjects-core-0.09.jar:/root/.m2/repository/org/ow2/asm/asm-commons/5.0.2/asm-commons-5.0.2.jar:/root/.m2/repository/org/springframework/spring-context-support/3.0.5.RELEASE/spring-context-support-3.0.5.RELEASE.jar:/root/.m2/repository/cglib/cglib-nodep/2.1_3/cglib-nodep-2.1_3.jar:/root/.m2/repository/org/springframework/spring-aspects/3.0.5.RELEASE/spring-aspects-3.0.5.RELEASE.jar:/root/.m2/repository/junit/junit/4.8.2/junit-4.8.2.jar:/root/.m2/repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar:/root/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar:/root/.m2/repository/org/springframework/spring-test/3.0.5.RELEASE/spring-test-3.0.5.RELEASE.jar:/root/.m2/repository/org/springframework/spring-context/3.0.5.RELEASE/spring-context-3.0.5.RELEASE.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.2/slf4j-api-1.7.2.jar:/root/.m2/repository/org/springframework/spring-core/3.0.5.RELEASE/spring-core-3.0.5.RELEASE.jar:/root/.m2/repository/org/springframework/spring-beans/3.0.5.RELEASE/spring-beans-3.0.5.RELEASE.jar:/root/.m2/repository/org/ow2/asm/asm-tree/5.0.2/asm-tree-5.0.2.jar:/root/.m2/repository/commons-io/commons-io/2.2/commons-io-2.2.jar:/root/.m2/repository/ognl/ognl/3.0.6/ognl-3.0.6.jar:/root/.m2/repository/org/springframework/spring-asm/3.0.5.RELEASE/spring-asm-3.0.5.RELEASE.jar:/root/.m2/repository/commons-logging/commons-logging/1.1.3/commons-logging-1.1.3.jar:/root/.m2/repository/org/slf4j/slf4j-simple/1.7.2/slf4j-simple-1.7.2.jar;
+	echo "\n\nNode: `hostname`\n";
+	echo "\n\nDate: `date`\n";
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en
+OpenJDK 64-Bit Server VM warning: ignoring option MaxPermSize=512m; support was removed in 8.0
+[0] INFO ProjectConfiguration - Version of the JVM used: 1.7.0_80
+[1] INFO main - Java version of the JDK used to run tests: 1.7.0_80
+[1] INFO main - The compliance of the JVM is:  7
+[3] INFO main - command line arguments: [-mode  jMutRepair  -location  .  -id  apache_struts-VUL4J-32  -failing  com.opensymphony.xwork2.security.DefaultExcludedPatternsCheckerTest#testParamWithClassInName  -jvm4testexecution  /usr/lib/jvm/jdk1.7.0_80/bin  -jvm4evosuitetestexecution  /usr/lib/jvm/jdk1.7.0_80/bin  -maxgen  1000000  -maxtime  120  -stopfirst  true  -seed  0  -scope  local  -population  1  -javacompliancelevel  7  -faultlocalization  perfect  -perfectdata  /script/../data/benchmarks/vul4j/perfectfl/VUL4J-32  -validation  externalcmd  -testfailingcmd  mvn test -pl xwork-core -Dtest=com.opensymphony.xwork2.security.DefaultExcludedPatternsCheckerTest test -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B  -testallcmd  mvn test -pl xwork-core -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B     -srcjavafolder  xwork-core/src/main/java  -srctestfolder  xwork-core/src/test/java  -binjavafolder  xwork-core/target/classes  -bintestfolder  xwork-core/target/test-classes  -parameters  x:x  -dependencies  /root/.m2/repository/javassist/javassist/3.11.0.GA/javassist-3.11.0.GA.jar:/root/.m2/repository/org/springframework/spring-expression/3.0.5.RELEASE/spring-expression-3.0.5.RELEASE.jar:/root/.m2/repository/org/easymock/easymock/2.4/easymock-2.4.jar:/root/.m2/repository/org/springframework/spring-aop/3.0.5.RELEASE/spring-aop-3.0.5.RELEASE.jar:/root/.m2/repository/org/ow2/asm/asm/5.0.2/asm-5.0.2.jar:/root/.m2/repository/org/testng/testng/5.1/testng-5.1-jdk15.jar:/root/.m2/repository/org/springframework/spring-web/3.0.5.RELEASE/spring-web-3.0.5.RELEASE.jar:/root/.m2/repository/org/apache/commons/commons-lang3/3.2/commons-lang3-3.2.jar:/root/.m2/repository/mockobjects/mockobjects-core/0.09/mockobjects-core-0.09.jar:/root/.m2/repository/org/ow2/asm/asm-commons/5.0.2/asm-commons-5.0.2.jar:/root/.m2/repository/org/springframework/spring-context-support/3.0.5.RELEASE/spring-context-support-3.0.5.RELEASE.jar:/root/.m2/repository/cglib/cglib-nodep/2.1_3/cglib-nodep-2.1_3.jar:/root/.m2/repository/org/springframework/spring-aspects/3.0.5.RELEASE/spring-aspects-3.0.5.RELEASE.jar:/root/.m2/repository/junit/junit/4.8.2/junit-4.8.2.jar:/root/.m2/repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar:/root/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar:/root/.m2/repository/org/springframework/spring-test/3.0.5.RELEASE/spring-test-3.0.5.RELEASE.jar:/root/.m2/repository/org/springframework/spring-context/3.0.5.RELEASE/spring-context-3.0.5.RELEASE.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.2/slf4j-api-1.7.2.jar:/root/.m2/repository/org/springframework/spring-core/3.0.5.RELEASE/spring-core-3.0.5.RELEASE.jar:/root/.m2/repository/org/springframework/spring-beans/3.0.5.RELEASE/spring-beans-3.0.5.RELEASE.jar:/root/.m2/repository/org/ow2/asm/asm-tree/5.0.2/asm-tree-5.0.2.jar:/root/.m2/repository/commons-io/commons-io/2.2/commons-io-2.2.jar:/root/.m2/repository/ognl/ognl/3.0.6/ognl-3.0.6.jar:/root/.m2/repository/org/springframework/spring-asm/3.0.5.RELEASE/spring-asm-3.0.5.RELEASE.jar:/root/.m2/repository/commons-logging/commons-logging/1.1.3/commons-logging-1.1.3.jar:/root/.m2/repository/org/slf4j/slf4j-simple/1.7.2/slf4j-simple-1.7.2.jar]
+[4] INFO AstorMain - Running Astor on a JDK at /usr/lib/jvm/java-8-openjdk-amd64/jre
+[7] INFO main - Source folders: [/workdir/jMutRepair_vul4j_apache_struts_VUL4J-32/./xwork-core/src/main/java]
+[8] INFO main - Source Test folders: [/workdir/jMutRepair_vul4j_apache_struts_VUL4J-32/./xwork-core/src/test/java]
+[398] INFO AstorCoreEngine - ---- Creating spoon model
+[415] INFO MutationSupporter - Creating model,  Code location from working folder: /workdir/jMutRepair_vul4j_apache_struts_VUL4J-32/./xwork-core/src/main/java
+[415] INFO MutationSupporter - building model: /workdir/jMutRepair_vul4j_apache_struts_VUL4J-32/./xwork-core/src/main/java, compliance level: 7
+[458] INFO MutationSupporter - Classpath (Dependencies) for building SpoonModel: [/root/.m2/repository/javassist/javassist/3.11.0.GA/javassist-3.11.0.GA.jar, /root/.m2/repository/org/springframework/spring-expression/3.0.5.RELEASE/spring-expression-3.0.5.RELEASE.jar, /root/.m2/repository/org/easymock/easymock/2.4/easymock-2.4.jar, /root/.m2/repository/org/springframework/spring-aop/3.0.5.RELEASE/spring-aop-3.0.5.RELEASE.jar, /root/.m2/repository/org/ow2/asm/asm/5.0.2/asm-5.0.2.jar, /root/.m2/repository/org/testng/testng/5.1/testng-5.1-jdk15.jar, /root/.m2/repository/org/springframework/spring-web/3.0.5.RELEASE/spring-web-3.0.5.RELEASE.jar, /root/.m2/repository/org/apache/commons/commons-lang3/3.2/commons-lang3-3.2.jar, /root/.m2/repository/mockobjects/mockobjects-core/0.09/mockobjects-core-0.09.jar, /root/.m2/repository/org/ow2/asm/asm-commons/5.0.2/asm-commons-5.0.2.jar, /root/.m2/repository/org/springframework/spring-context-support/3.0.5.RELEASE/spring-context-support-3.0.5.RELEASE.jar, /root/.m2/repository/cglib/cglib-nodep/2.1_3/cglib-nodep-2.1_3.jar, /root/.m2/repository/org/springframework/spring-aspects/3.0.5.RELEASE/spring-aspects-3.0.5.RELEASE.jar, /root/.m2/repository/junit/junit/4.8.2/junit-4.8.2.jar, /root/.m2/repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar, /root/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar, /root/.m2/repository/org/springframework/spring-test/3.0.5.RELEASE/spring-test-3.0.5.RELEASE.jar, /root/.m2/repository/org/springframework/spring-context/3.0.5.RELEASE/spring-context-3.0.5.RELEASE.jar, /root/.m2/repository/org/slf4j/slf4j-api/1.7.2/slf4j-api-1.7.2.jar, /root/.m2/repository/org/springframework/spring-core/3.0.5.RELEASE/spring-core-3.0.5.RELEASE.jar, /root/.m2/repository/org/springframework/spring-beans/3.0.5.RELEASE/spring-beans-3.0.5.RELEASE.jar, /root/.m2/repository/org/ow2/asm/asm-tree/5.0.2/asm-tree-5.0.2.jar, /root/.m2/repository/commons-io/commons-io/2.2/commons-io-2.2.jar, /root/.m2/repository/ognl/ognl/3.0.6/ognl-3.0.6.jar, /root/.m2/repository/org/springframework/spring-asm/3.0.5.RELEASE/spring-asm-3.0.5.RELEASE.jar, /root/.m2/repository/commons-logging/commons-logging/1.1.3/commons-logging-1.1.3.jar, /root/.m2/repository/org/slf4j/slf4j-simple/1.7.2/slf4j-simple-1.7.2.jar]
+[5308] INFO AstorCoreEngine - Number of CtTypes created: 346
+[5459] INFO AstorCoreEngine - Test retrieved from classes: 0
+[5508] INFO AstorCoreEngine - Setting up the max to 480 milliseconds (0 sec)
+[5508] INFO AstorCoreEngine - ---- Initial suspicious size: 1
+[5672] INFO main - Total suspicious from FL: 1,  0
+[5672] INFO main - Total ModPoint created: 0
+[5672] INFO main - Creating program variant #1, [Variant id: 1, #gens: 0, #ops: 0, parent:-]
+[5672] ERROR AstorCoreEngine - [warning] Any modification point in variant
+[5672] ERROR AstorCoreEngine - Variant with any gen
+[5672] WARN ConfigurationProperties - ----------------------------
+[5672] INFO ConfigurationProperties - ---Configuration properties
+[5673] INFO ConfigurationProperties - p:lastJUnitVersion= ./examples/libs/junit-4.11.jar
+[5673] INFO ConfigurationProperties - p:alternativecompliancelevel= 8
+[5673] INFO ConfigurationProperties - p:ignoredTestCases= 
+[5673] INFO ConfigurationProperties - p:workingDirectory= /workdir/jMutRepair_vul4j_apache_struts_VUL4J-32/./output_astor
+[5673] INFO ConfigurationProperties - p:manipulatesuper= false
+[5673] INFO ConfigurationProperties - p:validation= externalcmd
+[5673] INFO ConfigurationProperties - p:jvm4testexecution= /usr/lib/jvm/jdk1.7.0_80/bin
+[5673] INFO ConfigurationProperties - p:operatorspace= mutationspace
+[5673] INFO ConfigurationProperties - p:diffcontext= 0
+[5673] INFO ConfigurationProperties - p:binjavafolder= xwork-core/target/classes
+[5673] INFO ConfigurationProperties - p:synthesis_depth= 3
+[5673] INFO ConfigurationProperties - p:gzoltartestpackagetoexclude= junit.framework
+[5673] INFO ConfigurationProperties - p:skipfitnessinitialpopulation= false
+[5673] INFO ConfigurationProperties - p:evosuiteresultfolder= evosuite
+[5673] INFO ConfigurationProperties - p:flthreshold= 0.1
+[5673] INFO ConfigurationProperties - p:regressionforfaultlocalization= true
+[5673] INFO ConfigurationProperties - p:collectonlyusedmethod= false
+[5673] INFO ConfigurationProperties - p:preservelinenumbers= true
+[5673] INFO ConfigurationProperties - p:tmax2= 480
+[5673] INFO ConfigurationProperties - p:tmax1= 10000
+[5673] INFO ConfigurationProperties - p:probagenmutation= false
+[5673] INFO ConfigurationProperties - p:nomodificationconvergence= 100
+[5673] INFO ConfigurationProperties - p:diff_type= relative
+[5673] INFO ConfigurationProperties - p:targetelementprocessor= if-conditions:return-op-mutation
+[5673] INFO ConfigurationProperties - p:srctestfolder= xwork-core/src/test/java
+[5673] INFO ConfigurationProperties - p:forceExecuteRegression= false
+[5673] INFO ConfigurationProperties - p:clusteringfilename= clustering.csv
+[5673] INFO ConfigurationProperties - p:failing= com.opensymphony.xwork2.security.DefaultExcludedPatternsCheckerTest#testParamWithClassInName
+[5673] INFO ConfigurationProperties - p:logtestexecution= false
+[5673] INFO ConfigurationProperties - p:evo_buggy_class= true
+[5674] INFO ConfigurationProperties - p:numberExecutions= 1
+[5674] INFO ConfigurationProperties - p:maxnumbersolutions= 1000000
+[5674] INFO ConfigurationProperties - p:evo_affected_by_op= true
+[5674] INFO ConfigurationProperties - p:population= 1
+[5674] INFO ConfigurationProperties - p:considerzerovaluesusp= false
+[5674] INFO ConfigurationProperties - p:maxCombinationVariableLimit= false
+[5674] INFO ConfigurationProperties - p:savesolution= true
+[5674] INFO ConfigurationProperties - p:javacompliancelevel= 7
+[5674] INFO ConfigurationProperties - p:x= x
+[5674] INFO ConfigurationProperties - p:uniqueoptogen= false
+[5674] INFO ConfigurationProperties - p:gzoltarpackagetonotinstrument= junit.framework
+[5674] INFO ConfigurationProperties - p:projectIdentifier= apache_struts-VUL4J-32
+[5674] INFO ConfigurationProperties - p:modificationpointnavigation= weight
+[5674] INFO ConfigurationProperties - p:stopfirst= true
+[5674] INFO ConfigurationProperties - p:multipointmodification= false
+[5674] INFO ConfigurationProperties - p:elementsToMutate= 10
+[5674] INFO ConfigurationProperties - p:jsonoutputname= astor_output
+[5676] INFO ConfigurationProperties - p:evoDSE= false
+[5676] INFO ConfigurationProperties - p:bintestfolder= xwork-core/target/test-classes
+[5676] INFO ConfigurationProperties - p:testbystep= false
+[5676] INFO ConfigurationProperties - p:version-location= ./math-version/
+[5676] INFO ConfigurationProperties - p:reintroduce= PARENTS:ORIGINAL
+[5676] INFO ConfigurationProperties - p:perfectdata= /script/../data/benchmarks/vul4j/perfectfl/VUL4J-32
+[5676] INFO ConfigurationProperties - p:executorjar= ./lib/jtestex7.jar
+[5676] INFO ConfigurationProperties - p:maxGeneration= 1000000
+[5676] INFO ConfigurationProperties - p:max_synthesis_step= 10000
+[5676] INFO ConfigurationProperties - p:projectinfocommand= com.github.tdurieux:project-config-maven-plugin:info
+[5677] INFO ConfigurationProperties - p:maxVarCombination= 1000
+[5677] INFO ConfigurationProperties - p:maxtime= 120
+[5677] INFO ConfigurationProperties - p:evosuitejar= ./lib/evosuite-master-1.0.4-SNAPSHOT.jar
+[5677] INFO ConfigurationProperties - p:jvmversion= 1.7.0_80
+[5677] INFO ConfigurationProperties - p:commandTrunk= 50000
+[5677] INFO ConfigurationProperties - p:faultlocalization= perfect
+[5677] INFO ConfigurationProperties - p:resetmodel= true
+[5677] INFO ConfigurationProperties - p:maxsuspcandidates= 1000
+[5677] INFO ConfigurationProperties - p:mode= jMutRepair
+[5677] INFO ConfigurationProperties - p:learningdir= 
+[5677] INFO ConfigurationProperties - p:jvm4evosuitetestexecution= /usr/lib/jvm/jdk1.7.0_80/bin
+[5677] INFO ConfigurationProperties - p:filterfaultlocalization= true
+[5677] INFO ConfigurationProperties - p:mutationrate= 1 
+[5677] INFO ConfigurationProperties - p:pathToMVNRepository= 
+[5677] INFO ConfigurationProperties - p:resourcesfolder= /src/main/resources:/src/test/resources:
+[5677] INFO ConfigurationProperties - p:timezone= America/Los_Angeles
+[5677] INFO ConfigurationProperties - p:runjava7code= false
+[5677] INFO ConfigurationProperties - p:testfailingcmd= mvn test -pl xwork-core -Dtest=com.opensymphony.xwork2.security.DefaultExcludedPatternsCheckerTest test -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B
+[5677] INFO ConfigurationProperties - p:evoRunOnBuggyClass= true
+[5677] INFO ConfigurationProperties - p:compiler= fr.inria.astor.core.manipulation.bytecode.compiler.SpoonClassCompiler
+[5677] INFO ConfigurationProperties - p:limitbysuspicious= true
+[5677] INFO ConfigurationProperties - p:logsattemps= true
+[5677] INFO ConfigurationProperties - p:dependenciespath= /root/.m2/repository/javassist/javassist/3.11.0.GA/javassist-3.11.0.GA.jar:/root/.m2/repository/org/springframework/spring-expression/3.0.5.RELEASE/spring-expression-3.0.5.RELEASE.jar:/root/.m2/repository/org/easymock/easymock/2.4/easymock-2.4.jar:/root/.m2/repository/org/springframework/spring-aop/3.0.5.RELEASE/spring-aop-3.0.5.RELEASE.jar:/root/.m2/repository/org/ow2/asm/asm/5.0.2/asm-5.0.2.jar:/root/.m2/repository/org/testng/testng/5.1/testng-5.1-jdk15.jar:/root/.m2/repository/org/springframework/spring-web/3.0.5.RELEASE/spring-web-3.0.5.RELEASE.jar:/root/.m2/repository/org/apache/commons/commons-lang3/3.2/commons-lang3-3.2.jar:/root/.m2/repository/mockobjects/mockobjects-core/0.09/mockobjects-core-0.09.jar:/root/.m2/repository/org/ow2/asm/asm-commons/5.0.2/asm-commons-5.0.2.jar:/root/.m2/repository/org/springframework/spring-context-support/3.0.5.RELEASE/spring-context-support-3.0.5.RELEASE.jar:/root/.m2/repository/cglib/cglib-nodep/2.1_3/cglib-nodep-2.1_3.jar:/root/.m2/repository/org/springframework/spring-aspects/3.0.5.RELEASE/spring-aspects-3.0.5.RELEASE.jar:/root/.m2/repository/junit/junit/4.8.2/junit-4.8.2.jar:/root/.m2/repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar:/root/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar:/root/.m2/repository/org/springframework/spring-test/3.0.5.RELEASE/spring-test-3.0.5.RELEASE.jar:/root/.m2/repository/org/springframework/spring-context/3.0.5.RELEASE/spring-context-3.0.5.RELEASE.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.2/slf4j-api-1.7.2.jar:/root/.m2/repository/org/springframework/spring-core/3.0.5.RELEASE/spring-core-3.0.5.RELEASE.jar:/root/.m2/repository/org/springframework/spring-beans/3.0.5.RELEASE/spring-beans-3.0.5.RELEASE.jar:/root/.m2/repository/org/ow2/asm/asm-tree/5.0.2/asm-tree-5.0.2.jar:/root/.m2/repository/commons-io/commons-io/2.2/commons-io-2.2.jar:/root/.m2/repository/ognl/ognl/3.0.6/ognl-3.0.6.jar:/root/.m2/repository/org/springframework/spring-asm/3.0.5.RELEASE/spring-asm-3.0.5.RELEASE.jar:/root/.m2/repository/commons-logging/commons-logging/1.1.3/commons-logging-1.1.3.jar:/root/.m2/repository/org/slf4j/slf4j-simple/1.7.2/slf4j-simple-1.7.2.jar
+[5681] INFO ConfigurationProperties - p:packageToInstrument= 
+[5681] INFO ConfigurationProperties - p:skipfaultlocalization= false
+[5681] INFO ConfigurationProperties - p:scope= local
+[5681] INFO ConfigurationProperties - p:transformingredient= false
+[5681] INFO ConfigurationProperties - p:fitnessfunction= fr.inria.astor.core.solutionsearch.population.TestCaseFitnessFunction
+[5681] INFO ConfigurationProperties - p:maxnumvariablesperingredient= 10
+[5681] INFO ConfigurationProperties - p:parsesourcefromoriginal= true
+[5681] INFO ConfigurationProperties - p:pvariantfoldername= variant-
+[5681] INFO ConfigurationProperties - p:savespoonmodelondisk= false
+[5681] INFO ConfigurationProperties - p:srcjavafolder= xwork-core/src/main/java
+[5681] INFO ConfigurationProperties - p:populationcontroller= fr.inria.astor.core.solutionsearch.population.TestCaseBasedFitnessPopulationController
+[5681] INFO ConfigurationProperties - p:ignoreflakyinfl= false
+[5681] INFO ConfigurationProperties - p:cleantemplates= true
+[5681] INFO ConfigurationProperties - p:applyCrossover= false
+[5681] INFO ConfigurationProperties - p:maxmodificationpoints= 1000
+[5681] INFO ConfigurationProperties - p:duplicateingredientsinspace= false
+[5681] INFO ConfigurationProperties - p:metid= 0
+[5681] INFO ConfigurationProperties - p:continuewhenmodelfail= true
+[5681] INFO ConfigurationProperties - p:saveall= false
+[5681] INFO ConfigurationProperties - p:seed= 0
+[5682] INFO ConfigurationProperties - p:savecompletepatched= true
+[5682] INFO ConfigurationProperties - p:resetoperations= false
+[5682] INFO ConfigurationProperties - p:keepcomments= false
+[5682] INFO ConfigurationProperties - p:processoutputinfile= false
+[5682] INFO ConfigurationProperties - p:location= .
+[5682] INFO ConfigurationProperties - p:probabilistictransformation= true
+[5682] INFO ConfigurationProperties - p:overridemaxtime= true
+[5682] INFO ConfigurationProperties - p:outputjsonresult= true
+[5682] INFO ConfigurationProperties - p:allpoints= false
+[5682] INFO ConfigurationProperties - p:antipattern= false
+[5682] INFO ConfigurationProperties - p:bugId= 280
+[5682] INFO ConfigurationProperties - p:evosuitetimeout= 120
+[5682] INFO ConfigurationProperties - p:maxtimefactor= 10
+[5682] INFO ConfigurationProperties - p:nrPlaceholders= 1
+[5682] INFO ConfigurationProperties - p:testallcmd= mvn test -pl xwork-core -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B
+[5682] INFO ConfigurationProperties - p:forcesubprocesskilling= false
+[5682] INFO ConfigurationProperties - ----------------------------
+[5682] INFO AstorCoreEngine - Time Repair Loop (s): 0.0
+[5683] INFO AstorCoreEngine - generationsexecuted: 1
+[5683] WARN AstorCoreEngine - ----SUMMARY_EXECUTION---
+[5683] WARN AstorCoreEngine - End Repair Search: NOT Found solution
+[5684] WARN AstorCoreEngine - Number suspicious:1
+[5685] INFO AstorCoreEngine - 
+ --SOLUTIONS DESCRIPTION--
+
+
+Astor Output:
+
+General stats:
+EXECUTION_IDENTIFIER=apache_struts-VUL4J-32
+TOTAL_TIME=0.0
+NR_GENERATIONS=null
+NR_RIGHT_COMPILATIONS=null
+NR_FAILLING_COMPILATIONS=null
+NR_ERRONEOUS_VARIANCES=null
+NR_FAILING_VALIDATION_PROCESS=null
+OUTPUT_STATUS=EXHAUSTIVE_NAVIGATED
+
+Patch stats:
+
+[5691] INFO Stats - Storing ing JSON at /workdir/jMutRepair_vul4j_apache_struts_VUL4J-32/./output_astor/AstorMain-apache_struts-VUL4J-32//astor_output.json
+[5691] INFO Stats - astor_output:
+{"general":{"NR_RIGHT_COMPILATIONS":null,"NR_ERRONEOUS_VARIANCES":null,"EXECUTION_IDENTIFIER":"apache_struts-VUL4J-32","OUTPUT_STATUS":"EXHAUSTIVE_NAVIGATED","NR_FAILLING_COMPILATIONS":null,"NR_GENERATIONS":null,"TOTAL_TIME":0.0,"NR_FAILING_VALIDATION_PROCESS":null},"patches":[]}
+[5691] INFO AstorMain - Time Total(s): 5.686
+10.43user 0.70system 0:05.93elapsed 187%CPU (0avgtext+0avgdata 492500maxresident)k
+368inputs+15680outputs (0major+128532minor)pagefaults 0swaps
+
+
+Node: 2c8178711f7b
+
+
+
+Date: Tue Nov 29 07:31:33 EST 2022
+

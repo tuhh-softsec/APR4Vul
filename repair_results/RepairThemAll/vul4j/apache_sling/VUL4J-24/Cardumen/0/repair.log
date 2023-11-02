@@ -1,0 +1,327 @@
+cd /workdir/Cardumen_vul4j_apache_sling_VUL4J-24;
+export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en";
+TZ="America/New_York"; export TZ;
+export PATH="/usr/lib/jvm/java-8-openjdk-amd64/bin:$PATH";
+export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64/bin";
+time java -Xmx4g -Xms1g -XX:MaxPermSize=512m -cp /script/../libs/jtestex7.jar:/script/../repair_tools/astor.jar fr.inria.main.evolution.AstorMain \
+	-mode cardumen \
+	-location . \
+	-id apache_sling-VUL4J-24 \
+	-failing org.apache.sling.xss.impl.XSSAPIImplTest#testGetValidXML \
+	-jvm4testexecution /usr/lib/jvm/java-8-openjdk-amd64/bin \
+	-jvm4evosuitetestexecution /usr/lib/jvm/java-8-openjdk-amd64/bin \
+	-maxgen 1000000 \
+	-maxtime 120 \
+	-stopfirst true \
+	-seed 0 \
+	-scope local \
+	-population 1 \
+	-javacompliancelevel 8 \
+	-faultlocalization perfect \
+    -perfectdata /script/../data/benchmarks/vul4j/perfectfl/VUL4J-24 \
+    -validation externalcmd \
+    -testfailingcmd "mvn test -pl bundles/extensions/xss -Dtest=org.apache.sling.xss.impl.XSSAPIImplTest#testGetValidXML -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B" \
+    -testallcmd "mvn test -pl bundles/extensions/xss -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B"  \ \
+	-srcjavafolder bundles/extensions/xss/src/main/java \
+	-srctestfolder bundles/extensions/xss/src/test/java \
+	-binjavafolder bundles/extensions/xss/target/classes \
+	-bintestfolder bundles/extensions/xss/target/test-classes \
+	-parameters x:x:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000 \
+	-dependencies /workdir/Cardumen_vul4j_apache_sling_VUL4J-24/bundles/extensions/xss/target/classes:/root/.m2/repository/javax/servlet/servlet-api/2.4/servlet-api-2.4.jar:/root/.m2/repository/commons-configuration/commons-configuration/1.5/commons-configuration-1.5.jar:/root/.m2/repository/commons-lang/commons-lang/2.3/commons-lang-2.3.jar:/root/.m2/repository/org/javassist/javassist/3.18.2-GA/javassist-3.18.2-GA.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/2.0.0/jsr305-2.0.0.jar:/root/.m2/repository/org/owasp/esapi/esapi/2.1.0/esapi-2.1.0.jar:/root/.m2/repository/org/beanshell/bsh-core/2.0b4/bsh-core-2.0b4.jar:/root/.m2/repository/commons-beanutils/commons-beanutils-core/1.7.0/commons-beanutils-core-1.7.0.jar:/root/.m2/repository/xom/xom/1.2.5/xom-1.2.5.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/xerces/xercesImpl/2.9.1/xercesImpl-2.9.1.jar:/root/.m2/repository/org/apache/sling/org.apache.sling.api/2.2.0/org.apache.sling.api-2.2.0.jar:/root/.m2/repository/batik/batik-css/1.6/batik-css-1.6.jar:/root/.m2/repository/net/sourceforge/nekohtml/nekohtml/1.9.16/nekohtml-1.9.16.jar:/root/.m2/repository/org/objenesis/objenesis/2.1/objenesis-2.1.jar:/root/.m2/repository/commons-logging/commons-logging/1.0.4/commons-logging-1.0.4.jar:/root/.m2/repository/xml-apis/xml-apis-ext/1.3.04/xml-apis-ext-1.3.04.jar:/root/.m2/repository/commons-digester/commons-digester/1.8/commons-digester-1.8.jar:/root/.m2/repository/org/osgi/org.osgi.core/4.1.0/org.osgi.core-4.1.0.jar:/root/.m2/repository/commons-httpclient/commons-httpclient/3.1/commons-httpclient-3.1.jar:/root/.m2/repository/batik/batik-util/1.6/batik-util-1.6.jar:/root/.m2/repository/org/osgi/org.osgi.compendium/4.1.0/org.osgi.compendium-4.1.0.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.5.2/slf4j-api-1.5.2.jar:/root/.m2/repository/biz/aQute/bndlib/1.50.0/bndlib-1.50.0.jar:/root/.m2/repository/org/powermock/powermock-api-support/1.5.5/powermock-api-support-1.5.5.jar:/root/.m2/repository/log4j/log4j/1.2.16/log4j-1.2.16.jar:/root/.m2/repository/org/owasp/encoder/encoder/1.1.1/encoder-1.1.1.jar:/root/.m2/repository/commons-collections/commons-collections/3.2/commons-collections-3.2.jar:/root/.m2/repository/org/apache/felix/org.apache.felix.scr.annotations/1.9.12/org.apache.felix.scr.annotations-1.9.12.jar:/root/.m2/repository/org/powermock/powermock-api-mockito/1.5.5/powermock-api-mockito-1.5.5.jar:/root/.m2/repository/commons-codec/commons-codec/1.2/commons-codec-1.2.jar:/root/.m2/repository/org/apache/sling/org.apache.sling.commons.json/2.0.6/org.apache.sling.commons.json-2.0.6.jar:/root/.m2/repository/xalan/xalan/2.7.0/xalan-2.7.0.jar:/root/.m2/repository/org/powermock/powermock-core/1.5.5/powermock-core-1.5.5.jar:/root/.m2/repository/commons-fileupload/commons-fileupload/1.2/commons-fileupload-1.2.jar:/root/.m2/repository/org/mockito/mockito-all/1.8.4/mockito-all-1.8.4.jar:/root/.m2/repository/commons-beanutils/commons-beanutils/1.7.0/commons-beanutils-1.7.0.jar:/root/.m2/repository/org/owasp/antisamy/antisamy/1.5.2/antisamy-1.5.2.jar:/root/.m2/repository/batik/batik-gui-util/1.6/batik-gui-util-1.6.jar:/root/.m2/repository/xml-apis/xml-apis/1.3.03/xml-apis-1.3.03.jar:/root/.m2/repository/batik/batik-ext/1.6/batik-ext-1.6.jar:/root/.m2/repository/junit/junit/4.12/junit-4.12.jar:/root/.m2/repository/org/powermock/powermock-reflect/1.5.5/powermock-reflect-1.5.5.jar:/root/.m2/repository/org/slf4j/slf4j-simple/1.5.2/slf4j-simple-1.5.2.jar;
+	echo "\n\nNode: `hostname`\n";
+	echo "\n\nDate: `date`\n";
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en
+OpenJDK 64-Bit Server VM warning: ignoring option MaxPermSize=512m; support was removed in 8.0
+[0] INFO ProjectConfiguration - Version of the JVM used: 1.8.0_342
+[1] INFO main - Java version of the JDK used to run tests: 1.8.0_342
+[1] INFO main - The compliance of the JVM is:  8
+[4] INFO main - command line arguments: [-mode  cardumen  -location  .  -id  apache_sling-VUL4J-24  -failing  org.apache.sling.xss.impl.XSSAPIImplTest#testGetValidXML  -jvm4testexecution  /usr/lib/jvm/java-8-openjdk-amd64/bin  -jvm4evosuitetestexecution  /usr/lib/jvm/java-8-openjdk-amd64/bin  -maxgen  1000000  -maxtime  120  -stopfirst  true  -seed  0  -scope  local  -population  1  -javacompliancelevel  8  -faultlocalization  perfect  -perfectdata  /script/../data/benchmarks/vul4j/perfectfl/VUL4J-24  -validation  externalcmd  -testfailingcmd  mvn test -pl bundles/extensions/xss -Dtest=org.apache.sling.xss.impl.XSSAPIImplTest#testGetValidXML -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B  -testallcmd  mvn test -pl bundles/extensions/xss -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B     -srcjavafolder  bundles/extensions/xss/src/main/java  -srctestfolder  bundles/extensions/xss/src/test/java  -binjavafolder  bundles/extensions/xss/target/classes  -bintestfolder  bundles/extensions/xss/target/test-classes  -parameters  x:x:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000  -dependencies  /workdir/Cardumen_vul4j_apache_sling_VUL4J-24/bundles/extensions/xss/target/classes:/root/.m2/repository/javax/servlet/servlet-api/2.4/servlet-api-2.4.jar:/root/.m2/repository/commons-configuration/commons-configuration/1.5/commons-configuration-1.5.jar:/root/.m2/repository/commons-lang/commons-lang/2.3/commons-lang-2.3.jar:/root/.m2/repository/org/javassist/javassist/3.18.2-GA/javassist-3.18.2-GA.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/2.0.0/jsr305-2.0.0.jar:/root/.m2/repository/org/owasp/esapi/esapi/2.1.0/esapi-2.1.0.jar:/root/.m2/repository/org/beanshell/bsh-core/2.0b4/bsh-core-2.0b4.jar:/root/.m2/repository/commons-beanutils/commons-beanutils-core/1.7.0/commons-beanutils-core-1.7.0.jar:/root/.m2/repository/xom/xom/1.2.5/xom-1.2.5.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/xerces/xercesImpl/2.9.1/xercesImpl-2.9.1.jar:/root/.m2/repository/org/apache/sling/org.apache.sling.api/2.2.0/org.apache.sling.api-2.2.0.jar:/root/.m2/repository/batik/batik-css/1.6/batik-css-1.6.jar:/root/.m2/repository/net/sourceforge/nekohtml/nekohtml/1.9.16/nekohtml-1.9.16.jar:/root/.m2/repository/org/objenesis/objenesis/2.1/objenesis-2.1.jar:/root/.m2/repository/commons-logging/commons-logging/1.0.4/commons-logging-1.0.4.jar:/root/.m2/repository/xml-apis/xml-apis-ext/1.3.04/xml-apis-ext-1.3.04.jar:/root/.m2/repository/commons-digester/commons-digester/1.8/commons-digester-1.8.jar:/root/.m2/repository/org/osgi/org.osgi.core/4.1.0/org.osgi.core-4.1.0.jar:/root/.m2/repository/commons-httpclient/commons-httpclient/3.1/commons-httpclient-3.1.jar:/root/.m2/repository/batik/batik-util/1.6/batik-util-1.6.jar:/root/.m2/repository/org/osgi/org.osgi.compendium/4.1.0/org.osgi.compendium-4.1.0.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.5.2/slf4j-api-1.5.2.jar:/root/.m2/repository/biz/aQute/bndlib/1.50.0/bndlib-1.50.0.jar:/root/.m2/repository/org/powermock/powermock-api-support/1.5.5/powermock-api-support-1.5.5.jar:/root/.m2/repository/log4j/log4j/1.2.16/log4j-1.2.16.jar:/root/.m2/repository/org/owasp/encoder/encoder/1.1.1/encoder-1.1.1.jar:/root/.m2/repository/commons-collections/commons-collections/3.2/commons-collections-3.2.jar:/root/.m2/repository/org/apache/felix/org.apache.felix.scr.annotations/1.9.12/org.apache.felix.scr.annotations-1.9.12.jar:/root/.m2/repository/org/powermock/powermock-api-mockito/1.5.5/powermock-api-mockito-1.5.5.jar:/root/.m2/repository/commons-codec/commons-codec/1.2/commons-codec-1.2.jar:/root/.m2/repository/org/apache/sling/org.apache.sling.commons.json/2.0.6/org.apache.sling.commons.json-2.0.6.jar:/root/.m2/repository/xalan/xalan/2.7.0/xalan-2.7.0.jar:/root/.m2/repository/org/powermock/powermock-core/1.5.5/powermock-core-1.5.5.jar:/root/.m2/repository/commons-fileupload/commons-fileupload/1.2/commons-fileupload-1.2.jar:/root/.m2/repository/org/mockito/mockito-all/1.8.4/mockito-all-1.8.4.jar:/root/.m2/repository/commons-beanutils/commons-beanutils/1.7.0/commons-beanutils-1.7.0.jar:/root/.m2/repository/org/owasp/antisamy/antisamy/1.5.2/antisamy-1.5.2.jar:/root/.m2/repository/batik/batik-gui-util/1.6/batik-gui-util-1.6.jar:/root/.m2/repository/xml-apis/xml-apis/1.3.03/xml-apis-1.3.03.jar:/root/.m2/repository/batik/batik-ext/1.6/batik-ext-1.6.jar:/root/.m2/repository/junit/junit/4.12/junit-4.12.jar:/root/.m2/repository/org/powermock/powermock-reflect/1.5.5/powermock-reflect-1.5.5.jar:/root/.m2/repository/org/slf4j/slf4j-simple/1.5.2/slf4j-simple-1.5.2.jar]
+[13] INFO AstorMain - Running Astor on a JDK at /usr/lib/jvm/java-8-openjdk-amd64/jre
+[24] INFO main - Source folders: [/workdir/Cardumen_vul4j_apache_sling_VUL4J-24/./bundles/extensions/xss/src/main/java]
+[38] INFO main - Source Test folders: [/workdir/Cardumen_vul4j_apache_sling_VUL4J-24/./bundles/extensions/xss/src/test/java]
+[2110] INFO AstorCoreEngine - ---- Creating spoon model
+[2154] INFO MutationSupporter - Creating model,  Code location from working folder: /workdir/Cardumen_vul4j_apache_sling_VUL4J-24/./bundles/extensions/xss/src/main/java
+[2154] INFO MutationSupporter - building model: /workdir/Cardumen_vul4j_apache_sling_VUL4J-24/./bundles/extensions/xss/src/main/java, compliance level: 8
+[2178] INFO MutationSupporter - Classpath (Dependencies) for building SpoonModel: [/workdir/Cardumen_vul4j_apache_sling_VUL4J-24/bundles/extensions/xss/target/classes/, /root/.m2/repository/javax/servlet/servlet-api/2.4/servlet-api-2.4.jar, /root/.m2/repository/commons-configuration/commons-configuration/1.5/commons-configuration-1.5.jar, /root/.m2/repository/commons-lang/commons-lang/2.3/commons-lang-2.3.jar, /root/.m2/repository/org/javassist/javassist/3.18.2-GA/javassist-3.18.2-GA.jar, /root/.m2/repository/com/google/code/findbugs/jsr305/2.0.0/jsr305-2.0.0.jar, /root/.m2/repository/org/owasp/esapi/esapi/2.1.0/esapi-2.1.0.jar, /root/.m2/repository/org/beanshell/bsh-core/2.0b4/bsh-core-2.0b4.jar, /root/.m2/repository/commons-beanutils/commons-beanutils-core/1.7.0/commons-beanutils-core-1.7.0.jar, /root/.m2/repository/xom/xom/1.2.5/xom-1.2.5.jar, /root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar, /root/.m2/repository/xerces/xercesImpl/2.9.1/xercesImpl-2.9.1.jar, /root/.m2/repository/org/apache/sling/org.apache.sling.api/2.2.0/org.apache.sling.api-2.2.0.jar, /root/.m2/repository/batik/batik-css/1.6/batik-css-1.6.jar, /root/.m2/repository/net/sourceforge/nekohtml/nekohtml/1.9.16/nekohtml-1.9.16.jar, /root/.m2/repository/org/objenesis/objenesis/2.1/objenesis-2.1.jar, /root/.m2/repository/commons-logging/commons-logging/1.0.4/commons-logging-1.0.4.jar, /root/.m2/repository/xml-apis/xml-apis-ext/1.3.04/xml-apis-ext-1.3.04.jar, /root/.m2/repository/commons-digester/commons-digester/1.8/commons-digester-1.8.jar, /root/.m2/repository/org/osgi/org.osgi.core/4.1.0/org.osgi.core-4.1.0.jar, /root/.m2/repository/commons-httpclient/commons-httpclient/3.1/commons-httpclient-3.1.jar, /root/.m2/repository/batik/batik-util/1.6/batik-util-1.6.jar, /root/.m2/repository/org/osgi/org.osgi.compendium/4.1.0/org.osgi.compendium-4.1.0.jar, /root/.m2/repository/org/slf4j/slf4j-api/1.5.2/slf4j-api-1.5.2.jar, /root/.m2/repository/biz/aQute/bndlib/1.50.0/bndlib-1.50.0.jar, /root/.m2/repository/org/powermock/powermock-api-support/1.5.5/powermock-api-support-1.5.5.jar, /root/.m2/repository/log4j/log4j/1.2.16/log4j-1.2.16.jar, /root/.m2/repository/org/owasp/encoder/encoder/1.1.1/encoder-1.1.1.jar, /root/.m2/repository/commons-collections/commons-collections/3.2/commons-collections-3.2.jar, /root/.m2/repository/org/apache/felix/org.apache.felix.scr.annotations/1.9.12/org.apache.felix.scr.annotations-1.9.12.jar, /root/.m2/repository/org/powermock/powermock-api-mockito/1.5.5/powermock-api-mockito-1.5.5.jar, /root/.m2/repository/commons-codec/commons-codec/1.2/commons-codec-1.2.jar, /root/.m2/repository/org/apache/sling/org.apache.sling.commons.json/2.0.6/org.apache.sling.commons.json-2.0.6.jar, /root/.m2/repository/xalan/xalan/2.7.0/xalan-2.7.0.jar, /root/.m2/repository/org/powermock/powermock-core/1.5.5/powermock-core-1.5.5.jar, /root/.m2/repository/commons-fileupload/commons-fileupload/1.2/commons-fileupload-1.2.jar, /root/.m2/repository/org/mockito/mockito-all/1.8.4/mockito-all-1.8.4.jar, /root/.m2/repository/commons-beanutils/commons-beanutils/1.7.0/commons-beanutils-1.7.0.jar, /root/.m2/repository/org/owasp/antisamy/antisamy/1.5.2/antisamy-1.5.2.jar, /root/.m2/repository/batik/batik-gui-util/1.6/batik-gui-util-1.6.jar, /root/.m2/repository/xml-apis/xml-apis/1.3.03/xml-apis-1.3.03.jar, /root/.m2/repository/batik/batik-ext/1.6/batik-ext-1.6.jar, /root/.m2/repository/junit/junit/4.12/junit-4.12.jar, /root/.m2/repository/org/powermock/powermock-reflect/1.5.5/powermock-reflect-1.5.5.jar, /root/.m2/repository/org/slf4j/slf4j-simple/1.5.2/slf4j-simple-1.5.2.jar]
+[8517] INFO AstorCoreEngine - Number of CtTypes created: 12
+[8628] INFO AstorCoreEngine - Test retrieved from classes: 0
+[8719] INFO AstorCoreEngine - Setting up the max to 910 milliseconds (0 sec)
+[8719] INFO AstorCoreEngine - ---- Initial suspicious size: 2
+[9062] INFO main - Total suspicious from FL: 2,  2
+[9062] INFO main - Total ModPoint created: 2
+[9063] INFO main - Creating program variant #1, [Variant id: 1, #gens: 2, #ops: 0, parent:-]
+[9063] INFO main - Run previously failing tests...
+[51675] INFO main - Failed tests: 1
+[51678] INFO AstorCoreEngine - The original fitness is : 1.0
+[71962] INFO ExpressionTypeIngredientSpace - Ingredient search space info : number keys 32 , number values 162 
+[71964] WARN ConfigurationProperties - ----------------------------
+[71964] INFO ConfigurationProperties - ---Configuration properties
+[71965] INFO ConfigurationProperties - p:lastJUnitVersion= ./examples/libs/junit-4.11.jar
+[71965] INFO ConfigurationProperties - p:alternativecompliancelevel= 8
+[71965] INFO ConfigurationProperties - p:ignoredTestCases= 
+[71965] INFO ConfigurationProperties - p:workingDirectory= /workdir/Cardumen_vul4j_apache_sling_VUL4J-24/./output_astor
+[71965] INFO ConfigurationProperties - p:manipulatesuper= false
+[71965] INFO ConfigurationProperties - p:validation= externalcmd
+[71965] INFO ConfigurationProperties - p:jvm4testexecution= /usr/lib/jvm/java-8-openjdk-amd64/bin
+[71965] INFO ConfigurationProperties - p:operatorspace= r-expression
+[71965] INFO ConfigurationProperties - p:diffcontext= 0
+[71965] INFO ConfigurationProperties - p:binjavafolder= bundles/extensions/xss/target/classes
+[71965] INFO ConfigurationProperties - p:synthesis_depth= 3
+[71965] INFO ConfigurationProperties - p:gzoltartestpackagetoexclude= junit.framework
+[71965] INFO ConfigurationProperties - p:skipfitnessinitialpopulation= false
+[71965] INFO ConfigurationProperties - p:evosuiteresultfolder= evosuite
+[71965] INFO ConfigurationProperties - p:flthreshold= 0.1
+[71965] INFO ConfigurationProperties - p:regressionforfaultlocalization= true
+[71965] INFO ConfigurationProperties - p:collectonlyusedmethod= false
+[71965] INFO ConfigurationProperties - p:preservelinenumbers= true
+[71965] INFO ConfigurationProperties - p:tmax2= 910
+[71965] INFO ConfigurationProperties - p:ingredienttransformstrategy= name-probability-based
+[71994] INFO ConfigurationProperties - p:tmax1= 10000
+[71995] INFO ConfigurationProperties - p:probagenmutation= false
+[71995] INFO ConfigurationProperties - p:nomodificationconvergence= 100
+[71995] INFO ConfigurationProperties - p:diff_type= relative
+[71995] INFO ConfigurationProperties - p:targetelementprocessor= expression
+[71995] INFO ConfigurationProperties - p:srctestfolder= bundles/extensions/xss/src/test/java
+[71995] INFO ConfigurationProperties - p:forceExecuteRegression= false
+[71995] INFO ConfigurationProperties - p:clusteringfilename= clustering.csv
+[71995] INFO ConfigurationProperties - p:failing= org.apache.sling.xss.impl.XSSAPIImplTest#testGetValidXML
+[71995] INFO ConfigurationProperties - p:logtestexecution= false
+[71996] INFO ConfigurationProperties - p:evo_buggy_class= true
+[71996] INFO ConfigurationProperties - p:numberExecutions= 1
+[71996] INFO ConfigurationProperties - p:maxnumbersolutions= 1000000
+[71996] INFO ConfigurationProperties - p:evo_affected_by_op= true
+[71996] INFO ConfigurationProperties - p:population= 1
+[71996] INFO ConfigurationProperties - p:considerzerovaluesusp= false
+[71996] INFO ConfigurationProperties - p:maxCombinationVariableLimit= true
+[71996] INFO ConfigurationProperties - p:savesolution= true
+[71999] INFO ConfigurationProperties - p:javacompliancelevel= 8
+[71999] INFO ConfigurationProperties - p:x= x
+[72002] INFO ConfigurationProperties - p:uniqueoptogen= false
+[72002] INFO ConfigurationProperties - p:gzoltarpackagetonotinstrument= junit.framework
+[72002] INFO ConfigurationProperties - p:projectIdentifier= apache_sling-VUL4J-24
+[72002] INFO ConfigurationProperties - p:modificationpointnavigation= weight
+[72002] INFO ConfigurationProperties - p:stopfirst= true
+[72002] INFO ConfigurationProperties - p:multipointmodification= false
+[72002] INFO ConfigurationProperties - p:elementsToMutate= 10
+[72002] INFO ConfigurationProperties - p:jsonoutputname= astor_output
+[72002] INFO ConfigurationProperties - p:evoDSE= false
+[72002] INFO ConfigurationProperties - p:bintestfolder= bundles/extensions/xss/target/test-classes
+[72003] INFO ConfigurationProperties - p:testbystep= false
+[72003] INFO ConfigurationProperties - p:version-location= ./math-version/
+[72003] INFO ConfigurationProperties - p:reintroduce= PARENTS:ORIGINAL
+[72003] INFO ConfigurationProperties - p:perfectdata= /script/../data/benchmarks/vul4j/perfectfl/VUL4J-24
+[72003] INFO ConfigurationProperties - p:executorjar= ./lib/jtestex7.jar
+[72003] INFO ConfigurationProperties - p:maxGeneration= 1000000
+[72003] INFO ConfigurationProperties - p:max_synthesis_step= 10000
+[72003] INFO ConfigurationProperties - p:projectinfocommand= com.github.tdurieux:project-config-maven-plugin:info
+[72003] INFO ConfigurationProperties - p:maxVarCombination= 1000
+[72003] INFO ConfigurationProperties - p:maxtime= 120
+[72003] INFO ConfigurationProperties - p:evosuitejar= ./lib/evosuite-master-1.0.4-SNAPSHOT.jar
+[72003] INFO ConfigurationProperties - p:jvmversion= 1.8.0_342
+[72004] INFO ConfigurationProperties - p:commandTrunk= 50000
+[72004] INFO ConfigurationProperties - p:faultlocalization= perfect
+[72004] INFO ConfigurationProperties - p:resetmodel= true
+[72004] INFO ConfigurationProperties - p:maxsuspcandidates= 1000
+[72004] INFO ConfigurationProperties - p:mode= cardumen
+[72004] INFO ConfigurationProperties - p:learningdir= 
+[72004] INFO ConfigurationProperties - p:jvm4evosuitetestexecution= /usr/lib/jvm/java-8-openjdk-amd64/bin
+[72004] INFO ConfigurationProperties - p:filterfaultlocalization= true
+[72004] INFO ConfigurationProperties - p:mutationrate= 1 
+[72004] INFO ConfigurationProperties - p:pathToMVNRepository= 
+[72004] INFO ConfigurationProperties - p:resourcesfolder= /src/main/resources:/src/test/resources:
+[72004] INFO ConfigurationProperties - p:timezone= America/Los_Angeles
+[72004] INFO ConfigurationProperties - p:runjava7code= false
+[72004] INFO ConfigurationProperties - p:testfailingcmd= mvn test -pl bundles/extensions/xss -Dtest=org.apache.sling.xss.impl.XSSAPIImplTest#testGetValidXML -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B
+[72004] INFO ConfigurationProperties - p:evoRunOnBuggyClass= true
+[72004] INFO ConfigurationProperties - p:compiler= fr.inria.astor.core.manipulation.bytecode.compiler.SpoonClassCompiler
+[72004] INFO ConfigurationProperties - p:limitbysuspicious= true
+[72005] INFO ConfigurationProperties - p:logsattemps= true
+[72005] INFO ConfigurationProperties - p:dependenciespath= /workdir/Cardumen_vul4j_apache_sling_VUL4J-24/bundles/extensions/xss/target/classes:/root/.m2/repository/javax/servlet/servlet-api/2.4/servlet-api-2.4.jar:/root/.m2/repository/commons-configuration/commons-configuration/1.5/commons-configuration-1.5.jar:/root/.m2/repository/commons-lang/commons-lang/2.3/commons-lang-2.3.jar:/root/.m2/repository/org/javassist/javassist/3.18.2-GA/javassist-3.18.2-GA.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/2.0.0/jsr305-2.0.0.jar:/root/.m2/repository/org/owasp/esapi/esapi/2.1.0/esapi-2.1.0.jar:/root/.m2/repository/org/beanshell/bsh-core/2.0b4/bsh-core-2.0b4.jar:/root/.m2/repository/commons-beanutils/commons-beanutils-core/1.7.0/commons-beanutils-core-1.7.0.jar:/root/.m2/repository/xom/xom/1.2.5/xom-1.2.5.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/xerces/xercesImpl/2.9.1/xercesImpl-2.9.1.jar:/root/.m2/repository/org/apache/sling/org.apache.sling.api/2.2.0/org.apache.sling.api-2.2.0.jar:/root/.m2/repository/batik/batik-css/1.6/batik-css-1.6.jar:/root/.m2/repository/net/sourceforge/nekohtml/nekohtml/1.9.16/nekohtml-1.9.16.jar:/root/.m2/repository/org/objenesis/objenesis/2.1/objenesis-2.1.jar:/root/.m2/repository/commons-logging/commons-logging/1.0.4/commons-logging-1.0.4.jar:/root/.m2/repository/xml-apis/xml-apis-ext/1.3.04/xml-apis-ext-1.3.04.jar:/root/.m2/repository/commons-digester/commons-digester/1.8/commons-digester-1.8.jar:/root/.m2/repository/org/osgi/org.osgi.core/4.1.0/org.osgi.core-4.1.0.jar:/root/.m2/repository/commons-httpclient/commons-httpclient/3.1/commons-httpclient-3.1.jar:/root/.m2/repository/batik/batik-util/1.6/batik-util-1.6.jar:/root/.m2/repository/org/osgi/org.osgi.compendium/4.1.0/org.osgi.compendium-4.1.0.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.5.2/slf4j-api-1.5.2.jar:/root/.m2/repository/biz/aQute/bndlib/1.50.0/bndlib-1.50.0.jar:/root/.m2/repository/org/powermock/powermock-api-support/1.5.5/powermock-api-support-1.5.5.jar:/root/.m2/repository/log4j/log4j/1.2.16/log4j-1.2.16.jar:/root/.m2/repository/org/owasp/encoder/encoder/1.1.1/encoder-1.1.1.jar:/root/.m2/repository/commons-collections/commons-collections/3.2/commons-collections-3.2.jar:/root/.m2/repository/org/apache/felix/org.apache.felix.scr.annotations/1.9.12/org.apache.felix.scr.annotations-1.9.12.jar:/root/.m2/repository/org/powermock/powermock-api-mockito/1.5.5/powermock-api-mockito-1.5.5.jar:/root/.m2/repository/commons-codec/commons-codec/1.2/commons-codec-1.2.jar:/root/.m2/repository/org/apache/sling/org.apache.sling.commons.json/2.0.6/org.apache.sling.commons.json-2.0.6.jar:/root/.m2/repository/xalan/xalan/2.7.0/xalan-2.7.0.jar:/root/.m2/repository/org/powermock/powermock-core/1.5.5/powermock-core-1.5.5.jar:/root/.m2/repository/commons-fileupload/commons-fileupload/1.2/commons-fileupload-1.2.jar:/root/.m2/repository/org/mockito/mockito-all/1.8.4/mockito-all-1.8.4.jar:/root/.m2/repository/commons-beanutils/commons-beanutils/1.7.0/commons-beanutils-1.7.0.jar:/root/.m2/repository/org/owasp/antisamy/antisamy/1.5.2/antisamy-1.5.2.jar:/root/.m2/repository/batik/batik-gui-util/1.6/batik-gui-util-1.6.jar:/root/.m2/repository/xml-apis/xml-apis/1.3.03/xml-apis-1.3.03.jar:/root/.m2/repository/batik/batik-ext/1.6/batik-ext-1.6.jar:/root/.m2/repository/junit/junit/4.12/junit-4.12.jar:/root/.m2/repository/org/powermock/powermock-reflect/1.5.5/powermock-reflect-1.5.5.jar:/root/.m2/repository/org/slf4j/slf4j-simple/1.5.2/slf4j-simple-1.5.2.jar
+[72005] INFO ConfigurationProperties - p:packageToInstrument= 
+[72005] INFO ConfigurationProperties - p:skipfaultlocalization= false
+[72005] INFO ConfigurationProperties - p:scope= local
+[72005] INFO ConfigurationProperties - p:transformingredient= false
+[72005] INFO ConfigurationProperties - p:fitnessfunction= fr.inria.astor.core.solutionsearch.population.TestCaseFitnessFunction
+[72005] INFO ConfigurationProperties - p:maxnumvariablesperingredient= 10
+[72005] INFO ConfigurationProperties - p:parsesourcefromoriginal= true
+[72005] INFO ConfigurationProperties - p:pvariantfoldername= variant-
+[72006] INFO ConfigurationProperties - p:savespoonmodelondisk= false
+[72006] INFO ConfigurationProperties - p:srcjavafolder= bundles/extensions/xss/src/main/java
+[72006] INFO ConfigurationProperties - p:populationcontroller= fr.inria.astor.core.solutionsearch.population.TestCaseBasedFitnessPopulationController
+[72006] INFO ConfigurationProperties - p:ignoreflakyinfl= false
+[72006] INFO ConfigurationProperties - p:cleantemplates= true
+[72006] INFO ConfigurationProperties - p:applyCrossover= false
+[72006] INFO ConfigurationProperties - p:maxmodificationpoints= 1000
+[72006] INFO ConfigurationProperties - p:duplicateingredientsinspace= false
+[72006] INFO ConfigurationProperties - p:metid= 0
+[72006] INFO ConfigurationProperties - p:continuewhenmodelfail= true
+[72007] INFO ConfigurationProperties - p:saveall= false
+[72007] INFO ConfigurationProperties - p:seed= 0
+[72007] INFO ConfigurationProperties - p:savecompletepatched= true
+[72007] INFO ConfigurationProperties - p:resetoperations= false
+[72007] INFO ConfigurationProperties - p:keepcomments= false
+[72008] INFO ConfigurationProperties - p:processoutputinfile= false
+[72008] INFO ConfigurationProperties - p:location= .
+[72009] INFO ConfigurationProperties - p:probabilistictransformation= true
+[72009] INFO ConfigurationProperties - p:overridemaxtime= true
+[72009] INFO ConfigurationProperties - p:ingredientstrategy= name-probability-based
+[72009] INFO ConfigurationProperties - p:outputjsonresult= true
+[72009] INFO ConfigurationProperties - p:allpoints= false
+[72009] INFO ConfigurationProperties - p:antipattern= false
+[72009] INFO ConfigurationProperties - p:bugId= 280
+[72009] INFO ConfigurationProperties - p:evosuitetimeout= 120
+[72009] INFO ConfigurationProperties - p:maxtimefactor= 10
+[72009] INFO ConfigurationProperties - p:nrPlaceholders= 1
+[72009] INFO ConfigurationProperties - p:testallcmd= mvn test -pl bundles/extensions/xss -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B
+[72009] INFO ConfigurationProperties - p:forcesubprocesskilling= false
+[72009] INFO ConfigurationProperties - ----------------------------
+[72009] INFO AstorCoreEngine - ----Starting Solution Search
+[72010] WARN AstorCoreEngine - ----------Running generation: 1, population size: 1
+[72924] WARN AstorCoreEngine - ----------Running generation: 2, population size: 1
+[73243] WARN AstorCoreEngine - ----------Running generation: 3, population size: 1
+[76911] INFO main - Run previously failing tests...
+[120211] INFO main - Failed tests: 1
+[120228] WARN AstorCoreEngine - ----------Running generation: 4, population size: 1
+[120398] WARN AstorCoreEngine - ----------Running generation: 5, population size: 1
+[120523] WARN AstorCoreEngine - ----------Running generation: 6, population size: 1
+[120645] WARN AstorCoreEngine - ----------Running generation: 7, population size: 1
+[120732] WARN AstorCoreEngine - ----------Running generation: 8, population size: 1
+[120793] WARN AstorCoreEngine - ----------Running generation: 9, population size: 1
+[120868] WARN AstorCoreEngine - ----------Running generation: 10, population size: 1
+[121025] WARN AstorCoreEngine - ----------Running generation: 11, population size: 1
+[121229] WARN AstorCoreEngine - ----------Running generation: 12, population size: 1
+[121365] WARN AstorCoreEngine - ----------Running generation: 13, population size: 1
+[121556] WARN AstorCoreEngine - ----------Running generation: 14, population size: 1
+[121694] WARN AstorCoreEngine - ----------Running generation: 15, population size: 1
+[121774] WARN AstorCoreEngine - ----------Running generation: 16, population size: 1
+[121843] WARN AstorCoreEngine - ----------Running generation: 17, population size: 1
+[121949] WARN AstorCoreEngine - ----------Running generation: 18, population size: 1
+[122016] WARN AstorCoreEngine - ----------Running generation: 19, population size: 1
+[122149] WARN AstorCoreEngine - ----------Running generation: 20, population size: 1
+[122230] WARN AstorCoreEngine - ----------Running generation: 21, population size: 1
+[122288] WARN AstorCoreEngine - ----------Running generation: 22, population size: 1
+[122323] WARN AstorCoreEngine - ----------Running generation: 23, population size: 1
+[122379] WARN AstorCoreEngine - ----------Running generation: 24, population size: 1
+[122413] WARN AstorCoreEngine - ----------Running generation: 25, population size: 1
+[122451] WARN AstorCoreEngine - ----------Running generation: 26, population size: 1
+[122500] WARN AstorCoreEngine - ----------Running generation: 27, population size: 1
+[122623] WARN AstorCoreEngine - ----------Running generation: 28, population size: 1
+[122864] WARN AstorCoreEngine - ----------Running generation: 29, population size: 1
+[122950] WARN AstorCoreEngine - ----------Running generation: 30, population size: 1
+[123035] WARN AstorCoreEngine - ----------Running generation: 31, population size: 1
+[123103] WARN AstorCoreEngine - ----------Running generation: 32, population size: 1
+[123157] WARN AstorCoreEngine - ----------Running generation: 33, population size: 1
+[123206] WARN AstorCoreEngine - ----------Running generation: 34, population size: 1
+[123303] WARN AstorCoreEngine - ----------Running generation: 35, population size: 1
+[123394] WARN AstorCoreEngine - ----------Running generation: 36, population size: 1
+[123529] WARN AstorCoreEngine - ----------Running generation: 37, population size: 1
+[123650] WARN AstorCoreEngine - ----------Running generation: 38, population size: 1
+[123746] WARN AstorCoreEngine - ----------Running generation: 39, population size: 1
+[123817] WARN AstorCoreEngine - ----------Running generation: 40, population size: 1
+[123896] WARN AstorCoreEngine - ----------Running generation: 41, population size: 1
+[123954] WARN AstorCoreEngine - ----------Running generation: 42, population size: 1
+[124062] WARN AstorCoreEngine - ----------Running generation: 43, population size: 1
+[124127] WARN AstorCoreEngine - ----------Running generation: 44, population size: 1
+[124182] WARN AstorCoreEngine - ----------Running generation: 45, population size: 1
+[124314] WARN AstorCoreEngine - ----------Running generation: 46, population size: 1
+[124426] WARN AstorCoreEngine - ----------Running generation: 47, population size: 1
+[124545] WARN AstorCoreEngine - ----------Running generation: 48, population size: 1
+[124709] WARN AstorCoreEngine - ----------Running generation: 49, population size: 1
+[124791] WARN AstorCoreEngine - ----------Running generation: 50, population size: 1
+[124969] WARN AstorCoreEngine - ----------Running generation: 51, population size: 1
+[125107] WARN AstorCoreEngine - ----------Running generation: 52, population size: 1
+[125195] WARN AstorCoreEngine - ----------Running generation: 53, population size: 1
+[125282] WARN AstorCoreEngine - ----------Running generation: 54, population size: 1
+[125370] WARN AstorCoreEngine - ----------Running generation: 55, population size: 1
+[125475] WARN AstorCoreEngine - ----------Running generation: 56, population size: 1
+[125561] WARN AstorCoreEngine - ----------Running generation: 57, population size: 1
+[125730] WARN AstorCoreEngine - ----------Running generation: 58, population size: 1
+[125779] WARN AstorCoreEngine - ----------Running generation: 59, population size: 1
+[125810] WARN AstorCoreEngine - ----------Running generation: 60, population size: 1
+[125868] WARN AstorCoreEngine - ----------Running generation: 61, population size: 1
+[125937] WARN AstorCoreEngine - ----------Running generation: 62, population size: 1
+[125969] WARN AstorCoreEngine - ----------Running generation: 63, population size: 1
+[125998] WARN AstorCoreEngine - ----------Running generation: 64, population size: 1
+[126051] WARN AstorCoreEngine - ----------Running generation: 65, population size: 1
+[126086] WARN AstorCoreEngine - ----------Running generation: 66, population size: 1
+[126115] WARN AstorCoreEngine - ----------Running generation: 67, population size: 1
+[126208] WARN AstorCoreEngine - ----------Running generation: 68, population size: 1
+[126307] WARN AstorCoreEngine - ----------Running generation: 69, population size: 1
+[126353] WARN AstorCoreEngine - ----------Running generation: 70, population size: 1
+[126379] WARN AstorCoreEngine - ----------Running generation: 71, population size: 1
+[126467] WARN AstorCoreEngine - ----------Running generation: 72, population size: 1
+[126491] WARN AstorCoreEngine - ----------Running generation: 73, population size: 1
+[126516] WARN AstorCoreEngine - ----------Running generation: 74, population size: 1
+[126545] WARN AstorCoreEngine - ----------Running generation: 75, population size: 1
+[126589] WARN AstorCoreEngine - ----------Running generation: 76, population size: 1
+[126680] WARN AstorCoreEngine - ----------Running generation: 77, population size: 1
+[126724] WARN AstorCoreEngine - ----------Running generation: 78, population size: 1
+[126773] WARN AstorCoreEngine - ----------Running generation: 79, population size: 1
+[126845] WARN AstorCoreEngine - ----------Running generation: 80, population size: 1
+[126949] WARN AstorCoreEngine - ----------Running generation: 81, population size: 1
+[127032] WARN AstorCoreEngine - ----------Running generation: 82, population size: 1
+[127141] WARN AstorCoreEngine - ----------Running generation: 83, population size: 1
+[127218] WARN AstorCoreEngine - ----------Running generation: 84, population size: 1
+[127268] WARN AstorCoreEngine - ----------Running generation: 85, population size: 1
+[127326] WARN AstorCoreEngine - ----------Running generation: 86, population size: 1
+[127375] WARN AstorCoreEngine - ----------Running generation: 87, population size: 1
+[127423] WARN AstorCoreEngine - ----------Running generation: 88, population size: 1
+[127471] WARN AstorCoreEngine - ----------Running generation: 89, population size: 1
+[127509] WARN AstorCoreEngine - ----------Running generation: 90, population size: 1
+[127584] WARN AstorCoreEngine - ----------Running generation: 91, population size: 1
+[127618] WARN AstorCoreEngine - ----------Running generation: 92, population size: 1
+[127660] WARN AstorCoreEngine - ----------Running generation: 93, population size: 1
+[127685] WARN AstorCoreEngine - ----------Running generation: 94, population size: 1
+[127711] WARN AstorCoreEngine - ----------Running generation: 95, population size: 1
+[127735] WARN AstorCoreEngine - ----------Running generation: 96, population size: 1
+[127766] WARN AstorCoreEngine - ----------Running generation: 97, population size: 1
+[127788] WARN AstorCoreEngine - ----------Running generation: 98, population size: 1
+[127822] WARN AstorCoreEngine - ----------Running generation: 99, population size: 1
+[127847] WARN AstorCoreEngine - ----------Running generation: 100, population size: 1
+[127879] WARN AstorCoreEngine - ----------Running generation: 101, population size: 1
+[127906] WARN AstorCoreEngine - ----------Running generation: 102, population size: 1
+[127932] WARN AstorCoreEngine - ----------Running generation: 103, population size: 1
+[127979] ERROR AstorCoreEngine - Stopping main loop at 103 generation
+[127980] INFO AstorCoreEngine - Time Repair Loop (s): 55.971
+[127980] INFO AstorCoreEngine - generationsexecuted: 103
+[127981] WARN AstorCoreEngine - ----SUMMARY_EXECUTION---
+[127981] WARN AstorCoreEngine - End Repair Search: NOT Found solution
+[127981] WARN AstorCoreEngine - Number suspicious:1
+[127981] INFO AstorCoreEngine - Total mod points: 2
+[128030] INFO ExpressionTypeIngredientSpace - Storing ing JSON at /workdir/Cardumen_vul4j_apache_sling_VUL4J-24/./output_astor/AstorMain-apache_sling-VUL4J-24//src/ingredients.json
+[128031] INFO IngredientStats - Storing ing JSON at /workdir/Cardumen_vul4j_apache_sling_VUL4J-24/./output_astor/AstorMain-apache_sling-VUL4J-24//ingredientSpaceSize.json
+[128031] INFO IngredientStats - ingredientSpaceSize:{"allAttempts":4,"space":[{"a":6,"v":1},{"a":1,"v":2},{"a":3,"v":1}]}
+[128031] INFO IngredientStats - Storing ing JSON at /workdir/Cardumen_vul4j_apache_sling_VUL4J-24/./output_astor/AstorMain-apache_sling-VUL4J-24//combinationsTemplatesingredientSpaceSize.json
+[128031] INFO IngredientStats - combinationsTemplatesingredientSpaceSize:{"allAttempts":15,"space":[{"a":1,"v":7},{"a":0,"v":8}]}
+[128034] INFO AstorCoreEngine - 
+ --SOLUTIONS DESCRIPTION--
+
+
+Astor Output:
+
+General stats:
+EXECUTION_IDENTIFIER=apache_sling-VUL4J-24
+TOTAL_TIME=55.971
+NR_GENERATIONS=103
+NR_RIGHT_COMPILATIONS=1
+NR_FAILLING_COMPILATIONS=null
+NR_ERRONEOUS_VARIANCES=null
+NR_FAILING_VALIDATION_PROCESS=null
+OUTPUT_STATUS=CONVERGED
+
+Patch stats:
+
+[128040] INFO Stats - Storing ing JSON at /workdir/Cardumen_vul4j_apache_sling_VUL4J-24/./output_astor/AstorMain-apache_sling-VUL4J-24//astor_output.json
+[128040] INFO Stats - astor_output:
+{"general":{"NR_RIGHT_COMPILATIONS":1,"NR_ERRONEOUS_VARIANCES":null,"EXECUTION_IDENTIFIER":"apache_sling-VUL4J-24","OUTPUT_STATUS":"CONVERGED","NR_FAILLING_COMPILATIONS":null,"NR_GENERATIONS":103,"TOTAL_TIME":55.971,"NR_FAILING_VALIDATION_PROCESS":null},"patches":[]}
+[128040] INFO AstorMain - Time Total(s): 128.025
+111.80user 15.72system 2:09.78elapsed 98%CPU (0avgtext+0avgdata 642192maxresident)k
+24inputs+2704outputs (0major+473477minor)pagefaults 0swaps
+
+
+Node: 9670332cfea8
+
+
+
+Date: Fri Sep  9 00:46:51 EDT 2022
+

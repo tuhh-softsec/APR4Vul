@@ -1,0 +1,54 @@
+{
+  "repair_end": "2022-11-29 14:44:54.583888", 
+  "repair_begin": "2022-11-29 10:44:49.861457", 
+  "patches": [
+    {
+      "edits": [
+        {
+          "path": "src/main/java/org/owasp/esapi/codecs/PercentCodec.java", 
+          "line": 98, 
+          "faulty": "String cStr=String.valueOf(c.charValue());", 
+          "type": "InsertBefore", 
+          "seed": "if (containsCharacter(c,immune)) return c.toString();"
+        }
+      ], 
+      "patch": "--- /workdir/RSRepair_vul4j_ESAPI_esapi-java-legacy_VUL4J-44/src/main/java/org/owasp/esapi/codecs/PercentCodec.java\t2022-11-29 06:48:09.137704849 -0500\n+++ /workdir/RSRepair_vul4j_ESAPI_esapi-java-legacy_VUL4J-44/patches_bjnt/Patch_3/patched/org/owasp/esapi/codecs/PercentCodec.java\t2022-11-29 06:48:09.143704849 -0500\n@@ -95,6 +95,8 @@\n \t */\n \tpublic String encodeCharacter( char[] immune, Character c )\n \t{\n+\t\tif (containsCharacter(c, immune))\n+\t\t\treturn c.toString();\n \t\tString cStr = String.valueOf(c.charValue());\n \t\tbyte[] bytes;\n \t\tStringBuilder sb;\n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "src/main/java/org/owasp/esapi/codecs/PercentCodec.java", 
+          "line": 100, 
+          "faulty": "StringBuilder sb;", 
+          "type": "InsertBefore", 
+          "seed": "if (containsCharacter(c,immune)) return c.toString();"
+        }
+      ], 
+      "patch": "--- /workdir/RSRepair_vul4j_ESAPI_esapi-java-legacy_VUL4J-44/src/main/java/org/owasp/esapi/codecs/PercentCodec.java\t2022-11-29 05:52:07.762484760 -0500\n+++ /workdir/RSRepair_vul4j_ESAPI_esapi-java-legacy_VUL4J-44/patches_bjnt/Patch_1/patched/org/owasp/esapi/codecs/PercentCodec.java\t2022-11-29 05:52:07.765484760 -0500\n@@ -97,6 +97,8 @@\n \t{\n \t\tString cStr = String.valueOf(c.charValue());\n \t\tbyte[] bytes;\n+\t\tif (containsCharacter(c, immune))\n+\t\t\treturn c.toString();\n \t\tStringBuilder sb;\n \n \t\tif(UNENCODED_SET.contains(c))\n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "src/main/java/org/owasp/esapi/codecs/PercentCodec.java", 
+          "line": 98, 
+          "faulty": "String cStr=String.valueOf(c.charValue());", 
+          "type": "InsertBefore", 
+          "seed": "if (containsCharacter(c,immune)) {\n  return \"\" + c;\n}"
+        }
+      ], 
+      "patch": "--- /workdir/RSRepair_vul4j_ESAPI_esapi-java-legacy_VUL4J-44/src/main/java/org/owasp/esapi/codecs/PercentCodec.java\t2022-11-29 05:49:25.603895286 -0500\n+++ /workdir/RSRepair_vul4j_ESAPI_esapi-java-legacy_VUL4J-44/patches_bjnt/Patch_0/patched/org/owasp/esapi/codecs/PercentCodec.java\t2022-11-29 05:49:25.611895287 -0500\n@@ -95,6 +95,9 @@\n \t */\n \tpublic String encodeCharacter( char[] immune, Character c )\n \t{\n+\t\tif (containsCharacter(c, immune)) {\n+\t\t\treturn \"\" + c;\n+\t\t}\n \t\tString cStr = String.valueOf(c.charValue());\n \t\tbyte[] bytes;\n \t\tStringBuilder sb;\n\n\n"
+    }, 
+    {
+      "edits": [
+        {
+          "path": "src/main/java/org/owasp/esapi/codecs/PercentCodec.java", 
+          "line": 100, 
+          "faulty": "StringBuilder sb;", 
+          "type": "InsertBefore", 
+          "seed": "if (containsCharacter(c,immune)) {\n  return \"\" + c;\n}"
+        }
+      ], 
+      "patch": "--- /workdir/RSRepair_vul4j_ESAPI_esapi-java-legacy_VUL4J-44/src/main/java/org/owasp/esapi/codecs/PercentCodec.java\t2022-11-29 06:17:41.918744100 -0500\n+++ /workdir/RSRepair_vul4j_ESAPI_esapi-java-legacy_VUL4J-44/patches_bjnt/Patch_2/patched/org/owasp/esapi/codecs/PercentCodec.java\t2022-11-29 06:17:41.925744100 -0500\n@@ -97,6 +97,9 @@\n \t{\n \t\tString cStr = String.valueOf(c.charValue());\n \t\tbyte[] bytes;\n+\t\tif (containsCharacter(c, immune)) {\n+\t\t\treturn \"\" + c;\n+\t\t}\n \t\tStringBuilder sb;\n \n \t\tif(UNENCODED_SET.contains(c))\n\n\n"
+    }
+  ]
+}

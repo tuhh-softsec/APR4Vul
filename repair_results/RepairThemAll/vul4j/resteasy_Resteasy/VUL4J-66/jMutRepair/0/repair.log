@@ -1,0 +1,262 @@
+cd /workdir/jMutRepair_vul4j_resteasy_Resteasy_VUL4J-66;
+export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en";
+TZ="America/New_York"; export TZ;
+export PATH="/usr/lib/jvm/java-8-openjdk-amd64/bin:$PATH";
+export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64/bin";
+time java -Xmx4g -Xms1g -XX:MaxPermSize=512m -cp /script/../libs/jtestex7.jar:/script/../repair_tools/astor.jar fr.inria.main.evolution.AstorMain \
+	-mode jMutRepair \
+	-location . \
+	-id resteasy_Resteasy-VUL4J-66 \
+	-failing org.jboss.resteasy.test.mediatype.MediaTypeHeaderTest#testNewLineInHeaderValueIsRejected \
+	-jvm4testexecution /usr/lib/jvm/java-8-openjdk-amd64/bin \
+	-jvm4evosuitetestexecution /usr/lib/jvm/java-8-openjdk-amd64/bin \
+	-maxgen 1000000 \
+	-maxtime 120 \
+	-stopfirst true \
+	-seed 0 \
+	-scope local \
+	-population 1 \
+	-javacompliancelevel 8 \
+	-faultlocalization perfect \
+    -perfectdata /script/../data/benchmarks/vul4j/perfectfl/VUL4J-66 \
+    -validation externalcmd \
+    -testfailingcmd "cd testsuitemvn test -Dtest=org.jboss.resteasy.test.mediatype.MediaTypeHeaderTest#testNewLineInHeaderValueIsRejected -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B" \
+    -testallcmd "cd testsuitemvn test -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B"  \ \
+	-srcjavafolder testsuite/unit-tests/../../resteasy-core/src/main/java \
+	-srctestfolder testsuite/unit-tests/src/test/java \
+	-binjavafolder testsuite/unit-tests/../../resteasy-core/target/classes \
+	-bintestfolder testsuite/unit-tests/target/test-classes \
+	-parameters x:x \
+	-dependencies "";
+	echo "\n\nNode: `hostname`\n";
+	echo "\n\nDate: `date`\n";
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en
+OpenJDK 64-Bit Server VM warning: ignoring option MaxPermSize=512m; support was removed in 8.0
+[0] INFO ProjectConfiguration - Version of the JVM used: 1.8.0_342
+[0] INFO main - Java version of the JDK used to run tests: 1.8.0_342
+[0] INFO main - The compliance of the JVM is:  8
+[3] INFO main - command line arguments: [-mode  jMutRepair  -location  .  -id  resteasy_Resteasy-VUL4J-66  -failing  org.jboss.resteasy.test.mediatype.MediaTypeHeaderTest#testNewLineInHeaderValueIsRejected  -jvm4testexecution  /usr/lib/jvm/java-8-openjdk-amd64/bin  -jvm4evosuitetestexecution  /usr/lib/jvm/java-8-openjdk-amd64/bin  -maxgen  1000000  -maxtime  120  -stopfirst  true  -seed  0  -scope  local  -population  1  -javacompliancelevel  8  -faultlocalization  perfect  -perfectdata  /script/../data/benchmarks/vul4j/perfectfl/VUL4J-66  -validation  externalcmd  -testfailingcmd  cd testsuitemvn test -Dtest=org.jboss.resteasy.test.mediatype.MediaTypeHeaderTest#testNewLineInHeaderValueIsRejected -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B  -testallcmd  cd testsuitemvn test -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B     -srcjavafolder  testsuite/unit-tests/../../resteasy-core/src/main/java  -srctestfolder  testsuite/unit-tests/src/test/java  -binjavafolder  testsuite/unit-tests/../../resteasy-core/target/classes  -bintestfolder  testsuite/unit-tests/target/test-classes  -parameters  x:x  -dependencies  ]
+[4] INFO AstorMain - Running Astor on a JDK at /usr/lib/jvm/java-8-openjdk-amd64/jre
+[34] INFO main - Source folders: [/workdir/jMutRepair_vul4j_resteasy_Resteasy_VUL4J-66/./testsuite/unit-tests/../../resteasy-core/src/main/java]
+[35] INFO main - Source Test folders: [/workdir/jMutRepair_vul4j_resteasy_Resteasy_VUL4J-66/./testsuite/unit-tests/src/test/java]
+[3955] INFO AstorCoreEngine - ---- Creating spoon model
+[4089] INFO MutationSupporter - Creating model,  Code location from working folder: /workdir/jMutRepair_vul4j_resteasy_Resteasy_VUL4J-66/./testsuite/unit-tests/../../resteasy-core/src/main/java
+[4090] INFO MutationSupporter - building model: /workdir/jMutRepair_vul4j_resteasy_Resteasy_VUL4J-66/./testsuite/unit-tests/../../resteasy-core/src/main/java, compliance level: 8
+[4444] INFO MutationSupporter - Classpath (Dependencies) for building SpoonModel: null
+[30302] ERROR MutationSupporter - Problem compiling the model with compliance level 8
+[30302] ERROR MutationSupporter - ProviderFactoryDelegate cannot be resolved to a type at /workdir/jMutRepair_vul4j_resteasy_Resteasy_VUL4J-66/resteasy-core/src/main/java/org/jboss/resteasy/core/ThreadLocalResteasyProviderFactory.java:52
+spoon.compiler.ModelBuildingException: ProviderFactoryDelegate cannot be resolved to a type at /workdir/jMutRepair_vul4j_resteasy_Resteasy_VUL4J-66/resteasy-core/src/main/java/org/jboss/resteasy/core/ThreadLocalResteasyProviderFactory.java:52
+	at spoon.support.compiler.jdt.JDTBasedSpoonCompiler.report(JDTBasedSpoonCompiler.java:649)
+	at spoon.support.compiler.jdt.JDTBasedSpoonCompiler.reportProblems(JDTBasedSpoonCompiler.java:631)
+	at spoon.support.compiler.jdt.JDTBasedSpoonCompiler.build(JDTBasedSpoonCompiler.java:118)
+	at spoon.support.compiler.jdt.JDTBasedSpoonCompiler.build(JDTBasedSpoonCompiler.java:99)
+	at fr.inria.astor.core.manipulation.MutationSupporter.buildModel(MutationSupporter.java:85)
+	at fr.inria.astor.core.manipulation.MutationSupporter.buildSpoonModel(MutationSupporter.java:240)
+	at fr.inria.astor.core.solutionsearch.AstorCoreEngine.initModel(AstorCoreEngine.java:775)
+	at fr.inria.main.evolution.AstorMain.createEngine(AstorMain.java:113)
+	at fr.inria.main.evolution.AstorMain.run(AstorMain.java:173)
+	at fr.inria.main.evolution.AstorMain.execute(AstorMain.java:233)
+	at fr.inria.main.evolution.AstorMain.main(AstorMain.java:204)
+[30312] INFO MutationSupporter - Recompiling with compliance level 8
+[30312] INFO MutationSupporter - building model: /workdir/jMutRepair_vul4j_resteasy_Resteasy_VUL4J-66/./testsuite/unit-tests/../../resteasy-core/src/main/java, compliance level: 8
+[30580] INFO MutationSupporter - Classpath (Dependencies) for building SpoonModel: null
+spoon.compiler.ModelBuildingException: ProviderFactoryDelegate cannot be resolved to a type at /workdir/jMutRepair_vul4j_resteasy_Resteasy_VUL4J-66/resteasy-core/src/main/java/org/jboss/resteasy/core/ThreadLocalResteasyProviderFactory.java:52
+	at spoon.support.compiler.jdt.JDTBasedSpoonCompiler.report(JDTBasedSpoonCompiler.java:649)
+	at spoon.support.compiler.jdt.JDTBasedSpoonCompiler.reportProblems(JDTBasedSpoonCompiler.java:631)
+	at spoon.support.compiler.jdt.JDTBasedSpoonCompiler.build(JDTBasedSpoonCompiler.java:118)
+	at spoon.support.compiler.jdt.JDTBasedSpoonCompiler.build(JDTBasedSpoonCompiler.java:99)
+	at fr.inria.astor.core.manipulation.MutationSupporter.buildModel(MutationSupporter.java:85)
+	at fr.inria.astor.core.manipulation.MutationSupporter.buildSpoonModel(MutationSupporter.java:253)
+	at fr.inria.astor.core.solutionsearch.AstorCoreEngine.initModel(AstorCoreEngine.java:775)
+	at fr.inria.main.evolution.AstorMain.createEngine(AstorMain.java:113)
+	at fr.inria.main.evolution.AstorMain.run(AstorMain.java:173)
+	at fr.inria.main.evolution.AstorMain.execute(AstorMain.java:233)
+	at fr.inria.main.evolution.AstorMain.main(AstorMain.java:204)
+[47838] ERROR MutationSupporter - Error compiling: ProviderFactoryDelegate cannot be resolved to a type at /workdir/jMutRepair_vul4j_resteasy_Resteasy_VUL4J-66/resteasy-core/src/main/java/org/jboss/resteasy/core/ThreadLocalResteasyProviderFactory.java:52
+[49058] ERROR MutationSupporter - Astor continues when model build fails. Classes created: 273
+[50260] INFO AstorCoreEngine - Number of CtTypes created: 273
+[52055] INFO AstorCoreEngine - Test retrieved from classes: 0
+[52519] INFO AstorCoreEngine - Setting up the max to 4630 milliseconds (4 sec)
+[52519] INFO AstorCoreEngine - ---- Initial suspicious size: 2
+[53764] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[53963] WARN Launcher - Cannot load class: javax.ws.rs.ext.RuntimeDelegate$HeaderDelegate with class loader sun.misc.Launcher$AppClassLoader@74a14482
+[53969] INFO main - Total suspicious from FL: 2,  1
+[53969] INFO main - Total ModPoint created: 1
+[54012] INFO main - Creating program variant #1, [Variant id: 1, #gens: 1, #ops: 0, parent:-]
+[54012] INFO main - Run previously failing tests...
+java.io.IOException: Cannot run program "cd" (in directory "."): error=2, No such file or directory
+	at java.lang.ProcessBuilder.start(ProcessBuilder.java:1048)
+	at fr.inria.astor.core.validation.ExternalCmdValidator.runShell(ExternalCmdValidator.java:131)
+	at fr.inria.astor.core.validation.ExternalCmdValidator.runTests(ExternalCmdValidator.java:88)
+	at fr.inria.astor.core.validation.ExternalCmdValidator.validate(ExternalCmdValidator.java:44)
+	at fr.inria.astor.core.solutionsearch.AstorCoreEngine.validateInstance(AstorCoreEngine.java:522)
+	at fr.inria.astor.core.solutionsearch.AstorCoreEngine.setFitnessOfPopulation(AstorCoreEngine.java:738)
+	at fr.inria.astor.core.solutionsearch.AstorCoreEngine.initPopulation(AstorCoreEngine.java:724)
+	at fr.inria.main.evolution.AstorMain.createEngine(AstorMain.java:121)
+	at fr.inria.main.evolution.AstorMain.run(AstorMain.java:173)
+	at fr.inria.main.evolution.AstorMain.execute(AstorMain.java:233)
+	at fr.inria.main.evolution.AstorMain.main(AstorMain.java:204)
+Caused by: java.io.IOException: error=2, No such file or directory
+	at java.lang.UNIXProcess.forkAndExec(Native Method)
+	at java.lang.UNIXProcess.<init>(UNIXProcess.java:247)
+	at java.lang.ProcessImpl.start(ProcessImpl.java:134)
+	at java.lang.ProcessBuilder.start(ProcessBuilder.java:1029)
+	... 10 more
+[60656] ERROR AstorCoreEngine - Initial run of test suite fails
+[60657] INFO AstorCoreEngine - The original fitness is : 1.7976931348623157E308
+[60657] WARN ConfigurationProperties - ----------------------------
+[60658] INFO ConfigurationProperties - ---Configuration properties
+[60659] INFO ConfigurationProperties - p:lastJUnitVersion= ./examples/libs/junit-4.11.jar
+[60659] INFO ConfigurationProperties - p:alternativecompliancelevel= 8
+[60659] INFO ConfigurationProperties - p:ignoredTestCases= 
+[60659] INFO ConfigurationProperties - p:workingDirectory= /workdir/jMutRepair_vul4j_resteasy_Resteasy_VUL4J-66/./output_astor
+[60659] INFO ConfigurationProperties - p:manipulatesuper= false
+[60659] INFO ConfigurationProperties - p:validation= externalcmd
+[60659] INFO ConfigurationProperties - p:jvm4testexecution= /usr/lib/jvm/java-8-openjdk-amd64/bin
+[60659] INFO ConfigurationProperties - p:operatorspace= mutationspace
+[60659] INFO ConfigurationProperties - p:diffcontext= 0
+[60659] INFO ConfigurationProperties - p:binjavafolder= testsuite/unit-tests/../../resteasy-core/target/classes
+[60660] INFO ConfigurationProperties - p:synthesis_depth= 3
+[60660] INFO ConfigurationProperties - p:gzoltartestpackagetoexclude= junit.framework
+[60660] INFO ConfigurationProperties - p:skipfitnessinitialpopulation= false
+[60660] INFO ConfigurationProperties - p:evosuiteresultfolder= evosuite
+[60660] INFO ConfigurationProperties - p:flthreshold= 0.1
+[60660] INFO ConfigurationProperties - p:regressionforfaultlocalization= true
+[60660] INFO ConfigurationProperties - p:collectonlyusedmethod= false
+[60660] INFO ConfigurationProperties - p:preservelinenumbers= true
+[60660] INFO ConfigurationProperties - p:tmax2= 4630
+[60660] INFO ConfigurationProperties - p:tmax1= 10000
+[60660] INFO ConfigurationProperties - p:probagenmutation= false
+[60660] INFO ConfigurationProperties - p:nomodificationconvergence= 100
+[60660] INFO ConfigurationProperties - p:diff_type= relative
+[60660] INFO ConfigurationProperties - p:targetelementprocessor= if-conditions:return-op-mutation
+[60660] INFO ConfigurationProperties - p:srctestfolder= testsuite/unit-tests/src/test/java
+[60660] INFO ConfigurationProperties - p:forceExecuteRegression= false
+[60660] INFO ConfigurationProperties - p:clusteringfilename= clustering.csv
+[60660] INFO ConfigurationProperties - p:failing= org.jboss.resteasy.test.mediatype.MediaTypeHeaderTest#testNewLineInHeaderValueIsRejected
+[60660] INFO ConfigurationProperties - p:logtestexecution= false
+[60660] INFO ConfigurationProperties - p:evo_buggy_class= true
+[60661] INFO ConfigurationProperties - p:numberExecutions= 1
+[60661] INFO ConfigurationProperties - p:maxnumbersolutions= 1000000
+[60661] INFO ConfigurationProperties - p:evo_affected_by_op= true
+[60661] INFO ConfigurationProperties - p:population= 1
+[60661] INFO ConfigurationProperties - p:considerzerovaluesusp= false
+[60661] INFO ConfigurationProperties - p:maxCombinationVariableLimit= false
+[60661] INFO ConfigurationProperties - p:savesolution= true
+[60661] INFO ConfigurationProperties - p:javacompliancelevel= 8
+[60661] INFO ConfigurationProperties - p:x= x
+[60661] INFO ConfigurationProperties - p:uniqueoptogen= false
+[60661] INFO ConfigurationProperties - p:gzoltarpackagetonotinstrument= junit.framework
+[60661] INFO ConfigurationProperties - p:projectIdentifier= resteasy_Resteasy-VUL4J-66
+[60661] INFO ConfigurationProperties - p:modificationpointnavigation= weight
+[60661] INFO ConfigurationProperties - p:stopfirst= true
+[60661] INFO ConfigurationProperties - p:multipointmodification= false
+[60661] INFO ConfigurationProperties - p:elementsToMutate= 10
+[60661] INFO ConfigurationProperties - p:jsonoutputname= astor_output
+[60661] INFO ConfigurationProperties - p:evoDSE= false
+[60661] INFO ConfigurationProperties - p:bintestfolder= testsuite/unit-tests/target/test-classes
+[60661] INFO ConfigurationProperties - p:testbystep= false
+[60662] INFO ConfigurationProperties - p:version-location= ./math-version/
+[60662] INFO ConfigurationProperties - p:reintroduce= PARENTS:ORIGINAL
+[60662] INFO ConfigurationProperties - p:perfectdata= /script/../data/benchmarks/vul4j/perfectfl/VUL4J-66
+[60662] INFO ConfigurationProperties - p:executorjar= ./lib/jtestex7.jar
+[60662] INFO ConfigurationProperties - p:maxGeneration= 1000000
+[60662] INFO ConfigurationProperties - p:max_synthesis_step= 10000
+[60662] INFO ConfigurationProperties - p:projectinfocommand= com.github.tdurieux:project-config-maven-plugin:info
+[60662] INFO ConfigurationProperties - p:maxVarCombination= 1000
+[60662] INFO ConfigurationProperties - p:maxtime= 120
+[60662] INFO ConfigurationProperties - p:evosuitejar= ./lib/evosuite-master-1.0.4-SNAPSHOT.jar
+[60662] INFO ConfigurationProperties - p:jvmversion= 1.8.0_342
+[60662] INFO ConfigurationProperties - p:commandTrunk= 50000
+[60662] INFO ConfigurationProperties - p:faultlocalization= perfect
+[60662] INFO ConfigurationProperties - p:resetmodel= true
+[60662] INFO ConfigurationProperties - p:maxsuspcandidates= 1000
+[60662] INFO ConfigurationProperties - p:mode= jMutRepair
+[60662] INFO ConfigurationProperties - p:learningdir= 
+[60662] INFO ConfigurationProperties - p:jvm4evosuitetestexecution= /usr/lib/jvm/java-8-openjdk-amd64/bin
+[60662] INFO ConfigurationProperties - p:filterfaultlocalization= true
+[60662] INFO ConfigurationProperties - p:mutationrate= 1 
+[60662] INFO ConfigurationProperties - p:pathToMVNRepository= 
+[60663] INFO ConfigurationProperties - p:resourcesfolder= /src/main/resources:/src/test/resources:
+[60663] INFO ConfigurationProperties - p:timezone= America/Los_Angeles
+[60663] INFO ConfigurationProperties - p:runjava7code= false
+[60663] INFO ConfigurationProperties - p:testfailingcmd= cd testsuitemvn test -Dtest=org.jboss.resteasy.test.mediatype.MediaTypeHeaderTest#testNewLineInHeaderValueIsRejected -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B
+[60663] INFO ConfigurationProperties - p:evoRunOnBuggyClass= true
+[60663] INFO ConfigurationProperties - p:compiler= fr.inria.astor.core.manipulation.bytecode.compiler.SpoonClassCompiler
+[60671] INFO ConfigurationProperties - p:limitbysuspicious= true
+[60671] INFO ConfigurationProperties - p:logsattemps= true
+[60671] INFO ConfigurationProperties - p:dependenciespath= 
+[60671] INFO ConfigurationProperties - p:packageToInstrument= 
+[60671] INFO ConfigurationProperties - p:skipfaultlocalization= false
+[60671] INFO ConfigurationProperties - p:scope= local
+[60671] INFO ConfigurationProperties - p:transformingredient= false
+[60671] INFO ConfigurationProperties - p:fitnessfunction= fr.inria.astor.core.solutionsearch.population.TestCaseFitnessFunction
+[60671] INFO ConfigurationProperties - p:maxnumvariablesperingredient= 10
+[60671] INFO ConfigurationProperties - p:parsesourcefromoriginal= true
+[60671] INFO ConfigurationProperties - p:pvariantfoldername= variant-
+[60671] INFO ConfigurationProperties - p:savespoonmodelondisk= false
+[60671] INFO ConfigurationProperties - p:srcjavafolder= testsuite/unit-tests/../../resteasy-core/src/main/java
+[60671] INFO ConfigurationProperties - p:populationcontroller= fr.inria.astor.core.solutionsearch.population.TestCaseBasedFitnessPopulationController
+[60672] INFO ConfigurationProperties - p:ignoreflakyinfl= false
+[60672] INFO ConfigurationProperties - p:cleantemplates= true
+[60672] INFO ConfigurationProperties - p:applyCrossover= false
+[60672] INFO ConfigurationProperties - p:maxmodificationpoints= 1000
+[60672] INFO ConfigurationProperties - p:duplicateingredientsinspace= false
+[60672] INFO ConfigurationProperties - p:metid= 0
+[60672] INFO ConfigurationProperties - p:continuewhenmodelfail= true
+[60672] INFO ConfigurationProperties - p:saveall= false
+[60672] INFO ConfigurationProperties - p:seed= 0
+[60672] INFO ConfigurationProperties - p:savecompletepatched= true
+[60672] INFO ConfigurationProperties - p:resetoperations= false
+[60672] INFO ConfigurationProperties - p:keepcomments= false
+[60672] INFO ConfigurationProperties - p:processoutputinfile= false
+[60672] INFO ConfigurationProperties - p:location= .
+[60672] INFO ConfigurationProperties - p:probabilistictransformation= true
+[60672] INFO ConfigurationProperties - p:overridemaxtime= true
+[60673] INFO ConfigurationProperties - p:outputjsonresult= true
+[60673] INFO ConfigurationProperties - p:allpoints= false
+[60673] INFO ConfigurationProperties - p:antipattern= false
+[60673] INFO ConfigurationProperties - p:bugId= 280
+[60673] INFO ConfigurationProperties - p:evosuitetimeout= 120
+[60673] INFO ConfigurationProperties - p:maxtimefactor= 10
+[60673] INFO ConfigurationProperties - p:nrPlaceholders= 1
+[60673] INFO ConfigurationProperties - p:testallcmd= cd testsuitemvn test -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B
+[60673] INFO ConfigurationProperties - p:forcesubprocesskilling= false
+[60673] INFO ConfigurationProperties - ----------------------------
+[60695] INFO AstorCoreEngine - Time Repair Loop (s): 0.022
+[60696] INFO AstorCoreEngine - generationsexecuted: 1
+[60696] WARN AstorCoreEngine - ----SUMMARY_EXECUTION---
+[60696] WARN AstorCoreEngine - End Repair Search: NOT Found solution
+[60696] WARN AstorCoreEngine - Number suspicious:1
+[60698] INFO AstorCoreEngine - 
+ --SOLUTIONS DESCRIPTION--
+
+
+Astor Output:
+
+General stats:
+EXECUTION_IDENTIFIER=resteasy_Resteasy-VUL4J-66
+TOTAL_TIME=0.022
+NR_GENERATIONS=null
+NR_RIGHT_COMPILATIONS=null
+NR_FAILLING_COMPILATIONS=null
+NR_ERRONEOUS_VARIANCES=null
+NR_FAILING_VALIDATION_PROCESS=null
+OUTPUT_STATUS=EXHAUSTIVE_NAVIGATED
+
+Patch stats:
+
+[60726] INFO Stats - Storing ing JSON at /workdir/jMutRepair_vul4j_resteasy_Resteasy_VUL4J-66/./output_astor/AstorMain-resteasy_Resteasy-VUL4J-66//astor_output.json
+[60726] INFO Stats - astor_output:
+{"general":{"NR_RIGHT_COMPILATIONS":null,"NR_ERRONEOUS_VARIANCES":null,"EXECUTION_IDENTIFIER":"resteasy_Resteasy-VUL4J-66","OUTPUT_STATUS":"EXHAUSTIVE_NAVIGATED","NR_FAILLING_COMPILATIONS":null,"NR_GENERATIONS":null,"TOTAL_TIME":0.022,"NR_FAILING_VALIDATION_PROCESS":null},"patches":[]}
+[60726] INFO AstorMain - Time Total(s): 60.706
+52.08user 5.51system 1:03.41elapsed 90%CPU (0avgtext+0avgdata 933620maxresident)k
+64inputs+12824outputs (0major+252631minor)pagefaults 0swaps
+
+
+Node: 9670332cfea8
+
+
+
+Date: Fri Sep  9 07:01:43 EDT 2022
+

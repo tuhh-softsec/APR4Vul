@@ -1,0 +1,17 @@
+{
+  "repair_end": "2022-10-06 13:57:35.518110", 
+  "repair_begin": "2022-10-06 13:57:22.180894", 
+  "patches": [
+    {
+      "edits": [
+        {
+          "path": "batik-dom/src/main/java/org/apache/batik/dom/util/SAXDocumentFactory.java", 
+          "line": 427, 
+          "faulty": "saxParser=saxFactory.newSAXParser();", 
+          "type": "InsertReturn true"
+        }
+      ], 
+      "patch": "--- /workdir/Kali_vul4j_apache_batik_VUL4J-2/batik-dom/src/main/java/org/apache/batik/dom/util/SAXDocumentFactory.java\t2022-10-06 09:57:35.483424812 -0400\n+++ /workdir/Kali_vul4j_apache_batik_VUL4J-2/patches_5ryc/Patch_0/patched/org/apache/batik/dom/util/SAXDocumentFactory.java\t2022-10-06 09:57:35.483424812 -0400\n@@ -424,7 +424,9 @@\n             } else {\n                 SAXParser saxParser;\n                 try {\n-                    saxParser = saxFactory.newSAXParser();\n+                    if (true)\n+\t\t\t\t\t\treturn null;\n+\t\t\t\t\tsaxParser = saxFactory.newSAXParser();\n                 } catch (ParserConfigurationException pce) {\n                     throw new IOException(\"Could not create SAXParser: \"\n                             + pce.getMessage());\n\n\n"
+    }
+  ]
+}

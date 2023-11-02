@@ -1,0 +1,303 @@
+cd /workdir/TBar_vul4j_jenkinsci_jenkins_VUL4J-54;
+export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en";
+TZ="America/New_York"; export TZ;
+export PATH="/usr/lib/jvm/jdk1.7.0_80/bin:$PATH";
+export JAVA_HOME="/usr/lib/jvm/jdk1.7.0_80";
+timeout 240m java -Xmx4g -Xms1g -XX:MaxPermSize=512m \
+    -cp /script/../libs/tbar_external/com.gzoltar-0.1.1-jdk7.jar:/script/../repair_tools/tbar.jar edu.lu.uni.serval.tbar.main.Main \
+    "/workdir/TBar_vul4j_jenkinsci_jenkins_VUL4J-54" "hudson.util.XStream2Test#crashXstream" "/core/src/main/java/" "/core/src/test/java/" "/core/target/classes/" "/core/target/test-classes/" "/script/../data/benchmarks/vul4j/perfectfl/VUL4J-54/spectra.txt" "mvn test -pl core -Dtest=hudson.util.XStream2Test#crashXstream -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B" "mvn test -pl core -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B" "/root/.m2/repository/org/jenkins-ci/test-annotations/1.1/test-annotations-1.1.jar:/root/.m2/repository/org/kohsuke/metainf-services/metainf-services/1.4/metainf-services-1.4.jar:/root/.m2/repository/org/jvnet/localizer/localizer/1.23/localizer-1.23.jar:/root/.m2/repository/org/powermock/powermock-core/1.5.6/powermock-core-1.5.6.jar:/root/.m2/repository/org/ow2/asm/asm-analysis/4.0/asm-analysis-4.0.jar:/root/.m2/repository/org/kohsuke/stapler/stapler-jelly/1.237/stapler-jelly-1.237.jar:/root/.m2/repository/org/ow2/asm/asm-tree/4.0/asm-tree-4.0.jar:/root/.m2/repository/jline/jline/0.9.94/jline-0.9.94.jar:/root/.m2/repository/commons-httpclient/commons-httpclient/3.1/commons-httpclient-3.1.jar:/root/.m2/repository/antlr/antlr/2.7.6/antlr-2.7.6.jar:/root/.m2/repository/jfree/jfreechart/1.0.9/jfreechart-1.0.9.jar:/root/.m2/repository/org/jenkins-ci/jmdns/3.4.0-jenkins-3/jmdns-3.4.0-jenkins-3.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.7/slf4j-api-1.7.7.jar:/root/.m2/repository/com/google/inject/guice/4.0-beta/guice-4.0-beta.jar:/root/.m2/repository/com/sun/xml/txw2/txw2/20110809/txw2-20110809.jar:/root/.m2/repository/org/ow2/asm/asm-commons/4.0/asm-commons-4.0.jar:/root/.m2/repository/org/kohsuke/jinterop/j-interopdeps/2.0.6-kohsuke-1/j-interopdeps-2.0.6-kohsuke-1.jar:/root/.m2/repository/org/codehaus/groovy/groovy-all/1.8.9/groovy-all-1.8.9.jar:/root/.m2/repository/org/kohsuke/access-modifier-annotation/1.4/access-modifier-annotation-1.4.jar:/root/.m2/repository/org/jvnet/libzfs/libzfs/0.5/libzfs-0.5.jar:/root/.m2/repository/org/ow2/asm/asm/4.0/asm-4.0.jar:/root/.m2/repository/org/jenkins-ci/bytecode-compatibility-transformer/1.5/bytecode-compatibility-transformer-1.5.jar:/root/.m2/repository/javax/mail/mail/1.4.4/mail-1.4.4.jar:/root/.m2/repository/com/jcraft/jzlib/1.1.3-kohsuke-1/jzlib-1.1.3-kohsuke-1.jar:/root/.m2/repository/org/jenkins-ci/commons-jexl/1.1-jenkins-20111212/commons-jexl-1.1-jenkins-20111212.jar:/root/.m2/repository/com/github/jnr/jnr-constants/0.8.5/jnr-constants-0.8.5.jar:/root/.m2/repository/javax/annotation/javax.annotation-api/1.2/javax.annotation-api-1.2.jar:/root/.m2/repository/org/jenkins-ci/dom4j/dom4j/1.6.1-jenkins-4/dom4j-1.6.1-jenkins-4.jar:/root/.m2/repository/org/codehaus/woodstox/wstx-asl/3.2.9/wstx-asl-3.2.9.jar:/root/.m2/repository/org/apache/commons/commons-compress/1.10/commons-compress-1.10.jar:/root/.m2/repository/relaxngDatatype/relaxngDatatype/20020414/relaxngDatatype-20020414.jar:/root/.m2/repository/commons-io/commons-io/2.4/commons-io-2.4.jar:/root/.m2/repository/org/kohsuke/stapler/stapler-groovy/1.237/stapler-groovy-1.237.jar:/root/.m2/repository/org/powermock/powermock-module-junit4-common/1.5.6/powermock-module-junit4-common-1.5.6.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/1.3.9/jsr305-1.3.9.jar:/root/.m2/repository/args4j/args4j/2.0.31/args4j-2.0.31.jar:/root/.m2/repository/org/kohsuke/stapler/stapler-adjunct-timeline/1.5/stapler-adjunct-timeline-1.5.jar:/root/.m2/repository/org/jvnet/tiger-types/1.3/tiger-types-1.3.jar:/root/.m2/repository/org/springframework/spring-web/2.5.6.SEC03/spring-web-2.5.6.SEC03.jar:/root/.m2/repository/org/kohsuke/stapler/stapler-adjunct-timeline/1.4/stapler-adjunct-timeline-1.4-tests.jar:/root/.m2/repository/org/objenesis/objenesis/1.0/objenesis-1.0.jar:/root/.m2/repository/org/slf4j/log4j-over-slf4j/1.7.7/log4j-over-slf4j-1.7.7.jar:/root/.m2/repository/com/github/jnr/jnr-x86asm/1.0.2/jnr-x86asm-1.0.2.jar:/root/.m2/repository/org/mockito/mockito-all/1.9.5/mockito-all-1.9.5.jar:/root/.m2/repository/javax/xml/stream/stax-api/1.0-2/stax-api-1.0-2.jar:/root/.m2/repository/org/jvnet/hudson/jtidy/4aug2000r7-dev-hudson-1/jtidy-4aug2000r7-dev-hudson-1.jar:/root/.m2/repository/org/jruby/ext/posix/jna-posix/1.0.3-jenkins-1/jna-posix-1.0.3-jenkins-1.jar:/root/.m2/repository/org/kohsuke/stapler/stapler-adjunct-codemirror/1.3/stapler-adjunct-codemirror-1.3.jar:/root/.m2/repository/org/jenkins-ci/constant-pool-scanner/1.2/constant-pool-scanner-1.2.jar:/root/.m2/repository/commons-discovery/commons-discovery/0.4/commons-discovery-0.4.jar:/root/.m2/repository/oro/oro/2.0.8/oro-2.0.8.jar:/root/.m2/repository/org/fusesource/jansi/jansi/1.9/jansi-1.9.jar:/root/.m2/repository/org/jenkins-ci/core-annotation-processors/1.0/core-annotation-processors-1.0.jar:/root/.m2/repository/org/apache/ant/ant/1.8.4/ant-1.8.4.jar:/root/.m2/repository/org/jvnet/hudson/xstream/1.4.7-jenkins-1/xstream-1.4.7-jenkins-1.jar:/root/.m2/repository/net/java/sezpoz/sezpoz/1.9/sezpoz-1.9.jar:/root/.m2/repository/javax/servlet/servlet-api/2.4/servlet-api-2.4.jar:/root/.m2/repository/org/powermock/powermock-api-support/1.5.6/powermock-api-support-1.5.6.jar:/root/.m2/repository/stax/stax-api/1.0.1/stax-api-1.0.1.jar:/root/.m2/repository/org/javassist/javassist/3.18.2-GA/javassist-3.18.2-GA.jar:/root/.m2/repository/net/sf/ezmorph/ezmorph/1.0.6/ezmorph-1.0.6.jar:/root/.m2/repository/org/kohsuke/stapler/stapler-jrebel/1.237/stapler-jrebel-1.237.jar:/root/.m2/repository/org/jenkins-ci/crypto-util/1.1/crypto-util-1.1.jar:/root/.m2/repository/commons-beanutils/commons-beanutils/1.8.3/commons-beanutils-1.8.3.jar:/root/.m2/repository/org/jvnet/hudson/commons-jelly-tags-define/1.0.1-hudson-20071021/commons-jelly-tags-define-1.0.1-hudson-20071021.jar:/root/.m2/repository/org/kohsuke/jinterop/j-interop/2.0.6-kohsuke-1/j-interop-2.0.6-kohsuke-1.jar:/root/.m2/repository/org/powermock/powermock-reflect/1.5.6/powermock-reflect-1.5.6.jar:/root/.m2/repository/org/springframework/spring-core/2.5.6.SEC03/spring-core-2.5.6.SEC03.jar:/root/.m2/repository/org/kohsuke/akuma/1.10/akuma-1.10.jar:/root/.m2/repository/org/kohsuke/stapler/json-lib/2.4-jenkins-2/json-lib-2.4-jenkins-2.jar:/root/.m2/repository/xpp3/xpp3/1.1.4c/xpp3-1.1.4c.jar:/root/.m2/repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar:/root/.m2/repository/org/springframework/spring-jdbc/1.2.9/spring-jdbc-1.2.9.jar:/root/.m2/repository/net/java/dev/jna/jna/4.1.0/jna-4.1.0.jar:/root/.m2/repository/commons-collections/commons-collections/3.2.1/commons-collections-3.2.1.jar:/root/.m2/repository/org/springframework/spring-context-support/2.5.6.SEC03/spring-context-support-2.5.6.SEC03.jar:/root/.m2/repository/commons-fileupload/commons-fileupload/1.3.1-jenkins-1/commons-fileupload-1.3.1-jenkins-1.jar:/root/.m2/repository/com/infradna/tool/bridge-method-annotation/1.13/bridge-method-annotation-1.13.jar:/root/.m2/repository/com/github/jnr/jffi/1.2.7/jffi-1.2.7.jar:/root/.m2/repository/commons-codec/commons-codec/1.8/commons-codec-1.8.jar:/root/.m2/repository/org/mockito/mockito-core/1.9.5/mockito-core-1.9.5.jar:/root/.m2/repository/org/springframework/spring-beans/2.5.6.SEC03/spring-beans-2.5.6.SEC03.jar:/root/.m2/repository/commons-digester/commons-digester/2.1/commons-digester-2.1.jar:/root/.m2/repository/org/jenkins-ci/plugins/icon-shim/icon-set/1.0.5/icon-set-1.0.5.jar:/root/.m2/repository/org/jenkins-ci/trilead-ssh2/build217-jenkins-8/trilead-ssh2-build217-jenkins-8.jar:/root/.m2/repository/org/springframework/spring-aop/2.5.6.SEC03/spring-aop-2.5.6.SEC03.jar:/root/.m2/repository/commons-logging/commons-logging/1.1.3/commons-logging-1.1.3.jar:/root/.m2/repository/org/jenkins-ci/memory-monitor/1.9/memory-monitor-1.9.jar:/root/.m2/repository/org/jenkins-ci/version-number/1.1/version-number-1.1.jar:/root/.m2/repository/com/github/jnr/jnr-ffi/1.0.7/jnr-ffi-1.0.7.jar:/root/.m2/repository/org/powermock/powermock-api-mockito/1.5.6/powermock-api-mockito-1.5.6.jar:/root/.m2/repository/javax/inject/javax.inject/1/javax.inject-1.jar:/root/.m2/repository/commons-jelly/commons-jelly-tags-fmt/1.0/commons-jelly-tags-fmt-1.0.jar:/root/.m2/repository/org/powermock/powermock-module-junit4/1.5.6/powermock-module-junit4-1.5.6.jar:/root/.m2/repository/com/github/jnr/jffi/1.2.7/jffi-1.2.7-native.jar:/root/.m2/repository/javax/servlet/jstl/1.1.0/jstl-1.1.0.jar:/root/.m2/repository/com/google/code/findbugs/annotations/3.0.0/annotations-3.0.0.jar:/root/.m2/repository/org/kohsuke/trilead-putty-extension/1.2/trilead-putty-extension-1.2.jar:/root/.m2/repository/jaxen/jaxen/1.1-beta-11/jaxen-1.1-beta-11.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/jvnet/winp/winp/1.22/winp-1.22.jar:/root/.m2/repository/org/jenkins-ci/commons-jelly/1.1-jenkins-20120928/commons-jelly-1.1-jenkins-20120928.jar:/root/.m2/repository/org/kohsuke/stapler/stapler-adjunct-zeroclipboard/1.3.5-1/stapler-adjunct-zeroclipboard-1.3.5-1.jar:/root/.m2/repository/org/jenkins-ci/main/cli/1.625.4-SNAPSHOT/cli-1.625.4-SNAPSHOT.jar:/root/.m2/repository/jfree/jcommon/1.0.12/jcommon-1.0.12.jar:/root/.m2/repository/org/springframework/spring-webmvc/2.5.6.SEC03/spring-webmvc-2.5.6.SEC03.jar:/root/.m2/repository/org/jenkins-ci/main/remoting/2.53.5/remoting-2.53.5.jar:/root/.m2/repository/org/jvnet/hudson/activation/1.1.1-hudson-1/activation-1.1.1-hudson-1.jar:/root/.m2/repository/com/github/jnr/jnr-posix/3.0.1/jnr-posix-3.0.1.jar:/root/.m2/repository/org/jenkins-ci/annotation-indexer/1.7/annotation-indexer-1.7.jar:/root/.m2/repository/commons-jelly/commons-jelly-tags-xml/1.1/commons-jelly-tags-xml-1.1.jar:/root/.m2/repository/commons-lang/commons-lang/2.6/commons-lang-2.6.jar:/root/.m2/repository/org/apache/ant/ant-launcher/1.8.4/ant-launcher-1.8.4.jar:/root/.m2/repository/org/jenkins-ci/task-reactor/1.4/task-reactor-1.4.jar:/root/.m2/repository/com/sun/solaris/embedded_su4j/1.1/embedded_su4j-1.1.jar:/root/.m2/repository/org/kohsuke/windows-package-checker/1.0/windows-package-checker-1.0.jar:/root/.m2/repository/org/ow2/asm/asm-util/4.0/asm-util-4.0.jar:/root/.m2/repository/org/kohsuke/stapler/stapler/1.237/stapler-1.237.jar:/root/.m2/repository/org/jvnet/robust-http-client/robust-http-client/1.2/robust-http-client-1.2.jar:/root/.m2/repository/junit/junit/4.11/junit-4.11.jar:/root/.m2/repository/org/acegisecurity/acegi-security/1.0.7/acegi-security-1.0.7.jar:/root/.m2/repository/org/kohsuke/asm5/5.0.1/asm5-5.0.1.jar:/root/.m2/repository/org/springframework/spring-dao/1.2.9/spring-dao-1.2.9.jar:/root/.m2/repository/org/samba/jcifs/jcifs/1.3.17-kohsuke-1/jcifs-1.3.17-kohsuke-1.jar:/root/.m2/repository/com/google/guava/guava/11.0.1/guava-11.0.1.jar:/root/.m2/repository/org/springframework/spring-context/2.5.6.SEC03/spring-context-2.5.6.SEC03.jar:/root/.m2/repository/org/kohsuke/libpam4j/1.8/libpam4j-1.8.jar:/root/.m2/repository/org/codehaus/mojo/animal-sniffer-annotations/1.9/animal-sniffer-annotations-1.9.jar";
+echo "\n\nNode: `hostname`\n";
+echo "\n\nDate: `date`\n";
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en
+13:55:29,470 |-INFO in ch.qos.logback.classic.LoggerContext[TBar] - Could NOT find resource [logback-test.xml]
+13:55:29,470 |-INFO in ch.qos.logback.classic.LoggerContext[TBar] - Could NOT find resource [logback.groovy]
+13:55:29,470 |-INFO in ch.qos.logback.classic.LoggerContext[TBar] - Found resource [logback.xml] at [jar:file:/repair_tools/tbar.jar!/logback.xml]
+13:55:29,489 |-INFO in ch.qos.logback.core.joran.spi.ConfigurationWatchList@31e956bd - URL [jar:file:/repair_tools/tbar.jar!/logback.xml] is not of type file
+13:55:29,529 |-INFO in ch.qos.logback.classic.joran.action.ConfigurationAction - debug attribute not set
+13:55:29,531 |-INFO in ch.qos.logback.classic.joran.action.ContextNameAction - Setting logger context name as [TBar]
+13:55:29,532 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - About to instantiate appender of type [ch.qos.logback.core.ConsoleAppender]
+13:55:29,534 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - Naming appender as [STDOUT]
+13:55:29,574 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting level of logger [org.hibernate.engine.query.HQLQueryPlan] to DEBUG
+13:55:29,574 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting additivity of logger [org.hibernate.engine.query.HQLQueryPlan] to false
+13:55:29,574 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting level of logger [com.piedra.logback] to DEBUG
+13:55:29,575 |-ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - Could not find an appender named [FILE]. Did you define it below instead of above in the configuration file?
+13:55:29,575 |-ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - See http://logback.qos.ch/codes.html#appender_order for more details.
+13:55:29,575 |-INFO in ch.qos.logback.classic.joran.action.RootLoggerAction - Setting level of ROOT logger to DEBUG
+13:55:29,575 |-INFO in ch.qos.logback.core.joran.action.AppenderRefAction - Attaching appender named [STDOUT] to Logger[ROOT]
+13:55:29,575 |-ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - Could not find an appender named [ROLLINGFILE]. Did you define it below instead of above in the configuration file?
+13:55:29,575 |-ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - See http://logback.qos.ch/codes.html#appender_order for more details.
+13:55:29,575 |-INFO in ch.qos.logback.classic.joran.action.ConfigurationAction - End of configuration.
+13:55:29,577 |-INFO in ch.qos.logback.classic.joran.JoranConfigurator@4e3dabe4 - Registering current configuration as safe fallback point
+
+2022-09-14 13:55:30.485 [main] INFO  edu.lu.uni.serval.tbar.AbstractFixer - TBar_vul4j_jenkinsci_jenkins_VUL4J-54 Failed Tests: 1
+2022-09-14 13:55:30.488 [main] INFO  edu.lu.uni.serval.tbar.TBarFixer - =======StaticBugFixer: Start to fix suspicious code======
+2022-09-14 13:55:30.488 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - hudson.util.XStream2 ===146
+2022-09-14 13:55:31.099 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+addImmutableType(Result.class);
+2022-09-14 13:55:34.638 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -143,9 +143,11 @@ public class XStream2 extends XStream {
+-        addImmutableType(Result.class);
++
++	addImmutableType(Result.class);
++
+2022-09-14 13:55:34.638 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 13:55:36.491 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+java.lang.InterruptedException: VM has crashed while running tests
+	at edu.lu.uni.serval.tbar.AbstractFixer.testGeneratedPatches(AbstractFixer.java:279)
+	at edu.lu.uni.serval.tbar.TBarFixer.generateAndValidatePatches(TBarFixer.java:290)
+	at edu.lu.uni.serval.tbar.TBarFixer.fixWithMatchedFixTemplates(TBarFixer.java:252)
+	at edu.lu.uni.serval.tbar.TBarFixer.fixProcess(TBarFixer.java:99)
+	at edu.lu.uni.serval.tbar.main.Main.main(Main.java:69)
+2022-09-14 13:56:14.847 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of faile passing previously failed test cases! 
+2022-09-14 13:56:14.877 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -143,10 +143,12 @@ public class XStream2 extends XStream {
+-        addImmutableType(Result.class);
++
++	addImmutableType(Result.class);
++
+2022-09-14 13:56:14.877 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 13:56:16.724 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+java.lang.InterruptedException: VM has crashed while running tests
+	at edu.lu.uni.serval.tbar.AbstractFixer.testGeneratedPatches(AbstractFixer.java:279)
+	at edu.lu.uni.serval.tbar.TBarFixer.generateAndValidatePatches(TBarFixer.java:290)
+	at edu.lu.uni.serval.tbar.TBarFixer.fixWithMatchedFixTemplates(TBarFixer.java:252)
+	at edu.lu.uni.serval.tbar.TBarFixer.fixProcess(TBarFixer.java:99)
+	at edu.lu.uni.serval.tbar.main.Main.main(Main.java:69)
+2022-09-14 13:56:55.434 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of faile passing previously failed test cases! 
+2022-09-14 13:56:55.466 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -143,11 +143,13 @@ public class XStream2 extends XStream {
+-        addImmutableType(Result.class);
++
++	addImmutableType(Result.class);
++
+2022-09-14 13:56:55.466 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 13:56:57.303 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+java.lang.InterruptedException: VM has crashed while running tests
+	at edu.lu.uni.serval.tbar.AbstractFixer.testGeneratedPatches(AbstractFixer.java:279)
+	at edu.lu.uni.serval.tbar.TBarFixer.generateAndValidatePatches(TBarFixer.java:290)
+	at edu.lu.uni.serval.tbar.TBarFixer.fixWithMatchedFixTemplates(TBarFixer.java:252)
+	at edu.lu.uni.serval.tbar.TBarFixer.fixProcess(TBarFixer.java:99)
+	at edu.lu.uni.serval.tbar.main.Main.main(Main.java:69)
+2022-09-14 13:57:37.506 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of faile passing previously failed test cases! 
+2022-09-14 13:57:37.534 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -143,12 +143,14 @@ public class XStream2 extends XStream {
+-        addImmutableType(Result.class);
++
++	addImmutableType(Result.class);
++
+2022-09-14 13:57:37.534 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 13:57:39.348 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+java.lang.InterruptedException: VM has crashed while running tests
+	at edu.lu.uni.serval.tbar.AbstractFixer.testGeneratedPatches(AbstractFixer.java:279)
+	at edu.lu.uni.serval.tbar.TBarFixer.generateAndValidatePatches(TBarFixer.java:290)
+	at edu.lu.uni.serval.tbar.TBarFixer.fixWithMatchedFixTemplates(TBarFixer.java:252)
+	at edu.lu.uni.serval.tbar.TBarFixer.fixProcess(TBarFixer.java:99)
+	at edu.lu.uni.serval.tbar.main.Main.main(Main.java:69)
+2022-09-14 13:58:19.202 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of faile passing previously failed test cases! 
+2022-09-14 13:58:19.231 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -143,13 +143,15 @@ public class XStream2 extends XStream {
+-        addImmutableType(Result.class);
++
++	addImmutableType(Result.class);
++
+2022-09-14 13:58:19.231 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 13:58:20.965 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+java.lang.InterruptedException: VM has crashed while running tests
+	at edu.lu.uni.serval.tbar.AbstractFixer.testGeneratedPatches(AbstractFixer.java:279)
+	at edu.lu.uni.serval.tbar.TBarFixer.generateAndValidatePatches(TBarFixer.java:290)
+	at edu.lu.uni.serval.tbar.TBarFixer.fixWithMatchedFixTemplates(TBarFixer.java:252)
+	at edu.lu.uni.serval.tbar.TBarFixer.fixProcess(TBarFixer.java:99)
+	at edu.lu.uni.serval.tbar.main.Main.main(Main.java:69)
+2022-09-14 13:58:59.303 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of faile passing previously failed test cases! 
+2022-09-14 13:58:59.333 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -143,7 +143,7 @@ public class XStream2 extends XStream {
+-        addImmutableType(Result.class);
++
+@@ -151,6 +151,8 @@ public class XStream2 extends XStream {
++	addImmutableType(Result.class);
++
+2022-09-14 13:58:59.333 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 13:59:01.066 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+java.lang.InterruptedException: VM has crashed while running tests
+	at edu.lu.uni.serval.tbar.AbstractFixer.testGeneratedPatches(AbstractFixer.java:279)
+	at edu.lu.uni.serval.tbar.TBarFixer.generateAndValidatePatches(TBarFixer.java:290)
+	at edu.lu.uni.serval.tbar.TBarFixer.fixWithMatchedFixTemplates(TBarFixer.java:252)
+	at edu.lu.uni.serval.tbar.TBarFixer.fixProcess(TBarFixer.java:99)
+	at edu.lu.uni.serval.tbar.main.Main.main(Main.java:69)
+2022-09-14 13:59:41.829 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of faile passing previously failed test cases! 
+2022-09-14 13:59:41.862 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -143,7 +143,7 @@ public class XStream2 extends XStream {
+-        addImmutableType(Result.class);
++
+@@ -152,6 +152,8 @@ public class XStream2 extends XStream {
++	addImmutableType(Result.class);
++
+2022-09-14 13:59:41.862 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 13:59:43.766 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+java.lang.InterruptedException: VM has crashed while running tests
+	at edu.lu.uni.serval.tbar.AbstractFixer.testGeneratedPatches(AbstractFixer.java:279)
+	at edu.lu.uni.serval.tbar.TBarFixer.generateAndValidatePatches(TBarFixer.java:290)
+	at edu.lu.uni.serval.tbar.TBarFixer.fixWithMatchedFixTemplates(TBarFixer.java:252)
+	at edu.lu.uni.serval.tbar.TBarFixer.fixProcess(TBarFixer.java:99)
+	at edu.lu.uni.serval.tbar.main.Main.main(Main.java:69)
+2022-09-14 14:00:25.275 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of faile passing previously failed test cases! 
+2022-09-14 14:00:25.310 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -143,7 +143,7 @@ public class XStream2 extends XStream {
+-        addImmutableType(Result.class);
++
+@@ -152,7 +152,9 @@ public class XStream2 extends XStream {
+-        registerConverter(new CopyOnWriteMap.Tree.ConverterImpl(getMapper()),10); // needs to override MapConverter
++        registerConverter(new CopyOnWriteMap.Tree.ConverterImpl(getMapper()),10);
++	addImmutableType(Result.class);
++ // needs to override MapConverter
+2022-09-14 14:00:25.310 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 14:00:27.307 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+java.lang.InterruptedException: VM has crashed while running tests
+	at edu.lu.uni.serval.tbar.AbstractFixer.testGeneratedPatches(AbstractFixer.java:279)
+	at edu.lu.uni.serval.tbar.TBarFixer.generateAndValidatePatches(TBarFixer.java:290)
+	at edu.lu.uni.serval.tbar.TBarFixer.fixWithMatchedFixTemplates(TBarFixer.java:252)
+	at edu.lu.uni.serval.tbar.TBarFixer.fixProcess(TBarFixer.java:99)
+	at edu.lu.uni.serval.tbar.main.Main.main(Main.java:69)
+2022-09-14 14:01:07.816 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of faile passing previously failed test cases! 
+2022-09-14 14:01:07.845 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -143,7 +143,7 @@ public class XStream2 extends XStream {
+-        addImmutableType(Result.class);
++
+@@ -153,7 +153,9 @@ public class XStream2 extends XStream {
+-        registerConverter(new DescribableList.ConverterImpl(getMapper()),10); // explicitly added to handle subtypes
++        registerConverter(new DescribableList.ConverterImpl(getMapper()),10);
++	addImmutableType(Result.class);
++ // explicitly added to handle subtypes
+2022-09-14 14:01:07.845 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 14:01:09.822 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+java.lang.InterruptedException: VM has crashed while running tests
+	at edu.lu.uni.serval.tbar.AbstractFixer.testGeneratedPatches(AbstractFixer.java:279)
+	at edu.lu.uni.serval.tbar.TBarFixer.generateAndValidatePatches(TBarFixer.java:290)
+	at edu.lu.uni.serval.tbar.TBarFixer.fixWithMatchedFixTemplates(TBarFixer.java:252)
+	at edu.lu.uni.serval.tbar.TBarFixer.fixProcess(TBarFixer.java:99)
+	at edu.lu.uni.serval.tbar.main.Main.main(Main.java:69)
+2022-09-14 14:01:48.817 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of faile passing previously failed test cases! 
+2022-09-14 14:01:48.862 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -143,7 +143,7 @@ public class XStream2 extends XStream {
+-        addImmutableType(Result.class);
++
+@@ -155,6 +155,8 @@ public class XStream2 extends XStream {
++	addImmutableType(Result.class);
++
+2022-09-14 14:01:48.863 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 14:01:50.717 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+java.lang.InterruptedException: VM has crashed while running tests
+	at edu.lu.uni.serval.tbar.AbstractFixer.testGeneratedPatches(AbstractFixer.java:279)
+	at edu.lu.uni.serval.tbar.TBarFixer.generateAndValidatePatches(TBarFixer.java:290)
+	at edu.lu.uni.serval.tbar.TBarFixer.fixWithMatchedFixTemplates(TBarFixer.java:252)
+	at edu.lu.uni.serval.tbar.TBarFixer.fixProcess(TBarFixer.java:99)
+	at edu.lu.uni.serval.tbar.main.Main.main(Main.java:69)
+2022-09-14 14:02:29.762 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of faile passing previously failed test cases! 
+2022-09-14 14:02:29.798 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -143,7 +143,7 @@ public class XStream2 extends XStream {
+-        addImmutableType(Result.class);
++
+@@ -159,6 +159,8 @@ public class XStream2 extends XStream {
++	addImmutableType(Result.class);
++
+2022-09-14 14:02:29.798 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 14:02:31.686 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+java.lang.InterruptedException: VM has crashed while running tests
+	at edu.lu.uni.serval.tbar.AbstractFixer.testGeneratedPatches(AbstractFixer.java:279)
+	at edu.lu.uni.serval.tbar.TBarFixer.generateAndValidatePatches(TBarFixer.java:290)
+	at edu.lu.uni.serval.tbar.TBarFixer.fixWithMatchedFixTemplates(TBarFixer.java:252)
+	at edu.lu.uni.serval.tbar.TBarFixer.fixProcess(TBarFixer.java:99)
+	at edu.lu.uni.serval.tbar.main.Main.main(Main.java:69)
+2022-09-14 14:03:11.918 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of faile passing previously failed test cases! 
+2022-09-14 14:03:11.948 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -143,7 +143,7 @@ public class XStream2 extends XStream {
+-        addImmutableType(Result.class);
++
+@@ -160,7 +160,9 @@ public class XStream2 extends XStream {
+-        registerConverter(new BlacklistedTypesConverter(), PRIORITY_VERY_HIGH); // SECURITY-247 defense
++        registerConverter(new BlacklistedTypesConverter(), PRIORITY_VERY_HIGH);
++	addImmutableType(Result.class);
++ // SECURITY-247 defense
+2022-09-14 14:03:11.948 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 14:03:13.752 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+java.lang.InterruptedException: VM has crashed while running tests
+	at edu.lu.uni.serval.tbar.AbstractFixer.testGeneratedPatches(AbstractFixer.java:279)
+	at edu.lu.uni.serval.tbar.TBarFixer.generateAndValidatePatches(TBarFixer.java:290)
+	at edu.lu.uni.serval.tbar.TBarFixer.fixWithMatchedFixTemplates(TBarFixer.java:252)
+	at edu.lu.uni.serval.tbar.TBarFixer.fixProcess(TBarFixer.java:99)
+	at edu.lu.uni.serval.tbar.main.Main.main(Main.java:69)
+2022-09-14 14:03:53.531 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of faile passing previously failed test cases! 
+2022-09-14 14:03:53.565 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -143,7 +143,7 @@ public class XStream2 extends XStream {
+-        addImmutableType(Result.class);
++
+@@ -170,6 +170,8 @@ public class XStream2 extends XStream {
++	addImmutableType(Result.class);
++
+2022-09-14 14:03:53.565 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 14:03:55.438 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+java.lang.InterruptedException: VM has crashed while running tests
+	at edu.lu.uni.serval.tbar.AbstractFixer.testGeneratedPatches(AbstractFixer.java:279)
+	at edu.lu.uni.serval.tbar.TBarFixer.generateAndValidatePatches(TBarFixer.java:290)
+	at edu.lu.uni.serval.tbar.TBarFixer.fixWithMatchedFixTemplates(TBarFixer.java:252)
+	at edu.lu.uni.serval.tbar.TBarFixer.fixProcess(TBarFixer.java:99)
+	at edu.lu.uni.serval.tbar.main.Main.main(Main.java:69)
+2022-09-14 14:04:35.764 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of faile passing previously failed test cases! 
+2022-09-14 14:04:35.844 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -143,7 +143,7 @@ public class XStream2 extends XStream {
+-        addImmutableType(Result.class);
++
+2022-09-14 14:04:35.845 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 14:04:37.702 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+java.lang.InterruptedException: VM has crashed while running tests
+	at edu.lu.uni.serval.tbar.AbstractFixer.testGeneratedPatches(AbstractFixer.java:279)
+	at edu.lu.uni.serval.tbar.TBarFixer.generateAndValidatePatches(TBarFixer.java:290)
+	at edu.lu.uni.serval.tbar.TBarFixer.fixWithMatchedFixTemplates(TBarFixer.java:257)
+	at edu.lu.uni.serval.tbar.TBarFixer.fixProcess(TBarFixer.java:99)
+	at edu.lu.uni.serval.tbar.main.Main.main(Main.java:69)
+2022-09-14 14:05:18.044 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of faile passing previously failed test cases! 
+2022-09-14 14:05:18.073 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -141,36 +141,7 @@ public class XStream2 extends XStream {
+-    private void init() {
+-        // list up types that should be marshalled out like a value, without referential integrity tracking.
+-        addImmutableType(Result.class);
+-
+-        registerConverter(new RobustCollectionConverter(getMapper(),getReflectionProvider()),10);
+-        registerConverter(new RobustMapConverter(getMapper()), 10);
+-        registerConverter(new ImmutableMapConverter(getMapper(),getReflectionProvider()),10);
+-        registerConverter(new ImmutableSortedSetConverter(getMapper(),getReflectionProvider()),10);
+-        registerConverter(new ImmutableSetConverter(getMapper(),getReflectionProvider()),10);
+-        registerConverter(new ImmutableListConverter(getMapper(),getReflectionProvider()),10);
+-        registerConverter(new ConcurrentHashMapConverter(getMapper(),getReflectionProvider()),10);
+-        registerConverter(new CopyOnWriteMap.Tree.ConverterImpl(getMapper()),10); // needs to override MapConverter
+-        registerConverter(new DescribableList.ConverterImpl(getMapper()),10); // explicitly added to handle subtypes
+-        registerConverter(new Label.ConverterImpl(),10);
+-
+-        // this should come after all the XStream's default simpler converters,
+-        // but before reflection-based one kicks in.
+-        registerConverter(new AssociatedConverterImpl(this), -10);
+-
+-        registerConverter(new BlacklistedTypesConverter(), PRIORITY_VERY_HIGH); // SECURITY-247 defense
+-
+-        registerConverter(new DynamicProxyConverter(getMapper()) { // SECURITY-105 defense
+-            @Override public boolean canConvert(Class type) {
+-                return /* this precedes NullConverter */ type != null && super.canConvert(type);
+-            }
+-            @Override public Object unmarshal(HierarchicalStreamReader reader, UnmarshallingContext context) {
+-                throw new ConversionException("<dynamic-proxy> not supported");
+-            }
+-        }, PRIORITY_VERY_HIGH);
+-    }
++
+2022-09-14 14:05:18.073 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 14:05:19.889 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 14:05:19.919 [main] INFO  edu.lu.uni.serval.tbar.TBarFixer - =======StaticBugFixer: Finish off fixing======
+Failed to fix bug
+
+
+Node: ee2bf67284b9
+
+
+
+Date: Wed Sep 14 14:05:19 EDT 2022
+

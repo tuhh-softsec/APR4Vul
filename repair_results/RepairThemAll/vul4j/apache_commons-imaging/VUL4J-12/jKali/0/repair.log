@@ -1,0 +1,313 @@
+cd /workdir/jKali_vul4j_apache_commons-imaging_VUL4J-12;
+export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en";
+TZ="America/New_York"; export TZ;
+export PATH="/usr/lib/jvm/java-8-openjdk-amd64/bin:$PATH";
+export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64/bin";
+time java -Xmx4g -Xms1g -XX:MaxPermSize=512m -cp /script/../libs/jtestex7.jar:/script/../repair_tools/astor.jar fr.inria.main.evolution.AstorMain \
+	-mode jkali \
+	-location . \
+	-id apache_commons-imaging-VUL4J-12 \
+	-failing org.apache.commons.imaging.formats.jpeg.decoder.JpegDecoderTest#testDecodeBadFile \
+	-jvm4testexecution /usr/lib/jvm/jdk1.7.0_80/bin \
+	-jvm4evosuitetestexecution /usr/lib/jvm/jdk1.7.0_80/bin \
+	-maxgen 1000000 \
+	-maxtime 120 \
+	-stopfirst true \
+	-seed 0 \
+	-scope local \
+	-population 1 \
+	-javacompliancelevel 7 \
+	-faultlocalization perfect \
+    -perfectdata /script/../data/benchmarks/vul4j/perfectfl/VUL4J-12 \
+    -validation externalcmd \
+    -testfailingcmd "mvn test -Dtest=org.apache.commons.imaging.formats.jpeg.decoder.JpegDecoderTest#testDecodeBadFile -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B" \
+    -testallcmd "mvn test -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B"  \ \
+	-srcjavafolder src/main/java \
+	-srctestfolder src/test/java \
+	-binjavafolder target/classes \
+	-bintestfolder target/test-classes \
+	-parameters x:x \
+	-dependencies /root/.m2/repository/commons-io/commons-io/2.6/commons-io-2.6.jar:/root/.m2/repository/junit/junit/4.12/junit-4.12.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar;
+	echo "\n\nNode: `hostname`\n";
+	echo "\n\nDate: `date`\n";
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en
+OpenJDK 64-Bit Server VM warning: ignoring option MaxPermSize=512m; support was removed in 8.0
+[0] INFO ProjectConfiguration - Version of the JVM used: 1.7.0_80
+[0] INFO main - Java version of the JDK used to run tests: 1.7.0_80
+[0] INFO main - The compliance of the JVM is:  7
+[6] INFO main - command line arguments: [-mode  jkali  -location  .  -id  apache_commons-imaging-VUL4J-12  -failing  org.apache.commons.imaging.formats.jpeg.decoder.JpegDecoderTest#testDecodeBadFile  -jvm4testexecution  /usr/lib/jvm/jdk1.7.0_80/bin  -jvm4evosuitetestexecution  /usr/lib/jvm/jdk1.7.0_80/bin  -maxgen  1000000  -maxtime  120  -stopfirst  true  -seed  0  -scope  local  -population  1  -javacompliancelevel  7  -faultlocalization  perfect  -perfectdata  /script/../data/benchmarks/vul4j/perfectfl/VUL4J-12  -validation  externalcmd  -testfailingcmd  mvn test -Dtest=org.apache.commons.imaging.formats.jpeg.decoder.JpegDecoderTest#testDecodeBadFile -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B  -testallcmd  mvn test -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B     -srcjavafolder  src/main/java  -srctestfolder  src/test/java  -binjavafolder  target/classes  -bintestfolder  target/test-classes  -parameters  x:x  -dependencies  /root/.m2/repository/commons-io/commons-io/2.6/commons-io-2.6.jar:/root/.m2/repository/junit/junit/4.12/junit-4.12.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar]
+[8] INFO AstorMain - Running Astor on a JDK at /usr/lib/jvm/java-8-openjdk-amd64/jre
+[39] INFO main - Source folders: [/workdir/jKali_vul4j_apache_commons-imaging_VUL4J-12/./src/main/java]
+[39] INFO main - Source Test folders: [/workdir/jKali_vul4j_apache_commons-imaging_VUL4J-12/./src/test/java]
+[2721] INFO AstorCoreEngine - ---- Creating spoon model
+[2803] INFO MutationSupporter - Creating model,  Code location from working folder: /workdir/jKali_vul4j_apache_commons-imaging_VUL4J-12/./src/main/java
+[2803] INFO MutationSupporter - building model: /workdir/jKali_vul4j_apache_commons-imaging_VUL4J-12/./src/main/java, compliance level: 7
+[3108] INFO MutationSupporter - Classpath (Dependencies) for building SpoonModel: [/root/.m2/repository/commons-io/commons-io/2.6/commons-io-2.6.jar, /root/.m2/repository/junit/junit/4.12/junit-4.12.jar, /root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar]
+[27048] INFO AstorCoreEngine - Number of CtTypes created: 316
+[27583] INFO AstorCoreEngine - Test retrieved from classes: 0
+[27963] INFO AstorCoreEngine - Setting up the max to 3800 milliseconds (3 sec)
+[27964] INFO AstorCoreEngine - ---- Initial suspicious size: 1
+[29045] INFO main - Total suspicious from FL: 1,  1
+[29045] INFO main - Total ModPoint created: 1
+[29046] INFO main - Creating program variant #1, [Variant id: 1, #gens: 1, #ops: 0, parent:-]
+[29046] INFO main - Run previously failing tests...
+[90648] INFO main - Failed tests: 1
+[90650] INFO AstorCoreEngine - The original fitness is : 1.0
+[90650] WARN ConfigurationProperties - ----------------------------
+[90651] INFO ConfigurationProperties - ---Configuration properties
+[90651] INFO ConfigurationProperties - p:lastJUnitVersion= ./examples/libs/junit-4.11.jar
+[90651] INFO ConfigurationProperties - p:alternativecompliancelevel= 8
+[90652] INFO ConfigurationProperties - p:ignoredTestCases= 
+[90652] INFO ConfigurationProperties - p:workingDirectory= /workdir/jKali_vul4j_apache_commons-imaging_VUL4J-12/./output_astor
+[90652] INFO ConfigurationProperties - p:manipulatesuper= false
+[90653] INFO ConfigurationProperties - p:validation= externalcmd
+[90653] INFO ConfigurationProperties - p:jvm4testexecution= /usr/lib/jvm/jdk1.7.0_80/bin
+[90653] INFO ConfigurationProperties - p:operatorspace= suppression
+[90653] INFO ConfigurationProperties - p:diffcontext= 0
+[90653] INFO ConfigurationProperties - p:binjavafolder= target/classes
+[90653] INFO ConfigurationProperties - p:synthesis_depth= 3
+[90653] INFO ConfigurationProperties - p:gzoltartestpackagetoexclude= junit.framework
+[90653] INFO ConfigurationProperties - p:skipfitnessinitialpopulation= false
+[90653] INFO ConfigurationProperties - p:evosuiteresultfolder= evosuite
+[90653] INFO ConfigurationProperties - p:flthreshold= 0.1
+[90653] INFO ConfigurationProperties - p:regressionforfaultlocalization= true
+[90653] INFO ConfigurationProperties - p:collectonlyusedmethod= false
+[90653] INFO ConfigurationProperties - p:preservelinenumbers= true
+[90653] INFO ConfigurationProperties - p:tmax2= 3800
+[90653] INFO ConfigurationProperties - p:tmax1= 10000
+[90653] INFO ConfigurationProperties - p:probagenmutation= false
+[90653] INFO ConfigurationProperties - p:nomodificationconvergence= 100
+[90653] INFO ConfigurationProperties - p:diff_type= relative
+[90653] INFO ConfigurationProperties - p:targetelementprocessor= statements
+[90653] INFO ConfigurationProperties - p:srctestfolder= src/test/java
+[90654] INFO ConfigurationProperties - p:forceExecuteRegression= false
+[90654] INFO ConfigurationProperties - p:clusteringfilename= clustering.csv
+[90654] INFO ConfigurationProperties - p:failing= org.apache.commons.imaging.formats.jpeg.decoder.JpegDecoderTest#testDecodeBadFile
+[90654] INFO ConfigurationProperties - p:logtestexecution= false
+[90654] INFO ConfigurationProperties - p:evo_buggy_class= true
+[90654] INFO ConfigurationProperties - p:numberExecutions= 1
+[90654] INFO ConfigurationProperties - p:maxnumbersolutions= 1000000
+[90654] INFO ConfigurationProperties - p:evo_affected_by_op= true
+[90654] INFO ConfigurationProperties - p:population= 1
+[90654] INFO ConfigurationProperties - p:considerzerovaluesusp= false
+[90654] INFO ConfigurationProperties - p:maxCombinationVariableLimit= false
+[90655] INFO ConfigurationProperties - p:savesolution= true
+[90655] INFO ConfigurationProperties - p:javacompliancelevel= 7
+[90655] INFO ConfigurationProperties - p:x= x
+[90655] INFO ConfigurationProperties - p:uniqueoptogen= false
+[90658] INFO ConfigurationProperties - p:gzoltarpackagetonotinstrument= junit.framework
+[90659] INFO ConfigurationProperties - p:projectIdentifier= apache_commons-imaging-VUL4J-12
+[90659] INFO ConfigurationProperties - p:modificationpointnavigation= weight
+[90659] INFO ConfigurationProperties - p:stopfirst= true
+[90659] INFO ConfigurationProperties - p:multipointmodification= false
+[90659] INFO ConfigurationProperties - p:elementsToMutate= 10
+[90660] INFO ConfigurationProperties - p:jsonoutputname= astor_output
+[90660] INFO ConfigurationProperties - p:evoDSE= false
+[90660] INFO ConfigurationProperties - p:bintestfolder= target/test-classes
+[90660] INFO ConfigurationProperties - p:testbystep= false
+[90660] INFO ConfigurationProperties - p:version-location= ./math-version/
+[90660] INFO ConfigurationProperties - p:reintroduce= PARENTS:ORIGINAL
+[90660] INFO ConfigurationProperties - p:perfectdata= /script/../data/benchmarks/vul4j/perfectfl/VUL4J-12
+[90660] INFO ConfigurationProperties - p:executorjar= ./lib/jtestex7.jar
+[90661] INFO ConfigurationProperties - p:maxGeneration= 1000000
+[90661] INFO ConfigurationProperties - p:max_synthesis_step= 10000
+[90661] INFO ConfigurationProperties - p:projectinfocommand= com.github.tdurieux:project-config-maven-plugin:info
+[90661] INFO ConfigurationProperties - p:maxVarCombination= 1000
+[90661] INFO ConfigurationProperties - p:maxtime= 120
+[90661] INFO ConfigurationProperties - p:evosuitejar= ./lib/evosuite-master-1.0.4-SNAPSHOT.jar
+[90661] INFO ConfigurationProperties - p:jvmversion= 1.7.0_80
+[90661] INFO ConfigurationProperties - p:commandTrunk= 50000
+[90661] INFO ConfigurationProperties - p:faultlocalization= perfect
+[90662] INFO ConfigurationProperties - p:resetmodel= true
+[90662] INFO ConfigurationProperties - p:maxsuspcandidates= 1000
+[90662] INFO ConfigurationProperties - p:mode= jkali
+[90662] INFO ConfigurationProperties - p:learningdir= 
+[90662] INFO ConfigurationProperties - p:jvm4evosuitetestexecution= /usr/lib/jvm/jdk1.7.0_80/bin
+[90663] INFO ConfigurationProperties - p:filterfaultlocalization= true
+[90663] INFO ConfigurationProperties - p:mutationrate= 1 
+[90663] INFO ConfigurationProperties - p:pathToMVNRepository= 
+[90663] INFO ConfigurationProperties - p:resourcesfolder= /src/main/resources:/src/test/resources:
+[90663] INFO ConfigurationProperties - p:timezone= America/Los_Angeles
+[90663] INFO ConfigurationProperties - p:runjava7code= false
+[90663] INFO ConfigurationProperties - p:testfailingcmd= mvn test -Dtest=org.apache.commons.imaging.formats.jpeg.decoder.JpegDecoderTest#testDecodeBadFile -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B
+[90663] INFO ConfigurationProperties - p:evoRunOnBuggyClass= true
+[90663] INFO ConfigurationProperties - p:compiler= fr.inria.astor.core.manipulation.bytecode.compiler.SpoonClassCompiler
+[90663] INFO ConfigurationProperties - p:limitbysuspicious= true
+[90664] INFO ConfigurationProperties - p:logsattemps= true
+[90664] INFO ConfigurationProperties - p:dependenciespath= /root/.m2/repository/commons-io/commons-io/2.6/commons-io-2.6.jar:/root/.m2/repository/junit/junit/4.12/junit-4.12.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar
+[90664] INFO ConfigurationProperties - p:packageToInstrument= 
+[90664] INFO ConfigurationProperties - p:skipfaultlocalization= false
+[90664] INFO ConfigurationProperties - p:scope= local
+[90664] INFO ConfigurationProperties - p:transformingredient= false
+[90664] INFO ConfigurationProperties - p:fitnessfunction= fr.inria.astor.core.solutionsearch.population.TestCaseFitnessFunction
+[90664] INFO ConfigurationProperties - p:maxnumvariablesperingredient= 10
+[90664] INFO ConfigurationProperties - p:parsesourcefromoriginal= true
+[90664] INFO ConfigurationProperties - p:pvariantfoldername= variant-
+[90664] INFO ConfigurationProperties - p:savespoonmodelondisk= false
+[90664] INFO ConfigurationProperties - p:srcjavafolder= src/main/java
+[90664] INFO ConfigurationProperties - p:populationcontroller= fr.inria.astor.core.solutionsearch.population.TestCaseBasedFitnessPopulationController
+[90664] INFO ConfigurationProperties - p:ignoreflakyinfl= false
+[90664] INFO ConfigurationProperties - p:cleantemplates= true
+[90664] INFO ConfigurationProperties - p:applyCrossover= false
+[90664] INFO ConfigurationProperties - p:maxmodificationpoints= 1000
+[90664] INFO ConfigurationProperties - p:duplicateingredientsinspace= false
+[90664] INFO ConfigurationProperties - p:metid= 0
+[90664] INFO ConfigurationProperties - p:continuewhenmodelfail= true
+[90665] INFO ConfigurationProperties - p:saveall= false
+[90665] INFO ConfigurationProperties - p:seed= 0
+[90668] INFO ConfigurationProperties - p:savecompletepatched= true
+[90668] INFO ConfigurationProperties - p:resetoperations= false
+[90668] INFO ConfigurationProperties - p:keepcomments= false
+[90668] INFO ConfigurationProperties - p:processoutputinfile= false
+[90669] INFO ConfigurationProperties - p:location= .
+[90670] INFO ConfigurationProperties - p:probabilistictransformation= true
+[90670] INFO ConfigurationProperties - p:overridemaxtime= true
+[90670] INFO ConfigurationProperties - p:outputjsonresult= true
+[90670] INFO ConfigurationProperties - p:allpoints= false
+[90670] INFO ConfigurationProperties - p:antipattern= false
+[90670] INFO ConfigurationProperties - p:bugId= 280
+[90670] INFO ConfigurationProperties - p:evosuitetimeout= 120
+[90670] INFO ConfigurationProperties - p:maxtimefactor= 10
+[90670] INFO ConfigurationProperties - p:nrPlaceholders= 1
+[90671] INFO ConfigurationProperties - p:testallcmd= mvn test -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B
+[90671] INFO ConfigurationProperties - p:forcesubprocesskilling= false
+[90671] INFO ConfigurationProperties - ----------------------------
+[90674] INFO AstorCoreEngine - mod_point MP=org.apache.commons.imaging.formats.jpeg.decoder.JpegDecoder line: 403, pointed element: CtWhileImpl
+[90681] INFO AstorCoreEngine - -->op: OP_INSTANCE:
+RemoveOp:(spoon.support.reflect.code.CtWhileImpl) `while (v < vt) { 	vt = ((-1) << t) + 1; 	v += vt; }  ` -topatch--> `-` (null) 
+[93712] INFO main - Run previously failing tests...
+[150972] INFO main - Failed tests: 0
+[150973] INFO main - Run whole testsuite...
+[499758] INFO main - Failed tests: 0
+[499760] INFO AstorCoreEngine - -Found Solution, child variant #2
+[500346] INFO AstorCoreEngine - Time Repair Loop (s): 409.675
+[500347] INFO AstorCoreEngine - generationsexecuted: 1
+[500347] WARN AstorCoreEngine - ----SUMMARY_EXECUTION---
+[500347] WARN AstorCoreEngine - End Repair Search: Found solution
+[500347] WARN AstorCoreEngine - Solution stored at: /workdir/jKali_vul4j_apache_commons-imaging_VUL4J-12/./output_astor/AstorMain-apache_commons-imaging-VUL4J-12//src/
+[500347] WARN AstorCoreEngine - Number solutions:1
+[500347] INFO AstorCoreEngine - f (sol): 0.0, [Variant id: 2 (SOL) , #gens: 1, #ops: 1, parent:1]
+[500347] WARN AstorCoreEngine - Number suspicious:1
+[500859] INFO AstorCoreEngine - 
+ --SOLUTIONS DESCRIPTION--
+
+ ----
+ProgramVariant 2
+ 
+time(sec)= 0
+operation: RemoveOp
+location= org.apache.commons.imaging.formats.jpeg.decoder.JpegDecoder
+line= 403
+lineSuspiciousness= 1
+lineSuspiciousness= 0
+original statement= while (v < vt) {
+	vt = ((-1) << t) + 1;
+	v += vt;
+} 
+buggy kind= CtWhileImpl|CtBlockImpl
+fixed statement= 
+generation= 1
+ingredientScope= -
+validation=|true|0|0|[]|
+diffpatch=--- /workdir/jKali_vul4j_apache_commons-imaging_VUL4J-12/src/main/java/org/apache/commons/imaging/formats/jpeg/decoder/JpegDecoderjava
++++ /workdir/jKali_vul4j_apache_commons-imaging_VUL4J-12/src/main/java/org/apache/commons/imaging/formats/jpeg/decoder/JpegDecoderjava
+@@ -285,4 +284,0 @@
+-		while (v < vt) {
+-			vt = ((-1) << t) + 1;
+-			v += vt;
+-		} 
+
+
+diffpatchoriginal=--- /workdir/jKali_vul4j_apache_commons-imaging_VUL4J-12/src/main/java/org/apache/commons/imaging/formats/jpeg/decoder/JpegDecoderjava
++++ /workdir/jKali_vul4j_apache_commons-imaging_VUL4J-12/src/main/java/org/apache/commons/imaging/formats/jpeg/decoder/JpegDecoderjava
+@@ -403,4 +403,4 @@
+-		while (v < vt) {
+-			vt = ((-1) << t) + 1;
+-			v += vt;
+-		} 
++
++
++
++
+
+
+
+[500861] INFO AstorCoreEngine - Generation 1
+Astor Output:
+
+General stats:
+EXECUTION_IDENTIFIER=apache_commons-imaging-VUL4J-12
+TOTAL_TIME=409.675
+NR_GENERATIONS=null
+NR_RIGHT_COMPILATIONS=1
+NR_FAILLING_COMPILATIONS=null
+NR_ERRONEOUS_VARIANCES=null
+NR_FAILING_VALIDATION_PROCESS=null
+OUTPUT_STATUS=STOP_BY_PATCH_FOUND
+
+Patch stats:
+
+Patch 1
+VARIANT_ID=2
+TIME=0
+VALIDATION=|true|0|0|[]|
+GENERATION=1
+FOLDER_SOLUTION_CODE=/workdir/jKali_vul4j_apache_commons-imaging_VUL4J-12/./output_astor/AstorMain-apache_commons-imaging-VUL4J-12//src//variant-2
+--Patch Hunk #1
+OPERATOR=RemoveOp
+
+LOCATION=org.apache.commons.imaging.formats.jpeg.decoder.JpegDecoder
+
+PATH=/workdir/jKali_vul4j_apache_commons-imaging_VUL4J-12/src/main/java/org/apache/commons/imaging/formats/jpeg/decoder/JpegDecoder.java
+
+MODIFIED_FILE_PATH=/workdir/jKali_vul4j_apache_commons-imaging_VUL4J-12/./output_astor/AstorMain-apache_commons-imaging-VUL4J-12//src//variant-2/org/apache/commons/imaging/formats/jpeg/decoder/JpegDecoder.java
+
+LINE=403
+
+SUSPICIOUNESS=1
+
+MP_RANKING=0
+
+ORIGINAL_CODE=while (v < vt) {
+	vt = ((-1) << t) + 1;
+	v += vt;
+} 
+
+BUGGY_CODE_TYPE=CtWhileImpl|CtBlockImpl
+
+PATCH_HUNK_CODE=null
+
+PATCH_HUNK_TYPE=null
+
+INGREDIENT_SCOPE=null
+
+INGREDIENT_PARENT=null
+
+PATCH_DIFF_ORIG=--- /workdir/jKali_vul4j_apache_commons-imaging_VUL4J-12/src/main/java/org/apache/commons/imaging/formats/jpeg/decoder/JpegDecoderjava
++++ /workdir/jKali_vul4j_apache_commons-imaging_VUL4J-12/src/main/java/org/apache/commons/imaging/formats/jpeg/decoder/JpegDecoderjava
+@@ -403,4 +403,4 @@
+-		while (v < vt) {
+-			vt = ((-1) << t) + 1;
+-			v += vt;
+-		} 
++
++
++
++
+
+
+
+[500899] INFO Stats - Storing ing JSON at /workdir/jKali_vul4j_apache_commons-imaging_VUL4J-12/./output_astor/AstorMain-apache_commons-imaging-VUL4J-12//astor_output.json
+[500903] INFO Stats - astor_output:
+{"general":{"NR_RIGHT_COMPILATIONS":1,"NR_ERRONEOUS_VARIANCES":null,"EXECUTION_IDENTIFIER":"apache_commons-imaging-VUL4J-12","OUTPUT_STATUS":"STOP_BY_PATCH_FOUND","NR_FAILLING_COMPILATIONS":null,"NR_GENERATIONS":null,"TOTAL_TIME":409.675,"NR_FAILING_VALIDATION_PROCESS":null},"patches":[{"VARIANT_ID":"2","VALIDATION":"|true|0|0|[]|","patchhunks":[{"LOCATION":"org.apache.commons.imaging.formats.jpeg.decoder.JpegDecoder","PATH":"\\\/workdir\\\/jKali_vul4j_apache_commons-imaging_VUL4J-12\\\/src\\\/main\\\/java\\\/org\\\/apache\\\/commons\\\/imaging\\\/formats\\\/jpeg\\\/decoder\\\/JpegDecoder.java","ORIGINAL_CODE":"while (v < vt) {\\n\\tvt = ((-1) << t) + 1;\\n\\tv += vt;\\n} ","BUGGY_CODE_TYPE":"CtWhileImpl|CtBlockImpl","OPERATOR":"RemoveOp","MODIFIED_FILE_PATH":"\\\/workdir\\\/jKali_vul4j_apache_commons-imaging_VUL4J-12\\\/.\\\/output_astor\\\/AstorMain-apache_commons-imaging-VUL4J-12\\\/\\\/src\\\/\\\/variant-2\\\/org\\\/apache\\\/commons\\\/imaging\\\/formats\\\/jpeg\\\/decoder\\\/JpegDecoder.java","LINE":"403","SUSPICIOUNESS":"1","MP_RANKING":"0"}],"TIME":"0","GENERATION":"1","FOLDER_SOLUTION_CODE":"\\\/workdir\\\/jKali_vul4j_apache_commons-imaging_VUL4J-12\\\/.\\\/output_astor\\\/AstorMain-apache_commons-imaging-VUL4J-12\\\/\\\/src\\\/\\\/variant-2","PATCH_DIFF_ORIG":"--- \\\/workdir\\\/jKali_vul4j_apache_commons-imaging_VUL4J-12\\\/src\\\/main\\\/java\\\/org\\\/apache\\\/commons\\\/imaging\\\/formats\\\/jpeg\\\/decoder\\\/JpegDecoderjava\\n+++ \\\/workdir\\\/jKali_vul4j_apache_commons-imaging_VUL4J-12\\\/src\\\/main\\\/java\\\/org\\\/apache\\\/commons\\\/imaging\\\/formats\\\/jpeg\\\/decoder\\\/JpegDecoderjava\\n@@ -403,4 +403,4 @@\\n-\\t\\twhile (v < vt) {\\n-\\t\\t\\tvt = ((-1) << t) + 1;\\n-\\t\\t\\tv += vt;\\n-\\t\\t} \\n+\\n+\\n+\\n+\\n\\n"}]}
+[500903] INFO AstorMain - Time Total(s): 500.884
+254.70user 86.95system 8:23.75elapsed 67%CPU (0avgtext+0avgdata 603352maxresident)k
+5992inputs+377592outputs (9major+895366minor)pagefaults 0swaps
+
+
+Node: 9670332cfea8
+
+
+
+Date: Thu Sep  8 21:59:23 EDT 2022
+

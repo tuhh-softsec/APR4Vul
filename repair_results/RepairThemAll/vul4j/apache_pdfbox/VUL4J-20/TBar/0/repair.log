@@ -1,0 +1,435 @@
+cd /workdir/TBar_vul4j_apache_pdfbox_VUL4J-20;
+export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en";
+TZ="America/New_York"; export TZ;
+export PATH="/usr/lib/jvm/java-8-openjdk-amd64/bin:$PATH";
+export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64";
+timeout 240m java -Xmx4g -Xms1g -XX:MaxPermSize=512m \
+    -cp /script/../libs/tbar_external/com.gzoltar-0.1.1-jdk7.jar:/script/../repair_tools/tbar.jar edu.lu.uni.serval.tbar.main.Main \
+    "/workdir/TBar_vul4j_apache_pdfbox_VUL4J-20" "org.apache.pdfbox.pdmodel.TestPDDocument#testCVE_2018_11797" "/pdfbox/src/main/java/" "/pdfbox/src/test/java/" "/pdfbox/target/classes/" "/pdfbox/target/test-classes/" "/script/../data/benchmarks/vul4j/perfectfl/VUL4J-20/spectra.txt" "mvn test -pl pdfbox -Dtest=org.apache.pdfbox.pdmodel.TestPDDocument#testCVE_2018_11797 -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B" "mvn test -pl pdfbox -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B" "/root/.m2/repository/com/github/jai-imageio/jai-imageio-jpeg2000/1.3.0/jai-imageio-jpeg2000-1.3.0.jar:/root/.m2/repository/org/bouncycastle/bcmail-jdk15on/1.60/bcmail-jdk15on-1.60.jar:/root/.m2/repository/org/apache/pdfbox/fontbox/3.0.0-SNAPSHOT/fontbox-3.0.0-SNAPSHOT.jar:/root/.m2/repository/com/googlecode/java-diff-utils/diffutils/1.3.0/diffutils-1.3.0.jar:/root/.m2/repository/com/github/jai-imageio/jai-imageio-core/1.4.0/jai-imageio-core-1.4.0.jar:/root/.m2/repository/junit/junit/4.12/junit-4.12.jar:/root/.m2/repository/org/bouncycastle/bcprov-jdk15on/1.60/bcprov-jdk15on-1.60.jar:/root/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/apache/pdfbox/jbig2-imageio/3.0.1/jbig2-imageio-3.0.1.jar:/root/.m2/repository/org/bouncycastle/bcpkix-jdk15on/1.60/bcpkix-jdk15on-1.60.jar";
+echo "\n\nNode: `hostname`\n";
+echo "\n\nDate: `date`\n";
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en
+OpenJDK 64-Bit Server VM warning: ignoring option MaxPermSize=512m; support was removed in 8.0
+06:59:43,711 |-INFO in ch.qos.logback.classic.LoggerContext[TBar] - Could NOT find resource [logback-test.xml]
+06:59:43,711 |-INFO in ch.qos.logback.classic.LoggerContext[TBar] - Could NOT find resource [logback.groovy]
+06:59:43,711 |-INFO in ch.qos.logback.classic.LoggerContext[TBar] - Found resource [logback.xml] at [jar:file:/repair_tools/tbar.jar!/logback.xml]
+06:59:43,721 |-INFO in ch.qos.logback.core.joran.spi.ConfigurationWatchList@5a42bbf4 - URL [jar:file:/repair_tools/tbar.jar!/logback.xml] is not of type file
+06:59:43,769 |-INFO in ch.qos.logback.classic.joran.action.ConfigurationAction - debug attribute not set
+06:59:43,770 |-INFO in ch.qos.logback.classic.joran.action.ContextNameAction - Setting logger context name as [TBar]
+06:59:43,770 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - About to instantiate appender of type [ch.qos.logback.core.ConsoleAppender]
+06:59:43,772 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - Naming appender as [STDOUT]
+06:59:43,808 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting level of logger [org.hibernate.engine.query.HQLQueryPlan] to DEBUG
+06:59:43,808 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting additivity of logger [org.hibernate.engine.query.HQLQueryPlan] to false
+06:59:43,808 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting level of logger [com.piedra.logback] to DEBUG
+06:59:43,808 |-ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - Could not find an appender named [FILE]. Did you define it below instead of above in the configuration file?
+06:59:43,808 |-ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - See http://logback.qos.ch/codes.html#appender_order for more details.
+06:59:43,808 |-INFO in ch.qos.logback.classic.joran.action.RootLoggerAction - Setting level of ROOT logger to DEBUG
+06:59:43,808 |-INFO in ch.qos.logback.core.joran.action.AppenderRefAction - Attaching appender named [STDOUT] to Logger[ROOT]
+06:59:43,809 |-ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - Could not find an appender named [ROLLINGFILE]. Did you define it below instead of above in the configuration file?
+06:59:43,809 |-ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - See http://logback.qos.ch/codes.html#appender_order for more details.
+06:59:43,809 |-INFO in ch.qos.logback.classic.joran.action.ConfigurationAction - End of configuration.
+06:59:43,810 |-INFO in ch.qos.logback.classic.joran.JoranConfigurator@270421f5 - Registering current configuration as safe fallback point
+
+2022-09-14 06:59:44.175 [main] INFO  edu.lu.uni.serval.tbar.AbstractFixer - TBar_vul4j_apache_pdfbox_VUL4J-20 Failed Tests: 1
+2022-09-14 06:59:44.178 [main] INFO  edu.lu.uni.serval.tbar.TBarFixer - =======StaticBugFixer: Start to fix suspicious code======
+2022-09-14 06:59:44.178 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.apache.pdfbox.cos.COSArray ===539
+2022-09-14 06:59:44.703 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+retval[i] = ((COSNumber)getObject( i )).floatValue();
+2022-09-14 06:59:45.891 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -536,7 +536,10 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
++            if ((i < retval.length())) {
++	retval[i] = ((COSNumber)getObject( i )).floatValue();
++}
++
+2022-09-14 06:59:45.891 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:59:46.549 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:59:46.659 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -536,7 +536,7 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
++            clear()[i] = ((COSNumber)getObject( i )).floatValue();
+2022-09-14 06:59:46.659 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:59:47.302 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:59:47.313 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -536,7 +536,7 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
++            size()[i] = ((COSNumber)getObject( i )).floatValue();
+2022-09-14 06:59:47.313 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:59:47.962 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:59:47.974 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -536,7 +536,7 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
++            toString()[i] = ((COSNumber)getObject( i )).floatValue();
+2022-09-14 06:59:47.974 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:59:48.641 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:59:48.653 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -536,7 +536,7 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
++            iterator()[i] = ((COSNumber)getObject( i )).floatValue();
+2022-09-14 06:59:48.653 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:59:49.334 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:59:49.347 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -536,7 +536,7 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
++            isNeedToBeUpdated()[i] = ((COSNumber)getObject( i )).floatValue();
+2022-09-14 06:59:49.347 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:59:49.938 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:59:49.950 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -536,7 +536,7 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
++            toFloatArray()[i] = ((COSNumber)getObject( i )).floatValue();
+2022-09-14 06:59:49.950 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:59:50.615 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 06:59:58.347 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -536,7 +536,7 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
++            toList()[i] = ((COSNumber)getObject( i )).floatValue();
+2022-09-14 06:59:58.347 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:59:58.998 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:59:59.019 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -536,7 +536,7 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
++            retval[clear()] = ((COSNumber)getObject( i )).floatValue();
+2022-09-14 06:59:59.019 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 06:59:59.691 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 06:59:59.701 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -536,7 +536,7 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
++            retval[size()] = ((COSNumber)getObject( i )).floatValue();
+2022-09-14 06:59:59.701 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:00:00.425 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:00:07.836 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -536,7 +536,7 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
++            retval[toString()] = ((COSNumber)getObject( i )).floatValue();
+2022-09-14 07:00:07.836 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:00:08.501 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:00:08.519 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -536,7 +536,7 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
++            retval[iterator()] = ((COSNumber)getObject( i )).floatValue();
+2022-09-14 07:00:08.519 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:00:09.175 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:00:09.185 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -536,7 +536,7 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
++            retval[isNeedToBeUpdated()] = ((COSNumber)getObject( i )).floatValue();
+2022-09-14 07:00:09.186 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:00:09.946 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:00:09.959 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -536,7 +536,7 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
++            retval[toFloatArray()] = ((COSNumber)getObject( i )).floatValue();
+2022-09-14 07:00:09.959 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:00:10.644 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:00:10.665 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -536,7 +536,7 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
++            retval[toList()] = ((COSNumber)getObject( i )).floatValue();
+2022-09-14 07:00:10.665 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:00:11.287 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:00:11.296 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -536,7 +536,7 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
++            retval[i] = ((COSNumber)getObject( clear() )).floatValue();
+2022-09-14 07:00:11.296 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:00:11.940 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:00:11.949 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -536,7 +536,7 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
++            retval[i] = ((COSNumber)getObject( size() )).floatValue();
+2022-09-14 07:00:11.950 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:00:12.598 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:00:19.799 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -536,7 +536,7 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
++            retval[i] = ((COSNumber)getObject( toString() )).floatValue();
+2022-09-14 07:00:19.799 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:00:20.497 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:00:20.508 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -536,7 +536,7 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
++            retval[i] = ((COSNumber)getObject( iterator() )).floatValue();
+2022-09-14 07:00:20.508 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:00:21.152 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:00:21.163 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -536,7 +536,7 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
++            retval[i] = ((COSNumber)getObject( isNeedToBeUpdated() )).floatValue();
+2022-09-14 07:00:21.163 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:00:21.898 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:00:21.911 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -536,7 +536,7 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
++            retval[i] = ((COSNumber)getObject( toFloatArray() )).floatValue();
+2022-09-14 07:00:21.911 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:00:22.613 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:00:22.624 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -536,7 +536,7 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
++            retval[i] = ((COSNumber)getObject( toList() )).floatValue();
+2022-09-14 07:00:22.624 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:00:23.247 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:00:23.288 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -536,7 +536,10 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
++            if (retval != null) {
++	retval[i] = ((COSNumber)getObject( i )).floatValue();
++	}
++
+2022-09-14 07:00:23.288 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:00:24.062 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:00:31.372 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -536,7 +536,10 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
++            if (retval == null) {
++	    throw new IllegalArgumentException("Null 'retval' argument.");
++	}
++retval[i] = ((COSNumber)getObject( i )).floatValue();
+2022-09-14 07:00:31.372 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:00:32.041 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:00:39.431 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -536,7 +536,10 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
++            if (retval == null) {
++	    return null;
++	}
++retval[i] = ((COSNumber)getObject( i )).floatValue();
+2022-09-14 07:00:39.431 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:00:40.114 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:00:46.989 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -536,7 +536,8 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
++            if (retval == null) retval = new float[]();
++ retval[i] = ((COSNumber)getObject( i )).floatValue();
+2022-09-14 07:00:46.989 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:00:47.320 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:00:47.330 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -536,7 +536,8 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
++            if (retval == null) return new float[]();
++	 retval[i] = ((COSNumber)getObject( i )).floatValue();
+2022-09-14 07:00:47.331 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:00:47.691 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:00:47.701 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -536,7 +536,8 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
++            if (retval == null) continue;
++	retval[i] = ((COSNumber)getObject( i )).floatValue();
+2022-09-14 07:00:47.701 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:00:48.442 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:00:55.585 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -536,7 +536,7 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
++            retval[i] = ((COSNumber)add( i )).floatValue();
+2022-09-14 07:00:55.585 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:00:56.190 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:00:56.199 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -536,7 +536,7 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
++            retval[i] = ((COSNumber)removeAll( i )).floatValue();
+2022-09-14 07:00:56.199 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:00:56.845 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:00:56.855 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -536,7 +536,7 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
++            retval[i] = ((COSNumber)retainAll( i )).floatValue();
+2022-09-14 07:00:56.855 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:00:57.428 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:00:57.438 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -536,7 +536,7 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
++            retval[i] = ((COSNumber)addAll( i )).floatValue();
+2022-09-14 07:00:57.438 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:00:58.098 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:00:58.108 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -536,7 +536,7 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
++            retval[i] = ((COSNumber)growToSize( i )).floatValue();
+2022-09-14 07:00:58.108 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:00:58.789 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:00:58.800 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -536,7 +536,7 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
++            retval[i] = ((COSNumber)setNeedToBeUpdated( i )).floatValue();
+2022-09-14 07:00:58.801 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:00:59.496 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:00:59.506 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -536,7 +536,7 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
++            retval[i] = ((COSNumber)setFloatArray( i )).floatValue();
+2022-09-14 07:00:59.506 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:01:00.179 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:01:00.191 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -536,7 +536,7 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
++            retval[i] = ((COSNumber)remove( i )).floatValue();
+2022-09-14 07:01:00.191 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:01:00.819 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:01:07.848 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -536,7 +536,7 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
++            retval[i] = ((COSNumber)removeObject( i )).floatValue();
+2022-09-14 07:01:07.848 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:01:08.511 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:01:08.521 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -536,7 +536,7 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
++            retval[i] = ((COSNumber)get( i )).floatValue();
+2022-09-14 07:01:08.521 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:01:09.197 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:01:16.476 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -536,7 +536,7 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
++            retval[i] = ((COSNumber)accept( i )).floatValue();
+2022-09-14 07:01:16.477 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:01:17.114 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:01:17.123 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -536,7 +536,7 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
++            retval[i] = ((COSNumber)getName( i )).floatValue();
+2022-09-14 07:01:17.123 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:01:17.766 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:01:17.778 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -536,7 +536,7 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
++            retval[i] = ((COSNumber)getString( i )).floatValue();
+2022-09-14 07:01:17.779 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:01:18.423 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:01:18.433 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -536,7 +536,7 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
++            retval[i] = ((COSNumber)getInt( i )).floatValue();
+2022-09-14 07:01:18.433 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:01:19.074 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:01:19.087 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -536,7 +536,7 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
++            retval[i] = ((COSNumber)indexOf( i )).floatValue();
+2022-09-14 07:01:19.088 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:01:19.734 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:01:19.745 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -536,7 +536,7 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
++            retval[i] = ((COSNumber)indexOfObject( i )).floatValue();
+2022-09-14 07:01:19.745 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:01:20.401 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:01:20.412 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -536,7 +536,7 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
++            retval[i] = ((COSNumber)getObject(  )).floatValue();
+2022-09-14 07:01:20.412 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:01:21.044 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:01:21.108 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -536,7 +536,13 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
++            Object _tempVar = getObject( i );
++	if (_temVar instanceof COSNumber) {
++	retval[i] = ((COSNumber)getObject( i )).floatValue();
++	} else {
++	throw new IllegalArgumentException("Illegal argument: getObject( i )");
++}
++
+2022-09-14 07:01:21.109 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:01:21.874 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:01:21.886 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -536,7 +536,13 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
++            Object _tempVar = getObject( i );
++	if (_temVar != null && _temVar instanceof COSNumber) {
++	retval[i] = ((COSNumber)getObject( i )).floatValue();
++	} else {
++	throw new IllegalArgumentException("Illegal argument: getObject( i )");
++}
++
+2022-09-14 07:01:21.886 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:01:22.573 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:01:22.645 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -536,7 +536,7 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
++
+2022-09-14 07:01:22.646 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:01:23.390 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:01:30.713 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test the whole test suite.
+2022-09-14 07:01:56.897 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -526,20 +526,7 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+-    /**
+-     * This will take an COSArray of numbers and convert it to a float[].
+-     *
+-     * @return This COSArray as an array of float numbers.
+-     */
+-    public float[] toFloatArray()
+-    {
+-        float[] retval = new float[size()];
+-        for (int i = 0; i < size(); i++)
+-        {
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
+-        }
+-        return retval;
+-    }
++
+2022-09-14 07:01:56.897 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:01:57.650 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:02:05.061 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -536,7 +536,8 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
++            clear();
++	retval[i] = ((COSNumber)getObject( i )).floatValue();
+2022-09-14 07:02:05.062 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:02:05.837 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:02:13.403 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -537,6 +537,7 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
++	clear();
+2022-09-14 07:02:13.404 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:02:14.063 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:02:21.965 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test the whole test suite.
+2022-09-14 07:02:47.544 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -536,7 +536,7 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
++            growToSize(i);
+2022-09-14 07:02:47.545 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:02:48.256 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:02:55.864 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test the whole test suite.
+2022-09-14 07:03:21.574 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -536,7 +536,8 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
++            growToSize(i);
++	retval[i] = ((COSNumber)getObject( i )).floatValue();
+2022-09-14 07:03:21.574 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:03:22.323 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:03:30.161 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -537,6 +537,7 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
++	growToSize(i);
+2022-09-14 07:03:30.162 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:03:30.843 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:03:38.199 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -536,7 +536,7 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
++            setFloatArray(retval);
+2022-09-14 07:03:38.199 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:03:38.912 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:03:45.978 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test the whole test suite.
+2022-09-14 07:04:11.448 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -536,7 +536,8 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
+-            retval[i] = ((COSNumber)getObject( i )).floatValue();
++            setFloatArray(retval);
++	retval[i] = ((COSNumber)getObject( i )).floatValue();
+2022-09-14 07:04:11.448 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:04:12.154 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:04:19.689 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test the whole test suite.
+2022-09-14 07:04:45.785 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -537,6 +537,7 @@ public class COSArray extends COSBase implements Iterable<COSBase>, COSUpdateInf
++	setFloatArray(retval);
+2022-09-14 07:04:45.785 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:04:46.544 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:04:54.306 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test the whole test suite.
+2022-09-14 07:05:20.258 [main] INFO  edu.lu.uni.serval.tbar.TBarFixer - =======StaticBugFixer: Finish off fixing======
+Failed to fix bug
+
+
+Node: ee2bf67284b9
+
+
+
+Date: Wed Sep 14 07:05:20 EDT 2022
+

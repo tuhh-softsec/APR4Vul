@@ -1,0 +1,1346 @@
+cd /workdir/jGenProg_vul4j_apache_commons-fileupload_VUL4J-11;
+export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en";
+TZ="America/New_York"; export TZ;
+export PATH="/usr/lib/jvm/java-8-openjdk-amd64/bin:$PATH";
+export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64/bin";
+time java -Xmx4g -Xms1g -XX:MaxPermSize=512m -cp /script/../libs/jtestex7.jar:/script/../repair_tools/astor.jar fr.inria.main.evolution.AstorMain \
+	-mode jgenprog \
+	-location . \
+	-id apache_commons-fileupload-VUL4J-11 \
+	-failing org.apache.commons.fileupload.MultipartStreamTest#testSmallBuffer \
+	-jvm4testexecution /usr/lib/jvm/java-8-openjdk-amd64/bin \
+	-jvm4evosuitetestexecution /usr/lib/jvm/java-8-openjdk-amd64/bin \
+	-maxgen 1000000 \
+	-maxtime 120 \
+	-stopfirst true \
+	-seed 0 \
+	-scope local \
+	-population 1 \
+	-javacompliancelevel 8 \
+	-faultlocalization perfect \
+    -perfectdata /script/../data/benchmarks/vul4j/perfectfl/VUL4J-11 \
+    -validation externalcmd \
+    -testfailingcmd "mvn test -Dtest=org.apache.commons.fileupload.MultipartStreamTest#testSmallBuffer -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B" \
+    -testallcmd "mvn test -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B"  \ \
+	-srcjavafolder src/main/java \
+	-srctestfolder src/test/java \
+	-binjavafolder target/classes \
+	-bintestfolder target/test-classes \
+	-parameters x:x \
+	-dependencies /root/.m2/repository/javax/servlet/servlet-api/2.4/servlet-api-2.4.jar:/root/.m2/repository/commons-io/commons-io/2.2/commons-io-2.2.jar:/root/.m2/repository/portlet-api/portlet-api/1.0/portlet-api-1.0.jar:/root/.m2/repository/junit/junit/4.11/junit-4.11.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar;
+	echo "\n\nNode: `hostname`\n";
+	echo "\n\nDate: `date`\n";
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en
+OpenJDK 64-Bit Server VM warning: ignoring option MaxPermSize=512m; support was removed in 8.0
+[0] INFO ProjectConfiguration - Version of the JVM used: 1.8.0_342
+[1] INFO main - Java version of the JDK used to run tests: 1.8.0_342
+[1] INFO main - The compliance of the JVM is:  8
+[9] INFO main - command line arguments: [-mode  jgenprog  -location  .  -id  apache_commons-fileupload-VUL4J-11  -failing  org.apache.commons.fileupload.MultipartStreamTest#testSmallBuffer  -jvm4testexecution  /usr/lib/jvm/java-8-openjdk-amd64/bin  -jvm4evosuitetestexecution  /usr/lib/jvm/java-8-openjdk-amd64/bin  -maxgen  1000000  -maxtime  120  -stopfirst  true  -seed  0  -scope  local  -population  1  -javacompliancelevel  8  -faultlocalization  perfect  -perfectdata  /script/../data/benchmarks/vul4j/perfectfl/VUL4J-11  -validation  externalcmd  -testfailingcmd  mvn test -Dtest=org.apache.commons.fileupload.MultipartStreamTest#testSmallBuffer -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B  -testallcmd  mvn test -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B     -srcjavafolder  src/main/java  -srctestfolder  src/test/java  -binjavafolder  target/classes  -bintestfolder  target/test-classes  -parameters  x:x  -dependencies  /root/.m2/repository/javax/servlet/servlet-api/2.4/servlet-api-2.4.jar:/root/.m2/repository/commons-io/commons-io/2.2/commons-io-2.2.jar:/root/.m2/repository/portlet-api/portlet-api/1.0/portlet-api-1.0.jar:/root/.m2/repository/junit/junit/4.11/junit-4.11.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar]
+[16] INFO AstorMain - Running Astor on a JDK at /usr/lib/jvm/java-8-openjdk-amd64/jre
+[68] INFO main - Source folders: [/workdir/jGenProg_vul4j_apache_commons-fileupload_VUL4J-11/./src/main/java]
+[69] INFO main - Source Test folders: [/workdir/jGenProg_vul4j_apache_commons-fileupload_VUL4J-11/./src/test/java]
+[2510] INFO AstorCoreEngine - ---- Creating spoon model
+[2656] INFO MutationSupporter - Creating model,  Code location from working folder: /workdir/jGenProg_vul4j_apache_commons-fileupload_VUL4J-11/./src/main/java
+[2656] INFO MutationSupporter - building model: /workdir/jGenProg_vul4j_apache_commons-fileupload_VUL4J-11/./src/main/java, compliance level: 8
+[2722] INFO MutationSupporter - Classpath (Dependencies) for building SpoonModel: [/root/.m2/repository/javax/servlet/servlet-api/2.4/servlet-api-2.4.jar, /root/.m2/repository/commons-io/commons-io/2.2/commons-io-2.2.jar, /root/.m2/repository/portlet-api/portlet-api/1.0/portlet-api-1.0.jar, /root/.m2/repository/junit/junit/4.11/junit-4.11.jar, /root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar]
+[8989] INFO AstorCoreEngine - Number of CtTypes created: 33
+[9081] INFO AstorCoreEngine - Test retrieved from classes: 0
+[9176] INFO AstorCoreEngine - Setting up the max to 950 milliseconds (0 sec)
+[9176] INFO AstorCoreEngine - ---- Initial suspicious size: 3
+[9762] INFO main - Total suspicious from FL: 3,  3
+[9762] INFO main - Total ModPoint created: 3
+[9762] INFO main - Creating program variant #1, [Variant id: 1, #gens: 3, #ops: 0, parent:-]
+[9762] INFO main - Run previously failing tests...
+[37870] INFO main - Failed tests: 1
+[37876] INFO AstorCoreEngine - The original fitness is : 1.0
+[403717] WARN ConfigurationProperties - ----------------------------
+[403717] INFO ConfigurationProperties - ---Configuration properties
+[403720] INFO ConfigurationProperties - p:lastJUnitVersion= ./examples/libs/junit-4.11.jar
+[403720] INFO ConfigurationProperties - p:alternativecompliancelevel= 8
+[403723] INFO ConfigurationProperties - p:ignoredTestCases= 
+[403723] INFO ConfigurationProperties - p:workingDirectory= /workdir/jGenProg_vul4j_apache_commons-fileupload_VUL4J-11/./output_astor
+[403723] INFO ConfigurationProperties - p:manipulatesuper= false
+[403723] INFO ConfigurationProperties - p:validation= externalcmd
+[403723] INFO ConfigurationProperties - p:jvm4testexecution= /usr/lib/jvm/java-8-openjdk-amd64/bin
+[403723] INFO ConfigurationProperties - p:operatorspace= irr-statements
+[403723] INFO ConfigurationProperties - p:diffcontext= 0
+[403723] INFO ConfigurationProperties - p:binjavafolder= target/classes
+[403724] INFO ConfigurationProperties - p:synthesis_depth= 3
+[403724] INFO ConfigurationProperties - p:gzoltartestpackagetoexclude= junit.framework
+[403724] INFO ConfigurationProperties - p:skipfitnessinitialpopulation= false
+[403724] INFO ConfigurationProperties - p:evosuiteresultfolder= evosuite
+[403724] INFO ConfigurationProperties - p:flthreshold= 0.1
+[403725] INFO ConfigurationProperties - p:regressionforfaultlocalization= true
+[403725] INFO ConfigurationProperties - p:collectonlyusedmethod= false
+[403725] INFO ConfigurationProperties - p:preservelinenumbers= true
+[403725] INFO ConfigurationProperties - p:tmax2= 950
+[403725] INFO ConfigurationProperties - p:tmax1= 10000
+[403725] INFO ConfigurationProperties - p:probagenmutation= false
+[403725] INFO ConfigurationProperties - p:nomodificationconvergence= 100
+[403725] INFO ConfigurationProperties - p:diff_type= relative
+[403725] INFO ConfigurationProperties - p:targetelementprocessor= statements
+[403725] INFO ConfigurationProperties - p:srctestfolder= src/test/java
+[403725] INFO ConfigurationProperties - p:forceExecuteRegression= false
+[403725] INFO ConfigurationProperties - p:clusteringfilename= clustering.csv
+[403725] INFO ConfigurationProperties - p:failing= org.apache.commons.fileupload.MultipartStreamTest#testSmallBuffer
+[403725] INFO ConfigurationProperties - p:logtestexecution= false
+[403726] INFO ConfigurationProperties - p:evo_buggy_class= true
+[403726] INFO ConfigurationProperties - p:numberExecutions= 1
+[403726] INFO ConfigurationProperties - p:maxnumbersolutions= 1000000
+[403726] INFO ConfigurationProperties - p:evo_affected_by_op= true
+[403726] INFO ConfigurationProperties - p:population= 1
+[403726] INFO ConfigurationProperties - p:considerzerovaluesusp= false
+[403726] INFO ConfigurationProperties - p:maxCombinationVariableLimit= false
+[403726] INFO ConfigurationProperties - p:savesolution= true
+[403726] INFO ConfigurationProperties - p:javacompliancelevel= 8
+[403726] INFO ConfigurationProperties - p:x= x
+[403726] INFO ConfigurationProperties - p:uniqueoptogen= false
+[403726] INFO ConfigurationProperties - p:gzoltarpackagetonotinstrument= junit.framework
+[403727] INFO ConfigurationProperties - p:projectIdentifier= apache_commons-fileupload-VUL4J-11
+[403727] INFO ConfigurationProperties - p:modificationpointnavigation= weight
+[403727] INFO ConfigurationProperties - p:stopfirst= true
+[403727] INFO ConfigurationProperties - p:multipointmodification= false
+[403727] INFO ConfigurationProperties - p:elementsToMutate= 10
+[403727] INFO ConfigurationProperties - p:jsonoutputname= astor_output
+[403730] INFO ConfigurationProperties - p:evoDSE= false
+[403730] INFO ConfigurationProperties - p:bintestfolder= target/test-classes
+[403730] INFO ConfigurationProperties - p:testbystep= false
+[403730] INFO ConfigurationProperties - p:version-location= ./math-version/
+[403730] INFO ConfigurationProperties - p:reintroduce= PARENTS:ORIGINAL
+[403730] INFO ConfigurationProperties - p:perfectdata= /script/../data/benchmarks/vul4j/perfectfl/VUL4J-11
+[403730] INFO ConfigurationProperties - p:executorjar= ./lib/jtestex7.jar
+[403731] INFO ConfigurationProperties - p:maxGeneration= 1000000
+[403731] INFO ConfigurationProperties - p:max_synthesis_step= 10000
+[403731] INFO ConfigurationProperties - p:projectinfocommand= com.github.tdurieux:project-config-maven-plugin:info
+[403731] INFO ConfigurationProperties - p:maxVarCombination= 1000
+[403731] INFO ConfigurationProperties - p:maxtime= 120
+[403731] INFO ConfigurationProperties - p:evosuitejar= ./lib/evosuite-master-1.0.4-SNAPSHOT.jar
+[403731] INFO ConfigurationProperties - p:jvmversion= 1.8.0_342
+[403731] INFO ConfigurationProperties - p:commandTrunk= 50000
+[403731] INFO ConfigurationProperties - p:faultlocalization= perfect
+[403732] INFO ConfigurationProperties - p:resetmodel= true
+[403732] INFO ConfigurationProperties - p:maxsuspcandidates= 1000
+[403732] INFO ConfigurationProperties - p:mode= jgenprog
+[403732] INFO ConfigurationProperties - p:learningdir= 
+[403732] INFO ConfigurationProperties - p:jvm4evosuitetestexecution= /usr/lib/jvm/java-8-openjdk-amd64/bin
+[403732] INFO ConfigurationProperties - p:filterfaultlocalization= true
+[403732] INFO ConfigurationProperties - p:mutationrate= 1 
+[403732] INFO ConfigurationProperties - p:pathToMVNRepository= 
+[403732] INFO ConfigurationProperties - p:resourcesfolder= /src/main/resources:/src/test/resources:
+[403732] INFO ConfigurationProperties - p:timezone= America/Los_Angeles
+[403732] INFO ConfigurationProperties - p:runjava7code= false
+[403732] INFO ConfigurationProperties - p:testfailingcmd= mvn test -Dtest=org.apache.commons.fileupload.MultipartStreamTest#testSmallBuffer -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B
+[403732] INFO ConfigurationProperties - p:evoRunOnBuggyClass= true
+[403732] INFO ConfigurationProperties - p:compiler= fr.inria.astor.core.manipulation.bytecode.compiler.SpoonClassCompiler
+[403732] INFO ConfigurationProperties - p:limitbysuspicious= true
+[403732] INFO ConfigurationProperties - p:logsattemps= true
+[403732] INFO ConfigurationProperties - p:dependenciespath= /root/.m2/repository/javax/servlet/servlet-api/2.4/servlet-api-2.4.jar:/root/.m2/repository/commons-io/commons-io/2.2/commons-io-2.2.jar:/root/.m2/repository/portlet-api/portlet-api/1.0/portlet-api-1.0.jar:/root/.m2/repository/junit/junit/4.11/junit-4.11.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar
+[403732] INFO ConfigurationProperties - p:packageToInstrument= 
+[403732] INFO ConfigurationProperties - p:skipfaultlocalization= false
+[403733] INFO ConfigurationProperties - p:scope= local
+[403733] INFO ConfigurationProperties - p:transformingredient= false
+[403733] INFO ConfigurationProperties - p:fitnessfunction= fr.inria.astor.core.solutionsearch.population.TestCaseFitnessFunction
+[403733] INFO ConfigurationProperties - p:maxnumvariablesperingredient= 10
+[403733] INFO ConfigurationProperties - p:parsesourcefromoriginal= true
+[403733] INFO ConfigurationProperties - p:pvariantfoldername= variant-
+[403733] INFO ConfigurationProperties - p:savespoonmodelondisk= false
+[403734] INFO ConfigurationProperties - p:srcjavafolder= src/main/java
+[403734] INFO ConfigurationProperties - p:populationcontroller= fr.inria.astor.core.solutionsearch.population.TestCaseBasedFitnessPopulationController
+[403734] INFO ConfigurationProperties - p:ignoreflakyinfl= false
+[403734] INFO ConfigurationProperties - p:cleantemplates= true
+[403734] INFO ConfigurationProperties - p:applyCrossover= false
+[403734] INFO ConfigurationProperties - p:maxmodificationpoints= 1000
+[403734] INFO ConfigurationProperties - p:duplicateingredientsinspace= false
+[403734] INFO ConfigurationProperties - p:metid= 0
+[403734] INFO ConfigurationProperties - p:continuewhenmodelfail= true
+[403734] INFO ConfigurationProperties - p:saveall= false
+[403736] INFO ConfigurationProperties - p:seed= 0
+[403736] INFO ConfigurationProperties - p:savecompletepatched= true
+[403736] INFO ConfigurationProperties - p:resetoperations= false
+[403736] INFO ConfigurationProperties - p:keepcomments= false
+[403736] INFO ConfigurationProperties - p:processoutputinfile= false
+[403736] INFO ConfigurationProperties - p:location= .
+[403738] INFO ConfigurationProperties - p:probabilistictransformation= true
+[403738] INFO ConfigurationProperties - p:overridemaxtime= true
+[403738] INFO ConfigurationProperties - p:outputjsonresult= true
+[403738] INFO ConfigurationProperties - p:allpoints= false
+[403738] INFO ConfigurationProperties - p:antipattern= false
+[403738] INFO ConfigurationProperties - p:bugId= 280
+[403738] INFO ConfigurationProperties - p:evosuitetimeout= 120
+[403738] INFO ConfigurationProperties - p:maxtimefactor= 10
+[403738] INFO ConfigurationProperties - p:nrPlaceholders= 1
+[403738] INFO ConfigurationProperties - p:testallcmd= mvn test -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B
+[403738] INFO ConfigurationProperties - p:forcesubprocesskilling= false
+[403738] INFO ConfigurationProperties - ----------------------------
+[403738] INFO AstorCoreEngine - ----Starting Solution Search
+[403740] WARN AstorCoreEngine - ----------Running generation: 1, population size: 1
+[408677] WARN AstorCoreEngine - ----------Running generation: 2, population size: 1
+[411545] INFO main - Run previously failing tests...
+[436665] INFO main - Failed tests: 1
+[436685] WARN AstorCoreEngine - ----------Running generation: 3, population size: 1
+[440782] WARN AstorCoreEngine - ----------Running generation: 4, population size: 1
+[442430] WARN AstorCoreEngine - ----------Running generation: 5, population size: 1
+[445050] INFO main - Run previously failing tests...
+[468877] INFO main - Failed tests: 1
+[468893] WARN AstorCoreEngine - ----------Running generation: 6, population size: 1
+[471713] WARN AstorCoreEngine - ----------Running generation: 7, population size: 1
+[473976] WARN AstorCoreEngine - ----------Running generation: 8, population size: 1
+[475951] INFO main - Run previously failing tests...
+[499795] INFO main - Failed tests: 1
+[499819] WARN AstorCoreEngine - ----------Running generation: 9, population size: 1
+[503722] INFO main - Run previously failing tests...
+[527456] INFO main - Failed tests: 1
+[527482] WARN AstorCoreEngine - ----------Running generation: 10, population size: 1
+[530842] INFO main - Run previously failing tests...
+[556844] INFO main - Failed tests: 1
+[556847] WARN AstorCoreEngine - ----------Running generation: 11, population size: 1
+[560180] WARN AstorCoreEngine - ----------Running generation: 12, population size: 1
+[562097] WARN AstorCoreEngine - ----------Running generation: 13, population size: 1
+[564855] INFO main - Run previously failing tests...
+[589685] INFO main - Failed tests: 1
+[589698] WARN AstorCoreEngine - ----------Running generation: 14, population size: 1
+[593383] WARN AstorCoreEngine - ----------Running generation: 15, population size: 1
+[597100] INFO main - Run previously failing tests...
+[622662] INFO main - Failed tests: 1
+[622670] WARN AstorCoreEngine - ----------Running generation: 16, population size: 1
+[625080] INFO main - Run previously failing tests...
+[654872] INFO main - Failed tests: 1
+[654888] WARN AstorCoreEngine - ----------Running generation: 17, population size: 1
+[657097] WARN AstorCoreEngine - ----------Running generation: 18, population size: 1
+[658897] WARN AstorCoreEngine - ----------Running generation: 19, population size: 1
+[659890] WARN AstorCoreEngine - ----------Running generation: 20, population size: 1
+[661816] INFO main - Run previously failing tests...
+[688271] INFO main - Failed tests: 1
+[688274] WARN AstorCoreEngine - ----------Running generation: 21, population size: 1
+[690797] WARN AstorCoreEngine - ----------Running generation: 22, population size: 1
+[693474] INFO main - Run previously failing tests...
+[722457] INFO main - Failed tests: 1
+[722462] WARN AstorCoreEngine - ----------Running generation: 23, population size: 1
+[724712] INFO main - Run previously failing tests...
+[753117] INFO main - Failed tests: 1
+[753168] WARN AstorCoreEngine - ----------Running generation: 24, population size: 1
+[757552] WARN AstorCoreEngine - ----------Running generation: 25, population size: 1
+[759294] WARN AstorCoreEngine - ----------Running generation: 26, population size: 1
+[760396] WARN AstorCoreEngine - ----------Running generation: 27, population size: 1
+[762648] INFO main - Run previously failing tests...
+[786872] INFO main - Failed tests: 1
+[786883] WARN AstorCoreEngine - ----------Running generation: 28, population size: 1
+[790555] INFO main - Run previously failing tests...
+[814793] INFO main - Failed tests: 1
+[814808] WARN AstorCoreEngine - ----------Running generation: 29, population size: 1
+[817479] INFO main - Run previously failing tests...
+[842372] INFO main - Failed tests: 1
+[842377] WARN AstorCoreEngine - ----------Running generation: 30, population size: 1
+[843691] WARN AstorCoreEngine - ----------Running generation: 31, population size: 1
+[847826] INFO main - Run previously failing tests...
+[874060] INFO main - Failed tests: 1
+[874064] WARN AstorCoreEngine - ----------Running generation: 32, population size: 1
+[876561] WARN AstorCoreEngine - ----------Running generation: 33, population size: 1
+[879253] INFO main - Run previously failing tests...
+[904284] INFO main - Failed tests: 1
+[904298] WARN AstorCoreEngine - ----------Running generation: 34, population size: 1
+[906662] INFO main - Run previously failing tests...
+[933414] INFO main - Failed tests: 1
+[933439] WARN AstorCoreEngine - ----------Running generation: 35, population size: 1
+[936142] WARN AstorCoreEngine - ----------Running generation: 36, population size: 1
+[937545] WARN AstorCoreEngine - ----------Running generation: 37, population size: 1
+[939554] WARN AstorCoreEngine - ----------Running generation: 38, population size: 1
+[941418] WARN AstorCoreEngine - ----------Running generation: 39, population size: 1
+[942228] WARN AstorCoreEngine - ----------Running generation: 40, population size: 1
+[943468] WARN AstorCoreEngine - ----------Running generation: 41, population size: 1
+[945415] INFO main - Run previously failing tests...
+[970916] INFO main - Failed tests: 1
+[970970] WARN AstorCoreEngine - ----------Running generation: 42, population size: 1
+[973917] INFO main - Run previously failing tests...
+java.io.IOException: Stream closed
+	at java.io.BufferedInputStream.getBufIfOpen(BufferedInputStream.java:170)
+	at java.io.BufferedInputStream.read1(BufferedInputStream.java:283)
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:345)
+	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
+	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
+	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
+	at java.io.InputStreamReader.read(InputStreamReader.java:184)
+	at java.io.BufferedReader.fill(BufferedReader.java:161)
+	at java.io.BufferedReader.readLine(BufferedReader.java:324)
+	at java.io.BufferedReader.readLine(BufferedReader.java:389)
+	at fr.inria.astor.core.validation.StreamReaderThread.run(ExternalCmdValidator.java:180)
+java.lang.IllegalStateException: Exception Occurred
+	at fr.inria.astor.core.validation.ExternalCmdValidator.runShell(ExternalCmdValidator.java:142)
+	at fr.inria.astor.core.validation.ExternalCmdValidator.runTests(ExternalCmdValidator.java:98)
+	at fr.inria.astor.core.validation.ExternalCmdValidator.validate(ExternalCmdValidator.java:44)
+	at fr.inria.astor.core.solutionsearch.AstorCoreEngine.validateInstance(AstorCoreEngine.java:522)
+	at fr.inria.astor.core.solutionsearch.AstorCoreEngine.processCreatedVariant(AstorCoreEngine.java:443)
+	at fr.inria.astor.core.solutionsearch.EvolutionarySearchEngine.processGenerations(EvolutionarySearchEngine.java:164)
+	at fr.inria.astor.core.solutionsearch.EvolutionarySearchEngine.startEvolution(EvolutionarySearchEngine.java:70)
+	at fr.inria.main.evolution.AstorMain.run(AstorMain.java:189)
+	at fr.inria.main.evolution.AstorMain.execute(AstorMain.java:233)
+	at fr.inria.main.evolution.AstorMain.main(AstorMain.java:204)
+[1000777] WARN AstorCoreEngine - ----------Running generation: 43, population size: 1
+[1003515] INFO main - Run previously failing tests...
+[1029156] INFO main - Failed tests: 1
+[1029161] WARN AstorCoreEngine - ----------Running generation: 44, population size: 1
+[1034374] WARN AstorCoreEngine - ----------Running generation: 45, population size: 1
+[1037124] INFO main - Run previously failing tests...
+[1059454] INFO main - Failed tests: 1
+[1059465] WARN AstorCoreEngine - ----------Running generation: 46, population size: 1
+[1062069] WARN AstorCoreEngine - ----------Running generation: 47, population size: 1
+[1064132] WARN AstorCoreEngine - ----------Running generation: 48, population size: 1
+[1066258] INFO main - Run previously failing tests...
+[1091600] INFO main - Failed tests: 1
+[1091617] WARN AstorCoreEngine - ----------Running generation: 49, population size: 1
+[1094515] WARN AstorCoreEngine - ----------Running generation: 50, population size: 1
+[1096913] WARN AstorCoreEngine - ----------Running generation: 51, population size: 1
+[1099202] WARN AstorCoreEngine - ----------Running generation: 52, population size: 1
+[1101464] WARN AstorCoreEngine - ----------Running generation: 53, population size: 1
+[1103097] WARN AstorCoreEngine - ----------Running generation: 54, population size: 1
+[1104126] WARN AstorCoreEngine - ----------Running generation: 55, population size: 1
+[1107101] INFO main - Run previously failing tests...
+[1134180] INFO main - Failed tests: 1
+[1134186] WARN AstorCoreEngine - ----------Running generation: 56, population size: 1
+[1137333] WARN AstorCoreEngine - ----------Running generation: 57, population size: 1
+[1139384] INFO main - Run previously failing tests...
+[1170847] INFO main - Failed tests: 1
+[1170851] WARN AstorCoreEngine - ----------Running generation: 58, population size: 1
+[1176176] INFO main - Run previously failing tests...
+[1203831] INFO main - Failed tests: 1
+[1203837] WARN AstorCoreEngine - ----------Running generation: 59, population size: 1
+[1207092] WARN AstorCoreEngine - ----------Running generation: 60, population size: 1
+[1209237] INFO main - Run previously failing tests...
+[1234644] INFO main - Failed tests: 1
+[1234648] WARN AstorCoreEngine - ----------Running generation: 61, population size: 1
+[1237500] WARN AstorCoreEngine - ----------Running generation: 62, population size: 1
+[1240254] INFO main - Run previously failing tests...
+[1265053] INFO main - Failed tests: 1
+[1265057] WARN AstorCoreEngine - ----------Running generation: 63, population size: 1
+[1267735] WARN AstorCoreEngine - ----------Running generation: 64, population size: 1
+[1270195] INFO main - Run previously failing tests...
+[1294074] INFO main - Failed tests: 1
+[1294094] WARN AstorCoreEngine - ----------Running generation: 65, population size: 1
+[1297259] INFO main - Run previously failing tests...
+[1323673] INFO main - Failed tests: 1
+[1323678] WARN AstorCoreEngine - ----------Running generation: 66, population size: 1
+[1325895] WARN AstorCoreEngine - ----------Running generation: 67, population size: 1
+[1328013] WARN AstorCoreEngine - ----------Running generation: 68, population size: 1
+[1329749] WARN AstorCoreEngine - ----------Running generation: 69, population size: 1
+[1331656] INFO main - Run previously failing tests...
+[1355848] INFO main - Failed tests: 1
+[1355865] WARN AstorCoreEngine - ----------Running generation: 70, population size: 1
+[1359483] INFO main - Run previously failing tests...
+[1383522] INFO main - Failed tests: 1
+[1383535] WARN AstorCoreEngine - ----------Running generation: 71, population size: 1
+[1385911] INFO main - Run previously failing tests...
+[1406314] INFO main - Failed tests: 1
+[1406324] WARN AstorCoreEngine - ----------Running generation: 72, population size: 1
+[1409287] INFO main - Run previously failing tests...
+[1432621] INFO main - Failed tests: 1
+[1432632] WARN AstorCoreEngine - ----------Running generation: 73, population size: 1
+[1435259] INFO main - Run previously failing tests...
+[1459848] INFO main - Failed tests: 1
+[1459884] WARN AstorCoreEngine - ----------Running generation: 74, population size: 1
+[1462286] WARN AstorCoreEngine - ----------Running generation: 75, population size: 1
+[1463486] WARN AstorCoreEngine - ----------Running generation: 76, population size: 1
+[1465260] INFO main - Run previously failing tests...
+[1488916] INFO main - Failed tests: 1
+[1488951] WARN AstorCoreEngine - ----------Running generation: 77, population size: 1
+[1491859] INFO main - Run previously failing tests...
+[1515483] INFO main - Failed tests: 1
+[1515488] WARN AstorCoreEngine - ----------Running generation: 78, population size: 1
+[1517549] WARN AstorCoreEngine - ----------Running generation: 79, population size: 1
+[1519333] INFO main - Run previously failing tests...
+[1543112] INFO main - Failed tests: 1
+[1543122] WARN AstorCoreEngine - ----------Running generation: 80, population size: 1
+[1545670] WARN AstorCoreEngine - ----------Running generation: 81, population size: 1
+[1547141] WARN AstorCoreEngine - ----------Running generation: 82, population size: 1
+[1548058] WARN AstorCoreEngine - ----------Running generation: 83, population size: 1
+[1549016] WARN AstorCoreEngine - ----------Running generation: 84, population size: 1
+[1550601] INFO main - Run previously failing tests...
+[1575480] INFO main - Failed tests: 1
+[1575503] WARN AstorCoreEngine - ----------Running generation: 85, population size: 1
+[1576352] WARN AstorCoreEngine - ----------Running generation: 86, population size: 1
+[1577988] WARN AstorCoreEngine - ----------Running generation: 87, population size: 1
+[1579076] WARN AstorCoreEngine - ----------Running generation: 88, population size: 1
+[1581108] INFO main - Run previously failing tests...
+[1603426] INFO main - Failed tests: 1
+[1603437] WARN AstorCoreEngine - ----------Running generation: 89, population size: 1
+[1605488] WARN AstorCoreEngine - ----------Running generation: 90, population size: 1
+[1608262] WARN AstorCoreEngine - ----------Running generation: 91, population size: 1
+[1610834] INFO main - Run previously failing tests...
+[1634602] INFO main - Failed tests: 1
+[1634608] WARN AstorCoreEngine - ----------Running generation: 92, population size: 1
+[1637599] INFO main - Run previously failing tests...
+[1661565] INFO main - Failed tests: 1
+[1661577] WARN AstorCoreEngine - ----------Running generation: 93, population size: 1
+[1663424] WARN AstorCoreEngine - ----------Running generation: 94, population size: 1
+[1665806] WARN AstorCoreEngine - ----------Running generation: 95, population size: 1
+[1667848] INFO main - Run previously failing tests...
+[1692349] INFO main - Failed tests: 1
+[1692360] WARN AstorCoreEngine - ----------Running generation: 96, population size: 1
+[1693950] INFO main - Run previously failing tests...
+[1720750] INFO main - Failed tests: 1
+[1720753] WARN AstorCoreEngine - ----------Running generation: 97, population size: 1
+[1722675] WARN AstorCoreEngine - ----------Running generation: 98, population size: 1
+[1725057] WARN AstorCoreEngine - ----------Running generation: 99, population size: 1
+[1726361] INFO main - Run previously failing tests...
+[1750169] INFO main - Failed tests: 1
+[1750172] WARN AstorCoreEngine - ----------Running generation: 100, population size: 1
+[1752811] INFO main - Run previously failing tests...
+[1776825] INFO main - Failed tests: 1
+[1776835] WARN AstorCoreEngine - ----------Running generation: 101, population size: 1
+[1779567] INFO main - Run previously failing tests...
+[1804018] INFO main - Failed tests: 1
+[1804029] WARN AstorCoreEngine - ----------Running generation: 102, population size: 1
+[1806974] INFO main - Run previously failing tests...
+[1830302] INFO main - Failed tests: 1
+[1830305] WARN AstorCoreEngine - ----------Running generation: 103, population size: 1
+[1833231] INFO main - Run previously failing tests...
+[1859074] INFO main - Failed tests: 1
+[1859078] WARN AstorCoreEngine - ----------Running generation: 104, population size: 1
+[1861567] INFO main - Run previously failing tests...
+[1884591] INFO main - Failed tests: 1
+[1884600] WARN AstorCoreEngine - ----------Running generation: 105, population size: 1
+[1888535] INFO main - Run previously failing tests...
+[1911290] INFO main - Failed tests: 1
+[1911301] WARN AstorCoreEngine - ----------Running generation: 106, population size: 1
+[1913478] INFO main - Run previously failing tests...
+[1937626] INFO main - Failed tests: 1
+[1937632] WARN AstorCoreEngine - ----------Running generation: 107, population size: 1
+[1940057] INFO main - Run previously failing tests...
+[1962518] INFO main - Failed tests: 1
+[1962521] WARN AstorCoreEngine - ----------Running generation: 108, population size: 1
+[1965127] INFO main - Run previously failing tests...
+[1989668] INFO main - Failed tests: 1
+[1989678] WARN AstorCoreEngine - ----------Running generation: 109, population size: 1
+[1991483] WARN AstorCoreEngine - ----------Running generation: 110, population size: 1
+[1992591] WARN AstorCoreEngine - ----------Running generation: 111, population size: 1
+[1993798] INFO main - Run previously failing tests...
+[2019143] INFO main - Failed tests: 1
+[2019154] WARN AstorCoreEngine - ----------Running generation: 112, population size: 1
+[2021128] INFO main - Run previously failing tests...
+[2042550] INFO main - Failed tests: 1
+[2042566] WARN AstorCoreEngine - ----------Running generation: 113, population size: 1
+[2045424] INFO main - Run previously failing tests...
+[2069967] INFO main - Failed tests: 1
+[2069972] WARN AstorCoreEngine - ----------Running generation: 114, population size: 1
+[2072620] INFO main - Run previously failing tests...
+[2095412] INFO main - Failed tests: 1
+[2095423] WARN AstorCoreEngine - ----------Running generation: 115, population size: 1
+[2099303] INFO main - Run previously failing tests...
+[2122020] INFO main - Failed tests: 1
+[2122039] WARN AstorCoreEngine - ----------Running generation: 116, population size: 1
+[2125268] INFO main - Run previously failing tests...
+[2149715] INFO main - Failed tests: 1
+[2149718] WARN AstorCoreEngine - ----------Running generation: 117, population size: 1
+[2152871] INFO main - Run previously failing tests...
+[2175560] INFO main - Failed tests: 1
+[2175570] WARN AstorCoreEngine - ----------Running generation: 118, population size: 1
+[2178408] INFO main - Run previously failing tests...
+[2203452] INFO main - Failed tests: 1
+[2203463] WARN AstorCoreEngine - ----------Running generation: 119, population size: 1
+[2205218] WARN AstorCoreEngine - ----------Running generation: 120, population size: 1
+[2206467] WARN AstorCoreEngine - ----------Running generation: 121, population size: 1
+[2207955] INFO main - Run previously failing tests...
+[2231984] INFO main - Failed tests: 1
+[2231987] WARN AstorCoreEngine - ----------Running generation: 122, population size: 1
+[2234311] WARN AstorCoreEngine - ----------Running generation: 123, population size: 1
+[2236292] INFO main - Run previously failing tests...
+[2258841] INFO main - Failed tests: 1
+[2258844] WARN AstorCoreEngine - ----------Running generation: 124, population size: 1
+[2260882] WARN AstorCoreEngine - ----------Running generation: 125, population size: 1
+[2263375] INFO main - Run previously failing tests...
+[2285796] INFO main - Failed tests: 1
+[2285806] WARN AstorCoreEngine - ----------Running generation: 126, population size: 1
+[2287760] INFO main - Run previously failing tests...
+[2311684] INFO main - Failed tests: 1
+[2311689] WARN AstorCoreEngine - ----------Running generation: 127, population size: 1
+[2314182] WARN AstorCoreEngine - ----------Running generation: 128, population size: 1
+[2315703] INFO main - Run previously failing tests...
+[2340089] INFO main - Failed tests: 1
+[2340108] WARN AstorCoreEngine - ----------Running generation: 129, population size: 1
+[2342831] INFO main - Run previously failing tests...
+[2367605] INFO main - Failed tests: 1
+[2367635] WARN AstorCoreEngine - ----------Running generation: 130, population size: 1
+[2370264] INFO main - Run previously failing tests...
+[2392599] INFO main - Failed tests: 1
+[2392609] WARN AstorCoreEngine - ----------Running generation: 131, population size: 1
+[2394858] INFO main - Run previously failing tests...
+[2418981] INFO main - Failed tests: 1
+[2419003] WARN AstorCoreEngine - ----------Running generation: 132, population size: 1
+[2421133] WARN AstorCoreEngine - ----------Running generation: 133, population size: 1
+[2422075] WARN AstorCoreEngine - ----------Running generation: 134, population size: 1
+[2423451] WARN AstorCoreEngine - ----------Running generation: 135, population size: 1
+[2424516] INFO main - Run previously failing tests...
+[2448086] INFO main - Failed tests: 1
+[2448092] WARN AstorCoreEngine - ----------Running generation: 136, population size: 1
+[2451019] INFO main - Run previously failing tests...
+[2473314] INFO main - Failed tests: 1
+[2473322] WARN AstorCoreEngine - ----------Running generation: 137, population size: 1
+[2475817] WARN AstorCoreEngine - ----------Running generation: 138, population size: 1
+[2477624] INFO main - Run previously failing tests...
+[2502263] INFO main - Failed tests: 1
+[2502278] WARN AstorCoreEngine - ----------Running generation: 139, population size: 1
+[2504663] INFO main - Run previously failing tests...
+[2528552] INFO main - Failed tests: 1
+[2528566] WARN AstorCoreEngine - ----------Running generation: 140, population size: 1
+[2531715] INFO main - Run previously failing tests...
+[2556533] INFO main - Failed tests: 1
+[2556541] WARN AstorCoreEngine - ----------Running generation: 141, population size: 1
+[2558278] WARN AstorCoreEngine - ----------Running generation: 142, population size: 1
+[2559621] INFO main - Run previously failing tests...
+[2584323] INFO main - Failed tests: 1
+[2584342] WARN AstorCoreEngine - ----------Running generation: 143, population size: 1
+[2586577] INFO main - Run previously failing tests...
+[2608152] INFO main - Failed tests: 1
+[2608162] WARN AstorCoreEngine - ----------Running generation: 144, population size: 1
+[2611986] INFO main - Run previously failing tests...
+[2634699] INFO main - Failed tests: 1
+[2634709] WARN AstorCoreEngine - ----------Running generation: 145, population size: 1
+[2636641] WARN AstorCoreEngine - ----------Running generation: 146, population size: 1
+[2638594] INFO main - Run previously failing tests...
+[2663284] INFO main - Failed tests: 1
+[2663297] WARN AstorCoreEngine - ----------Running generation: 147, population size: 1
+[2665534] INFO main - Run previously failing tests...
+[2688231] INFO main - Failed tests: 1
+[2688241] WARN AstorCoreEngine - ----------Running generation: 148, population size: 1
+[2690306] WARN AstorCoreEngine - ----------Running generation: 149, population size: 1
+[2693337] INFO main - Run previously failing tests...
+[2715521] INFO main - Failed tests: 1
+[2715548] WARN AstorCoreEngine - ----------Running generation: 150, population size: 1
+[2717000] WARN AstorCoreEngine - ----------Running generation: 151, population size: 1
+[2718548] WARN AstorCoreEngine - ----------Running generation: 152, population size: 1
+[2719620] WARN AstorCoreEngine - ----------Running generation: 153, population size: 1
+[2720795] INFO main - Run previously failing tests...
+[2744059] INFO main - Failed tests: 1
+[2744062] WARN AstorCoreEngine - ----------Running generation: 154, population size: 1
+[2746452] INFO main - Run previously failing tests...
+[2768628] INFO main - Failed tests: 1
+[2768632] WARN AstorCoreEngine - ----------Running generation: 155, population size: 1
+[2770373] WARN AstorCoreEngine - ----------Running generation: 156, population size: 1
+[2773178] INFO main - Run previously failing tests...
+[2796331] INFO main - Failed tests: 1
+[2796361] WARN AstorCoreEngine - ----------Running generation: 157, population size: 1
+[2798940] INFO main - Run previously failing tests...
+[2821199] INFO main - Failed tests: 1
+[2821210] WARN AstorCoreEngine - ----------Running generation: 158, population size: 1
+[2823454] INFO main - Run previously failing tests...
+[2848552] INFO main - Failed tests: 1
+[2848556] WARN AstorCoreEngine - ----------Running generation: 159, population size: 1
+[2851121] INFO main - Run previously failing tests...
+[2873612] INFO main - Failed tests: 1
+[2873616] WARN AstorCoreEngine - ----------Running generation: 160, population size: 1
+[2875528] WARN AstorCoreEngine - ----------Running generation: 161, population size: 1
+[2877000] WARN AstorCoreEngine - ----------Running generation: 162, population size: 1
+[2878206] WARN AstorCoreEngine - ----------Running generation: 163, population size: 1
+[2880193] INFO main - Run previously failing tests...
+[2902130] INFO main - Failed tests: 1
+[2902135] WARN AstorCoreEngine - ----------Running generation: 164, population size: 1
+[2903799] WARN AstorCoreEngine - ----------Running generation: 165, population size: 1
+[2905594] INFO main - Run previously failing tests...
+[2927184] INFO main - Failed tests: 1
+[2927188] WARN AstorCoreEngine - ----------Running generation: 166, population size: 1
+[2928958] WARN AstorCoreEngine - ----------Running generation: 167, population size: 1
+[2930663] INFO main - Run previously failing tests...
+[2953575] INFO main - Failed tests: 1
+[2953586] WARN AstorCoreEngine - ----------Running generation: 168, population size: 1
+[2955232] WARN AstorCoreEngine - ----------Running generation: 169, population size: 1
+[2956812] WARN AstorCoreEngine - ----------Running generation: 170, population size: 1
+[2957569] WARN AstorCoreEngine - ----------Running generation: 171, population size: 1
+[2959221] WARN AstorCoreEngine - ----------Running generation: 172, population size: 1
+[2961325] WARN AstorCoreEngine - ----------Running generation: 173, population size: 1
+[2963415] INFO main - Run previously failing tests...
+[2985313] INFO main - Failed tests: 1
+[2985327] WARN AstorCoreEngine - ----------Running generation: 174, population size: 1
+[2987290] WARN AstorCoreEngine - ----------Running generation: 175, population size: 1
+[2989227] WARN AstorCoreEngine - ----------Running generation: 176, population size: 1
+[2990913] WARN AstorCoreEngine - ----------Running generation: 177, population size: 1
+[2993909] INFO main - Run previously failing tests...
+[3016694] INFO main - Failed tests: 1
+[3016704] WARN AstorCoreEngine - ----------Running generation: 178, population size: 1
+[3018690] INFO main - Run previously failing tests...
+[3041884] INFO main - Failed tests: 1
+[3041895] WARN AstorCoreEngine - ----------Running generation: 179, population size: 1
+[3043756] WARN AstorCoreEngine - ----------Running generation: 180, population size: 1
+[3045854] INFO main - Run previously failing tests...
+[3068956] INFO main - Failed tests: 1
+[3068967] WARN AstorCoreEngine - ----------Running generation: 181, population size: 1
+[3072211] INFO main - Run previously failing tests...
+[3094685] INFO main - Failed tests: 1
+[3094690] WARN AstorCoreEngine - ----------Running generation: 182, population size: 1
+[3095983] WARN AstorCoreEngine - ----------Running generation: 183, population size: 1
+[3097844] INFO main - Run previously failing tests...
+[3122852] INFO main - Failed tests: 1
+[3122856] WARN AstorCoreEngine - ----------Running generation: 184, population size: 1
+[3125256] INFO main - Run previously failing tests...
+[3146848] INFO main - Failed tests: 1
+[3146858] WARN AstorCoreEngine - ----------Running generation: 185, population size: 1
+[3149348] INFO main - Run previously failing tests...
+[3172010] INFO main - Failed tests: 1
+[3172038] WARN AstorCoreEngine - ----------Running generation: 186, population size: 1
+[3174334] INFO main - Run previously failing tests...
+[3197229] INFO main - Failed tests: 1
+[3197240] WARN AstorCoreEngine - ----------Running generation: 187, population size: 1
+[3200111] INFO main - Run previously failing tests...
+[3222397] INFO main - Failed tests: 1
+[3222413] WARN AstorCoreEngine - ----------Running generation: 188, population size: 1
+[3225431] INFO main - Run previously failing tests...
+[3249160] INFO main - Failed tests: 1
+[3249164] WARN AstorCoreEngine - ----------Running generation: 189, population size: 1
+[3251291] WARN AstorCoreEngine - ----------Running generation: 190, population size: 1
+[3253068] INFO main - Run previously failing tests...
+[3276383] INFO main - Failed tests: 1
+[3276390] WARN AstorCoreEngine - ----------Running generation: 191, population size: 1
+[3279309] INFO main - Run previously failing tests...
+[3301371] INFO main - Failed tests: 1
+[3301375] WARN AstorCoreEngine - ----------Running generation: 192, population size: 1
+[3304036] INFO main - Run previously failing tests...
+[3326184] INFO main - Failed tests: 1
+[3326197] WARN AstorCoreEngine - ----------Running generation: 193, population size: 1
+[3327791] WARN AstorCoreEngine - ----------Running generation: 194, population size: 1
+[3329078] WARN AstorCoreEngine - ----------Running generation: 195, population size: 1
+[3329840] WARN AstorCoreEngine - ----------Running generation: 196, population size: 1
+[3331064] WARN AstorCoreEngine - ----------Running generation: 197, population size: 1
+[3332256] WARN AstorCoreEngine - ----------Running generation: 198, population size: 1
+[3333441] WARN AstorCoreEngine - ----------Running generation: 199, population size: 1
+[3334998] WARN AstorCoreEngine - ----------Running generation: 200, population size: 1
+[3336345] INFO main - Run previously failing tests...
+[3360928] INFO main - Failed tests: 1
+[3360933] WARN AstorCoreEngine - ----------Running generation: 201, population size: 1
+[3362528] WARN AstorCoreEngine - ----------Running generation: 202, population size: 1
+[3364024] WARN AstorCoreEngine - ----------Running generation: 203, population size: 1
+[3365856] INFO main - Run previously failing tests...
+[3390056] INFO main - Failed tests: 1
+[3390070] WARN AstorCoreEngine - ----------Running generation: 204, population size: 1
+[3391115] WARN AstorCoreEngine - ----------Running generation: 205, population size: 1
+[3393087] WARN AstorCoreEngine - ----------Running generation: 206, population size: 1
+[3394903] INFO main - Run previously failing tests...
+[3418559] INFO main - Failed tests: 1
+[3418570] WARN AstorCoreEngine - ----------Running generation: 207, population size: 1
+[3420583] WARN AstorCoreEngine - ----------Running generation: 208, population size: 1
+[3422323] INFO main - Run previously failing tests...
+[3447319] INFO main - Failed tests: 1
+[3447323] WARN AstorCoreEngine - ----------Running generation: 209, population size: 1
+[3448798] WARN AstorCoreEngine - ----------Running generation: 210, population size: 1
+[3450533] INFO main - Run previously failing tests...
+[3475606] INFO main - Failed tests: 1
+[3475617] WARN AstorCoreEngine - ----------Running generation: 211, population size: 1
+[3477433] WARN AstorCoreEngine - ----------Running generation: 212, population size: 1
+[3479865] INFO main - Run previously failing tests...
+[3501667] INFO main - Failed tests: 1
+[3501677] WARN AstorCoreEngine - ----------Running generation: 213, population size: 1
+[3504098] WARN AstorCoreEngine - ----------Running generation: 214, population size: 1
+[3505444] WARN AstorCoreEngine - ----------Running generation: 215, population size: 1
+[3506202] WARN AstorCoreEngine - ----------Running generation: 216, population size: 1
+[3507976] INFO main - Run previously failing tests...
+[3530645] INFO main - Failed tests: 1
+[3530655] WARN AstorCoreEngine - ----------Running generation: 217, population size: 1
+[3532372] WARN AstorCoreEngine - ----------Running generation: 218, population size: 1
+[3535103] INFO main - Run previously failing tests...
+[3557700] INFO main - Failed tests: 1
+[3557713] WARN AstorCoreEngine - ----------Running generation: 219, population size: 1
+[3558805] WARN AstorCoreEngine - ----------Running generation: 220, population size: 1
+[3560759] INFO main - Run previously failing tests...
+[3584514] INFO main - Failed tests: 1
+[3584518] WARN AstorCoreEngine - ----------Running generation: 221, population size: 1
+[3586648] INFO main - Run previously failing tests...
+[3608100] INFO main - Failed tests: 1
+[3608111] WARN AstorCoreEngine - ----------Running generation: 222, population size: 1
+[3610349] INFO main - Run previously failing tests...
+[3634868] INFO main - Failed tests: 1
+[3634877] WARN AstorCoreEngine - ----------Running generation: 223, population size: 1
+[3637294] INFO main - Run previously failing tests...
+[3658833] INFO main - Failed tests: 1
+[3658846] WARN AstorCoreEngine - ----------Running generation: 224, population size: 1
+[3661138] WARN AstorCoreEngine - ----------Running generation: 225, population size: 1
+[3662898] WARN AstorCoreEngine - ----------Running generation: 226, population size: 1
+[3664842] INFO main - Run previously failing tests...
+[3687852] INFO main - Failed tests: 1
+[3687855] WARN AstorCoreEngine - ----------Running generation: 227, population size: 1
+[3689429] INFO main - Run previously failing tests...
+[3714623] INFO main - Failed tests: 1
+[3714626] WARN AstorCoreEngine - ----------Running generation: 228, population size: 1
+[3716555] WARN AstorCoreEngine - ----------Running generation: 229, population size: 1
+[3718554] WARN AstorCoreEngine - ----------Running generation: 230, population size: 1
+[3719744] INFO main - Run previously failing tests...
+[3742235] INFO main - Failed tests: 1
+[3742245] WARN AstorCoreEngine - ----------Running generation: 231, population size: 1
+[3743742] WARN AstorCoreEngine - ----------Running generation: 232, population size: 1
+[3745727] INFO main - Run previously failing tests...
+[3769337] INFO main - Failed tests: 1
+[3769348] WARN AstorCoreEngine - ----------Running generation: 233, population size: 1
+[3771721] INFO main - Run previously failing tests...
+[3794899] INFO main - Failed tests: 1
+[3794904] WARN AstorCoreEngine - ----------Running generation: 234, population size: 1
+[3797117] INFO main - Run previously failing tests...
+[3820789] INFO main - Failed tests: 1
+[3820800] WARN AstorCoreEngine - ----------Running generation: 235, population size: 1
+[3822812] INFO main - Run previously failing tests...
+[3846760] INFO main - Failed tests: 1
+[3846764] WARN AstorCoreEngine - ----------Running generation: 236, population size: 1
+[3849201] INFO main - Run previously failing tests...
+[3872477] INFO main - Failed tests: 1
+[3872487] WARN AstorCoreEngine - ----------Running generation: 237, population size: 1
+[3873972] WARN AstorCoreEngine - ----------Running generation: 238, population size: 1
+[3875955] INFO main - Run previously failing tests...
+[3899934] INFO main - Failed tests: 1
+[3899955] WARN AstorCoreEngine - ----------Running generation: 239, population size: 1
+[3903234] INFO main - Run previously failing tests...
+[3926528] INFO main - Failed tests: 1
+[3926538] WARN AstorCoreEngine - ----------Running generation: 240, population size: 1
+[3928504] INFO main - Run previously failing tests...
+[3950250] INFO main - Failed tests: 1
+[3950254] WARN AstorCoreEngine - ----------Running generation: 241, population size: 1
+[3952231] WARN AstorCoreEngine - ----------Running generation: 242, population size: 1
+[3953548] INFO main - Run previously failing tests...
+[3977780] INFO main - Failed tests: 1
+[3977792] WARN AstorCoreEngine - ----------Running generation: 243, population size: 1
+[3980992] INFO main - Run previously failing tests...
+[4002084] INFO main - Failed tests: 1
+[4002104] WARN AstorCoreEngine - ----------Running generation: 244, population size: 1
+[4003550] WARN AstorCoreEngine - ----------Running generation: 245, population size: 1
+[4005985] INFO main - Run previously failing tests...
+[4030219] INFO main - Failed tests: 1
+[4030232] WARN AstorCoreEngine - ----------Running generation: 246, population size: 1
+[4032065] INFO main - Run previously failing tests...
+[4055970] INFO main - Failed tests: 1
+[4055983] WARN AstorCoreEngine - ----------Running generation: 247, population size: 1
+[4058057] WARN AstorCoreEngine - ----------Running generation: 248, population size: 1
+[4059666] INFO main - Run previously failing tests...
+[4083038] INFO main - Failed tests: 1
+[4083061] WARN AstorCoreEngine - ----------Running generation: 249, population size: 1
+[4086684] INFO main - Run previously failing tests...
+[4110249] INFO main - Failed tests: 1
+[4110256] WARN AstorCoreEngine - ----------Running generation: 250, population size: 1
+[4112649] INFO main - Run previously failing tests...
+[4134750] INFO main - Failed tests: 1
+[4134762] WARN AstorCoreEngine - ----------Running generation: 251, population size: 1
+[4137202] WARN AstorCoreEngine - ----------Running generation: 252, population size: 1
+[4139472] INFO main - Run previously failing tests...
+[4161485] INFO main - Failed tests: 1
+[4161495] WARN AstorCoreEngine - ----------Running generation: 253, population size: 1
+[4162895] INFO main - Run previously failing tests...
+[4183522] INFO main - Failed tests: 1
+[4183564] WARN AstorCoreEngine - ----------Running generation: 254, population size: 1
+[4185363] INFO main - Run previously failing tests...
+[4204514] INFO main - Failed tests: 1
+[4204537] WARN AstorCoreEngine - ----------Running generation: 255, population size: 1
+[4205918] INFO main - Run previously failing tests...
+[4227393] INFO main - Failed tests: 1
+[4227410] WARN AstorCoreEngine - ----------Running generation: 256, population size: 1
+[4228748] WARN AstorCoreEngine - ----------Running generation: 257, population size: 1
+[4229500] WARN AstorCoreEngine - ----------Running generation: 258, population size: 1
+[4230524] INFO main - Run previously failing tests...
+[4251651] INFO main - Failed tests: 1
+[4251673] WARN AstorCoreEngine - ----------Running generation: 259, population size: 1
+[4253038] WARN AstorCoreEngine - ----------Running generation: 260, population size: 1
+[4254135] INFO main - Run previously failing tests...
+[4275726] INFO main - Failed tests: 1
+[4275737] WARN AstorCoreEngine - ----------Running generation: 261, population size: 1
+[4278458] INFO main - Run previously failing tests...
+[4298248] INFO main - Failed tests: 1
+[4298258] WARN AstorCoreEngine - ----------Running generation: 262, population size: 1
+[4299840] INFO main - Run previously failing tests...
+[4321216] INFO main - Failed tests: 1
+[4321219] WARN AstorCoreEngine - ----------Running generation: 263, population size: 1
+[4322612] WARN AstorCoreEngine - ----------Running generation: 264, population size: 1
+[4324435] WARN AstorCoreEngine - ----------Running generation: 265, population size: 1
+[4325360] WARN AstorCoreEngine - ----------Running generation: 266, population size: 1
+[4326257] WARN AstorCoreEngine - ----------Running generation: 267, population size: 1
+[4327428] INFO main - Run previously failing tests...
+[4347224] INFO main - Failed tests: 1
+[4347227] WARN AstorCoreEngine - ----------Running generation: 268, population size: 1
+[4349728] INFO main - Run previously failing tests...
+[4368515] INFO main - Failed tests: 1
+[4368530] WARN AstorCoreEngine - ----------Running generation: 269, population size: 1
+[4370105] INFO main - Run previously failing tests...
+[4390154] INFO main - Failed tests: 1
+[4390157] WARN AstorCoreEngine - ----------Running generation: 270, population size: 1
+[4391694] INFO main - Run previously failing tests...
+[4414589] INFO main - Failed tests: 1
+[4414599] WARN AstorCoreEngine - ----------Running generation: 271, population size: 1
+[4416031] WARN AstorCoreEngine - ----------Running generation: 272, population size: 1
+[4417284] WARN AstorCoreEngine - ----------Running generation: 273, population size: 1
+[4418582] INFO main - Run previously failing tests...
+[4439745] INFO main - Failed tests: 1
+[4439748] WARN AstorCoreEngine - ----------Running generation: 274, population size: 1
+[4441473] WARN AstorCoreEngine - ----------Running generation: 275, population size: 1
+[4443098] WARN AstorCoreEngine - ----------Running generation: 276, population size: 1
+[4444481] WARN AstorCoreEngine - ----------Running generation: 277, population size: 1
+[4445561] INFO main - Run previously failing tests...
+[4467224] INFO main - Failed tests: 1
+[4467234] WARN AstorCoreEngine - ----------Running generation: 278, population size: 1
+[4468005] WARN AstorCoreEngine - ----------Running generation: 279, population size: 1
+[4470513] INFO main - Run previously failing tests...
+[4489871] INFO main - Failed tests: 1
+[4489882] WARN AstorCoreEngine - ----------Running generation: 280, population size: 1
+[4491449] WARN AstorCoreEngine - ----------Running generation: 281, population size: 1
+[4492762] INFO main - Run previously failing tests...
+[4514912] INFO main - Failed tests: 1
+[4514918] WARN AstorCoreEngine - ----------Running generation: 282, population size: 1
+[4516321] WARN AstorCoreEngine - ----------Running generation: 283, population size: 1
+[4518080] INFO main - Run previously failing tests...
+[4539534] INFO main - Failed tests: 1
+[4539546] WARN AstorCoreEngine - ----------Running generation: 284, population size: 1
+[4540998] INFO main - Run previously failing tests...
+[4559217] INFO main - Failed tests: 1
+[4559228] WARN AstorCoreEngine - ----------Running generation: 285, population size: 1
+[4561609] WARN AstorCoreEngine - ----------Running generation: 286, population size: 1
+[4563008] WARN AstorCoreEngine - ----------Running generation: 287, population size: 1
+[4564646] WARN AstorCoreEngine - ----------Running generation: 288, population size: 1
+[4566016] WARN AstorCoreEngine - ----------Running generation: 289, population size: 1
+[4567093] INFO main - Run previously failing tests...
+[4586015] INFO main - Failed tests: 1
+[4586021] WARN AstorCoreEngine - ----------Running generation: 290, population size: 1
+[4587612] WARN AstorCoreEngine - ----------Running generation: 291, population size: 1
+[4589782] INFO main - Run previously failing tests...
+[4611170] INFO main - Failed tests: 1
+[4611177] WARN AstorCoreEngine - ----------Running generation: 292, population size: 1
+[4613411] INFO main - Run previously failing tests...
+[4632859] INFO main - Failed tests: 1
+[4632871] WARN AstorCoreEngine - ----------Running generation: 293, population size: 1
+[4634237] WARN AstorCoreEngine - ----------Running generation: 294, population size: 1
+[4635931] WARN AstorCoreEngine - ----------Running generation: 295, population size: 1
+[4636844] WARN AstorCoreEngine - ----------Running generation: 296, population size: 1
+[4637968] INFO main - Run previously failing tests...
+[4661283] INFO main - Failed tests: 1
+[4661288] WARN AstorCoreEngine - ----------Running generation: 297, population size: 1
+[4663154] INFO main - Run previously failing tests...
+[4684541] INFO main - Failed tests: 1
+[4684582] WARN AstorCoreEngine - ----------Running generation: 298, population size: 1
+[4686577] WARN AstorCoreEngine - ----------Running generation: 299, population size: 1
+[4688123] INFO main - Run previously failing tests...
+[4708383] INFO main - Failed tests: 1
+[4708393] WARN AstorCoreEngine - ----------Running generation: 300, population size: 1
+[4710076] WARN AstorCoreEngine - ----------Running generation: 301, population size: 1
+[4711542] WARN AstorCoreEngine - ----------Running generation: 302, population size: 1
+[4713248] INFO main - Run previously failing tests...
+[4731351] INFO main - Failed tests: 1
+[4731356] WARN AstorCoreEngine - ----------Running generation: 303, population size: 1
+[4733217] INFO main - Run previously failing tests...
+[4753410] INFO main - Failed tests: 1
+[4753421] WARN AstorCoreEngine - ----------Running generation: 304, population size: 1
+[4754382] WARN AstorCoreEngine - ----------Running generation: 305, population size: 1
+[4755816] INFO main - Run previously failing tests...
+[4774704] INFO main - Failed tests: 1
+[4774715] WARN AstorCoreEngine - ----------Running generation: 306, population size: 1
+[4776673] WARN AstorCoreEngine - ----------Running generation: 307, population size: 1
+[4777953] WARN AstorCoreEngine - ----------Running generation: 308, population size: 1
+[4778994] WARN AstorCoreEngine - ----------Running generation: 309, population size: 1
+[4780328] INFO main - Run previously failing tests...
+[4800678] INFO main - Failed tests: 1
+[4800699] WARN AstorCoreEngine - ----------Running generation: 310, population size: 1
+[4803028] INFO main - Run previously failing tests...
+[4823690] INFO main - Failed tests: 1
+[4823695] WARN AstorCoreEngine - ----------Running generation: 311, population size: 1
+[4825986] WARN AstorCoreEngine - ----------Running generation: 312, population size: 1
+[4828047] INFO main - Run previously failing tests...
+[4848868] INFO main - Failed tests: 1
+[4848872] WARN AstorCoreEngine - ----------Running generation: 313, population size: 1
+[4850584] WARN AstorCoreEngine - ----------Running generation: 314, population size: 1
+[4852232] INFO main - Run previously failing tests...
+[4873476] INFO main - Failed tests: 1
+[4873479] WARN AstorCoreEngine - ----------Running generation: 315, population size: 1
+[4875171] INFO main - Run previously failing tests...
+[4896220] INFO main - Failed tests: 1
+[4896232] WARN AstorCoreEngine - ----------Running generation: 316, population size: 1
+[4898230] INFO main - Run previously failing tests...
+[4918358] INFO main - Failed tests: 1
+[4918363] WARN AstorCoreEngine - ----------Running generation: 317, population size: 1
+[4919980] WARN AstorCoreEngine - ----------Running generation: 318, population size: 1
+[4921414] WARN AstorCoreEngine - ----------Running generation: 319, population size: 1
+[4922427] WARN AstorCoreEngine - ----------Running generation: 320, population size: 1
+[4923301] WARN AstorCoreEngine - ----------Running generation: 321, population size: 1
+[4924192] WARN AstorCoreEngine - ----------Running generation: 322, population size: 1
+[4925486] INFO main - Run previously failing tests...
+[4947956] INFO main - Failed tests: 1
+[4947974] WARN AstorCoreEngine - ----------Running generation: 323, population size: 1
+[4950269] INFO main - Run previously failing tests...
+[4970041] INFO main - Failed tests: 1
+[4970067] WARN AstorCoreEngine - ----------Running generation: 324, population size: 1
+[4974292] INFO main - Run previously failing tests...
+[4995397] INFO main - Failed tests: 1
+[4995410] WARN AstorCoreEngine - ----------Running generation: 325, population size: 1
+[4997374] WARN AstorCoreEngine - ----------Running generation: 326, population size: 1
+[4998949] WARN AstorCoreEngine - ----------Running generation: 327, population size: 1
+[4999933] WARN AstorCoreEngine - ----------Running generation: 328, population size: 1
+[5001039] INFO main - Run previously failing tests...
+[5019372] INFO main - Failed tests: 1
+[5019375] WARN AstorCoreEngine - ----------Running generation: 329, population size: 1
+[5020724] INFO main - Run previously failing tests...
+[5039637] INFO main - Failed tests: 1
+[5039640] WARN AstorCoreEngine - ----------Running generation: 330, population size: 1
+[5041649] INFO main - Run previously failing tests...
+[5060398] INFO main - Failed tests: 1
+[5060417] WARN AstorCoreEngine - ----------Running generation: 331, population size: 1
+[5062357] INFO main - Run previously failing tests...
+[5081333] INFO main - Failed tests: 1
+[5081336] WARN AstorCoreEngine - ----------Running generation: 332, population size: 1
+[5082586] WARN AstorCoreEngine - ----------Running generation: 333, population size: 1
+[5084141] INFO main - Run previously failing tests...
+[5104611] INFO main - Failed tests: 1
+[5104615] WARN AstorCoreEngine - ----------Running generation: 334, population size: 1
+[5107089] INFO main - Run previously failing tests...
+[5129335] INFO main - Failed tests: 1
+[5129338] WARN AstorCoreEngine - ----------Running generation: 335, population size: 1
+[5131053] WARN AstorCoreEngine - ----------Running generation: 336, population size: 1
+[5133173] INFO main - Run previously failing tests...
+[5154051] INFO main - Failed tests: 1
+[5154092] WARN AstorCoreEngine - ----------Running generation: 337, population size: 1
+[5155850] INFO main - Run previously failing tests...
+[5175963] INFO main - Failed tests: 1
+[5175984] WARN AstorCoreEngine - ----------Running generation: 338, population size: 1
+[5178430] INFO main - Run previously failing tests...
+[5197990] INFO main - Failed tests: 1
+[5198026] WARN AstorCoreEngine - ----------Running generation: 339, population size: 1
+[5200093] INFO main - Run previously failing tests...
+[5221316] INFO main - Failed tests: 1
+[5221332] WARN AstorCoreEngine - ----------Running generation: 340, population size: 1
+[5222695] WARN AstorCoreEngine - ----------Running generation: 341, population size: 1
+[5224768] INFO main - Run previously failing tests...
+[5246050] INFO main - Failed tests: 1
+[5246053] WARN AstorCoreEngine - ----------Running generation: 342, population size: 1
+[5247315] WARN AstorCoreEngine - ----------Running generation: 343, population size: 1
+[5247935] WARN AstorCoreEngine - ----------Running generation: 344, population size: 1
+[5249273] INFO main - Run previously failing tests...
+[5270411] INFO main - Failed tests: 1
+[5270425] WARN AstorCoreEngine - ----------Running generation: 345, population size: 1
+[5271583] WARN AstorCoreEngine - ----------Running generation: 346, population size: 1
+[5273283] INFO main - Run previously failing tests...
+[5293840] INFO main - Failed tests: 1
+[5293846] WARN AstorCoreEngine - ----------Running generation: 347, population size: 1
+[5294936] WARN AstorCoreEngine - ----------Running generation: 348, population size: 1
+[5295783] WARN AstorCoreEngine - ----------Running generation: 349, population size: 1
+[5298100] INFO main - Run previously failing tests...
+[5317366] INFO main - Failed tests: 1
+[5317376] WARN AstorCoreEngine - ----------Running generation: 350, population size: 1
+[5319157] WARN AstorCoreEngine - ----------Running generation: 351, population size: 1
+[5320707] INFO main - Run previously failing tests...
+[5341323] INFO main - Failed tests: 1
+[5341368] WARN AstorCoreEngine - ----------Running generation: 352, population size: 1
+[5343007] INFO main - Run previously failing tests...
+[5365291] INFO main - Failed tests: 1
+[5365299] WARN AstorCoreEngine - ----------Running generation: 353, population size: 1
+[5366986] WARN AstorCoreEngine - ----------Running generation: 354, population size: 1
+[5367769] WARN AstorCoreEngine - ----------Running generation: 355, population size: 1
+[5368767] WARN AstorCoreEngine - ----------Running generation: 356, population size: 1
+[5370391] INFO main - Run previously failing tests...
+[5389983] INFO main - Failed tests: 1
+[5390002] WARN AstorCoreEngine - ----------Running generation: 357, population size: 1
+[5390970] WARN AstorCoreEngine - ----------Running generation: 358, population size: 1
+[5392149] WARN AstorCoreEngine - ----------Running generation: 359, population size: 1
+[5393556] INFO main - Run previously failing tests...
+[5414849] INFO main - Failed tests: 1
+[5414853] WARN AstorCoreEngine - ----------Running generation: 360, population size: 1
+[5416360] INFO main - Run previously failing tests...
+[5437441] INFO main - Failed tests: 1
+[5437444] WARN AstorCoreEngine - ----------Running generation: 361, population size: 1
+[5440127] INFO main - Run previously failing tests...
+[5462610] INFO main - Failed tests: 1
+[5462621] WARN AstorCoreEngine - ----------Running generation: 362, population size: 1
+[5465483] WARN AstorCoreEngine - ----------Running generation: 363, population size: 1
+[5467371] INFO main - Run previously failing tests...
+[5487494] INFO main - Failed tests: 1
+[5487506] WARN AstorCoreEngine - ----------Running generation: 364, population size: 1
+[5488969] WARN AstorCoreEngine - ----------Running generation: 365, population size: 1
+[5493976] INFO main - Run previously failing tests...
+[5514013] INFO main - Failed tests: 1
+[5514038] WARN AstorCoreEngine - ----------Running generation: 366, population size: 1
+[5515185] WARN AstorCoreEngine - ----------Running generation: 367, population size: 1
+[5516716] INFO main - Run previously failing tests...
+[5536946] INFO main - Failed tests: 1
+[5536949] WARN AstorCoreEngine - ----------Running generation: 368, population size: 1
+[5538614] INFO main - Run previously failing tests...
+[5559534] INFO main - Failed tests: 1
+[5559553] WARN AstorCoreEngine - ----------Running generation: 369, population size: 1
+[5561211] WARN AstorCoreEngine - ----------Running generation: 370, population size: 1
+[5562783] WARN AstorCoreEngine - ----------Running generation: 371, population size: 1
+[5563838] INFO main - Run previously failing tests...
+[5582824] INFO main - Failed tests: 1
+[5582838] WARN AstorCoreEngine - ----------Running generation: 372, population size: 1
+[5584289] WARN AstorCoreEngine - ----------Running generation: 373, population size: 1
+[5586631] INFO main - Run previously failing tests...
+[5607616] INFO main - Failed tests: 1
+[5607627] WARN AstorCoreEngine - ----------Running generation: 374, population size: 1
+[5609335] INFO main - Run previously failing tests...
+[5628421] INFO main - Failed tests: 1
+[5628427] WARN AstorCoreEngine - ----------Running generation: 375, population size: 1
+[5629933] WARN AstorCoreEngine - ----------Running generation: 376, population size: 1
+[5630919] WARN AstorCoreEngine - ----------Running generation: 377, population size: 1
+[5631759] WARN AstorCoreEngine - ----------Running generation: 378, population size: 1
+[5632458] WARN AstorCoreEngine - ----------Running generation: 379, population size: 1
+[5633448] WARN AstorCoreEngine - ----------Running generation: 380, population size: 1
+[5635186] INFO main - Run previously failing tests...
+[5657027] INFO main - Failed tests: 1
+[5657037] WARN AstorCoreEngine - ----------Running generation: 381, population size: 1
+[5657776] WARN AstorCoreEngine - ----------Running generation: 382, population size: 1
+[5658899] WARN AstorCoreEngine - ----------Running generation: 383, population size: 1
+[5660341] INFO main - Run previously failing tests...
+[5680341] INFO main - Failed tests: 1
+[5680355] WARN AstorCoreEngine - ----------Running generation: 384, population size: 1
+[5682474] INFO main - Run previously failing tests...
+[5703080] INFO main - Failed tests: 1
+[5703122] WARN AstorCoreEngine - ----------Running generation: 385, population size: 1
+[5705392] INFO main - Run previously failing tests...
+[5725151] INFO main - Failed tests: 1
+[5725165] WARN AstorCoreEngine - ----------Running generation: 386, population size: 1
+[5726790] INFO main - Run previously failing tests...
+[5748187] INFO main - Failed tests: 1
+[5748191] WARN AstorCoreEngine - ----------Running generation: 387, population size: 1
+[5750470] INFO main - Run previously failing tests...
+[5771989] INFO main - Failed tests: 1
+[5772000] WARN AstorCoreEngine - ----------Running generation: 388, population size: 1
+[5773052] WARN AstorCoreEngine - ----------Running generation: 389, population size: 1
+[5774681] INFO main - Run previously failing tests...
+[5795632] INFO main - Failed tests: 1
+[5795637] WARN AstorCoreEngine - ----------Running generation: 390, population size: 1
+[5798003] INFO main - Run previously failing tests...
+[5818384] INFO main - Failed tests: 1
+[5818387] WARN AstorCoreEngine - ----------Running generation: 391, population size: 1
+[5820145] WARN AstorCoreEngine - ----------Running generation: 392, population size: 1
+[5821534] INFO main - Run previously failing tests...
+[5841910] INFO main - Failed tests: 1
+[5841913] WARN AstorCoreEngine - ----------Running generation: 393, population size: 1
+[5843343] INFO main - Run previously failing tests...
+[5864235] INFO main - Failed tests: 1
+[5864241] WARN AstorCoreEngine - ----------Running generation: 394, population size: 1
+[5865851] WARN AstorCoreEngine - ----------Running generation: 395, population size: 1
+[5867231] WARN AstorCoreEngine - ----------Running generation: 396, population size: 1
+[5868033] WARN AstorCoreEngine - ----------Running generation: 397, population size: 1
+[5868995] INFO main - Run previously failing tests...
+[5890035] INFO main - Failed tests: 1
+[5890053] WARN AstorCoreEngine - ----------Running generation: 398, population size: 1
+[5891338] WARN AstorCoreEngine - ----------Running generation: 399, population size: 1
+[5893292] WARN AstorCoreEngine - ----------Running generation: 400, population size: 1
+[5895055] INFO main - Run previously failing tests...
+java.io.IOException: Stream closed
+	at java.io.BufferedInputStream.getBufIfOpen(BufferedInputStream.java:170)
+	at java.io.BufferedInputStream.read1(BufferedInputStream.java:283)
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:345)
+	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
+	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
+	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
+	at java.io.InputStreamReader.read(InputStreamReader.java:184)
+	at java.io.BufferedReader.fill(BufferedReader.java:161)
+	at java.io.BufferedReader.readLine(BufferedReader.java:324)
+	at java.io.BufferedReader.readLine(BufferedReader.java:389)
+	at fr.inria.astor.core.validation.StreamReaderThread.run(ExternalCmdValidator.java:180)
+java.lang.IllegalStateException: Exception Occurred
+	at fr.inria.astor.core.validation.ExternalCmdValidator.runShell(ExternalCmdValidator.java:142)
+	at fr.inria.astor.core.validation.ExternalCmdValidator.runTests(ExternalCmdValidator.java:98)
+	at fr.inria.astor.core.validation.ExternalCmdValidator.validate(ExternalCmdValidator.java:44)
+	at fr.inria.astor.core.solutionsearch.AstorCoreEngine.validateInstance(AstorCoreEngine.java:522)
+	at fr.inria.astor.core.solutionsearch.AstorCoreEngine.processCreatedVariant(AstorCoreEngine.java:443)
+	at fr.inria.astor.core.solutionsearch.EvolutionarySearchEngine.processGenerations(EvolutionarySearchEngine.java:164)
+	at fr.inria.astor.core.solutionsearch.EvolutionarySearchEngine.startEvolution(EvolutionarySearchEngine.java:70)
+	at fr.inria.main.evolution.AstorMain.run(AstorMain.java:189)
+	at fr.inria.main.evolution.AstorMain.execute(AstorMain.java:233)
+	at fr.inria.main.evolution.AstorMain.main(AstorMain.java:204)
+[5918151] WARN AstorCoreEngine - ----------Running generation: 401, population size: 1
+[5919486] WARN AstorCoreEngine - ----------Running generation: 402, population size: 1
+[5920228] WARN AstorCoreEngine - ----------Running generation: 403, population size: 1
+[5921357] INFO main - Run previously failing tests...
+[5941860] INFO main - Failed tests: 1
+[5941869] WARN AstorCoreEngine - ----------Running generation: 404, population size: 1
+[5943346] INFO main - Run previously failing tests...
+[5965153] INFO main - Failed tests: 1
+[5965167] WARN AstorCoreEngine - ----------Running generation: 405, population size: 1
+[5966608] WARN AstorCoreEngine - ----------Running generation: 406, population size: 1
+[5967809] WARN AstorCoreEngine - ----------Running generation: 407, population size: 1
+[5968760] WARN AstorCoreEngine - ----------Running generation: 408, population size: 1
+[5970041] INFO main - Run previously failing tests...
+[5990386] INFO main - Failed tests: 1
+[5990402] WARN AstorCoreEngine - ----------Running generation: 409, population size: 1
+[5992326] INFO main - Run previously failing tests...
+[6013067] INFO main - Failed tests: 1
+[6013078] WARN AstorCoreEngine - ----------Running generation: 410, population size: 1
+[6014344] WARN AstorCoreEngine - ----------Running generation: 411, population size: 1
+[6015747] INFO main - Run previously failing tests...
+[6036815] INFO main - Failed tests: 1
+[6036825] WARN AstorCoreEngine - ----------Running generation: 412, population size: 1
+[6038151] WARN AstorCoreEngine - ----------Running generation: 413, population size: 1
+[6039544] WARN AstorCoreEngine - ----------Running generation: 414, population size: 1
+[6040332] WARN AstorCoreEngine - ----------Running generation: 415, population size: 1
+[6041479] WARN AstorCoreEngine - ----------Running generation: 416, population size: 1
+[6042821] WARN AstorCoreEngine - ----------Running generation: 417, population size: 1
+[6043433] WARN AstorCoreEngine - ----------Running generation: 418, population size: 1
+[6044884] WARN AstorCoreEngine - ----------Running generation: 419, population size: 1
+[6045960] WARN AstorCoreEngine - ----------Running generation: 420, population size: 1
+[6048251] INFO main - Run previously failing tests...
+[6069226] INFO main - Failed tests: 1
+[6069236] WARN AstorCoreEngine - ----------Running generation: 421, population size: 1
+[6070153] WARN AstorCoreEngine - ----------Running generation: 422, population size: 1
+[6071672] INFO main - Run previously failing tests...
+[6093464] INFO main - Failed tests: 1
+[6093476] WARN AstorCoreEngine - ----------Running generation: 423, population size: 1
+[6096354] INFO main - Run previously failing tests...
+[6116650] INFO main - Failed tests: 1
+[6116660] WARN AstorCoreEngine - ----------Running generation: 424, population size: 1
+[6120166] INFO main - Run previously failing tests...
+[6140489] INFO main - Failed tests: 1
+[6140493] WARN AstorCoreEngine - ----------Running generation: 425, population size: 1
+[6141893] WARN AstorCoreEngine - ----------Running generation: 426, population size: 1
+[6143319] INFO main - Run previously failing tests...
+[6162046] INFO main - Failed tests: 1
+[6162057] WARN AstorCoreEngine - ----------Running generation: 427, population size: 1
+[6163710] INFO main - Run previously failing tests...
+[6186489] INFO main - Failed tests: 1
+[6186500] WARN AstorCoreEngine - ----------Running generation: 428, population size: 1
+[6188016] WARN AstorCoreEngine - ----------Running generation: 429, population size: 1
+[6189703] INFO main - Run previously failing tests...
+[6210096] INFO main - Failed tests: 1
+[6210108] WARN AstorCoreEngine - ----------Running generation: 430, population size: 1
+[6212204] INFO main - Run previously failing tests...
+[6232726] INFO main - Failed tests: 1
+[6232737] WARN AstorCoreEngine - ----------Running generation: 431, population size: 1
+[6235024] WARN AstorCoreEngine - ----------Running generation: 432, population size: 1
+[6237480] INFO main - Run previously failing tests...
+[6257328] INFO main - Failed tests: 1
+[6257332] WARN AstorCoreEngine - ----------Running generation: 433, population size: 1
+[6258503] WARN AstorCoreEngine - ----------Running generation: 434, population size: 1
+[6259446] WARN AstorCoreEngine - ----------Running generation: 435, population size: 1
+[6261030] INFO main - Run previously failing tests...
+[6283417] INFO main - Failed tests: 1
+[6283420] WARN AstorCoreEngine - ----------Running generation: 436, population size: 1
+[6284818] WARN AstorCoreEngine - ----------Running generation: 437, population size: 1
+[6285874] WARN AstorCoreEngine - ----------Running generation: 438, population size: 1
+[6287668] INFO main - Run previously failing tests...
+[6307659] INFO main - Failed tests: 1
+[6307666] WARN AstorCoreEngine - ----------Running generation: 439, population size: 1
+[6308885] WARN AstorCoreEngine - ----------Running generation: 440, population size: 1
+[6309710] WARN AstorCoreEngine - ----------Running generation: 441, population size: 1
+[6310788] INFO main - Run previously failing tests...
+[6330967] INFO main - Failed tests: 1
+[6330970] WARN AstorCoreEngine - ----------Running generation: 442, population size: 1
+[6332457] INFO main - Run previously failing tests...
+[6352680] INFO main - Failed tests: 1
+[6352690] WARN AstorCoreEngine - ----------Running generation: 443, population size: 1
+[6354009] WARN AstorCoreEngine - ----------Running generation: 444, population size: 1
+[6355710] WARN AstorCoreEngine - ----------Running generation: 445, population size: 1
+[6357488] INFO main - Run previously failing tests...
+[6377925] INFO main - Failed tests: 1
+[6377928] WARN AstorCoreEngine - ----------Running generation: 446, population size: 1
+[6379971] WARN AstorCoreEngine - ----------Running generation: 447, population size: 1
+[6382332] INFO main - Run previously failing tests...
+[6404233] INFO main - Failed tests: 1
+[6404245] WARN AstorCoreEngine - ----------Running generation: 448, population size: 1
+[6405462] WARN AstorCoreEngine - ----------Running generation: 449, population size: 1
+[6406691] WARN AstorCoreEngine - ----------Running generation: 450, population size: 1
+[6407815] INFO main - Run previously failing tests...
+[6428405] INFO main - Failed tests: 1
+[6428419] WARN AstorCoreEngine - ----------Running generation: 451, population size: 1
+[6429482] WARN AstorCoreEngine - ----------Running generation: 452, population size: 1
+[6430272] WARN AstorCoreEngine - ----------Running generation: 453, population size: 1
+[6431941] INFO main - Run previously failing tests...
+[6453517] INFO main - Failed tests: 1
+[6453520] WARN AstorCoreEngine - ----------Running generation: 454, population size: 1
+[6455312] INFO main - Run previously failing tests...
+[6475486] INFO main - Failed tests: 1
+[6475517] WARN AstorCoreEngine - ----------Running generation: 455, population size: 1
+[6477740] WARN AstorCoreEngine - ----------Running generation: 456, population size: 1
+[6479007] WARN AstorCoreEngine - ----------Running generation: 457, population size: 1
+[6479957] WARN AstorCoreEngine - ----------Running generation: 458, population size: 1
+[6481072] WARN AstorCoreEngine - ----------Running generation: 459, population size: 1
+[6482313] INFO main - Run previously failing tests...
+[6502417] INFO main - Failed tests: 1
+[6502427] WARN AstorCoreEngine - ----------Running generation: 460, population size: 1
+[6505089] INFO main - Run previously failing tests...
+[6524205] INFO main - Failed tests: 1
+[6524218] WARN AstorCoreEngine - ----------Running generation: 461, population size: 1
+[6526202] INFO main - Run previously failing tests...
+[6547805] INFO main - Failed tests: 1
+[6547810] WARN AstorCoreEngine - ----------Running generation: 462, population size: 1
+[6549959] INFO main - Run previously failing tests...
+[6569996] INFO main - Failed tests: 1
+[6570015] WARN AstorCoreEngine - ----------Running generation: 463, population size: 1
+[6572234] INFO main - Run previously failing tests...
+[6593168] INFO main - Failed tests: 1
+[6593171] WARN AstorCoreEngine - ----------Running generation: 464, population size: 1
+[6595445] INFO main - Run previously failing tests...
+[6613813] INFO main - Failed tests: 1
+[6613827] WARN AstorCoreEngine - ----------Running generation: 465, population size: 1
+[6615830] WARN AstorCoreEngine - ----------Running generation: 466, population size: 1
+[6616838] WARN AstorCoreEngine - ----------Running generation: 467, population size: 1
+[6618887] INFO main - Run previously failing tests...
+[6639695] INFO main - Failed tests: 1
+[6639705] WARN AstorCoreEngine - ----------Running generation: 468, population size: 1
+[6641479] WARN AstorCoreEngine - ----------Running generation: 469, population size: 1
+[6642947] INFO main - Run previously failing tests...
+[6662661] INFO main - Failed tests: 1
+[6662672] WARN AstorCoreEngine - ----------Running generation: 470, population size: 1
+[6663793] WARN AstorCoreEngine - ----------Running generation: 471, population size: 1
+[6665839] INFO main - Run previously failing tests...
+[6687520] INFO main - Failed tests: 1
+[6687533] WARN AstorCoreEngine - ----------Running generation: 472, population size: 1
+[6689173] INFO main - Run previously failing tests...
+[6709452] INFO main - Failed tests: 1
+[6709457] WARN AstorCoreEngine - ----------Running generation: 473, population size: 1
+[6710637] WARN AstorCoreEngine - ----------Running generation: 474, population size: 1
+[6712003] WARN AstorCoreEngine - ----------Running generation: 475, population size: 1
+[6713137] WARN AstorCoreEngine - ----------Running generation: 476, population size: 1
+[6714559] WARN AstorCoreEngine - ----------Running generation: 477, population size: 1
+[6715619] WARN AstorCoreEngine - ----------Running generation: 478, population size: 1
+[6716900] WARN AstorCoreEngine - ----------Running generation: 479, population size: 1
+[6717674] WARN AstorCoreEngine - ----------Running generation: 480, population size: 1
+[6719064] WARN AstorCoreEngine - ----------Running generation: 481, population size: 1
+[6719837] WARN AstorCoreEngine - ----------Running generation: 482, population size: 1
+[6720769] WARN AstorCoreEngine - ----------Running generation: 483, population size: 1
+[6721991] INFO main - Run previously failing tests...
+[6743722] INFO main - Failed tests: 1
+[6743725] WARN AstorCoreEngine - ----------Running generation: 484, population size: 1
+[6745429] WARN AstorCoreEngine - ----------Running generation: 485, population size: 1
+[6747030] INFO main - Run previously failing tests...
+[6768904] INFO main - Failed tests: 1
+[6768918] WARN AstorCoreEngine - ----------Running generation: 486, population size: 1
+[6770462] WARN AstorCoreEngine - ----------Running generation: 487, population size: 1
+[6771931] WARN AstorCoreEngine - ----------Running generation: 488, population size: 1
+[6773072] WARN AstorCoreEngine - ----------Running generation: 489, population size: 1
+[6774119] INFO main - Run previously failing tests...
+[6794045] INFO main - Failed tests: 1
+[6794048] WARN AstorCoreEngine - ----------Running generation: 490, population size: 1
+[6796070] INFO main - Run previously failing tests...
+[6817409] INFO main - Failed tests: 1
+[6817421] WARN AstorCoreEngine - ----------Running generation: 491, population size: 1
+[6821315] INFO main - Run previously failing tests...
+[6840753] INFO main - Failed tests: 1
+[6840759] WARN AstorCoreEngine - ----------Running generation: 492, population size: 1
+[6842715] INFO main - Run previously failing tests...
+[6864846] INFO main - Failed tests: 1
+[6864860] WARN AstorCoreEngine - ----------Running generation: 493, population size: 1
+[6866004] WARN AstorCoreEngine - ----------Running generation: 494, population size: 1
+[6868284] INFO main - Run previously failing tests...
+[6890287] INFO main - Failed tests: 1
+[6890293] WARN AstorCoreEngine - ----------Running generation: 495, population size: 1
+[6891237] WARN AstorCoreEngine - ----------Running generation: 496, population size: 1
+[6892065] WARN AstorCoreEngine - ----------Running generation: 497, population size: 1
+[6893620] INFO main - Run previously failing tests...
+[6912877] INFO main - Failed tests: 1
+[6912893] WARN AstorCoreEngine - ----------Running generation: 498, population size: 1
+[6915394] INFO main - Run previously failing tests...
+[6937601] INFO main - Failed tests: 1
+[6937613] WARN AstorCoreEngine - ----------Running generation: 499, population size: 1
+[6940073] INFO main - Run previously failing tests...
+[6959531] INFO main - Failed tests: 1
+[6959543] WARN AstorCoreEngine - ----------Running generation: 500, population size: 1
+[6961263] INFO main - Run previously failing tests...
+[6982941] INFO main - Failed tests: 1
+[6982954] WARN AstorCoreEngine - ----------Running generation: 501, population size: 1
+[6984876] INFO main - Run previously failing tests...
+[7005520] INFO main - Failed tests: 1
+[7005527] WARN AstorCoreEngine - ----------Running generation: 502, population size: 1
+[7007309] INFO main - Run previously failing tests...
+[7026776] INFO main - Failed tests: 1
+[7026780] WARN AstorCoreEngine - ----------Running generation: 503, population size: 1
+[7028506] INFO main - Run previously failing tests...
+[7049558] INFO main - Failed tests: 1
+[7049571] WARN AstorCoreEngine - ----------Running generation: 504, population size: 1
+[7050494] WARN AstorCoreEngine - ----------Running generation: 505, population size: 1
+[7052052] WARN AstorCoreEngine - ----------Running generation: 506, population size: 1
+[7053017] WARN AstorCoreEngine - ----------Running generation: 507, population size: 1
+[7054611] INFO main - Run previously failing tests...
+[7075227] INFO main - Failed tests: 1
+[7075232] WARN AstorCoreEngine - ----------Running generation: 508, population size: 1
+[7076837] WARN AstorCoreEngine - ----------Running generation: 509, population size: 1
+[7078564] INFO main - Run previously failing tests...
+[7101108] INFO main - Failed tests: 1
+[7101129] WARN AstorCoreEngine - ----------Running generation: 510, population size: 1
+[7102595] INFO main - Run previously failing tests...
+[7121248] INFO main - Failed tests: 1
+[7121271] WARN AstorCoreEngine - ----------Running generation: 511, population size: 1
+[7124288] INFO main - Run previously failing tests...
+[7146003] INFO main - Failed tests: 1
+[7146008] WARN AstorCoreEngine - ----------Running generation: 512, population size: 1
+[7148060] INFO main - Run previously failing tests...
+[7167357] INFO main - Failed tests: 1
+[7167363] WARN AstorCoreEngine - ----------Running generation: 513, population size: 1
+[7169056] INFO main - Run previously failing tests...
+[7190535] INFO main - Failed tests: 1
+[7190538] WARN AstorCoreEngine - ----------Running generation: 514, population size: 1
+[7193225] INFO main - Run previously failing tests...
+[7213078] INFO main - Failed tests: 1
+[7213090] WARN AstorCoreEngine - ----------Running generation: 515, population size: 1
+[7215300] INFO main - Run previously failing tests...
+[7235810] INFO main - Failed tests: 1
+[7235827] WARN AstorCoreEngine - ----------Running generation: 516, population size: 1
+[7239076] INFO main - Run previously failing tests...
+[7260995] INFO main - Failed tests: 1
+[7260998] WARN AstorCoreEngine - ----------Running generation: 517, population size: 1
+[7262502] INFO main - Run previously failing tests...
+[7286793] INFO main - Failed tests: 1
+[7286797] WARN AstorCoreEngine - ----------Running generation: 518, population size: 1
+[7288426] WARN AstorCoreEngine - ----------Running generation: 519, population size: 1
+[7289460] WARN AstorCoreEngine - ----------Running generation: 520, population size: 1
+[7290888] WARN AstorCoreEngine - ----------Running generation: 521, population size: 1
+[7292167] INFO main - Run previously failing tests...
+[7323552] INFO main - Failed tests: 1
+[7323565] WARN AstorCoreEngine - ----------Running generation: 522, population size: 1
+[7325473] WARN AstorCoreEngine - ----------Running generation: 523, population size: 1
+[7327217] INFO main - Run previously failing tests...
+[7345917] INFO main - Failed tests: 1
+[7345927] WARN AstorCoreEngine - ----------Running generation: 524, population size: 1
+[7349517] INFO main - Run previously failing tests...
+[7369951] INFO main - Failed tests: 1
+[7369963] WARN AstorCoreEngine - ----------Running generation: 525, population size: 1
+[7371777] INFO main - Run previously failing tests...
+[7398064] INFO main - Failed tests: 1
+[7398079] WARN AstorCoreEngine - ----------Running generation: 526, population size: 1
+[7400786] WARN AstorCoreEngine - ----------Running generation: 527, population size: 1
+[7402139] INFO main - Run previously failing tests...
+[7440658] INFO main - Failed tests: 1
+[7440675] WARN AstorCoreEngine - ----------Running generation: 528, population size: 1
+[7444047] WARN AstorCoreEngine - ----------Running generation: 529, population size: 1
+[7445714] INFO main - Run previously failing tests...
+[7471701] INFO main - Failed tests: 1
+[7471714] WARN AstorCoreEngine - ----------Running generation: 530, population size: 1
+[7475535] INFO main - Run previously failing tests...
+[7502282] INFO main - Failed tests: 1
+[7502288] WARN AstorCoreEngine - ----------Running generation: 531, population size: 1
+[7505871] INFO main - Run previously failing tests...
+[7533194] INFO main - Failed tests: 1
+[7533210] WARN AstorCoreEngine - ----------Running generation: 532, population size: 1
+[7535051] WARN AstorCoreEngine - ----------Running generation: 533, population size: 1
+[7538123] WARN AstorCoreEngine - ----------Running generation: 534, population size: 1
+[7539952] INFO main - Run previously failing tests...
+[7567215] INFO main - Failed tests: 1
+[7567226] WARN AstorCoreEngine - ----------Running generation: 535, population size: 1
+[7570240] INFO main - Run previously failing tests...
+[7598629] INFO main - Failed tests: 1
+[7598643] WARN AstorCoreEngine - ----------Running generation: 536, population size: 1
+[7601369] INFO main - Run previously failing tests...
+[7622660] INFO main - Failed tests: 1
+[7622674] INFO AstorCoreEngine - 
+ No more time for operating
+[7622676] INFO AstorCoreEngine - Time Repair Loop (s): 7218.938
+[7622676] INFO AstorCoreEngine - generationsexecuted: 536
+[7622676] WARN AstorCoreEngine - ----SUMMARY_EXECUTION---
+[7622676] WARN AstorCoreEngine - End Repair Search: NOT Found solution
+[7622676] WARN AstorCoreEngine - Number suspicious:1
+[7622705] INFO AstorCoreEngine - 
+ --SOLUTIONS DESCRIPTION--
+
+
+Astor Output:
+
+General stats:
+EXECUTION_IDENTIFIER=apache_commons-fileupload-VUL4J-11
+TOTAL_TIME=7218.938
+NR_GENERATIONS=536
+NR_RIGHT_COMPILATIONS=276
+NR_FAILLING_COMPILATIONS=188
+NR_ERRONEOUS_VARIANCES=null
+NR_FAILING_VALIDATION_PROCESS=null
+OUTPUT_STATUS=TIME_OUT
+
+Patch stats:
+
+[7622737] INFO Stats - Storing ing JSON at /workdir/jGenProg_vul4j_apache_commons-fileupload_VUL4J-11/./output_astor/AstorMain-apache_commons-fileupload-VUL4J-11//astor_output.json
+[7622737] INFO Stats - astor_output:
+{"general":{"NR_RIGHT_COMPILATIONS":276,"NR_ERRONEOUS_VARIANCES":null,"EXECUTION_IDENTIFIER":"apache_commons-fileupload-VUL4J-11","OUTPUT_STATUS":"TIME_OUT","NR_FAILLING_COMPILATIONS":188,"NR_GENERATIONS":536,"TOTAL_TIME":7218.938,"NR_FAILING_VALIDATION_PROCESS":null},"patches":[]}
+[7622743] INFO AstorMain - Time Total(s): 7622.72
+7830.96user 830.16system 2:07:05elapsed 113%CPU (0avgtext+0avgdata 1566992maxresident)k
+256inputs+312560outputs (0major+38976147minor)pagefaults 0swaps
+
+
+Node: 9670332cfea8
+
+
+
+Date: Thu Sep  8 13:28:17 EDT 2022
+

@@ -1,0 +1,1136 @@
+cd /workdir/TBar_vul4j_apache_shiro_VUL4J-22;
+export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en";
+TZ="America/New_York"; export TZ;
+export PATH="/usr/lib/jvm/java-8-openjdk-amd64/bin:$PATH";
+export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64";
+timeout 240m java -Xmx4g -Xms1g -XX:MaxPermSize=512m \
+    -cp /script/../libs/tbar_external/com.gzoltar-0.1.1-jdk7.jar:/script/../repair_tools/tbar.jar edu.lu.uni.serval.tbar.main.Main \
+    "/workdir/TBar_vul4j_apache_shiro_VUL4J-22" "org.apache.shiro.web.util.WebUtilsTest#testGetContextPathIncludes,org.apache.shiro.web.util.WebUtilsTest#testGetContextPath,org.apache.shiro.web.util.WebUtilsTest#testGetPathWithinApplication" "/web/src/main/java/" "/web/src/test/groovy/" "/web/target/classes/" "/web/target/test-classes/" "/script/../data/benchmarks/vul4j/perfectfl/VUL4J-22/spectra.txt" "mvn test -pl web -Dtest=org.apache.shiro.web.util.WebUtilsTest -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B" "mvn test -pl web -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B" "/root/.m2/repository/org/powermock/powermock-api-support/1.5/powermock-api-support-1.5.jar:/root/.m2/repository/junit/junit/4.8.2/junit-4.8.2.jar:/root/.m2/repository/log4j/log4j/1.2.16/log4j-1.2.16.jar:/root/.m2/repository/javax/servlet/jsp/jsp-api/2.1/jsp-api-2.1.jar:/root/.m2/repository/org/powermock/powermock-core/1.5/powermock-core-1.5.jar:/root/.m2/repository/org/slf4j/jcl-over-slf4j/1.6.4/jcl-over-slf4j-1.6.4.jar:/root/.m2/repository/javax/servlet/jstl/1.1.2/jstl-1.1.2.jar:/root/.m2/repository/cglib/cglib-nodep/2.2.2/cglib-nodep-2.2.2.jar:/root/.m2/repository/org/easymock/easymock/3.1/easymock-3.1.jar:/root/.m2/repository/org/javassist/javassist/3.17.1-GA/javassist-3.17.1-GA.jar:/root/.m2/repository/org/powermock/powermock-api-easymock/1.5/powermock-api-easymock-1.5.jar:/root/.m2/repository/org/apache/shiro/shiro-core/1.3.2-SNAPSHOT/shiro-core-1.3.2-SNAPSHOT-tests.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.6.4/slf4j-api-1.6.4.jar:/root/.m2/repository/org/slf4j/slf4j-log4j12/1.6.4/slf4j-log4j12-1.6.4.jar:/root/.m2/repository/org/powermock/powermock-reflect/1.5/powermock-reflect-1.5.jar:/root/.m2/repository/commons-beanutils/commons-beanutils/1.8.3/commons-beanutils-1.8.3.jar:/root/.m2/repository/org/powermock/powermock-module-junit4/1.5/powermock-module-junit4-1.5.jar:/root/.m2/repository/org/powermock/powermock-module-junit4-common/1.5/powermock-module-junit4-common-1.5.jar:/root/.m2/repository/javax/servlet/servlet-api/2.5/servlet-api-2.5.jar:/root/.m2/repository/org/codehaus/groovy/groovy-all/1.8.5/groovy-all-1.8.5.jar:/root/.m2/repository/org/objenesis/objenesis/1.2/objenesis-1.2.jar:/root/.m2/repository/org/apache/shiro/shiro-core/1.3.2-SNAPSHOT/shiro-core-1.3.2-SNAPSHOT.jar";
+echo "\n\nNode: `hostname`\n";
+echo "\n\nDate: `date`\n";
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en
+OpenJDK 64-Bit Server VM warning: ignoring option MaxPermSize=512m; support was removed in 8.0
+07:13:20,159 |-INFO in ch.qos.logback.classic.LoggerContext[TBar] - Could NOT find resource [logback-test.xml]
+07:13:20,159 |-INFO in ch.qos.logback.classic.LoggerContext[TBar] - Could NOT find resource [logback.groovy]
+07:13:20,159 |-INFO in ch.qos.logback.classic.LoggerContext[TBar] - Found resource [logback.xml] at [jar:file:/repair_tools/tbar.jar!/logback.xml]
+07:13:20,170 |-INFO in ch.qos.logback.core.joran.spi.ConfigurationWatchList@5a42bbf4 - URL [jar:file:/repair_tools/tbar.jar!/logback.xml] is not of type file
+07:13:20,205 |-INFO in ch.qos.logback.classic.joran.action.ConfigurationAction - debug attribute not set
+07:13:20,207 |-INFO in ch.qos.logback.classic.joran.action.ContextNameAction - Setting logger context name as [TBar]
+07:13:20,207 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - About to instantiate appender of type [ch.qos.logback.core.ConsoleAppender]
+07:13:20,209 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - Naming appender as [STDOUT]
+07:13:20,263 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting level of logger [org.hibernate.engine.query.HQLQueryPlan] to DEBUG
+07:13:20,263 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting additivity of logger [org.hibernate.engine.query.HQLQueryPlan] to false
+07:13:20,263 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting level of logger [com.piedra.logback] to DEBUG
+07:13:20,263 |-ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - Could not find an appender named [FILE]. Did you define it below instead of above in the configuration file?
+07:13:20,263 |-ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - See http://logback.qos.ch/codes.html#appender_order for more details.
+07:13:20,263 |-INFO in ch.qos.logback.classic.joran.action.RootLoggerAction - Setting level of ROOT logger to DEBUG
+07:13:20,263 |-INFO in ch.qos.logback.core.joran.action.AppenderRefAction - Attaching appender named [STDOUT] to Logger[ROOT]
+07:13:20,264 |-ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - Could not find an appender named [ROLLINGFILE]. Did you define it below instead of above in the configuration file?
+07:13:20,264 |-ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - See http://logback.qos.ch/codes.html#appender_order for more details.
+07:13:20,264 |-INFO in ch.qos.logback.classic.joran.action.ConfigurationAction - End of configuration.
+07:13:20,265 |-INFO in ch.qos.logback.classic.joran.JoranConfigurator@270421f5 - Registering current configuration as safe fallback point
+
+2022-09-14 07:13:20.370 [main] INFO  edu.lu.uni.serval.tbar.AbstractFixer - TBar_vul4j_apache_shiro_VUL4J-22 Failed Tests: 3
+2022-09-14 07:13:20.374 [main] INFO  edu.lu.uni.serval.tbar.TBarFixer - =======StaticBugFixer: Start to fix suspicious code======
+2022-09-14 07:13:20.374 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.apache.shiro.web.util.WebUtils ===248
+2022-09-14 07:13:20.824 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+if (contextPath == null) {
+            contextPath = request.getContextPath();
+        }
+2022-09-14 07:13:21.761 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath != null) {
+2022-09-14 07:13:21.761 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:13:22.502 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:13:29.376 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if ((contextPath == null) || ("/".equals(contextPath))) {
+2022-09-14 07:13:29.376 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:13:30.112 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:13:36.501 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if ((contextPath == null) && ("/".equals(contextPath))) {
+2022-09-14 07:13:36.501 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:13:37.227 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:13:43.675 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if ((contextPath == null) || !("/".equals(contextPath))) {
+2022-09-14 07:13:43.675 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:13:44.433 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:13:50.451 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if ((contextPath == null) && !("/".equals(contextPath))) {
+2022-09-14 07:13:50.452 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:13:51.063 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:13:57.380 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if ((contextPath == null) || (StringUtils.startsWithIgnoreCase(requestUri, contextPath))) {
+2022-09-14 07:13:57.380 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:13:58.019 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:13:58.044 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if ((contextPath == null) && (StringUtils.startsWithIgnoreCase(requestUri, contextPath))) {
+2022-09-14 07:13:58.044 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:13:58.710 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:13:58.720 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if ((contextPath == null) || !(StringUtils.startsWithIgnoreCase(requestUri, contextPath))) {
+2022-09-14 07:13:58.720 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:13:59.363 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:13:59.377 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if ((contextPath == null) && !(StringUtils.startsWithIgnoreCase(requestUri, contextPath))) {
+2022-09-14 07:13:59.378 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:14:00.043 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:14:00.053 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath != SERVLET_REQUEST_KEY && (contextPath == null)) {
+2022-09-14 07:14:00.053 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:14:00.739 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:14:06.859 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath != SERVLET_REQUEST_KEY || (contextPath == null)) {
+2022-09-14 07:14:06.859 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:14:07.594 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:14:13.742 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath == SERVLET_REQUEST_KEY && (contextPath == null)) {
+2022-09-14 07:14:13.742 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:14:14.422 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:14:20.746 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath == SERVLET_REQUEST_KEY || (contextPath == null)) {
+2022-09-14 07:14:20.746 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:14:21.475 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:14:27.483 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath != WebUtils.SERVLET_REQUEST_KEY && (contextPath == null)) {
+2022-09-14 07:14:27.483 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:14:28.193 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:14:34.196 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath != WebUtils.SERVLET_REQUEST_KEY || (contextPath == null)) {
+2022-09-14 07:14:34.197 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:14:34.874 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:14:41.512 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath == WebUtils.SERVLET_REQUEST_KEY && (contextPath == null)) {
+2022-09-14 07:14:41.512 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:14:42.169 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:14:48.314 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath == WebUtils.SERVLET_REQUEST_KEY || (contextPath == null)) {
+2022-09-14 07:14:48.314 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:14:49.000 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:14:55.212 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath != SERVLET_RESPONSE_KEY && (contextPath == null)) {
+2022-09-14 07:14:55.213 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:14:55.917 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:15:01.793 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath != SERVLET_RESPONSE_KEY || (contextPath == null)) {
+2022-09-14 07:15:01.793 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:15:02.557 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:15:08.692 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath == SERVLET_RESPONSE_KEY && (contextPath == null)) {
+2022-09-14 07:15:08.692 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:15:09.330 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:15:15.806 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath == SERVLET_RESPONSE_KEY || (contextPath == null)) {
+2022-09-14 07:15:15.806 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:15:16.440 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:15:22.572 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath != WebUtils.SERVLET_RESPONSE_KEY && (contextPath == null)) {
+2022-09-14 07:15:22.572 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:15:23.281 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:15:29.492 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath != WebUtils.SERVLET_RESPONSE_KEY || (contextPath == null)) {
+2022-09-14 07:15:29.492 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:15:30.183 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:15:36.274 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath == WebUtils.SERVLET_RESPONSE_KEY && (contextPath == null)) {
+2022-09-14 07:15:36.274 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:15:36.937 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:15:42.948 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath == WebUtils.SERVLET_RESPONSE_KEY || (contextPath == null)) {
+2022-09-14 07:15:42.948 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:15:43.643 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:15:49.925 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath != SAVED_REQUEST_KEY && (contextPath == null)) {
+2022-09-14 07:15:49.925 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:15:50.598 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:15:56.665 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath != SAVED_REQUEST_KEY || (contextPath == null)) {
+2022-09-14 07:15:56.666 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:15:57.436 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:16:03.643 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath == SAVED_REQUEST_KEY && (contextPath == null)) {
+2022-09-14 07:16:03.643 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:16:04.396 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:16:10.742 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath == SAVED_REQUEST_KEY || (contextPath == null)) {
+2022-09-14 07:16:10.742 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:16:11.441 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:16:17.541 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath != WebUtils.SAVED_REQUEST_KEY && (contextPath == null)) {
+2022-09-14 07:16:17.542 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:16:18.197 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:16:24.412 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath != WebUtils.SAVED_REQUEST_KEY || (contextPath == null)) {
+2022-09-14 07:16:24.412 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:16:25.128 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:16:31.101 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath == WebUtils.SAVED_REQUEST_KEY && (contextPath == null)) {
+2022-09-14 07:16:31.101 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:16:31.830 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:16:37.985 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath == WebUtils.SAVED_REQUEST_KEY || (contextPath == null)) {
+2022-09-14 07:16:37.985 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:16:38.688 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:16:44.816 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath != INCLUDE_REQUEST_URI_ATTRIBUTE && (contextPath == null)) {
+2022-09-14 07:16:44.816 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:16:45.513 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:16:51.699 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath != INCLUDE_REQUEST_URI_ATTRIBUTE || (contextPath == null)) {
+2022-09-14 07:16:51.699 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:16:52.421 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:16:58.881 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath == INCLUDE_REQUEST_URI_ATTRIBUTE && (contextPath == null)) {
+2022-09-14 07:16:58.881 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:16:59.594 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:17:05.597 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath == INCLUDE_REQUEST_URI_ATTRIBUTE || (contextPath == null)) {
+2022-09-14 07:17:05.597 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:17:06.340 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:17:13.324 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath != WebUtils.INCLUDE_REQUEST_URI_ATTRIBUTE && (contextPath == null)) {
+2022-09-14 07:17:13.324 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:17:14.058 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:17:20.636 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath != WebUtils.INCLUDE_REQUEST_URI_ATTRIBUTE || (contextPath == null)) {
+2022-09-14 07:17:20.636 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:17:21.332 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:17:27.562 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath == WebUtils.INCLUDE_REQUEST_URI_ATTRIBUTE && (contextPath == null)) {
+2022-09-14 07:17:27.562 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:17:28.332 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:17:34.322 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath == WebUtils.INCLUDE_REQUEST_URI_ATTRIBUTE || (contextPath == null)) {
+2022-09-14 07:17:34.322 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:17:35.136 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:17:41.425 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath != INCLUDE_CONTEXT_PATH_ATTRIBUTE && (contextPath == null)) {
+2022-09-14 07:17:41.425 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:17:42.098 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:17:48.173 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath != INCLUDE_CONTEXT_PATH_ATTRIBUTE || (contextPath == null)) {
+2022-09-14 07:17:48.173 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:17:48.971 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:17:55.212 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath == INCLUDE_CONTEXT_PATH_ATTRIBUTE && (contextPath == null)) {
+2022-09-14 07:17:55.212 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:17:55.917 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:18:01.957 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath == INCLUDE_CONTEXT_PATH_ATTRIBUTE || (contextPath == null)) {
+2022-09-14 07:18:01.957 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:18:02.612 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:18:08.995 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath != WebUtils.INCLUDE_CONTEXT_PATH_ATTRIBUTE && (contextPath == null)) {
+2022-09-14 07:18:08.995 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:18:09.747 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:18:15.781 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath != WebUtils.INCLUDE_CONTEXT_PATH_ATTRIBUTE || (contextPath == null)) {
+2022-09-14 07:18:15.782 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:18:16.433 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:18:22.841 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath == WebUtils.INCLUDE_CONTEXT_PATH_ATTRIBUTE && (contextPath == null)) {
+2022-09-14 07:18:22.841 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:18:23.590 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:18:29.735 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath == WebUtils.INCLUDE_CONTEXT_PATH_ATTRIBUTE || (contextPath == null)) {
+2022-09-14 07:18:29.735 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:18:30.457 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:18:36.701 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath != INCLUDE_SERVLET_PATH_ATTRIBUTE && (contextPath == null)) {
+2022-09-14 07:18:36.701 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:18:37.437 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:18:43.588 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath != INCLUDE_SERVLET_PATH_ATTRIBUTE || (contextPath == null)) {
+2022-09-14 07:18:43.589 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:18:44.241 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:18:50.404 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath == INCLUDE_SERVLET_PATH_ATTRIBUTE && (contextPath == null)) {
+2022-09-14 07:18:50.404 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:18:51.078 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:18:57.388 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath == INCLUDE_SERVLET_PATH_ATTRIBUTE || (contextPath == null)) {
+2022-09-14 07:18:57.388 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:18:58.003 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:19:04.400 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath != WebUtils.INCLUDE_SERVLET_PATH_ATTRIBUTE && (contextPath == null)) {
+2022-09-14 07:19:04.400 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:19:05.263 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:19:11.724 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath != WebUtils.INCLUDE_SERVLET_PATH_ATTRIBUTE || (contextPath == null)) {
+2022-09-14 07:19:11.724 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:19:12.395 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:19:18.606 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath == WebUtils.INCLUDE_SERVLET_PATH_ATTRIBUTE && (contextPath == null)) {
+2022-09-14 07:19:18.606 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:19:19.302 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:19:25.311 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath == WebUtils.INCLUDE_SERVLET_PATH_ATTRIBUTE || (contextPath == null)) {
+2022-09-14 07:19:25.312 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:19:26.023 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:19:32.430 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath != INCLUDE_PATH_INFO_ATTRIBUTE && (contextPath == null)) {
+2022-09-14 07:19:32.430 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:19:33.126 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:19:39.372 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath != INCLUDE_PATH_INFO_ATTRIBUTE || (contextPath == null)) {
+2022-09-14 07:19:39.372 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:19:40.105 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:19:46.222 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath == INCLUDE_PATH_INFO_ATTRIBUTE && (contextPath == null)) {
+2022-09-14 07:19:46.222 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:19:46.983 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:19:53.330 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath == INCLUDE_PATH_INFO_ATTRIBUTE || (contextPath == null)) {
+2022-09-14 07:19:53.330 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:19:53.970 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:20:00.058 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath != WebUtils.INCLUDE_PATH_INFO_ATTRIBUTE && (contextPath == null)) {
+2022-09-14 07:20:00.058 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:20:00.794 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:20:07.085 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath != WebUtils.INCLUDE_PATH_INFO_ATTRIBUTE || (contextPath == null)) {
+2022-09-14 07:20:07.085 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:20:07.823 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:20:14.363 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath == WebUtils.INCLUDE_PATH_INFO_ATTRIBUTE && (contextPath == null)) {
+2022-09-14 07:20:14.363 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:20:15.061 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:20:21.207 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath == WebUtils.INCLUDE_PATH_INFO_ATTRIBUTE || (contextPath == null)) {
+2022-09-14 07:20:21.207 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:20:21.919 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:20:28.560 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath != INCLUDE_QUERY_STRING_ATTRIBUTE && (contextPath == null)) {
+2022-09-14 07:20:28.560 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:20:29.265 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:20:35.321 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath != INCLUDE_QUERY_STRING_ATTRIBUTE || (contextPath == null)) {
+2022-09-14 07:20:35.321 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:20:36.047 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:20:42.222 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath == INCLUDE_QUERY_STRING_ATTRIBUTE && (contextPath == null)) {
+2022-09-14 07:20:42.222 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:20:42.918 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:20:49.323 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath == INCLUDE_QUERY_STRING_ATTRIBUTE || (contextPath == null)) {
+2022-09-14 07:20:49.323 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:20:50.040 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:20:56.308 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath != WebUtils.INCLUDE_QUERY_STRING_ATTRIBUTE && (contextPath == null)) {
+2022-09-14 07:20:56.308 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:20:57.006 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:21:03.124 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath != WebUtils.INCLUDE_QUERY_STRING_ATTRIBUTE || (contextPath == null)) {
+2022-09-14 07:21:03.124 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:21:03.862 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:21:10.596 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath == WebUtils.INCLUDE_QUERY_STRING_ATTRIBUTE && (contextPath == null)) {
+2022-09-14 07:21:10.596 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:21:11.274 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:21:17.508 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath == WebUtils.INCLUDE_QUERY_STRING_ATTRIBUTE || (contextPath == null)) {
+2022-09-14 07:21:17.508 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:21:18.211 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:21:24.210 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath != FORWARD_REQUEST_URI_ATTRIBUTE && (contextPath == null)) {
+2022-09-14 07:21:24.211 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:21:24.941 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:21:31.198 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath != FORWARD_REQUEST_URI_ATTRIBUTE || (contextPath == null)) {
+2022-09-14 07:21:31.199 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:21:31.994 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:21:37.997 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath == FORWARD_REQUEST_URI_ATTRIBUTE && (contextPath == null)) {
+2022-09-14 07:21:37.998 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:21:38.608 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:21:44.643 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath == FORWARD_REQUEST_URI_ATTRIBUTE || (contextPath == null)) {
+2022-09-14 07:21:44.643 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:21:45.361 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:21:51.691 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath != WebUtils.FORWARD_REQUEST_URI_ATTRIBUTE && (contextPath == null)) {
+2022-09-14 07:21:51.691 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:21:52.502 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:21:58.987 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath != WebUtils.FORWARD_REQUEST_URI_ATTRIBUTE || (contextPath == null)) {
+2022-09-14 07:21:58.987 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:21:59.697 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:22:06.103 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath == WebUtils.FORWARD_REQUEST_URI_ATTRIBUTE && (contextPath == null)) {
+2022-09-14 07:22:06.103 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:22:06.790 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:22:13.060 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath == WebUtils.FORWARD_REQUEST_URI_ATTRIBUTE || (contextPath == null)) {
+2022-09-14 07:22:13.061 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:22:13.823 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:22:19.842 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath != FORWARD_CONTEXT_PATH_ATTRIBUTE && (contextPath == null)) {
+2022-09-14 07:22:19.842 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:22:20.535 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:22:26.974 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath != FORWARD_CONTEXT_PATH_ATTRIBUTE || (contextPath == null)) {
+2022-09-14 07:22:26.975 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:22:27.675 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:22:33.696 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath == FORWARD_CONTEXT_PATH_ATTRIBUTE && (contextPath == null)) {
+2022-09-14 07:22:33.696 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:22:34.415 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:22:40.586 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath == FORWARD_CONTEXT_PATH_ATTRIBUTE || (contextPath == null)) {
+2022-09-14 07:22:40.586 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:22:41.312 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:22:47.597 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath != WebUtils.FORWARD_CONTEXT_PATH_ATTRIBUTE && (contextPath == null)) {
+2022-09-14 07:22:47.597 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:22:48.315 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:22:54.414 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath != WebUtils.FORWARD_CONTEXT_PATH_ATTRIBUTE || (contextPath == null)) {
+2022-09-14 07:22:54.414 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:22:55.134 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:23:01.294 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath == WebUtils.FORWARD_CONTEXT_PATH_ATTRIBUTE && (contextPath == null)) {
+2022-09-14 07:23:01.294 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:23:02.032 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:23:08.120 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath == WebUtils.FORWARD_CONTEXT_PATH_ATTRIBUTE || (contextPath == null)) {
+2022-09-14 07:23:08.121 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:23:08.775 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:23:14.762 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath != FORWARD_SERVLET_PATH_ATTRIBUTE && (contextPath == null)) {
+2022-09-14 07:23:14.762 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:23:15.476 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:23:21.514 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath != FORWARD_SERVLET_PATH_ATTRIBUTE || (contextPath == null)) {
+2022-09-14 07:23:21.514 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:23:22.308 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:23:28.682 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath == FORWARD_SERVLET_PATH_ATTRIBUTE && (contextPath == null)) {
+2022-09-14 07:23:28.682 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:23:29.371 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:23:35.656 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath == FORWARD_SERVLET_PATH_ATTRIBUTE || (contextPath == null)) {
+2022-09-14 07:23:35.657 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:23:36.332 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:23:42.504 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath != WebUtils.FORWARD_SERVLET_PATH_ATTRIBUTE && (contextPath == null)) {
+2022-09-14 07:23:42.504 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:23:43.201 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:23:49.096 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath != WebUtils.FORWARD_SERVLET_PATH_ATTRIBUTE || (contextPath == null)) {
+2022-09-14 07:23:49.097 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:23:49.787 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:23:56.009 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath == WebUtils.FORWARD_SERVLET_PATH_ATTRIBUTE && (contextPath == null)) {
+2022-09-14 07:23:56.009 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:23:56.701 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:24:03.082 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath == WebUtils.FORWARD_SERVLET_PATH_ATTRIBUTE || (contextPath == null)) {
+2022-09-14 07:24:03.082 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:24:03.807 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:24:10.284 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath != FORWARD_PATH_INFO_ATTRIBUTE && (contextPath == null)) {
+2022-09-14 07:24:10.284 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:24:10.974 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:24:17.340 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath != FORWARD_PATH_INFO_ATTRIBUTE || (contextPath == null)) {
+2022-09-14 07:24:17.340 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:24:18.087 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:24:24.009 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath == FORWARD_PATH_INFO_ATTRIBUTE && (contextPath == null)) {
+2022-09-14 07:24:24.009 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:24:24.731 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:24:31.014 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath == FORWARD_PATH_INFO_ATTRIBUTE || (contextPath == null)) {
+2022-09-14 07:24:31.014 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:24:31.743 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:24:37.990 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath != WebUtils.FORWARD_PATH_INFO_ATTRIBUTE && (contextPath == null)) {
+2022-09-14 07:24:37.990 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:24:38.719 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:24:44.871 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath != WebUtils.FORWARD_PATH_INFO_ATTRIBUTE || (contextPath == null)) {
+2022-09-14 07:24:44.871 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:24:45.604 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:24:51.557 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath == WebUtils.FORWARD_PATH_INFO_ATTRIBUTE && (contextPath == null)) {
+2022-09-14 07:24:51.557 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:24:52.309 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:24:58.617 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath == WebUtils.FORWARD_PATH_INFO_ATTRIBUTE || (contextPath == null)) {
+2022-09-14 07:24:58.617 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:24:59.421 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:25:05.993 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath != FORWARD_QUERY_STRING_ATTRIBUTE && (contextPath == null)) {
+2022-09-14 07:25:05.993 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:25:06.740 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:25:12.776 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath != FORWARD_QUERY_STRING_ATTRIBUTE || (contextPath == null)) {
+2022-09-14 07:25:12.776 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:25:13.495 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:25:19.967 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath == FORWARD_QUERY_STRING_ATTRIBUTE && (contextPath == null)) {
+2022-09-14 07:25:19.967 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:25:20.701 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:25:26.984 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath == FORWARD_QUERY_STRING_ATTRIBUTE || (contextPath == null)) {
+2022-09-14 07:25:26.984 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:25:27.658 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:25:33.979 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath != WebUtils.FORWARD_QUERY_STRING_ATTRIBUTE && (contextPath == null)) {
+2022-09-14 07:25:33.980 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:25:34.656 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:25:40.772 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath != WebUtils.FORWARD_QUERY_STRING_ATTRIBUTE || (contextPath == null)) {
+2022-09-14 07:25:40.772 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:25:41.525 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:25:47.927 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath == WebUtils.FORWARD_QUERY_STRING_ATTRIBUTE && (contextPath == null)) {
+2022-09-14 07:25:47.927 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:25:48.621 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:25:55.021 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath == WebUtils.FORWARD_QUERY_STRING_ATTRIBUTE || (contextPath == null)) {
+2022-09-14 07:25:55.021 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:25:55.717 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:26:01.985 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath != DEFAULT_CHARACTER_ENCODING && (contextPath == null)) {
+2022-09-14 07:26:01.985 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:26:02.684 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:26:08.981 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath != DEFAULT_CHARACTER_ENCODING || (contextPath == null)) {
+2022-09-14 07:26:08.981 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:26:09.722 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:26:15.989 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath == DEFAULT_CHARACTER_ENCODING && (contextPath == null)) {
+2022-09-14 07:26:15.989 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:26:16.628 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:26:22.804 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath == DEFAULT_CHARACTER_ENCODING || (contextPath == null)) {
+2022-09-14 07:26:22.804 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:26:23.538 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:26:29.910 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath != WebUtils.DEFAULT_CHARACTER_ENCODING && (contextPath == null)) {
+2022-09-14 07:26:29.910 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:26:30.627 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:26:36.782 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath != WebUtils.DEFAULT_CHARACTER_ENCODING || (contextPath == null)) {
+2022-09-14 07:26:36.782 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:26:37.515 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:26:43.767 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath == WebUtils.DEFAULT_CHARACTER_ENCODING && (contextPath == null)) {
+2022-09-14 07:26:43.767 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:26:44.522 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:26:50.607 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,7 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
++        if (contextPath == WebUtils.DEFAULT_CHARACTER_ENCODING || (contextPath == null)) {
+2022-09-14 07:26:50.607 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:26:51.276 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:26:57.913 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -244,10 +244,11 @@ public class WebUtils {
+-        String contextPath = (String) request.getAttribute(INCLUDE_CONTEXT_PATH_ATTRIBUTE);
++	String contextPath = (String) request.getAttribute(INCLUDE_CONTEXT_PATH_ATTRIBUTE);
++
+2022-09-14 07:26:57.913 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:26:58.579 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:26:58.589 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,13 +245,15 @@ public class WebUtils {
+-        if (contextPath == null) {
+-            contextPath = request.getContextPath();
+-        }
++
++	if (contextPath == null) {
++            contextPath = request.getContextPath();
++        }
++
+2022-09-14 07:26:58.589 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:26:59.324 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:27:05.697 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,14 +245,16 @@ public class WebUtils {
+-        if (contextPath == null) {
+-            contextPath = request.getContextPath();
+-        }
++
++	if (contextPath == null) {
++            contextPath = request.getContextPath();
++        }
++
+2022-09-14 07:27:05.697 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:27:06.418 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:27:06.443 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,9 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
+-            contextPath = request.getContextPath();
+-        }
++        contextPath = request.getContextPath();
+2022-09-14 07:27:06.443 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:27:07.120 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:27:13.736 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -245,9 +245,7 @@ public class WebUtils {
+-        if (contextPath == null) {
+-            contextPath = request.getContextPath();
+-        }
++
+2022-09-14 07:27:13.736 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:27:14.479 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:27:20.708 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -234,26 +234,7 @@ public class WebUtils {
+-    /**
+-     * Return the context path for the given request, detecting an include request
+-     * URL if called within a RequestDispatcher include.
+-     * <p>As the value returned by <code>request.getContextPath()</code> is <i>not</i>
+-     * decoded by the servlet container, this method will decode it.
+-     *
+-     * @param request current HTTP request
+-     * @return the context path
+-     */
+-    public static String getContextPath(HttpServletRequest request) {
+-        String contextPath = (String) request.getAttribute(INCLUDE_CONTEXT_PATH_ATTRIBUTE);
+-        if (contextPath == null) {
+-            contextPath = request.getContextPath();
+-        }
+-        if ("/".equals(contextPath)) {
+-            // Invalid case, but happens for includes on Jetty: silently adapt it.
+-            contextPath = "";
+-        }
+-        return decodeRequestString(request, contextPath);
+-    }
++
+2022-09-14 07:27:20.708 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:27:21.419 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:27:21.448 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.apache.shiro.web.util.WebUtils ===255
+2022-09-14 07:27:21.491 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+return decodeRequestString(request, contextPath);
+2022-09-14 07:27:21.566 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -252,7 +252,7 @@ public class WebUtils {
+-        return decodeRequestString(request, contextPath);
++        return getWebEnvironment(request, contextPath);
+2022-09-14 07:27:21.566 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:27:22.405 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:27:22.414 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -252,7 +252,7 @@ public class WebUtils {
+-        return decodeRequestString(request, contextPath);
++        return isTrue(request, contextPath);
+2022-09-14 07:27:22.414 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:27:23.029 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:27:23.039 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -252,7 +252,7 @@ public class WebUtils {
+-        return decodeRequestString(request, contextPath);
++        return normalize(request, contextPath);
+2022-09-14 07:27:23.039 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:27:23.636 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:27:23.644 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -252,7 +252,7 @@ public class WebUtils {
+-        return decodeRequestString(request, contextPath);
++        return decodeAndCleanUriString(request, contextPath);
+2022-09-14 07:27:23.644 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:27:24.320 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:27:30.627 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -252,7 +252,7 @@ public class WebUtils {
+-        return decodeRequestString(request, contextPath);
++        return getCleanParam(request, contextPath);
+2022-09-14 07:27:30.627 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:27:31.293 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:27:37.741 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -252,7 +252,7 @@ public class WebUtils {
+-        return decodeRequestString(request, contextPath);
++        return decodeRequestString(contextPath);
+2022-09-14 07:27:37.741 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:27:38.339 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:27:38.350 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -252,7 +252,7 @@ public class WebUtils {
+-        return decodeRequestString(request, contextPath);
++        return decodeRequestString(request);
+2022-09-14 07:27:38.350 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:27:39.022 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:27:39.112 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -252,7 +252,10 @@ public class WebUtils {
+-        return decodeRequestString(request, contextPath);
++        if (request != null) {
++	return decodeRequestString(request, contextPath);
++	}
++
+2022-09-14 07:27:39.112 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:27:40.160 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:27:40.170 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -252,7 +252,10 @@ public class WebUtils {
+-        return decodeRequestString(request, contextPath);
++        if (request == null) {
++	    throw new IllegalArgumentException("Null 'request' argument.");
++	}
++return decodeRequestString(request, contextPath);
+2022-09-14 07:27:40.170 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:27:40.904 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:27:47.382 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -252,7 +252,10 @@ public class WebUtils {
+-        return decodeRequestString(request, contextPath);
++        if (request == null) {
++	    return null;
++	}
++return decodeRequestString(request, contextPath);
+2022-09-14 07:27:47.382 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:27:48.109 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:27:54.539 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -252,7 +252,8 @@ public class WebUtils {
+-        return decodeRequestString(request, contextPath);
++        if (request == null) request = new HttpServletRequest();
++ return decodeRequestString(request, contextPath);
+2022-09-14 07:27:54.540 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:27:55.204 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 07:27:55.213 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -252,7 +252,8 @@ public class WebUtils {
+-        return decodeRequestString(request, contextPath);
++        if (request == null) return new String();
++	 return decodeRequestString(request, contextPath);
+2022-09-14 07:27:55.213 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:27:55.914 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:28:02.737 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -252,7 +252,8 @@ public class WebUtils {
+-        return decodeRequestString(request, contextPath);
++        if (request == null) return contextPath;
++	 return decodeRequestString(request, contextPath);
+2022-09-14 07:28:02.738 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:28:03.507 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:28:09.829 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -252,7 +252,8 @@ public class WebUtils {
+-        return decodeRequestString(request, contextPath);
++        if (request == null) return SERVLET_REQUEST_KEY;
++	 return decodeRequestString(request, contextPath);
+2022-09-14 07:28:09.829 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:28:10.533 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:28:17.112 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -252,7 +252,8 @@ public class WebUtils {
+-        return decodeRequestString(request, contextPath);
++        if (request == null) return WebUtils.SERVLET_REQUEST_KEY;
++	 return decodeRequestString(request, contextPath);
+2022-09-14 07:28:17.112 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:28:17.839 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:28:24.190 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -252,7 +252,8 @@ public class WebUtils {
+-        return decodeRequestString(request, contextPath);
++        if (request == null) return SERVLET_RESPONSE_KEY;
++	 return decodeRequestString(request, contextPath);
+2022-09-14 07:28:24.190 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:28:24.881 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:28:31.282 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -252,7 +252,8 @@ public class WebUtils {
+-        return decodeRequestString(request, contextPath);
++        if (request == null) return WebUtils.SERVLET_RESPONSE_KEY;
++	 return decodeRequestString(request, contextPath);
+2022-09-14 07:28:31.282 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:28:31.982 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:28:38.618 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -252,7 +252,8 @@ public class WebUtils {
+-        return decodeRequestString(request, contextPath);
++        if (request == null) return SAVED_REQUEST_KEY;
++	 return decodeRequestString(request, contextPath);
+2022-09-14 07:28:38.619 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:28:39.313 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:28:45.633 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -252,7 +252,8 @@ public class WebUtils {
+-        return decodeRequestString(request, contextPath);
++        if (request == null) return WebUtils.SAVED_REQUEST_KEY;
++	 return decodeRequestString(request, contextPath);
+2022-09-14 07:28:45.633 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:28:46.388 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:28:52.785 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -252,7 +252,8 @@ public class WebUtils {
+-        return decodeRequestString(request, contextPath);
++        if (request == null) return INCLUDE_REQUEST_URI_ATTRIBUTE;
++	 return decodeRequestString(request, contextPath);
+2022-09-14 07:28:52.785 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:28:53.501 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:28:59.826 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -252,7 +252,8 @@ public class WebUtils {
+-        return decodeRequestString(request, contextPath);
++        if (request == null) return WebUtils.INCLUDE_REQUEST_URI_ATTRIBUTE;
++	 return decodeRequestString(request, contextPath);
+2022-09-14 07:28:59.827 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:29:00.497 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:29:06.857 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -252,7 +252,8 @@ public class WebUtils {
+-        return decodeRequestString(request, contextPath);
++        if (request == null) return INCLUDE_CONTEXT_PATH_ATTRIBUTE;
++	 return decodeRequestString(request, contextPath);
+2022-09-14 07:29:06.858 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:29:07.545 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:29:13.862 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -252,7 +252,8 @@ public class WebUtils {
+-        return decodeRequestString(request, contextPath);
++        if (request == null) return WebUtils.INCLUDE_CONTEXT_PATH_ATTRIBUTE;
++	 return decodeRequestString(request, contextPath);
+2022-09-14 07:29:13.862 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:29:14.494 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:29:20.621 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -252,7 +252,8 @@ public class WebUtils {
+-        return decodeRequestString(request, contextPath);
++        if (request == null) return INCLUDE_SERVLET_PATH_ATTRIBUTE;
++	 return decodeRequestString(request, contextPath);
+2022-09-14 07:29:20.621 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:29:21.402 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:29:27.900 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -252,7 +252,8 @@ public class WebUtils {
+-        return decodeRequestString(request, contextPath);
++        if (request == null) return WebUtils.INCLUDE_SERVLET_PATH_ATTRIBUTE;
++	 return decodeRequestString(request, contextPath);
+2022-09-14 07:29:27.900 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:29:28.594 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:29:35.045 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -252,7 +252,8 @@ public class WebUtils {
+-        return decodeRequestString(request, contextPath);
++        if (request == null) return INCLUDE_PATH_INFO_ATTRIBUTE;
++	 return decodeRequestString(request, contextPath);
+2022-09-14 07:29:35.045 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:29:35.681 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:29:42.176 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -252,7 +252,8 @@ public class WebUtils {
+-        return decodeRequestString(request, contextPath);
++        if (request == null) return WebUtils.INCLUDE_PATH_INFO_ATTRIBUTE;
++	 return decodeRequestString(request, contextPath);
+2022-09-14 07:29:42.176 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:29:42.836 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:29:49.198 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -252,7 +252,8 @@ public class WebUtils {
+-        return decodeRequestString(request, contextPath);
++        if (request == null) return INCLUDE_QUERY_STRING_ATTRIBUTE;
++	 return decodeRequestString(request, contextPath);
+2022-09-14 07:29:49.198 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:29:49.913 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:29:56.768 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -252,7 +252,8 @@ public class WebUtils {
+-        return decodeRequestString(request, contextPath);
++        if (request == null) return WebUtils.INCLUDE_QUERY_STRING_ATTRIBUTE;
++	 return decodeRequestString(request, contextPath);
+2022-09-14 07:29:56.768 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:29:57.519 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:30:04.021 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -252,7 +252,8 @@ public class WebUtils {
+-        return decodeRequestString(request, contextPath);
++        if (request == null) return FORWARD_REQUEST_URI_ATTRIBUTE;
++	 return decodeRequestString(request, contextPath);
+2022-09-14 07:30:04.021 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:30:04.714 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:30:11.331 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -252,7 +252,8 @@ public class WebUtils {
+-        return decodeRequestString(request, contextPath);
++        if (request == null) return WebUtils.FORWARD_REQUEST_URI_ATTRIBUTE;
++	 return decodeRequestString(request, contextPath);
+2022-09-14 07:30:11.331 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:30:12.082 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:30:18.633 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -252,7 +252,8 @@ public class WebUtils {
+-        return decodeRequestString(request, contextPath);
++        if (request == null) return FORWARD_CONTEXT_PATH_ATTRIBUTE;
++	 return decodeRequestString(request, contextPath);
+2022-09-14 07:30:18.633 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:30:19.340 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:30:25.672 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -252,7 +252,8 @@ public class WebUtils {
+-        return decodeRequestString(request, contextPath);
++        if (request == null) return WebUtils.FORWARD_CONTEXT_PATH_ATTRIBUTE;
++	 return decodeRequestString(request, contextPath);
+2022-09-14 07:30:25.672 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:30:26.424 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:30:32.967 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -252,7 +252,8 @@ public class WebUtils {
+-        return decodeRequestString(request, contextPath);
++        if (request == null) return FORWARD_SERVLET_PATH_ATTRIBUTE;
++	 return decodeRequestString(request, contextPath);
+2022-09-14 07:30:32.967 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:30:33.675 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:30:40.029 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -252,7 +252,8 @@ public class WebUtils {
+-        return decodeRequestString(request, contextPath);
++        if (request == null) return WebUtils.FORWARD_SERVLET_PATH_ATTRIBUTE;
++	 return decodeRequestString(request, contextPath);
+2022-09-14 07:30:40.029 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:30:40.782 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:30:46.906 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -252,7 +252,8 @@ public class WebUtils {
+-        return decodeRequestString(request, contextPath);
++        if (request == null) return FORWARD_PATH_INFO_ATTRIBUTE;
++	 return decodeRequestString(request, contextPath);
+2022-09-14 07:30:46.907 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:30:47.597 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:30:53.903 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -252,7 +252,8 @@ public class WebUtils {
+-        return decodeRequestString(request, contextPath);
++        if (request == null) return WebUtils.FORWARD_PATH_INFO_ATTRIBUTE;
++	 return decodeRequestString(request, contextPath);
+2022-09-14 07:30:53.903 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:30:54.675 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:31:01.415 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -252,7 +252,8 @@ public class WebUtils {
+-        return decodeRequestString(request, contextPath);
++        if (request == null) return FORWARD_QUERY_STRING_ATTRIBUTE;
++	 return decodeRequestString(request, contextPath);
+2022-09-14 07:31:01.415 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:31:02.133 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:31:08.447 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -252,7 +252,8 @@ public class WebUtils {
+-        return decodeRequestString(request, contextPath);
++        if (request == null) return WebUtils.FORWARD_QUERY_STRING_ATTRIBUTE;
++	 return decodeRequestString(request, contextPath);
+2022-09-14 07:31:08.447 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:31:09.139 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:31:15.289 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -252,7 +252,8 @@ public class WebUtils {
+-        return decodeRequestString(request, contextPath);
++        if (request == null) return DEFAULT_CHARACTER_ENCODING;
++	 return decodeRequestString(request, contextPath);
+2022-09-14 07:31:15.289 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:31:16.007 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:31:22.420 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -252,7 +252,8 @@ public class WebUtils {
+-        return decodeRequestString(request, contextPath);
++        if (request == null) return WebUtils.DEFAULT_CHARACTER_ENCODING;
++	 return decodeRequestString(request, contextPath);
+2022-09-14 07:31:22.420 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 07:31:23.183 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 07:31:29.317 [main] INFO  edu.lu.uni.serval.tbar.TBarFixer - =======StaticBugFixer: Finish off fixing======
+Failed to fix bug
+
+
+Node: ee2bf67284b9
+
+
+
+Date: Wed Sep 14 07:31:29 EDT 2022
+

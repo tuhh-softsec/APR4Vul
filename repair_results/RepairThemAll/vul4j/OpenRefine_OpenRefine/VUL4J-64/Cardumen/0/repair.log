@@ -1,0 +1,328 @@
+cd /workdir/Cardumen_vul4j_OpenRefine_OpenRefine_VUL4J-64;
+export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en";
+TZ="America/New_York"; export TZ;
+export PATH="/usr/lib/jvm/java-8-openjdk-amd64/bin:$PATH";
+export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64/bin";
+time java -Xmx4g -Xms1g -XX:MaxPermSize=512m -cp /script/../libs/jtestex7.jar:/script/../repair_tools/astor.jar fr.inria.main.evolution.AstorMain \
+	-mode cardumen \
+	-location . \
+	-id OpenRefine_OpenRefine-VUL4J-64 \
+	-failing com.google.refine.tests.importers.XmlImporterTests#ignoresDtds \
+	-jvm4testexecution /usr/lib/jvm/java-8-openjdk-amd64/bin \
+	-jvm4evosuitetestexecution /usr/lib/jvm/java-8-openjdk-amd64/bin \
+	-maxgen 1000000 \
+	-maxtime 120 \
+	-stopfirst true \
+	-seed 0 \
+	-scope local \
+	-population 1 \
+	-javacompliancelevel 8 \
+	-faultlocalization perfect \
+    -perfectdata /script/../data/benchmarks/vul4j/perfectfl/VUL4J-64 \
+    -validation externalcmd \
+    -testfailingcmd "mvn test -pl main -Dtest=com.google.refine.tests.importers.XmlImporterTests#ignoresDtds -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B" \
+    -testallcmd "mvn test -pl main -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B"  \ \
+	-srcjavafolder main/src \
+	-srctestfolder main/tests/server/src \
+	-binjavafolder main/webapp/WEB-INF/classes \
+	-bintestfolder main/target/test-classes \
+	-parameters x:x:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000 \
+	-dependencies /root/.m2/repository/stax/stax-api/1.0.1/stax-api-1.0.1.jar:/root/.m2/repository/org/apache/jena/jena-dboe-index/3.6.0/jena-dboe-index-3.6.0.jar:/root/.m2/repository/org/mockito/mockito-core/2.23.4/mockito-core-2.23.4.jar:/root/.m2/repository/org/slf4j/jcl-over-slf4j/1.7.25/jcl-over-slf4j-1.7.25.jar:/root/.m2/repository/commons-validator/commons-validator/1.5.1/commons-validator-1.5.1.jar:/root/.m2/repository/edu/mit/simile/vicino/1.1/vicino-1.1.jar:/root/.m2/repository/com/wcohen/secondstring/20100303/secondstring-20100303.jar:/root/.m2/repository/org/powermock/powermock-api-support/1.7.1/powermock-api-support-1.7.1.jar:/root/.m2/repository/org/apache/poi/poi-ooxml/3.8/poi-ooxml-3.8.jar:/root/.m2/repository/edu/mit/simile/butterfly/1.0.2/butterfly-1.0.2.jar:/root/.m2/repository/org/slf4j/slf4j-log4j12/1.7.18/slf4j-log4j12-1.7.18.jar:/root/.m2/repository/org/apache/httpcomponents/httpcore/4.4.9/httpcore-4.4.9.jar:/root/.m2/repository/com/github/andrewoma/dexx/collection/0.7/collection-0.7.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.9.3/byte-buddy-1.9.3.jar:/root/.m2/repository/org/mozilla/rhino/1.7.10/rhino-1.7.10.jar:/root/.m2/repository/org/apache/odftoolkit/taglets/0.8.8-incubating/taglets-0.8.8-incubating.jar:/root/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:/root/.m2/repository/org/apache/jena/jena-dboe-base/3.6.0/jena-dboe-base-3.6.0.jar:/root/.m2/repository/oauth/signpost/signpost-core/1.2.1.2/signpost-core-1.2.1.2.jar:/root/.m2/repository/org/apache/commons/commons-lang3/3.6/commons-lang3-3.6.jar:/root/.m2/repository/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar:/root/.m2/repository/org/apache/jena/jena-tdb2/3.6.0/jena-tdb2-3.6.0.jar:/root/.m2/repository/commons-digester/commons-digester/1.8.1/commons-digester-1.8.1.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.9.7/jackson-core-2.9.7.jar:/root/.m2/repository/commons-fileupload/commons-fileupload/1.2.1/commons-fileupload-1.2.1.jar:/root/.m2/repository/commons-beanutils/commons-beanutils/1.8.0/commons-beanutils-1.8.0.jar:/root/.m2/repository/org/apache/xmlbeans/xmlbeans/2.3.0/xmlbeans-2.3.0.jar:/root/.m2/repository/org/apache/jena/jena-core/3.6.0/jena-core-3.6.0.jar:/root/.m2/repository/org/powermock/powermock-api-mockito-common/1.7.1/powermock-api-mockito-common-1.7.1.jar:/root/.m2/repository/org/apache/odftoolkit/odfdom-java/0.8.8-incubating/odfdom-java-0.8.8-incubating.jar:/root/.m2/repository/org/apache/ant/ant-launcher/1.8.0/ant-launcher-1.8.0.jar:/root/.m2/repository/org/javassist/javassist/3.21.0-GA/javassist-3.21.0-GA.jar:/root/.m2/repository/org/apache/ant/ant/1.8.0/ant-1.8.0.jar:/root/.m2/repository/org/powermock/powermock-module-junit4/1.7.1/powermock-module-junit4-1.7.1.jar:/root/.m2/repository/org/powermock/powermock-module-junit4-common/1.7.1/powermock-module-junit4-common-1.7.1.jar:/root/.m2/repository/commons-codec/commons-codec/1.5/commons-codec-1.5.jar:/root/.m2/repository/oauth/signpost/signpost-commonshttp4/1.2.1.2/signpost-commonshttp4-1.2.1.2.jar:/root/.m2/repository/org/apache/thrift/libthrift/0.10.0/libthrift-0.10.0.jar:/root/.m2/repository/de/fau/cs/osr/utils/utils/3.0.8/utils-3.0.8.jar:/root/.m2/repository/javax/servlet/servlet-api/2.5/servlet-api-2.5.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.9.7/jackson-annotations-2.9.7.jar:/root/.m2/repository/com/github/jsonld-java/jsonld-java/0.11.1/jsonld-java-0.11.1.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.9.7/jackson-databind-2.9.7.jar:/root/.m2/repository/org/beanshell/bsh/2.0b4/bsh-2.0b4.jar:/root/.m2/repository/org/powermock/powermock-core/1.7.1/powermock-core-1.7.1.jar:/root/.m2/repository/org/clojure/clojure/1.5.1/clojure-1.5.1.jar:/root/.m2/repository/org/sweble/wikitext/swc-parser-lazy/3.1.7/swc-parser-lazy-3.1.7.jar:/root/.m2/repository/org/apache/jena/jena-arq/3.6.0/jena-arq-3.6.0.jar:/root/.m2/repository/org/testng/testng/6.9.10/testng-6.9.10.jar:/root/.m2/repository/marc4j/marc4j/2.4/marc4j-2.4.jar:/root/.m2/repository/commons-cli/commons-cli/1.4/commons-cli-1.4.jar:/root/.m2/repository/xtc/rats-runtime/1.15.0/rats-runtime-1.15.0.jar:/root/.m2/repository/org/apache/jena/jena-shaded-guava/3.6.0/jena-shaded-guava-3.6.0.jar:/root/.m2/repository/com/colloquial/arithcode/1.1/arithcode-1.1.jar:/root/.m2/repository/commons-io/commons-io/1.4/commons-io-1.4.jar:/root/.m2/repository/org/powermock/powermock-api-mockito2/1.7.1/powermock-api-mockito2-1.7.1.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/jsoup/jsoup/1.11.3/jsoup-1.11.3.jar:/root/.m2/repository/xerces/xercesImpl/2.9.1/xercesImpl-2.9.1.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.18/slf4j-api-1.7.18.jar:/root/.m2/repository/com/beust/jcommander/1.48/jcommander-1.48.jar:/root/.m2/repository/de/fau/cs/osr/ptk/ptk-common/3.0.8/ptk-common-3.0.8.jar:/root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.9.3/byte-buddy-agent-1.9.3.jar:/root/.m2/repository/org/powermock/powermock-reflect/1.7.1/powermock-reflect-1.7.1.jar:/root/.m2/repository/velocity/velocity/1.5/velocity-1.5.jar:/root/.m2/repository/org/apache/poi/poi-ooxml-schemas/3.8/poi-ooxml-schemas-3.8.jar:/root/.m2/repository/net/sf/opencsv/opencsv/2.4-SNAPSHOT/opencsv-2.4-SNAPSHOT.jar:/root/.m2/repository/org/apache/jena/jena-rdfconnection/3.6.0/jena-rdfconnection-3.6.0.jar:/root/.m2/repository/com/google/guava/guava/19.0/guava-19.0.jar:/root/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar:/root/.m2/repository/com/metaweb/lessen/1.0/lessen-1.0.jar:/root/.m2/repository/commons-lang/commons-lang/2.1/commons-lang-2.1.jar:/root/.m2/repository/org/apache/jena/jena-dboe-trans-data/3.6.0/jena-dboe-trans-data-3.6.0.jar:/root/.m2/repository/org/apache/httpcomponents/httpclient/4.5.5/httpclient-4.5.5.jar:/root/.m2/repository/org/objenesis/objenesis/2.6/objenesis-2.6.jar:/root/.m2/repository/xml-apis/xml-apis/1.0.b2/xml-apis-1.0.b2.jar:/root/.m2/repository/org/apache/httpcomponents/httpclient-cache/4.5.3/httpclient-cache-4.5.3.jar:/root/.m2/repository/org/apache/jena/jena-base/3.6.0/jena-base-3.6.0.jar:/root/.m2/repository/org/apache/jena/jena-dboe-transaction/3.6.0/jena-dboe-transaction-3.6.0.jar:/root/.m2/repository/org/apache/jena/jena-iri/3.6.0/jena-iri-3.6.0.jar:/root/.m2/repository/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1.jar:/root/.m2/repository/org/apache/poi/poi/3.8/poi-3.8.jar:/root/.m2/repository/org/apache/jena/jena-tdb/3.6.0/jena-tdb-3.6.0.jar:/root/.m2/repository/junit/junit/4.12/junit-4.12.jar:/root/.m2/repository/oro/oro/2.0.8/oro-2.0.8.jar:/root/.m2/repository/joda-time/joda-time/2.9.9/joda-time-2.9.9.jar:/root/.m2/repository/javax/xml/bind/jaxb-api/2.3.0/jaxb-api-2.3.0.jar:/root/.m2/repository/org/apache/jena/jena-cmds/3.6.0/jena-cmds-3.6.0.jar:/root/.m2/repository/org/apache/commons/commons-csv/1.5/commons-csv-1.5.jar;
+	echo "\n\nNode: `hostname`\n";
+	echo "\n\nDate: `date`\n";
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en
+OpenJDK 64-Bit Server VM warning: ignoring option MaxPermSize=512m; support was removed in 8.0
+[0] INFO ProjectConfiguration - Version of the JVM used: 1.8.0_342
+[1] INFO main - Java version of the JDK used to run tests: 1.8.0_342
+[1] INFO main - The compliance of the JVM is:  8
+[5] INFO main - command line arguments: [-mode  cardumen  -location  .  -id  OpenRefine_OpenRefine-VUL4J-64  -failing  com.google.refine.tests.importers.XmlImporterTests#ignoresDtds  -jvm4testexecution  /usr/lib/jvm/java-8-openjdk-amd64/bin  -jvm4evosuitetestexecution  /usr/lib/jvm/java-8-openjdk-amd64/bin  -maxgen  1000000  -maxtime  120  -stopfirst  true  -seed  0  -scope  local  -population  1  -javacompliancelevel  8  -faultlocalization  perfect  -perfectdata  /script/../data/benchmarks/vul4j/perfectfl/VUL4J-64  -validation  externalcmd  -testfailingcmd  mvn test -pl main -Dtest=com.google.refine.tests.importers.XmlImporterTests#ignoresDtds -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B  -testallcmd  mvn test -pl main -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B     -srcjavafolder  main/src  -srctestfolder  main/tests/server/src  -binjavafolder  main/webapp/WEB-INF/classes  -bintestfolder  main/target/test-classes  -parameters  x:x:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000:maxCombinationVariableLimit:true:maxVarCombination:1000  -dependencies  /root/.m2/repository/stax/stax-api/1.0.1/stax-api-1.0.1.jar:/root/.m2/repository/org/apache/jena/jena-dboe-index/3.6.0/jena-dboe-index-3.6.0.jar:/root/.m2/repository/org/mockito/mockito-core/2.23.4/mockito-core-2.23.4.jar:/root/.m2/repository/org/slf4j/jcl-over-slf4j/1.7.25/jcl-over-slf4j-1.7.25.jar:/root/.m2/repository/commons-validator/commons-validator/1.5.1/commons-validator-1.5.1.jar:/root/.m2/repository/edu/mit/simile/vicino/1.1/vicino-1.1.jar:/root/.m2/repository/com/wcohen/secondstring/20100303/secondstring-20100303.jar:/root/.m2/repository/org/powermock/powermock-api-support/1.7.1/powermock-api-support-1.7.1.jar:/root/.m2/repository/org/apache/poi/poi-ooxml/3.8/poi-ooxml-3.8.jar:/root/.m2/repository/edu/mit/simile/butterfly/1.0.2/butterfly-1.0.2.jar:/root/.m2/repository/org/slf4j/slf4j-log4j12/1.7.18/slf4j-log4j12-1.7.18.jar:/root/.m2/repository/org/apache/httpcomponents/httpcore/4.4.9/httpcore-4.4.9.jar:/root/.m2/repository/com/github/andrewoma/dexx/collection/0.7/collection-0.7.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.9.3/byte-buddy-1.9.3.jar:/root/.m2/repository/org/mozilla/rhino/1.7.10/rhino-1.7.10.jar:/root/.m2/repository/org/apache/odftoolkit/taglets/0.8.8-incubating/taglets-0.8.8-incubating.jar:/root/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:/root/.m2/repository/org/apache/jena/jena-dboe-base/3.6.0/jena-dboe-base-3.6.0.jar:/root/.m2/repository/oauth/signpost/signpost-core/1.2.1.2/signpost-core-1.2.1.2.jar:/root/.m2/repository/org/apache/commons/commons-lang3/3.6/commons-lang3-3.6.jar:/root/.m2/repository/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar:/root/.m2/repository/org/apache/jena/jena-tdb2/3.6.0/jena-tdb2-3.6.0.jar:/root/.m2/repository/commons-digester/commons-digester/1.8.1/commons-digester-1.8.1.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.9.7/jackson-core-2.9.7.jar:/root/.m2/repository/commons-fileupload/commons-fileupload/1.2.1/commons-fileupload-1.2.1.jar:/root/.m2/repository/commons-beanutils/commons-beanutils/1.8.0/commons-beanutils-1.8.0.jar:/root/.m2/repository/org/apache/xmlbeans/xmlbeans/2.3.0/xmlbeans-2.3.0.jar:/root/.m2/repository/org/apache/jena/jena-core/3.6.0/jena-core-3.6.0.jar:/root/.m2/repository/org/powermock/powermock-api-mockito-common/1.7.1/powermock-api-mockito-common-1.7.1.jar:/root/.m2/repository/org/apache/odftoolkit/odfdom-java/0.8.8-incubating/odfdom-java-0.8.8-incubating.jar:/root/.m2/repository/org/apache/ant/ant-launcher/1.8.0/ant-launcher-1.8.0.jar:/root/.m2/repository/org/javassist/javassist/3.21.0-GA/javassist-3.21.0-GA.jar:/root/.m2/repository/org/apache/ant/ant/1.8.0/ant-1.8.0.jar:/root/.m2/repository/org/powermock/powermock-module-junit4/1.7.1/powermock-module-junit4-1.7.1.jar:/root/.m2/repository/org/powermock/powermock-module-junit4-common/1.7.1/powermock-module-junit4-common-1.7.1.jar:/root/.m2/repository/commons-codec/commons-codec/1.5/commons-codec-1.5.jar:/root/.m2/repository/oauth/signpost/signpost-commonshttp4/1.2.1.2/signpost-commonshttp4-1.2.1.2.jar:/root/.m2/repository/org/apache/thrift/libthrift/0.10.0/libthrift-0.10.0.jar:/root/.m2/repository/de/fau/cs/osr/utils/utils/3.0.8/utils-3.0.8.jar:/root/.m2/repository/javax/servlet/servlet-api/2.5/servlet-api-2.5.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.9.7/jackson-annotations-2.9.7.jar:/root/.m2/repository/com/github/jsonld-java/jsonld-java/0.11.1/jsonld-java-0.11.1.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.9.7/jackson-databind-2.9.7.jar:/root/.m2/repository/org/beanshell/bsh/2.0b4/bsh-2.0b4.jar:/root/.m2/repository/org/powermock/powermock-core/1.7.1/powermock-core-1.7.1.jar:/root/.m2/repository/org/clojure/clojure/1.5.1/clojure-1.5.1.jar:/root/.m2/repository/org/sweble/wikitext/swc-parser-lazy/3.1.7/swc-parser-lazy-3.1.7.jar:/root/.m2/repository/org/apache/jena/jena-arq/3.6.0/jena-arq-3.6.0.jar:/root/.m2/repository/org/testng/testng/6.9.10/testng-6.9.10.jar:/root/.m2/repository/marc4j/marc4j/2.4/marc4j-2.4.jar:/root/.m2/repository/commons-cli/commons-cli/1.4/commons-cli-1.4.jar:/root/.m2/repository/xtc/rats-runtime/1.15.0/rats-runtime-1.15.0.jar:/root/.m2/repository/org/apache/jena/jena-shaded-guava/3.6.0/jena-shaded-guava-3.6.0.jar:/root/.m2/repository/com/colloquial/arithcode/1.1/arithcode-1.1.jar:/root/.m2/repository/commons-io/commons-io/1.4/commons-io-1.4.jar:/root/.m2/repository/org/powermock/powermock-api-mockito2/1.7.1/powermock-api-mockito2-1.7.1.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/jsoup/jsoup/1.11.3/jsoup-1.11.3.jar:/root/.m2/repository/xerces/xercesImpl/2.9.1/xercesImpl-2.9.1.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.18/slf4j-api-1.7.18.jar:/root/.m2/repository/com/beust/jcommander/1.48/jcommander-1.48.jar:/root/.m2/repository/de/fau/cs/osr/ptk/ptk-common/3.0.8/ptk-common-3.0.8.jar:/root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.9.3/byte-buddy-agent-1.9.3.jar:/root/.m2/repository/org/powermock/powermock-reflect/1.7.1/powermock-reflect-1.7.1.jar:/root/.m2/repository/velocity/velocity/1.5/velocity-1.5.jar:/root/.m2/repository/org/apache/poi/poi-ooxml-schemas/3.8/poi-ooxml-schemas-3.8.jar:/root/.m2/repository/net/sf/opencsv/opencsv/2.4-SNAPSHOT/opencsv-2.4-SNAPSHOT.jar:/root/.m2/repository/org/apache/jena/jena-rdfconnection/3.6.0/jena-rdfconnection-3.6.0.jar:/root/.m2/repository/com/google/guava/guava/19.0/guava-19.0.jar:/root/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar:/root/.m2/repository/com/metaweb/lessen/1.0/lessen-1.0.jar:/root/.m2/repository/commons-lang/commons-lang/2.1/commons-lang-2.1.jar:/root/.m2/repository/org/apache/jena/jena-dboe-trans-data/3.6.0/jena-dboe-trans-data-3.6.0.jar:/root/.m2/repository/org/apache/httpcomponents/httpclient/4.5.5/httpclient-4.5.5.jar:/root/.m2/repository/org/objenesis/objenesis/2.6/objenesis-2.6.jar:/root/.m2/repository/xml-apis/xml-apis/1.0.b2/xml-apis-1.0.b2.jar:/root/.m2/repository/org/apache/httpcomponents/httpclient-cache/4.5.3/httpclient-cache-4.5.3.jar:/root/.m2/repository/org/apache/jena/jena-base/3.6.0/jena-base-3.6.0.jar:/root/.m2/repository/org/apache/jena/jena-dboe-transaction/3.6.0/jena-dboe-transaction-3.6.0.jar:/root/.m2/repository/org/apache/jena/jena-iri/3.6.0/jena-iri-3.6.0.jar:/root/.m2/repository/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1.jar:/root/.m2/repository/org/apache/poi/poi/3.8/poi-3.8.jar:/root/.m2/repository/org/apache/jena/jena-tdb/3.6.0/jena-tdb-3.6.0.jar:/root/.m2/repository/junit/junit/4.12/junit-4.12.jar:/root/.m2/repository/oro/oro/2.0.8/oro-2.0.8.jar:/root/.m2/repository/joda-time/joda-time/2.9.9/joda-time-2.9.9.jar:/root/.m2/repository/javax/xml/bind/jaxb-api/2.3.0/jaxb-api-2.3.0.jar:/root/.m2/repository/org/apache/jena/jena-cmds/3.6.0/jena-cmds-3.6.0.jar:/root/.m2/repository/org/apache/commons/commons-csv/1.5/commons-csv-1.5.jar]
+[7] INFO AstorMain - Running Astor on a JDK at /usr/lib/jvm/java-8-openjdk-amd64/jre
+[13] INFO main - Source folders: [/workdir/Cardumen_vul4j_OpenRefine_OpenRefine_VUL4J-64/./main/src]
+[14] INFO main - Source Test folders: [/workdir/Cardumen_vul4j_OpenRefine_OpenRefine_VUL4J-64/./main/tests/server/src]
+[1655] INFO AstorCoreEngine - ---- Creating spoon model
+[1689] INFO MutationSupporter - Creating model,  Code location from working folder: /workdir/Cardumen_vul4j_OpenRefine_OpenRefine_VUL4J-64/./main/src
+[1690] INFO MutationSupporter - building model: /workdir/Cardumen_vul4j_OpenRefine_OpenRefine_VUL4J-64/./main/src, compliance level: 8
+[1798] INFO MutationSupporter - Classpath (Dependencies) for building SpoonModel: [/root/.m2/repository/stax/stax-api/1.0.1/stax-api-1.0.1.jar, /root/.m2/repository/org/apache/jena/jena-dboe-index/3.6.0/jena-dboe-index-3.6.0.jar, /root/.m2/repository/org/mockito/mockito-core/2.23.4/mockito-core-2.23.4.jar, /root/.m2/repository/org/slf4j/jcl-over-slf4j/1.7.25/jcl-over-slf4j-1.7.25.jar, /root/.m2/repository/commons-validator/commons-validator/1.5.1/commons-validator-1.5.1.jar, /root/.m2/repository/edu/mit/simile/vicino/1.1/vicino-1.1.jar, /root/.m2/repository/com/wcohen/secondstring/20100303/secondstring-20100303.jar, /root/.m2/repository/org/powermock/powermock-api-support/1.7.1/powermock-api-support-1.7.1.jar, /root/.m2/repository/org/apache/poi/poi-ooxml/3.8/poi-ooxml-3.8.jar, /root/.m2/repository/edu/mit/simile/butterfly/1.0.2/butterfly-1.0.2.jar, /root/.m2/repository/org/slf4j/slf4j-log4j12/1.7.18/slf4j-log4j12-1.7.18.jar, /root/.m2/repository/org/apache/httpcomponents/httpcore/4.4.9/httpcore-4.4.9.jar, /root/.m2/repository/com/github/andrewoma/dexx/collection/0.7/collection-0.7.jar, /root/.m2/repository/net/bytebuddy/byte-buddy/1.9.3/byte-buddy-1.9.3.jar, /root/.m2/repository/org/mozilla/rhino/1.7.10/rhino-1.7.10.jar, /root/.m2/repository/org/apache/odftoolkit/taglets/0.8.8-incubating/taglets-0.8.8-incubating.jar, /root/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar, /root/.m2/repository/org/apache/jena/jena-dboe-base/3.6.0/jena-dboe-base-3.6.0.jar, /root/.m2/repository/oauth/signpost/signpost-core/1.2.1.2/signpost-core-1.2.1.2.jar, /root/.m2/repository/org/apache/commons/commons-lang3/3.6/commons-lang3-3.6.jar, /root/.m2/repository/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar, /root/.m2/repository/org/apache/jena/jena-tdb2/3.6.0/jena-tdb2-3.6.0.jar, /root/.m2/repository/commons-digester/commons-digester/1.8.1/commons-digester-1.8.1.jar, /root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.9.7/jackson-core-2.9.7.jar, /root/.m2/repository/commons-fileupload/commons-fileupload/1.2.1/commons-fileupload-1.2.1.jar, /root/.m2/repository/commons-beanutils/commons-beanutils/1.8.0/commons-beanutils-1.8.0.jar, /root/.m2/repository/org/apache/xmlbeans/xmlbeans/2.3.0/xmlbeans-2.3.0.jar, /root/.m2/repository/org/apache/jena/jena-core/3.6.0/jena-core-3.6.0.jar, /root/.m2/repository/org/powermock/powermock-api-mockito-common/1.7.1/powermock-api-mockito-common-1.7.1.jar, /root/.m2/repository/org/apache/odftoolkit/odfdom-java/0.8.8-incubating/odfdom-java-0.8.8-incubating.jar, /root/.m2/repository/org/apache/ant/ant-launcher/1.8.0/ant-launcher-1.8.0.jar, /root/.m2/repository/org/javassist/javassist/3.21.0-GA/javassist-3.21.0-GA.jar, /root/.m2/repository/org/apache/ant/ant/1.8.0/ant-1.8.0.jar, /root/.m2/repository/org/powermock/powermock-module-junit4/1.7.1/powermock-module-junit4-1.7.1.jar, /root/.m2/repository/org/powermock/powermock-module-junit4-common/1.7.1/powermock-module-junit4-common-1.7.1.jar, /root/.m2/repository/commons-codec/commons-codec/1.5/commons-codec-1.5.jar, /root/.m2/repository/oauth/signpost/signpost-commonshttp4/1.2.1.2/signpost-commonshttp4-1.2.1.2.jar, /root/.m2/repository/org/apache/thrift/libthrift/0.10.0/libthrift-0.10.0.jar, /root/.m2/repository/de/fau/cs/osr/utils/utils/3.0.8/utils-3.0.8.jar, /root/.m2/repository/javax/servlet/servlet-api/2.5/servlet-api-2.5.jar, /root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.9.7/jackson-annotations-2.9.7.jar, /root/.m2/repository/com/github/jsonld-java/jsonld-java/0.11.1/jsonld-java-0.11.1.jar, /root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.9.7/jackson-databind-2.9.7.jar, /root/.m2/repository/org/beanshell/bsh/2.0b4/bsh-2.0b4.jar, /root/.m2/repository/org/powermock/powermock-core/1.7.1/powermock-core-1.7.1.jar, /root/.m2/repository/org/clojure/clojure/1.5.1/clojure-1.5.1.jar, /root/.m2/repository/org/sweble/wikitext/swc-parser-lazy/3.1.7/swc-parser-lazy-3.1.7.jar, /root/.m2/repository/org/apache/jena/jena-arq/3.6.0/jena-arq-3.6.0.jar, /root/.m2/repository/org/testng/testng/6.9.10/testng-6.9.10.jar, /root/.m2/repository/marc4j/marc4j/2.4/marc4j-2.4.jar, /root/.m2/repository/commons-cli/commons-cli/1.4/commons-cli-1.4.jar, /root/.m2/repository/xtc/rats-runtime/1.15.0/rats-runtime-1.15.0.jar, /root/.m2/repository/org/apache/jena/jena-shaded-guava/3.6.0/jena-shaded-guava-3.6.0.jar, /root/.m2/repository/com/colloquial/arithcode/1.1/arithcode-1.1.jar, /root/.m2/repository/commons-io/commons-io/1.4/commons-io-1.4.jar, /root/.m2/repository/org/powermock/powermock-api-mockito2/1.7.1/powermock-api-mockito2-1.7.1.jar, /root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar, /root/.m2/repository/org/jsoup/jsoup/1.11.3/jsoup-1.11.3.jar, /root/.m2/repository/xerces/xercesImpl/2.9.1/xercesImpl-2.9.1.jar, /root/.m2/repository/org/slf4j/slf4j-api/1.7.18/slf4j-api-1.7.18.jar, /root/.m2/repository/com/beust/jcommander/1.48/jcommander-1.48.jar, /root/.m2/repository/de/fau/cs/osr/ptk/ptk-common/3.0.8/ptk-common-3.0.8.jar, /root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.9.3/byte-buddy-agent-1.9.3.jar, /root/.m2/repository/org/powermock/powermock-reflect/1.7.1/powermock-reflect-1.7.1.jar, /root/.m2/repository/velocity/velocity/1.5/velocity-1.5.jar, /root/.m2/repository/org/apache/poi/poi-ooxml-schemas/3.8/poi-ooxml-schemas-3.8.jar, /root/.m2/repository/net/sf/opencsv/opencsv/2.4-SNAPSHOT/opencsv-2.4-SNAPSHOT.jar, /root/.m2/repository/org/apache/jena/jena-rdfconnection/3.6.0/jena-rdfconnection-3.6.0.jar, /root/.m2/repository/com/google/guava/guava/19.0/guava-19.0.jar, /root/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar, /root/.m2/repository/com/metaweb/lessen/1.0/lessen-1.0.jar, /root/.m2/repository/commons-lang/commons-lang/2.1/commons-lang-2.1.jar, /root/.m2/repository/org/apache/jena/jena-dboe-trans-data/3.6.0/jena-dboe-trans-data-3.6.0.jar, /root/.m2/repository/org/apache/httpcomponents/httpclient/4.5.5/httpclient-4.5.5.jar, /root/.m2/repository/org/objenesis/objenesis/2.6/objenesis-2.6.jar, /root/.m2/repository/xml-apis/xml-apis/1.0.b2/xml-apis-1.0.b2.jar, /root/.m2/repository/org/apache/httpcomponents/httpclient-cache/4.5.3/httpclient-cache-4.5.3.jar, /root/.m2/repository/org/apache/jena/jena-base/3.6.0/jena-base-3.6.0.jar, /root/.m2/repository/org/apache/jena/jena-dboe-transaction/3.6.0/jena-dboe-transaction-3.6.0.jar, /root/.m2/repository/org/apache/jena/jena-iri/3.6.0/jena-iri-3.6.0.jar, /root/.m2/repository/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1.jar, /root/.m2/repository/org/apache/poi/poi/3.8/poi-3.8.jar, /root/.m2/repository/org/apache/jena/jena-tdb/3.6.0/jena-tdb-3.6.0.jar, /root/.m2/repository/junit/junit/4.12/junit-4.12.jar, /root/.m2/repository/oro/oro/2.0.8/oro-2.0.8.jar, /root/.m2/repository/joda-time/joda-time/2.9.9/joda-time-2.9.9.jar, /root/.m2/repository/javax/xml/bind/jaxb-api/2.3.0/jaxb-api-2.3.0.jar, /root/.m2/repository/org/apache/jena/jena-cmds/3.6.0/jena-cmds-3.6.0.jar, /root/.m2/repository/org/apache/commons/commons-csv/1.5/commons-csv-1.5.jar]
+[10034] INFO AstorCoreEngine - Number of CtTypes created: 471
+[10290] INFO AstorCoreEngine - Test retrieved from classes: 0
+[10335] INFO AstorCoreEngine - Setting up the max to 450 milliseconds (0 sec)
+[10335] INFO AstorCoreEngine - ---- Initial suspicious size: 2
+[10378] INFO main - Total suspicious from FL: 2,  2
+[10378] INFO main - Total ModPoint created: 2
+[10378] INFO main - Creating program variant #1, [Variant id: 1, #gens: 2, #ops: 0, parent:-]
+[10379] INFO main - Run previously failing tests...
+[23930] INFO main - Failed tests: 1
+[23932] INFO AstorCoreEngine - The original fitness is : 1.0
+[26632] INFO ExpressionTypeIngredientSpace - Ingredient search space info : number keys 28 , number values 94 
+[26632] WARN ConfigurationProperties - ----------------------------
+[26633] INFO ConfigurationProperties - ---Configuration properties
+[26633] INFO ConfigurationProperties - p:lastJUnitVersion= ./examples/libs/junit-4.11.jar
+[26633] INFO ConfigurationProperties - p:alternativecompliancelevel= 8
+[26633] INFO ConfigurationProperties - p:ignoredTestCases= 
+[26633] INFO ConfigurationProperties - p:workingDirectory= /workdir/Cardumen_vul4j_OpenRefine_OpenRefine_VUL4J-64/./output_astor
+[26633] INFO ConfigurationProperties - p:manipulatesuper= false
+[26633] INFO ConfigurationProperties - p:validation= externalcmd
+[26633] INFO ConfigurationProperties - p:jvm4testexecution= /usr/lib/jvm/java-8-openjdk-amd64/bin
+[26633] INFO ConfigurationProperties - p:operatorspace= r-expression
+[26633] INFO ConfigurationProperties - p:diffcontext= 0
+[26633] INFO ConfigurationProperties - p:binjavafolder= main/webapp/WEB-INF/classes
+[26633] INFO ConfigurationProperties - p:synthesis_depth= 3
+[26634] INFO ConfigurationProperties - p:gzoltartestpackagetoexclude= junit.framework
+[26634] INFO ConfigurationProperties - p:skipfitnessinitialpopulation= false
+[26634] INFO ConfigurationProperties - p:evosuiteresultfolder= evosuite
+[26634] INFO ConfigurationProperties - p:flthreshold= 0.1
+[26634] INFO ConfigurationProperties - p:regressionforfaultlocalization= true
+[26634] INFO ConfigurationProperties - p:collectonlyusedmethod= false
+[26634] INFO ConfigurationProperties - p:preservelinenumbers= true
+[26634] INFO ConfigurationProperties - p:tmax2= 450
+[26634] INFO ConfigurationProperties - p:ingredienttransformstrategy= name-probability-based
+[26634] INFO ConfigurationProperties - p:tmax1= 10000
+[26634] INFO ConfigurationProperties - p:probagenmutation= false
+[26634] INFO ConfigurationProperties - p:nomodificationconvergence= 100
+[26634] INFO ConfigurationProperties - p:diff_type= relative
+[26634] INFO ConfigurationProperties - p:targetelementprocessor= expression
+[26634] INFO ConfigurationProperties - p:srctestfolder= main/tests/server/src
+[26634] INFO ConfigurationProperties - p:forceExecuteRegression= false
+[26634] INFO ConfigurationProperties - p:clusteringfilename= clustering.csv
+[26634] INFO ConfigurationProperties - p:failing= com.google.refine.tests.importers.XmlImporterTests#ignoresDtds
+[26634] INFO ConfigurationProperties - p:logtestexecution= false
+[26635] INFO ConfigurationProperties - p:evo_buggy_class= true
+[26635] INFO ConfigurationProperties - p:numberExecutions= 1
+[26635] INFO ConfigurationProperties - p:maxnumbersolutions= 1000000
+[26635] INFO ConfigurationProperties - p:evo_affected_by_op= true
+[26635] INFO ConfigurationProperties - p:population= 1
+[26635] INFO ConfigurationProperties - p:considerzerovaluesusp= false
+[26635] INFO ConfigurationProperties - p:maxCombinationVariableLimit= true
+[26635] INFO ConfigurationProperties - p:savesolution= true
+[26635] INFO ConfigurationProperties - p:javacompliancelevel= 8
+[26635] INFO ConfigurationProperties - p:x= x
+[26635] INFO ConfigurationProperties - p:uniqueoptogen= false
+[26635] INFO ConfigurationProperties - p:gzoltarpackagetonotinstrument= junit.framework
+[26635] INFO ConfigurationProperties - p:projectIdentifier= OpenRefine_OpenRefine-VUL4J-64
+[26635] INFO ConfigurationProperties - p:modificationpointnavigation= weight
+[26635] INFO ConfigurationProperties - p:stopfirst= true
+[26635] INFO ConfigurationProperties - p:multipointmodification= false
+[26635] INFO ConfigurationProperties - p:elementsToMutate= 10
+[26635] INFO ConfigurationProperties - p:jsonoutputname= astor_output
+[26635] INFO ConfigurationProperties - p:evoDSE= false
+[26635] INFO ConfigurationProperties - p:bintestfolder= main/target/test-classes
+[26635] INFO ConfigurationProperties - p:testbystep= false
+[26635] INFO ConfigurationProperties - p:version-location= ./math-version/
+[26635] INFO ConfigurationProperties - p:reintroduce= PARENTS:ORIGINAL
+[26636] INFO ConfigurationProperties - p:perfectdata= /script/../data/benchmarks/vul4j/perfectfl/VUL4J-64
+[26636] INFO ConfigurationProperties - p:executorjar= ./lib/jtestex7.jar
+[26636] INFO ConfigurationProperties - p:maxGeneration= 1000000
+[26636] INFO ConfigurationProperties - p:max_synthesis_step= 10000
+[26636] INFO ConfigurationProperties - p:projectinfocommand= com.github.tdurieux:project-config-maven-plugin:info
+[26636] INFO ConfigurationProperties - p:maxVarCombination= 1000
+[26636] INFO ConfigurationProperties - p:maxtime= 120
+[26636] INFO ConfigurationProperties - p:evosuitejar= ./lib/evosuite-master-1.0.4-SNAPSHOT.jar
+[26636] INFO ConfigurationProperties - p:jvmversion= 1.8.0_342
+[26636] INFO ConfigurationProperties - p:commandTrunk= 50000
+[26636] INFO ConfigurationProperties - p:faultlocalization= perfect
+[26636] INFO ConfigurationProperties - p:resetmodel= true
+[26636] INFO ConfigurationProperties - p:maxsuspcandidates= 1000
+[26636] INFO ConfigurationProperties - p:mode= cardumen
+[26636] INFO ConfigurationProperties - p:learningdir= 
+[26636] INFO ConfigurationProperties - p:jvm4evosuitetestexecution= /usr/lib/jvm/java-8-openjdk-amd64/bin
+[26636] INFO ConfigurationProperties - p:filterfaultlocalization= true
+[26636] INFO ConfigurationProperties - p:mutationrate= 1 
+[26636] INFO ConfigurationProperties - p:pathToMVNRepository= 
+[26636] INFO ConfigurationProperties - p:resourcesfolder= /src/main/resources:/src/test/resources:
+[26636] INFO ConfigurationProperties - p:timezone= America/Los_Angeles
+[26636] INFO ConfigurationProperties - p:runjava7code= false
+[26637] INFO ConfigurationProperties - p:testfailingcmd= mvn test -pl main -Dtest=com.google.refine.tests.importers.XmlImporterTests#ignoresDtds -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B
+[26637] INFO ConfigurationProperties - p:evoRunOnBuggyClass= true
+[26637] INFO ConfigurationProperties - p:compiler= fr.inria.astor.core.manipulation.bytecode.compiler.SpoonClassCompiler
+[26637] INFO ConfigurationProperties - p:limitbysuspicious= true
+[26637] INFO ConfigurationProperties - p:logsattemps= true
+[26637] INFO ConfigurationProperties - p:dependenciespath= /root/.m2/repository/stax/stax-api/1.0.1/stax-api-1.0.1.jar:/root/.m2/repository/org/apache/jena/jena-dboe-index/3.6.0/jena-dboe-index-3.6.0.jar:/root/.m2/repository/org/mockito/mockito-core/2.23.4/mockito-core-2.23.4.jar:/root/.m2/repository/org/slf4j/jcl-over-slf4j/1.7.25/jcl-over-slf4j-1.7.25.jar:/root/.m2/repository/commons-validator/commons-validator/1.5.1/commons-validator-1.5.1.jar:/root/.m2/repository/edu/mit/simile/vicino/1.1/vicino-1.1.jar:/root/.m2/repository/com/wcohen/secondstring/20100303/secondstring-20100303.jar:/root/.m2/repository/org/powermock/powermock-api-support/1.7.1/powermock-api-support-1.7.1.jar:/root/.m2/repository/org/apache/poi/poi-ooxml/3.8/poi-ooxml-3.8.jar:/root/.m2/repository/edu/mit/simile/butterfly/1.0.2/butterfly-1.0.2.jar:/root/.m2/repository/org/slf4j/slf4j-log4j12/1.7.18/slf4j-log4j12-1.7.18.jar:/root/.m2/repository/org/apache/httpcomponents/httpcore/4.4.9/httpcore-4.4.9.jar:/root/.m2/repository/com/github/andrewoma/dexx/collection/0.7/collection-0.7.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.9.3/byte-buddy-1.9.3.jar:/root/.m2/repository/org/mozilla/rhino/1.7.10/rhino-1.7.10.jar:/root/.m2/repository/org/apache/odftoolkit/taglets/0.8.8-incubating/taglets-0.8.8-incubating.jar:/root/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:/root/.m2/repository/org/apache/jena/jena-dboe-base/3.6.0/jena-dboe-base-3.6.0.jar:/root/.m2/repository/oauth/signpost/signpost-core/1.2.1.2/signpost-core-1.2.1.2.jar:/root/.m2/repository/org/apache/commons/commons-lang3/3.6/commons-lang3-3.6.jar:/root/.m2/repository/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar:/root/.m2/repository/org/apache/jena/jena-tdb2/3.6.0/jena-tdb2-3.6.0.jar:/root/.m2/repository/commons-digester/commons-digester/1.8.1/commons-digester-1.8.1.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.9.7/jackson-core-2.9.7.jar:/root/.m2/repository/commons-fileupload/commons-fileupload/1.2.1/commons-fileupload-1.2.1.jar:/root/.m2/repository/commons-beanutils/commons-beanutils/1.8.0/commons-beanutils-1.8.0.jar:/root/.m2/repository/org/apache/xmlbeans/xmlbeans/2.3.0/xmlbeans-2.3.0.jar:/root/.m2/repository/org/apache/jena/jena-core/3.6.0/jena-core-3.6.0.jar:/root/.m2/repository/org/powermock/powermock-api-mockito-common/1.7.1/powermock-api-mockito-common-1.7.1.jar:/root/.m2/repository/org/apache/odftoolkit/odfdom-java/0.8.8-incubating/odfdom-java-0.8.8-incubating.jar:/root/.m2/repository/org/apache/ant/ant-launcher/1.8.0/ant-launcher-1.8.0.jar:/root/.m2/repository/org/javassist/javassist/3.21.0-GA/javassist-3.21.0-GA.jar:/root/.m2/repository/org/apache/ant/ant/1.8.0/ant-1.8.0.jar:/root/.m2/repository/org/powermock/powermock-module-junit4/1.7.1/powermock-module-junit4-1.7.1.jar:/root/.m2/repository/org/powermock/powermock-module-junit4-common/1.7.1/powermock-module-junit4-common-1.7.1.jar:/root/.m2/repository/commons-codec/commons-codec/1.5/commons-codec-1.5.jar:/root/.m2/repository/oauth/signpost/signpost-commonshttp4/1.2.1.2/signpost-commonshttp4-1.2.1.2.jar:/root/.m2/repository/org/apache/thrift/libthrift/0.10.0/libthrift-0.10.0.jar:/root/.m2/repository/de/fau/cs/osr/utils/utils/3.0.8/utils-3.0.8.jar:/root/.m2/repository/javax/servlet/servlet-api/2.5/servlet-api-2.5.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.9.7/jackson-annotations-2.9.7.jar:/root/.m2/repository/com/github/jsonld-java/jsonld-java/0.11.1/jsonld-java-0.11.1.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.9.7/jackson-databind-2.9.7.jar:/root/.m2/repository/org/beanshell/bsh/2.0b4/bsh-2.0b4.jar:/root/.m2/repository/org/powermock/powermock-core/1.7.1/powermock-core-1.7.1.jar:/root/.m2/repository/org/clojure/clojure/1.5.1/clojure-1.5.1.jar:/root/.m2/repository/org/sweble/wikitext/swc-parser-lazy/3.1.7/swc-parser-lazy-3.1.7.jar:/root/.m2/repository/org/apache/jena/jena-arq/3.6.0/jena-arq-3.6.0.jar:/root/.m2/repository/org/testng/testng/6.9.10/testng-6.9.10.jar:/root/.m2/repository/marc4j/marc4j/2.4/marc4j-2.4.jar:/root/.m2/repository/commons-cli/commons-cli/1.4/commons-cli-1.4.jar:/root/.m2/repository/xtc/rats-runtime/1.15.0/rats-runtime-1.15.0.jar:/root/.m2/repository/org/apache/jena/jena-shaded-guava/3.6.0/jena-shaded-guava-3.6.0.jar:/root/.m2/repository/com/colloquial/arithcode/1.1/arithcode-1.1.jar:/root/.m2/repository/commons-io/commons-io/1.4/commons-io-1.4.jar:/root/.m2/repository/org/powermock/powermock-api-mockito2/1.7.1/powermock-api-mockito2-1.7.1.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/jsoup/jsoup/1.11.3/jsoup-1.11.3.jar:/root/.m2/repository/xerces/xercesImpl/2.9.1/xercesImpl-2.9.1.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.18/slf4j-api-1.7.18.jar:/root/.m2/repository/com/beust/jcommander/1.48/jcommander-1.48.jar:/root/.m2/repository/de/fau/cs/osr/ptk/ptk-common/3.0.8/ptk-common-3.0.8.jar:/root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.9.3/byte-buddy-agent-1.9.3.jar:/root/.m2/repository/org/powermock/powermock-reflect/1.7.1/powermock-reflect-1.7.1.jar:/root/.m2/repository/velocity/velocity/1.5/velocity-1.5.jar:/root/.m2/repository/org/apache/poi/poi-ooxml-schemas/3.8/poi-ooxml-schemas-3.8.jar:/root/.m2/repository/net/sf/opencsv/opencsv/2.4-SNAPSHOT/opencsv-2.4-SNAPSHOT.jar:/root/.m2/repository/org/apache/jena/jena-rdfconnection/3.6.0/jena-rdfconnection-3.6.0.jar:/root/.m2/repository/com/google/guava/guava/19.0/guava-19.0.jar:/root/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar:/root/.m2/repository/com/metaweb/lessen/1.0/lessen-1.0.jar:/root/.m2/repository/commons-lang/commons-lang/2.1/commons-lang-2.1.jar:/root/.m2/repository/org/apache/jena/jena-dboe-trans-data/3.6.0/jena-dboe-trans-data-3.6.0.jar:/root/.m2/repository/org/apache/httpcomponents/httpclient/4.5.5/httpclient-4.5.5.jar:/root/.m2/repository/org/objenesis/objenesis/2.6/objenesis-2.6.jar:/root/.m2/repository/xml-apis/xml-apis/1.0.b2/xml-apis-1.0.b2.jar:/root/.m2/repository/org/apache/httpcomponents/httpclient-cache/4.5.3/httpclient-cache-4.5.3.jar:/root/.m2/repository/org/apache/jena/jena-base/3.6.0/jena-base-3.6.0.jar:/root/.m2/repository/org/apache/jena/jena-dboe-transaction/3.6.0/jena-dboe-transaction-3.6.0.jar:/root/.m2/repository/org/apache/jena/jena-iri/3.6.0/jena-iri-3.6.0.jar:/root/.m2/repository/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1.jar:/root/.m2/repository/org/apache/poi/poi/3.8/poi-3.8.jar:/root/.m2/repository/org/apache/jena/jena-tdb/3.6.0/jena-tdb-3.6.0.jar:/root/.m2/repository/junit/junit/4.12/junit-4.12.jar:/root/.m2/repository/oro/oro/2.0.8/oro-2.0.8.jar:/root/.m2/repository/joda-time/joda-time/2.9.9/joda-time-2.9.9.jar:/root/.m2/repository/javax/xml/bind/jaxb-api/2.3.0/jaxb-api-2.3.0.jar:/root/.m2/repository/org/apache/jena/jena-cmds/3.6.0/jena-cmds-3.6.0.jar:/root/.m2/repository/org/apache/commons/commons-csv/1.5/commons-csv-1.5.jar
+[26637] INFO ConfigurationProperties - p:packageToInstrument= 
+[26637] INFO ConfigurationProperties - p:skipfaultlocalization= false
+[26637] INFO ConfigurationProperties - p:scope= local
+[26637] INFO ConfigurationProperties - p:transformingredient= false
+[26637] INFO ConfigurationProperties - p:fitnessfunction= fr.inria.astor.core.solutionsearch.population.TestCaseFitnessFunction
+[26637] INFO ConfigurationProperties - p:maxnumvariablesperingredient= 10
+[26637] INFO ConfigurationProperties - p:parsesourcefromoriginal= true
+[26637] INFO ConfigurationProperties - p:pvariantfoldername= variant-
+[26637] INFO ConfigurationProperties - p:savespoonmodelondisk= false
+[26637] INFO ConfigurationProperties - p:srcjavafolder= main/src
+[26637] INFO ConfigurationProperties - p:populationcontroller= fr.inria.astor.core.solutionsearch.population.TestCaseBasedFitnessPopulationController
+[26637] INFO ConfigurationProperties - p:ignoreflakyinfl= false
+[26637] INFO ConfigurationProperties - p:cleantemplates= true
+[26637] INFO ConfigurationProperties - p:applyCrossover= false
+[26637] INFO ConfigurationProperties - p:maxmodificationpoints= 1000
+[26638] INFO ConfigurationProperties - p:duplicateingredientsinspace= false
+[26638] INFO ConfigurationProperties - p:metid= 0
+[26638] INFO ConfigurationProperties - p:continuewhenmodelfail= true
+[26638] INFO ConfigurationProperties - p:saveall= false
+[26638] INFO ConfigurationProperties - p:seed= 0
+[26638] INFO ConfigurationProperties - p:savecompletepatched= true
+[26638] INFO ConfigurationProperties - p:resetoperations= false
+[26638] INFO ConfigurationProperties - p:keepcomments= false
+[26638] INFO ConfigurationProperties - p:processoutputinfile= false
+[26638] INFO ConfigurationProperties - p:location= .
+[26638] INFO ConfigurationProperties - p:probabilistictransformation= true
+[26638] INFO ConfigurationProperties - p:overridemaxtime= true
+[26638] INFO ConfigurationProperties - p:ingredientstrategy= name-probability-based
+[26638] INFO ConfigurationProperties - p:outputjsonresult= true
+[26638] INFO ConfigurationProperties - p:allpoints= false
+[26638] INFO ConfigurationProperties - p:antipattern= false
+[26638] INFO ConfigurationProperties - p:bugId= 280
+[26638] INFO ConfigurationProperties - p:evosuitetimeout= 120
+[26639] INFO ConfigurationProperties - p:maxtimefactor= 10
+[26639] INFO ConfigurationProperties - p:nrPlaceholders= 1
+[26639] INFO ConfigurationProperties - p:testallcmd= mvn test -pl main -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B
+[26639] INFO ConfigurationProperties - p:forcesubprocesskilling= false
+[26639] INFO ConfigurationProperties - ----------------------------
+[26639] INFO AstorCoreEngine - ----Starting Solution Search
+[26639] WARN AstorCoreEngine - ----------Running generation: 1, population size: 1
+[29931] INFO main - Run previously failing tests...
+[49005] INFO main - Failed tests: 1
+[49016] WARN AstorCoreEngine - ----------Running generation: 2, population size: 1
+[49506] INFO main - Run previously failing tests...
+[67889] INFO main - Failed tests: 1
+[67901] WARN AstorCoreEngine - ----------Running generation: 3, population size: 1
+[68005] WARN AstorCoreEngine - ----------Running generation: 4, population size: 1
+[68055] WARN AstorCoreEngine - ----------Running generation: 5, population size: 1
+[68111] WARN AstorCoreEngine - ----------Running generation: 6, population size: 1
+[68161] WARN AstorCoreEngine - ----------Running generation: 7, population size: 1
+[68214] WARN AstorCoreEngine - ----------Running generation: 8, population size: 1
+[68266] WARN AstorCoreEngine - ----------Running generation: 9, population size: 1
+[68322] WARN AstorCoreEngine - ----------Running generation: 10, population size: 1
+[68373] WARN AstorCoreEngine - ----------Running generation: 11, population size: 1
+[68426] WARN AstorCoreEngine - ----------Running generation: 12, population size: 1
+[68477] WARN AstorCoreEngine - ----------Running generation: 13, population size: 1
+[68529] WARN AstorCoreEngine - ----------Running generation: 14, population size: 1
+[68579] WARN AstorCoreEngine - ----------Running generation: 15, population size: 1
+[68630] WARN AstorCoreEngine - ----------Running generation: 16, population size: 1
+[68682] WARN AstorCoreEngine - ----------Running generation: 17, population size: 1
+[68733] WARN AstorCoreEngine - ----------Running generation: 18, population size: 1
+[68782] WARN AstorCoreEngine - ----------Running generation: 19, population size: 1
+[68838] WARN AstorCoreEngine - ----------Running generation: 20, population size: 1
+[68891] WARN AstorCoreEngine - ----------Running generation: 21, population size: 1
+[68942] WARN AstorCoreEngine - ----------Running generation: 22, population size: 1
+[68990] WARN AstorCoreEngine - ----------Running generation: 23, population size: 1
+[69038] WARN AstorCoreEngine - ----------Running generation: 24, population size: 1
+[69088] WARN AstorCoreEngine - ----------Running generation: 25, population size: 1
+[69142] WARN AstorCoreEngine - ----------Running generation: 26, population size: 1
+[69188] WARN AstorCoreEngine - ----------Running generation: 27, population size: 1
+[69234] WARN AstorCoreEngine - ----------Running generation: 28, population size: 1
+[69278] WARN AstorCoreEngine - ----------Running generation: 29, population size: 1
+[69322] WARN AstorCoreEngine - ----------Running generation: 30, population size: 1
+[69366] WARN AstorCoreEngine - ----------Running generation: 31, population size: 1
+[69410] WARN AstorCoreEngine - ----------Running generation: 32, population size: 1
+[69454] WARN AstorCoreEngine - ----------Running generation: 33, population size: 1
+[69500] WARN AstorCoreEngine - ----------Running generation: 34, population size: 1
+[69544] WARN AstorCoreEngine - ----------Running generation: 35, population size: 1
+[69595] WARN AstorCoreEngine - ----------Running generation: 36, population size: 1
+[69641] WARN AstorCoreEngine - ----------Running generation: 37, population size: 1
+[69687] WARN AstorCoreEngine - ----------Running generation: 38, population size: 1
+[69731] WARN AstorCoreEngine - ----------Running generation: 39, population size: 1
+[69776] WARN AstorCoreEngine - ----------Running generation: 40, population size: 1
+[69821] WARN AstorCoreEngine - ----------Running generation: 41, population size: 1
+[69867] WARN AstorCoreEngine - ----------Running generation: 42, population size: 1
+[69911] WARN AstorCoreEngine - ----------Running generation: 43, population size: 1
+[69957] WARN AstorCoreEngine - ----------Running generation: 44, population size: 1
+[70001] WARN AstorCoreEngine - ----------Running generation: 45, population size: 1
+[70053] WARN AstorCoreEngine - ----------Running generation: 46, population size: 1
+[70097] WARN AstorCoreEngine - ----------Running generation: 47, population size: 1
+[70230] WARN AstorCoreEngine - ----------Running generation: 48, population size: 1
+[70261] WARN AstorCoreEngine - ----------Running generation: 49, population size: 1
+[70289] WARN AstorCoreEngine - ----------Running generation: 50, population size: 1
+[70315] WARN AstorCoreEngine - ----------Running generation: 51, population size: 1
+[70349] WARN AstorCoreEngine - ----------Running generation: 52, population size: 1
+[70376] WARN AstorCoreEngine - ----------Running generation: 53, population size: 1
+[70402] WARN AstorCoreEngine - ----------Running generation: 54, population size: 1
+[70435] WARN AstorCoreEngine - ----------Running generation: 55, population size: 1
+[70463] WARN AstorCoreEngine - ----------Running generation: 56, population size: 1
+[70490] WARN AstorCoreEngine - ----------Running generation: 57, population size: 1
+[70519] WARN AstorCoreEngine - ----------Running generation: 58, population size: 1
+[70545] WARN AstorCoreEngine - ----------Running generation: 59, population size: 1
+[70573] WARN AstorCoreEngine - ----------Running generation: 60, population size: 1
+[70604] WARN AstorCoreEngine - ----------Running generation: 61, population size: 1
+[70633] WARN AstorCoreEngine - ----------Running generation: 62, population size: 1
+[70662] WARN AstorCoreEngine - ----------Running generation: 63, population size: 1
+[70691] WARN AstorCoreEngine - ----------Running generation: 64, population size: 1
+[70718] WARN AstorCoreEngine - ----------Running generation: 65, population size: 1
+[70744] WARN AstorCoreEngine - ----------Running generation: 66, population size: 1
+[70770] WARN AstorCoreEngine - ----------Running generation: 67, population size: 1
+[70795] WARN AstorCoreEngine - ----------Running generation: 68, population size: 1
+[70820] WARN AstorCoreEngine - ----------Running generation: 69, population size: 1
+[70847] WARN AstorCoreEngine - ----------Running generation: 70, population size: 1
+[70873] WARN AstorCoreEngine - ----------Running generation: 71, population size: 1
+[70900] WARN AstorCoreEngine - ----------Running generation: 72, population size: 1
+[70924] WARN AstorCoreEngine - ----------Running generation: 73, population size: 1
+[70950] WARN AstorCoreEngine - ----------Running generation: 74, population size: 1
+[70975] WARN AstorCoreEngine - ----------Running generation: 75, population size: 1
+[70999] WARN AstorCoreEngine - ----------Running generation: 76, population size: 1
+[71027] WARN AstorCoreEngine - ----------Running generation: 77, population size: 1
+[71053] WARN AstorCoreEngine - ----------Running generation: 78, population size: 1
+[71081] WARN AstorCoreEngine - ----------Running generation: 79, population size: 1
+[71111] WARN AstorCoreEngine - ----------Running generation: 80, population size: 1
+[71136] WARN AstorCoreEngine - ----------Running generation: 81, population size: 1
+[71164] WARN AstorCoreEngine - ----------Running generation: 82, population size: 1
+[71190] WARN AstorCoreEngine - ----------Running generation: 83, population size: 1
+[71219] WARN AstorCoreEngine - ----------Running generation: 84, population size: 1
+[71246] WARN AstorCoreEngine - ----------Running generation: 85, population size: 1
+[71272] WARN AstorCoreEngine - ----------Running generation: 86, population size: 1
+[71304] WARN AstorCoreEngine - ----------Running generation: 87, population size: 1
+[71330] WARN AstorCoreEngine - ----------Running generation: 88, population size: 1
+[71355] WARN AstorCoreEngine - ----------Running generation: 89, population size: 1
+[71381] WARN AstorCoreEngine - ----------Running generation: 90, population size: 1
+[71410] WARN AstorCoreEngine - ----------Running generation: 91, population size: 1
+[71436] WARN AstorCoreEngine - ----------Running generation: 92, population size: 1
+[71461] WARN AstorCoreEngine - ----------Running generation: 93, population size: 1
+[71486] WARN AstorCoreEngine - ----------Running generation: 94, population size: 1
+[71511] WARN AstorCoreEngine - ----------Running generation: 95, population size: 1
+[71537] WARN AstorCoreEngine - ----------Running generation: 96, population size: 1
+[71561] WARN AstorCoreEngine - ----------Running generation: 97, population size: 1
+[71586] WARN AstorCoreEngine - ----------Running generation: 98, population size: 1
+[71614] WARN AstorCoreEngine - ----------Running generation: 99, population size: 1
+[71640] WARN AstorCoreEngine - ----------Running generation: 100, population size: 1
+[71664] WARN AstorCoreEngine - ----------Running generation: 101, population size: 1
+[71691] WARN AstorCoreEngine - ----------Running generation: 102, population size: 1
+[71716] ERROR AstorCoreEngine - Stopping main loop at 102 generation
+[71717] INFO AstorCoreEngine - Time Repair Loop (s): 45.078
+[71718] INFO AstorCoreEngine - generationsexecuted: 102
+[71718] WARN AstorCoreEngine - ----SUMMARY_EXECUTION---
+[71718] WARN AstorCoreEngine - End Repair Search: NOT Found solution
+[71718] WARN AstorCoreEngine - Number suspicious:1
+[71718] INFO AstorCoreEngine - Total mod points: 2
+[71740] INFO ExpressionTypeIngredientSpace - Storing ing JSON at /workdir/Cardumen_vul4j_OpenRefine_OpenRefine_VUL4J-64/./output_astor/AstorMain-OpenRefine_OpenRefine-VUL4J-64//src/ingredients.json
+[71741] INFO IngredientStats - Storing ing JSON at /workdir/Cardumen_vul4j_OpenRefine_OpenRefine_VUL4J-64/./output_astor/AstorMain-OpenRefine_OpenRefine-VUL4J-64//ingredientSpaceSize.json
+[71741] INFO IngredientStats - ingredientSpaceSize:{"allAttempts":6,"space":[{"a":17,"v":1},{"a":2,"v":1},{"a":15,"v":1},{"a":8,"v":1},{"a":1,"v":2}]}
+[71741] INFO IngredientStats - Storing ing JSON at /workdir/Cardumen_vul4j_OpenRefine_OpenRefine_VUL4J-64/./output_astor/AstorMain-OpenRefine_OpenRefine-VUL4J-64//combinationsTemplatesingredientSpaceSize.json
+[71741] INFO IngredientStats - combinationsTemplatesingredientSpaceSize:{"allAttempts":38,"space":[{"a":1,"v":10},{"a":0,"v":28}]}
+[71743] INFO AstorCoreEngine - 
+ --SOLUTIONS DESCRIPTION--
+
+
+Astor Output:
+
+General stats:
+EXECUTION_IDENTIFIER=OpenRefine_OpenRefine-VUL4J-64
+TOTAL_TIME=45.078
+NR_GENERATIONS=102
+NR_RIGHT_COMPILATIONS=2
+NR_FAILLING_COMPILATIONS=null
+NR_ERRONEOUS_VARIANCES=null
+NR_FAILING_VALIDATION_PROCESS=null
+OUTPUT_STATUS=CONVERGED
+
+Patch stats:
+
+[71747] INFO Stats - Storing ing JSON at /workdir/Cardumen_vul4j_OpenRefine_OpenRefine_VUL4J-64/./output_astor/AstorMain-OpenRefine_OpenRefine-VUL4J-64//astor_output.json
+[71747] INFO Stats - astor_output:
+{"general":{"NR_RIGHT_COMPILATIONS":2,"NR_ERRONEOUS_VARIANCES":null,"EXECUTION_IDENTIFIER":"OpenRefine_OpenRefine-VUL4J-64","OUTPUT_STATUS":"CONVERGED","NR_FAILLING_COMPILATIONS":null,"NR_GENERATIONS":102,"TOTAL_TIME":45.078,"NR_FAILING_VALIDATION_PROCESS":null},"patches":[]}
+[71748] INFO AstorMain - Time Total(s): 71.739
+190.70user 24.24system 1:12.26elapsed 297%CPU (0avgtext+0avgdata 1369640maxresident)k
+0inputs+357960outputs (0major+1541161minor)pagefaults 0swaps
+
+
+Node: 7bf757db1356
+
+
+
+Date: Wed Nov 30 04:18:07 EST 2022
+

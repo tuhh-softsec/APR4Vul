@@ -1,0 +1,31 @@
+{
+  "repair_end": "2022-09-09 03:39:15.763347", 
+  "repair_begin": "2022-09-09 03:30:19.556139", 
+  "patches": [
+    {
+      "PATCH_DIFF_ORIG": "--- \\/workdir\\/Cardumen_vul4j_apache_commons-compress_VUL4J-6\\/src\\/main\\/java\\/org\\/apache\\/commons\\/compress\\/archivers\\/zip\\/X0017_StrongEncryptionHeaderjava\\n+++ \\/workdir\\/Cardumen_vul4j_apache_commons-compress_VUL4J-6\\/src\\/main\\/java\\/org\\/apache\\/commons\\/compress\\/archivers\\/zip\\/X0017_StrongEncryptionHeaderjava\\n@@ -313,2 +313 @@\\n-\\t\\t\\tfor (int i = 0; i < this.rcount;) {\\n-\\t\\t\\t\\tfor (int j = 0; j < this.hashSize; j++) {\\n+\\t\\t\\tfor (int i = 0; \\n@@ -316,4 +314,0 @@\\n-\\t\\t\\t\\t}\\n-\\t\\t\\t}\\n-\\t\\t}\\n-\\t}\\n@@ -330,4 +324,0 @@\\n-\\tpublic void parseFileFormat(final byte[] data, final int offset, final int length) {\\n-\\t\\tfinal int ivSize = org.apache.commons.compress.archivers.zip.ZipShort.getValue(data, offset);\\n-\\t\\tthis.ivData = new byte[ivSize];\\n-\\t\\tjava.lang.System.arraycopy(data, offset + 4, this.ivData, 0, ivSize);\\n@@ -335,4 +325,0 @@\\n-\\t\\tthis.format = org.apache.commons.compress.archivers.zip.ZipShort.getValue(data, (offset + ivSize) + 6);\\n-\\t\\tthis.algId = org.apache.commons.compress.archivers.zip.PKWareExtraHeader.EncryptionAlgorithm.getAlgorithmByCode(org.apache.commons.compress.archivers.zip.ZipShort.getValue(data, (offset + ivSize) + 8));\\n-\\t\\tthis.bitlen = org.apache.commons.compress.archivers.zip.ZipShort.getValue(data, (offset + ivSize) + 10);\\n-\\t\\tthis.flags = org.apache.commons.compress.archivers.zip.ZipShort.getValue(data, (offset + ivSize) + 12);\\n@@ -340,3 +326,0 @@\\n-\\t\\tfinal int erdSize = org.apache.commons.compress.archivers.zip.ZipShort.getValue(data, (offset + ivSize) + 14);\\n-\\t\\tthis.erdData = new byte[erdSize];\\n-\\t\\tjava.lang.System.arraycopy(data, (offset + ivSize) + 16, this.erdData, 0, erdSize);\\n@@ -344,3 +328,19 @@\\n-\\t\\tthis.rcount = org.apache.commons.compress.archivers.zip.ZipLong.getValue(data, ((offset + ivSize) + 16) + erdSize);\\n-\\t\\tjava.lang.System.out.println(\\\"rcount: \\\" + rcount);\\n-\\t\\tif (rcount == 0) {\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\n+\\t\\t\\trcount == 0;) { \\t\\t\\t\\tfor (int j = 0; j < this.hashSize; j++) {}}}} \\tpublic void parseFileFormat(final byte[] data, final int offset, final int length) { \\t\\tfinal int ivSize = org.apache.commons.compress.archivers.zip.ZipShort.getValue(data, offset); \\t\\tthis.ivData = new byte[ivSize]; \\t\\tjava.lang.System.arraycopy(data, offset + 4, this.ivData, 0, ivSize); \\t\\tthis.format = org.apache.commons.compress.archivers.zip.ZipShort.getValue(data, (offset + ivSize) + 6); \\t\\tthis.algId = org.apache.commons.compress.archivers.zip.PKWareExtraHeader.EncryptionAlgorithm.getAlgorithmByCode(org.apache.commons.compress.archivers.zip.ZipShort.getValue(data, (offset + ivSize) + 8)); \\t\\tthis.bitlen = org.apache.commons.compress.archivers.zip.ZipShort.getValue(data, (offset + ivSize) + 10); \\t\\tthis.flags = org.apache.commons.compress.archivers.zip.ZipShort.getValue(data, (offset + ivSize) + 12); \\t\\tfinal int erdSize = org.apache.commons.compress.archivers.zip.ZipShort.getValue(data, (offset + ivSize) + 14); \\t\\tthis.erdData = new byte[erdSize]; \\t\\tjava.lang.System.arraycopy(data, (offset + ivSize) + 16, this.erdData, 0, erdSize); \\t\\tthis.rcount = org.apache.commons.compress.archivers.zip.ZipLong.getValue(data, ((offset + ivSize) + 16) + erdSize); \\t\\tjava.lang.System.out.println(\\\"rcount: \\\" + rcount); \\t\\tif (rcount == 0) {\\n\\n", 
+      "patchhunks": [
+        {
+          "MODIFIED_FILE_PATH": "\\/workdir\\/Cardumen_vul4j_apache_commons-compress_VUL4J-6\\/.\\/output_astor\\/AstorMain-apache_commons-compress-VUL4J-6\\/\\/src\\/\\/variant-10\\/org\\/apache\\/commons\\/compress\\/archivers\\/zip\\/X0017_StrongEncryptionHeader.java", 
+          "ORIGINAL_CODE": "i < this.rcount", 
+          "INGREDIENT_SCOPE": "-", 
+          "PATCH_HUNK_CODE": "rcount == 0", 
+          "INGREDIENT_PARENT": "_long_0 == 0", 
+          "LOCATION": "org.apache.commons.compress.archivers.zip.X0017_StrongEncryptionHeader", 
+          "BUGGY_CODE_TYPE": "CtBinaryOperatorImpl|CtForImpl", 
+          "OPERATOR": "ExpressionReplaceOperator", 
+          "PATH": "\\/workdir\\/Cardumen_vul4j_apache_commons-compress_VUL4J-6\\/src\\/main\\/java\\/org\\/apache\\/commons\\/compress\\/archivers\\/zip\\/X0017_StrongEncryptionHeader.java", 
+          "LINE": "313", 
+          "MP_RANKING": "1", 
+          "SUSPICIOUNESS": "1", 
+          "PATCH_HUNK_TYPE": "CtBinaryOperatorImpl|CtForImpl"
+        }
+      ], 
+      "GENERATION": "5", 
+      "VARIANT_ID": "10", 
+      "TIME": "429", 
+      "VALIDATION": "|true|0|0|[]|", 
+      "FOLDER_SOLUTION_CODE": "\\/workdir\\/Cardumen_vul4j_apache_commons-compress_VUL4J-6\\/.\\/output_astor\\/AstorMain-apache_commons-compress-VUL4J-6\\/\\/src\\/\\/variant-10"
+    }
+  ]
+}

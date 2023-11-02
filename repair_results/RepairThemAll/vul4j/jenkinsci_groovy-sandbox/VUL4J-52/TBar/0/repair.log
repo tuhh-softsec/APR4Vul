@@ -1,0 +1,162 @@
+cd /workdir/TBar_vul4j_jenkinsci_groovy-sandbox_VUL4J-52;
+export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en";
+TZ="America/New_York"; export TZ;
+export PATH="/usr/lib/jvm/java-8-openjdk-amd64/bin:$PATH";
+export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64";
+timeout 240m java -Xmx4g -Xms1g -XX:MaxPermSize=512m \
+    -cp /script/../libs/tbar_external/com.gzoltar-0.1.1-jdk7.jar:/script/../repair_tools/tbar.jar edu.lu.uni.serval.tbar.main.Main \
+    "/workdir/TBar_vul4j_jenkinsci_groovy-sandbox_VUL4J-52" "org.kohsuke.groovy.sandbox.FinalizerTest#testOverridingFinalizeForbidden" "/src/main/java/" "/src/test/java/" "/target/classes/" "/target/test-classes/" "/script/../data/benchmarks/vul4j/perfectfl/VUL4J-52/spectra.txt" "mvn test -Dtest=org.kohsuke.groovy.sandbox.FinalizerTest -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B" "mvn test -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B" "/root/.m2/repository/junit/junit/4.12/junit-4.12.jar:/root/.m2/repository/org/jenkins-ci/test-annotations/1.2/test-annotations-1.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/codehaus/groovy/groovy/2.4.7/groovy-2.4.7.jar";
+echo "\n\nNode: `hostname`\n";
+echo "\n\nDate: `date`\n";
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en
+OpenJDK 64-Bit Server VM warning: ignoring option MaxPermSize=512m; support was removed in 8.0
+13:39:52,211 |-INFO in ch.qos.logback.classic.LoggerContext[TBar] - Could NOT find resource [logback-test.xml]
+13:39:52,211 |-INFO in ch.qos.logback.classic.LoggerContext[TBar] - Could NOT find resource [logback.groovy]
+13:39:52,211 |-INFO in ch.qos.logback.classic.LoggerContext[TBar] - Found resource [logback.xml] at [jar:file:/repair_tools/tbar.jar!/logback.xml]
+13:39:52,222 |-INFO in ch.qos.logback.core.joran.spi.ConfigurationWatchList@5a42bbf4 - URL [jar:file:/repair_tools/tbar.jar!/logback.xml] is not of type file
+13:39:52,272 |-INFO in ch.qos.logback.classic.joran.action.ConfigurationAction - debug attribute not set
+13:39:52,274 |-INFO in ch.qos.logback.classic.joran.action.ContextNameAction - Setting logger context name as [TBar]
+13:39:52,275 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - About to instantiate appender of type [ch.qos.logback.core.ConsoleAppender]
+13:39:52,278 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - Naming appender as [STDOUT]
+13:39:52,318 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting level of logger [org.hibernate.engine.query.HQLQueryPlan] to DEBUG
+13:39:52,318 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting additivity of logger [org.hibernate.engine.query.HQLQueryPlan] to false
+13:39:52,318 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting level of logger [com.piedra.logback] to DEBUG
+13:39:52,318 |-ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - Could not find an appender named [FILE]. Did you define it below instead of above in the configuration file?
+13:39:52,318 |-ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - See http://logback.qos.ch/codes.html#appender_order for more details.
+13:39:52,318 |-INFO in ch.qos.logback.classic.joran.action.RootLoggerAction - Setting level of ROOT logger to DEBUG
+13:39:52,318 |-INFO in ch.qos.logback.core.joran.action.AppenderRefAction - Attaching appender named [STDOUT] to Logger[ROOT]
+13:39:52,319 |-ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - Could not find an appender named [ROLLINGFILE]. Did you define it below instead of above in the configuration file?
+13:39:52,319 |-ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - See http://logback.qos.ch/codes.html#appender_order for more details.
+13:39:52,319 |-INFO in ch.qos.logback.classic.joran.action.ConfigurationAction - End of configuration.
+13:39:52,320 |-INFO in ch.qos.logback.classic.joran.JoranConfigurator@270421f5 - Registering current configuration as safe fallback point
+
+2022-09-14 13:39:52.377 [main] INFO  edu.lu.uni.serval.tbar.AbstractFixer - TBar_vul4j_jenkinsci_groovy-sandbox_VUL4J-52 Failed Tests: 1
+2022-09-14 13:39:52.380 [main] INFO  edu.lu.uni.serval.tbar.TBarFixer - =======StaticBugFixer: Start to fix suspicious code======
+2022-09-14 13:39:52.380 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.kohsuke.groovy.sandbox.SandboxTransformer ===140
+2022-09-14 13:39:52.942 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+visitor.visitMethod(m);
+2022-09-14 13:39:54.169 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -137,7 +137,10 @@ public class SandboxTransformer extends CompilationCustomizer {
+-            visitor.visitMethod(m);
++            if (visitor != null) {
++	visitor.visitMethod(m);
++	}
++
+2022-09-14 13:39:54.169 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 13:39:55.290 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 13:40:12.265 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -137,7 +137,10 @@ public class SandboxTransformer extends CompilationCustomizer {
+-            visitor.visitMethod(m);
++            if (visitor == null) {
++	    throw new IllegalArgumentException("Null 'visitor' argument.");
++	}
++visitor.visitMethod(m);
+2022-09-14 13:40:12.265 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 13:40:13.237 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 13:40:30.228 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -137,7 +137,10 @@ public class SandboxTransformer extends CompilationCustomizer {
+-            visitor.visitMethod(m);
++            if (visitor == null) {
++	    return;
++	}
++visitor.visitMethod(m);
+2022-09-14 13:40:30.228 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 13:40:31.096 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 13:40:47.803 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -137,7 +137,8 @@ public class SandboxTransformer extends CompilationCustomizer {
+-            visitor.visitMethod(m);
++            if (visitor == null) visitor = new ClassCodeExpressionTransformer();
++ visitor.visitMethod(m);
+2022-09-14 13:40:47.803 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 13:40:48.709 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 13:40:48.725 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -137,7 +137,10 @@ public class SandboxTransformer extends CompilationCustomizer {
+-            visitor.visitMethod(m);
++            if (m != null) {
++	visitor.visitMethod(m);
++	}
++
+2022-09-14 13:40:48.725 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 13:40:49.684 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 13:41:06.399 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -137,7 +137,10 @@ public class SandboxTransformer extends CompilationCustomizer {
+-            visitor.visitMethod(m);
++            if (m == null) {
++	    throw new IllegalArgumentException("Null 'm' argument.");
++	}
++visitor.visitMethod(m);
+2022-09-14 13:41:06.399 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 13:41:07.382 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 13:41:24.392 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -137,7 +137,10 @@ public class SandboxTransformer extends CompilationCustomizer {
+-            visitor.visitMethod(m);
++            if (m == null) {
++	    return;
++	}
++visitor.visitMethod(m);
+2022-09-14 13:41:24.392 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 13:41:25.368 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 13:41:42.330 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -137,7 +137,8 @@ public class SandboxTransformer extends CompilationCustomizer {
+-            visitor.visitMethod(m);
++            if (m == null) m = new MethodNode();
++ visitor.visitMethod(m);
+2022-09-14 13:41:42.330 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 13:41:43.239 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 13:41:43.244 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -137,7 +137,9 @@ public class SandboxTransformer extends CompilationCustomizer {
+-            visitor.visitMethod(m);
++            if (visitor == null) continue;
++	if (m == null) continue;
++	visitor.visitMethod(m);
+2022-09-14 13:41:43.244 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 13:41:44.193 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 13:42:00.911 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -137,7 +137,10 @@ public class SandboxTransformer extends CompilationCustomizer {
+-            visitor.visitMethod(m);
++            if (visitor != null && m != null) {
++	visitor.visitMethod(m);
++	}
++
+2022-09-14 13:42:00.911 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 13:42:01.869 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 13:42:18.940 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -137,7 +137,7 @@ public class SandboxTransformer extends CompilationCustomizer {
+-            visitor.visitMethod(m);
++
+2022-09-14 13:42:18.940 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 13:42:20.017 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 13:42:36.414 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -127,25 +127,7 @@ public class SandboxTransformer extends CompilationCustomizer {
+-    @Override
+-    public void call(final SourceUnit source, GeneratorContext context, ClassNode classNode) {
+-        if (classNode == null) { // TODO is this even possible? CpsTransformer implies it is not.
+-            return;
+-        }
+-
+-        ClassCodeExpressionTransformer visitor = createVisitor(source, classNode);
+-
+-        processConstructors(visitor, classNode);
+-        for (MethodNode m : classNode.getMethods()) {
+-            visitor.visitMethod(m);
+-        }
+-        for (Statement s : classNode.getObjectInitializerStatements()) {
+-            s.visit(visitor);
+-        }
+-        for (FieldNode f : classNode.getFields()) {
+-            visitor.visitField(f);
+-        }
+-    }
++
+2022-09-14 13:42:36.414 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 13:42:37.327 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 13:42:37.363 [main] INFO  edu.lu.uni.serval.tbar.TBarFixer - =======StaticBugFixer: Finish off fixing======
+Failed to fix bug
+
+
+Node: ee2bf67284b9
+
+
+
+Date: Wed Sep 14 13:42:37 EDT 2022
+

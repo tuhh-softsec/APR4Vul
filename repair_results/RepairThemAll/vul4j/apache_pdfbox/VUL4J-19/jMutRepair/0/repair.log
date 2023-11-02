@@ -1,0 +1,210 @@
+cd /workdir/jMutRepair_vul4j_apache_pdfbox_VUL4J-19;
+export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en";
+TZ="America/New_York"; export TZ;
+export PATH="/usr/lib/jvm/java-8-openjdk-amd64/bin:$PATH";
+export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64/bin";
+time java -Xmx4g -Xms1g -XX:MaxPermSize=512m -cp /script/../libs/jtestex7.jar:/script/../repair_tools/astor.jar fr.inria.main.evolution.AstorMain \
+	-mode jMutRepair \
+	-location . \
+	-id apache_pdfbox-VUL4J-19 \
+	-failing org.apache.pdfbox.encryption.TestSymmetricKeyEncryption#testPermissions \
+	-jvm4testexecution /usr/lib/jvm/java-8-openjdk-amd64/bin \
+	-jvm4evosuitetestexecution /usr/lib/jvm/java-8-openjdk-amd64/bin \
+	-maxgen 1000000 \
+	-maxtime 120 \
+	-stopfirst true \
+	-seed 0 \
+	-scope local \
+	-population 1 \
+	-javacompliancelevel 8 \
+	-faultlocalization perfect \
+    -perfectdata /script/../data/benchmarks/vul4j/perfectfl/VUL4J-19 \
+    -validation externalcmd \
+    -testfailingcmd "mvn test -pl pdfbox -Dtest=org.apache.pdfbox.encryption.TestSymmetricKeyEncryption -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B" \
+    -testallcmd "mvn test -pl pdfbox -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B"  \ \
+	-srcjavafolder pdfbox/src/main/java \
+	-srctestfolder pdfbox/src/test/java \
+	-binjavafolder pdfbox/target/classes \
+	-bintestfolder pdfbox/target/test-classes \
+	-parameters x:x \
+	-dependencies /root/.m2/repository/com/github/jai-imageio/jai-imageio-jpeg2000/1.3.0/jai-imageio-jpeg2000-1.3.0.jar:/root/.m2/repository/org/bouncycastle/bcpkix-jdk15on/1.54/bcpkix-jdk15on-1.54.jar:/root/.m2/repository/com/github/jai-imageio/jai-imageio-core/1.3.1/jai-imageio-core-1.3.1.jar:/root/.m2/repository/org/bouncycastle/bcmail-jdk15on/1.54/bcmail-jdk15on-1.54.jar:/root/.m2/repository/org/apache/pdfbox/fontbox/2.1.0-SNAPSHOT/fontbox-2.1.0-SNAPSHOT.jar:/root/.m2/repository/com/googlecode/java-diff-utils/diffutils/1.3.0/diffutils-1.3.0.jar:/root/.m2/repository/junit/junit/4.12/junit-4.12.jar:/root/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/root/.m2/repository/com/levigo/jbig2/levigo-jbig2-imageio/1.6.5/levigo-jbig2-imageio-1.6.5.jar:/root/.m2/repository/org/bouncycastle/bcprov-jdk15on/1.54/bcprov-jdk15on-1.54.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar;
+	echo "\n\nNode: `hostname`\n";
+	echo "\n\nDate: `date`\n";
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en
+OpenJDK 64-Bit Server VM warning: ignoring option MaxPermSize=512m; support was removed in 8.0
+[0] INFO ProjectConfiguration - Version of the JVM used: 1.8.0_342
+[1] INFO main - Java version of the JDK used to run tests: 1.8.0_342
+[1] INFO main - The compliance of the JVM is:  8
+[3] INFO main - command line arguments: [-mode  jMutRepair  -location  .  -id  apache_pdfbox-VUL4J-19  -failing  org.apache.pdfbox.encryption.TestSymmetricKeyEncryption#testPermissions  -jvm4testexecution  /usr/lib/jvm/java-8-openjdk-amd64/bin  -jvm4evosuitetestexecution  /usr/lib/jvm/java-8-openjdk-amd64/bin  -maxgen  1000000  -maxtime  120  -stopfirst  true  -seed  0  -scope  local  -population  1  -javacompliancelevel  8  -faultlocalization  perfect  -perfectdata  /script/../data/benchmarks/vul4j/perfectfl/VUL4J-19  -validation  externalcmd  -testfailingcmd  mvn test -pl pdfbox -Dtest=org.apache.pdfbox.encryption.TestSymmetricKeyEncryption -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B  -testallcmd  mvn test -pl pdfbox -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B     -srcjavafolder  pdfbox/src/main/java  -srctestfolder  pdfbox/src/test/java  -binjavafolder  pdfbox/target/classes  -bintestfolder  pdfbox/target/test-classes  -parameters  x:x  -dependencies  /root/.m2/repository/com/github/jai-imageio/jai-imageio-jpeg2000/1.3.0/jai-imageio-jpeg2000-1.3.0.jar:/root/.m2/repository/org/bouncycastle/bcpkix-jdk15on/1.54/bcpkix-jdk15on-1.54.jar:/root/.m2/repository/com/github/jai-imageio/jai-imageio-core/1.3.1/jai-imageio-core-1.3.1.jar:/root/.m2/repository/org/bouncycastle/bcmail-jdk15on/1.54/bcmail-jdk15on-1.54.jar:/root/.m2/repository/org/apache/pdfbox/fontbox/2.1.0-SNAPSHOT/fontbox-2.1.0-SNAPSHOT.jar:/root/.m2/repository/com/googlecode/java-diff-utils/diffutils/1.3.0/diffutils-1.3.0.jar:/root/.m2/repository/junit/junit/4.12/junit-4.12.jar:/root/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/root/.m2/repository/com/levigo/jbig2/levigo-jbig2-imageio/1.6.5/levigo-jbig2-imageio-1.6.5.jar:/root/.m2/repository/org/bouncycastle/bcprov-jdk15on/1.54/bcprov-jdk15on-1.54.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar]
+[5] INFO AstorMain - Running Astor on a JDK at /usr/lib/jvm/java-8-openjdk-amd64/jre
+[39] INFO main - Source folders: [/workdir/jMutRepair_vul4j_apache_pdfbox_VUL4J-19/./pdfbox/src/main/java]
+[40] INFO main - Source Test folders: [/workdir/jMutRepair_vul4j_apache_pdfbox_VUL4J-19/./pdfbox/src/test/java]
+[2630] INFO AstorCoreEngine - ---- Creating spoon model
+[2734] INFO MutationSupporter - Creating model,  Code location from working folder: /workdir/jMutRepair_vul4j_apache_pdfbox_VUL4J-19/./pdfbox/src/main/java
+[2734] INFO MutationSupporter - building model: /workdir/jMutRepair_vul4j_apache_pdfbox_VUL4J-19/./pdfbox/src/main/java, compliance level: 8
+[2967] INFO MutationSupporter - Classpath (Dependencies) for building SpoonModel: [/root/.m2/repository/com/github/jai-imageio/jai-imageio-jpeg2000/1.3.0/jai-imageio-jpeg2000-1.3.0.jar, /root/.m2/repository/org/bouncycastle/bcpkix-jdk15on/1.54/bcpkix-jdk15on-1.54.jar, /root/.m2/repository/com/github/jai-imageio/jai-imageio-core/1.3.1/jai-imageio-core-1.3.1.jar, /root/.m2/repository/org/bouncycastle/bcmail-jdk15on/1.54/bcmail-jdk15on-1.54.jar, /root/.m2/repository/org/apache/pdfbox/fontbox/2.1.0-SNAPSHOT/fontbox-2.1.0-SNAPSHOT.jar, /root/.m2/repository/com/googlecode/java-diff-utils/diffutils/1.3.0/diffutils-1.3.0.jar, /root/.m2/repository/junit/junit/4.12/junit-4.12.jar, /root/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar, /root/.m2/repository/com/levigo/jbig2/levigo-jbig2-imageio/1.6.5/levigo-jbig2-imageio-1.6.5.jar, /root/.m2/repository/org/bouncycastle/bcprov-jdk15on/1.54/bcprov-jdk15on-1.54.jar, /root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar]
+[40852] INFO AstorCoreEngine - Number of CtTypes created: 551
+[44058] INFO AstorCoreEngine - Test retrieved from classes: 0
+[44459] INFO AstorCoreEngine - Setting up the max to 4010 milliseconds (4 sec)
+[44461] INFO AstorCoreEngine - ---- Initial suspicious size: 1
+[45900] INFO main - Total suspicious from FL: 1,  0
+[45900] INFO main - Total ModPoint created: 0
+[45901] INFO main - Creating program variant #1, [Variant id: 1, #gens: 0, #ops: 0, parent:-]
+[45901] ERROR AstorCoreEngine - [warning] Any modification point in variant
+[45901] ERROR AstorCoreEngine - Variant with any gen
+[45901] WARN ConfigurationProperties - ----------------------------
+[45901] INFO ConfigurationProperties - ---Configuration properties
+[45901] INFO ConfigurationProperties - p:lastJUnitVersion= ./examples/libs/junit-4.11.jar
+[45901] INFO ConfigurationProperties - p:alternativecompliancelevel= 8
+[45901] INFO ConfigurationProperties - p:ignoredTestCases= 
+[45901] INFO ConfigurationProperties - p:workingDirectory= /workdir/jMutRepair_vul4j_apache_pdfbox_VUL4J-19/./output_astor
+[45901] INFO ConfigurationProperties - p:manipulatesuper= false
+[45901] INFO ConfigurationProperties - p:validation= externalcmd
+[45902] INFO ConfigurationProperties - p:jvm4testexecution= /usr/lib/jvm/java-8-openjdk-amd64/bin
+[45902] INFO ConfigurationProperties - p:operatorspace= mutationspace
+[45902] INFO ConfigurationProperties - p:diffcontext= 0
+[45902] INFO ConfigurationProperties - p:binjavafolder= pdfbox/target/classes
+[45902] INFO ConfigurationProperties - p:synthesis_depth= 3
+[45902] INFO ConfigurationProperties - p:gzoltartestpackagetoexclude= junit.framework
+[45902] INFO ConfigurationProperties - p:skipfitnessinitialpopulation= false
+[45902] INFO ConfigurationProperties - p:evosuiteresultfolder= evosuite
+[45902] INFO ConfigurationProperties - p:flthreshold= 0.1
+[45902] INFO ConfigurationProperties - p:regressionforfaultlocalization= true
+[45902] INFO ConfigurationProperties - p:collectonlyusedmethod= false
+[45912] INFO ConfigurationProperties - p:preservelinenumbers= true
+[45913] INFO ConfigurationProperties - p:tmax2= 4010
+[45913] INFO ConfigurationProperties - p:tmax1= 10000
+[45913] INFO ConfigurationProperties - p:probagenmutation= false
+[45913] INFO ConfigurationProperties - p:nomodificationconvergence= 100
+[45913] INFO ConfigurationProperties - p:diff_type= relative
+[45913] INFO ConfigurationProperties - p:targetelementprocessor= if-conditions:return-op-mutation
+[45913] INFO ConfigurationProperties - p:srctestfolder= pdfbox/src/test/java
+[45913] INFO ConfigurationProperties - p:forceExecuteRegression= false
+[45913] INFO ConfigurationProperties - p:clusteringfilename= clustering.csv
+[45914] INFO ConfigurationProperties - p:failing= org.apache.pdfbox.encryption.TestSymmetricKeyEncryption#testPermissions
+[45914] INFO ConfigurationProperties - p:logtestexecution= false
+[45914] INFO ConfigurationProperties - p:evo_buggy_class= true
+[45914] INFO ConfigurationProperties - p:numberExecutions= 1
+[45914] INFO ConfigurationProperties - p:maxnumbersolutions= 1000000
+[45914] INFO ConfigurationProperties - p:evo_affected_by_op= true
+[45914] INFO ConfigurationProperties - p:population= 1
+[45915] INFO ConfigurationProperties - p:considerzerovaluesusp= false
+[45915] INFO ConfigurationProperties - p:maxCombinationVariableLimit= false
+[45915] INFO ConfigurationProperties - p:savesolution= true
+[45915] INFO ConfigurationProperties - p:javacompliancelevel= 8
+[45915] INFO ConfigurationProperties - p:x= x
+[45915] INFO ConfigurationProperties - p:uniqueoptogen= false
+[45915] INFO ConfigurationProperties - p:gzoltarpackagetonotinstrument= junit.framework
+[45915] INFO ConfigurationProperties - p:projectIdentifier= apache_pdfbox-VUL4J-19
+[45916] INFO ConfigurationProperties - p:modificationpointnavigation= weight
+[45919] INFO ConfigurationProperties - p:stopfirst= true
+[45919] INFO ConfigurationProperties - p:multipointmodification= false
+[45919] INFO ConfigurationProperties - p:elementsToMutate= 10
+[45919] INFO ConfigurationProperties - p:jsonoutputname= astor_output
+[45919] INFO ConfigurationProperties - p:evoDSE= false
+[45919] INFO ConfigurationProperties - p:bintestfolder= pdfbox/target/test-classes
+[45919] INFO ConfigurationProperties - p:testbystep= false
+[45919] INFO ConfigurationProperties - p:version-location= ./math-version/
+[45919] INFO ConfigurationProperties - p:reintroduce= PARENTS:ORIGINAL
+[45919] INFO ConfigurationProperties - p:perfectdata= /script/../data/benchmarks/vul4j/perfectfl/VUL4J-19
+[45919] INFO ConfigurationProperties - p:executorjar= ./lib/jtestex7.jar
+[45920] INFO ConfigurationProperties - p:maxGeneration= 1000000
+[45920] INFO ConfigurationProperties - p:max_synthesis_step= 10000
+[45920] INFO ConfigurationProperties - p:projectinfocommand= com.github.tdurieux:project-config-maven-plugin:info
+[45920] INFO ConfigurationProperties - p:maxVarCombination= 1000
+[45920] INFO ConfigurationProperties - p:maxtime= 120
+[45920] INFO ConfigurationProperties - p:evosuitejar= ./lib/evosuite-master-1.0.4-SNAPSHOT.jar
+[45920] INFO ConfigurationProperties - p:jvmversion= 1.8.0_342
+[45920] INFO ConfigurationProperties - p:commandTrunk= 50000
+[45920] INFO ConfigurationProperties - p:faultlocalization= perfect
+[45920] INFO ConfigurationProperties - p:resetmodel= true
+[45928] INFO ConfigurationProperties - p:maxsuspcandidates= 1000
+[45928] INFO ConfigurationProperties - p:mode= jMutRepair
+[45928] INFO ConfigurationProperties - p:learningdir= 
+[45928] INFO ConfigurationProperties - p:jvm4evosuitetestexecution= /usr/lib/jvm/java-8-openjdk-amd64/bin
+[45928] INFO ConfigurationProperties - p:filterfaultlocalization= true
+[45928] INFO ConfigurationProperties - p:mutationrate= 1 
+[45929] INFO ConfigurationProperties - p:pathToMVNRepository= 
+[45929] INFO ConfigurationProperties - p:resourcesfolder= /src/main/resources:/src/test/resources:
+[45929] INFO ConfigurationProperties - p:timezone= America/Los_Angeles
+[45929] INFO ConfigurationProperties - p:runjava7code= false
+[45929] INFO ConfigurationProperties - p:testfailingcmd= mvn test -pl pdfbox -Dtest=org.apache.pdfbox.encryption.TestSymmetricKeyEncryption -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B
+[45929] INFO ConfigurationProperties - p:evoRunOnBuggyClass= true
+[45929] INFO ConfigurationProperties - p:compiler= fr.inria.astor.core.manipulation.bytecode.compiler.SpoonClassCompiler
+[45929] INFO ConfigurationProperties - p:limitbysuspicious= true
+[45929] INFO ConfigurationProperties - p:logsattemps= true
+[45929] INFO ConfigurationProperties - p:dependenciespath= /root/.m2/repository/com/github/jai-imageio/jai-imageio-jpeg2000/1.3.0/jai-imageio-jpeg2000-1.3.0.jar:/root/.m2/repository/org/bouncycastle/bcpkix-jdk15on/1.54/bcpkix-jdk15on-1.54.jar:/root/.m2/repository/com/github/jai-imageio/jai-imageio-core/1.3.1/jai-imageio-core-1.3.1.jar:/root/.m2/repository/org/bouncycastle/bcmail-jdk15on/1.54/bcmail-jdk15on-1.54.jar:/root/.m2/repository/org/apache/pdfbox/fontbox/2.1.0-SNAPSHOT/fontbox-2.1.0-SNAPSHOT.jar:/root/.m2/repository/com/googlecode/java-diff-utils/diffutils/1.3.0/diffutils-1.3.0.jar:/root/.m2/repository/junit/junit/4.12/junit-4.12.jar:/root/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/root/.m2/repository/com/levigo/jbig2/levigo-jbig2-imageio/1.6.5/levigo-jbig2-imageio-1.6.5.jar:/root/.m2/repository/org/bouncycastle/bcprov-jdk15on/1.54/bcprov-jdk15on-1.54.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar
+[45929] INFO ConfigurationProperties - p:packageToInstrument= 
+[45929] INFO ConfigurationProperties - p:skipfaultlocalization= false
+[45929] INFO ConfigurationProperties - p:scope= local
+[45929] INFO ConfigurationProperties - p:transformingredient= false
+[45929] INFO ConfigurationProperties - p:fitnessfunction= fr.inria.astor.core.solutionsearch.population.TestCaseFitnessFunction
+[45929] INFO ConfigurationProperties - p:maxnumvariablesperingredient= 10
+[45929] INFO ConfigurationProperties - p:parsesourcefromoriginal= true
+[45929] INFO ConfigurationProperties - p:pvariantfoldername= variant-
+[45929] INFO ConfigurationProperties - p:savespoonmodelondisk= false
+[45929] INFO ConfigurationProperties - p:srcjavafolder= pdfbox/src/main/java
+[45930] INFO ConfigurationProperties - p:populationcontroller= fr.inria.astor.core.solutionsearch.population.TestCaseBasedFitnessPopulationController
+[45930] INFO ConfigurationProperties - p:ignoreflakyinfl= false
+[45930] INFO ConfigurationProperties - p:cleantemplates= true
+[45930] INFO ConfigurationProperties - p:applyCrossover= false
+[45930] INFO ConfigurationProperties - p:maxmodificationpoints= 1000
+[45930] INFO ConfigurationProperties - p:duplicateingredientsinspace= false
+[45930] INFO ConfigurationProperties - p:metid= 0
+[45930] INFO ConfigurationProperties - p:continuewhenmodelfail= true
+[45930] INFO ConfigurationProperties - p:saveall= false
+[45930] INFO ConfigurationProperties - p:seed= 0
+[45930] INFO ConfigurationProperties - p:savecompletepatched= true
+[45930] INFO ConfigurationProperties - p:resetoperations= false
+[45931] INFO ConfigurationProperties - p:keepcomments= false
+[45931] INFO ConfigurationProperties - p:processoutputinfile= false
+[45931] INFO ConfigurationProperties - p:location= .
+[45931] INFO ConfigurationProperties - p:probabilistictransformation= true
+[45932] INFO ConfigurationProperties - p:overridemaxtime= true
+[45932] INFO ConfigurationProperties - p:outputjsonresult= true
+[45932] INFO ConfigurationProperties - p:allpoints= false
+[45932] INFO ConfigurationProperties - p:antipattern= false
+[45932] INFO ConfigurationProperties - p:bugId= 280
+[45932] INFO ConfigurationProperties - p:evosuitetimeout= 120
+[45932] INFO ConfigurationProperties - p:maxtimefactor= 10
+[45932] INFO ConfigurationProperties - p:nrPlaceholders= 1
+[45932] INFO ConfigurationProperties - p:testallcmd= mvn test -pl pdfbox -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B
+[45933] INFO ConfigurationProperties - p:forcesubprocesskilling= false
+[45933] INFO ConfigurationProperties - ----------------------------
+[45940] INFO AstorCoreEngine - Time Repair Loop (s): 0.001
+[45941] INFO AstorCoreEngine - generationsexecuted: 1
+[45941] WARN AstorCoreEngine - ----SUMMARY_EXECUTION---
+[45941] WARN AstorCoreEngine - End Repair Search: NOT Found solution
+[45951] WARN AstorCoreEngine - Number suspicious:1
+[45953] INFO AstorCoreEngine - 
+ --SOLUTIONS DESCRIPTION--
+
+
+Astor Output:
+
+General stats:
+EXECUTION_IDENTIFIER=apache_pdfbox-VUL4J-19
+TOTAL_TIME=0.001
+NR_GENERATIONS=null
+NR_RIGHT_COMPILATIONS=null
+NR_FAILLING_COMPILATIONS=null
+NR_ERRONEOUS_VARIANCES=null
+NR_FAILING_VALIDATION_PROCESS=null
+OUTPUT_STATUS=EXHAUSTIVE_NAVIGATED
+
+Patch stats:
+
+[45979] INFO Stats - Storing ing JSON at /workdir/jMutRepair_vul4j_apache_pdfbox_VUL4J-19/./output_astor/AstorMain-apache_pdfbox-VUL4J-19//astor_output.json
+[45979] INFO Stats - astor_output:
+{"general":{"NR_RIGHT_COMPILATIONS":null,"NR_ERRONEOUS_VARIANCES":null,"EXECUTION_IDENTIFIER":"apache_pdfbox-VUL4J-19","OUTPUT_STATUS":"EXHAUSTIVE_NAVIGATED","NR_FAILLING_COMPILATIONS":null,"NR_GENERATIONS":null,"TOTAL_TIME":0.001,"NR_FAILING_VALIDATION_PROCESS":null},"patches":[]}
+[45980] INFO AstorMain - Time Total(s): 45.973
+49.59user 5.06system 0:47.77elapsed 114%CPU (0avgtext+0avgdata 719160maxresident)k
+176inputs+43848outputs (0major+192667minor)pagefaults 0swaps
+
+
+Node: 9670332cfea8
+
+
+
+Date: Fri Sep  9 06:15:52 EDT 2022
+

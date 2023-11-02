@@ -1,0 +1,17 @@
+{
+  "repair_end": "2022-10-07 00:40:27.584330", 
+  "repair_begin": "2022-10-07 00:38:30.318135", 
+  "patches": [
+    {
+      "edits": [
+        {
+          "path": "src/main/java/org/apache/commons/imaging/formats/jpeg/decoder/JpegDecoder.java", 
+          "line": 403, 
+          "faulty": "while (v < vt) {\n  vt=(-1 << t) + 1;\n  v+=vt;\n}", 
+          "type": "InsertReturn true"
+        }
+      ], 
+      "patch": "--- /workdir/Kali_vul4j_apache_commons-imaging_VUL4J-12/src/main/java/org/apache/commons/imaging/formats/jpeg/decoder/JpegDecoder.java\t2022-10-06 20:40:27.534632919 -0400\n+++ /workdir/Kali_vul4j_apache_commons-imaging_VUL4J-12/patches_awta/Patch_0/patched/org/apache/commons/imaging/formats/jpeg/decoder/JpegDecoder.java\t2022-10-06 20:40:27.538633029 -0400\n@@ -400,7 +400,9 @@\n     private int extend(int v, final int t) {\n         // \"EXTEND\", section F.2.2.1, figure F.12, page 105 of T.81\n         int vt = (1 << (t - 1));\n-        while (v < vt) {\n+        if (true)\n+\t\t\treturn 0;\n+\t\twhile (v < vt) {\n             vt = (-1 << t) + 1;\n             v += vt;\n         }\n\n\n"
+    }
+  ]
+}

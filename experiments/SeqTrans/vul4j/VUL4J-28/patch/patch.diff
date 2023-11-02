@@ -1,0 +1,241 @@
+diff --git a/core/src/main/java/org/apache/struts2/interceptor/CookieInterceptor.java b/core/src/main/java/org/apache/struts2/interceptor/CookieInterceptor.java
+index 939956c00183..3e2e81d321eb 100644
+--- a/core/src/main/java/org/apache/struts2/interceptor/CookieInterceptor.java
++++ b/core/src/main/java/org/apache/struts2/interceptor/CookieInterceptor.java
+@@ -24,6 +24,7 @@
+ import com.opensymphony.xwork2.ActionContext;
+ import com.opensymphony.xwork2.ActionInvocation;
+ import com.opensymphony.xwork2.interceptor.AbstractInterceptor;
++import com.opensymphony.xwork2.ExcludedPatterns;
+ import com.opensymphony.xwork2.util.TextParseUtil;
+ import com.opensymphony.xwork2.util.ValueStack;
+ import com.opensymphony.xwork2.util.logging.Logger;
+@@ -173,7 +174,8 @@ public class CookieInterceptor extends AbstractInterceptor {
+     private Set<String> cookiesValueSet = Collections.emptySet();
+ 
+     // Allowed names of cookies
+-    private Pattern acceptedPattern = Pattern.compile(ACCEPTED_PATTERN);
++    private Pattern acceptedPattern = Pattern.compile(ACCEPTED_PATTERN, Pattern.CASE_INSENSITIVE);
++    private Pattern excludedPattern = Pattern.compile(ExcludedPatterns.CLASS_ACCESS_PATTERN, Pattern.CASE_INSENSITIVE);
+ 
+     /**
+      * Set the <code>cookiesName</code> which if matched will allow the cookie
+@@ -223,7 +225,7 @@ public String intercept(ActionInvocation invocation) throws Exception {
+                 String name = cookie.getName();
+                 String value = cookie.getValue();
+ 
+-                if (acceptedPattern.matcher(name).matches()) {
++                if (isAcceptableName(name) && isAcceptableValue(value)) {
+                     if (cookiesNameSet.contains("*")) {
+                         if (LOG.isDebugEnabled()) {
+                             LOG.debug("contains cookie name [*] in configured cookies name set, cookie with name [" + name + "] with value [" + value + "] will be injected");
+@@ -233,7 +235,7 @@ public String intercept(ActionInvocation invocation) throws Exception {
+                         populateCookieValueIntoStack(name, value, cookiesMap, stack);
+                     }
+                 } else {
+-                    LOG.warn("Cookie name [" + name + "] does not match accepted cookie names pattern [" + acceptedPattern + "]");
++                    LOG.warn("Cookie name [#0] with value [#1] was rejected!", name, value);
+                 }
+             }
+         }
+@@ -244,6 +246,72 @@ public String intercept(ActionInvocation invocation) throws Exception {
+         return invocation.invoke();
+     }
+ 
++    /**
++     * Checks if value of Cookie doesn't contain vulnerable code
++     *
++     * @param value of Cookie
++     * @return true|false
++     */
++    protected boolean isAcceptableValue(String value) {
++        boolean matches = !excludedPattern.matcher(value).matches();
++        if (!matches) {
++            if (LOG.isTraceEnabled()) {
++                LOG.trace("Cookie value [#0] matches excludedPattern [#1]", value, ExcludedPatterns.CLASS_ACCESS_PATTERN);
++            }
++        }
++        return matches;
++    }
++
++    /**
++     * Checks if name of Cookie doesn't contain vulnerable code
++     *
++     * @param name of Cookie
++     * @return true|false
++     */
++    protected boolean isAcceptableName(String name) {
++        return !isExcluded(name) && isAccepted(name);
++    }
++
++    /**
++     * Checks if name of Cookie match {@link #acceptedPattern}
++     *
++     * @param name of Cookie
++     * @return true|false
++     */
++    protected boolean isAccepted(String name) {
++        boolean matches = acceptedPattern.matcher(name).matches();
++        if (matches) {
++            if (LOG.isTraceEnabled()) {
++                LOG.trace("Cookie [#0] matches acceptedPattern [#1]", name, ACCEPTED_PATTERN);
++            }
++        } else {
++            if (LOG.isTraceEnabled()) {
++                LOG.trace("Cookie [#0] doesn't match acceptedPattern [#1]", name, ACCEPTED_PATTERN);
++            }
++        }
++        return matches;
++    }
++
++    /**
++     * Checks if name of Cookie match {@link #excludedPattern}
++     *
++     * @param name of Cookie
++     * @return true|false
++     */
++    protected boolean isExcluded(String name) {
++        boolean matches = excludedPattern.matcher(name).matches();
++        if (matches) {
++            if (LOG.isTraceEnabled()) {
++                LOG.trace("Cookie [#0] matches excludedPattern [#1]", name, ExcludedPatterns.CLASS_ACCESS_PATTERN);
++            }
++        } else {
++            if (LOG.isTraceEnabled()) {
++                LOG.trace("Cookie [#0] doesn't match excludedPattern [#1]", name, ExcludedPatterns.CLASS_ACCESS_PATTERN);
++            }
++        }
++        return matches;
++    }
++
+     /**
+      * Hook that populate cookie value into value stack (hence the action)
+      * if the criteria is satisfied (if the cookie value matches with those configured).
+diff --git a/core/src/main/resources/struts-default.xml b/core/src/main/resources/struts-default.xml
+index 2f5b259d9694..398dd439c69f 100644
+--- a/core/src/main/resources/struts-default.xml
++++ b/core/src/main/resources/struts-default.xml
+@@ -197,7 +197,7 @@
+                 <interceptor-ref name="multiselect"/>
+                 <interceptor-ref name="actionMappingParams"/>
+                 <interceptor-ref name="params">
+-                    <param name="excludeParams">^class\..*,^dojo\..*,^struts\..*,^session\..*,^request\..*,^application\..*,^servlet(Request|Response)\..*,^parameters\..*,^action:.*,^method:.*</param>
++                    <param name="excludeParams">^action:.*,^method:.*</param>
+                 </interceptor-ref>
+                 <interceptor-ref name="conversionError"/>
+                 <interceptor-ref name="deprecation"/>
+@@ -253,7 +253,7 @@
+                 <interceptor-ref name="checkbox"/>
+                 <interceptor-ref name="multiselect"/>
+                 <interceptor-ref name="params">
+-                    <param name="excludeParams">^class\..*,^dojo\..*,^struts\..*,^session\..*,^request\..*,^application\..*,^servlet(Request|Response)\..*,^parameters\..*,^action:.*,^method:.*</param>
++                    <param name="excludeParams">^action:.*,^method:.*</param>
+                 </interceptor-ref>
+                 <interceptor-ref name="servletConfig"/>
+                 <interceptor-ref name="prepare"/>
+@@ -263,7 +263,7 @@
+                 <interceptor-ref name="staticParams"/>
+                 <interceptor-ref name="actionMappingParams"/>
+                 <interceptor-ref name="params">
+-                    <param name="excludeParams">^class\..*,^dojo\..*,^struts\..*,^session\..*,^request\..*,^application\..*,^servlet(Request|Response)\..*,^parameters\..*,^action:.*,^method:.*</param>
++                    <param name="excludeParams">^action:.*,^method:.*</param>
+                 </interceptor-ref>
+                 <interceptor-ref name="conversionError"/>
+                 <interceptor-ref name="validation">
+@@ -300,7 +300,7 @@
+                 <interceptor-ref name="staticParams"/>
+                 <interceptor-ref name="actionMappingParams"/>
+                 <interceptor-ref name="params">
+-                    <param name="excludeParams">^class\..*,^dojo\..*,^struts\..*,^session\..*,^request\..*,^application\..*,^servlet(Request|Response)\..*,^parameters\..*,^action:.*,^method:.*</param>
++                    <param name="excludeParams">^action:.*,^method:.*</param>
+                 </interceptor-ref>
+                 <interceptor-ref name="conversionError"/>
+                 <interceptor-ref name="validation">
+diff --git a/xwork-core/src/main/java/com/opensymphony/xwork2/ExcludedPatterns.java b/xwork-core/src/main/java/com/opensymphony/xwork2/ExcludedPatterns.java
+new file mode 100644
+index 000000000000..b618a52a0462
+--- /dev/null
++++ b/xwork-core/src/main/java/com/opensymphony/xwork2/ExcludedPatterns.java
+@@ -0,0 +1,22 @@
++package com.opensymphony.xwork2;
++
++/**
++ * ExcludedPatterns contains hard-coded patterns that must be rejected by {@link com.opensymphony.xwork2.interceptor.ParametersInterceptor}
++ * and partially in CookInterceptor
++ */
++public class ExcludedPatterns {
++
++    public static final String CLASS_ACCESS_PATTERN = "(.*\\.|^|.*|\\[('|\"))class(\\.|('|\")]|\\[).*";
++
++    public static final String[] EXCLUDED_PATTERNS = {
++            CLASS_ACCESS_PATTERN,
++            "^dojo\\..*",
++            "^struts\\..*",
++            "^session\\..*",
++            "^request\\..*",
++            "^application\\..*",
++            "^servlet(Request|Response)\\..*",
++            "^parameters\\..*"
++    };
++
++}
+diff --git a/xwork-core/src/main/java/com/opensymphony/xwork2/interceptor/ParametersInterceptor.java b/xwork-core/src/main/java/com/opensymphony/xwork2/interceptor/ParametersInterceptor.java
+index af6e0b7ce3ad..d6adf9918821 100644
+--- a/xwork-core/src/main/java/com/opensymphony/xwork2/interceptor/ParametersInterceptor.java
++++ b/xwork-core/src/main/java/com/opensymphony/xwork2/interceptor/ParametersInterceptor.java
+@@ -17,6 +17,7 @@
+ 
+ import com.opensymphony.xwork2.ActionContext;
+ import com.opensymphony.xwork2.ActionInvocation;
++import com.opensymphony.xwork2.ExcludedPatterns;
+ import com.opensymphony.xwork2.ValidationAware;
+ import com.opensymphony.xwork2.XWorkConstants;
+ import com.opensymphony.xwork2.conversion.impl.InstantiatingNullHandler;
+@@ -149,16 +150,20 @@ public class ParametersInterceptor extends MethodFilterInterceptor {
+     private int paramNameMaxLength = PARAM_NAME_MAX_LENGTH;
+ 
+     protected boolean ordered = false;
+-    protected Set<Pattern> excludeParams = Collections.emptySet();
++    protected Set<Pattern> excludeParams;
+     protected Set<Pattern> acceptParams = Collections.emptySet();
+ 
+     private boolean devMode = false;
+ 
+     // Allowed names of parameters
+-    private Pattern acceptedPattern = Pattern.compile(ACCEPTED_PARAM_NAMES);
++    private Pattern acceptedPattern = Pattern.compile(ACCEPTED_PARAM_NAMES, Pattern.CASE_INSENSITIVE);
+ 
+     private ValueStackFactory valueStackFactory;
+ 
++    public ParametersInterceptor() {
++        initializeHardCodedExcludePatterns();
++    }
++
+     @Inject
+     public void setValueStackFactory(ValueStackFactory valueStackFactory) {
+         this.valueStackFactory = valueStackFactory;
+@@ -494,6 +499,13 @@ protected Set getExcludeParamsSet() {
+         return excludeParams;
+     }
+ 
++    protected void initializeHardCodedExcludePatterns() {
++        excludeParams = new HashSet<Pattern>();
++        for (String pattern : ExcludedPatterns.EXCLUDED_PATTERNS) {
++            excludeParams.add(Pattern.compile(pattern, Pattern.CASE_INSENSITIVE));
++        }
++    }
++
+     /**
+      * Sets a comma-delimited list of regular expressions to match
+      * parameters that should be removed from the parameter map.
+@@ -503,9 +515,8 @@ protected Set getExcludeParamsSet() {
+     public void setExcludeParams(String commaDelim) {
+         Collection<String> excludePatterns = ArrayUtils.asCollection(commaDelim);
+         if (excludePatterns != null) {
+-            excludeParams = new HashSet<Pattern>();
+             for (String pattern : excludePatterns) {
+-                excludeParams.add(Pattern.compile(pattern));
++                excludeParams.add(Pattern.compile(pattern, Pattern.CASE_INSENSITIVE));
+             }
+         }
+     }

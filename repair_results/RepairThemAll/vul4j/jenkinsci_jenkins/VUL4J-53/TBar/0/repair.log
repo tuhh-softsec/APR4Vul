@@ -1,0 +1,188 @@
+cd /workdir/TBar_vul4j_jenkinsci_jenkins_VUL4J-53;
+export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en";
+TZ="America/New_York"; export TZ;
+export PATH="/usr/lib/jvm/java-8-openjdk-amd64/bin:$PATH";
+export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64";
+timeout 240m java -Xmx4g -Xms1g -XX:MaxPermSize=512m \
+    -cp /script/../libs/tbar_external/com.gzoltar-0.1.1-jdk7.jar:/script/../repair_tools/tbar.jar edu.lu.uni.serval.tbar.main.Main \
+    "/workdir/TBar_vul4j_jenkinsci_jenkins_VUL4J-53" "hudson.scheduler.CronTabTest#testLongMonths" "/core/src/main/java/" "/core/src/test/java/" "/core/target/classes/" "/core/target/test-classes/" "/script/../data/benchmarks/vul4j/perfectfl/VUL4J-53/spectra.txt" "mvn test -pl core -Dtest=hudson.scheduler.CronTabTest#testLongMonths -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B" "mvn test -pl core -Dhttps.protocols=TLSv1.2 -Denforcer.skip=true -Dcheckstyle.skip=true -Dcobertura.skip=true -DskipITs=true -Drat.skip=true -Dlicense.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -Dgpg.skip=true -Dskip.npm=true -Dskip.gulp=true -Dskip.bower=true -Danimal.sniffer.skip=true -V -B" "/root/.m2/repository/org/kohsuke/libzfs/0.8/libzfs-0.8.jar:/root/.m2/repository/org/kohsuke/metainf-services/metainf-services/1.4/metainf-services-1.4.jar:/root/.m2/repository/org/jenkins-ci/annotation-indexer/1.12/annotation-indexer-1.12.jar:/root/.m2/repository/org/slf4j/slf4j-jdk14/1.7.7/slf4j-jdk14-1.7.7.jar:/root/.m2/repository/org/ow2/asm/asm-commons/5.0.3/asm-commons-5.0.3.jar:/root/.m2/repository/org/objenesis/objenesis/2.1/objenesis-2.1.jar:/root/.m2/repository/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0.jar:/root/.m2/repository/antlr/antlr/2.7.6/antlr-2.7.6.jar:/root/.m2/repository/jfree/jfreechart/1.0.9/jfreechart-1.0.9.jar:/root/.m2/repository/org/jenkins-ci/jmdns/3.4.0-jenkins-3/jmdns-3.4.0-jenkins-3.jar:/root/.m2/repository/org/kohsuke/stapler/stapler-groovy/1.250.1/stapler-groovy-1.250.1.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.7/slf4j-api-1.7.7.jar:/root/.m2/repository/org/ow2/asm/asm/5.0.3/asm-5.0.3.jar:/root/.m2/repository/commons-httpclient/commons-httpclient/3.1-jenkins-1/commons-httpclient-3.1-jenkins-1.jar:/root/.m2/repository/com/sun/xml/txw2/txw2/20110809/txw2-20110809.jar:/root/.m2/repository/net/java/dev/jna/jna/4.2.1/jna-4.2.1.jar:/root/.m2/repository/org/kohsuke/jinterop/j-interopdeps/2.0.6-kohsuke-1/j-interopdeps-2.0.6-kohsuke-1.jar:/root/.m2/repository/org/jenkins-ci/main/cli/2.73.4-SNAPSHOT/cli-2.73.4-SNAPSHOT.jar:/root/.m2/repository/com/github/jnr/jffi/1.2.15/jffi-1.2.15-native.jar:/root/.m2/repository/com/github/jnr/jffi/1.2.15/jffi-1.2.15.jar:/root/.m2/repository/org/ow2/asm/asm-analysis/5.0.3/asm-analysis-5.0.3.jar:/root/.m2/repository/javax/mail/mail/1.4.4/mail-1.4.4.jar:/root/.m2/repository/org/mockito/mockito-all/1.10.19/mockito-all-1.10.19.jar:/root/.m2/repository/com/jcraft/jzlib/1.1.3-kohsuke-1/jzlib-1.1.3-kohsuke-1.jar:/root/.m2/repository/org/jenkins-ci/commons-jexl/1.1-jenkins-20111212/commons-jexl-1.1-jenkins-20111212.jar:/root/.m2/repository/javax/annotation/javax.annotation-api/1.2/javax.annotation-api-1.2.jar:/root/.m2/repository/com/github/jnr/jnr-ffi/2.1.4/jnr-ffi-2.1.4.jar:/root/.m2/repository/org/ow2/asm/asm-tree/5.0.3/asm-tree-5.0.3.jar:/root/.m2/repository/org/kohsuke/windows-package-checker/1.2/windows-package-checker-1.2.jar:/root/.m2/repository/org/codehaus/groovy/groovy-all/2.4.11/groovy-all-2.4.11.jar:/root/.m2/repository/org/jenkins-ci/dom4j/dom4j/1.6.1-jenkins-4/dom4j-1.6.1-jenkins-4.jar:/root/.m2/repository/org/codehaus/woodstox/wstx-asl/3.2.9/wstx-asl-3.2.9.jar:/root/.m2/repository/org/fusesource/jansi/jansi/1.11/jansi-1.11.jar:/root/.m2/repository/org/apache/commons/commons-compress/1.10/commons-compress-1.10.jar:/root/.m2/repository/relaxngDatatype/relaxngDatatype/20020414/relaxngDatatype-20020414.jar:/root/.m2/repository/com/google/guava/guava-testlib/11.0.1/guava-testlib-11.0.1.jar:/root/.m2/repository/org/jenkins-ci/trilead-ssh2/build-217-jenkins-11/trilead-ssh2-build-217-jenkins-11.jar:/root/.m2/repository/commons-io/commons-io/2.4/commons-io-2.4.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/1.3.9/jsr305-1.3.9.jar:/root/.m2/repository/args4j/args4j/2.0.31/args4j-2.0.31.jar:/root/.m2/repository/org/kohsuke/stapler/stapler-adjunct-timeline/1.5/stapler-adjunct-timeline-1.5.jar:/root/.m2/repository/org/springframework/spring-web/2.5.6.SEC03/spring-web-2.5.6.SEC03.jar:/root/.m2/repository/org/kohsuke/stapler/stapler-adjunct-timeline/1.4/stapler-adjunct-timeline-1.4-tests.jar:/root/.m2/repository/net/i2p/crypto/eddsa/0.2.0/eddsa-0.2.0.jar:/root/.m2/repository/org/slf4j/log4j-over-slf4j/1.7.7/log4j-over-slf4j-1.7.7.jar:/root/.m2/repository/org/powermock/powermock-reflect/1.6.2/powermock-reflect-1.6.2.jar:/root/.m2/repository/com/github/jnr/jnr-x86asm/1.0.2/jnr-x86asm-1.0.2.jar:/root/.m2/repository/javax/xml/stream/stax-api/1.0-2/stax-api-1.0-2.jar:/root/.m2/repository/org/jvnet/tiger-types/2.2/tiger-types-2.2.jar:/root/.m2/repository/org/powermock/powermock-core/1.6.2/powermock-core-1.6.2.jar:/root/.m2/repository/jline/jline/2.12/jline-2.12.jar:/root/.m2/repository/org/jvnet/hudson/jtidy/4aug2000r7-dev-hudson-1/jtidy-4aug2000r7-dev-hudson-1.jar:/root/.m2/repository/org/jruby/ext/posix/jna-posix/1.0.3-jenkins-1/jna-posix-1.0.3-jenkins-1.jar:/root/.m2/repository/org/kohsuke/stapler/stapler-adjunct-codemirror/1.3/stapler-adjunct-codemirror-1.3.jar:/root/.m2/repository/org/jenkins-ci/constant-pool-scanner/1.2/constant-pool-scanner-1.2.jar:/root/.m2/repository/commons-discovery/commons-discovery/0.4/commons-discovery-0.4.jar:/root/.m2/repository/oro/oro/2.0.8/oro-2.0.8.jar:/root/.m2/repository/org/jenkins-ci/core-annotation-processors/1.0/core-annotation-processors-1.0.jar:/root/.m2/repository/org/apache/ant/ant/1.8.4/ant-1.8.4.jar:/root/.m2/repository/org/slf4j/jcl-over-slf4j/1.7.7/jcl-over-slf4j-1.7.7.jar:/root/.m2/repository/org/jvnet/hudson/xstream/1.4.7-jenkins-1/xstream-1.4.7-jenkins-1.jar:/root/.m2/repository/org/jenkins-ci/bytecode-compatibility-transformer/1.8/bytecode-compatibility-transformer-1.8.jar:/root/.m2/repository/stax/stax-api/1.0.1/stax-api-1.0.1.jar:/root/.m2/repository/org/kohsuke/stapler/stapler-jrebel/1.250.1/stapler-jrebel-1.250.1.jar:/root/.m2/repository/net/sf/ezmorph/ezmorph/1.0.6/ezmorph-1.0.6.jar:/root/.m2/repository/com/github/jnr/jnr-posix/3.0.41/jnr-posix-3.0.41.jar:/root/.m2/repository/org/ow2/asm/asm-util/5.0.3/asm-util-5.0.3.jar:/root/.m2/repository/org/mockito/mockito-core/1.10.19/mockito-core-1.10.19.jar:/root/.m2/repository/org/powermock/powermock-module-junit4/1.6.2/powermock-module-junit4-1.6.2.jar:/root/.m2/repository/org/jenkins-ci/crypto-util/1.1/crypto-util-1.1.jar:/root/.m2/repository/commons-beanutils/commons-beanutils/1.8.3/commons-beanutils-1.8.3.jar:/root/.m2/repository/org/jvnet/hudson/commons-jelly-tags-define/1.0.1-hudson-20071021/commons-jelly-tags-define-1.0.1-hudson-20071021.jar:/root/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:/root/.m2/repository/org/kohsuke/jinterop/j-interop/2.0.6-kohsuke-1/j-interop-2.0.6-kohsuke-1.jar:/root/.m2/repository/org/springframework/spring-core/2.5.6.SEC03/spring-core-2.5.6.SEC03.jar:/root/.m2/repository/org/powermock/powermock-api-mockito/1.6.2/powermock-api-mockito-1.6.2.jar:/root/.m2/repository/org/kohsuke/akuma/1.10/akuma-1.10.jar:/root/.m2/repository/org/kohsuke/stapler/json-lib/2.4-jenkins-2/json-lib-2.4-jenkins-2.jar:/root/.m2/repository/xpp3/xpp3/1.1.4c/xpp3-1.1.4c.jar:/root/.m2/repository/org/kohsuke/access-modifier-annotation/1.11/access-modifier-annotation-1.11.jar:/root/.m2/repository/commons-fileupload/commons-fileupload/1.3.1-jenkins-2/commons-fileupload-1.3.1-jenkins-2.jar:/root/.m2/repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar:/root/.m2/repository/org/springframework/spring-jdbc/1.2.9/spring-jdbc-1.2.9.jar:/root/.m2/repository/com/google/inject/guice/4.0/guice-4.0.jar:/root/.m2/repository/org/springframework/spring-context-support/2.5.6.SEC03/spring-context-support-2.5.6.SEC03.jar:/root/.m2/repository/com/infradna/tool/bridge-method-annotation/1.13/bridge-method-annotation-1.13.jar:/root/.m2/repository/org/powermock/powermock-api-support/1.6.2/powermock-api-support-1.6.2.jar:/root/.m2/repository/commons-codec/commons-codec/1.8/commons-codec-1.8.jar:/root/.m2/repository/com/github/jnr/jnr-constants/0.9.8/jnr-constants-0.9.8.jar:/root/.m2/repository/org/springframework/spring-beans/2.5.6.SEC03/spring-beans-2.5.6.SEC03.jar:/root/.m2/repository/commons-digester/commons-digester/2.1/commons-digester-2.1.jar:/root/.m2/repository/org/jenkins-ci/plugins/icon-shim/icon-set/1.0.5/icon-set-1.0.5.jar:/root/.m2/repository/org/kohsuke/stapler/stapler-jelly/1.250.1/stapler-jelly-1.250.1.jar:/root/.m2/repository/commons-logging/commons-logging/1.1.3/commons-logging-1.1.3.jar:/root/.m2/repository/org/springframework/spring-aop/2.5.6.SEC03/spring-aop-2.5.6.SEC03.jar:/root/.m2/repository/org/jenkins-ci/memory-monitor/1.9/memory-monitor-1.9.jar:/root/.m2/repository/javax/inject/javax.inject/1/javax.inject-1.jar:/root/.m2/repository/commons-jelly/commons-jelly-tags-fmt/1.0/commons-jelly-tags-fmt-1.0.jar:/root/.m2/repository/javax/servlet/jstl/1.1.0/jstl-1.1.0.jar:/root/.m2/repository/com/google/code/findbugs/annotations/3.0.0/annotations-3.0.0.jar:/root/.m2/repository/org/jenkins-ci/test-annotations/1.2/test-annotations-1.2.jar:/root/.m2/repository/org/powermock/powermock-module-junit4-common/1.6.2/powermock-module-junit4-common-1.6.2.jar:/root/.m2/repository/org/jvnet/winp/winp/1.25/winp-1.25.jar:/root/.m2/repository/org/jenkins-ci/symbol-annotation/1.1/symbol-annotation-1.1.jar:/root/.m2/repository/org/kohsuke/trilead-putty-extension/1.2/trilead-putty-extension-1.2.jar:/root/.m2/repository/jaxen/jaxen/1.1-beta-11/jaxen-1.1-beta-11.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/jenkins-ci/commons-jelly/1.1-jenkins-20120928/commons-jelly-1.1-jenkins-20120928.jar:/root/.m2/repository/org/kohsuke/stapler/stapler-adjunct-zeroclipboard/1.3.5-1/stapler-adjunct-zeroclipboard-1.3.5-1.jar:/root/.m2/repository/org/jenkins-ci/version-number/1.4/version-number-1.4.jar:/root/.m2/repository/org/jvnet/localizer/localizer/1.24/localizer-1.24.jar:/root/.m2/repository/jfree/jcommon/1.0.12/jcommon-1.0.12.jar:/root/.m2/repository/org/springframework/spring-webmvc/2.5.6.SEC03/spring-webmvc-2.5.6.SEC03.jar:/root/.m2/repository/net/java/sezpoz/sezpoz/1.12/sezpoz-1.12.jar:/root/.m2/repository/org/jvnet/hudson/activation/1.1.1-hudson-1/activation-1.1.1-hudson-1.jar:/root/.m2/repository/commons-jelly/commons-jelly-tags-xml/1.1/commons-jelly-tags-xml-1.1.jar:/root/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar:/root/.m2/repository/commons-lang/commons-lang/2.6/commons-lang-2.6.jar:/root/.m2/repository/org/apache/ant/ant-launcher/1.8.4/ant-launcher-1.8.4.jar:/root/.m2/repository/org/jenkins-ci/task-reactor/1.4/task-reactor-1.4.jar:/root/.m2/repository/com/sun/solaris/embedded_su4j/1.1/embedded_su4j-1.1.jar:/root/.m2/repository/org/connectbot/jbcrypt/jbcrypt/1.0.0/jbcrypt-1.0.0.jar:/root/.m2/repository/org/kohsuke/stapler/stapler/1.250.1/stapler-1.250.1.jar:/root/.m2/repository/org/jenkins-ci/main/remoting/3.10.2/remoting-3.10.2.jar:/root/.m2/repository/org/jvnet/robust-http-client/robust-http-client/1.2/robust-http-client-1.2.jar:/root/.m2/repository/junit/junit/4.12/junit-4.12.jar:/root/.m2/repository/org/acegisecurity/acegi-security/1.0.7/acegi-security-1.0.7.jar:/root/.m2/repository/org/kohsuke/asm5/5.0.1/asm5-5.0.1.jar:/root/.m2/repository/org/springframework/spring-dao/1.2.9/spring-dao-1.2.9.jar:/root/.m2/repository/org/samba/jcifs/jcifs/1.3.17-kohsuke-1/jcifs-1.3.17-kohsuke-1.jar:/root/.m2/repository/com/google/guava/guava/11.0.1/guava-11.0.1.jar:/root/.m2/repository/org/springframework/spring-context/2.5.6.SEC03/spring-context-2.5.6.SEC03.jar:/root/.m2/repository/org/javassist/javassist/3.19.0-GA/javassist-3.19.0-GA.jar:/root/.m2/repository/org/kohsuke/libpam4j/1.8/libpam4j-1.8.jar:/root/.m2/repository/org/codehaus/mojo/animal-sniffer-annotations/1.9/animal-sniffer-annotations-1.9.jar";
+echo "\n\nNode: `hostname`\n";
+echo "\n\nDate: `date`\n";
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF8 -Duser.language=en-US -Duser.country=US -Duser.language=en
+OpenJDK 64-Bit Server VM warning: ignoring option MaxPermSize=512m; support was removed in 8.0
+13:45:24,424 |-INFO in ch.qos.logback.classic.LoggerContext[TBar] - Could NOT find resource [logback-test.xml]
+13:45:24,425 |-INFO in ch.qos.logback.classic.LoggerContext[TBar] - Could NOT find resource [logback.groovy]
+13:45:24,425 |-INFO in ch.qos.logback.classic.LoggerContext[TBar] - Found resource [logback.xml] at [jar:file:/repair_tools/tbar.jar!/logback.xml]
+13:45:24,435 |-INFO in ch.qos.logback.core.joran.spi.ConfigurationWatchList@5a42bbf4 - URL [jar:file:/repair_tools/tbar.jar!/logback.xml] is not of type file
+13:45:24,484 |-INFO in ch.qos.logback.classic.joran.action.ConfigurationAction - debug attribute not set
+13:45:24,486 |-INFO in ch.qos.logback.classic.joran.action.ContextNameAction - Setting logger context name as [TBar]
+13:45:24,486 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - About to instantiate appender of type [ch.qos.logback.core.ConsoleAppender]
+13:45:24,489 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - Naming appender as [STDOUT]
+13:45:24,532 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting level of logger [org.hibernate.engine.query.HQLQueryPlan] to DEBUG
+13:45:24,532 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting additivity of logger [org.hibernate.engine.query.HQLQueryPlan] to false
+13:45:24,532 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting level of logger [com.piedra.logback] to DEBUG
+13:45:24,534 |-ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - Could not find an appender named [FILE]. Did you define it below instead of above in the configuration file?
+13:45:24,534 |-ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - See http://logback.qos.ch/codes.html#appender_order for more details.
+13:45:24,534 |-INFO in ch.qos.logback.classic.joran.action.RootLoggerAction - Setting level of ROOT logger to DEBUG
+13:45:24,534 |-INFO in ch.qos.logback.core.joran.action.AppenderRefAction - Attaching appender named [STDOUT] to Logger[ROOT]
+13:45:24,535 |-ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - Could not find an appender named [ROLLINGFILE]. Did you define it below instead of above in the configuration file?
+13:45:24,535 |-ERROR in ch.qos.logback.core.joran.action.AppenderRefAction - See http://logback.qos.ch/codes.html#appender_order for more details.
+13:45:24,535 |-INFO in ch.qos.logback.classic.joran.action.ConfigurationAction - End of configuration.
+13:45:24,536 |-INFO in ch.qos.logback.classic.joran.JoranConfigurator@270421f5 - Registering current configuration as safe fallback point
+
+2022-09-14 13:45:25.184 [main] INFO  edu.lu.uni.serval.tbar.AbstractFixer - TBar_vul4j_jenkinsci_jenkins_VUL4J-53 Failed Tests: 1
+2022-09-14 13:45:25.187 [main] INFO  edu.lu.uni.serval.tbar.TBarFixer - =======StaticBugFixer: Start to fix suspicious code======
+2022-09-14 13:45:25.187 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - hudson.scheduler.CronTab ===207
+2022-09-14 13:45:25.730 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+c.set(field,i-offset);
+2022-09-14 13:45:28.919 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -204,7 +204,7 @@ public final class CronTab {
+-            c.set(field,i-offset);
++            c.set(this.offset,i-offset);
+2022-09-14 13:45:28.919 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 13:45:29.974 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 13:46:02.119 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -204,7 +204,7 @@ public final class CronTab {
+-            c.set(field,i-offset);
++            c.set(this.dayOfWeek,i-offset);
+2022-09-14 13:46:02.119 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 13:46:03.124 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 13:46:03.161 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -204,7 +204,7 @@ public final class CronTab {
+-            c.set(field,i-offset);
++            c.set(this.min,i-offset);
+2022-09-14 13:46:03.161 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 13:46:04.284 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 13:46:34.829 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -204,7 +204,7 @@ public final class CronTab {
+-            c.set(field,i-offset);
++            c.set(field,this.min-offset);
+2022-09-14 13:46:34.829 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 13:46:35.928 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 13:47:07.211 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -204,7 +204,7 @@ public final class CronTab {
+-            c.set(field,i-offset);
++            c.set(field,this.field-offset);
+2022-09-14 13:47:07.211 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 13:47:08.207 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 13:47:38.720 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -204,7 +204,7 @@ public final class CronTab {
+-            c.set(field,i-offset);
++            c.set(field,this.offset-offset);
+2022-09-14 13:47:38.720 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 13:47:39.741 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 13:48:09.303 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -204,7 +204,7 @@ public final class CronTab {
+-            c.set(field,i-offset);
++            c.set(field,this.dayOfWeek-offset);
+2022-09-14 13:48:09.303 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 13:48:10.380 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 13:48:10.413 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -204,7 +204,7 @@ public final class CronTab {
+-            c.set(field,i-offset);
++            c.set(field,i-this.field);
+2022-09-14 13:48:10.413 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 13:48:11.428 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 13:48:41.215 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -204,7 +204,7 @@ public final class CronTab {
+-            c.set(field,i-offset);
++            c.set(field,i-this.dayOfWeek);
+2022-09-14 13:48:41.215 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 13:48:42.200 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 13:48:42.231 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -204,7 +204,7 @@ public final class CronTab {
+-            c.set(field,i-offset);
++            c.set(field,i-this.min);
+2022-09-14 13:48:42.231 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 13:48:43.297 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 13:49:13.110 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -204,7 +204,10 @@ public final class CronTab {
+-            c.set(field,i-offset);
++            if (c != null) {
++	c.set(field,i-offset);
++	}
++
+2022-09-14 13:49:13.111 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 13:49:14.084 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 13:49:44.899 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -204,7 +204,10 @@ public final class CronTab {
+-            c.set(field,i-offset);
++            if (c == null) {
++	    throw new IllegalArgumentException("Null 'c' argument.");
++	}
++c.set(field,i-offset);
+2022-09-14 13:49:44.899 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 13:49:45.999 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 13:50:19.467 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -204,7 +204,10 @@ public final class CronTab {
+-            c.set(field,i-offset);
++            if (c == null) {
++	    return;
++	}
++c.set(field,i-offset);
+2022-09-14 13:50:19.467 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 13:50:20.488 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 13:50:52.324 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -204,7 +204,8 @@ public final class CronTab {
+-            c.set(field,i-offset);
++            if (c == null) c = new Calendar();
++ c.set(field,i-offset);
+2022-09-14 13:50:52.324 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 13:50:53.238 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 13:50:53.276 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -204,7 +204,10 @@ public final class CronTab {
+-            c.set(field,i-offset);
++            if (c != null && field != null && offset != null) {
++	c.set(field,i-offset);
++	}
++
+2022-09-14 13:50:53.276 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 13:50:54.327 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 13:50:54.427 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -204,7 +204,7 @@ public final class CronTab {
+-            c.set(field,i-offset);
++            c.set(field,i + offset);
+2022-09-14 13:50:54.428 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 13:50:55.590 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 13:51:26.531 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -204,7 +204,7 @@ public final class CronTab {
+-            c.set(field,i-offset);
++
+2022-09-14 13:51:26.531 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 13:51:27.726 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 13:51:57.120 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -203,9 +203,7 @@ public final class CronTab {
+-        void setTo(Calendar c, int i) {
+-            c.set(field,i-offset);
+-        }
++
+2022-09-14 13:51:57.120 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 13:51:58.091 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - BuggyProject ---Fixer: fix fail because of failed compiling! 
+2022-09-14 13:51:58.161 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -204,7 +204,7 @@ public final class CronTab {
+-            c.set(field,i-offset);
++            clear(c);
+2022-09-14 13:51:58.161 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 13:51:59.196 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 13:52:30.627 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -204,7 +204,8 @@ public final class CronTab {
+-            c.set(field,i-offset);
++            clear(c);
++	c.set(field,i-offset);
+2022-09-14 13:52:30.627 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 13:52:31.727 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 13:53:02.107 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Patch Candidate:
+@@ -205,6 +205,7 @@ public final class CronTab {
++	clear(c);
+2022-09-14 13:53:02.107 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+2022-09-14 13:53:03.123 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+2022-09-14 13:53:33.639 [main] INFO  edu.lu.uni.serval.tbar.TBarFixer - =======StaticBugFixer: Finish off fixing======
+Failed to fix bug
+
+
+Node: ee2bf67284b9
+
+
+
+Date: Wed Sep 14 13:53:33 EDT 2022
+
