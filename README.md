@@ -6,6 +6,20 @@ In this paper, we evaluate nine state-of-the-art APR tools and one vulnerability
 
 To understand the root cause of this phenomenon, we conduct a detailed comparative study of the general bug fix patterns in Defect4J and the vulnerability fix patterns in ExtraVul (which we extend from Vul4J). Our investigation shows that, although security patches are short in terms of lines of code, they contain unique characteristics in their fix patterns compared to general bugs. For example, many security fixes require adding method calls. These method calls contain specific input validation-related keywords, such as encode, normalize, and trim. In this regard, our study suggests that additional repair patterns should be implemented for existing APR tools to fix more types of security vulnerabilities.
 
+If you use APR4Vul in academic context, please cite:
+```bibtex
+@article{bui2024apr4vul,
+  title={APR4Vul: an empirical study of automatic program repair techniques on real-world Java vulnerabilities},
+  author={Bui, Quang-Cuong and Paramitha, Ranindya and Vu, Duc-Ly and Massacci, Fabio and Scandariato, Riccardo},
+  journal={Empirical software engineering},
+  volume={29},
+  number={1},
+  pages={18},
+  year={2024},
+  publisher={Springer}
+}
+```
+
 ## Selected repair tools
 The table below shows the selected repair tools in our evaluation study to fix Java vulnerabilities. We used [RepairThemAll](https://github.com/program-repair/RepairThemAll) framework (already supports the tools in Arja and Astor frameworks). We extended RepairThemAll to support the new repair tools TBar, the new dataset Vul4J (as described in the next section), and the new configuration for "perfect" fault localization information to feed to the tools. SeqTrans is not integrated into RepairThemAll as it requires complicated pre- and post-processing steps for the input data and predicted patches.
 
